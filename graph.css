@@ -82,6 +82,7 @@
 .node-link-count { display: inline-flex; align-items: center; gap: 5px; color: #a089ad; font-size: 10px; font-variant-numeric: tabular-nums; }
 .node-link-count > span { color: #cbb7d7; }
 .node-focus-badge { color: #8a4bca; font-size: 9px; margin-left: auto; }
+.graph-node.node-completed .node-focus-badge { color: #126143; background: #ddf9e9; padding: 2px 4px; border-radius: 4px; white-space: nowrap; }
 .node-done-label { color: #329162; font-size: 9px; margin-left: auto; }
 .graph-node .skill-check { width: 18px; height: 18px; padding: 2px; margin-left: auto; border-color: #ceb6de; --domain: #21a476; }
 .graph-node .skill-check > .icon { width: 12px; height: 12px; }
@@ -115,6 +116,9 @@
 .relation-focus-card { text-align: center; background: #f3e9ff; border: 1.5px solid #c5a4e5; padding: 20px 14px; }
 .relation-focus-card > span { color: #a17eb6; font-size: 10px; }
 .relation-focus-card h3 { font-size: 16px; font-weight: 600; line-height: 1.7; color: #7548a1; margin: 12px 0 17px; }
+.relation-completion { display: flex; align-items: center; justify-content: center; gap: 5px; width: fit-content; margin: -7px auto 14px; padding: 4px 9px; border-radius: 12px; color: #816393; background: #e9ddf6; font-size: 11px; }
+.relation-completion.done { color: #126143; background: #ddf9e9; }
+.relation-completion .icon { width: 13px; height: 13px; }
 .relation-focus-card > div { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .relation-focus-card .primary-button, .relation-focus-card .secondary-button { font-size: 11px; padding: 9px 11px; }
 .path-reader { background: #fffdf9; border: 1px solid #e3d1ec; border-radius: 11px; margin-top: 24px; padding: 0 21px 7px; }
@@ -136,6 +140,9 @@
 .path-step.selected { background: #9460df; border-color: #9460df; box-shadow: 0 2px 0 #d3b6ec; }
 .path-step.selected > small { color: #e4d5f9; }
 .path-step.selected > span { color: white; font-weight: 600; }
+.path-step.selected > .path-step-status { width: fit-content; margin: 5px 0 0; padding: 2px 5px; border-radius: 4px; background: #ffffff24; color: white; }
+.path-step.selected.done > .path-step-status { color: #126143; background: #ddf9e9; }
+.path-step.selected.done > span > .icon { color: #ddf9e9; }
 .path-step.done:not(.selected) { background: #eaf9f0; border-color: #b7e6cf; }
 .path-step:hover { border-color: #a572c6; }
 .path-arrow { color: #c5a6d7; width: 16px; height: 16px; }
@@ -185,6 +192,7 @@
   .direct-relations { grid-template-columns: 1fr 1fr; }
   .relation-focus-card { grid-column: 1 / -1; grid-row: 1; padding: 15px; }
   .relation-focus-card h3 { display: inline; margin-left: 8px; font-size: 15px; }
+  .relation-completion { margin-top: 9px; margin-bottom: 0; }
   .relation-focus-card > div { margin-top: 14px; }
   .path-route { flex-direction: column; align-items: stretch; gap: 10px; }
   .path-number { padding-top: 0; }

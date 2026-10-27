@@ -207,3 +207,21 @@ textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }
   .search-box input { font-size: 12px; }
   .form-actions > small { max-width: 145px; }
 }
+
+/* 云端连接、迁移与冲突，沿用蓝色导航和明亮配色。 */
+.cloud-banner { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:16px 20px; margin:8px 0 24px; border:1px solid #b8d5ff; border-radius:18px; background:linear-gradient(110deg,#eaf4ff,#f0f0ff); color:#254f85; }
+.cloud-banner > span { display:flex; align-items:center; gap:10px; flex:1; min-width:220px; line-height:1.65; }
+.cloud-banner .icon { flex-shrink:0; }
+.cloud-banner button { white-space:nowrap; }
+.cloud-actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0; }
+.local-migration { border-top:1px solid #e0e7f2; margin-top:22px; padding-top:18px; }
+.local-migration > p { color:#69728b; font-size:13px; line-height:1.7; }
+.migration-item { padding:16px; background:#f1f7ff; border:1px solid #d4e5ff; border-radius:14px; margin:12px 0; display:grid; gap:10px; }
+.migration-item > span { color:#526c91; font-size:13px; }
+.migration-item > div { display:flex; flex-wrap:wrap; gap:10px; }
+.conflict-field { margin:18px 0; border:1px solid #cbdcff; border-radius:14px; padding:14px; min-width:0; }
+.conflict-field legend { padding:0 6px; font-weight:700; }
+.conflict-field label { display:block; padding:10px; margin:6px 0; background:#f5f8ff; border-radius:10px; cursor:pointer; }
+.conflict-field pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; font-size:13px; margin:8px 0 0 22px; line-height:1.7; max-height:180px; overflow:auto; }
+button:disabled, textarea:disabled { cursor:default; opacity:.55; }
+@media(max-width:600px) { .cloud-banner { padding:14px; } .cloud-banner > span { min-width:100%; } }

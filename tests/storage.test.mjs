@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { DEFAULT_PROFILE, toggleRecord } from '../lib/model.mjs';
+import { toggleRecord } from '../lib/model.mjs';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, createGrowthStore, readGrowthSnapshot } from '../lib/storage.mjs';
 
 const savedAt = '2026-10-27T08:30:00.000Z';
-const profile = { ...DEFAULT_PROFILE, name: '小芽' };
+const profile = Object.freeze({ name: '测试宝宝', birthDate: '2025-01-15' });
 const validIds = ['a', 'b'];
 
 test('JSON 备份继续复用完成、回退、手记和宝宝资料', () => {
@@ -13,7 +13,7 @@ test('JSON 备份继续复用完成、回退、手记和宝宝资料', () => {
   const reloaded = readGrowthSnapshot(raw, validIds);
   assert.deepEqual(reloaded, { version: 1, profile, records, savedAt });
   const reverted = toggleRecord(reloaded.records, 'a', '2026-10-27');
-  const nextProfile = { name: '小小芽', birthDate: '2024-11-25' };
+  const nextProfile = { name: '测试宝宝新昵称', birthDate: '2025-01-16' };
   const revertedRaw = JSON.stringify({ version: 1, profile: nextProfile, records: reverted });
   assert.deepEqual(readGrowthSnapshot(revertedRaw, validIds), {
     version: 1, profile: nextProfile, records: { a: { note: '今天终于自己站起来了' } }, savedAt: null,
