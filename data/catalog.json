@@ -1,0 +1,2695 @@
+[
+  {
+    "id": "c-short-memory",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s0",
+    "title": "拥有短暂记忆",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-association",
+    "domain": "cognition",
+    "category": "因果关系",
+    "stage": "s0",
+    "title": "发现一些关联",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-mother-impression",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s1",
+    "title": "妈妈的印象",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-permanence-emerge",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s1",
+    "title": "客体恒存萌芽",
+    "parents": [
+      "c-short-memory"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-hands-feet",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s2",
+    "title": "认识手脚",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-expression-voice",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s2",
+    "title": "识别表情/声音",
+    "parents": [
+      "c-mother-impression"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-simple-occlusion",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s2",
+    "title": "理解简单遮挡关系",
+    "parents": [
+      "c-permanence-emerge"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-simple-cause",
+    "domain": "cognition",
+    "category": "因果关系",
+    "stage": "s2",
+    "title": "简单因果关系：肢体和外界",
+    "parents": [
+      "c-association"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-point",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s3",
+    "title": "指物行为",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-more-body",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s3",
+    "title": "认识更多肢体",
+    "parents": [
+      "c-hands-feet"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-parents",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s3",
+    "title": "认识爸爸妈妈",
+    "parents": [
+      "c-expression-voice"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-complex-occlusion",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s3",
+    "title": "理解复杂遮挡关系",
+    "parents": [
+      "c-simple-occlusion"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-familiar-objects",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s4",
+    "title": "认识常见物品",
+    "parents": [
+      "c-point"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-mirror-self",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s4",
+    "title": "认识镜子里的自己",
+    "parents": [
+      "c-more-body"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-facial-features",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s4",
+    "title": "认识五官",
+    "parents": [
+      "c-more-body"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-family",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s4",
+    "title": "认识更多家庭成员",
+    "parents": [
+      "c-parents"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-harder-occlusion",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s4",
+    "title": "增加难度的遮挡关系",
+    "parents": [
+      "c-complex-occlusion"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-composite-cause",
+    "domain": "cognition",
+    "category": "因果关系",
+    "stage": "s4",
+    "title": "复合操作的因果关系",
+    "parents": [
+      "c-simple-cause"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-care-doll",
+    "domain": "cognition",
+    "category": "角色扮演",
+    "stage": "s4",
+    "title": "照顾娃娃",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-mimic-work",
+    "domain": "cognition",
+    "category": "角色扮演",
+    "stage": "s4",
+    "title": "模仿劳动",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-feature-classify",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s5",
+    "title": "认识世界：按特征分类",
+    "parents": [
+      "c-familiar-objects"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-number-experience",
+    "domain": "cognition",
+    "category": "数理逻辑",
+    "stage": "s5",
+    "title": "感官分辨，积累数的经验",
+    "parents": [],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-treasure-hunt",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s5",
+    "title": "寻宝游戏",
+    "parents": [
+      "c-harder-occlusion"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-cause-knowledge",
+    "domain": "cognition",
+    "category": "因果关系",
+    "stage": "s5",
+    "title": "理解因果关系常识",
+    "parents": [
+      "c-composite-cause"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-simple-plot",
+    "domain": "cognition",
+    "category": "角色扮演",
+    "stage": "s5",
+    "title": "演绎简单剧情",
+    "parents": [
+      "c-care-doll"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-productive-work",
+    "domain": "cognition",
+    "category": "角色扮演",
+    "stage": "s5",
+    "title": "能产生结果的劳动",
+    "parents": [
+      "c-mimic-work"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-secondary-classify",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s6",
+    "title": "事物的二级分类",
+    "parents": [
+      "c-feature-classify"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-jigsaw",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s6",
+    "title": "拼图：局部和整体",
+    "parents": [
+      "c-secondary-classify",
+      "c-abstract-classify"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-abstract-classify",
+    "domain": "cognition",
+    "category": "数理逻辑",
+    "stage": "s6",
+    "title": "单一维度抽象分类",
+    "parents": [
+      "c-feature-classify",
+      "c-number-experience"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-career-play",
+    "domain": "cognition",
+    "category": "角色扮演",
+    "stage": "s6",
+    "title": "丰富的职业扮演",
+    "parents": [
+      "c-simple-plot",
+      "c-productive-work"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-geometric-shapes",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s7",
+    "title": "区分更多几何图形",
+    "parents": [
+      "c-jigsaw"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-number-concept",
+    "domain": "cognition",
+    "category": "数理逻辑",
+    "stage": "s7",
+    "title": "产生数量概念",
+    "parents": [
+      "c-abstract-classify"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-small-body",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s7",
+    "title": "认识小肢体",
+    "parents": [
+      "c-facial-features"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-knowledge-apply",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s8",
+    "title": "常识的关联性应用",
+    "parents": [
+      "c-secondary-classify"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-contour-abstract",
+    "domain": "cognition",
+    "category": "生活常识",
+    "stage": "s8",
+    "title": "轮廓抽象能力",
+    "parents": [
+      "c-geometric-shapes"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-math-activity",
+    "domain": "cognition",
+    "category": "数理逻辑",
+    "stage": "s8",
+    "title": "数理逻辑应用活动",
+    "parents": [
+      "c-number-concept"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-internal-organs",
+    "domain": "cognition",
+    "category": "自我及社会认知",
+    "stage": "s8",
+    "title": "认识内脏器官",
+    "parents": [
+      "c-small-body"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-photo-thinking",
+    "domain": "cognition",
+    "category": "客体恒存",
+    "stage": "s8",
+    "title": "思维题：谁拍的照片",
+    "parents": [
+      "c-treasure-hunt"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-abstract-cause",
+    "domain": "cognition",
+    "category": "因果关系",
+    "stage": "s8",
+    "title": "理解抽象的因果关系",
+    "parents": [
+      "c-cause-knowledge"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "c-social-play",
+    "domain": "cognition",
+    "category": "角色扮演",
+    "stage": "s8",
+    "title": "小社会角色游戏",
+    "parents": [
+      "c-career-play"
+    ],
+    "sourcePage": 1
+  },
+  {
+    "id": "s-wet-reaction",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s0",
+    "title": "湿屁屁反应",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-sweet",
+    "domain": "sensory",
+    "category": "味觉",
+    "stage": "s0",
+    "title": "香甜偏好期",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-sound-source",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s0",
+    "title": "声源的搜寻反应",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-black-white",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s0",
+    "title": "黑白偏好",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-red-white",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s0",
+    "title": "红白偏好",
+    "parents": [
+      "s-black-white"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-mouthing",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s1",
+    "title": "口尝行为",
+    "parents": [
+      "s-wet-reaction"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-salty",
+    "domain": "sensory",
+    "category": "味觉",
+    "stage": "s1",
+    "title": "咸味偏好期",
+    "parents": [
+      "s-sweet"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-sound-track",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s1",
+    "title": "声画追踪",
+    "parents": [
+      "s-sound-source"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-look-around",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s1",
+    "title": "视力变好，开始四处张望",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-warm-color",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s1",
+    "title": "暖色调偏好",
+    "parents": [
+      "s-red-white"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-geometric-pattern",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s1",
+    "title": "几何图案偏好",
+    "parents": [
+      "s-red-white"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-face",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s1",
+    "title": "人脸偏好",
+    "parents": [
+      "s-red-white"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-red-ball-motion",
+    "domain": "sensory",
+    "category": "视觉追踪",
+    "stage": "s1",
+    "title": "红球平移及环绕",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-touch-hunger",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s2",
+    "title": "皮肤饥渴",
+    "parents": [
+      "s-mouthing"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-parent-smell",
+    "domain": "sensory",
+    "category": "嗅觉",
+    "stage": "s2",
+    "title": "香妈妈臭爸爸",
+    "parents": [],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-picky-eating",
+    "domain": "sensory",
+    "category": "味觉",
+    "stage": "s2",
+    "title": "挑食行为",
+    "parents": [
+      "s-salty"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-unseen-sound",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s2",
+    "title": "不可见声源追踪",
+    "parents": [
+      "s-sound-track"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-depth-vision",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s2",
+    "title": "深度视觉萌芽",
+    "parents": [
+      "s-look-around"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-pattern",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s2",
+    "title": "花纹偏好",
+    "parents": [
+      "s-warm-color",
+      "s-geometric-pattern"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-away-orbit",
+    "domain": "sensory",
+    "category": "视觉追踪",
+    "stage": "s2",
+    "title": "物品远离及巡回轨迹",
+    "parents": [
+      "s-red-ball-motion"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-smooth-rough",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s3",
+    "title": "触觉偏好期：光滑与粗糙",
+    "parents": [
+      "s-touch-hunger"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-sour-face",
+    "domain": "sensory",
+    "category": "味觉",
+    "stage": "s3",
+    "title": "酸的皱起脸",
+    "parents": [
+      "s-picky-eating"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-rhythm-sway",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s3",
+    "title": "律动表现：跟着音乐晃动",
+    "parents": [
+      "s-unseen-sound"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-name-response",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s3",
+    "title": "唤名反应",
+    "parents": [
+      "s-unseen-sound"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-tiny-object",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s3",
+    "title": "视力变好，盯着小东西看",
+    "parents": [
+      "s-depth-vision"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-object-cards",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s3",
+    "title": "视觉认知：实物卡片",
+    "parents": [
+      "s-pattern"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-zigzag-fall",
+    "domain": "sensory",
+    "category": "视觉追踪",
+    "stage": "s3",
+    "title": "折线与螺旋下落轨迹",
+    "parents": [
+      "s-away-orbit"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-water-sand",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s4",
+    "title": "触觉偏好期：水和沙子",
+    "parents": [
+      "s-smooth-rough"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-smell-difference",
+    "domain": "sensory",
+    "category": "嗅觉",
+    "stage": "s4",
+    "title": "嗅闻偏好期：分辨不同香/臭",
+    "parents": [
+      "s-parent-smell"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-taste-expression",
+    "domain": "sensory",
+    "category": "味觉",
+    "stage": "s4",
+    "title": "更多味道的表情反馈",
+    "parents": [
+      "s-sour-face"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-clear-beat",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s4",
+    "title": "律动表现：明确的节拍",
+    "parents": [
+      "s-rhythm-sway"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-percussion",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s4",
+    "title": "敲击奏乐",
+    "parents": [
+      "s-rhythm-sway"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-simple-story",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s4",
+    "title": "视觉认知：简单剧情",
+    "parents": [
+      "s-object-cards"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-cross-trajectory",
+    "domain": "sensory",
+    "category": "视觉追踪",
+    "stage": "s4",
+    "title": "复杂交错轨迹",
+    "parents": [
+      "s-zigzag-fall"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-soft-hot-cold",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s5",
+    "title": "触觉偏好期：软硬冷热",
+    "parents": [
+      "s-water-sand"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-comfort-object",
+    "domain": "sensory",
+    "category": "触觉",
+    "stage": "s5",
+    "title": "形成阿贝贝",
+    "parents": [
+      "s-water-sand",
+      "s-smell-difference"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-strong-weak-beat",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s5",
+    "title": "律动表现：轻重拍",
+    "parents": [
+      "s-clear-beat",
+      "s-percussion"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-visual-search",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s5",
+    "title": "视觉认知：搜索",
+    "parents": [
+      "s-tiny-object"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-hum",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s6",
+    "title": "旋律哼歌",
+    "parents": [
+      "s-percussion",
+      "s-strong-weak-beat"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-story-reading",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s6",
+    "title": "视觉认知：故事阅读",
+    "parents": [
+      "s-simple-story"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-food-tasting",
+    "domain": "sensory",
+    "category": "味觉",
+    "stage": "s8",
+    "title": "美食品鉴",
+    "parents": [
+      "s-taste-expression"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-percussion-dance",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s8",
+    "title": "打击乐/舞蹈",
+    "parents": [
+      "s-strong-weak-beat"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-nursery-rhyme",
+    "domain": "sensory",
+    "category": "听觉",
+    "stage": "s8",
+    "title": "唱儿歌",
+    "parents": [
+      "s-hum"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-find-difference",
+    "domain": "sensory",
+    "category": "静态视觉",
+    "stage": "s8",
+    "title": "找不同",
+    "parents": [
+      "s-visual-search"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "s-predict-motion",
+    "domain": "sensory",
+    "category": "视觉追踪",
+    "stage": "s8",
+    "title": "预判轨迹",
+    "parents": [
+      "s-cross-trajectory"
+    ],
+    "sourcePage": 2
+  },
+  {
+    "id": "g-upright-head",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s0",
+    "title": "竖抱抬头",
+    "parents": [],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-prone-head",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s0",
+    "title": "趴卧抬头",
+    "parents": [
+      "g-upright-head"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-chew-limbs",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s0",
+    "title": "啃手啃脚",
+    "parents": [],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-ground-sit",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s1",
+    "title": "撑地坐",
+    "parents": [
+      "g-lean-sit"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-lean-sit",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s1",
+    "title": "靠坐",
+    "parents": [
+      "g-prone-head"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-roll-prone-supine",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s1",
+    "title": "一阶翻身：趴转躺",
+    "parents": [
+      "g-prone-head"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-roll-supine-prone",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s1",
+    "title": "二阶翻身：躺转趴",
+    "parents": [
+      "g-roll-prone-supine"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-roll-continuous",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s1",
+    "title": "三阶翻身：来回打滚",
+    "parents": [
+      "g-roll-supine-prone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-request-hold",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s1",
+    "title": "伸手要抱抱",
+    "parents": [
+      "g-chew-limbs"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-steady-sit",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s2",
+    "title": "独立坐稳",
+    "parents": [
+      "g-ground-sit"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-supported-stand",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s2",
+    "title": "扶物站立",
+    "parents": [
+      "g-steady-sit"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-prone-fly",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s2",
+    "title": "一阶爬行：趴卧小燕飞",
+    "parents": [
+      "g-roll-continuous"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-belly-crawl",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s2",
+    "title": "二阶爬行：匍匐爬行",
+    "parents": [
+      "g-prone-fly"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-knee-crawl",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s2",
+    "title": "三阶爬行：手膝爬行",
+    "parents": [
+      "g-belly-crawl"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-assist-dressing",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s2",
+    "title": "伸手配合穿衣服",
+    "parents": [
+      "g-request-hold"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-rocking-horse",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s3",
+    "title": "岔腿骑摇摇马",
+    "parents": [
+      "g-steady-sit"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-squat-pick",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s3",
+    "title": "蹲下捡东西",
+    "parents": [
+      "g-stand-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-stand-alone",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s3",
+    "title": "独自站立",
+    "parents": [
+      "g-supported-stand"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-cruise",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s3",
+    "title": "扶着栏杆螃蟹走",
+    "parents": [
+      "g-stand-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-hand-walk",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s3",
+    "title": "牵手跟走",
+    "parents": [
+      "g-cruise"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-obstacle-crawl",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s3",
+    "title": "越障爬行",
+    "parents": [
+      "g-knee-crawl"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-throw-down",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s3",
+    "title": "往前下方丢球",
+    "parents": [
+      "g-assist-dressing"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-stable-ride",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s4",
+    "title": "骑稳定车",
+    "parents": [
+      "g-rocking-horse"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-one-leg-supported",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s4",
+    "title": "扶物单脚站立",
+    "parents": [
+      "g-squat-pick"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-fast-walk",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s4",
+    "title": "快步走（踮脚跑）",
+    "parents": [
+      "g-walk-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-walk-alone",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s4",
+    "title": "独自行走",
+    "parents": [
+      "g-hand-walk"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-backward-pull",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s4",
+    "title": "倒退拉车",
+    "parents": [
+      "g-walk-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-stair-crawl",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s4",
+    "title": "爬楼梯，高阶越障爬行",
+    "parents": [
+      "g-obstacle-crawl"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-throw-far",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s4",
+    "title": "往前远处过肩扔球",
+    "parents": [
+      "g-throw-down"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-kick-ball",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s5",
+    "title": "单脚踢球",
+    "parents": [
+      "g-one-leg-supported"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-heel-walk",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s5",
+    "title": "脚后跟走",
+    "parents": [
+      "g-fast-walk"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-jump-in-place",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s5",
+    "title": "原地并脚跳",
+    "parents": [
+      "g-heel-walk"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-avoid-obstacle",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s5",
+    "title": "避障行走",
+    "parents": [
+      "g-walk-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-line-walk",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s5",
+    "title": "沿线行走",
+    "parents": [
+      "g-walk-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-both-feet-stairs",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s5",
+    "title": "重叠步上下楼梯",
+    "parents": [
+      "g-stair-crawl",
+      "g-walk-alone"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-catch-air-ball",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s5",
+    "title": "接住空中抛球",
+    "parents": [
+      "g-throw-far"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-velcro-ball",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s5",
+    "title": "命中粘靶球",
+    "parents": [
+      "g-throw-far"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-balance-obstacle",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s6",
+    "title": "平衡车避障",
+    "parents": [
+      "g-stable-ride"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-balance-beam",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s6",
+    "title": "走独木桥",
+    "parents": [
+      "g-kick-ball"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-air-run",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s6",
+    "title": "腾空跑",
+    "parents": [
+      "g-heel-walk"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-long-jump",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s6",
+    "title": "立定跳远",
+    "parents": [
+      "g-jump-in-place"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-jump-down",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s6",
+    "title": "高处跳下",
+    "parents": [
+      "g-jump-in-place"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-alternate-stairs",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s6",
+    "title": "交叉步上下楼梯",
+    "parents": [
+      "g-both-feet-stairs"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-bouncing-ball",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s6",
+    "title": "接住地滚球",
+    "parents": [
+      "g-catch-air-ball",
+      "g-velcro-ball"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-two-wheel-balance",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s7",
+    "title": "两轮平衡车",
+    "parents": [
+      "g-balance-obstacle"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-stepping-stones",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s7",
+    "title": "走过河石",
+    "parents": [
+      "g-balance-beam"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-straddle-jump",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s7",
+    "title": "分脚跨越跳",
+    "parents": [
+      "g-air-run",
+      "g-long-jump"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-climb",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s7",
+    "title": "攀爬",
+    "parents": [
+      "g-alternate-stairs"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-bat-ball",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s7",
+    "title": "挥棒击球",
+    "parents": [
+      "g-bouncing-ball"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-balance-race",
+    "domain": "gross",
+    "category": "坐与骑",
+    "stage": "s8",
+    "title": "平衡车竞速",
+    "parents": [
+      "g-two-wheel-balance"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-plum-stilts",
+    "domain": "gross",
+    "category": "站",
+    "stage": "s8",
+    "title": "踩梅花桩，踩高跷",
+    "parents": [
+      "g-stepping-stones"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-parkour",
+    "domain": "gross",
+    "category": "跑跳",
+    "stage": "s8",
+    "title": "儿童跑酷",
+    "parents": [
+      "g-straddle-jump"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-roller-skating",
+    "domain": "gross",
+    "category": "走",
+    "stage": "s8",
+    "title": "轮滑",
+    "parents": [
+      "g-line-walk"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-rock-climb",
+    "domain": "gross",
+    "category": "抬头翻身攀爬",
+    "stage": "s8",
+    "title": "爬山/攀岩",
+    "parents": [
+      "g-climb"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "g-golf",
+    "domain": "gross",
+    "category": "投掷",
+    "stage": "s8",
+    "title": "打高尔夫球",
+    "parents": [
+      "g-bat-ball"
+    ],
+    "sourcePage": 3
+  },
+  {
+    "id": "fine-grasp-release",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s0",
+    "title": "抓握反射与松手",
+    "parents": [],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-fist-mouth",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s0",
+    "title": "吞拳头吃手",
+    "parents": [],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-fists-prone",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s0",
+    "title": "双拳垫高趴卧",
+    "parents": [
+      "fine-fist-mouth"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-pat-press",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s1",
+    "title": "拍打按压",
+    "parents": [
+      "fine-grasp-release"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-reach-toy",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s1",
+    "title": "够取玩具",
+    "parents": [
+      "fine-grasp-release"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-palm-grasp",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s1",
+    "title": "全掌抓握（乐高手）",
+    "parents": [
+      "fine-grasp-release"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-two-hands-toys",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s1",
+    "title": "双手分别拿玩具",
+    "parents": [
+      "fine-fists-prone"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-poke-hole",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s2",
+    "title": "抠洞（不取物）",
+    "parents": [
+      "fine-pat-press"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-pull-pick",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s2",
+    "title": "抽拉摘取",
+    "parents": [
+      "fine-pat-press"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-grasp-combo",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s2",
+    "title": "抓-举-晃-啃-丢连招",
+    "parents": [
+      "fine-reach-toy"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-toy-basket",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s2",
+    "title": "把玩具放篮子里",
+    "parents": [
+      "fine-palm-grasp"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-hand-transfer",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s2",
+    "title": "左手递右手",
+    "parents": [
+      "fine-two-hands-toys"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-bang-objects",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s2",
+    "title": "持物对敲",
+    "parents": [
+      "fine-two-hands-toys"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-poke-retrieve",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s3",
+    "title": "抠洞（取物）",
+    "parents": [
+      "fine-poke-hole"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-door",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s3",
+    "title": "开关门（含推拉门）",
+    "parents": [
+      "fine-pull-pick"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-board-book",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s3",
+    "title": "翻纸板书",
+    "parents": [],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-ring-switch",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s3",
+    "title": "手指拉环、拨弄开关",
+    "parents": [
+      "fine-pull-pick"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-four-finger",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s3",
+    "title": "四指捏（猴式抓握）",
+    "parents": [
+      "fine-palm-grasp"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-mug-ball",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s3",
+    "title": "马克杯放球和取出",
+    "parents": [
+      "fine-toy-basket"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-ring-post",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s3",
+    "title": "圆环套柱",
+    "parents": [
+      "fine-toy-basket"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-marker-cap",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s3",
+    "title": "准确插拔马克笔笔帽",
+    "parents": [
+      "fine-hand-transfer",
+      "fine-bang-objects"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-clap",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s3",
+    "title": "拍手鼓掌",
+    "parents": [
+      "fine-bang-objects"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-twist-candy",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s3",
+    "title": "拧糖果玩具",
+    "parents": [
+      "fine-bang-objects"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-peel-orange",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s4",
+    "title": "剥橘子",
+    "parents": [
+      "fine-poke-retrieve"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-unlock-press",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s4",
+    "title": "开锁、拨动/按压",
+    "parents": [
+      "fine-door"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-thin-book",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s4",
+    "title": "翻薄页书（操作机关书）",
+    "parents": [
+      "fine-board-book"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-pop-button",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s4",
+    "title": "戳按按乐、扣上衣服按扣",
+    "parents": [
+      "fine-ring-switch"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-zipper",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s4",
+    "title": "拉拉链",
+    "parents": [
+      "fine-fingertip"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-fingertip",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s4",
+    "title": "指尖捏",
+    "parents": [
+      "fine-four-finger"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-bottle-beans",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s4",
+    "title": "矿泉水瓶放黄豆和倒出",
+    "parents": [
+      "fine-mug-ball"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-fit-lid",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s4",
+    "title": "严丝合缝盖盖子",
+    "parents": [
+      "fine-mug-ball"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-container-insert",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s4",
+    "title": "容器插棍/插片",
+    "parents": [
+      "fine-ring-post"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-small-blocks",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s4",
+    "title": "拼插小片积木",
+    "parents": [
+      "fine-marker-cap"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-drink-cup",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s4",
+    "title": "端杯喝水不洒",
+    "parents": [
+      "fine-clap"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-twist-tap-towel",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s4",
+    "title": "拧水龙头/毛巾",
+    "parents": [
+      "fine-twist-candy"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-combination-lock",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s5",
+    "title": "开锁、组合锁",
+    "parents": [
+      "fine-unlock-press",
+      "fine-thin-book"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-seat-buckle",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s5",
+    "title": "扣上安全带卡扣",
+    "parents": [
+      "fine-pop-button"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-two-finger-pinch",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s5",
+    "title": "二指指尖捏",
+    "parents": [
+      "fine-fingertip"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-tube-beans",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s5",
+    "title": "试管放绿豆",
+    "parents": [
+      "fine-bottle-beans"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-shape-inset",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s5",
+    "title": "镶嵌轮廓/凹凸嵌板",
+    "parents": [
+      "fine-fit-lid"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-key-usb",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s5",
+    "title": "插拔钥匙、插头USB",
+    "parents": [
+      "fine-container-insert"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-thread-beads",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s5",
+    "title": "穿线、鞋带串珠",
+    "parents": [
+      "fine-container-insert",
+      "fine-small-blocks"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-twist-key",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s5",
+    "title": "拧钥匙",
+    "parents": [
+      "fine-twist-tap-towel"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-horn-buckle",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s6",
+    "title": "扣上羊角扣",
+    "parents": [
+      "fine-seat-buckle"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-untie-laces",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s6",
+    "title": "解鞋带",
+    "parents": [
+      "fine-zipper"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-mushroom-pegs",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s6",
+    "title": "镶嵌蘑菇钉",
+    "parents": [
+      "fine-shape-inset"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-pour-cups",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s6",
+    "title": "两个杯子来回倒水",
+    "parents": [
+      "fine-drink-cup",
+      "fine-thread-beads"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-twist-cap",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s6",
+    "title": "拧瓶盖3圈以上",
+    "parents": [
+      "fine-twist-key"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-five-finger",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s7",
+    "title": "指令快速五指对捏",
+    "parents": [
+      "fine-two-finger-pinch",
+      "fine-tube-beans",
+      "fine-mushroom-pegs"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-kettle-formula",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s7",
+    "title": "儿童水壶冲泡奶粉",
+    "parents": [
+      "fine-pour-cups"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-peel-chestnut",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s8",
+    "title": "剥栗子",
+    "parents": [
+      "fine-peel-orange"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-safe",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s8",
+    "title": "开保险箱",
+    "parents": [
+      "fine-combination-lock"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-weave",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s8",
+    "title": "编织",
+    "parents": [
+      "fine-horn-buckle"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-dress",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s8",
+    "title": "自主穿衣服",
+    "parents": [
+      "fine-horn-buckle",
+      "fine-untie-laces"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-piano-type",
+    "domain": "fine",
+    "category": "单手操作",
+    "stage": "s8",
+    "title": "弹琴/打字",
+    "parents": [
+      "fine-five-finger"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-needle-thread",
+    "domain": "fine",
+    "category": "操作机关",
+    "stage": "s8",
+    "title": "穿针引线",
+    "parents": [
+      "fine-key-usb"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-embroidery",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s8",
+    "title": "绣花",
+    "parents": [
+      "fine-thread-beads"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-latte-art",
+    "domain": "fine",
+    "category": "双手配合",
+    "stage": "s8",
+    "title": "咖啡拉花",
+    "parents": [
+      "fine-kettle-formula"
+    ],
+    "sourcePage": 4
+  },
+  {
+    "id": "fine-knock-blocks",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s2",
+    "title": "把搭好的积木推倒",
+    "parents": [],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-try-stack",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s3",
+    "title": "尝试搭高",
+    "parents": [
+      "fine-knock-blocks"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-stack-two-three",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s4",
+    "title": "实心积木搭高2-3层",
+    "parents": [
+      "fine-try-stack"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-stack-five",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s5",
+    "title": "实心积木搭高5层",
+    "parents": [
+      "fine-stack-two-three"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-block-path",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s6",
+    "title": "首尾相接摆放路径",
+    "parents": [
+      "fine-stack-five"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-balance-tree",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s6",
+    "title": "平衡树搭高2-4层",
+    "parents": [
+      "fine-stack-five"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-build-solid",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s7",
+    "title": "搭建立体作品",
+    "parents": [
+      "fine-block-path"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-tangram-copy",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s7",
+    "title": "七巧板看图摆放",
+    "parents": [
+      "fine-block-path"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-lego",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s8",
+    "title": "乐高积木",
+    "parents": [
+      "fine-build-solid"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-build-symbols",
+    "domain": "fine",
+    "category": "构造搭建",
+    "stage": "s8",
+    "title": "摆出符号",
+    "parents": [
+      "fine-tangram-copy"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-crawl-paint",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s2",
+    "title": "爬行涂抹留下痕迹",
+    "parents": [],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-water-mat",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s3",
+    "title": "水画垫拓印",
+    "parents": [
+      "fine-crawl-paint"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-point-line",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s4",
+    "title": "握笔涂鸦点状线",
+    "parents": [
+      "fine-water-mat"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-long-arc",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s5",
+    "title": "画长条弧线",
+    "parents": [
+      "fine-point-line"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-long-zigzag",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s5",
+    "title": "画长折线",
+    "parents": [
+      "fine-point-line"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-three-finger-draw",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s5",
+    "title": "三指持笔画线",
+    "parents": [
+      "fine-point-line"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-spiral-open-circle",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s6",
+    "title": "画螺旋线、不封闭圆",
+    "parents": [
+      "fine-long-arc"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-shape-color",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s6",
+    "title": "封闭图形涂色",
+    "parents": [
+      "fine-long-zigzag"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-fold-flat",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s6",
+    "title": "折纸折平",
+    "parents": [
+      "fine-three-finger-draw"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-closed-circle",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s7",
+    "title": "画封闭圆",
+    "parents": [
+      "fine-spiral-open-circle"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-color-spill",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s7",
+    "title": "涂色涂满允许漏出",
+    "parents": [
+      "fine-shape-color"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-diagonal-fold",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s7",
+    "title": "对角准确折纸",
+    "parents": [
+      "fine-fold-flat"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-line-cut",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s7",
+    "title": "剪刀沿直线剪裁",
+    "parents": [
+      "fine-fold-flat"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-flower-matchstick",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s8",
+    "title": "画花/火柴人",
+    "parents": [
+      "fine-closed-circle"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-color-in-lines",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s8",
+    "title": "涂色涂满不漏出",
+    "parents": [
+      "fine-color-spill"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-symmetric-fold",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s8",
+    "title": "对称图形折纸",
+    "parents": [
+      "fine-diagonal-fold"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-zigzag-wave-cut",
+    "domain": "fine",
+    "category": "涂鸦绘画",
+    "stage": "s8",
+    "title": "剪裁折线波浪线",
+    "parents": [
+      "fine-line-cut"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-hammer-ball",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s4",
+    "title": "锤子敲琴/球",
+    "parents": [],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-large-spoon",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s4",
+    "title": "大勺舀小球",
+    "parents": [
+      "fine-hammer-ball"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-clip",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s4",
+    "title": "用夹子夹",
+    "parents": [],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-magnet-fish-short",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s4",
+    "title": "磁力钓鱼短线",
+    "parents": [],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-roleplay-tools",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s4",
+    "title": "过家家、职业工具",
+    "parents": [],
+    "sourcePage": 5,
+    "endStage": "s7"
+  },
+  {
+    "id": "fine-brush-scraper",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s5",
+    "title": "刷子刷、刮板刮",
+    "parents": [
+      "fine-hammer-ball"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-small-spoon-beans",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s5",
+    "title": "小勺舀豆子",
+    "parents": [
+      "fine-large-spoon"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-magnetic-pen",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s5",
+    "title": "磁力笔",
+    "parents": [
+      "fine-clip"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-knife",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s5",
+    "title": "刀子切",
+    "parents": [],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-magnet-fish-long",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s5",
+    "title": "磁力钓鱼长线",
+    "parents": [
+      "fine-magnet-fish-short"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-broom",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s6",
+    "title": "长柄扫帚扫地",
+    "parents": [
+      "fine-brush-scraper"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-spoon-soup",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s6",
+    "title": "小勺舀汤",
+    "parents": [
+      "fine-small-spoon-beans"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-scissors",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s6",
+    "title": "使用剪刀",
+    "parents": [
+      "fine-magnetic-pen"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-saw",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s6",
+    "title": "锯子锯",
+    "parents": [
+      "fine-knife"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-hook-fish",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s6",
+    "title": "钩子钓鱼",
+    "parents": [
+      "fine-magnet-fish-long"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-training-chopsticks",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s7",
+    "title": "辅助筷子",
+    "parents": [
+      "fine-spoon-soup",
+      "fine-scissors"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-clay-tools",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s7",
+    "title": "彩泥工具",
+    "parents": [
+      "fine-scissors"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-axe",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s7",
+    "title": "斧子劈",
+    "parents": [
+      "fine-saw"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-golf-gateball",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s8",
+    "title": "高尔夫球/门球",
+    "parents": [
+      "fine-broom"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-chinese-meal",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s8",
+    "title": "中餐进餐",
+    "parents": [
+      "fine-training-chopsticks"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-dumpling",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s8",
+    "title": "包饺子",
+    "parents": [
+      "fine-clay-tools"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-woodwork",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s8",
+    "title": "木工",
+    "parents": [
+      "fine-axe"
+    ],
+    "sourcePage": 5
+  },
+  {
+    "id": "fine-fishing",
+    "domain": "fine",
+    "category": "使用工具",
+    "stage": "s8",
+    "title": "钓鱼",
+    "parents": [
+      "fine-hook-fish"
+    ],
+    "sourcePage": 5
+  }
+]

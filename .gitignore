@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+backups/
+output/
+tmp/
+*成长记录*.json
