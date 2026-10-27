@@ -4,6 +4,10 @@
 
 这是可直接部署到 GitHub Pages 的静态网页，无需安装依赖或构建。
 
+在线访问：[小芽成长技能树](https://jadechoulu.github.io/baby-growth-tree/)。
+
+源代码：[jadechoulu/baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree)。
+
 ## 数据保存
 
 宝宝资料、完成记录和手记保存在当前浏览器的 IndexedDB，查看偏好保存在 localStorage。网页代码不包含个人完成记录，应用也不会将记录上传到 GitHub。
@@ -35,3 +39,17 @@ node --test tests/*.test.mjs
 - `assets/original.pdf`：网页所用原始技能图谱。
 
 GitHub Pages 的网页公开可访问；使用者的个人记录仍分别保存在各自浏览器里。后续更新发布目录后提交并推送，即可刷新线上代码。
+
+## 更新发布
+
+此目录是独立的发布副本。修改并验证这里的网页文件后执行：
+
+```sh
+git add -- index.html app.mjs styles.css theme.css graph.css lib data assets tests README.md
+git diff --cached --check
+git diff --cached --stat
+git commit -m "更新成长技能树"
+git push
+```
+
+Pages 从 `codex/pages` 分支根目录部署。GitHub CLI 使用系统钥匙串保存登录凭据，可用 `gh auth status` 检查登录状态。
