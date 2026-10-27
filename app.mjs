@@ -1,25 +1,36 @@
 import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getStats, toggleRecord, validateBackup } from './lib/model.mjs';
 import { getSkillRelations, getBranchGraph, getLineagePaths, layoutGraph } from './lib/graph.mjs';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore } from './lib/storage.mjs';
+import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
+import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
 
 const app = document.querySelector('#app');
 let catalog = [];
 let resources = {};
 let toastTimer;
 let pendingImport;
-const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'all', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, graphZoom: .85, graphExpanded: false, storageError: '', recoveryRaw: null, lastUndo: null };
+const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'all', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, graphZoom: .85, graphExpanded: false, storageError: '', lastUndo: null };
 state.savedAt = null;
 state.viewStorageError = '';
 state.savePending = false;
 state.hasUnsavedChanges = false;
-state.storageReadFailed = false;
 let lastSavedView = null;
-let growthStore = null;
-let lastCommittedGrowth = null;
-let saveQueue = Promise.resolve();
 let saveRevision = 0;
-let pendingSaves = 0;
-let syncChannel = null;
+let apiBase = '';
+let sessionToken = '';
+let cloudStore = null;
+let saveController = null;
+let cloudConflict = null;
+let cloudRefreshing = false;
+let authPopup = null;
+let authRequest = null;
+let authTimer = null;
+const SESSION_KEY = 'xiaoya-cloud-session-v1';
+const localMigrations = [];
+state.auth = 'unconfigured';
+state.user = null;
+state.cloudLoaded = false;
+state.cloudEmpty = true;
 let currentGraph = null;
 let graphViewportAction = null;
 let lastCalendarDate = localDateString();
@@ -113,62 +124,38 @@ function skillStageLabel(skill) {
   return end ? `${start.minMonths}–${end.id === 's7' ? 36 : end.maxMonths}个月` : start.label;
 }
 
-function persist() {
-  if (state.recoveryRaw !== null) { updateSaveStatus(); return Promise.resolve(false); }
-  const revision = ++saveRevision;
-  const snapshot = growthSnapshot(state);
-  pendingSaves += 1;
-  state.savePending = true;
-  state.hasUnsavedChanges = true;
-  state.storageError = '';
-  updateSaveStatus();
-  const task = saveQueue.then(async () => {
-    growthStore ||= createGrowthStore(window.indexedDB, catalog.map(skill => skill.id));
-    if (state.storageReadFailed) {
-      const existing = await growthStore.load();
-      if (existing && growthFingerprint(existing) !== growthFingerprint(snapshot)) throw new Error('已有记录已可读取，请先导出当前修改，再刷新恢复已有记录。');
-      lastCommittedGrowth = existing && growthSnapshot(existing);
-      state.storageReadFailed = false;
-    }
-    const savedAt = await growthStore.save(snapshot, lastCommittedGrowth);
-    lastCommittedGrowth = snapshot;
-    return savedAt;
-  });
-  saveQueue = task.catch(() => {});
-  return task.then(savedAt => {
-    pendingSaves -= 1;
-    state.savePending = pendingSaves > 0;
-    if (revision === saveRevision) {
-      state.savedAt = savedAt;
-      state.storageError = '';
-      state.hasUnsavedChanges = false;
-      syncChannel?.postMessage('records-updated');
-      void syncGrowth();
-    }
-    updateSaveStatus();
-    return true;
-  }, () => {
-    pendingSaves -= 1;
-    state.savePending = pendingSaves > 0;
-    if (revision === saveRevision) state.storageError = '记录尚未保存到本机。请重试保存，或导出备份后再离开。浏览器或网页预览环境可能禁止了存储。';
-    updateSaveStatus();
-    return false;
-  });
+function canEdit() { return state.auth === 'ready' && state.cloudLoaded && !cloudConflict; }
+function requireCloud(needsProfile = true) {
+  if (cloudConflict) { openConflicts(); return false; }
+  if (!canEdit()) { openBackup(); return false; }
+  if (needsProfile && !state.profile.birthDate) { openProfile(); return false; }
+  return true;
 }
-
-function saveProblem() { return state.storageError || state.viewStorageError; }
-function saveLabel() { return saveProblem() ? '保存异常' : state.savePending ? '正在保存' : state.savedAt ? '已保存' : '本机保存'; }
+function persist(options = {}) {
+  if (!canEdit() || !state.profile.birthDate) return Promise.resolve(false);
+  saveRevision += 1;
+  return saveController.request(options);
+}
+function saveProblem() { return state.storageError; }
+function saveLabel() {
+  if (state.auth === 'unconfigured') return '云端待配置';
+  if (state.auth === 'loading') return '读取云端中';
+  if (state.auth === 'signed-out' || state.auth === 'expired') return state.hasUnsavedChanges ? '未同步 · 请登录' : '登录后同步';
+  if (cloudConflict) return '待处理冲突';
+  if (saveProblem()) return '未同步';
+  if (state.savePending) return '正在同步';
+  return state.hasUnsavedChanges ? '未同步' : state.savedAt || (state.cloudLoaded && !state.cloudEmpty) ? '已同步' : '云端尚无记录';
+}
 function saveTimeLabel() {
-  return state.savedAt ? new Date(state.savedAt).toLocaleString('zh-CN', { hour12: false }) : '已读取本机记录';
+  return state.savedAt ? `最近云端确认：${new Date(state.savedAt).toLocaleString('zh-CN', { hour12: false })}` : state.cloudLoaded && !state.cloudEmpty ? '已读取云端记录（暂无保存时间）' : '尚无云端保存确认';
 }
-
 function updateSaveStatus() {
   const button = document.querySelector('[data-action="storage-status"]');
   if (button) {
     button.classList.toggle('has-error', Boolean(saveProblem()));
     button.classList.toggle('is-saving', state.savePending);
-    button.setAttribute('aria-label', `本机保存状态：${saveLabel()}`);
-    button.title = saveProblem() || `${saveTimeLabel()}，刷新后自动恢复`;
+    button.setAttribute('aria-label', `云端状态：${saveLabel()}`);
+    button.title = saveProblem() || saveTimeLabel();
     button.querySelector('[data-save-label]').textContent = saveLabel();
   }
   const warning = document.querySelector('#storage-warning');
@@ -179,8 +166,9 @@ function updateSaveStatus() {
   const inlineStatus = document.querySelector('#skill-form .form-actions small');
   if (inlineStatus) {
     inlineStatus.classList.toggle('save-failed', Boolean(state.storageError));
-    inlineStatus.textContent = state.storageError ? '本次修改尚未保存，请先导出备份。' : state.savePending ? '正在保存到本机…' : '手记和完成状态自动保存到当前浏览器';
+    inlineStatus.textContent = !canEdit() ? '登录并读取云端后可编辑' : state.storageError ? '本次修改尚未同步，请重试或导出。' : state.savePending ? '正在同步到私有云端…' : '手记与完成状态自动同步到私有云端';
   }
+  document.querySelectorAll('#skill-note, #skill-form [name="completedAt"], #skill-form [type="submit"]').forEach(input => { input.disabled = !canEdit() || !state.profile.birthDate; });
 }
 
 function persistView() {
@@ -215,62 +203,165 @@ function restoreView() {
   if (state.view === 'tree') graphViewportAction = 'focus';
 }
 
-function growthFingerprint(data) {
-  return JSON.stringify([data.profile.name, data.profile.birthDate, Object.keys(data.records).sort().map(id => [id, { completedAt: data.records[id].completedAt, note: data.records[id].note }])]);
-}
-
 function growthSnapshot(data) {
-  return { profile: { ...data.profile }, records: Object.fromEntries(Object.entries(data.records).map(([id, record]) => [id, { ...record }])) };
+  return { version: 1, profile: { ...data.profile }, records: Object.fromEntries(Object.entries(data.records).map(([id, record]) => [id, { ...record }])) };
 }
-
 function applyGrowth(data) {
-  state.profile = data.profile;
-  state.records = data.records;
-  state.savedAt = data.savedAt;
+  state.profile = { ...data.profile };
+  state.records = structuredClone(data.records);
 }
-
-async function restoreGrowth() {
-  let legacyRaw = null;
-  try { legacyRaw = localStorage.getItem(STORAGE_KEY); } catch { /* IndexedDB 可用时，旧缓存不可读不阻止使用。 */ }
+function setSessionToken(token) {
+  sessionToken = token;
+  try { if (token) sessionStorage.setItem(SESSION_KEY, token); else sessionStorage.removeItem(SESSION_KEY); }
+  catch { /* 浏览器拒绝会话存储时，本页仍可使用内存会话。 */ }
+}
+async function findLocalMigrations() {
+  // 旧库只读，不初始化、不删除，也不在未登录时当成云端记录。
   try {
-    growthStore = createGrowthStore(window.indexedDB, catalog.map(skill => skill.id));
-    let loaded;
-    try { loaded = await growthStore.load(); }
-    catch (error) { state.storageReadFailed = true; throw error; }
-    if (loaded) {
-      applyGrowth(loaded);
-    } else {
-      let initial = growthSnapshot(state);
-      if (legacyRaw) {
-        try { initial = readGrowthSnapshot(legacyRaw, catalog.map(skill => skill.id)); }
-        catch (error) { state.recoveryRaw = legacyRaw; throw error; }
-        applyGrowth(initial);
-      }
-      let initialized = true;
-      try { await growthStore.save(initial); }
-      catch (error) {
-        if (error.code !== 'INITIALIZATION_CONFLICT') throw error;
-        initialized = false;
-      }
-      const verified = await growthStore.load();
-      if (!verified || (initialized && growthFingerprint(initial) !== growthFingerprint(verified))) throw new Error('初始记录保存校验失败');
-      applyGrowth(verified);
-    }
-    if (legacyRaw && state.recoveryRaw === null) {
+    const loaded = await createGrowthStore(window.indexedDB, catalog.map(skill => skill.id)).load();
+    if (loaded) localMigrations.push({ label: '此浏览器的 IndexedDB 记录', snapshot: growthSnapshot(loaded) });
+  } catch { state.viewStorageError = '旧本机数据库暂时无法读取；原有数据没有改动。'; }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
       try {
-        const legacy = readGrowthSnapshot(legacyRaw, catalog.map(skill => skill.id));
-        if (growthFingerprint(legacy) === growthFingerprint(state)) localStorage.removeItem(STORAGE_KEY);
-      } catch { /* 尚未确认一致的旧数据继续保留，不覆盖新库。 */ }
+        const snapshot = readGrowthSnapshot(raw, catalog.map(skill => skill.id));
+        if (!localMigrations.some(item => sameGrowth(item.snapshot, snapshot))) localMigrations.push({ label: '旧版浏览器记录', snapshot });
+      } catch { localMigrations.push({ label: '旧版原始记录（待修复）', raw }); }
     }
-    lastCommittedGrowth = growthSnapshot(state);
-  } catch {
-    if (!lastCommittedGrowth) state.storageReadFailed = true;
-    if (legacyRaw && state.recoveryRaw === null && !state.savedAt) {
-      try { applyGrowth(readGrowthSnapshot(legacyRaw, catalog.map(skill => skill.id))); }
-      catch { state.recoveryRaw = legacyRaw; }
+  } catch { /* 不可读时不删除旧数据。 */ }
+}
+function configureSaveQueue() {
+  saveController = createSaveQueue({
+    store: cloudStore,
+    getSnapshot: () => growthSnapshot(state),
+    applySnapshot: snapshot => {
+      const previousForm = document.querySelector('#skill-form');
+      const skillId = previousForm?.dataset.id;
+      const previousDone = skillId && isDone(skillId);
+      const previousNote = previousForm?.querySelector('[name="note"]');
+      const editingNote = previousNote === document.activeElement;
+      const selection = editingNote ? [previousNote.selectionStart, previousNote.selectionEnd] : null;
+      applyGrowth(snapshot);
+      render();
+      // 远端合入完成／回退时，详情也同步；一般保存保留正在输入的 textarea。
+      if (skillId && previousDone !== isDone(skillId)) {
+        openDetail(skillId);
+        if (editingNote) {
+          const note = document.querySelector('#skill-note');
+          note.focus({ preventScroll: true }); note.setSelectionRange(...selection);
+        }
+      }
+      const form = document.querySelector('#skill-form');
+      if (form) {
+        const record = state.records[form.dataset.id] || {};
+        const note = form.querySelector('[name="note"]');
+        if (note && note.value !== (record.note || '')) note.value = record.note || '';
+        const date = form.querySelector('[name="completedAt"]');
+        if (date && record.completedAt) date.value = record.completedAt;
+      }
+    },
+    onStatus: status => {
+      state.savePending = status.pending;
+      state.hasUnsavedChanges = status.dirty;
+      state.savedAt = status.savedAt;
+      if (status.savedAt) state.cloudEmpty = false;
+      state.storageError = status.error?.message || '';
+      if (status.error?.code === 'AUTH_REQUIRED') { state.auth = 'expired'; setSessionToken(''); }
+      updateSaveStatus();
+    },
+    onConflict: conflict => { cloudConflict = conflict; render(); openConflicts(); },
+  });
+}
+async function connectCloud() {
+  if (!cloudStore || !sessionToken || state.auth === 'loading') return;
+  const dirty = state.hasUnsavedChanges && state.profile.birthDate;
+  const local = dirty ? growthSnapshot(state) : null;
+  const base = saveController?.getBase() || null;
+  state.auth = 'loading';
+  state.storageError = '';
+  render();
+  try {
+    const { user } = await cloudStore.session();
+    const envelope = await cloudStore.load();
+    state.user = user;
+    state.auth = 'ready';
+    state.cloudLoaded = true;
+    state.cloudEmpty = envelope.snapshot === null;
+    cloudConflict = null;
+    if (!saveController) configureSaveQueue();
+    if (dirty) {
+      const merged = mergeGrowthSnapshots(base, local, envelope.snapshot);
+      if (merged.conflicts.length) {
+        cloudConflict = { base, local, remote: envelope.snapshot, ...envelope, conflicts: merged.conflicts };
+        // 冲突时保持当前编辑，等待本人决议。
+        render(); openConflicts(); return;
+      }
+      saveController.adopt(envelope, merged.snapshot);
+      if (!sameGrowth(merged.snapshot, envelope.snapshot)) void persist();
+    } else {
+      if (!envelope.snapshot) { state.profile = { ...DEFAULT_PROFILE }; state.records = {}; }
+      saveController.adopt(envelope);
     }
-    state.storageError = state.recoveryRaw !== null ? '已有记录未能读取，原始记录已保留。请先导出原始备份，再导入修复后的记录。' : '本机数据库暂时不可用，记录尚未确认保存。请重试保存，或导出备份后再离开。';
+    state.stage = currentStage()?.id || state.stage;
+    lastCurrentStage = currentStage()?.id;
+    render();
+  } catch (error) {
+    state.storageError = error.message;
+    state.auth = error.code === 'AUTH_REQUIRED' ? 'expired' : 'error';
+    if (error.code === 'AUTH_REQUIRED' || error.code === 'ACCESS_DENIED') setSessionToken('');
+    render();
   }
+}
+function loginCloud() {
+  if (!apiBase) { openBackup(); return; }
+  if (state.savePending || state.auth === 'loading') { notify('请等待当前云端请求结束'); return; }
+  if (authPopup && !authPopup.closed) { authPopup.focus(); return; }
+  authRequest = crypto.randomUUID();
+  authPopup = window.open(`${apiBase}/auth/login?request=${encodeURIComponent(authRequest)}`, 'xiaoya-github-login', 'popup,width=560,height=720');
+  if (!authPopup) { notify('请允许登录弹窗，然后重试'); return; }
+  clearTimeout(authTimer);
+  authTimer = setTimeout(() => { authPopup = null; authRequest = null; notify('登录等待已结束，请重新点击登录'); }, 600_000);
+}
+// @CfSecAICode 遵循消费金融安全编码 FE-CSRF-001 规范: 登录消息同时绑定固定来源、弹窗和一次性随机 request。
+window.addEventListener('message', event => {
+  if (!apiBase || event.origin !== new URL(apiBase).origin || event.source !== authPopup || !authRequest) return;
+  const data = event.data;
+  if (!data || data.type !== 'xiaoya-auth' || data.request !== authRequest) return;
+  clearTimeout(authTimer);
+  authRequest = null;
+  authPopup?.close(); authPopup = null;
+  if (data.error || typeof data.token !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(data.token)) {
+    notify(data.error === 'IDENTITY_NOT_ALLOWED' ? '只允许指定的本人 GitHub 账号登录' : '登录未完成，请重试'); return;
+  }
+  setSessionToken(data.token);
+  document.querySelector('#app-dialog')?.close();
+  void connectCloud();
+});
+async function logoutCloud() {
+  if (cloudConflict) { openConflicts(); return; }
+  if (state.hasUnsavedChanges || state.savePending) {
+    if (!canEdit() || !await saveController.flush()) { notify('仍有未同步修改，请先重试或导出备份'); return; }
+  }
+  try { await cloudStore.logout(); }
+  catch { notify('未能确认云端注销，请重试'); return; }
+  setSessionToken('');
+  state.auth = 'signed-out'; state.user = null; state.cloudLoaded = false;
+  state.profile = { ...DEFAULT_PROFILE }; state.records = {}; state.savedAt = null;
+  state.lastUndo = null; saveController = null;
+  document.querySelector('#app-dialog')?.close(); render();
+}
+function cloudBanner() {
+  if (state.auth === 'ready' && state.profile.birthDate && !cloudConflict) return '';
+  const message = cloudConflict ? '其他设备也修改了相同内容，请选择保留的版本。' : state.auth === 'unconfigured' ? '云端服务尚未配置。你可以浏览图谱；个人记录待配置并登录后使用。' : state.auth === 'loading' ? '正在校验身份并读取私有云端记录…' : state.auth === 'ready' ? '私有云端尚无宝宝资料。可建立资料，或迁入本机已有记录。' : '登录本人 GitHub 账号，读取并自动保存私有成长记录。';
+  return html`<section class="cloud-banner"><span>${icon('info')}${message}</span>${cloudConflict ? html`<button class="primary-button" data-action="resolve-conflicts">处理冲突</button>` : state.auth === 'ready' ? html`<button class="primary-button" data-action="profile">建立资料</button><button class="secondary-button" data-action="backup">迁入或备份</button>` : state.auth !== 'unconfigured' && state.auth !== 'loading' ? html`<button class="primary-button" data-action="login">GitHub 登录</button>` : ''}</section>`;
+}
+function conflictLabel(conflict) {
+  return conflict.skillId ? `${catalog.find(skill => skill.id === conflict.skillId)?.title || conflict.skillId} · ${conflict.field === 'note' ? '成长手记' : '完成日期'}` : conflict.field === 'name' ? '宝宝昵称' : '出生日期';
+}
+function openConflicts() {
+  if (!cloudConflict) return;
+  showDialog(html`${dialogHeader('双方内容均保留，等待你的选择', '处理同步冲突')}<form id="conflict-form">${cloudConflict.conflicts.map((item, index) => html`<fieldset class="conflict-field"><legend>${conflictLabel(item)}</legend><label><input type="radio" name="conflict-${index}" value="local" required /> 保留本页内容<pre>${item.local || '（清空／未完成）'}</pre></label><label><input type="radio" name="conflict-${index}" value="remote" required /> 保留云端内容<pre>${item.remote || '（清空／未完成）'}</pre></label></fieldset>`)}<div class="form-actions"><button type="button" class="secondary-button" data-action="export">先导出本页</button><button class="primary-button" type="submit">确认选择并同步</button></div></form>`, 'conflict-dialog');
 }
 
 function notify(message, undo = false) {
@@ -314,18 +405,18 @@ function hero() {
   const age = babyAge();
   const current = currentStage();
   const overall = getStats(catalog, state.records);
-  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1>小小的进步，<br />慢慢长成大大的世界<span>。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p><div class="baby-meta"><span class="age-pill">${icon('baby')}${age?.label || '等待宝宝到来'}</span><span class="birth-label">${dateLabel(state.profile.birthDate)} 出生</span><button class="text-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}</button></div></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1>小小的进步，<br />慢慢长成大大的世界<span>。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p><div class="baby-meta"><span class="age-pill">${icon('baby')}${age?.label || (state.profile.birthDate ? '等待宝宝到来' : '登录后查看宝宝年龄')}</span>${state.profile.birthDate ? html`<span class="birth-label">${dateLabel(state.profile.birthDate)} 出生</span>` : ''}<button class="text-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}</button></div></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
 }
 
 function stageNavigator() {
   const stage = selectedStage();
   const current = currentStage();
   const index = STAGES.indexOf(stage);
-  const preview = state.view === 'baby' && current?.id !== stage.id;
+  const preview = state.view === 'baby' && Boolean(current) && current.id !== stage.id;
   return html`<section class="stage-picker" aria-label="切换成长阶段">
     <div class="stage-picker-heading"><span class="section-kicker">${state.view === 'baby' ? '跟着宝宝的节奏' : '探索每个成长阶段'}</span><span class="swipe-hint">左右滑动，看看前后阶段 ${icon('arrow')}</span></div>
     <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button></div>
-    ${preview ? html`<div class="preview-caption">正在预览 ${stage.label}<button class="text-button" data-action="current-stage">回到宝宝当前阶段 ${icon('arrow')}</button></div>` : !current && state.view === 'baby' ? html`<div class="preview-caption">${babyAge() ? '宝宝已超出图谱年龄范围，可以继续回顾每个阶段。' : '宝宝还未出生，可以先预览各阶段。'}</div>` : ''}
+    ${preview ? html`<div class="preview-caption">正在预览 ${stage.label}<button class="text-button" data-action="current-stage">回到宝宝当前阶段 ${icon('arrow')}</button></div>` : !current && state.view === 'baby' ? html`<div class="preview-caption">${babyAge() ? '宝宝已超出图谱年龄范围，可以继续回顾每个阶段。' : state.profile.birthDate ? '宝宝还未出生，可以先预览各阶段。' : '先浏览各个阶段，登录并建立宝宝资料后自动定位。'}</div>` : ''}
   </section>`;
 }
 
@@ -390,7 +481,7 @@ function graphNode(skill, position, relations, categories, contextIds) {
   const branchColor = BRANCH_COLORS[Math.max(0, categories.indexOf(skill.category)) % BRANCH_COLORS.length];
   return html`<article class="graph-node role-${role} ${done ? 'node-completed' : ''}" data-graph-node="${skill.id}" style="left:${position.x}px;top:${position.y}px;width:${position.width}px;height:${position.height}px;--branch-color:${branchColor}" aria-label="${skill.title}，${skillStageLabel(skill)}">
     <button class="graph-select" data-focus-skill="${skill.id}" aria-label="追踪${skill.title}的前后脉络" aria-pressed="${selected}" title="${skill.title}"><span class="graph-node-meta"><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></span><strong class="graph-node-title">${skill.title}</strong></button>
-    <div class="graph-node-bottom"><span class="node-link-count">${skill.parents.length} 前序 <span>·</span> ${children.length} 后续</span>${selected ? html`<span class="node-focus-badge">正在看</span>` : done ? html`<span class="node-done-label">已完成</span>` : ''}<button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button></div>
+    <div class="graph-node-bottom"><span class="node-link-count">${skill.parents.length} 前序 <span>·</span> ${children.length} 后续</span>${selected ? html`<span class="node-focus-badge">${done ? '已完成' : '探索中'} · 正在看</span>` : done ? html`<span class="node-done-label">已完成</span>` : ''}<button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button></div>
   </article>`;
 }
 
@@ -403,7 +494,7 @@ function pathReader(skill) {
   const byId = new Map(catalog.map(item => [item.id, item]));
   return html`<details class="path-reader" open><summary><span>${icon('tree')} 逐条读完整脉络 <small>${result.total} 条路线</small></span>${icon('chevron')}</summary><p class="path-reader-hint">每条都从原图起点走到末端，经过当前技能；每一个箭头都对应原图中的关系。</p><div class="path-list">${result.paths.map((path, index) => html`<article class="path-route"><span class="path-number">路线 ${String(index + 1).padStart(2, '0')}</span><div class="path-steps">${path.ids.map((id, step) => {
     const item = byId.get(id);
-    return html`${step ? icon('arrow', 'path-arrow') : ''}<button class="path-step ${id === skill.id ? 'selected' : ''} ${isDone(id) ? 'done' : ''}" data-focus-skill="${id}"><small>${skillStageLabel(item)}</small><span>${isDone(id) ? icon('check') : ''}${item.title}</span></button>`;
+    return html`${step ? icon('arrow', 'path-arrow') : ''}<button class="path-step ${id === skill.id ? 'selected' : ''} ${isDone(id) ? 'done' : ''}" data-focus-skill="${id}" aria-label="${skillStageLabel(item)} ${item.title}，${isDone(id) ? '已完成' : '探索中'}"><small>${skillStageLabel(item)}</small><span>${isDone(id) ? icon('check') : ''}${item.title}</span>${id === skill.id ? html`<small class="path-step-status">${isDone(id) ? '已完成' : '探索中'}</small>` : ''}</button>`;
   })}</div></article>`)}</div>${result.truncated ? html`<p class="path-reader-hint">共 ${result.total} 条路线，当前显示前 ${result.paths.length} 条，可选择中间技能继续追踪。</p>` : ''}</details>`;
 }
 
@@ -431,7 +522,7 @@ function treeView() {
       <div class="graph-viewport" id="graph-viewport" tabindex="0" aria-label="${domain.label}完整技能脉络，可拖动或滚动查看"><div class="graph-scale-space" id="graph-scale-space" style="width:${layout.width * state.graphZoom}px;height:${layout.height * state.graphZoom}px"><div class="graph-scene" id="graph-scene" style="width:${layout.width}px;height:${layout.height}px;transform:scale(${state.graphZoom})">${layout.stages.map((stage, index) => html`<div class="graph-age-band ${index % 2 ? 'alternate' : ''}" style="left:${stage.x}px;width:${stage.width}px;height:${layout.height}px"><span>${stage.label}${currentStage()?.id === stage.id ? html`<small>宝宝在这里</small>` : ''}</span></div>`)}<svg id="graph-edges" width="${layout.width}" height="${layout.height}" aria-hidden="true"></svg>${layout.nodes.map(position => graphNode(catalog.find(item => item.id === position.id), position, relations, categories, graph.contextIds))}</div></div></div>
       <div class="graph-bottom-bar"><span>${icon('arrow')} 箭头指向下一项技能 · 拖动画布或横向滚动</span><span>${graph.nodes.length} 个技能 · ${graph.edges.length} 条关系${state.treeMode === 'overview' && graph.contextIds.length ? ` · 已保留 ${graph.contextIds.length} 项跨分支前序` : relations.supporting.length && state.treeMode === 'lineage' ? ` · 含 ${relations.supporting.length} 项补充前序` : ''}</span></div>
     </div>
-    <section class="direct-relations" aria-label="当前技能的直接前序与后续">${neighborList(relations.parents, 'before')}<div class="relation-focus-card"><span>当前技能 · ${skillStageLabel(skill)}</span><h3>${skill.title}</h3><div><button class="primary-button" data-detail="${skill.id}">${icon('note')} 详情与手记</button><button class="secondary-button" data-toggle="${skill.id}">${isDone(skill.id) ? '回退完成' : '标记完成'}</button></div></div>${neighborList(relations.children, 'after')}</section>
+    <section class="direct-relations" aria-label="当前技能的直接前序与后续">${neighborList(relations.parents, 'before')}<div class="relation-focus-card"><span>当前技能 · ${skillStageLabel(skill)}</span><h3>${skill.title}</h3><p class="relation-completion ${isDone(skill.id) ? 'done' : ''}">${icon(isDone(skill.id) ? 'check' : 'sprout')}${isDone(skill.id) ? '已完成' : '探索中'}</p><div><button class="primary-button" data-detail="${skill.id}">${icon('note')} 详情与手记</button><button class="secondary-button" data-toggle="${skill.id}" aria-pressed="${isDone(skill.id)}">${isDone(skill.id) ? '回退完成' : '标记完成'}</button></div></div>${neighborList(relations.children, 'after')}</section>
     ${pathReader(skill)}<p class="lineage-footnote">${icon('info')} 脉络来自原始图谱的发展关系，支持跨年龄、跨分支查看；前序尚未标注，也可以记录后续技能。</p>
   </section>`;
 }
@@ -469,7 +560,7 @@ function render() {
   const graphScroll = { top: graphViewport?.scrollTop || 0, left: graphViewport?.scrollLeft || 0 };
   const pathReaderOpen = document.querySelector('.path-reader')?.open ?? true;
   document.body.classList.toggle('graph-is-expanded', state.graphExpanded && state.view === 'tree');
-  app.replaceChildren(html`${sidebar()}<main class="main ${state.view === 'tree' ? 'graph-main' : ''}"><header class="topbar"><div class="breadcrumb">成长花园 <span>/</span> ${state.view === 'baby' ? '宝宝视角' : state.view === 'age' ? '按年龄看' : '技能全景'}</div><div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="本机保存状态：${saveLabel()}" title="${saveProblem() || `${saveTimeLabel()}，刷新后自动恢复`}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${state.view === 'tree' ? treeView() : html`${hero()}${stageNavigator()}${domainCards()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · 记录保存在当前浏览器</span></footer></main>`);
+  app.replaceChildren(html`${sidebar()}<main class="main ${state.view === 'tree' ? 'graph-main' : ''}"><header class="topbar"><div class="breadcrumb">成长花园 <span>/</span> ${state.view === 'baby' ? '宝宝视角' : state.view === 'age' ? '按年龄看' : '技能全景'}</div><div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="云端状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : html`${hero()}${stageNavigator()}${domainCards()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · 个人记录登录后同步到私有云端</span></footer></main>`);
   persistView();
   updateSaveStatus();
   if (focusId) {
@@ -589,42 +680,43 @@ function openDetail(id) {
   const parents = (skill.parents || []).map(parent => catalog.find(item => item.id === parent)).filter(Boolean);
   const children = catalog.filter(item => item.parents?.includes(id));
   const done = isDone(id);
-  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div><form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>手记和完成状态会自动保存到当前浏览器</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">原始图谱第 ${skill.sourcePage} 页 · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog');
+  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div><form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>手记与完成状态自动同步到私有云端</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">原始图谱第 ${skill.sourcePage} 页 · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog');
   dialog.dataset.skillId = id;
   updateSaveStatus();
 }
 
 function openProfile() {
+  if (!requireCloud(false)) return;
   showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><label class="form-field">出生日期<input type="date" name="birthDate" value="${state.profile.birthDate}" required /></label><p class="form-help">月龄会随日期自动更新，并定位到宝宝当前的成长阶段。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
 }
 
 function openBackup() {
   const stats = getStats(catalog, state.records);
   const notes = Object.values(state.records).filter(record => record.note?.trim()).length;
-  const origin = window.origin || location.origin;
-  showDialog(html`${dialogHeader('把成长好好收藏', '本机保存与备份')}<div class="backup-summary">${icon('sprout')}<p><strong>${stats.completed} 个已完成技能 · ${notes} 篇成长手记</strong><span>完成、回退、手记和宝宝资料会自动保存，刷新后恢复。</span></p></div><section class="storage-details ${saveProblem() ? 'has-error' : ''}"><h3>${icon(saveProblem() ? 'info' : 'check')}${saveProblem() ? '本机保存需要处理' : '本机保存已启用'}</h3><p>${saveProblem() || '已保存在当前浏览器，也会记住上次查看的年龄和技能脉络。'}</p><dl><dt>保存方式</dt><dd>本机数据库（IndexedDB）</dd><dt>存储地址</dt><dd>${origin === 'null' ? '当前预览环境（独立或受限）' : origin}</dd><dt>成长记录</dt><dd>${saveTimeLabel()}</dd></dl><p>同一浏览器、同一地址可持续使用。换设备、换域名或清理网站数据前，请先导出；到新地址后再导入。</p></section>${state.storageError ? html`<button class="secondary-button storage-retry" data-action="retry-save">重试保存到本机</button>` : ''}<button class="backup-option" data-action="export">${icon('download')}<span><strong>导出成长记录</strong><small>下载含宝宝资料、完成日期和手记的备份文件</small></span>${icon('chevron')}</button><label class="backup-option" tabindex="0" role="button" id="import-label">${icon('upload')}<span><strong>导入已有记录</strong><small>选择小芽备份文件，校验后再确认合并</small></span>${icon('chevron')}<input type="file" id="import-file" accept=".json,application/json" hidden /></label><p class="backup-footnote">记录保存在这台设备的浏览器中，不会自动同步到语雀账号或其他设备。</p>`);
+  showDialog(html`${dialogHeader('登录、同步与迁移', '云端同步与备份')}<div class="backup-summary">${icon('sprout')}<p><strong>${stats.completed} 个已完成技能 · ${notes} 篇成长手记</strong><span>${state.user ? `已登录 ${state.user.login}` : '尚未登录本人 GitHub 账号'} · ${saveLabel()}</span></p></div><section class="storage-details ${saveProblem() ? 'has-error' : ''}"><h3>${icon(saveProblem() ? 'info' : 'check')}${saveLabel()}</h3><p>${saveProblem() || (apiBase ? '个人记录以 GitHub 私有仓库为主存储。重新登录后可跨设备恢复。' : '网页已具备云端接口，尚需完成服务部署与登录配置。')}</p><p>${saveTimeLabel()}</p><p>仅云端确认后显示“已同步”。未同步内容暂留本页，请重试或导出后再离开。</p>${state.viewStorageError ? html`<p>${state.viewStorageError}</p>` : ''}</section><div class="cloud-actions">${state.auth === 'ready' ? html`<button class="secondary-button" data-action="logout">退出登录</button>` : apiBase ? html`<button class="primary-button" data-action="login">使用本人 GitHub 登录</button>` : html`<p>请先完成云端服务部署与登录配置，再启用个人记录。</p>`}${cloudConflict ? html`<button class="primary-button" data-action="resolve-conflicts">处理同步冲突</button>` : state.storageError && state.auth === 'ready' ? html`<button class="secondary-button" data-action="retry-save">重试同步</button>` : state.auth === 'error' && sessionToken ? html`<button class="secondary-button" data-action="reload-cloud">重新读取云端</button>` : ''}</div>${state.profile.birthDate ? html`<button class="backup-option" data-action="export">${icon('download')}<span><strong>导出本页成长记录</strong><small>含当前宝宝资料、完成日期和手记，包括尚未同步的修改</small></span>${icon('chevron')}</button>` : ''}<label class="backup-option" tabindex="0" role="button" id="import-label">${icon('upload')}<span><strong>导入 JSON 备份</strong><small>登录并读取云端后，校验、预览并确认合并</small></span>${icon('chevron')}<input type="file" id="import-file" accept=".json,application/json" hidden /></label>${localMigrations.length ? html`<section class="local-migration"><h3>发现旧本机记录</h3><p>旧数据保持原样；不会自动覆盖云端。迁入前请先导出留存。</p>${localMigrations.map((item, index) => html`<div class="migration-item"><strong>${item.label}</strong>${item.snapshot ? html`<span>${getStats(catalog, item.snapshot.records).completed} 项已完成</span>` : ''}<div><button class="secondary-button" data-action="export-local" data-index="${index}">导出原记录</button>${item.snapshot ? html`<button class="primary-button" data-action="migrate-local" data-index="${index}">预览迁入</button>` : ''}</div></div>`)}</section>` : ''}<p class="backup-footnote">网页和技能目录公开；个人记录由本人身份保护。浏览器仅保留界面偏好和当前标签页的登录会话。</p>`);
 }
-
-function exportBackup() {
-  const data = { version: 1, profile: state.profile, records: state.records };
-  const url = URL.createObjectURL(new Blob([state.recoveryRaw ?? JSON.stringify(data, null, 2)], { type: 'application/json' }));
+function downloadBackup(raw, label) {
+  const url = URL.createObjectURL(new Blob([raw], { type: 'application/json' }));
   const link = document.createElement('a');
-  link.href = url;
-  link.download = `小芽${state.recoveryRaw !== null ? '原始记录_待恢复' : '成长记录'}_${localDateString()}.json`;
-  link.click();
+  link.href = url; link.download = `小芽${label}_${localDateString()}.json`; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  notify(state.recoveryRaw !== null ? '已导出原始记录，请修复后重新导入' : '成长记录已导出');
 }
-
+function exportBackup() {
+  if (!state.profile.birthDate) { openBackup(); return; }
+  downloadBackup(JSON.stringify(growthSnapshot(state), null, 2), '成长记录');
+  notify('已导出本页记录，请保留备份文件');
+}
+function previewImport(imported) {
+  if (!requireCloud(false)) return;
+  pendingImport = imported;
+  const stats = getStats(catalog, imported.records);
+  const overlap = Object.keys(imported.records).filter(id => Object.hasOwn(state.records, id)).length;
+  showDialog(html`${dialogHeader('校验通过，原始文件保持不变', '合并这份成长记录？')}<p class="import-description">来自「${imported.profile.name}」的记录，包含 ${stats.completed} 个完成标注、${Object.values(imported.records).filter(record => record.note).length} 篇手记。</p><div class="import-details"><p>宝宝资料将更新为 ${imported.profile.name} · ${dateLabel(imported.profile.birthDate)} 出生。</p><p>相同技能的 ${overlap} 条已有记录将采用导入内容；其余已有记录会保留。</p><p>确认后写入私有云端；若其他设备同时修改相同字段，将再次请你选择。</p></div><div class="form-actions"><button class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" data-action="confirm-import">确认合并并同步</button></div>`);
+}
 async function importBackup(file) {
-  if (!file) return;
-  try {
-    const imported = validateBackup(JSON.parse(await file.text()), catalog.map(skill => skill.id));
-    pendingImport = imported;
-    const stats = getStats(catalog, imported.records);
-    const overlap = Object.keys(imported.records).filter(id => Object.hasOwn(state.records, id)).length;
-    showDialog(html`${dialogHeader('备份校验通过', '合并这份成长记录？')}<p class="import-description">来自「${imported.profile.name}」的备份，包含 ${stats.completed} 个完成标注、${Object.values(imported.records).filter(record => record.note).length} 篇手记。</p><div class="import-details"><p>宝宝资料将更新为 ${imported.profile.name} · ${dateLabel(imported.profile.birthDate)} 出生。</p><p>相同技能的 ${overlap} 条已有记录将采用备份内容；其余已有记录会保留。</p></div><div class="form-actions"><button class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" data-action="confirm-import">确认合并</button></div>`);
-  } catch (error) { notify(error instanceof SyntaxError ? '文件不是有效的 JSON 备份' : error.message); }
+  if (!file || !requireCloud(false)) return;
+  try { previewImport(validateBackup(JSON.parse(await file.text()), catalog.map(skill => skill.id))); }
+  catch (error) { notify(error instanceof SyntaxError ? '文件不是有效的 JSON 备份' : error.message); }
 }
 
 function changeStage(id) {
@@ -637,6 +729,7 @@ function changeStage(id) {
 }
 
 async function toggleSkill(id) {
+  if (!requireCloud()) return;
   if (!catalog.some(skill => skill.id === id)) return;
   const dialog = document.querySelector('#app-dialog');
   const note = dialog?.dataset.skillId === id ? dialog.querySelector('[name="note"]')?.value : undefined;
@@ -689,19 +782,33 @@ document.addEventListener('click', async event => {
       case 'profile': openProfile(); break;
       case 'backup': case 'storage-status': openBackup(); break;
       case 'export': exportBackup(); break;
+      case 'login': loginCloud(); break;
+      case 'logout': await logoutCloud(); break;
+      case 'reload-cloud': await connectCloud(); break;
+      case 'resolve-conflicts': openConflicts(); break;
+      case 'export-local': {
+        const item = localMigrations[Number(element.dataset.index)];
+        if (item) { downloadBackup(item.raw || JSON.stringify(item.snapshot, null, 2), '旧本机记录'); notify('旧本机记录已导出'); }
+        break;
+      }
+      case 'migrate-local': {
+        const item = localMigrations[Number(element.dataset.index)];
+        if (item?.snapshot) previewImport(item.snapshot);
+        break;
+      }
       case 'retry-save': {
-        const saved = await persist();
+        if (!requireCloud(false)) break;
+        const saved = state.hasUnsavedChanges ? await persist() : (await syncGrowth(true), !state.storageError);
         render();
         if (document.querySelector('#app-dialog')?.querySelector('.storage-details')) openBackup();
-        notify(saved ? '成长记录已保存到本机' : state.storageError);
+        notify(saved ? '成长记录已同步到云端' : state.storageError);
         break;
       }
       case 'close-dialog': document.querySelector('#app-dialog')?.close(); break;
       case 'confirm-import': {
-        if (!pendingImport) break;
+        if (!pendingImport || !requireCloud(false)) break;
         state.profile = pendingImport.profile;
         state.records = { ...state.records, ...pendingImport.records };
-        state.recoveryRaw = null;
         pendingImport = null;
         state.lastUndo = null;
         state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
@@ -715,7 +822,7 @@ document.addEventListener('click', async event => {
       }
       case 'undo': {
         const undo = state.lastUndo;
-        if (!undo) break;
+        if (!undo || !requireCloud()) break;
         if (undo.previous) state.records = { ...state.records, [undo.id]: undo.previous };
         else { state.records = { ...state.records }; delete state.records[undo.id]; }
         state.lastUndo = null;
@@ -733,12 +840,14 @@ document.addEventListener('click', async event => {
 document.addEventListener('input', event => {
   if (event.target.id === 'skill-search') { state.search = event.target.value; render(); }
   if (event.target.id === 'skill-note') {
+    if (!requireCloud()) return;
     const id = event.target.form.dataset.id;
     state.records = { ...state.records, [id]: { ...state.records[id], note: event.target.value } };
     if (!event.target.value && !state.records[id].completedAt) delete state.records[id];
-    void persist();
+    void persist({ debounce: true });
   }
   if (event.target.name === 'completedAt' && event.target.validity.valid && event.target.value) {
+    if (!requireCloud()) return;
     const id = event.target.form.dataset.id;
     state.records = { ...state.records, [id]: { ...state.records[id], completedAt: event.target.value } };
     void persist();
@@ -762,9 +871,23 @@ document.addEventListener('keydown', event => {
 });
 document.addEventListener('submit', async event => {
   const form = event.target;
-  if (!['profile-form', 'skill-form'].includes(form.id)) return;
+  if (!['profile-form', 'skill-form', 'conflict-form'].includes(form.id)) return;
   event.preventDefault();
   const data = new FormData(form);
+  if (form.id === 'conflict-form') {
+    if (!cloudConflict || state.savePending) return;
+    const conflict = cloudConflict;
+    const choices = Object.fromEntries(conflict.conflicts.map((item, index) => [item.key, data.get(`conflict-${index}`)]));
+    const merged = mergeGrowthSnapshots(conflict.base, conflict.local, conflict.remote, choices);
+    if (merged.conflicts.length) return;
+    cloudConflict = null;
+    saveController.adopt({ snapshot: conflict.remote, revision: conflict.revision, savedAt: conflict.savedAt }, merged.snapshot);
+    document.querySelector('#app-dialog')?.close();
+    const saved = await persist();
+    notify(saved ? '冲突已处理，云端已同步' : state.storageError);
+    return;
+  }
+  if (!requireCloud(form.id !== 'profile-form')) return;
   if (form.id === 'profile-form') {
     try {
       const validated = validateBackup({ version: 1, profile: { name: data.get('name'), birthDate: data.get('birthDate') }, records: state.records }, catalog.map(skill => skill.id));
@@ -845,30 +968,24 @@ document.addEventListener('wheel', event => {
   event.preventDefault();
   setGraphZoom(state.graphZoom * Math.exp(-event.deltaY * .002));
 }, { passive: false });
-async function syncGrowth() {
-  if (!growthStore || state.savePending || state.hasUnsavedChanges || !catalog.length) return;
+async function syncGrowth(force = false) {
+  if (!cloudStore || !canEdit() || cloudRefreshing || state.savePending || state.hasUnsavedChanges || (!force && document.querySelector('#app-dialog'))) return;
+  cloudRefreshing = true;
+  const editRevision = saveRevision;
   try {
-    const loaded = await growthStore.load();
-    if (!loaded || state.savePending || state.hasUnsavedChanges) return;
-    const changed = growthFingerprint(loaded) !== growthFingerprint(state);
-    if (changed) applyGrowth(loaded);
-    else state.savedAt = loaded.savedAt;
-    lastCommittedGrowth = growthSnapshot(loaded);
-    state.recoveryRaw = null;
+    const loaded = await cloudStore.load();
+    if (!canEdit() || state.savePending || state.hasUnsavedChanges || editRevision !== saveRevision) return;
+    if (!loaded.snapshot) { state.profile = { ...DEFAULT_PROFILE }; state.records = {}; }
+    saveController.adopt(loaded);
     state.storageError = '';
-    state.storageReadFailed = false;
-    if (!changed) { updateSaveStatus(); return; }
-    lastCurrentStage = currentStage()?.id;
+    state.cloudEmpty = loaded.snapshot === null;
     render();
-    const openSkillId = document.querySelector('#app-dialog')?.dataset.skillId;
-    if (openSkillId) openDetail(openSkillId);
-    notify('已同步另一个标签页的成长记录');
-  } catch { /* 同步失败不覆盖当前页面记录。 */ }
+  } catch (error) {
+    state.storageError = error.message;
+    if (error.code === 'AUTH_REQUIRED') { state.auth = 'expired'; setSessionToken(''); }
+    updateSaveStatus();
+  } finally { cloudRefreshing = false; }
 }
-try {
-  syncChannel = new BroadcastChannel('xiaoya-growth-updates-v1');
-  syncChannel.addEventListener('message', () => { void syncGrowth(); });
-} catch { /* 不支持消息通道时，重新聚焦仍会读取本机记录。 */ }
 window.addEventListener('beforeunload', event => {
   if (!state.savePending && !state.hasUnsavedChanges) return;
   event.preventDefault();
@@ -881,11 +998,26 @@ async function start() {
     if (!catalogResponse.ok || !resourcesResponse.ok) throw new Error('成长图谱暂时没有加载成功，请刷新重试。');
     catalog = await catalogResponse.json();
     resources = await resourcesResponse.json();
-    await restoreGrowth();
+    await findLocalMigrations();
+    try {
+      const response = await fetch('./cloud-config.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error('云端配置读取失败');
+      const config = await response.json();
+      if (config.apiBase) {
+        const url = new URL(config.apiBase);
+        const local = ['localhost', '127.0.0.1'].includes(url.hostname) && ['localhost', '127.0.0.1'].includes(location.hostname);
+        if ((url.protocol !== 'https:' && !(local && url.protocol === 'http:')) || url.username || url.password || url.search || url.hash || (url.pathname !== '/' && url.pathname !== '')) throw new Error('云端地址配置无效');
+        apiBase = url.origin;
+        cloudStore = createCloudStore({ apiBase, validIds: catalog.map(skill => skill.id), getToken: () => sessionToken });
+        state.auth = 'signed-out';
+        try { sessionToken = sessionStorage.getItem(SESSION_KEY) || ''; } catch { /* 仅内存会话。 */ }
+      }
+    } catch (error) { state.storageError = error.message; }
     state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
     lastCurrentStage = currentStage()?.id;
     restoreView();
     render();
+    if (sessionToken) await connectCloud();
   } catch (error) {
     app.replaceChildren(html`<main class="load-error">${icon('sprout')}<h1>小芽还没准备好</h1><p>${error.message}</p><p>请通过本地服务打开网页，避免直接双击 HTML 文件。</p><button class="primary-button" id="retry-button">重新加载</button></main>`);
     document.querySelector('#retry-button').addEventListener('click', () => location.reload());

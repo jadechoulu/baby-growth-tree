@@ -6,19 +6,25 @@ import {
 } from '../lib/model.mjs';
 
 const localDay = (year, month, day) => new Date(year, month - 1, day, 12);
+const profile = Object.freeze({ name: '测试宝宝', birthDate: '2025-01-15' });
+
+test('公开默认资料不内置生日，未设置时不计算月龄', () => {
+  assert.equal(DEFAULT_PROFILE.birthDate, '');
+  assert.equal(getAge(DEFAULT_PROFILE.birthDate, localDay(2026, 10, 27)), null);
+});
 
 test('按完整日历月计算月龄，并在出生当天返回零月龄', () => {
-  assert.deepEqual(getAge(DEFAULT_PROFILE.birthDate, localDay(2026, 10, 27)), {
+  assert.deepEqual(getAge(profile.birthDate, localDay(2026, 12, 18)), {
     years: 1, months: 11, days: 3, totalMonths: 23, label: '1岁11个月3天',
   });
-  assert.deepEqual(getAge('2024-11-24', localDay(2024, 11, 24)), {
+  assert.deepEqual(getAge(profile.birthDate, localDay(2025, 1, 15)), {
     years: 0, months: 0, days: 0, totalMonths: 0, label: '0天',
   });
-  assert.equal(getAge('2024-11-24', localDay(2025, 11, 23)).totalMonths, 11);
-  assert.equal(getAge('2024-11-24', localDay(2025, 11, 24)).years, 1);
-  assert.equal(getAge('2024-11-24', localDay(2024, 11, 23)), null);
+  assert.equal(getAge(profile.birthDate, localDay(2026, 1, 14)).totalMonths, 11);
+  assert.equal(getAge(profile.birthDate, localDay(2026, 1, 15)).years, 1);
+  assert.equal(getAge(profile.birthDate, localDay(2025, 1, 14)), null);
   assert.equal(getAge('2024-02-30', localDay(2025, 1, 1)), null);
-  assert.equal(getAge('2024-11-24', new Date('invalid')), null);
+  assert.equal(getAge(profile.birthDate, new Date('invalid')), null);
 });
 
 test('月末生日、闰日与跨月天数按日历计算', () => {
@@ -77,7 +83,7 @@ test('完成与撤销保持原状态不可变，撤销保留笔记', () => {
 
 const backup = () => ({
   version: 1,
-  profile: { name: '  宝宝  ', birthDate: '2024-11-24' },
+  profile: { name: '  宝宝  ', birthDate: profile.birthDate },
   records: { a: { completedAt: '2024-02-29', note: '会翻身了' } },
 });
 
@@ -89,7 +95,7 @@ test('备份规范化只保留资料和技能记录的公开字段', () => {
   input.records.b = {};
   const result = validateBackup(input, new Set(['a', 'b']));
   assert.deepEqual(result, {
-    version: 1, profile: { name: '宝宝', birthDate: '2024-11-24' },
+    version: 1, profile: { name: '宝宝', birthDate: profile.birthDate },
     records: { a: { completedAt: '2024-02-29', note: '会翻身了' } },
   });
   result.records.a.note = '新笔记';
@@ -103,10 +109,10 @@ test('备份拒绝无效结构、未知技能、不真实日期和超长字段',
     assert.throws(() => validateBackup({ ...backup(), profile: { name: '宝宝', birthDate } }, ['a']), /出生日期/);
   }
   for (const name of ['', '   ', '宝'.repeat(31), 12]) {
-    assert.throws(() => validateBackup({ ...backup(), profile: { name, birthDate: '2024-11-24' } }, ['a']), /昵称/);
+    assert.throws(() => validateBackup({ ...backup(), profile: { name, birthDate: profile.birthDate } }, ['a']), /昵称/);
   }
   assert.throws(() => validateBackup(backup(), ['other']), /未知技能/);
-  const prototypeKey = JSON.parse('{"version":1,"profile":{"name":"宝宝","birthDate":"2024-11-24","__proto__":{"admin":true}},"records":{"__proto__":{"completedAt":"2026-10-27"}}}');
+  const prototypeKey = JSON.parse('{"version":1,"profile":{"name":"宝宝","birthDate":"2025-01-15","__proto__":{"admin":true}},"records":{"__proto__":{"completedAt":"2026-10-27"}}}');
   assert.throws(() => validateBackup(prototypeKey, ['a']), /未知技能/);
   assert.equal({}.admin, undefined);
   for (const record of [[], null, 'done', { completedAt: '2025-02-29' }, { completedAt: null }, { note: 3 }, { note: '字'.repeat(2001) }]) {

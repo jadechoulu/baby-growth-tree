@@ -1,0 +1,45 @@
+name: 手动发布小芽网页
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/codex/pages'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      XIAOYA_API_BASE: ${{ vars.XIAOYA_API_BASE }}
+    steps:
+      - name: 读取代码
+        uses: actions/checkout@v4
+      - name: 使用 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 执行测试
+        run: node --test tests/*.test.mjs
+      - name: 确认云端 API 已配置
+        run: node --input-type=module -e "if (!process.env.XIAOYA_API_BASE?.trim()) throw new Error('请先设置仓库变量 XIAOYA_API_BASE，再发布正式页面')"
+      - name: 生成白名单发布包
+        run: node scripts/build-pages.mjs
+      - name: 配置 Pages
+        uses: actions/configure-pages@v5
+      - name: 上传网页发布包
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/pages
+      - name: 发布网页
+        id: deployment
+        uses: actions/deploy-pages@v4
