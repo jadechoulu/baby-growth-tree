@@ -1,0 +1,1241 @@
+{
+  "id": "xu-panorama",
+  "label": "听说读写全景",
+  "description": "英语通关全景图四阶段（极简版）。按原图保留听力、口语、阅读、写作四个领域；听力分300/500/800/1000/2000词节点，阅读分识字、泛读、精读。",
+  "scope": "从听力词汇积累延伸至口语、识字、泛读、精读和写作的全景版本；与六阶段分级动画拉听力表、阶段执行安排并列查看，不按序号混合。",
+  "source": {
+    "file": "assets/sources/xu-panorama.png",
+    "originalPath": "/var/folders/9b/f2rz9b092_q4xznss1hqhtpc0000gn/T/codex-clipboard-fbd30950-1638-4224-b46e-f15766dbf6e3.png",
+    "pageCount": 1,
+    "previews": [
+      {
+        "page": 1,
+        "path": "assets/previews/xu-panorama.jpg"
+      }
+    ]
+  },
+  "notes": [
+    "图标题为“英语通关全景图四阶段（极简版）”，图中带“许密杉老师原创”水印。",
+    "这是独立全景版本，不能把听力300/500/800/1000/2000词直接改写为原六阶段的编号。",
+    "词数节点原图未说明为准入还是达成目标；仅保留标签，不据此生成硬门槛。",
+    "原图没有年龄、每日时长或执行频率，未自行补填。",
+    "听力1000词列桥梁书、听力2000词列初章书；阅读泛读的1000–8000词是另一任务口径。",
+    "泛品牌“学乐”不自动合并到具体套系。",
+    "原图有活动但没有具体书目的分支仅作为活动保存，例如国际音标、语法书、校内教材、作文训练和听力2000词的初章书。"
+  ],
+  "resources": [
+    {
+      "id": "xu-panorama-noun-cards",
+      "title": "名词卡",
+      "type": "flashcard",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原图未指定品牌或具体套系。"
+      ]
+    },
+    {
+      "id": "xu-panorama-verb-cards",
+      "title": "动词卡",
+      "type": "flashcard",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原图未指定品牌或具体套系。"
+      ]
+    },
+    {
+      "id": "xu-panorama-badi",
+      "title": "巴蒂英语",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-pearson-vocabulary",
+      "title": "培生词汇妙趣屋",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-big-cat",
+      "title": "大猫",
+      "type": "reader",
+      "levels": [
+        "预备级",
+        "1–3",
+        "4–5"
+      ],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-youyou",
+      "title": "悠游",
+      "type": "reader",
+      "levels": [
+        "第一级"
+      ],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-heinemann",
+      "title": "海尼曼",
+      "type": "reader",
+      "levels": [
+        "GK"
+      ],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-pearson-starlight",
+      "title": "培生启明星",
+      "type": "reader",
+      "levels": [
+        "1–3",
+        "4–5",
+        "1–2"
+      ],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-scholastic-unspecified",
+      "title": "学乐（未注明套系）",
+      "type": "reader",
+      "levels": [
+        "A–C",
+        "D–E"
+      ],
+      "page": 1,
+      "notes": [
+        "原图只写学乐及字母级别，没有给出具体套系；不自动归并到FLR或学乐小读者。"
+      ]
+    },
+    {
+      "id": "xu-panorama-pearson-story-house",
+      "title": "培生亲子故事屋",
+      "type": "reader",
+      "levels": [
+        "基础级",
+        "进阶级"
+      ],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-green-forest",
+      "title": "绿色大森林",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-bat-friends",
+      "title": "蝙蝠和朋友们",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-oxford-tree",
+      "title": "牛津树",
+      "type": "reader",
+      "levels": [
+        "1–3"
+      ],
+      "page": 1,
+      "notes": [
+        "阅读泛读分支只标中高级别，未提供数字级别。"
+      ]
+    },
+    {
+      "id": "xu-panorama-fly-guy",
+      "title": "苍蝇小子",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-frog-little",
+      "title": "蛙小弟",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-pete-cat",
+      "title": "皮特猫",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-muzzy",
+      "title": "大马泽",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-wow",
+      "title": "WOW",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-peppa",
+      "title": "小猪佩奇",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-oxford-phonics",
+      "title": "牛津自拼",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原图自然拼读分支的素材，与牛津树分开记录。"
+      ]
+    },
+    {
+      "id": "xu-panorama-lisheng-sight",
+      "title": "丽声高频词",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-shalin-sight",
+      "title": "莎林高频词",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-evan-moor-sight",
+      "title": "Evan-moor sight words",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-vegetable-kingdom",
+      "title": "蔬菜王国",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-lisheng-phonics",
+      "title": "丽声自然拼读",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-big-cat-phonics",
+      "title": "大猫自然拼读",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "自然拼读套系，与大猫分级系列分开记录。"
+      ]
+    },
+    {
+      "id": "xu-panorama-raz",
+      "title": "RAZ",
+      "type": "reader",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原图只写中高级别分级阅读，未提供字母级别。"
+      ]
+    },
+    {
+      "id": "xu-panorama-amelia-bedelia",
+      "title": "糊涂女佣",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-winnie",
+      "title": "女巫温妮",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-frog-toad",
+      "title": "青蛙蟾蜍",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-magic-tree-house",
+      "title": "神奇树屋",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-my-weird-school",
+      "title": "疯狂学校",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-geronimo-stilton",
+      "title": "老鼠记者",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-captain-underpants",
+      "title": "内裤超人",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-roald-dahl",
+      "title": "罗尔德达尔",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原图按作者列入中章书分支，没有指定作品或套系；不补具体书名。"
+      ]
+    },
+    {
+      "id": "xu-panorama-magic-school-bus",
+      "title": "神奇校车",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-harry-potter",
+      "title": "哈里波特",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-new-concept",
+      "title": "新概念",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-power-up",
+      "title": "Power up",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-think",
+      "title": "think",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-basic-reading",
+      "title": "basic reading",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    },
+    {
+      "id": "xu-panorama-basic-words",
+      "title": "basic words",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": []
+    }
+  ],
+  "stages": [
+    {
+      "id": "xu-panorama-listening-300",
+      "order": 1,
+      "title": "听力阶段 · 300词",
+      "shortTitle": "听力300词",
+      "group": "听力阶段",
+      "domain": "listening",
+      "goal": "300词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "300词是原图听力分支的节点标签；原图没有说明是准入要求还是阶段达成目标，也未给年龄。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-noun-cards",
+          "level": null,
+          "role": "闪卡",
+          "original": "名词卡",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-verb-cards",
+          "level": null,
+          "role": "闪卡",
+          "original": "动词卡",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-badi",
+          "level": null,
+          "role": "闪卡式绘本",
+          "original": "巴蒂英语",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pearson-vocabulary",
+          "level": null,
+          "role": "闪卡式绘本",
+          "original": "培生词汇妙趣屋",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-big-cat",
+          "level": "预备级",
+          "role": "闪卡式绘本",
+          "original": "大猫预备级",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-youyou",
+          "level": "第一级",
+          "role": "闪卡式绘本",
+          "original": "悠游第一级",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "闪卡",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-noun-cards",
+            "xu-panorama-verb-cards"
+          ],
+          "method": "名词卡、动词卡。原图未给频率、每日时长或具体品牌。",
+          "minutes": ""
+        },
+        {
+          "title": "闪卡式绘本",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-badi",
+            "xu-panorama-pearson-vocabulary",
+            "xu-panorama-big-cat",
+            "xu-panorama-youyou"
+          ],
+          "method": "巴蒂英语、培生词汇妙趣屋、大猫预备级、悠游第一级。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-listening-500",
+      "order": 2,
+      "title": "听力阶段 · 500词",
+      "shortTitle": "听力500词",
+      "group": "听力阶段",
+      "domain": "listening",
+      "goal": "500词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "500词为原图节点标签，不作为自动准入门槛。",
+        "学乐未注明具体套系；保留品牌与原级别，不推断为FLR。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-heinemann",
+          "level": "GK",
+          "role": "海尼曼GK主节点",
+          "original": "海尼曼GK",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-big-cat",
+          "level": "1–3",
+          "role": "海尼曼GK配套分支",
+          "original": "大猫1-3级别",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pearson-starlight",
+          "level": "1–3",
+          "role": "海尼曼GK配套分支",
+          "original": "培生启明星1-3级别",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-scholastic-unspecified",
+          "level": "A–C",
+          "role": "海尼曼GK配套分支",
+          "original": "学乐A-C级别",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pearson-story-house",
+          "level": "基础级",
+          "role": "海尼曼GK配套分支",
+          "original": "培生亲子故事屋基础级",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-green-forest",
+          "level": null,
+          "role": "动画片",
+          "original": "绿色大森林",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-bat-friends",
+          "level": null,
+          "role": "动画片",
+          "original": "蝙蝠和朋友们",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "海尼曼GK及配套分级",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-heinemann",
+            "xu-panorama-big-cat",
+            "xu-panorama-pearson-starlight",
+            "xu-panorama-scholastic-unspecified",
+            "xu-panorama-pearson-story-house"
+          ],
+          "method": "海尼曼GK分支下列出大猫1–3、培生启明星1–3、学乐A–C、培生亲子故事屋基础级。图中未给日程。",
+          "minutes": ""
+        },
+        {
+          "title": "动画片",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-green-forest",
+            "xu-panorama-bat-friends"
+          ],
+          "method": "绿色大森林、蝙蝠和朋友们。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-listening-800",
+      "order": 3,
+      "title": "听力阶段 · 800词",
+      "shortTitle": "听力800词",
+      "group": "听力阶段",
+      "domain": "listening",
+      "goal": "800词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "800词为原图节点标签，不作为自动准入门槛。",
+        "学乐原文写“D E级别”，按两个相邻字母级别显示为D–E；具体套系仍不明。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-oxford-tree",
+          "level": "1–3",
+          "role": "牛津树1–3主节点",
+          "original": "牛津树1-3",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-big-cat",
+          "level": "4–5",
+          "role": "牛津树配套分支",
+          "original": "大猫4-5级别",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pearson-starlight",
+          "level": "4–5",
+          "role": "牛津树配套分支",
+          "original": "培生启明星4-5级别",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pearson-story-house",
+          "level": "进阶级",
+          "role": "牛津树配套分支",
+          "original": "培生亲子故事屋进阶级",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-scholastic-unspecified",
+          "level": "D–E",
+          "role": "牛津树配套分支",
+          "original": "学乐D E级别",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "牛津树1–3及配套分级",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-oxford-tree",
+            "xu-panorama-big-cat",
+            "xu-panorama-pearson-starlight",
+            "xu-panorama-pearson-story-house",
+            "xu-panorama-scholastic-unspecified"
+          ],
+          "method": "牛津树1–3分支下列出大猫4–5、培生启明星4–5、培生亲子故事屋进阶级和学乐D、E。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-listening-1000",
+      "order": 4,
+      "title": "听力阶段 · 1000词",
+      "shortTitle": "听力1000词",
+      "group": "听力阶段",
+      "domain": "listening",
+      "goal": "1000词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "1000词为原图节点标签，不作为自动准入门槛。",
+        "此全景图在听力1000词列桥梁书，与原六阶段拉听力表的编排不同；作为独立版本保留。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-fly-guy",
+          "level": null,
+          "role": "桥梁书",
+          "original": "苍蝇小子",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-frog-little",
+          "level": null,
+          "role": "桥梁书",
+          "original": "蛙小弟",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pete-cat",
+          "level": null,
+          "role": "桥梁书",
+          "original": "皮特猫",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-muzzy",
+          "level": null,
+          "role": "动画片",
+          "original": "大马泽",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-wow",
+          "level": null,
+          "role": "动画片",
+          "original": "WOW",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "桥梁书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-fly-guy",
+            "xu-panorama-frog-little",
+            "xu-panorama-pete-cat"
+          ],
+          "method": "苍蝇小子、蛙小弟、皮特猫。原图未给单册顺序或级别。",
+          "minutes": ""
+        },
+        {
+          "title": "动画片",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-muzzy",
+            "xu-panorama-wow"
+          ],
+          "method": "大马泽、WOW。原图未给季数。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-listening-2000",
+      "order": 5,
+      "title": "听力阶段 · 2000词",
+      "shortTitle": "听力2000词",
+      "group": "听力阶段",
+      "domain": "listening",
+      "goal": "2000词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "2000词为原图节点标签，不作为自动准入门槛。",
+        "初章书没有具体书名；不把阅读泛读分支的书目自动补到此节点。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-peppa",
+          "level": null,
+          "role": "动画片",
+          "original": "小猪佩奇",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "初章书",
+          "frequency": "",
+          "materials": [],
+          "method": "原图在听力2000词节点只写“初章书”，没有列具体书名、套系或级别。",
+          "minutes": ""
+        },
+        {
+          "title": "动画片",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-peppa"
+          ],
+          "method": "小猪佩奇，未注明季数。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-speaking",
+      "order": 6,
+      "title": "口语阶段 · 发音与表达",
+      "shortTitle": "口语阶段",
+      "group": "口语阶段",
+      "domain": "speaking",
+      "goal": "发音：国际音标；表达：主题背诵、外教课、动画片台词扮演",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "口语阶段与听力阶段是不同领域，不将其排列位置理解为必须完成2000听力词后才可开始。",
+        "本页忠实保留原图的国际音标分支，不据此向当前低龄宝宝推荐音标训练。"
+      ],
+      "materials": [],
+      "activities": [
+        {
+          "title": "发音 · 国际音标",
+          "frequency": "",
+          "materials": [],
+          "method": "原图列出“发音→国际音标”，未提供具体教材、训练频率或开始年龄。",
+          "minutes": ""
+        },
+        {
+          "title": "表达 · 主题背诵",
+          "frequency": "",
+          "materials": [],
+          "method": "原图表达分支列“主题背诵”，未提供具体主题或材料。",
+          "minutes": ""
+        },
+        {
+          "title": "表达 · 外教课",
+          "frequency": "",
+          "materials": [],
+          "method": "原图表达分支列“外教课”，未给课程或频率。",
+          "minutes": ""
+        },
+        {
+          "title": "表达 · 动画片台词扮演",
+          "frequency": "",
+          "materials": [],
+          "method": "原图表达分支列“动画片台词扮演”，未指定具体动画。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-reading-literacy",
+      "order": 7,
+      "title": "阅读阶段 · 识字阶段",
+      "shortTitle": "阅读·识字",
+      "group": "阅读阶段",
+      "domain": "reading",
+      "goal": "自然拼读、高频词、解码书、低级别分级反复跟读",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "此处海尼曼GK、启明星1–2用于识字和反复跟读，与听力阶段使用同套书的任务不同。",
+        "牛津自拼与牛津树、大猫自然拼读与大猫分级各自分开记录。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-oxford-phonics",
+          "level": null,
+          "role": "自然拼读",
+          "original": "牛津自拼",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-lisheng-sight",
+          "level": null,
+          "role": "高频词",
+          "original": "丽声高频词",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-shalin-sight",
+          "level": null,
+          "role": "高频词",
+          "original": "莎林高频词",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-evan-moor-sight",
+          "level": null,
+          "role": "高频词",
+          "original": "Evan-moor sight words",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-vegetable-kingdom",
+          "level": null,
+          "role": "解码书",
+          "original": "蔬菜王国",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-lisheng-phonics",
+          "level": null,
+          "role": "解码书",
+          "original": "丽声自然拼读",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-big-cat-phonics",
+          "level": null,
+          "role": "解码书",
+          "original": "大猫自然拼读",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-heinemann",
+          "level": "GK",
+          "role": "低级别分级反复跟读",
+          "original": "海尼曼GK",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-pearson-starlight",
+          "level": "1–2",
+          "role": "低级别分级反复跟读",
+          "original": "培生启明星1-2级别",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "自然拼读",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-oxford-phonics"
+          ],
+          "method": "牛津自拼。原图未给级别或训练频率。",
+          "minutes": ""
+        },
+        {
+          "title": "高频词",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-lisheng-sight",
+            "xu-panorama-shalin-sight",
+            "xu-panorama-evan-moor-sight"
+          ],
+          "method": "丽声高频词、莎林高频词、Evan-moor sight words。",
+          "minutes": ""
+        },
+        {
+          "title": "解码书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-vegetable-kingdom",
+            "xu-panorama-lisheng-phonics",
+            "xu-panorama-big-cat-phonics"
+          ],
+          "method": "蔬菜王国、丽声自然拼读、大猫自然拼读。",
+          "minutes": ""
+        },
+        {
+          "title": "低级别分级反复跟读",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-heinemann",
+            "xu-panorama-pearson-starlight"
+          ],
+          "method": "海尼曼GK、培生启明星1–2。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-reading-extensive",
+      "order": 8,
+      "title": "阅读阶段 · 泛读阶段",
+      "shortTitle": "阅读·泛读",
+      "group": "阅读阶段",
+      "domain": "reading",
+      "goal": "目的：积累1000–8000单词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "1000–8000单词是原图阅读泛读分支的积累目的，不是听力词汇门槛，也不与听力1000词节点自动等同。",
+        "桥梁、初章、中章、高章的分组按原图保留，具体版本和单册顺序未注明。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-oxford-tree",
+          "level": null,
+          "role": "中高级别分级阅读",
+          "original": "牛津树",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-raz",
+          "level": null,
+          "role": "中高级别分级阅读",
+          "original": "RAZ",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-fly-guy",
+          "level": null,
+          "role": "桥梁书",
+          "original": "苍蝇小子",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-amelia-bedelia",
+          "level": null,
+          "role": "桥梁书",
+          "original": "糊涂女佣",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-winnie",
+          "level": null,
+          "role": "桥梁书",
+          "original": "女巫温妮",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-frog-toad",
+          "level": null,
+          "role": "桥梁书",
+          "original": "青蛙蟾蜍",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-magic-tree-house",
+          "level": null,
+          "role": "初章书",
+          "original": "神奇树屋",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-my-weird-school",
+          "level": null,
+          "role": "初章书",
+          "original": "疯狂学校",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-geronimo-stilton",
+          "level": null,
+          "role": "初章书",
+          "original": "老鼠记者",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-captain-underpants",
+          "level": null,
+          "role": "中章书",
+          "original": "内裤超人",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-roald-dahl",
+          "level": null,
+          "role": "中章书",
+          "original": "罗尔德达尔",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-magic-school-bus",
+          "level": null,
+          "role": "中章书",
+          "original": "神奇校车",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-harry-potter",
+          "level": null,
+          "role": "高章书",
+          "original": "哈里波特",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "中高级别分级阅读",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-oxford-tree",
+            "xu-panorama-raz"
+          ],
+          "method": "牛津树、RAZ。原图未给数字或字母级别，不能由听力800词节点的牛津树1–3推导此处级别。",
+          "minutes": ""
+        },
+        {
+          "title": "桥梁书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-fly-guy",
+            "xu-panorama-amelia-bedelia",
+            "xu-panorama-winnie",
+            "xu-panorama-frog-toad"
+          ],
+          "method": "苍蝇小子、糊涂女佣、女巫温妮、青蛙蟾蜍。",
+          "minutes": ""
+        },
+        {
+          "title": "初章书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-magic-tree-house",
+            "xu-panorama-my-weird-school",
+            "xu-panorama-geronimo-stilton"
+          ],
+          "method": "神奇树屋、疯狂学校、老鼠记者。",
+          "minutes": ""
+        },
+        {
+          "title": "中章书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-captain-underpants",
+            "xu-panorama-roald-dahl",
+            "xu-panorama-magic-school-bus"
+          ],
+          "method": "内裤超人、罗尔德达尔、神奇校车。原图按此类别排列；罗尔德达尔为作者条目，未指定作品。",
+          "minutes": ""
+        },
+        {
+          "title": "高章书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-harry-potter"
+          ],
+          "method": "哈里波特。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-reading-intensive",
+      "order": 9,
+      "title": "阅读阶段 · 精读阶段",
+      "shortTitle": "阅读·精读",
+      "group": "阅读阶段",
+      "domain": "reading",
+      "goal": "语法学习、教材学习、应试阅读文章练习",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "basic reading、basic words未标200/400/800等词数级别；不借阶段执行表补填本图。",
+        "“原版娃”“应试娃”是原图教材学习的两个分支名。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-new-concept",
+          "level": null,
+          "role": "语法学习",
+          "original": "新概念",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-power-up",
+          "level": null,
+          "role": "教材学习 · 原版娃",
+          "original": "Power up",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-think",
+          "level": null,
+          "role": "教材学习 · 原版娃",
+          "original": "think",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-basic-reading",
+          "level": null,
+          "role": "教材学习 · 应试娃",
+          "original": "basic reading",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-panorama-basic-words",
+          "level": null,
+          "role": "教材学习 · 应试娃",
+          "original": "basic words",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "语法学习 · 语法书",
+          "frequency": "",
+          "materials": [],
+          "method": "原图只写“语法书”，未指明书名、套系或级别。",
+          "minutes": ""
+        },
+        {
+          "title": "语法学习 · 新概念",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-new-concept"
+          ],
+          "method": "原图将新概念列于语法学习分支，未注明册数。",
+          "minutes": ""
+        },
+        {
+          "title": "教材学习 · 原版娃",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-power-up",
+            "xu-panorama-think"
+          ],
+          "method": "Power up、think。",
+          "minutes": ""
+        },
+        {
+          "title": "教材学习 · 应试娃",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-basic-reading",
+            "xu-panorama-basic-words"
+          ],
+          "method": "basic reading、basic words、校内教材。校内教材没有给出具体版本。",
+          "minutes": ""
+        },
+        {
+          "title": "应试阅读文章练习 · 中考阅读题",
+          "frequency": "",
+          "materials": [],
+          "method": "原图列中考阅读题，未给具体材料来源。",
+          "minutes": ""
+        },
+        {
+          "title": "应试阅读文章练习 · 高考阅读题",
+          "frequency": "",
+          "materials": [],
+          "method": "原图列高考阅读题，未给具体材料来源。",
+          "minutes": ""
+        }
+      ]
+    },
+    {
+      "id": "xu-panorama-writing",
+      "order": 10,
+      "title": "写作阶段 · 作文练习",
+      "shortTitle": "写作阶段",
+      "group": "写作阶段",
+      "domain": "writing",
+      "goal": "百词作文（高考难度）；400–800词（专八难度）",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "百词、400–800词在写作分支指作文长度，不是听力词汇量或阶段准入线。"
+      ],
+      "materials": [],
+      "activities": [
+        {
+          "title": "百词作文（高考难度） · 书信小作文",
+          "frequency": "",
+          "materials": [],
+          "method": "原图百词作文分支：书信小作文。未给教材或频率。",
+          "minutes": ""
+        },
+        {
+          "title": "百词作文（高考难度） · 简单议论文",
+          "frequency": "",
+          "materials": [],
+          "method": "原图百词作文分支：简单议论文。未给教材或频率。",
+          "minutes": ""
+        },
+        {
+          "title": "400–800词（专八难度） · 观点对立型作文",
+          "frequency": "",
+          "materials": [],
+          "method": "原图400–800词分支：观点对立型作文。未给教材或频率。",
+          "minutes": ""
+        },
+        {
+          "title": "400–800词（专八难度） · 问题分析型作文",
+          "frequency": "",
+          "materials": [],
+          "method": "原图400–800词分支：问题分析型作文。未给教材或频率。",
+          "minutes": ""
+        }
+      ]
+    }
+  ],
+  "title": "许密杉路线 · 听说读写全景"
+}

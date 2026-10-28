@@ -1,0 +1,40 @@
+name: 构建小芽完整站点
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xiaoya-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取唯一源码工程
+        uses: actions/checkout@v4
+      - name: 使用 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 使用 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 验证两套应用与统一发布包
+        run: |
+          node --test tests/*.test.mjs english/tests/model.test.cjs
+          python3 tests/english-pages.test.py
+      - name: 构建统一白名单站点
+        env:
+          XIAOYA_API_BASE: ${{ vars.XIAOYA_API_BASE }}
+        run: node scripts/build-site.mjs
+      - name: 保存统一站点产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: xiaoya-site
+          path: dist/site
+          include-hidden-files: true

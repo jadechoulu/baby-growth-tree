@@ -1,0 +1,744 @@
+{
+  "resourceId": "resource-1bry08c",
+  "title": "SSS 儿歌歌单",
+  "attribution": "分类与顺序按用户提供的“小萌芽”歌单截图整理；“大童”为截图中的歌单名称。歌曲链接与预览图来自 Super Simple 官方目录，同名歌曲以链接中的官方版本为准。",
+  "verifiedAt": "2026-10-28",
+  "officialCatalog": "https://supersimple.com/super-simple-songs/",
+  "source": {
+    "id": "sss-playlists",
+    "title": "SSS 儿歌分类歌单 · 用户提供截图",
+    "file": "assets/sources/sss-playlists-1.jpg",
+    "previews": [
+      {
+        "page": 1,
+        "path": "assets/sources/sss-playlists-1.jpg"
+      },
+      {
+        "page": 2,
+        "path": "assets/sources/sss-playlists-2.jpg"
+      },
+      {
+        "page": 3,
+        "path": "assets/sources/sss-playlists-3.jpg"
+      },
+      {
+        "page": 4,
+        "path": "assets/sources/sss-playlists-4.jpg"
+      },
+      {
+        "page": 5,
+        "path": "assets/sources/sss-playlists-5.jpg"
+      },
+      {
+        "page": 6,
+        "path": "assets/sources/sss-playlists-6.jpg"
+      }
+    ],
+    "note": "6张用户提供的歌单截图，整理为必备10首、推荐30首、大童12首、一天8首；去重共42首。分类是歌单选曲，不作为路线阶段或年龄门槛。"
+  },
+  "categories": [
+    {
+      "id": "essential",
+      "label": "必备10首",
+      "songIds": [
+        "sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets",
+        "sss-old-macdonald-had-a-farm-2018",
+        "sss-peekaboo",
+        "sss-baby-shark",
+        "sss-five-little-ducks",
+        "sss-this-is-the-way",
+        "sss-wheels-on-the-bus",
+        "sss-head-shoulders-knees-toes-sing-it",
+        "sss-open-shut-them",
+        "sss-five-little-monkeys"
+      ]
+    },
+    {
+      "id": "recommended",
+      "label": "推荐30首",
+      "songIds": [
+        "sss-row-row-row-your-boat",
+        "sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets",
+        "sss-old-macdonald-had-a-farm-2018",
+        "sss-pat-a-cake",
+        "sss-alice-the-camel",
+        "sss-peekaboo",
+        "sss-mr-golden-sun",
+        "sss-baby-shark",
+        "sss-five-little-speckled-frogs",
+        "sss-five-little-ducks",
+        "sss-this-is-the-way",
+        "sss-hello-hello",
+        "sss-rain-rain-go-away",
+        "sss-wheels-on-the-bus",
+        "sss-one-little-finger",
+        "sss-head-shoulders-knees-toes-sing-it",
+        "sss-open-shut-them",
+        "sss-bingo",
+        "sss-twinkle-twinkle-little-star",
+        "sss-five-little-monkeys",
+        "sss-driving-in-my-car",
+        "sss-here-we-go-looby-loo",
+        "sss-farmer-in-the-dell",
+        "sss-down-by-the-bay",
+        "sss-who-took-the-cookie",
+        "sss-bath-song",
+        "sss-rock-scissors-paper-1",
+        "sss-im-a-little-snowman",
+        "sss-mary-had-a-kangaroo",
+        "sss-hickory-dickory-crash"
+      ]
+    },
+    {
+      "id": "older",
+      "label": "大童",
+      "songIds": [
+        "sss-at-the-north-pole",
+        "sss-down-by-the-spooky-bay",
+        "sss-here-we-go-looby-loo",
+        "sss-down-by-the-bay-3",
+        "sss-down-by-the-bay-2",
+        "sss-pat-a-cake",
+        "sss-rock-scissors-paper-4",
+        "sss-down-by-the-bay",
+        "sss-rock-scissors-paper-3",
+        "sss-who-took-the-cookie",
+        "sss-rock-scissors-paper-2",
+        "sss-rock-scissors-paper-1"
+      ]
+    },
+    {
+      "id": "day",
+      "label": "一天",
+      "songIds": [
+        "sss-good-morning-mr-rooster",
+        "sss-brush-your-teeth",
+        "sss-this-is-the-way-we-get-dressed",
+        "sss-mr-golden-sun",
+        "sss-walking-walking",
+        "sss-clean-up",
+        "sss-bath-song",
+        "sss-row-row-row-your-boat"
+      ]
+    }
+  ],
+  "scenes": [
+    "起床",
+    "刷牙",
+    "穿衣服",
+    "出门玩",
+    "上午活动",
+    "收拾玩具",
+    "洗澡",
+    "摇篮曲"
+  ],
+  "songs": [
+    {
+      "id": "sss-row-row-row-your-boat",
+      "title": "Row Row Row Your Boat",
+      "officialTitle": "Row Row Row Your Boat",
+      "officialId": 907,
+      "url": "https://supersimple.com/song/row-row-row-your-boat/",
+      "categories": [
+        "recommended",
+        "day"
+      ],
+      "scene": "摇篮曲",
+      "videoUrl": "https://www.youtube.com/watch?v=7otAJa3jui8",
+      "cover": "assets/sss/sss-row-row-row-your-boat.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/row-row-row-your-boat-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets",
+      "title": "If You're Happy And You Know It",
+      "officialTitle": "If You’re Happy And You Know It",
+      "officialId": 11585,
+      "url": "https://supersimple.com/song/if-youre-happy-and-you-know-it-ft-super-simple-puppets/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=M6LoRZsHMSs",
+      "cover": "assets/sss/sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/IfYoureHappyandYouKnowIt-featSSPuppets-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-old-macdonald-had-a-farm-2018",
+      "title": "Old MacDonald Had A Farm",
+      "officialTitle": "Old MacDonald Had A Farm",
+      "officialId": 8230,
+      "url": "https://supersimple.com/song/old-macdonald-had-a-farm-2018/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=_6HzoUcx3eo",
+      "cover": "assets/sss/sss-old-macdonald-had-a-farm-2018.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/old-macdonald-had-a-farm-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-pat-a-cake",
+      "title": "Pat-A-Cake",
+      "officialTitle": "Pat-A-Cake",
+      "officialId": 7593,
+      "url": "https://supersimple.com/song/pat-a-cake/",
+      "categories": [
+        "recommended",
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=jdg50KzCR9w",
+      "cover": "assets/sss/sss-pat-a-cake.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/pat-a-cake_thumbnail_1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-alice-the-camel",
+      "title": "Alice The Camel",
+      "officialTitle": "Alice The Camel",
+      "officialId": 5506,
+      "url": "https://supersimple.com/song/alice-the-camel/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=XM7Jnetdf0I",
+      "cover": "assets/sss/sss-alice-the-camel.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2017/03/songs_alicethecamel_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg"
+    },
+    {
+      "id": "sss-peekaboo",
+      "title": "Peekaboo",
+      "officialTitle": "Peekaboo",
+      "officialId": 1120,
+      "url": "https://supersimple.com/song/peekaboo/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=lVFj91Z1AfM",
+      "cover": "assets/sss/sss-peekaboo.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/peek-a-boo-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-mr-golden-sun",
+      "title": "Mr. Golden Sun",
+      "officialTitle": "Mr. Golden Sun",
+      "officialId": 894,
+      "url": "https://supersimple.com/song/mr-golden-sun/",
+      "categories": [
+        "recommended",
+        "day"
+      ],
+      "scene": "出门玩",
+      "videoUrl": "https://www.youtube.com/watch?v=hlzvrEfyL2Y",
+      "cover": "assets/sss/sss-mr-golden-sun.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/mr-golden-sun-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-baby-shark",
+      "title": "Baby Shark",
+      "officialTitle": "Baby Shark",
+      "officialId": 851,
+      "url": "https://supersimple.com/song/baby-shark/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=4yjpV33qHCo",
+      "cover": "assets/sss/sss-baby-shark.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2016/11/songs_babyshark_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg"
+    },
+    {
+      "id": "sss-five-little-speckled-frogs",
+      "title": "Five Little Speckled Frogs",
+      "officialTitle": "Five Little Speckled Frogs",
+      "officialId": 868,
+      "url": "https://supersimple.com/song/five-little-speckled-frogs/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=TtX8yVEF0-w",
+      "cover": "assets/sss/sss-five-little-speckled-frogs.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/five-little-speckled-frogs-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-five-little-ducks",
+      "title": "Five Little Ducks",
+      "officialTitle": "Five Little Ducks",
+      "officialId": 865,
+      "url": "https://supersimple.com/song/five-little-ducks/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=pZw9veQ76fo",
+      "cover": "assets/sss/sss-five-little-ducks.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/five-little-ducks-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-this-is-the-way",
+      "title": "This Is The Way",
+      "officialTitle": "This Is The Way",
+      "officialId": 928,
+      "url": "https://supersimple.com/song/this-is-the-way/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=4XLQpRI_wOQ",
+      "cover": "assets/sss/sss-this-is-the-way.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/this-is-the-way-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-hello-hello",
+      "title": "Hello Hello!",
+      "officialTitle": "Hello Hello!",
+      "officialId": 875,
+      "url": "https://supersimple.com/song/hello-hello/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=fN1Cyr0ZK9M",
+      "cover": "assets/sss/sss-hello-hello.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/hello-hello-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-rain-rain-go-away",
+      "title": "Rain Rain Go Away",
+      "officialTitle": "Rain Rain Go Away",
+      "officialId": 904,
+      "url": "https://supersimple.com/song/rain-rain-go-away/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=LFrKYjrIDs8",
+      "cover": "assets/sss/sss-rain-rain-go-away.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rain-rain-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-wheels-on-the-bus",
+      "title": "The Wheels On The Bus",
+      "officialTitle": "The Wheels On The Bus",
+      "officialId": 927,
+      "url": "https://supersimple.com/song/wheels-on-the-bus/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=9UasekNr8KI",
+      "cover": "assets/sss/sss-wheels-on-the-bus.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2014/08/songs_thewheelsonthebus-puppets_thumbnail_supersimpleapp-sss_en_01-1200w-300x169.jpg"
+    },
+    {
+      "id": "sss-one-little-finger",
+      "title": "One Little Finger",
+      "officialTitle": "One Little Finger",
+      "officialId": 900,
+      "url": "https://supersimple.com/song/one-little-finger/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=EqVHR2vIwIE",
+      "cover": "assets/sss/sss-one-little-finger.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/one-little-finger-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-head-shoulders-knees-toes-sing-it",
+      "title": "Head Shoulders Knees & Toes (Sing It)",
+      "officialTitle": "Head Shoulders Knees & Toes (Sing It)",
+      "officialId": 873,
+      "url": "https://supersimple.com/song/head-shoulders-knees-toes-sing-it/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=ZanHgPprl-0",
+      "cover": "assets/sss/sss-head-shoulders-knees-toes-sing-it.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/head-shoulders-knees-and-toessing-it-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-open-shut-them",
+      "title": "Open Shut Them",
+      "officialTitle": "Open Shut Them",
+      "officialId": 902,
+      "url": "https://supersimple.com/song/open-shut-them/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=RNUZBHlRH4Y",
+      "cover": "assets/sss/sss-open-shut-them.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/open-shut-them-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-bingo",
+      "title": "BINGO",
+      "officialTitle": "BINGO",
+      "officialId": 852,
+      "url": "https://supersimple.com/song/bingo/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=9mmF8zOlh_g",
+      "cover": "assets/sss/sss-bingo.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2011/09/songs_bingo_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg"
+    },
+    {
+      "id": "sss-twinkle-twinkle-little-star",
+      "title": "Twinkle Twinkle Little Star",
+      "officialTitle": "Twinkle Twinkle Little Star",
+      "officialId": 929,
+      "url": "https://supersimple.com/song/twinkle-twinkle-little-star/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=yCjJyiqpAuU",
+      "cover": "assets/sss/sss-twinkle-twinkle-little-star.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/twinkle-twinkle-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-five-little-monkeys",
+      "title": "Five Little Monkeys",
+      "officialTitle": "Five Little Monkeys",
+      "officialId": 866,
+      "url": "https://supersimple.com/song/five-little-monkeys/",
+      "categories": [
+        "essential",
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=ZhODBFQ2-bQ",
+      "cover": "assets/sss/sss-five-little-monkeys.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/five-little-monkeys-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-driving-in-my-car",
+      "title": "Driving In My Car",
+      "officialTitle": "Driving In My Car",
+      "officialId": 12383,
+      "url": "https://supersimple.com/song/driving-in-my-car/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=BdrZWu2dZ4c",
+      "cover": "assets/sss/sss-driving-in-my-car.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/driving-in-my-car-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-here-we-go-looby-loo",
+      "title": "Here We Go Looby Loo",
+      "officialTitle": "Here We Go Looby Loo",
+      "officialId": 8480,
+      "url": "https://supersimple.com/song/here-we-go-looby-loo/",
+      "categories": [
+        "recommended",
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=EHaoEKcuX0g",
+      "cover": "assets/sss/sss-here-we-go-looby-loo.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/here-we-go-looby-loo-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-farmer-in-the-dell",
+      "title": "The Farmer In The Dell",
+      "officialTitle": "The Farmer In The Dell",
+      "officialId": 7967,
+      "url": "https://supersimple.com/song/farmer-in-the-dell/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=E-krsNziXEw",
+      "cover": "assets/sss/sss-farmer-in-the-dell.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/the-farmer-in-the-dell-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-down-by-the-bay",
+      "title": "Down By The Bay",
+      "officialTitle": "Down By The Bay",
+      "officialId": 6603,
+      "url": "https://supersimple.com/song/down-by-the-bay/",
+      "categories": [
+        "recommended",
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=l5NGZaQ66Cg",
+      "cover": "assets/sss/sss-down-by-the-bay.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/down-by-the-bay-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-who-took-the-cookie",
+      "title": "Who Took The Cookie?",
+      "officialTitle": "Who Took The Cookie?",
+      "officialId": 938,
+      "url": "https://supersimple.com/song/who-took-the-cookie/",
+      "categories": [
+        "recommended",
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=OzKY5YHnOTg",
+      "cover": "assets/sss/sss-who-took-the-cookie.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/who-took-the-cookie-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-bath-song",
+      "title": "The Bath Song",
+      "officialTitle": "The Bath Song",
+      "officialId": 918,
+      "url": "https://supersimple.com/song/bath-song/",
+      "categories": [
+        "recommended",
+        "day"
+      ],
+      "scene": "洗澡",
+      "videoUrl": "https://www.youtube.com/watch?v=aUgy3u5Mvzk",
+      "cover": "assets/sss/sss-bath-song.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2015/07/songs_thebathsong_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg"
+    },
+    {
+      "id": "sss-rock-scissors-paper-1",
+      "title": "Rock Scissors Paper #1",
+      "officialTitle": "Rock Scissors Paper #1",
+      "officialId": 905,
+      "url": "https://supersimple.com/song/rock-scissors-paper-1/",
+      "categories": [
+        "recommended",
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=P65yE_EXLd8",
+      "cover": "assets/sss/sss-rock-scissors-paper-1.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rock-scissors-paper-1-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-im-a-little-snowman",
+      "title": "I'm A Little Snowman",
+      "officialTitle": "I’m A Little Snowman",
+      "officialId": 885,
+      "url": "https://supersimple.com/song/im-a-little-snowman/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=FczqntFwb6k",
+      "cover": "assets/sss/sss-im-a-little-snowman.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/ima-little-snowman-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-mary-had-a-kangaroo",
+      "title": "Mary Had A Kangaroo",
+      "officialTitle": "Mary Had A Kangaroo",
+      "officialId": 893,
+      "url": "https://supersimple.com/song/mary-had-a-kangaroo/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=YE7PiTwhTQk",
+      "cover": "assets/sss/sss-mary-had-a-kangaroo.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/mary-had-a-kangaroo-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-hickory-dickory-crash",
+      "title": "Hickory Dickory...Crash!",
+      "officialTitle": "Hickory Dickory…Crash!",
+      "officialId": 878,
+      "url": "https://supersimple.com/song/hickory-dickory-crash/",
+      "categories": [
+        "recommended"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=HGgsklW-mtg",
+      "cover": "assets/sss/sss-hickory-dickory-crash.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/hickory-dickory-dock-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-at-the-north-pole",
+      "title": "At The North Pole",
+      "officialTitle": "At The North Pole",
+      "officialId": 14324,
+      "url": "https://supersimple.com/song/at-the-north-pole/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=_fvny63VUG0",
+      "cover": "assets/sss/sss-at-the-north-pole.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2019/12/songs_atthenorthpole_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg"
+    },
+    {
+      "id": "sss-down-by-the-spooky-bay",
+      "title": "Down By The Spooky Bay",
+      "officialTitle": "Down By The Spooky Bay",
+      "officialId": 9726,
+      "url": "https://supersimple.com/song/down-by-the-spooky-bay/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=Bw26MQlLxQc",
+      "cover": "assets/sss/sss-down-by-the-spooky-bay.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/down-by-the-spooky-bay-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-down-by-the-bay-3",
+      "title": "Down By The Bay #3",
+      "officialTitle": "Down By The Bay #3",
+      "officialId": 8279,
+      "url": "https://supersimple.com/song/down-by-the-bay-3/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=v8dHCber3zU",
+      "cover": "assets/sss/sss-down-by-the-bay-3.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/down-by-the-bay-3-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-down-by-the-bay-2",
+      "title": "Down By The Bay #2",
+      "officialTitle": "Down By The Bay #2",
+      "officialId": 7930,
+      "url": "https://supersimple.com/song/down-by-the-bay-2/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=NfbLh2q78GY",
+      "cover": "assets/sss/sss-down-by-the-bay-2.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/down-by-the-bay-2-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-rock-scissors-paper-4",
+      "title": "Rock Scissors Paper #4",
+      "officialTitle": "Rock Scissors Paper #4",
+      "officialId": 7540,
+      "url": "https://supersimple.com/song/rock-scissors-paper-4/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=zEdOPvZWUCY",
+      "cover": "assets/sss/sss-rock-scissors-paper-4.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rock-scissors-paper-4-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-rock-scissors-paper-3",
+      "title": "Rock Scissors Paper #3",
+      "officialTitle": "Rock Scissors Paper #3",
+      "officialId": 6607,
+      "url": "https://supersimple.com/song/rock-scissors-paper-3/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=lvI12tC7zro",
+      "cover": "assets/sss/sss-rock-scissors-paper-3.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rock-scissors-paper-3-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-rock-scissors-paper-2",
+      "title": "Rock Scissors Paper #2",
+      "officialTitle": "Rock Scissors Paper #2",
+      "officialId": 906,
+      "url": "https://supersimple.com/song/rock-scissors-paper-2/",
+      "categories": [
+        "older"
+      ],
+      "scene": "",
+      "videoUrl": "https://www.youtube.com/watch?v=3noL0nBOD4M",
+      "cover": "assets/sss/sss-rock-scissors-paper-2.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rock-scissors-paper-2-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-good-morning-mr-rooster",
+      "title": "Good Morning, Mr. Rooster",
+      "officialTitle": "Good Morning, Mr. Rooster",
+      "officialId": 870,
+      "url": "https://supersimple.com/song/good-morning-mr-rooster/",
+      "categories": [
+        "day"
+      ],
+      "scene": "起床",
+      "parentTip": "图片中的亲子玩法：把 “to you” 换成 “Dear + 宝宝名字”，把公鸡打鸣换成 “How do you do”。",
+      "videoUrl": "https://www.youtube.com/watch?v=1Ziku4FLka4",
+      "cover": "assets/sss/sss-good-morning-mr-rooster.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/good-morning-mr-rooster-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-brush-your-teeth",
+      "title": "Brush Your Teeth",
+      "officialTitle": "Brush Your Teeth",
+      "officialId": 5035,
+      "url": "https://supersimple.com/song/brush-your-teeth/",
+      "categories": [
+        "day"
+      ],
+      "scene": "刷牙",
+      "videoUrl": "https://www.youtube.com/watch?v=S4Z841ktMNQ",
+      "cover": "assets/sss/sss-brush-your-teeth.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2017/03/songs_brushyourteeth_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg"
+    },
+    {
+      "id": "sss-this-is-the-way-we-get-dressed",
+      "title": "This Is The Way We Get Dressed",
+      "officialTitle": "This Is The Way We Get Dressed",
+      "officialId": 8064,
+      "url": "https://supersimple.com/song/this-is-the-way-we-get-dressed/",
+      "categories": [
+        "day"
+      ],
+      "scene": "穿衣服",
+      "videoUrl": "https://www.youtube.com/watch?v=1GDFa-nEzlg",
+      "cover": "assets/sss/sss-this-is-the-way-we-get-dressed.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/this-is-the-way-we-get-dressed-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-walking-walking",
+      "title": "Walking Walking",
+      "officialTitle": "Walking Walking",
+      "officialId": 933,
+      "url": "https://supersimple.com/song/walking-walking/",
+      "categories": [
+        "day"
+      ],
+      "scene": "上午活动",
+      "videoUrl": "https://www.youtube.com/watch?v=P-uznC3AmaE",
+      "cover": "assets/sss/sss-walking-walking.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/walking-walking-1080-740-300x206.jpg"
+    },
+    {
+      "id": "sss-clean-up",
+      "title": "Clean Up!",
+      "officialTitle": "Clean Up!",
+      "officialId": 854,
+      "url": "https://supersimple.com/song/clean-up/",
+      "categories": [
+        "day"
+      ],
+      "scene": "收拾玩具",
+      "videoUrl": "https://www.youtube.com/watch?v=SFE0mMWbA-Y",
+      "cover": "assets/sss/sss-clean-up.jpg",
+      "coverSourceUrl": "https://supersimple.com/wp-content/uploads/clean-up-1080-740-300x206.jpg"
+    }
+  ]
+}

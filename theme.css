@@ -1,0 +1,272 @@
+/* 小芽 · 明亮成长花园。布局与交互沿用 styles.css。 */
+:root {
+  color: #332a41;
+  background: #fffaf0;
+  --forest: #6541c4;
+  --muted: #776b84;
+  --line: #e9dfd6;
+  --sage: #f0e8ff;
+  --domain: #7650d1;
+  --domain-soft: #f0e7ff;
+}
+body { background: #fffaf0; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }
+
+/* 明亮蓝色导航承托内容，当前视角与年龄都有明确落点。 */
+.sidebar { background: #2456b4; border-color: #3971cc; color: #fff8ec; }
+.brand { color: #fff8ec; }
+.brand-mark { background: #ffcc47; color: #17376d; box-shadow: 0 4px 0 #17428c; }
+.brand small, .sidebar-section-label { color: #c4dcff; }
+.sidebar-section-label { font-size: 11px; }
+.nav-item { color: #ecf4ff; font-size: 14px; }
+.nav-item:hover { background: #3269c5; }
+.nav-item.active { background: #ffcf55; color: #17376d; font-weight: 700; }
+.nav-active-dot { background: #2456b4; }
+.stage-nav:before { background: #6492d6; }
+.stage-nav-item { color: #e0edff; font-size: 13px; }
+.stage-nav-item:hover { background: #3269c5; }
+.stage-nav-item.selected { background: #3e76d1; color: #fff6de; }
+.stage-dot { background: #2456b4; border-color: #9abeef; }
+.stage-dot.filled { background: #acccff; border-color: #acccff; }
+.selected .stage-dot { background: #ffd757; border-color: #ffd757; box-shadow: 0 0 0 3px #5489db; }
+.stage-nav-item small { background: #ffd95f; color: #50351f; font-size: 10px; }
+.stage-mini-count { color: #c4dcff; font-size: 11px; }
+.garden-note, .profile-button { border-color: #5d88cf; }
+.garden-note > .icon { color: #b8e65c; }
+.garden-note p { color: #e0edff; }
+.garden-note p span, .profile-text small { color: #c4dcff; }
+.avatar { background: #ffc483; color: #683b24; font-weight: 700; }
+.profile-text strong { color: #fff5e4; font-size: 12px; }
+.profile-button > .icon { color: #d5e6ff; }
+
+/* 奶油黄主视觉，保留原有的小植物。 */
+.breadcrumb { color: #514260; font-size: 13px; }
+.breadcrumb span { color: #b09bbc; }
+.today-label, .icon-button { color: #7e6b8c; font-size: 12px; }
+.icon-button:hover { color: #6535bf; }
+.hero { background: linear-gradient(115deg, #ffed9f 0%, #ffe8a4 52%, #ffceb2 100%); border: 1px solid #f5d383; box-shadow: 0 6px 0 #f5e9d5; }
+.eyebrow { color: #9b672b; font-size: 10px; letter-spacing: 1.6px; }
+.eyebrow > span { background: #e87b34; }
+.hero h1 { color: #48314a; font-weight: 600; }
+.hero h1 > span { color: #f47744; }
+.hero-copy > p { color: #8a5f44; font-size: 13px; line-height: 1.8; }
+.age-pill { background: #fffaf0; color: #70503a; font-size: 12px; font-weight: 600; box-shadow: 0 2px 0 #eecb89; }
+.birth-label { color: #9a7050; font-size: 11px; }
+.baby-meta > .text-button { color: #965b3d; }
+.plant { filter: saturate(1.9) contrast(1.05); }
+.art-orbit { border-color: #dfa246; }
+.art-spark { color: #ea8b21; }
+.floating-badge { background: #fffdf4; color: #218968; box-shadow: 0 4px 0 #e3ba6d66; font-size: 10px; }
+.badge-heart { color: #ec6a61; }
+.hero-counter > strong { color: #7547b9; font-weight: 650; }
+.hero-counter > strong > span, .hero-counter > small { color: #94634f; }
+.hero-counter > small { font-size: 11px; }
+.counter-leaves { color: #659b31; }
+
+/* 四个领域始终使用同一组颜色，卡片、技能、弹窗复用。 */
+.domain-cognition { --domain: #ea7828; --domain-soft: #fff0db; --domain-ink: #a84c12; }
+.domain-sensory { --domain: #9851df; --domain-soft: #f2e6ff; --domain-ink: #7633b2; }
+.domain-gross { --domain: #3677eb; --domain-soft: #e7f0ff; --domain-ink: #275ab3; }
+.domain-fine { --domain: #17a275; --domain-soft: #ddf6e9; --domain-ink: #11714f; }
+.domain-card { background: var(--domain-soft); border-color: transparent; border-top: 4px solid var(--domain); border-radius: 13px; box-shadow: 0 3px 0 #eaddce; }
+.domain-card:hover { border-color: var(--domain); box-shadow: 0 5px 0 #eaddce; }
+.domain-card.chosen { box-shadow: 0 0 0 2px var(--domain), 0 5px 0 #eaddce; }
+.domain-card .domain-icon { background: var(--domain); color: white; }
+.domain-count { color: var(--domain-ink); font-size: 12px; }
+.domain-count strong { color: var(--domain-ink); font-weight: 700; }
+.domain-card-label { color: var(--domain-ink); font-size: 14px; font-weight: 650; }
+.domain-card-label > span { color: var(--domain-ink); font-size: 12px; font-weight: 500; }
+.progress-track { background: #ffffffa8; height: 5px; }
+.domain-icon { color: var(--domain-ink, var(--domain)); }
+
+/* 年龄切换与技能清单：抬高文字对比度，完成状态仍可阅读。 */
+.section-kicker { color: #8b6f9e; font-size: 11px; letter-spacing: 1.3px; }
+.swipe-hint, .preview-caption { color: #8a738f; font-size: 12px; }
+.circle-button { border-color: #d9c8e6; color: #8151ba; background: #fffdf7; }
+.circle-button:hover:not(:disabled) { border-color: #9d68d6; background: #f0e5ff; }
+.stage-pill { color: #8e7597; font-size: 13px; }
+.stage-pill:hover { background: #f4e8fa; }
+.stage-pill.active { background: #7548c6; border-color: #7548c6; box-shadow: 0 3px 0 #d9c5e9; }
+.current-stage-dot { background: #ffdb5d; }
+.text-button { color: #7a45ba; font-size: 12px; }
+.section-title-row h2 { color: #41304f; font-weight: 650; }
+.section-title-row p { color: #8d7794; font-size: 12px; line-height: 1.8; }
+.current-badge { color: #7f4a10; background: #ffe5a2; font-size: 11px; }
+.stage-summary > strong { color: #7744bf; font-weight: 650; }
+.stage-summary > strong > span, .stage-summary > small { color: #927b9b; }
+.stage-summary > small { font-size: 11px; }
+.list-toolbar { border-color: #e9dbdf; }
+.status-tabs button { color: #8d7798; font-size: 13px; }
+.status-tabs button.active { color: #7641bc; background: #f0e3ff; }
+.status-tabs button:hover { color: #6734b1; }
+.status-tabs small { font-size: 11px; }
+.search-box { background: #fffdf8; border-color: #e4d5e4; color: #a58ab3; }
+.search-box input { color: #564262; font-size: 13px; }
+.search-box input::placeholder { color: #a08da9; }
+.search-box:focus-within { border-color: #b282de; }
+.filter-caption { color: #8b7396; font-size: 12px; }
+.skill-group { border-color: #e8dfe3; border-top: 3px solid var(--domain); border-radius: 13px; box-shadow: 0 3px 0 #f0e7dd; }
+.group-heading { background: var(--domain-soft); border-color: #ffffffa6; }
+.group-heading h3 { color: var(--domain-ink); font-size: 15px; }
+.group-heading p { color: var(--domain-ink); opacity: .84; font-size: 11px; }
+.group-count { color: var(--domain-ink); font-size: 12px; }
+.skill-group .skill-row { border-color: #f0e9e8; }
+.skill-group .skill-title { color: #51445b; font-size: 14px; }
+.skill-group .skill-category { color: #9a859f; font-size: 11px; }
+.skill-check { border-color: #d5c3df; }
+.skill-check:hover { background: var(--domain-soft); border-color: var(--domain); }
+.skill-check.is-checked { background: var(--domain); border-color: var(--domain); color: #fff; }
+.skill-group .completed { background: linear-gradient(90deg, transparent, var(--domain-soft)); }
+.skill-group .completed .skill-title { color: var(--domain-ink); }
+.skill-group .completed .skill-category, .has-note { color: #92739c; }
+.detail-arrow { color: #b69ac5; }
+.detail-arrow:hover { color: #7540b7; }
+.group-footer { background: #fffdf8; border-color: #f0e5e6; color: #9c879e; font-size: 11px; }
+.list-footnote, .page-footer, .page-footer > span:first-child { color: #927b99; font-size: 11px; }
+.page-footer { border-color: #eadfe2; }
+.empty-state { background: #fffdf8; border-color: #d9c2e5; }
+.empty-state > .icon, .empty-state h3 { color: #8a52c7; }
+.empty-state p { color: #9b82a3; font-size: 13px; }
+
+/* 详情、资料和备份与主界面保持同一套高对比交互。 */
+.app-dialog { background: #fffdf6; color: #4b3759; border-color: #e8d8ea; box-shadow: 0 24px 100px #30234642; }
+.app-dialog::backdrop { background: #30234680; }
+.dialog-header h2 { color: #4a315b; font-weight: 650; }
+.detail-tags > span { background: #f2e8fa; color: #866496; font-size: 12px; }
+.detail-status { background: #f5ebff; border-color: #e4cff6; }
+.detail-status > span { color: #866291; font-size: 13px; }
+.detail-status.done { background: #e6f9df; border-color: #bfe5a9; }
+.detail-status.done > span { color: #52833a; }
+.form-field { color: #6d4d80; font-size: 14px; }
+.form-field > span, .form-actions > small, .form-help, .backup-footnote { color: #a085aa; font-size: 11px; }
+.form-field input, .form-field textarea { border-color: #e1cce8; color: #61466d; font-size: 14px; }
+.form-field input:focus, .form-field textarea:focus { border-color: #af75db; box-shadow: 0 0 0 3px #f0e1fc; }
+.form-field textarea::placeholder { color: #b29abd; }
+.primary-button { background: #7b47c7; color: #fff; font-weight: 600; }
+.primary-button:hover { background: #6531b3; }
+.secondary-button { background: #fffdf8; border-color: #d7bde7; color: #8552ac; }
+.secondary-button:hover { background: #f5eaff; }
+.primary-button, .secondary-button, .detail-status > .primary-button, .detail-status > .secondary-button { font-size: 13px; }
+.skill-relations, .detail-source { border-color: #eadddf; }
+.skill-relations h3 { color: #79528a; font-size: 14px; }
+.skill-relations p { color: #9a7ca5; font-size: 12px; }
+.relation-chip { background: #fff; border-color: #dcc5e8; color: #7f5294; font-size: 13px; }
+.relation-chip.done { background: #e8f7de; border-color: #bbdfa4; color: #568c37; }
+.relation-chip:hover { border-color: #9f67c5; }
+.detail-source { color: #a58bad; font-size: 11px; }
+.backup-summary, .import-details, .resource-section { background: #f4eaff; border-color: #e2cff2; color: #90679f; }
+.backup-summary > .icon, .backup-summary strong, .backup-option > .icon, .backup-option strong, .resource-section h3 { color: #8753ba; }
+.backup-summary span, .backup-option small { color: #a185ad; font-size: 12px; }
+.backup-option { border-color: #eadcec; }
+.backup-option:hover { background: #f6ecff; }
+.import-description { color: #8b669e; }
+.toast { background: #4b2a68; color: #fff8e7; box-shadow: 0 6px 0 #d8c5e266; font-size: 13px; }
+.toast button { color: #ffe17b; border-color: #9566b3; font-size: 13px; }
+.storage-warning { background: #fff0cb; border-color: #f1cc79; color: #9b6220; }
+.storage-warning[hidden] { display: none; }
+.save-status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid #c4e6d5; border-radius: 6px; background: #edf8ef; color: #23764e; font-size: 11px; white-space: nowrap; }
+.save-status:hover { background: #def1e3; }
+.save-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.save-status.has-error { color: #b36617; border-color: #efc78c; background: #fff1d6; }
+.save-status.is-saving:not(.has-error) { color: #7c6394; border-color: #dfd0ec; background: #f5effb; }
+.storage-retry { margin-bottom: 14px; }
+.storage-details { margin-bottom: 15px; padding: 15px; border: 1px solid #c4e6d5; border-radius: 9px; background: #f0f9f2; }
+.storage-details h3 { display: flex; align-items: center; gap: 7px; font-size: 13px; color: #2b7b52; }
+.storage-details h3 .icon { width: 16px; height: 16px; }
+.storage-details p { font-size: 12px; color: #61816d; line-height: 1.8; margin-top: 9px; }
+.storage-details dl { display: grid; grid-template-columns: auto 1fr; gap: 7px 13px; font-size: 12px; line-height: 1.7; margin: 13px 0; }
+.storage-details dt { color: #7c9283; }
+.storage-details dd { margin: 0; color: #3a6e4d; overflow-wrap: anywhere; }
+.storage-details.has-error { background: #fff5de; border-color: #efcf94; }
+.storage-details.has-error h3, .storage-details.has-error p { color: #9b6220; }
+.form-actions small.save-failed { color: #b36617; }
+.loading, .load-error { color: #8d53c7; }
+
+@media (max-width: 760px) {
+  .sidebar { background: #2456b4f5; border-bottom-color: #5d88cf; }
+  .nav-item { font-size: 12px; }
+  .hero-copy > p { font-size: 12px; }
+  .garden-art { opacity: .8; }
+  .brand small { color: #cee1ff; }
+}
+@media (max-width: 560px) {
+  .topbar-actions { gap: 11px; }
+  .save-status { font-size: 10px; padding: 5px 7px; gap: 4px; }
+  .storage-details { padding: 12px; }
+  .storage-details p, .storage-details dl { font-size: 11px; }
+  .nav-item { font-size: 11px; padding: 9px 8px; }
+  .hero-copy > p { max-width: 255px; font-size: 12px; }
+  .garden-art { opacity: .5; }
+  .eyebrow { font-size: 8px; }
+  .age-pill, .birth-label { font-size: 10px; }
+  .stage-pill { font-size: 12px; }
+  .domain-card-label { font-size: 13px; }
+  .status-tabs button { font-size: 12px; padding-inline: 8px; }
+  .search-box { width: 155px; }
+  .search-box input { font-size: 12px; }
+  .form-actions > small { max-width: 145px; }
+}
+
+/* 云端连接、迁移与冲突，沿用蓝色导航和明亮配色。 */
+.cloud-banner { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:16px 20px; margin:8px 0 24px; border:1px solid #b8d5ff; border-radius:18px; background:linear-gradient(110deg,#eaf4ff,#f0f0ff); color:#254f85; }
+.cloud-banner > span { display:flex; align-items:center; gap:10px; flex:1; min-width:220px; line-height:1.65; }
+.cloud-banner .icon { flex-shrink:0; }
+.cloud-banner button { white-space:nowrap; }
+.cloud-actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0; }
+.local-migration { border-top:1px solid #e0e7f2; margin-top:22px; padding-top:18px; }
+.local-migration > p { color:#69728b; font-size:13px; line-height:1.7; }
+.migration-item { padding:16px; background:#f1f7ff; border:1px solid #d4e5ff; border-radius:14px; margin:12px 0; display:grid; gap:10px; }
+.migration-item > span { color:#526c91; font-size:13px; }
+.migration-item > div { display:flex; flex-wrap:wrap; gap:10px; }
+.conflict-field { margin:18px 0; border:1px solid #cbdcff; border-radius:14px; padding:14px; min-width:0; }
+.conflict-field legend { padding:0 6px; font-weight:700; }
+.conflict-field label { display:block; padding:10px; margin:6px 0; background:#f5f8ff; border-radius:10px; cursor:pointer; }
+.conflict-field pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; font-size:13px; margin:8px 0 0 22px; line-height:1.7; max-height:180px; overflow:auto; }
+button:disabled, textarea:disabled { cursor:default; opacity:.55; }
+@media(max-width:600px) { .cloud-banner { padding:14px; } .cloud-banner > span { min-width:100%; } }
+
+.stage-complete-button { display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:8px 11px; border:1px solid #bad8ff; border-radius:8px; background:#edf5ff; color:#245ca4; font-size:11px; line-height:1.4; white-space:nowrap; font-weight:600; }
+.stage-complete-button .icon { width:14px; height:14px; }
+.stage-complete-button:hover:not(:disabled) { background:#dbeaff; border-color:#719fe0; }
+.stage-complete-button:disabled { color:#258153; border-color:#b5e0c9; background:#e9f8ee; opacity:1; }
+.stage-complete-badge { display:inline-flex; align-items:center; gap:4px; border-radius:5px; padding:4px 7px; background:#dff7e9; color:#14754d; font-size:10px; font-weight:600; line-height:1.4; letter-spacing:0; white-space:nowrap; }
+.stage-complete-badge .icon { width:12px; height:12px; }
+.stage-summary-actions { display:flex; align-items:center; gap:16px; flex-shrink:0; }
+.stage-pill-check { width:12px; height:12px; color:#158958; flex-shrink:0; }
+.stage-pill.active .stage-pill-check { color:inherit; }
+
+/* 技能释义放在记录之前，先看懂，再按宝宝的实际表现记录。 */
+.skill-guide { margin:0 0 25px; color:#4a5269; font-size:13px; line-height:1.85; }
+.guide-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px; }
+.guide-heading > span { display:inline-flex; align-items:center; gap:7px; color:#285fa4; font-size:13px; font-weight:650; }
+.guide-heading .icon { width:17px; height:17px; }
+.guide-heading small { color:#7d8799; font-size:10px; }
+.skill-guide h3 { font-size:17px; color:#293d60; font-weight:650; margin-bottom:8px; }
+.skill-guide h4 { font-size:12px; font-weight:650; color:#405675; margin-bottom:6px; display:flex; align-items:center; gap:5px; }
+.guide-meaning { font-size:14px; color:#3b4d68; }
+.guide-example { background:#fff2cd; border:1px solid #f3db93; border-radius:12px; padding:15px 17px; margin-top:16px; }
+.guide-example h4 { color:#896220; }
+.guide-practice { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+.guide-practice > section { background:#edf6ff; border:1px solid #d5e6f9; padding:14px; border-radius:12px; }
+.guide-practice > section:last-child { background:#eef8f1; border-color:#d7e9dd; }
+.guide-practice .icon { width:14px; height:14px; flex-shrink:0; }
+.guide-note { display:flex; gap:8px; margin-top:14px; padding:12px 14px; background:#fff5ed; border-left:3px solid #e9ad78; border-radius:5px 10px 10px 5px; color:#8b6244; font-size:12px; }
+.guide-note > .icon { width:16px; height:16px; margin-top:3px; flex-shrink:0; }
+.guide-concept, .guide-sources { margin-top:14px; border-top:1px solid #dfe7f1; padding-top:12px; }
+.guide-concept > summary, .guide-sources > summary { display:flex; align-items:center; justify-content:space-between; gap:8px; cursor:pointer; list-style:none; color:#406799; font-size:12px; font-weight:600; }
+.guide-concept > summary::-webkit-details-marker, .guide-sources > summary::-webkit-details-marker { display:none; }
+.guide-concept > summary .icon, .guide-sources > summary .icon { width:14px; height:14px; transition:transform .15s; }
+.guide-concept[open] > summary .icon, .guide-sources[open] > summary .icon { transform:rotate(90deg); }
+.guide-concept > p { margin-top:10px; }
+.concept-example { color:#79859a; font-size:12px; }
+.guide-sources > p { color:#7d8799; font-size:11px; margin-top:9px; }
+.guide-sources ul { list-style:none; padding:0; display:grid; gap:10px; margin-top:12px; }
+.guide-sources li { display:grid; gap:2px; }
+.guide-sources a { display:inline-flex; align-items:center; gap:5px; color:#2867af; font-size:12px; text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+.guide-sources a .icon { width:12px; height:12px; flex-shrink:0; }
+.guide-sources li > span { color:#8c94a4; font-size:10px; }
+.detail-dialog #skill-form { border-top:1px solid #dfe7f1; padding-top:20px; }
+@media(max-width:560px) { .guide-practice { grid-template-columns:1fr; gap:9px; } .guide-heading { align-items:flex-start; } .guide-heading small { font-size:9px; } .guide-example { padding:13px; } .skill-guide { font-size:13px; } }
+@media(max-width:760px) { .stage-summary-actions { align-self:flex-start; flex-direction:column; gap:10px; } }
+@media(max-width:560px) { .stage-complete-button { padding:7px 8px; font-size:10px; } .stage-summary-actions { margin-top:14px; } .milestones > .section-title-row { flex-wrap:wrap; } .milestones h2 .stage-complete-badge { font-size:9px; } }

@@ -1,0 +1,2596 @@
+{
+  "id": "xu",
+  "name": "许密杉",
+  "title": "拉听力动画片 + 分级：螺旋式上升直通 1000 词路线",
+  "description": "将分级/闪卡材料与动画、儿歌并行输入，由名词和动作词组逐渐走向短句、长句。第三至第五阶段以海尼曼 GK70 为主线，第六阶段转牛津树主线。",
+  "source": {
+    "file": "assets/sources/xu.pdf",
+    "pageCount": 2,
+    "contentPages": [
+      1
+    ],
+    "blankContentPages": [
+      2
+    ],
+    "previews": [
+      {
+        "page": 1,
+        "path": "assets/previews/xu-01.jpg",
+        "content": true
+      },
+      {
+        "page": 2,
+        "path": "assets/previews/xu-02.jpg",
+        "content": false,
+        "note": "底图全白，仅重复署名水印，没有路线内容。"
+      }
+    ]
+  },
+  "stages": [
+    {
+      "id": "xu-1",
+      "order": 1,
+      "title": "第一阶段 · 闪卡",
+      "originalStage": "第一阶段",
+      "method": "闪卡",
+      "goal": "积累核心 200 名词 + 动词词组",
+      "vocabulary": {
+        "kind": "goal",
+        "value": 200,
+        "original": "积累核心 200 名词 + 动词词组",
+        "note": "原表写的是核心名词积累目的，不能解读为入门需要 200 个词。"
+      },
+      "sentence": null,
+      "materials": [
+        {
+          "resourceId": "xu-shiguang-nouns",
+          "title": "时光学名词卡",
+          "level": null,
+          "role": "core",
+          "original": "时光学名词卡",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-abubabu-verbs",
+          "title": "阿布巴布动词卡",
+          "level": null,
+          "role": "core",
+          "original": "阿布巴布动词卡",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "animations": [
+        {
+          "resourceId": "xu-sss",
+          "title": "SSS 指令式儿歌",
+          "level": null,
+          "role": "animation-companion",
+          "original": "SSS 指令式儿歌",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-yakka-dee",
+          "title": "Yakka Dee",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Yakka Dee",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "notes": [
+        "原表将 SSS 指令式儿歌列于“动画”栏。"
+      ],
+      "routeId": "xu",
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "ageMonths": null,
+      "resourceIds": [
+        "xu-shiguang-nouns",
+        "xu-abubabu-verbs",
+        "xu-sss",
+        "xu-yakka-dee"
+      ]
+    },
+    {
+      "id": "xu-2",
+      "order": 2,
+      "title": "第二阶段 · 闪卡式绘本",
+      "originalStage": "第二阶段",
+      "method": "闪卡式绘本",
+      "goal": "积累短句；5 个单词以下的句子；300 听力词汇",
+      "vocabulary": {
+        "kind": "goal",
+        "value": 300,
+        "original": "300 听力词汇"
+      },
+      "sentence": {
+        "maxWordsExclusive": 5,
+        "original": "5 个单词以下的句子"
+      },
+      "materials": [
+        {
+          "resourceId": "xu-pearson-vocabulary",
+          "title": "培生词汇妙趣屋",
+          "level": null,
+          "role": "core",
+          "original": "培生词汇妙趣屋",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bigcat",
+          "title": "大猫分级",
+          "level": "预备级",
+          "role": "core",
+          "original": "大猫分级 预备级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-star",
+          "title": "培生启明星",
+          "level": "一级",
+          "role": "core",
+          "original": "培生启明星 一级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-scholastic",
+          "title": "学乐",
+          "level": "A 级别",
+          "role": "core",
+          "original": "学乐 A 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bookworm",
+          "title": "书虫",
+          "level": "1 级别",
+          "role": "core",
+          "original": "书虫 1 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "animations": [
+        {
+          "resourceId": "xu-didis-day",
+          "title": "Didi’s day",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Didi’s day",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-green-forest",
+          "title": "绿色大森林",
+          "level": null,
+          "role": "animation-companion",
+          "original": "绿色大森林",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-twirlywoos",
+          "title": "趣趣知知鸟",
+          "level": null,
+          "role": "animation-companion",
+          "original": "趣趣知知鸟",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-animal-adventure",
+          "title": "动物王国大冒险",
+          "level": null,
+          "role": "animation-companion",
+          "original": "动物王国大冒险",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-little-pim",
+          "title": "Little Pim",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Little Pim",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-timmy",
+          "title": "小羊提米",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小羊提米",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "notes": [],
+      "routeId": "xu",
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "ageMonths": null,
+      "resourceIds": [
+        "xu-pearson-vocabulary",
+        "xu-bigcat",
+        "xu-pearson-star",
+        "xu-scholastic",
+        "xu-bookworm",
+        "xu-didis-day",
+        "xu-green-forest",
+        "xu-twirlywoos",
+        "xu-animal-adventure",
+        "xu-little-pim",
+        "xu-timmy"
+      ]
+    },
+    {
+      "id": "xu-3",
+      "order": 3,
+      "title": "第三阶段 · 海尼曼 GK70 A",
+      "originalStage": "第三阶段",
+      "method": "海尼曼 GK70 主线 + 平行拓展",
+      "goal": "5 个单词左右的句子；300-500 听力词汇",
+      "vocabulary": {
+        "kind": "goal",
+        "min": 300,
+        "max": 500,
+        "original": "300-500 听力词汇"
+      },
+      "sentence": {
+        "approxWords": 5,
+        "original": "5 个单词左右的句子"
+      },
+      "materials": [
+        {
+          "resourceId": "xu-heinemann-gk70",
+          "title": "海尼曼 GK70",
+          "level": "A",
+          "role": "main",
+          "original": "海尼曼 GK70 A",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bigcat",
+          "title": "大猫分级",
+          "level": "第 1-2 级",
+          "role": "parallel",
+          "original": "大猫分级 第 1-2 级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-star",
+          "title": "培生启明星",
+          "level": "2 级别",
+          "role": "parallel",
+          "original": "培生启明星 2 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-scholastic",
+          "title": "学乐",
+          "level": "B 级别",
+          "role": "parallel",
+          "original": "学乐 B 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bookworm",
+          "title": "书虫",
+          "level": "2 级别",
+          "role": "parallel",
+          "original": "书虫 2 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-highlight-pairs",
+          "title": "Highlight 故事与科普配对",
+          "level": "1",
+          "role": "parallel",
+          "original": "Highlight 故事与科普配对 1",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "animations": [
+        {
+          "resourceId": "xu-bat-friends",
+          "title": "蝙蝠和朋友们",
+          "level": null,
+          "role": "animation-companion",
+          "original": "蝙蝠和朋友们",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-car-city",
+          "title": "汽车小镇",
+          "level": null,
+          "role": "animation-companion",
+          "original": "汽车小镇",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-penelope",
+          "title": "蓝色小考拉",
+          "level": null,
+          "role": "animation-companion",
+          "original": "蓝色小考拉",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-wow-english",
+          "title": "Wow English",
+          "level": "1-3",
+          "role": "animation-companion",
+          "original": "Wow English 1-3",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pocoyo",
+          "title": "小 P 优优",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小 P 优优",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-dino-friends",
+          "title": "恐龙伙伴",
+          "level": null,
+          "role": "animation-companion",
+          "original": "恐龙伙伴",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "notes": [
+        "原表“汽车小镇”在本阶段动画栏重复出现两次；此处展示一次并保留说明。",
+        "原表“分级”栏横跨第三至第五阶段，统一写海尼曼 GK70 主线及平行拓展。"
+      ],
+      "originalAnimationColumn": [
+        "蝙蝠和朋友们",
+        "汽车小镇",
+        "蓝色小考拉",
+        "Wow English1-3",
+        "小 P 优优",
+        "恐龙伙伴",
+        "汽车小镇"
+      ],
+      "routeId": "xu",
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "ageMonths": null,
+      "resourceIds": [
+        "xu-heinemann-gk70",
+        "xu-bigcat",
+        "xu-pearson-star",
+        "xu-scholastic",
+        "xu-bookworm",
+        "xu-highlight-pairs",
+        "xu-bat-friends",
+        "xu-car-city",
+        "xu-penelope",
+        "xu-wow-english",
+        "xu-pocoyo",
+        "xu-dino-friends"
+      ]
+    },
+    {
+      "id": "xu-4",
+      "order": 4,
+      "title": "第四阶段 · 海尼曼 GK70 B",
+      "originalStage": "第四阶段",
+      "method": "海尼曼 GK70 主线 + 平行拓展",
+      "goal": "7 个单词左右的句子；500 左右听力词汇",
+      "vocabulary": {
+        "kind": "goal",
+        "approx": 500,
+        "original": "500 左右听力词汇"
+      },
+      "sentence": {
+        "approxWords": 7,
+        "original": "7 个单词左右的句子"
+      },
+      "materials": [
+        {
+          "resourceId": "xu-heinemann-gk70",
+          "title": "海尼曼 GK70",
+          "level": "B",
+          "role": "main",
+          "original": "海尼曼 GK70 B",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bigcat",
+          "title": "大猫分级",
+          "level": "2-3 级别",
+          "role": "parallel",
+          "original": "大猫分级 2-3 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-star",
+          "title": "培生启明星",
+          "level": "3 级别",
+          "role": "parallel",
+          "original": "培生启明星 3 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-scholastic",
+          "title": "学乐",
+          "level": "C 级别",
+          "role": "parallel",
+          "original": "学乐 C 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-oxford-tree",
+          "title": "牛津树",
+          "level": "1",
+          "role": "parallel",
+          "original": "牛津树 1",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-story-house",
+          "title": "培生亲子故事屋",
+          "level": "基础级",
+          "role": "parallel",
+          "original": "培生亲子故事屋 基础级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bookworm",
+          "title": "书虫",
+          "level": "2 级别",
+          "role": "parallel",
+          "original": "书虫 2 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-highlight-pairs",
+          "title": "Highlight 故事与科普配对",
+          "level": "2",
+          "role": "parallel",
+          "original": "Highlight 故事与科普配对 2",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "animations": [
+        {
+          "resourceId": "xu-maisy",
+          "title": "小鼠波波",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小鼠波波",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-max-ruby",
+          "title": "Max and Ruby",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Max and Ruby",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bing",
+          "title": "小兔乒乓",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小兔乒乓",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-daniel-tiger",
+          "title": "小老虎丹尼尔",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小老虎丹尼尔",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-wow-english",
+          "title": "Wow English",
+          "level": "4-5",
+          "role": "animation-companion",
+          "original": "Wow English 4-5",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "notes": [],
+      "routeId": "xu",
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "ageMonths": null,
+      "resourceIds": [
+        "xu-heinemann-gk70",
+        "xu-bigcat",
+        "xu-pearson-star",
+        "xu-scholastic",
+        "xu-oxford-tree",
+        "xu-pearson-story-house",
+        "xu-bookworm",
+        "xu-highlight-pairs",
+        "xu-maisy",
+        "xu-max-ruby",
+        "xu-bing",
+        "xu-daniel-tiger",
+        "xu-wow-english"
+      ]
+    },
+    {
+      "id": "xu-5",
+      "order": 5,
+      "title": "第五阶段 · 海尼曼 GK70 C",
+      "originalStage": "第五阶段",
+      "method": "海尼曼 GK70 主线 + 平行拓展",
+      "goal": "10 个单词左右的句子；500-800 左右听力词汇",
+      "vocabulary": {
+        "kind": "goal",
+        "min": 500,
+        "max": 800,
+        "approximate": true,
+        "original": "500-800 左右听力词汇"
+      },
+      "sentence": {
+        "approxWords": 10,
+        "original": "10 个单词左右的句子"
+      },
+      "materials": [
+        {
+          "resourceId": "xu-heinemann-gk70",
+          "title": "海尼曼 GK70",
+          "level": "C",
+          "role": "main",
+          "original": "海尼曼 GK70 C",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bigcat",
+          "title": "大猫分级",
+          "level": "3-4 级别",
+          "role": "parallel",
+          "original": "大猫分级 3-4 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-star",
+          "title": "培生启明星",
+          "level": "4 级别",
+          "role": "parallel",
+          "original": "培生启明星 4 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-story-house",
+          "title": "培生亲子故事屋",
+          "level": "进阶级",
+          "role": "parallel",
+          "original": "培生亲子故事屋 进阶级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-oxford-tree",
+          "title": "牛津树",
+          "level": "2",
+          "role": "parallel",
+          "original": "牛津树 2",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-scholastic",
+          "title": "学乐",
+          "level": "D-E",
+          "role": "parallel",
+          "original": "学乐 D-E",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bookworm",
+          "title": "书虫",
+          "level": "3-4 级别",
+          "role": "parallel",
+          "original": "书虫 3-4 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-highlight-pairs",
+          "title": "Highlight 故事与科普配对",
+          "level": "3-4",
+          "role": "parallel",
+          "original": "Highlight 故事与科普配对 3-4",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "animations": [
+        {
+          "resourceId": "xu-peter-rabbit",
+          "title": "Peter rabbit",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Peter rabbit",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-littlefox",
+          "title": "小狐狸动画",
+          "level": "二级别",
+          "role": "animation-companion",
+          "original": "以及其它小狐狸二级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-meg-mog",
+          "title": "Meg and Mog",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Meg and Mog",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pip-posy",
+          "title": "Pip and posy",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Pip and posy",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "notes": [
+        "“以及其它小狐狸二级别”是集合式指引，原表未逐部列出，不能据此补造片单。"
+      ],
+      "routeId": "xu",
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "ageMonths": null,
+      "resourceIds": [
+        "xu-heinemann-gk70",
+        "xu-bigcat",
+        "xu-pearson-star",
+        "xu-pearson-story-house",
+        "xu-oxford-tree",
+        "xu-scholastic",
+        "xu-bookworm",
+        "xu-highlight-pairs",
+        "xu-peter-rabbit",
+        "xu-littlefox",
+        "xu-meg-mog",
+        "xu-pip-posy"
+      ]
+    },
+    {
+      "id": "xu-6",
+      "order": 6,
+      "title": "第六阶段 · 牛津树主线，完成 1000 词",
+      "originalStage": "第六阶段 1000 词",
+      "method": "牛津树主线 + 平行拓展",
+      "goal": "10 个单词以上，甚至含有从句的长句；1000 听力词汇完成",
+      "vocabulary": {
+        "kind": "goal",
+        "value": 1000,
+        "original": "1000 听力词汇完成"
+      },
+      "sentence": {
+        "minWordsExclusive": 10,
+        "clauses": true,
+        "original": "10 个单词以上，甚至含有从句的长句"
+      },
+      "materials": [
+        {
+          "resourceId": "xu-oxford-tree",
+          "title": "牛津树",
+          "level": "3-5",
+          "role": "main",
+          "original": "牛津树 3-5",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bigcat",
+          "title": "大猫分级",
+          "level": "5-6 级别",
+          "role": "parallel",
+          "original": "大猫分级 5-6 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-pearson-unspecified",
+          "title": "培生（第六阶段未标明套系）",
+          "level": "5-6 级别",
+          "role": "parallel",
+          "original": "培生 5-6 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-bookworm",
+          "title": "书虫",
+          "level": "5 级别",
+          "role": "parallel",
+          "original": "书虫 5 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-scholastic",
+          "title": "学乐",
+          "level": "F-I",
+          "role": "parallel",
+          "original": "学乐 F-I",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "animations": [
+        {
+          "resourceId": "xu-muzzy",
+          "title": "大马泽",
+          "level": null,
+          "role": "animation-companion",
+          "original": "大马泽",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-duggee",
+          "title": "道奇",
+          "level": null,
+          "role": "animation-companion",
+          "original": "道奇",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-wizard-cat",
+          "title": "巫师与猫",
+          "level": null,
+          "role": "animation-companion",
+          "original": "巫师与猫",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "resourceId": "xu-littlefox",
+          "title": "小狐狸动画",
+          "level": "第三级别动画",
+          "role": "animation-companion",
+          "original": "以及小狐狸第三级别动画",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "notes": [
+        "第六阶段“培生 5-6 级别”未写明是哪个培生套系，保留原文，不自动归入培生启明星。"
+      ],
+      "routeId": "xu",
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "ageMonths": null,
+      "resourceIds": [
+        "xu-oxford-tree",
+        "xu-bigcat",
+        "xu-pearson-unspecified",
+        "xu-bookworm",
+        "xu-scholastic",
+        "xu-muzzy",
+        "xu-duggee",
+        "xu-wizard-cat",
+        "xu-littlefox"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "xu-shiguang-nouns",
+      "title": "时光学名词卡",
+      "name": "时光学名词卡",
+      "type": "flashcard",
+      "stageIds": [
+        "xu-1"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-1",
+          "stageTitle": "第一阶段 · 闪卡",
+          "level": null,
+          "role": "core",
+          "original": "时光学名词卡",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-abubabu-verbs",
+      "title": "阿布巴布动词卡",
+      "name": "阿布巴布动词卡",
+      "type": "flashcard",
+      "stageIds": [
+        "xu-1"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-1",
+          "stageTitle": "第一阶段 · 闪卡",
+          "level": null,
+          "role": "core",
+          "original": "阿布巴布动词卡",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-sss",
+      "title": "SSS 指令式儿歌",
+      "name": "SSS 指令式儿歌",
+      "type": "song",
+      "stageIds": [
+        "xu-1"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-1",
+          "stageTitle": "第一阶段 · 闪卡",
+          "level": null,
+          "role": "animation-companion",
+          "original": "SSS 指令式儿歌",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-yakka-dee",
+      "title": "Yakka Dee",
+      "name": "Yakka Dee",
+      "type": "animation",
+      "stageIds": [
+        "xu-1"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-1",
+          "stageTitle": "第一阶段 · 闪卡",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Yakka Dee",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-pearson-vocabulary",
+      "title": "培生词汇妙趣屋",
+      "name": "培生词汇妙趣屋",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "core",
+          "original": "培生词汇妙趣屋",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-bigcat",
+      "title": "大猫分级",
+      "name": "大猫分级",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-2",
+        "xu-3",
+        "xu-4",
+        "xu-5",
+        "xu-6"
+      ],
+      "levels": [
+        "预备级",
+        "第 1-2 级",
+        "2-3 级别",
+        "3-4 级别",
+        "5-6 级别"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": "预备级",
+          "role": "core",
+          "original": "大猫分级 预备级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "第 1-2 级",
+          "role": "parallel",
+          "original": "大猫分级 第 1-2 级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "2-3 级别",
+          "role": "parallel",
+          "original": "大猫分级 2-3 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "3-4 级别",
+          "role": "parallel",
+          "original": "大猫分级 3-4 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": "5-6 级别",
+          "role": "parallel",
+          "original": "大猫分级 5-6 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-pearson-star",
+      "title": "培生启明星",
+      "name": "培生启明星",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-2",
+        "xu-3",
+        "xu-4",
+        "xu-5"
+      ],
+      "levels": [
+        "一级",
+        "2 级别",
+        "3 级别",
+        "4 级别"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": "一级",
+          "role": "core",
+          "original": "培生启明星 一级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "2 级别",
+          "role": "parallel",
+          "original": "培生启明星 2 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "3 级别",
+          "role": "parallel",
+          "original": "培生启明星 3 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "4 级别",
+          "role": "parallel",
+          "original": "培生启明星 4 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-scholastic",
+      "title": "学乐",
+      "name": "学乐",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-2",
+        "xu-3",
+        "xu-4",
+        "xu-5",
+        "xu-6"
+      ],
+      "levels": [
+        "A 级别",
+        "B 级别",
+        "C 级别",
+        "D-E",
+        "F-I"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": "A 级别",
+          "role": "core",
+          "original": "学乐 A 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "B 级别",
+          "role": "parallel",
+          "original": "学乐 B 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "C 级别",
+          "role": "parallel",
+          "original": "学乐 C 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "D-E",
+          "role": "parallel",
+          "original": "学乐 D-E",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": "F-I",
+          "role": "parallel",
+          "original": "学乐 F-I",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-bookworm",
+      "title": "书虫",
+      "name": "书虫",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-2",
+        "xu-3",
+        "xu-4",
+        "xu-5",
+        "xu-6"
+      ],
+      "levels": [
+        "1 级别",
+        "2 级别",
+        "3-4 级别",
+        "5 级别"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": "1 级别",
+          "role": "core",
+          "original": "书虫 1 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "2 级别",
+          "role": "parallel",
+          "original": "书虫 2 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "2 级别",
+          "role": "parallel",
+          "original": "书虫 2 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "3-4 级别",
+          "role": "parallel",
+          "original": "书虫 3-4 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": "5 级别",
+          "role": "parallel",
+          "original": "书虫 5 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-didis-day",
+      "title": "Didi’s day",
+      "name": "Didi’s day",
+      "type": "animation",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Didi’s day",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-green-forest",
+      "title": "绿色大森林",
+      "name": "绿色大森林",
+      "type": "animation",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "animation-companion",
+          "original": "绿色大森林",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-twirlywoos",
+      "title": "趣趣知知鸟",
+      "name": "趣趣知知鸟",
+      "type": "animation",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "animation-companion",
+          "original": "趣趣知知鸟",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-animal-adventure",
+      "title": "动物王国大冒险",
+      "name": "动物王国大冒险",
+      "type": "animation",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "animation-companion",
+          "original": "动物王国大冒险",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-little-pim",
+      "title": "Little Pim",
+      "name": "Little Pim",
+      "type": "animation",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Little Pim",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-timmy",
+      "title": "小羊提米",
+      "name": "小羊提米",
+      "type": "animation",
+      "stageIds": [
+        "xu-2"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-2",
+          "stageTitle": "第二阶段 · 闪卡式绘本",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小羊提米",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-heinemann-gk70",
+      "title": "海尼曼 GK70",
+      "name": "海尼曼 GK70",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-3",
+        "xu-4",
+        "xu-5"
+      ],
+      "levels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "A",
+          "role": "main",
+          "original": "海尼曼 GK70 A",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "B",
+          "role": "main",
+          "original": "海尼曼 GK70 B",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "C",
+          "role": "main",
+          "original": "海尼曼 GK70 C",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-highlight-pairs",
+      "title": "Highlight 故事与科普配对",
+      "name": "Highlight 故事与科普配对",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-3",
+        "xu-4",
+        "xu-5"
+      ],
+      "levels": [
+        "1",
+        "2",
+        "3-4"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "1",
+          "role": "parallel",
+          "original": "Highlight 故事与科普配对 1",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "2",
+          "role": "parallel",
+          "original": "Highlight 故事与科普配对 2",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "3-4",
+          "role": "parallel",
+          "original": "Highlight 故事与科普配对 3-4",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-bat-friends",
+      "title": "蝙蝠和朋友们",
+      "name": "蝙蝠和朋友们",
+      "type": "animation",
+      "stageIds": [
+        "xu-3"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": null,
+          "role": "animation-companion",
+          "original": "蝙蝠和朋友们",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-car-city",
+      "title": "汽车小镇",
+      "name": "汽车小镇",
+      "type": "animation",
+      "stageIds": [
+        "xu-3"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": null,
+          "role": "animation-companion",
+          "original": "汽车小镇",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-penelope",
+      "title": "蓝色小考拉",
+      "name": "蓝色小考拉",
+      "type": "animation",
+      "stageIds": [
+        "xu-3"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": null,
+          "role": "animation-companion",
+          "original": "蓝色小考拉",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-wow-english",
+      "title": "Wow English",
+      "name": "Wow English",
+      "type": "animation",
+      "stageIds": [
+        "xu-3",
+        "xu-4"
+      ],
+      "levels": [
+        "1-3",
+        "4-5"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": "1-3",
+          "role": "animation-companion",
+          "original": "Wow English 1-3",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "4-5",
+          "role": "animation-companion",
+          "original": "Wow English 4-5",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-pocoyo",
+      "title": "小 P 优优",
+      "name": "小 P 优优",
+      "type": "animation",
+      "stageIds": [
+        "xu-3"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小 P 优优",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-dino-friends",
+      "title": "恐龙伙伴",
+      "name": "恐龙伙伴",
+      "type": "animation",
+      "stageIds": [
+        "xu-3"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-3",
+          "stageTitle": "第三阶段 · 海尼曼 GK70 A",
+          "level": null,
+          "role": "animation-companion",
+          "original": "恐龙伙伴",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-oxford-tree",
+      "title": "牛津树",
+      "name": "牛津树",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-4",
+        "xu-5",
+        "xu-6"
+      ],
+      "levels": [
+        "1",
+        "2",
+        "3-5"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "1",
+          "role": "parallel",
+          "original": "牛津树 1",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "2",
+          "role": "parallel",
+          "original": "牛津树 2",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": "3-5",
+          "role": "main",
+          "original": "牛津树 3-5",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-pearson-story-house",
+      "title": "培生亲子故事屋",
+      "name": "培生亲子故事屋",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-4",
+        "xu-5"
+      ],
+      "levels": [
+        "基础级",
+        "进阶级"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": "基础级",
+          "role": "parallel",
+          "original": "培生亲子故事屋 基础级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "进阶级",
+          "role": "parallel",
+          "original": "培生亲子故事屋 进阶级",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-maisy",
+      "title": "小鼠波波",
+      "name": "小鼠波波",
+      "type": "animation",
+      "stageIds": [
+        "xu-4"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小鼠波波",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-max-ruby",
+      "title": "Max and Ruby",
+      "name": "Max and Ruby",
+      "type": "animation",
+      "stageIds": [
+        "xu-4"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Max and Ruby",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-bing",
+      "title": "小兔乒乓",
+      "name": "小兔乒乓",
+      "type": "animation",
+      "stageIds": [
+        "xu-4"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小兔乒乓",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-daniel-tiger",
+      "title": "小老虎丹尼尔",
+      "name": "小老虎丹尼尔",
+      "type": "animation",
+      "stageIds": [
+        "xu-4"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-4",
+          "stageTitle": "第四阶段 · 海尼曼 GK70 B",
+          "level": null,
+          "role": "animation-companion",
+          "original": "小老虎丹尼尔",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-peter-rabbit",
+      "title": "Peter rabbit",
+      "name": "Peter rabbit",
+      "type": "animation",
+      "stageIds": [
+        "xu-5"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Peter rabbit",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-littlefox",
+      "title": "小狐狸动画",
+      "name": "小狐狸动画",
+      "type": "animation",
+      "stageIds": [
+        "xu-5",
+        "xu-6"
+      ],
+      "levels": [
+        "二级别",
+        "第三级别动画"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": "二级别",
+          "role": "animation-companion",
+          "original": "以及其它小狐狸二级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        },
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": "第三级别动画",
+          "role": "animation-companion",
+          "original": "以及小狐狸第三级别动画",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-meg-mog",
+      "title": "Meg and Mog",
+      "name": "Meg and Mog",
+      "type": "animation",
+      "stageIds": [
+        "xu-5"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Meg and Mog",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-pip-posy",
+      "title": "Pip and posy",
+      "name": "Pip and posy",
+      "type": "animation",
+      "stageIds": [
+        "xu-5"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-5",
+          "stageTitle": "第五阶段 · 海尼曼 GK70 C",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Pip and posy",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-pearson-unspecified",
+      "title": "培生（第六阶段未标明套系）",
+      "name": "培生（第六阶段未标明套系）",
+      "type": "gradedReader",
+      "stageIds": [
+        "xu-6"
+      ],
+      "levels": [
+        "5-6 级别"
+      ],
+      "appearances": [
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": "5-6 级别",
+          "role": "parallel",
+          "original": "培生 5-6 级别",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-muzzy",
+      "title": "大马泽",
+      "name": "大马泽",
+      "type": "animation",
+      "stageIds": [
+        "xu-6"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": null,
+          "role": "animation-companion",
+          "original": "大马泽",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-duggee",
+      "title": "道奇",
+      "name": "道奇",
+      "type": "animation",
+      "stageIds": [
+        "xu-6"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": null,
+          "role": "animation-companion",
+          "original": "道奇",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    },
+    {
+      "id": "xu-wizard-cat",
+      "title": "巫师与猫",
+      "name": "巫师与猫",
+      "type": "animation",
+      "stageIds": [
+        "xu-6"
+      ],
+      "levels": [],
+      "appearances": [
+        {
+          "stageId": "xu-6",
+          "stageTitle": "第六阶段 · 牛津树主线，完成 1000 词",
+          "level": null,
+          "role": "animation-companion",
+          "original": "巫师与猫",
+          "page": 1,
+          "preview": "assets/previews/xu-01.jpg"
+        }
+      ],
+      "page": 1,
+      "preview": "assets/previews/xu-01.jpg",
+      "source": "assets/sources/xu.pdf",
+      "coverAvailable": false,
+      "previewKind": "source-page"
+    }
+  ],
+  "edges": [
+    {
+      "from": "xu-1",
+      "to": "xu-2",
+      "type": "next-stage",
+      "label": "原路线依次进阶",
+      "page": 1
+    },
+    {
+      "from": "xu-1",
+      "to": "xu-shiguang-nouns",
+      "type": "core",
+      "label": "core",
+      "page": 1
+    },
+    {
+      "from": "xu-1",
+      "to": "xu-abubabu-verbs",
+      "type": "core",
+      "label": "core",
+      "page": 1
+    },
+    {
+      "from": "xu-1",
+      "to": "xu-sss",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-1",
+      "to": "xu-yakka-dee",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-3",
+      "type": "next-stage",
+      "label": "原路线依次进阶",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-pearson-vocabulary",
+      "type": "core",
+      "label": "core",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-bigcat",
+      "type": "core",
+      "label": "预备级",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-pearson-star",
+      "type": "core",
+      "label": "一级",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-scholastic",
+      "type": "core",
+      "label": "A 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-bookworm",
+      "type": "core",
+      "label": "1 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-didis-day",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-green-forest",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-twirlywoos",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-animal-adventure",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-little-pim",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-2",
+      "to": "xu-timmy",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-4",
+      "type": "next-stage",
+      "label": "原路线依次进阶",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-heinemann-gk70",
+      "type": "main",
+      "label": "A",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-bigcat",
+      "type": "parallel",
+      "label": "第 1-2 级",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-pearson-star",
+      "type": "parallel",
+      "label": "2 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-scholastic",
+      "type": "parallel",
+      "label": "B 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-bookworm",
+      "type": "parallel",
+      "label": "2 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-highlight-pairs",
+      "type": "parallel",
+      "label": "1",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-bat-friends",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-car-city",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-penelope",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-wow-english",
+      "type": "animation-companion",
+      "label": "1-3",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-pocoyo",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-3",
+      "to": "xu-dino-friends",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-5",
+      "type": "next-stage",
+      "label": "原路线依次进阶",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-heinemann-gk70",
+      "type": "main",
+      "label": "B",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-bigcat",
+      "type": "parallel",
+      "label": "2-3 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-pearson-star",
+      "type": "parallel",
+      "label": "3 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-scholastic",
+      "type": "parallel",
+      "label": "C 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-oxford-tree",
+      "type": "parallel",
+      "label": "1",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-pearson-story-house",
+      "type": "parallel",
+      "label": "基础级",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-bookworm",
+      "type": "parallel",
+      "label": "2 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-highlight-pairs",
+      "type": "parallel",
+      "label": "2",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-maisy",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-max-ruby",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-bing",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-daniel-tiger",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-4",
+      "to": "xu-wow-english",
+      "type": "animation-companion",
+      "label": "4-5",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-6",
+      "type": "next-stage",
+      "label": "原路线依次进阶",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-heinemann-gk70",
+      "type": "main",
+      "label": "C",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-bigcat",
+      "type": "parallel",
+      "label": "3-4 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-pearson-star",
+      "type": "parallel",
+      "label": "4 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-pearson-story-house",
+      "type": "parallel",
+      "label": "进阶级",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-oxford-tree",
+      "type": "parallel",
+      "label": "2",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-scholastic",
+      "type": "parallel",
+      "label": "D-E",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-bookworm",
+      "type": "parallel",
+      "label": "3-4 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-highlight-pairs",
+      "type": "parallel",
+      "label": "3-4",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-peter-rabbit",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-littlefox",
+      "type": "animation-companion",
+      "label": "二级别",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-meg-mog",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-5",
+      "to": "xu-pip-posy",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-oxford-tree",
+      "type": "main",
+      "label": "3-5",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-bigcat",
+      "type": "parallel",
+      "label": "5-6 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-pearson-unspecified",
+      "type": "parallel",
+      "label": "5-6 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-bookworm",
+      "type": "parallel",
+      "label": "5 级别",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-scholastic",
+      "type": "parallel",
+      "label": "F-I",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-muzzy",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-duggee",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-wizard-cat",
+      "type": "animation-companion",
+      "label": "animation-companion",
+      "page": 1
+    },
+    {
+      "from": "xu-6",
+      "to": "xu-littlefox",
+      "type": "animation-companion",
+      "label": "第三级别动画",
+      "page": 1
+    }
+  ],
+  "parallelSeries": {
+    "stageIds": [
+      "xu-3",
+      "xu-4",
+      "xu-5"
+    ],
+    "mainResourceId": "xu-heinemann-gk70",
+    "original": [
+      "大猫",
+      "培生启明星",
+      "学乐",
+      "书虫",
+      "培生故事屋",
+      "Highlight 故事与科普配对"
+    ],
+    "resourceIds": [
+      "xu-bigcat",
+      "xu-pearson-star",
+      "xu-scholastic",
+      "xu-bookworm",
+      "xu-pearson-story-house",
+      "xu-highlight-pairs"
+    ],
+    "page": 1
+  },
+  "notes": [
+    "词汇数全部来自原表“目的”栏，是本阶段的积累目标或阶段水平描述；原表没有给出刚性准入门槛。",
+    "此路线没有年龄信息；不能从此表直接推导某个月龄应该进入哪一级。",
+    "“主线 + 平行拓展”不等于每套材料必须全部刷完；表中没有给出每日时长、频率、套系书目明细或必须使用所有动画的要求。",
+    "这里的配套关系是同阶段组合。原表没有给每一本分级与某一集动画建立一对一对应，也没有与其他作者路线建立精确等值。",
+    "此 PDF 没有绘本封面或动画剧照；提供的是完整原页预览。套系细节仅保留原表明确的名称和级别。",
+    "第二页底图全白（内嵌图像 1190×1682，所有像素 RGB=255），只有署名水印文本，没有漏录的第二页阶段。",
+    "原表英文标题的大小写、品牌拼写按可辨识内容保留，如 Highlight、Peter rabbit、Pip and posy。"
+  ],
+  "quality": {
+    "checkedVisually": true,
+    "pagesChecked": [
+      1,
+      2
+    ],
+    "stageCount": 6,
+    "resourceCount": 37,
+    "uncertainties": [
+      "第六阶段“培生 5-6 级别”的套系未标明。",
+      "小狐狸二级别、三级别均为集合式指引，具体片单未列出。",
+      "时光学名词卡按原表文字保留，原表没有进一步解释品牌或版本。"
+    ]
+  }
+}

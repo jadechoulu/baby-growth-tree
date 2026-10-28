@@ -1,0 +1,981 @@
+{
+  "id": "xu-thousand",
+  "label": "阶段执行安排",
+  "description": "杉杉老师的4阶段执行表：听力先行、学习自然拼读、复习自然拼读与解码、开始自读桥梁书；逐页保留任务行、频率、材料级别和具体执行方式。",
+  "scope": "许密杉路线的阶段执行安排，保留逐阶段任务、频率和材料级别；与听力进阶表按具体素材关联。",
+  "source": {
+    "file": "assets/sources/xu-thousand.pdf",
+    "pageCount": 4,
+    "previews": [
+      {
+        "page": 1,
+        "path": "assets/previews/xu-thousand-01.jpg"
+      },
+      {
+        "page": 2,
+        "path": "assets/previews/xu-thousand-02.jpg"
+      },
+      {
+        "page": 3,
+        "path": "assets/previews/xu-thousand-03.jpg"
+      },
+      {
+        "page": 4,
+        "path": "assets/previews/xu-thousand-04.jpg"
+      }
+    ]
+  },
+  "notes": [
+    "PDF共4页，每页一个阶段；每阶段均标“3个月”，总计是原作者的执行节奏，并非当前宝宝必须按月完成的承诺或计划。",
+    "原文没有注明适用年龄、听说读写先备能力或每阶段刚性准入门槛；阶段序号不代表年龄。",
+    "用户提供的第二张四阶段思维导图是这份4页执行表的图示复述，任务顺序、材料和主体执行内容一致，不另建一套重复阶段。",
+    "思维导图将第1阶段命名为“听力先行”，第3阶段命名为“复习自然拼读”；PDF对应页标题只写阶段号，页内重点分别写“本阶段以积累听力词汇为主，不需要读和写”和“解码书+BR200词+400词”。",
+    "思维导图省略了PDF第1阶段字母书写行的“20-30分钟”；以PDF保留该时长。PDF第3阶段复习行“许要完成课后作业”疑为笔误，思维导图同样保留该字样。",
+    "第1阶段标题“不需要读和写”与字母书写任务存在内在冲突；第3阶段复习频率、第4阶段动画跟读频率也有同页两种节奏，原文差异不擅自抹平。",
+    "对于仍在积累少量听力词汇的低龄宝宝，本资料可供家长选择亲子听力互动、实物指认和少量重复共读的素材；自然拼读、认字、笔头作业和自读桥梁书不因新增此表而成为当前必做任务。此句为编辑建议，不是原文结论；具体位置请结合宝宝视角的当前档案查看。",
+    "500听力词汇是第1阶段的积累目标；Basic Reading 200词／400词／800词是教材名称中的层级标记，二者不是同一统计口径。",
+    "海尼曼GK与旧表的海尼曼GK70、Highlight与旧表的Highlight故事与科普配对，均不能仅凭简称强认定为同版本。"
+  ],
+  "resources": [
+    {
+      "id": "xu-thousand-noun-cards",
+      "title": "名词闪卡",
+      "type": "flashcard",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原文未注明品牌；每次5张。"
+      ]
+    },
+    {
+      "id": "xu-thousand-tpr-cards",
+      "title": "TPR动词指令卡",
+      "type": "flashcard",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原文未注明品牌；每次2张。"
+      ]
+    },
+    {
+      "id": "xu-thousand-basic-reading",
+      "title": "Basic Reading",
+      "type": "book",
+      "levels": [
+        "200词",
+        "400词",
+        "800词"
+      ],
+      "page": 1,
+      "notes": [
+        "原文写作 basic reading、Basic 200、BR200 等；同一教材系列按200词、400词、800词分别记录，不把词数当成其他分级套系的等级。",
+        "原文未注明教材版次、出版社或具体书目。"
+      ]
+    },
+    {
+      "id": "xu-thousand-muzzy",
+      "title": "大马泽（Big muzzy）",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原文并用“大马泽”和“Big muzzy”；没有给出季数或级别。"
+      ]
+    },
+    {
+      "id": "xu-thousand-wow",
+      "title": "Wow English",
+      "type": "animation",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "本版本原文没有注明级别；不能沿用另一份6阶段表的1–3、4–5等季数。"
+      ]
+    },
+    {
+      "id": "xu-thousand-muzzy-wordbook",
+      "title": "大马泽单词本",
+      "type": "book",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原文指杉杉的大马泽单词本，可点读纸质版；与动画实体分开保留关联。"
+      ]
+    },
+    {
+      "id": "xu-thousand-muzzy-scriptbook",
+      "title": "大马泽台词本",
+      "type": "book",
+      "levels": [],
+      "page": 3,
+      "notes": [
+        "原文指大马泽台词本，与动画和单词本分别记录。"
+      ]
+    },
+    {
+      "id": "xu-thousand-oxford-tree",
+      "title": "牛津树",
+      "type": "reader",
+      "levels": [
+        "1",
+        "2-3",
+        "4",
+        "1-3（复习）"
+      ],
+      "page": 1,
+      "notes": [
+        "与“牛津自然拼读”分开；第4阶段另允许复习之前的1–3。"
+      ]
+    },
+    {
+      "id": "xu-thousand-heinemann-gk",
+      "title": "海尼曼GK",
+      "type": "reader",
+      "levels": [
+        "GK"
+      ],
+      "page": 1,
+      "notes": [
+        "原文仅写海尼曼GK，没有给出GK70、A/B/C等版本或细级别，不强行等同旧6阶段表的海尼曼GK70。"
+      ]
+    },
+    {
+      "id": "xu-thousand-highlight",
+      "title": "Highlight",
+      "type": "reader",
+      "levels": [
+        "L1",
+        "第2级别",
+        "第3级别"
+      ],
+      "page": 1,
+      "notes": [
+        "原文没有展开套系全名或版本；不直接认定为旧6阶段表“Highlight 故事与科普配对”。",
+        "三个阶段均为可增加的平行材料，不是原表要求必须全部使用。"
+      ]
+    },
+    {
+      "id": "xu-thousand-alphabet-chart",
+      "title": "字母表",
+      "type": "other",
+      "levels": [],
+      "page": 1,
+      "notes": [
+        "原文未注明版本；第1阶段要求教会26个字母大小写及书写。"
+      ]
+    },
+    {
+      "id": "xu-thousand-alphablocks",
+      "title": "字母积木",
+      "type": "animation",
+      "levels": [],
+      "page": 2,
+      "notes": []
+    },
+    {
+      "id": "xu-thousand-oxford-phonics",
+      "title": "牛津自然拼读",
+      "type": "book",
+      "levels": [
+        "第一册和第二册"
+      ],
+      "page": 2,
+      "notes": [
+        "原文未注明教材英文名、版本或出版社；不等同于牛津树分级。"
+      ]
+    },
+    {
+      "id": "xu-thousand-sight-words",
+      "title": "220视觉词",
+      "type": "other",
+      "levels": [
+        "220视觉词"
+      ],
+      "page": 2,
+      "notes": [
+        "原文写“220视觉词”；未注明品牌、具体词表或版本，不擅自补成某一高频词套系。"
+      ]
+    },
+    {
+      "id": "xu-thousand-booklife-junior",
+      "title": "Booklife Junior",
+      "type": "reader",
+      "levels": [],
+      "page": 3,
+      "notes": [
+        "原表方案栏分两行写“Booklife”“Junior”。"
+      ]
+    },
+    {
+      "id": "xu-thousand-littlefox",
+      "title": "小狐狸动画",
+      "type": "animation",
+      "levels": [
+        "L1"
+      ],
+      "page": 4,
+      "notes": [
+        "第4阶段配合台词本跟读；原文推荐“蝙蝠和朋友、汽车小镇”。"
+      ]
+    },
+    {
+      "id": "xu-thousand-bat-friends",
+      "title": "蝙蝠和朋友",
+      "type": "animation",
+      "levels": [],
+      "page": 4,
+      "notes": [
+        "原文列为小狐狸L1台词本跟读的推荐内容；不补充季数或分集。"
+      ]
+    },
+    {
+      "id": "xu-thousand-car-city",
+      "title": "汽车小镇",
+      "type": "animation",
+      "levels": [],
+      "page": 4,
+      "notes": [
+        "原文列为小狐狸L1台词本跟读的推荐内容；不补充季数或分集。"
+      ]
+    },
+    {
+      "id": "xu-thousand-littlefox-scriptbook",
+      "title": "小狐狸台词本",
+      "type": "book",
+      "levels": [],
+      "page": 4,
+      "notes": [
+        "原文要求一定要准备台词本，但未注明台词本版本或书名；推荐内容为蝙蝠和朋友、汽车小镇。"
+      ]
+    },
+    {
+      "id": "xu-thousand-biscuit",
+      "title": "饼干狗",
+      "type": "book",
+      "levels": [],
+      "page": 4,
+      "notes": [
+        "第4阶段桥梁书从此套开始。"
+      ]
+    },
+    {
+      "id": "xu-thousand-pete-cat",
+      "title": "皮特猫",
+      "type": "book",
+      "levels": [],
+      "page": 4,
+      "notes": [
+        "第4阶段桥梁书。"
+      ]
+    },
+    {
+      "id": "xu-thousand-fly-guy",
+      "title": "苍蝇小子",
+      "type": "book",
+      "levels": [],
+      "page": 4,
+      "notes": [
+        "第4阶段桥梁书。"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "xu-thousand-1",
+      "order": 1,
+      "title": "第一阶段 · 听力先行",
+      "shortTitle": "第 1 阶段",
+      "goal": "以积累听力词汇为主；积累500听力词汇与校内基础词汇。原文标题写“不需要读和写”。",
+      "duration": "3个月",
+      "ageLabel": "原文未注明适用年龄",
+      "page": 1,
+      "preview": "assets/previews/xu-thousand-01.jpg",
+      "notes": [
+        "原文标题写“不需要读和写”，但同页“字母学习”行又要求写字母、多练习书写（20-30分钟）；两处内容均保留，不能把全页概括为完全没有书写任务。",
+        "500听力词汇是本阶段积累目标，不是入门前必须达到的准入条件。",
+        "这些频率和时长是原作者执行表内容，原文没有说明适用年龄，不自动转成当前宝宝的必做计划。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-thousand-noun-cards",
+          "level": null,
+          "role": "core",
+          "original": "名词闪卡5张",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-tpr-cards",
+          "level": null,
+          "role": "core",
+          "original": "TPR动词指令卡2张",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-basic-reading",
+          "level": "200词",
+          "role": "core",
+          "original": "basic reading 200词",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-muzzy",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Big muzzy",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-wow",
+          "level": null,
+          "role": "animation-companion",
+          "original": "wow English",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-muzzy-wordbook",
+          "level": null,
+          "role": "companion",
+          "original": "杉杉的大马泽营或者单词本（可点读纸质版）",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-oxford-tree",
+          "level": "1",
+          "role": "main",
+          "original": "牛津树1",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-heinemann-gk",
+          "level": "GK",
+          "role": "main",
+          "original": "海尼曼GK",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-highlight",
+          "level": "L1",
+          "role": "optional",
+          "original": "Highlight(L1)；时间充裕还可增加Highlight第一级别",
+          "page": 1
+        },
+        {
+          "resourceId": "xu-thousand-alphabet-chart",
+          "level": null,
+          "role": "core",
+          "original": "用字母表学，教会26个字母大小写",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "积累500听力词汇",
+          "frequency": "每天必做",
+          "materials": [
+            "xu-thousand-noun-cards",
+            "xu-thousand-tpr-cards"
+          ],
+          "method": "名词闪卡5张、TPR动词指令卡2张；妈妈中英混说，见缝插针带读。",
+          "minutes": "每天10-15分钟",
+          "notes": []
+        },
+        {
+          "title": "积累校内基础词汇",
+          "frequency": "每天做",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "使用Basic Reading 200词；每天听一课或者妈妈教一课，不需要孩子认读。听到单词以及所在的句子，能把核心单词对应的画面指出来，就算过关。完成全部48课内容，重点训练听力理解与视觉对应能力，不需要书面作业。",
+          "minutes": "每天20-30分钟",
+          "notes": []
+        },
+        {
+          "title": "动画片",
+          "frequency": "每天做或者每2天一次",
+          "materials": [
+            "xu-thousand-muzzy",
+            "xu-thousand-wow",
+            "xu-thousand-muzzy-wordbook"
+          ],
+          "method": "用杉杉的大马泽营或者单词本（可点读纸质版），让孩子每天能指出单词本上面一页8个单词；听到声音能指出图片即可，不需要孩子指着单词本读。",
+          "minutes": "每天20-30分钟",
+          "notes": []
+        },
+        {
+          "title": "分级阅读",
+          "frequency": "每天做或者每2天一次",
+          "materials": [
+            "xu-thousand-oxford-tree",
+            "xu-thousand-heinemann-gk",
+            "xu-thousand-highlight"
+          ],
+          "method": "妈妈读：每天一本海尼曼GK加2本牛津树1；时间充裕还可增加Highlight第一级别。",
+          "minutes": "单次20-30分钟",
+          "notes": []
+        },
+        {
+          "title": "裸听",
+          "frequency": "路上听／碎片时间听",
+          "materials": [
+            "xu-thousand-oxford-tree",
+            "xu-thousand-heinemann-gk",
+            "xu-thousand-highlight",
+            "xu-thousand-muzzy",
+            "xu-thousand-wow"
+          ],
+          "method": "裸听前一天看过的分级／动画片。",
+          "minutes": "1-1.5小时",
+          "notes": []
+        },
+        {
+          "title": "字母学习",
+          "frequency": "每2天一次",
+          "materials": [
+            "xu-thousand-alphabet-chart"
+          ],
+          "method": "用字母表学，教会26个字母大小写；写字母，多练习书写。",
+          "minutes": "20-30分钟",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": "xu-thousand-2",
+      "order": 2,
+      "title": "第二阶段 · 学习自然拼读",
+      "shortTitle": "第 2 阶段",
+      "goal": "学习自然拼读；使用牛津自然拼读第一册和第二册，继续积累基础词汇。",
+      "duration": "3个月",
+      "ageLabel": "原文未注明适用年龄",
+      "page": 2,
+      "preview": "assets/previews/xu-thousand-02.jpg",
+      "notes": [
+        "第2阶段没有给出听力词汇准入数字或年龄要求；“学习一个月后开始”的条件只适用于本页两条认读／写单词活动，不能推广为所有活动统一起点。",
+        "Basic Reading 400词仍以听力理解为主、无书面作业；同页200词和动画单词本开始书写，两者执行方式不同。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-thousand-basic-reading",
+          "level": "400词",
+          "role": "core",
+          "original": "basic reading 400词",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-alphablocks",
+          "level": null,
+          "role": "animation-companion",
+          "original": "字母积木",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-oxford-phonics",
+          "level": "第一册和第二册",
+          "role": "main",
+          "original": "牛津自然拼读，完成第一册和第二册",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-basic-reading",
+          "level": "200词",
+          "role": "review",
+          "original": "basic reading 200词",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-muzzy",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Big muzzy",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-wow",
+          "level": null,
+          "role": "animation-companion",
+          "original": "wow English",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-muzzy-wordbook",
+          "level": null,
+          "role": "companion",
+          "original": "杉杉的大马泽营或者单词本",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-oxford-tree",
+          "level": "2-3",
+          "role": "parallel",
+          "original": "牛津树2-3",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-highlight",
+          "level": "第2级别",
+          "role": "optional",
+          "original": "可以增加Highlight第2级别",
+          "page": 2
+        },
+        {
+          "resourceId": "xu-thousand-sight-words",
+          "level": "220视觉词",
+          "role": "core",
+          "original": "220视觉词；认读，每次5个",
+          "page": 2
+        }
+      ],
+      "activities": [
+        {
+          "title": "积累校内基础词汇",
+          "frequency": "每天必做",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "使用Basic Reading 400词；每天听一课或者妈妈教一课，不需要孩子认读。听到单词以及所在的句子，能把核心单词对应的画面指出来，就算过关。完成全部48课内容，重点训练听力理解与视觉对应能力，不需要书面作业。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "动画片",
+          "frequency": "每天听",
+          "materials": [
+            "xu-thousand-alphablocks"
+          ],
+          "method": "听字母积木，了解自然拼读规则和字母的发音。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "学习自然拼读",
+          "frequency": "一天一课",
+          "materials": [
+            "xu-thousand-oxford-phonics"
+          ],
+          "method": "按照顺序学，完成第一册和第二册，并完成课后作业。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "积累校内基础词汇：开始写200词",
+          "frequency": "自然拼读学习一个月后开始，每天都要做",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "开始写200词教材里面的单词，结合学过的自然拼读，尝试拆解每一个单词的拼读规则。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "动画片：开始认读和写单词",
+          "frequency": "自然拼读学习一个月后开始，每2天一次",
+          "materials": [
+            "xu-thousand-muzzy",
+            "xu-thousand-wow",
+            "xu-thousand-muzzy-wordbook"
+          ],
+          "method": "用杉杉的大马泽营或者单词本，让孩子每天能写单词本上面一页8个单词，需要自己尝试用自然拼读拆解单词的拼读规则，开始认读和写单词。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "分级阅读",
+          "frequency": "每2天一次",
+          "materials": [
+            "xu-thousand-oxford-tree",
+            "xu-thousand-highlight"
+          ],
+          "method": "牛津树2-3，妈妈每次读2-5本；可以增加Highlight第2级别。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "裸听",
+          "frequency": "路上听／碎片时间听",
+          "materials": [
+            "xu-thousand-oxford-tree",
+            "xu-thousand-highlight",
+            "xu-thousand-muzzy",
+            "xu-thousand-wow",
+            "xu-thousand-alphablocks"
+          ],
+          "method": "裸听前一天看过的分级／动画片。",
+          "minutes": "1-1.5小时",
+          "notes": []
+        },
+        {
+          "title": "指读和朗读",
+          "frequency": "每周六日早晚各20分钟／每天10分钟（看情况定）",
+          "materials": [
+            "xu-thousand-oxford-phonics",
+            "xu-thousand-muzzy-wordbook",
+            "xu-thousand-basic-reading"
+          ],
+          "method": "牛津自然拼读、听过的大马泽单词，以及200词和400词教材里面的单词：跟读要读出声音，家长帮忙录音，让孩子听了之后比对原声，找出问题之后重新读。",
+          "minutes": "每周六日早晚各20分钟／每天10分钟（看情况定）",
+          "notes": []
+        },
+        {
+          "title": "220视觉词",
+          "frequency": "每周3次学习",
+          "materials": [
+            "xu-thousand-sight-words",
+            "xu-thousand-basic-reading"
+          ],
+          "method": "认读，每次5个；坚持认读，在200词教材里面也有，可以标出来。",
+          "minutes": "",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": "xu-thousand-3",
+      "order": 3,
+      "title": "第三阶段 · 复习自然拼读",
+      "shortTitle": "第 3 阶段",
+      "goal": "解码书 + BR200词 + 400词；复习自然拼读、开始自读和笔头作业。",
+      "duration": "3个月",
+      "ageLabel": "原文未注明适用年龄",
+      "page": 3,
+      "preview": "assets/previews/xu-thousand-03.jpg",
+      "notes": [
+        "标题重点“解码书+BR200词+400词”与思维导图将本阶段命名为“复习自然拼读”是同一阶段的不同概括，保留两者信息。",
+        "第一条频率与执行栏分别写“每2天复习一课”和“一天一课”，不擅自统一。",
+        "书写、自读、朗读和解码均属于原作者此阶段训练任务，不因本阶段序号为3就默认适合3岁或当前宝宝。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-thousand-basic-reading",
+          "level": "200词／400词",
+          "role": "core",
+          "original": "Basic 200、400；basic reading200词/400词",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-muzzy-wordbook",
+          "level": null,
+          "role": "companion",
+          "original": "大马泽词本",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-muzzy-scriptbook",
+          "level": null,
+          "role": "companion",
+          "original": "大马泽台词本",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-muzzy",
+          "level": null,
+          "role": "animation-companion",
+          "original": "Big muzzy；大马泽",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-wow",
+          "level": null,
+          "role": "animation-companion",
+          "original": "wow English",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-oxford-tree",
+          "level": "2-3",
+          "role": "parallel",
+          "original": "牛津树2-3",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-highlight",
+          "level": "第3级别",
+          "role": "optional",
+          "original": "可以增加Highlight第3级别",
+          "page": 3
+        },
+        {
+          "resourceId": "xu-thousand-booklife-junior",
+          "level": null,
+          "role": "core",
+          "original": "Booklife\nJunior",
+          "page": 3
+        }
+      ],
+      "activities": [
+        {
+          "title": "复习自然拼读",
+          "frequency": "每2天复习一课",
+          "materials": [
+            "xu-thousand-basic-reading",
+            "xu-thousand-muzzy-wordbook",
+            "xu-thousand-muzzy-scriptbook"
+          ],
+          "method": "使用Basic 200、400加大马泽词本／台词本，用时1个月。按照顺序学，一天一课，完成课后作业；第二阶段学过还可以重复学一遍。",
+          "minutes": "用时1个月",
+          "notes": [
+            "原表频率栏写“每2天复习一课”，执行栏同时写“一天一课”，两处节奏不同，均保留。",
+            "原表执行栏“许要完成课后作业”疑为“需要完成课后作业”的笔误；此处按可理解含义表述。"
+          ]
+        },
+        {
+          "title": "跟读动画片",
+          "frequency": "每天读2分钟",
+          "materials": [
+            "xu-thousand-muzzy",
+            "xu-thousand-muzzy-wordbook",
+            "xu-thousand-muzzy-scriptbook"
+          ],
+          "method": "每天跟读一页单词本，跟读一页台词本。",
+          "minutes": "每天2分钟",
+          "notes": []
+        },
+        {
+          "title": "自读作业：积累校内基础词汇",
+          "frequency": "每天必做",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "每天自读一课教材加单词，先读200词，然后读400词。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "笔头作业：积累校内基础词汇",
+          "frequency": "每天必做",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "完成课后练习，每天读完之后写一课。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "裸听教材",
+          "frequency": "每2天听一次",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "裸听Basic Reading 200词／400词教材，必须能听懂，每次听2课。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "裸听动画",
+          "frequency": "每3天听一次",
+          "materials": [
+            "xu-thousand-muzzy",
+            "xu-thousand-wow",
+            "xu-thousand-muzzy-scriptbook"
+          ],
+          "method": "裸听动画片一集，听不懂的一定要再看台词本。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "分级阅读",
+          "frequency": "每3天一次",
+          "materials": [
+            "xu-thousand-oxford-tree",
+            "xu-thousand-highlight"
+          ],
+          "method": "牛津树2-3，妈妈每次读2-5本；可以增加Highlight第3级别。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "解码书",
+          "frequency": "每2天读2-5本",
+          "materials": [
+            "xu-thousand-booklife-junior"
+          ],
+          "method": "一次读2-5本，必须要结合自然拼读思考，了解整本书单词的拼写和意思，大声读最佳。",
+          "minutes": "",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": "xu-thousand-4",
+      "order": 4,
+      "title": "第四阶段 · 自读桥梁书",
+      "shortTitle": "第 4 阶段",
+      "goal": "开始自读桥梁书；复习200词和400词，学习Basic Reading 800词。",
+      "duration": "3个月",
+      "ageLabel": "原文未注明适用年龄",
+      "page": 4,
+      "preview": "assets/previews/xu-thousand-04.jpg",
+      "notes": [
+        "本阶段没有给出桥梁书的子套系、级别、册数或频率，不能补成“饼干狗某级”或“皮特猫某级”。",
+        "小狐狸动画频率栏和执行栏的节奏不同，分别保留。",
+        "“每次1本”指牛津树4；复习牛津树1-3时写的是每次2-3本，二者不混用。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-thousand-basic-reading",
+          "level": "200词／400词（复习）",
+          "role": "review",
+          "original": "复习200词和400词",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-littlefox",
+          "level": "L1",
+          "role": "animation-companion",
+          "original": "小狐狸L1",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-bat-friends",
+          "level": null,
+          "role": "recommended",
+          "original": "推荐蝙蝠和朋友",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-car-city",
+          "level": null,
+          "role": "recommended",
+          "original": "汽车小镇",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-littlefox-scriptbook",
+          "level": null,
+          "role": "companion",
+          "original": "一定要准备台词本",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-basic-reading",
+          "level": "800词",
+          "role": "core",
+          "original": "basic reading 800词",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-oxford-tree",
+          "level": "4",
+          "role": "parallel",
+          "original": "牛津树4",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-oxford-tree",
+          "level": "1-3（复习）",
+          "role": "review",
+          "original": "也可以读之前的1-3",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-biscuit",
+          "level": null,
+          "role": "main",
+          "original": "饼干狗",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-pete-cat",
+          "level": null,
+          "role": "parallel",
+          "original": "皮特猫",
+          "page": 4
+        },
+        {
+          "resourceId": "xu-thousand-fly-guy",
+          "level": null,
+          "role": "parallel",
+          "original": "苍蝇小子",
+          "page": 4
+        }
+      ],
+      "activities": [
+        {
+          "title": "复习200词和400词",
+          "frequency": "每天复习一课",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "需要先听一遍，然后自己再大声朗读一课。",
+          "minutes": "每天10分钟",
+          "notes": []
+        },
+        {
+          "title": "动画片",
+          "frequency": "每2天读10分钟",
+          "materials": [
+            "xu-thousand-littlefox",
+            "xu-thousand-bat-friends",
+            "xu-thousand-car-city",
+            "xu-thousand-littlefox-scriptbook"
+          ],
+          "method": "每天跟读一页台词本，一定要准备台词本。推荐蝙蝠和朋友、汽车小镇。",
+          "minutes": "每2天10分钟",
+          "notes": [
+            "频率栏写“每2天读10分钟”，执行栏写“每天跟读一页”，两处节奏不同，均保留。"
+          ]
+        },
+        {
+          "title": "学习800词",
+          "frequency": "建议每周只学5课，周六日复习",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "每天学一课教材加单词；原文说明800词比较难，建议每周只学5课，周六日要复习。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "裸听",
+          "frequency": "每2天听一次",
+          "materials": [
+            "xu-thousand-basic-reading"
+          ],
+          "method": "裸听Basic Reading 800词教材，必须能听懂，每次听一课。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "分级阅读",
+          "frequency": "每3天一次",
+          "materials": [
+            "xu-thousand-oxford-tree"
+          ],
+          "method": "牛津树4每次1本，需要自己跟着读；也可以读之前的1-3，每次都2-3本。",
+          "minutes": "",
+          "notes": []
+        },
+        {
+          "title": "桥梁书",
+          "frequency": "原文未注明频率",
+          "materials": [
+            "xu-thousand-biscuit",
+            "xu-thousand-pete-cat",
+            "xu-thousand-fly-guy"
+          ],
+          "method": "先从饼干狗开始，读的时候遇到生词需要了解意思，不需要死记硬背，后面还会出现。不用朗读，读懂即可，每句的意思必须要了解；读完之后可以裸听一遍。",
+          "minutes": "",
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "quality": {
+    "checkedVisually": true,
+    "pagesChecked": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "stageCount": 4,
+    "resourceCount": 22,
+    "activityCount": 29,
+    "uncertainties": [
+      "Booklife、Junior在原表分两行，未给出完整版本说明。",
+      "Basic Reading与牛津自然拼读未注明教材版次。",
+      "Highlight未展开套系全名。",
+      "原文频率存在少量同页差异，已逐条标注。"
+    ]
+  },
+  "title": "许密杉路线 · 阶段执行安排"
+}

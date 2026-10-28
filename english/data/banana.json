@@ -1,0 +1,4661 @@
+{
+  "id": "banana",
+  "name": "香蕉妈妈",
+  "source": {
+    "file": "assets/sources/banana.pdf",
+    "title": "2025各年龄段英语启蒙规划-香蕉妈妈",
+    "pages": 18,
+    "previews": [
+      "assets/previews/banana-01.jpg",
+      "assets/previews/banana-02.jpg",
+      "assets/previews/banana-03.jpg",
+      "assets/previews/banana-04.jpg",
+      "assets/previews/banana-05.jpg",
+      "assets/previews/banana-06.jpg",
+      "assets/previews/banana-07.jpg",
+      "assets/previews/banana-08.jpg",
+      "assets/previews/banana-09.jpg",
+      "assets/previews/banana-10.jpg",
+      "assets/previews/banana-11.jpg",
+      "assets/previews/banana-12.jpg",
+      "assets/previews/banana-13.jpg",
+      "assets/previews/banana-14.jpg",
+      "assets/previews/banana-15.jpg",
+      "assets/previews/banana-16.jpg",
+      "assets/previews/banana-17.jpg",
+      "assets/previews/banana-18.jpg"
+    ]
+  },
+  "stages": [
+    {
+      "id": "banana-pre",
+      "title": "Pre阶段",
+      "order": 0,
+      "summary": "RAZ A&B；红火箭玫粉；海尼曼 GK1-2",
+      "goal": "建立亲子共读与听音理解习惯，低级别基础句型反复理解",
+      "goalEvidence": "根据计划与方案说明概括，非原文能力测评门槛",
+      "vocabularyThreshold": null,
+      "vocabularyNote": "原文未给出听力词汇量门槛",
+      "pages": [
+        5,
+        14
+      ],
+      "schedules": [
+        {
+          "ageGroup": "2岁/3岁零基础起点",
+          "time": "第1-2月",
+          "duration": "2个月",
+          "daily": "20分钟（可分2次）",
+          "gradedCount": 100,
+          "gradedCountQualifier": "册",
+          "storyCount": 60,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:1",
+          "minimumAgeMonths": 24,
+          "weekPlan": "周一至周六：分级新书5本×2遍，或故事新书2本×2遍；加前一天旧书1遍。周日重复喜欢的书（6/7岁起点为重复本周读过的书）。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；熏听喜欢的故事、儿歌和动画音频。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 1,
+          "preview": "assets/previews/banana-01.jpg"
+        },
+        {
+          "ageGroup": "4岁/5岁零基础起点",
+          "time": "第1月",
+          "duration": "1个月",
+          "daily": "40分钟（可分2次）",
+          "gradedCount": 100,
+          "gradedCountQualifier": "册",
+          "storyCount": 30,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:1",
+          "minimumAgeMonths": 48,
+          "weekPlan": "周一至周五：分级新书10本×2遍，或故事新书3-4本×2遍；加前一天旧书1遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；听最近读过书；不喜欢分级/故事音频可用近期喜欢的动画音频。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 2,
+          "preview": "assets/previews/banana-02.jpg"
+        },
+        {
+          "ageGroup": "6岁/7岁零基础起点",
+          "time": "第1-2月内，前2周",
+          "duration": "2周",
+          "daily": "40分钟",
+          "gradedCount": 100,
+          "gradedCountQualifier": "册",
+          "storyCount": null,
+          "storyCountQualifier": null,
+          "fictionNonfictionRatio": "1:1",
+          "minimumAgeMonths": 72,
+          "weekPlan": "周一至周六：分级新书10本×2遍；加前一天旧书1遍。周日重复喜欢的书（6/7岁起点为重复本周读过的书）。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 3,
+          "preview": "assets/previews/banana-03.jpg"
+        }
+      ],
+      "resourceIds": [
+        "banana-flr-waiyan-A&B",
+        "banana-sight-word-A&B",
+        "banana-flr-A&B",
+        "banana-sight-stories-A&B",
+        "banana-guided-science-A&B",
+        "banana-buddy-A&B",
+        "banana-comics-A&B",
+        "banana-qiming-1&2",
+        "banana-jump-tadpole",
+        "banana-raz-0",
+        "banana-red-rocket-0",
+        "banana-heinemann-0",
+        "banana-youyou-pre",
+        "banana-guli",
+        "banana-qplay",
+        "banana-wplay"
+      ],
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+    },
+    {
+      "id": "banana-1",
+      "title": "一阶段",
+      "order": 1,
+      "summary": "牛津树1+&2；RAZ C&D；红火箭大红；海尼曼 GK3&G1-1",
+      "goal": "拓展同难度故事与分级，理解基础句型",
+      "goalEvidence": "根据计划与方案说明概括，非原文能力测评门槛",
+      "vocabularyThreshold": null,
+      "vocabularyNote": "原文未给出听力词汇量门槛",
+      "pages": [
+        6,
+        7,
+        14
+      ],
+      "schedules": [
+        {
+          "ageGroup": "2岁/3岁零基础起点",
+          "time": "第3-6月",
+          "duration": "4个月",
+          "daily": "20分钟（可分2次）",
+          "gradedCount": 200,
+          "gradedCountQualifier": "册起",
+          "storyCount": 60,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "2:1",
+          "minimumAgeMonths": 30,
+          "weekPlan": "周一至周六：分级新书3本×2遍，或故事新书2本×2遍；加前一天旧书1遍。周日重复喜欢的书（6/7岁起点为重复本周读过的书）。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；熏听喜欢的故事、儿歌和动画音频。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 1,
+          "preview": "assets/previews/banana-01.jpg",
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。"
+        },
+        {
+          "ageGroup": "4岁/5岁零基础起点",
+          "time": "第2-3月",
+          "duration": "2个月",
+          "daily": "40分钟（可分2次）",
+          "gradedCount": 200,
+          "gradedCountQualifier": "册起",
+          "storyCount": 40,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "2:1",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周五：分级新书6本×2遍，或故事新书5本×2遍；加前一天旧书1遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；听最近读过书；不喜欢分级/故事音频可用近期喜欢的动画音频。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 2,
+          "preview": "assets/previews/banana-02.jpg"
+        },
+        {
+          "ageGroup": "6岁/7岁零基础起点",
+          "time": "第1-2月内，后约6.5周",
+          "duration": "约6.5周",
+          "daily": "40分钟",
+          "gradedCount": 200,
+          "gradedCountQualifier": "册起",
+          "storyCount": null,
+          "storyCountQualifier": null,
+          "fictionNonfictionRatio": "2:1",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周五：分级新书6本×2遍；加前一天旧书1遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 3,
+          "preview": "assets/previews/banana-03.jpg"
+        }
+      ],
+      "resourceIds": [
+        "banana-flr-waiyan-C&D",
+        "banana-sight-word-C&D",
+        "banana-flr-C&D",
+        "banana-sight-stories-C&D",
+        "banana-guided-science-C&D",
+        "banana-buddy-C&D",
+        "banana-comics-C&D",
+        "banana-big-cat-waiyan-1&2",
+        "banana-big-cat-bien-1&2",
+        "banana-songbirds-1&2",
+        "banana-encyclopedia-1&2",
+        "banana-bookworms-1&2",
+        "banana-ort-1+&2",
+        "banana-qiming-3",
+        "banana-pearson-Level1",
+        "banana-jump-tadpole",
+        "banana-natgeo-1",
+        "banana-raz-1",
+        "banana-red-rocket-1",
+        "banana-heinemann-1",
+        "banana-youyou-1",
+        "banana-mfr-1"
+      ],
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+    },
+    {
+      "id": "banana-2",
+      "title": "二阶段",
+      "order": 2,
+      "summary": "牛津树3&4；RAZ E&F；红火箭黄；海尼曼 G1-2&G1-3",
+      "goal": "继续广泛听读，同阶段多套系并行",
+      "goalEvidence": "根据计划与方案说明概括，非原文能力测评门槛",
+      "vocabularyThreshold": null,
+      "vocabularyNote": "原文未给出听力词汇量门槛",
+      "pages": [
+        8,
+        9,
+        10,
+        14
+      ],
+      "schedules": [
+        {
+          "ageGroup": "2岁/3岁零基础起点",
+          "time": "第7-10月",
+          "duration": "4个月",
+          "daily": "30-40分钟（可分2次）",
+          "gradedCount": 150,
+          "gradedCountQualifier": "册起",
+          "storyCount": 120,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "3:2",
+          "minimumAgeMonths": 36,
+          "weekPlan": "周一至周五：分级新书3本×2遍，或故事新书3-4本×1遍；加前一天旧书1遍。故事可整套读完再重复1-2遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；熏听喜欢的故事、儿歌和动画音频。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 1,
+          "preview": "assets/previews/banana-01.jpg",
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。"
+        },
+        {
+          "ageGroup": "4岁/5岁零基础起点",
+          "time": "第4-7月",
+          "duration": "4个月",
+          "daily": "40分钟（可分2次）",
+          "gradedCount": 150,
+          "gradedCountQualifier": "册起",
+          "storyCount": 100,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "3:2",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周五：分级新书3本×2遍，或故事新书3-4本×1遍；加前一天旧书1遍。故事可整套读完再重复1-2遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；听最近读过书；不喜欢分级/故事音频可用近期喜欢的动画音频。",
+          "output": "原表未安排说读写。",
+          "sourcePage": 2,
+          "preview": "assets/previews/banana-02.jpg"
+        },
+        {
+          "ageGroup": "6岁/7岁零基础起点",
+          "time": "第3-4月",
+          "duration": "2个月",
+          "daily": "40分钟",
+          "gradedCount": 150,
+          "gradedCountQualifier": "册起",
+          "storyCount": 40,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "3:2",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周五：分级新书4-5本×2遍，或故事新书4本×1遍；加前一天旧书1遍。故事可整套读完再重复1-2遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "跟读Pre 5本/天 → 一段3本/天。",
+          "sourcePage": 3,
+          "preview": "assets/previews/banana-03.jpg"
+        }
+      ],
+      "resourceIds": [
+        "banana-flr-waiyan-E&F",
+        "banana-sight-word-E&F",
+        "banana-guided-science-E&F",
+        "banana-buddy-E&F",
+        "banana-comics-E&F",
+        "banana-big-cat-waiyan-3&4",
+        "banana-big-cat-bien-3&4",
+        "banana-songbirds-3&4",
+        "banana-encyclopedia-3&4",
+        "banana-read-china-1&2",
+        "banana-ort-3&4",
+        "banana-qiming-4",
+        "banana-pearson-Level2",
+        "banana-jump-bullfrog",
+        "banana-natgeo-1",
+        "banana-raz-2",
+        "banana-red-rocket-2",
+        "banana-heinemann-2",
+        "banana-youyou-2",
+        "banana-mfr-2",
+        "banana-rhino",
+        "banana-pig-fox",
+        "banana-pearson-story",
+        "banana-scene-400"
+      ],
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+    },
+    {
+      "id": "banana-3",
+      "title": "三阶段",
+      "order": 3,
+      "summary": "牛津树5&6；RAZ G&H；红火箭绿；海尼曼 G1-2&G1-3&G2-1",
+      "goal": "向桥梁内容过渡，同步低阶跟读",
+      "goalEvidence": "根据计划与方案说明概括，非原文能力测评门槛",
+      "vocabularyThreshold": null,
+      "vocabularyNote": "原文未给出听力词汇量门槛",
+      "pages": [
+        11,
+        15
+      ],
+      "schedules": [
+        {
+          "ageGroup": "2岁/3岁零基础起点",
+          "time": "第11-16月",
+          "duration": "6个月",
+          "daily": "40分钟（可分2-3次）",
+          "gradedCount": 150,
+          "gradedCountQualifier": "册起",
+          "storyCount": 120,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:1",
+          "minimumAgeMonths": 42,
+          "weekPlan": "周一至周五：分级新书2本×1遍，或故事新书2-3本×1遍；加前一天旧书1遍。虚构可完整一个级别读完再重复，非虚构第二天重复；故事可整套读完再重复1-2遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "跟读Pre分级3本/天 → 一段分级2本/天。",
+          "sourcePage": 1,
+          "preview": "assets/previews/banana-01.jpg",
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。"
+        },
+        {
+          "ageGroup": "4岁/5岁零基础起点",
+          "time": "第8-12月",
+          "duration": "5个月",
+          "daily": "40-60分钟（可分2-3次）",
+          "gradedCount": 150,
+          "gradedCountQualifier": "册起",
+          "storyCount": 100,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:1",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周五：分级新书2-3本×1遍，或故事新书3-4本×1遍；加前一天旧书1遍。虚构可完整一个级别读完再重复，非虚构第二天重复；故事可整套读完再重复1-2遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "跟读Pre分级3本/天 → 一段分级2本/天。",
+          "sourcePage": 2,
+          "preview": "assets/previews/banana-02.jpg"
+        },
+        {
+          "ageGroup": "6岁/7岁零基础起点",
+          "time": "第5-8月",
+          "duration": "4个月",
+          "daily": "40-60分钟",
+          "gradedCount": 150,
+          "gradedCountQualifier": "册起",
+          "storyCount": 80,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:1",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周五：分级新书3本×1遍，或故事新书3-4本×1遍；加前一天旧书1遍。虚构可完整一个级别读完再重复，非虚构第二天重复；故事可整套读完再重复1-2遍。周六日重复喜欢的书；三阶段非虚构尽量重复一遍。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "跟读二段2本/天。",
+          "sourcePage": 3,
+          "preview": "assets/previews/banana-03.jpg"
+        }
+      ],
+      "resourceIds": [
+        "banana-ort-5&6",
+        "banana-qiming-5",
+        "banana-pearson-Level3",
+        "banana-jump-bullfrog",
+        "banana-natgeo-2",
+        "banana-raz-3",
+        "banana-red-rocket-3",
+        "banana-heinemann-3",
+        "banana-youyou-3",
+        "banana-unicorn-yeti",
+        "banana-hedgehog",
+        "banana-water",
+        "banana-bumble-bee",
+        "banana-maisy-first",
+        "banana-ort-first",
+        "banana-magic-bus-bridge",
+        "banana-croc-ally",
+        "banana-jack",
+        "banana-fly-guy",
+        "banana-little-match",
+        "banana-clifford",
+        "banana-moby",
+        "banana-fairlight"
+      ],
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+    },
+    {
+      "id": "banana-4",
+      "title": "四阶段",
+      "order": 4,
+      "summary": "牛津树7-9；RAZ I&J；红火箭蓝；海尼曼 G2-2&G2-3",
+      "goal": "听力桥梁中向初章过渡",
+      "goalEvidence": "根据计划与方案说明概括，非原文能力测评门槛",
+      "vocabularyThreshold": null,
+      "vocabularyNote": "原文未给出听力词汇量门槛",
+      "pages": [
+        12,
+        13,
+        16
+      ],
+      "schedules": [
+        {
+          "ageGroup": "2岁/3岁零基础起点",
+          "time": "第17-24月",
+          "duration": "8个月",
+          "daily": "40分钟（可分2次）",
+          "gradedCount": 200,
+          "gradedCountQualifier": "册起",
+          "storyCount": 200,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:2",
+          "minimumAgeMonths": 48,
+          "weekPlan": "周一至周六：分级新书2本×1遍，或故事新书1-2本；加前一天旧书1遍。分级加前一天非虚构1遍；周日重复本周非虚构。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "跟读二段1-2本/天 → 微观磨耳朵。",
+          "sourcePage": 1,
+          "preview": "assets/previews/banana-01.jpg",
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。",
+          "parallel": "穿插重复孩子喜欢的三段书籍。"
+        },
+        {
+          "ageGroup": "4岁/5岁零基础起点",
+          "time": "第13-18月",
+          "duration": "6个月，可根据情况延长",
+          "daily": "40-60分钟（可分2次）",
+          "gradedCount": 200,
+          "gradedCountQualifier": "册起",
+          "storyCount": 180,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:2",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周六：分级新书2-3本×1遍，或故事新书1-2本×1遍；加前一天旧书1遍。分级加前一天非虚构1遍；周日重复本周非虚构。每月最后一周可作缓冲周复习和调整状态。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "跟读二段1-2本/天 → 微观磨耳朵。 自拼可在四段开始（听力桥梁中），最晚听力入章后开始；尽量与小学一年级上学期拼音错开；可能延后听力入章。",
+          "sourcePage": 2,
+          "preview": "assets/previews/banana-02.jpg",
+          "parallel": "穿插重复孩子喜欢的三段书籍。"
+        },
+        {
+          "ageGroup": "6岁/7岁零基础起点",
+          "time": "第9-14月",
+          "duration": "6个月",
+          "daily": "40-60分钟",
+          "gradedCount": 200,
+          "gradedCountQualifier": "册起",
+          "storyCount": 180,
+          "storyCountQualifier": "本起",
+          "fictionNonfictionRatio": "1:2",
+          "minimumAgeMonths": null,
+          "weekPlan": "周一至周四：分级两本新书1遍+旧书非虚构1遍；周五复习本周分级（非虚构尽量重复一遍）；周六日每天1小时看书听故事。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "原表未安排说读写。 开始自拼：学校即将或已开英语课可在四段开始时加入；不急认字可到听力入章后；会占用听力输入时间。",
+          "sourcePage": 3,
+          "preview": "assets/previews/banana-03.jpg",
+          "parallel": "穿插重复孩子喜欢的三段书籍。"
+        }
+      ],
+      "resourceIds": [
+        "banana-flr-waiyan-I&J",
+        "banana-sight-word-I&J",
+        "banana-big-cat-waiyan-7-9",
+        "banana-songbirds-7-11",
+        "banana-encyclopedia-7-9",
+        "banana-bookworms-5&6",
+        "banana-read-china-5-7",
+        "banana-ort-7-9",
+        "banana-qiming-6-8",
+        "banana-pearson-Level4-6",
+        "banana-jump-pogo",
+        "banana-jump-blue-owl",
+        "banana-natgeo-2",
+        "banana-raz-4",
+        "banana-red-rocket-4",
+        "banana-heinemann-4",
+        "banana-magic-bus-bridge",
+        "banana-henry-mudge",
+        "banana-flat-stanley",
+        "banana-winnie",
+        "banana-frog-toad",
+        "banana-dragon-blue",
+        "banana-adventure-island",
+        "banana-olive",
+        "banana-press-start",
+        "banana-missy",
+        "banana-journey-west",
+        "banana-rocket-girl",
+        "banana-rocket-west",
+        "banana-mighty-robot",
+        "banana-billy-monsters",
+        "banana-hot-dog",
+        "banana-layla",
+        "banana-mercy",
+        "banana-owl-diaries",
+        "banana-black-princess",
+        "banana-haggis",
+        "banana-pink-princess",
+        "banana-bad-guys",
+        "banana-kung-pow"
+      ],
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+    },
+    {
+      "id": "banana-chapter",
+      "title": "听力入章",
+      "order": 5,
+      "summary": "初章泛听泛读；听力入章后开始/继续自拼",
+      "goal": "听力入章，逐渐过渡自主阅读",
+      "goalEvidence": "根据计划与方案说明概括，非原文能力测评门槛",
+      "vocabularyThreshold": null,
+      "vocabularyNote": "原文未给出听力词汇量门槛",
+      "pages": [
+        17,
+        18
+      ],
+      "schedules": [
+        {
+          "ageGroup": "2岁/3岁零基础起点",
+          "time": "第25个月后",
+          "duration": "按孩子情况",
+          "daily": "听力入章+四段非虚构",
+          "gradedCount": null,
+          "gradedCountQualifier": null,
+          "storyCount": null,
+          "storyCountQualifier": null,
+          "fictionNonfictionRatio": null,
+          "minimumAgeMonths": null,
+          "weekPlan": "听力入章；2/3岁起点继续四段非虚构。完成自拼单元音、单辅音、常见辅音组合和基础二合元音，自主阅读能力达到牛3以上，可加入体系课。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "开始自拼。完成基础自拼且自主阅读达到牛3以上，可加入体系课。",
+          "sourcePage": 1,
+          "preview": "assets/previews/banana-01.jpg"
+        },
+        {
+          "ageGroup": "4岁/5岁零基础起点",
+          "time": "第19个月后",
+          "duration": "按孩子情况",
+          "daily": "听力入章",
+          "gradedCount": null,
+          "gradedCountQualifier": null,
+          "storyCount": null,
+          "storyCountQualifier": null,
+          "fictionNonfictionRatio": null,
+          "minimumAgeMonths": null,
+          "weekPlan": "听力入章；2/3岁起点继续四段非虚构。完成自拼单元音、单辅音、常见辅音组合和基础二合元音，自主阅读能力达到牛3以上，可加入体系课。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "原表未安排说读写。 自拼可在四段开始（听力桥梁中），最晚听力入章后开始；尽量与小学一年级上学期拼音错开；可能延后听力入章。",
+          "sourcePage": 2,
+          "preview": "assets/previews/banana-02.jpg"
+        },
+        {
+          "ageGroup": "6岁/7岁零基础起点",
+          "time": "第15个月后",
+          "duration": "按孩子情况",
+          "daily": "听力入章",
+          "gradedCount": null,
+          "gradedCountQualifier": null,
+          "storyCount": null,
+          "storyCountQualifier": null,
+          "fictionNonfictionRatio": null,
+          "minimumAgeMonths": null,
+          "weekPlan": "听力入章；2/3岁起点继续四段非虚构。完成自拼单元音、单辅音、常见辅音组合和基础二合元音，自主阅读能力达到牛3以上，可加入体系课。",
+          "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
+          "output": "原表未安排说读写。 开始自拼：学校即将或已开英语课可在四段开始时加入；不急认字可到听力入章后；会占用听力输入时间。",
+          "sourcePage": 3,
+          "preview": "assets/previews/banana-03.jpg"
+        }
+      ],
+      "resourceIds": [
+        "banana-monkey-me",
+        "banana-junie",
+        "banana-rabbit-bear",
+        "banana-isadora",
+        "banana-desmond",
+        "banana-zack",
+        "banana-dragon-master",
+        "banana-mth-comic",
+        "banana-mth",
+        "banana-firehawk",
+        "banana-stink",
+        "banana-judy",
+        "banana-marvin",
+        "banana-pets",
+        "banana-pigeons",
+        "banana-notebook",
+        "banana-eerie",
+        "banana-az",
+        "banana-wayside",
+        "banana-lotus",
+        "banana-weird-school",
+        "banana-treehouse",
+        "banana-andrew",
+        "banana-ort-10-12",
+        "banana-bus-rides-again",
+        "banana-merlin",
+        "banana-geronimo",
+        "banana-football"
+      ],
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+    }
+  ],
+  "resources": [
+    {
+      "id": "banana-flr-waiyan-A&B",
+      "title": "学乐小读者",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 96,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-flr-waiyan-A&B.jpg",
+      "description": "含 First Little Readers 与学乐高频词；虚构+非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-sight-word-A&B",
+      "title": "学乐高频词",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 50,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-sight-word-A&B.jpg",
+      "description": "非虚构；与外研社学乐小读者重叠",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-flr-A&B",
+      "title": "First Little Readers",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 50,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-flr-A&B.jpg",
+      "description": "虚构；与外研社学乐小读者重叠",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-sight-stories-A&B",
+      "title": "Sight Word Stories",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 50,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-sight-stories-A&B.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-guided-science-A&B",
+      "title": "Guided Science Readers",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 32,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-guided-science-A&B.jpg",
+      "description": "非虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-buddy-A&B",
+      "title": "Buddy Readers",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 40,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-buddy-A&B.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-comics-A&B",
+      "title": "First Little Comics",
+      "category": "分级",
+      "levels": "A&B",
+      "count": 20,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-comics-A&B.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-flr-waiyan-C&D",
+      "title": "学乐小读者",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 96,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "含 First Little Readers 与学乐高频词；虚构+非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-sight-word-C&D",
+      "title": "学乐高频词",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 50,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "非虚构；与外研社学乐小读者重叠",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-flr-C&D",
+      "title": "First Little Readers",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 50,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构；与外研社学乐小读者重叠",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-sight-stories-C&D",
+      "title": "Sight Word Stories",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 50,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-guided-science-C&D",
+      "title": "Guided Science Readers",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 32,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "非虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-buddy-C&D",
+      "title": "Buddy Readers",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 40,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-comics-C&D",
+      "title": "First Little Comics",
+      "category": "分级",
+      "levels": "C&D",
+      "count": 20,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-flr-waiyan-E&F",
+      "title": "学乐小读者",
+      "category": "分级",
+      "levels": "E&F",
+      "count": 30,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "含 First Little Readers 与学乐高频词；虚构+非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-sight-word-E&F",
+      "title": "学乐高频词",
+      "category": "分级",
+      "levels": "E&F",
+      "count": 14,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "非虚构；与外研社学乐小读者重叠",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔，点读贴",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-guided-science-E&F",
+      "title": "Guided Science Readers",
+      "category": "分级",
+      "levels": "E&F",
+      "count": 12,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "非虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-buddy-E&F",
+      "title": "Buddy Readers",
+      "category": "分级",
+      "levels": "E&F",
+      "count": 16,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-comics-E&F",
+      "title": "First Little Comics",
+      "category": "分级",
+      "levels": "E&F",
+      "count": 16,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "虚构",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-flr-waiyan-I&J",
+      "title": "学乐小读者",
+      "category": "分级",
+      "levels": "I&J",
+      "count": 30,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "含 First Little Readers 与学乐高频词；虚构+非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-sight-word-I&J",
+      "title": "学乐高频词",
+      "category": "分级",
+      "levels": "I&J",
+      "count": 14,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "非虚构；与外研社学乐小读者重叠",
+      "publisher": "学乐",
+      "audio": "学乐新点读笔，点读贴",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-big-cat-waiyan-1&2",
+      "title": "大猫",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 61,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构+非虚构；与小彼恩版重叠",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-big-cat-waiyan-3&4",
+      "title": "大猫",
+      "category": "分级",
+      "levels": "3&4",
+      "count": 52,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "虚构+非虚构；与小彼恩版重叠",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-big-cat-waiyan-7-9",
+      "title": "大猫",
+      "category": "分级",
+      "levels": "7-9",
+      "count": 59,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "虚构+非虚构；与小彼恩版重叠",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-big-cat-bien-1&2",
+      "title": "大猫",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 61,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构+非虚构；与外研社版重叠",
+      "publisher": "小彼恩",
+      "audio": "毛毛虫点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-big-cat-bien-3&4",
+      "title": "大猫",
+      "category": "分级",
+      "levels": "3&4",
+      "count": 51,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "虚构+非虚构；与外研社版重叠",
+      "publisher": "小彼恩",
+      "audio": "毛毛虫点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-songbirds-1&2",
+      "title": "丽声妙想英文绘本2",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 12,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-songbirds-3&4",
+      "title": "丽声妙想英文绘本2",
+      "category": "分级",
+      "levels": "3&4",
+      "count": 12,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-songbirds-7-11",
+      "title": "丽声妙想英文绘本2",
+      "category": "分级",
+      "levels": "7-11",
+      "count": 30,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-encyclopedia-1&2",
+      "title": "丽声英语百科",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 10,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-encyclopedia-3&4",
+      "title": "丽声英语百科",
+      "category": "分级",
+      "levels": "3&4",
+      "count": 10,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-encyclopedia-7-9",
+      "title": "丽声英语百科",
+      "category": "分级",
+      "levels": "7-9",
+      "count": 15,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-bookworms-1&2",
+      "title": "小书虫",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 16,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        6
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-bookworms-5&6",
+      "title": "小书虫",
+      "category": "分级",
+      "levels": "5&6",
+      "count": 16,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "虚构＋非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-read-china-1&2",
+      "title": "悦读中国",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 12,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        8
+      ],
+      "preview": "assets/previews/banana-08.jpg",
+      "description": "非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-read-china-5-7",
+      "title": "悦读中国",
+      "category": "分级",
+      "levels": "5-7",
+      "count": 18,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "非虚构",
+      "publisher": "外研社",
+      "audio": "外研通点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-ort-1+&2",
+      "title": "牛津树拓展阅读",
+      "category": "分级",
+      "levels": "1+&2",
+      "count": 71,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        7
+      ],
+      "preview": "assets/previews/banana-cover-ort-1+&2.jpg",
+      "description": "虚构",
+      "publisher": "奇奇学",
+      "audio": "Floppy点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-07.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-ort-3&4",
+      "title": "牛津树拓展阅读",
+      "category": "分级",
+      "levels": "3&4",
+      "count": 48,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "虚构",
+      "publisher": "奇奇学",
+      "audio": "Floppy点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-ort-5&6",
+      "title": "牛津树拓展阅读",
+      "category": "分级",
+      "levels": "5&6",
+      "count": 42,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        11
+      ],
+      "preview": "assets/previews/banana-11.jpg",
+      "description": "虚构",
+      "publisher": "奇奇学",
+      "audio": "Floppy点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-ort-7-9",
+      "title": "牛津树拓展阅读",
+      "category": "分级",
+      "levels": "7-9",
+      "count": 34,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "虚构",
+      "publisher": "奇奇学",
+      "audio": "Floppy点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-qiming-1&2",
+      "title": "启明星",
+      "category": "分级",
+      "levels": "1&2",
+      "count": 85,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-cover-qiming-1&2.jpg",
+      "description": "虚构+非虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-qiming-3",
+      "title": "启明星",
+      "category": "分级",
+      "levels": "3",
+      "count": 42,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        7
+      ],
+      "preview": "assets/previews/banana-07.jpg",
+      "description": "虚构+非虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-qiming-4",
+      "title": "启明星",
+      "category": "分级",
+      "levels": "4",
+      "count": 31,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "虚构+非虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-qiming-5",
+      "title": "启明星",
+      "category": "分级",
+      "levels": "5",
+      "count": 29,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        11
+      ],
+      "preview": "assets/previews/banana-11.jpg",
+      "description": "虚构+非虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-qiming-6-8",
+      "title": "启明星",
+      "category": "分级",
+      "levels": "6-8",
+      "count": 54,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "虚构+非虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-pearson-Level1",
+      "title": "培生儿童英语分级阅读",
+      "category": "分级",
+      "levels": "Level1",
+      "count": 20,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        7
+      ],
+      "preview": "assets/previews/banana-07.jpg",
+      "description": "虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-pearson-Level2",
+      "title": "培生儿童英语分级阅读",
+      "category": "分级",
+      "levels": "Level2",
+      "count": 20,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-pearson-Level3",
+      "title": "培生儿童英语分级阅读",
+      "category": "分级",
+      "levels": "Level3",
+      "count": 20,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        11
+      ],
+      "preview": "assets/previews/banana-11.jpg",
+      "description": "虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-pearson-Level4-6",
+      "title": "培生儿童英语分级阅读",
+      "category": "分级",
+      "levels": "Level4-6",
+      "count": 56,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "虚构",
+      "publisher": "海豚",
+      "audio": "小鸡球球、小猴皮皮、豚小蒙点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-jump-tadpole",
+      "title": "Jump百科分级·蝌蚪",
+      "category": "分级",
+      "levels": "Set1-3",
+      "count": 147,
+      "stageIds": [
+        "banana-pre",
+        "banana-1"
+      ],
+      "pages": [
+        5,
+        7
+      ],
+      "preview": "assets/previews/banana-cover-jump-tadpole.jpg",
+      "description": "非虚构，难度横跨Pre和一阶段",
+      "publisher": "文脉",
+      "audio": "小Book点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-05.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-jump-bullfrog",
+      "title": "Jump百科分级·牛蛙",
+      "category": "分级",
+      "levels": "SetA-H",
+      "count": 271,
+      "stageIds": [
+        "banana-2",
+        "banana-3"
+      ],
+      "pages": [
+        9,
+        11
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "非虚构，难度横跨二三阶段",
+      "publisher": "文脉",
+      "audio": "小Book点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-jump-pogo",
+      "title": "Jump百科分级·袋鼠",
+      "category": "分级",
+      "levels": "",
+      "count": 20,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "非虚构",
+      "publisher": "文脉",
+      "audio": "小Book点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-jump-blue-owl",
+      "title": "Jump百科分级·蓝鹰",
+      "category": "分级",
+      "levels": "",
+      "count": 10,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "非虚构",
+      "publisher": "文脉",
+      "audio": "小Book点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-natgeo-1",
+      "title": "国家地理",
+      "category": "分级",
+      "levels": "1级",
+      "count": 30,
+      "stageIds": [
+        "banana-1",
+        "banana-2"
+      ],
+      "pages": [
+        6,
+        9
+      ],
+      "preview": "assets/previews/banana-06.jpg",
+      "description": "非虚构；与童趣版重叠；难度横跨一二阶段",
+      "publisher": "小彼恩",
+      "audio": "毛毛虫点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-natgeo-2",
+      "title": "国家地理",
+      "category": "分级",
+      "levels": "2级",
+      "count": 30,
+      "stageIds": [
+        "banana-3",
+        "banana-4"
+      ],
+      "pages": [
+        12
+      ],
+      "preview": "assets/previews/banana-12.jpg",
+      "description": "非虚构；与童趣版重叠；难度横跨三四阶段",
+      "publisher": "小彼恩",
+      "audio": "毛毛虫点读笔",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-raz-0",
+      "title": "RAZ",
+      "category": "分级",
+      "levels": "A&B",
+      "count": null,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-05.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-raz-1",
+      "title": "RAZ",
+      "category": "分级",
+      "levels": "C&D",
+      "count": null,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        7
+      ],
+      "preview": "assets/previews/banana-07.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-raz-2",
+      "title": "RAZ",
+      "category": "分级",
+      "levels": "E&F",
+      "count": null,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-raz-3",
+      "title": "RAZ",
+      "category": "分级",
+      "levels": "G&H",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        11
+      ],
+      "preview": "assets/previews/banana-11.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-raz-4",
+      "title": "RAZ",
+      "category": "分级",
+      "levels": "I&J",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-red-rocket-0",
+      "title": "红火箭",
+      "category": "分级",
+      "levels": "玫粉",
+      "count": null,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-05.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-red-rocket-1",
+      "title": "红火箭",
+      "category": "分级",
+      "levels": "大红",
+      "count": null,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        7
+      ],
+      "preview": "assets/previews/banana-07.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-red-rocket-2",
+      "title": "红火箭",
+      "category": "分级",
+      "levels": "黄",
+      "count": null,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-red-rocket-3",
+      "title": "红火箭",
+      "category": "分级",
+      "levels": "绿",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        11
+      ],
+      "preview": "assets/previews/banana-11.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-red-rocket-4",
+      "title": "红火箭",
+      "category": "分级",
+      "levels": "蓝",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-heinemann-0",
+      "title": "海尼曼",
+      "category": "分级",
+      "levels": "GK1-2",
+      "count": null,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        5
+      ],
+      "preview": "assets/previews/banana-05.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-heinemann-1",
+      "title": "海尼曼",
+      "category": "分级",
+      "levels": "GK3&G1-1",
+      "count": null,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        7
+      ],
+      "preview": "assets/previews/banana-07.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-heinemann-2",
+      "title": "海尼曼",
+      "category": "分级",
+      "levels": "G1-2&G1-3",
+      "count": null,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        9
+      ],
+      "preview": "assets/previews/banana-09.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-heinemann-3",
+      "title": "海尼曼",
+      "category": "分级",
+      "levels": "G1-2&G1-3&G2-1",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        11
+      ],
+      "preview": "assets/previews/banana-11.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-heinemann-4",
+      "title": "海尼曼",
+      "category": "分级",
+      "levels": "G2-2&G2-3",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        13
+      ],
+      "preview": "assets/previews/banana-13.jpg",
+      "description": "原文更推荐自主阅读使用，如已购入也可以用来拉听力",
+      "publisher": "",
+      "audio": "",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-youyou-pre",
+      "title": "悠游阅读",
+      "category": "故事/绘本",
+      "levels": "第一级6-10",
+      "count": 30,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-youyou-pre.jpg",
+      "description": "原版绘本平替；6岁以内",
+      "publisher": "",
+      "audio": "外研通/扫码音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "RAZ AB",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-guli",
+      "title": "古力小超人",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 12,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-guli.jpg",
+      "description": "突破零基础；6岁以内",
+      "publisher": "",
+      "audio": "毛毛虫/APP音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "RAZ AB",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-qplay",
+      "title": "Q-play",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 10,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-qplay.jpg",
+      "description": "一问一答，学口语句型；6岁以内",
+      "publisher": "",
+      "audio": "毛毛虫/APP音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "RAZ AB",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-wplay",
+      "title": "W-play",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 12,
+      "stageIds": [
+        "banana-pre"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-wplay.jpg",
+      "description": "用小故事学刚需词汇；6岁以内",
+      "publisher": "",
+      "audio": "毛毛虫/APP音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "RAZ AB",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-youyou-1",
+      "title": "悠游阅读",
+      "category": "故事/绘本",
+      "levels": "第二级1-10",
+      "count": 60,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-youyou-1.jpg",
+      "description": "原版绘本平替；6岁以内",
+      "publisher": "",
+      "audio": "外研通/扫码音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛1-2 / RAZ CD",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-mfr-1",
+      "title": "My First Reading",
+      "category": "故事/绘本",
+      "levels": "Collection 1",
+      "count": 10,
+      "stageIds": [
+        "banana-1"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-mfr-1.jpg",
+      "description": "不同主题小故事；6岁以内",
+      "publisher": "",
+      "audio": "学乐点读笔/公众号音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛1-2 / RAZ CD",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-youyou-2",
+      "title": "悠游阅读",
+      "category": "故事/绘本",
+      "levels": "第三级1-5",
+      "count": 30,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-youyou-2.jpg",
+      "description": "原版绘本平替；6岁以内",
+      "publisher": "",
+      "audio": "外研通/扫码音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛3-4 / RAZ EF",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-mfr-2",
+      "title": "My First Reading",
+      "category": "故事/绘本",
+      "levels": "Collection 2",
+      "count": 10,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-mfr-2.jpg",
+      "description": "不同主题小故事；6岁以内",
+      "publisher": "",
+      "audio": "学乐点读笔/公众号音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛3-4 / RAZ EF",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-rhino",
+      "title": "小犀牛",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 4,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-rhino.jpg",
+      "description": "好性格养成；6岁以内",
+      "publisher": "",
+      "audio": "毛毛虫/APP音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛3-4 / RAZ EF",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-pig-fox",
+      "title": "猪和狐狸",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 4,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-pig-fox.jpg",
+      "description": "幽默搞笑的恶作剧小故事",
+      "publisher": "",
+      "audio": "毛毛虫/APP音频",
+      "ar": "1.3-1.4",
+      "lexile": "210-280L",
+      "mappings": "牛3-4 / RAZ EF",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-pearson-story",
+      "title": "培生亲子故事屋（爆笑英语）",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 56,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-pearson-story.jpg",
+      "description": "通俗易懂，搞笑故事",
+      "publisher": "",
+      "audio": "小鸡球球等/扫码音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛3-4 / RAZ EF",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-scene-400",
+      "title": "儿童英语情境口语400句",
+      "category": "故事/绘本",
+      "levels": "上&下",
+      "count": 40,
+      "stageIds": [
+        "banana-2"
+      ],
+      "pages": [
+        14
+      ],
+      "preview": "assets/previews/banana-cover-scene-400.jpg",
+      "description": "通俗易懂，搞笑故事",
+      "publisher": "",
+      "audio": "小鸡球球等/扫码音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛4 / RAZ F",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "pagePreview": "assets/previews/banana-14.jpg",
+      "previewNote": "所给PDF中的真实封面裁图；可打开整页看级别/册数。"
+    },
+    {
+      "id": "banana-youyou-3",
+      "title": "悠游阅读",
+      "category": "故事/绘本",
+      "levels": "第三级6-10",
+      "count": 30,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "原版绘本平替；6岁以内",
+      "publisher": "",
+      "audio": "外研通/扫码音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-unicorn-yeti",
+      "title": "Unicorn And Yeti",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 8,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "漫画类小故事；1-5册直接点读，6-8册点读贴",
+      "publisher": "",
+      "audio": "学乐点读笔/扫码音频",
+      "ar": "1.7-2.3",
+      "lexile": "150-380L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-hedgehog",
+      "title": "Hello Hedgehog",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 4,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "漫画类小故事",
+      "publisher": "",
+      "audio": "学乐点读笔/扫码音频",
+      "ar": "1.5-1.9",
+      "lexile": "310-390L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-water",
+      "title": "水先生",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 15,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "科普故事",
+      "publisher": "",
+      "audio": "学乐点读笔（待上新）/有音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-bumble-bee",
+      "title": "Bumble And Bee",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 3,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "漫画类小故事",
+      "publisher": "",
+      "audio": "学乐点读笔/扫码音频",
+      "ar": "1.5-1.8",
+      "lexile": "340-360L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-maisy-first",
+      "title": "Maisy初体验",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 18,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "学习常见生活场景用语；6岁以内",
+      "publisher": "",
+      "audio": "毛毛虫/APP音频",
+      "ar": "1.5-2.6",
+      "lexile": "230-440L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-ort-first",
+      "title": "牛津树初体验",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 8,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "喜欢牛津树可选；4岁以上",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-magic-bus-bridge",
+      "title": "神奇校车桥梁版",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 20,
+      "stageIds": [
+        "banana-3",
+        "banana-4"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "科普故事",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "1.7-2.7",
+      "lexile": "240-510L",
+      "mappings": "牛5-8 / RAZ G-J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-croc-ally",
+      "title": "Croc and Ally 鳄鱼和艾丽",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "没头脑和不高兴",
+      "publisher": "",
+      "audio": "无音频",
+      "ar": "1.7",
+      "lexile": "260-270L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-jack",
+      "title": "A Jack Book 淘气兔子杰克",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "在笑声中成长",
+      "publisher": "",
+      "audio": "毛毛虫/有音频",
+      "ar": "1.2-1.9",
+      "lexile": "190-350L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-fly-guy",
+      "title": "Fly Guy and Buzz 苍蝇小子",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "桥梁，笑点直接",
+      "publisher": "",
+      "audio": "毛毛虫/有音频",
+      "ar": "1.2-2.7",
+      "lexile": "270-530L",
+      "mappings": "牛5-7 / RAZ G-I",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-little-match",
+      "title": "小火柴",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "童话寓言故事",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛5-7 / RAZ G-I",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-clifford",
+      "title": "Clifford Ultimate Red 大红狗克里弗",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 10,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "生活主题，温馨幽默",
+      "publisher": "",
+      "audio": "学乐点读笔/有音频",
+      "ar": "1.8-2.4",
+      "lexile": "330-550L",
+      "mappings": "牛5-6 / RAZ GH",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-moby",
+      "title": "Moby Shinobi and Toby too! 忍者莫比与托比",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "冒失的小忍者，解决问题",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.0-2.1",
+      "lexile": "430-490L",
+      "mappings": "牛6 / RAZ H",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-fairlight",
+      "title": "Fairlight Friends系列",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-3"
+      ],
+      "pages": [
+        15
+      ],
+      "preview": "assets/previews/banana-15.jpg",
+      "description": "会魔法的仙子，解决问题",
+      "publisher": "",
+      "audio": "扫码音频",
+      "ar": "2.0-2.2",
+      "lexile": "390-410L",
+      "mappings": "牛6 / RAZ H",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-henry-mudge",
+      "title": "Henry and Mudge 亨利与马吉",
+      "category": "故事/绘本",
+      "levels": "Ready to Read版",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "生活小故事（适合自读）",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.2-2.7",
+      "lexile": "370-560L",
+      "mappings": "牛7 / RAZ I",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-flat-stanley",
+      "title": "Flat Stanley 纸片人",
+      "category": "故事/绘本",
+      "levels": "I can Read版",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "桥梁版纸片人，生活故事",
+      "publisher": "",
+      "audio": "有音频，不全",
+      "ar": "2.2-2.7",
+      "lexile": "410-520L",
+      "mappings": "牛7 / RAZ I",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-winnie",
+      "title": "Winnie and Wilbur 女巫温妮",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "夸张搞笑，奇幻魔法",
+      "publisher": "",
+      "audio": "小book等/有音频",
+      "ar": "2.3-3.1",
+      "lexile": null,
+      "mappings": "牛7-9 / RAZ IJ",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-frog-toad",
+      "title": "Frog and Toad 青蛙与蟾蜍",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "冷笑话式幽默",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.5-2.9",
+      "lexile": "400-480L",
+      "mappings": "牛8-9 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-dragon-blue",
+      "title": "Dragon 胖龙蓝蓝",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "冷笑话式幽默",
+      "publisher": "",
+      "audio": "学乐点读笔（新）/有音频",
+      "ar": "2.6-3.2",
+      "lexile": "410-510L",
+      "mappings": "牛8-9 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-adventure-island",
+      "title": "冒险故事岛",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "微缩世界里的闯关故事，难度跨越大；推荐牛6+再入",
+      "publisher": "",
+      "audio": "外研通/有音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "牛3-9 / RAZ E-J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-olive",
+      "title": "Olive & Beatrix 奥莉和贝特丽克斯",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "现实与魔法结合，解决问题",
+      "publisher": "",
+      "audio": "公众号音频",
+      "ar": "2.7-2.9",
+      "lexile": "430-540L",
+      "mappings": "牛9 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-press-start",
+      "title": "Press Start! 方块兔",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "游戏里的闯关故事",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.3-2.9",
+      "lexile": "450-540L",
+      "mappings": "牛7-9 / RAZ IJ",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-missy",
+      "title": "Missy’s Super Duper 米西公主",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "小女生视角的校园生活",
+      "publisher": "",
+      "audio": "公众号音频",
+      "ar": "2.2-3.0",
+      "lexile": "500-540L",
+      "mappings": "牛7-9 / RAZ IJ",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-journey-west",
+      "title": "Journey to the West 西游记",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "先中文再英文，可尝试裸听",
+      "publisher": "",
+      "audio": "动画片+音频",
+      "ar": "3.4",
+      "lexile": "500L左右",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-rocket-girl",
+      "title": "Rocket Girl 火箭女孩",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "英雄女孩，拯救世界",
+      "publisher": "",
+      "audio": "动画片+音频",
+      "ar": "3.0",
+      "lexile": "500L左右",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-rocket-west",
+      "title": "Rocket Girl’s Journey to the West 火箭女孩西游记",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "古今英雄结合，连续的穿越故事",
+      "publisher": "",
+      "audio": "动画片+音频",
+      "ar": "3.2",
+      "lexile": "400-600L",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-mighty-robot",
+      "title": "Mighty Robot 威猛机器人",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "机器人和小老鼠拯救世界",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.9-4.1",
+      "lexile": "520-640L",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-billy-monsters",
+      "title": "Billy and mini Monsters 比利和小怪兽",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "小怪兽们闯进生活，麻烦笑料不间断",
+      "publisher": "",
+      "audio": "无音频",
+      "ar": "2.5-2.8",
+      "lexile": "500-560L",
+      "mappings": "牛8 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-hot-dog",
+      "title": "Hot dog 腊肠狗系列",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": 12,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "社交友谊，幽默搞笑",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.7-3.4",
+      "lexile": "550-650L",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-layla",
+      "title": "Layla and the bots 莱拉和机器人",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "用科学方法解决问题",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.5-2.9",
+      "lexile": "500-570L",
+      "mappings": "牛8-9 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-mercy",
+      "title": "Mercy Watson 小猪梅西",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "生活主题，幽默滑稽；有些词难",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.6-3.2",
+      "lexile": "450-550L",
+      "mappings": "牛8-9 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-owl-diaries",
+      "title": "Owl Diaries 猫头鹰日记",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "女孩反馈更喜欢",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.5-3.6",
+      "lexile": "330-620L",
+      "mappings": "牛7+ / RAZ I+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-black-princess",
+      "title": "The Princess in Black 黑衣公主",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "是公主也是黑衣英雄；故事不难，个别词汇难",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.0-3.6",
+      "lexile": "500-560L",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-haggis",
+      "title": "Haggis and Tank 哈吉斯坦克",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "搞笑滑稽的想象之旅",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.5-3.1",
+      "lexile": "430-500L",
+      "mappings": "牛8-9 / RAZ J",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-pink-princess",
+      "title": "Princess Pink and the Land of Fake-Believe 粉红公主与虚无世界",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "一脚踏进虚假的童话世界",
+      "publisher": "",
+      "audio": "公众号音频",
+      "ar": "2.8-3.2",
+      "lexile": "410-570L",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-bad-guys",
+      "title": "Bad guys 坏蛋联盟",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "坏蛋拯救世界，认知要求高；有同名电影",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.2-2.9",
+      "lexile": "260-560L",
+      "mappings": "牛7-9 / RAZ IJ",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-kung-pow",
+      "title": "Kung Pow Chicken 宫保鸡丁",
+      "category": "故事/绘本",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-4"
+      ],
+      "pages": [
+        16
+      ],
+      "preview": "assets/previews/banana-16.jpg",
+      "description": "超能鸡拯救世界，听力难度系数高",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.9-3.2",
+      "lexile": "550-530L（原文数值，疑似倒置）",
+      "mappings": "牛9+ / RAZ J+",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出"
+    },
+    {
+      "id": "banana-monkey-me",
+      "title": "Monkey Me 猴子男孩",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "一激动就变猴子抓坏蛋，特别的校园生活",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.2-2.5",
+      "lexile": "490-510L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 1,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-junie",
+      "title": "Junie B Jones 朱妮琼斯",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "幼儿园大班-小学，写实校园生活",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.7-3.0",
+      "lexile": "340-540L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 2,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-rabbit-bear",
+      "title": "Rabbit & Bear 胖熊和瘦兔",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "友谊故事，偏温情类",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.8-3.4",
+      "lexile": "480-570L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 3,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-isadora",
+      "title": "Isadora moon 伊莎多拉穆恩系列",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "一半吸血鬼一半小仙子",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.3-4.1",
+      "lexile": "520-710L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 4,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-desmond",
+      "title": "Desmond Cole Ghost Patrol 捉鬼小分队",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "悬疑主题，可爱鬼怪",
+      "publisher": "",
+      "audio": "无音频",
+      "ar": "3.5-4.2",
+      "lexile": "600-680L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 5,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-zack",
+      "title": "The Zack Files 扎克档案",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "情节紧凑，脑洞大开",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.7-3.9",
+      "lexile": "370-570L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 6,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-dragon-master",
+      "title": "Dragon Master 驯龙大师",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "奇幻类入章",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.1-4.2",
+      "lexile": "490-600L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 7,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-mth-comic",
+      "title": "Magic Treehouse 神奇树屋漫画版",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "看漫画听音频，辅助听力入章",
+      "publisher": "",
+      "audio": "听初章音频",
+      "ar": "2.0-2.4",
+      "lexile": "330-530L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 8,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-mth",
+      "title": "Magic Tree House 神奇树屋",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "经典穿越故事，含历史文化背景",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.6-3.7",
+      "lexile": "380-590L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 9,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-firehawk",
+      "title": "The last firehawk 火鹰传奇",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "森林小勇士，寻找魔法石",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.1-3.7",
+      "lexile": "500-650L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 10,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-stink",
+      "title": "Stink 朱迪弟弟系列",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "生活故事（一年级弟弟视角）",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.0-3.7",
+      "lexile": "490-640L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 11,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-judy",
+      "title": "Judy Moody 稀奇古怪小朱迪",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "生活故事（三年级姐姐视角）",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.0-3.8",
+      "lexile": "440-600L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 12,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-marvin",
+      "title": "Marvin Redpost 麻烦精马文",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "写实家庭校园生活，情感细腻",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "2.7-3.6",
+      "lexile": "430-600L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 13,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-pets",
+      "title": "Pets rule! 萌宠当家",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        17
+      ],
+      "preview": "assets/previews/banana-17.jpg",
+      "description": "宠物视角的生活故事",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.0-3.7",
+      "lexile": "450-590L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 14,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-pigeons",
+      "title": "Real Pigeons 鸽子侦探",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "搞笑破案，画面丰富",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.0-4.0",
+      "lexile": "410-510L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 15,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-notebook",
+      "title": "The Notebook of Doom 毁灭日记",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "悬疑微恐，秘密抓怪小分队",
+      "publisher": "",
+      "audio": "公众号音频",
+      "ar": "3.2-3.6",
+      "lexile": "400-600L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 16,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-eerie",
+      "title": "Eerie elementary 怪诞小学",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "恐怖悬疑，适合胆大的娃",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.3-3.6",
+      "lexile": "430-610L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 17,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-az",
+      "title": "A to Z Mysteries 神秘事件",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "悬疑破案",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.2-3.9",
+      "lexile": "490-660L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 18,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-wayside",
+      "title": "Wayside School 歪歪路小学",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "无厘头搞笑",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.3-3.9",
+      "lexile": "440-560L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 19,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-lotus",
+      "title": "Lotus Lane 莲花巷女生日记",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "走进国外女生世界",
+      "publisher": "",
+      "audio": "公众号音频",
+      "ar": "3.5-4.2",
+      "lexile": "610-740L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 20,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-weird-school",
+      "title": "My Weird School 疯狂学校",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "小学生校园，搞笑幽默",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.7-4.3",
+      "lexile": "540-700L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 21,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-treehouse",
+      "title": "The Treehouse Collection 小屁孩树屋",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "想象力爆棚，画面丰富",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.2-4.3",
+      "lexile": "500-770L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 22,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-andrew",
+      "title": "Andrew Lost 安德鲁的微观世界",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "穿越科普故事",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.3-4.0",
+      "lexile": "490-600L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 23,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-ort-10-12",
+      "title": "牛津树",
+      "category": "初章",
+      "levels": "10-12",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "10-12级：含历史文化知识，认知和词汇难度较大",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.2-4.0",
+      "lexile": "640-700L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 24,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-bus-rides-again",
+      "title": "The magic school bus rides again 神奇校车大树系列",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "再续神奇校车的穿越之旅",
+      "publisher": "",
+      "audio": "公众号音频",
+      "ar": "3.5-3.9",
+      "lexile": "540-590L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 25,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-merlin",
+      "title": "Merlin Mission 梅林任务",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "神奇树屋第二部",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.5-4.2",
+      "lexile": "460-600L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 26,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-geronimo",
+      "title": "Geronimo Stilton 老鼠记者",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "惊险刺激的冒险之旅，含历史文化；不同套系值不同",
+      "publisher": "",
+      "audio": "有音频",
+      "ar": "3.1-3.8",
+      "lexile": "410-570L",
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 27,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    },
+    {
+      "id": "banana-football",
+      "title": "Football super stars 足球明星",
+      "category": "初章",
+      "levels": "",
+      "count": null,
+      "stageIds": [
+        "banana-chapter"
+      ],
+      "pages": [
+        18
+      ],
+      "preview": "assets/previews/banana-18.jpg",
+      "description": "顶级足球明星的成长和战绩",
+      "publisher": "",
+      "audio": "无音频",
+      "ar": null,
+      "lexile": null,
+      "mappings": "",
+      "notes": [],
+      "sourceStatus": "原文书单明确列出",
+      "sourceOrder": 28,
+      "orderNote": "原文以听的难度排序，含作者主观感受；不等同于硬性晋级顺序"
+    }
+  ],
+  "relations": [
+    {
+      "from": "banana-pre",
+      "to": "banana-1",
+      "type": "sequential",
+      "label": "阶段递进",
+      "evidence": "原文时间规划",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "from": "banana-1",
+      "to": "banana-2",
+      "type": "sequential",
+      "label": "阶段递进",
+      "evidence": "原文时间规划",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "from": "banana-2",
+      "to": "banana-3",
+      "type": "sequential",
+      "label": "阶段递进",
+      "evidence": "原文时间规划",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "from": "banana-3",
+      "to": "banana-4",
+      "type": "sequential",
+      "label": "阶段递进",
+      "evidence": "原文时间规划",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "from": "banana-4",
+      "to": "banana-chapter",
+      "type": "sequential",
+      "label": "阶段递进",
+      "evidence": "原文时间规划",
+      "pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "from": "banana-pre",
+      "to": [
+        "banana-flr-waiyan-A&B",
+        "banana-sight-word-A&B",
+        "banana-flr-A&B",
+        "banana-sight-stories-A&B",
+        "banana-guided-science-A&B",
+        "banana-buddy-A&B",
+        "banana-comics-A&B",
+        "banana-qiming-1&2",
+        "banana-jump-tadpole",
+        "banana-raz-0",
+        "banana-red-rocket-0",
+        "banana-heinemann-0",
+        "banana-youyou-pre",
+        "banana-guli",
+        "banana-qplay",
+        "banana-wplay"
+      ],
+      "type": "parallel",
+      "label": "不同套系同难度一起读，再进阶",
+      "evidence": "分级书单原文",
+      "pages": [
+        5,
+        14
+      ]
+    },
+    {
+      "from": "banana-1",
+      "to": [
+        "banana-flr-waiyan-C&D",
+        "banana-sight-word-C&D",
+        "banana-flr-C&D",
+        "banana-sight-stories-C&D",
+        "banana-guided-science-C&D",
+        "banana-buddy-C&D",
+        "banana-comics-C&D",
+        "banana-big-cat-waiyan-1&2",
+        "banana-big-cat-bien-1&2",
+        "banana-songbirds-1&2",
+        "banana-encyclopedia-1&2",
+        "banana-bookworms-1&2",
+        "banana-ort-1+&2",
+        "banana-qiming-3",
+        "banana-pearson-Level1",
+        "banana-jump-tadpole",
+        "banana-natgeo-1",
+        "banana-raz-1",
+        "banana-red-rocket-1",
+        "banana-heinemann-1",
+        "banana-youyou-1",
+        "banana-mfr-1"
+      ],
+      "type": "parallel",
+      "label": "不同套系同难度一起读，再进阶",
+      "evidence": "分级书单原文",
+      "pages": [
+        6,
+        7,
+        14
+      ]
+    },
+    {
+      "from": "banana-2",
+      "to": [
+        "banana-flr-waiyan-E&F",
+        "banana-sight-word-E&F",
+        "banana-guided-science-E&F",
+        "banana-buddy-E&F",
+        "banana-comics-E&F",
+        "banana-big-cat-waiyan-3&4",
+        "banana-big-cat-bien-3&4",
+        "banana-songbirds-3&4",
+        "banana-encyclopedia-3&4",
+        "banana-read-china-1&2",
+        "banana-ort-3&4",
+        "banana-qiming-4",
+        "banana-pearson-Level2",
+        "banana-jump-bullfrog",
+        "banana-natgeo-1",
+        "banana-raz-2",
+        "banana-red-rocket-2",
+        "banana-heinemann-2",
+        "banana-youyou-2",
+        "banana-mfr-2",
+        "banana-rhino",
+        "banana-pig-fox",
+        "banana-pearson-story",
+        "banana-scene-400"
+      ],
+      "type": "parallel",
+      "label": "不同套系同难度一起读，再进阶",
+      "evidence": "分级书单原文",
+      "pages": [
+        8,
+        9,
+        10,
+        14
+      ]
+    },
+    {
+      "from": "banana-3",
+      "to": [
+        "banana-ort-5&6",
+        "banana-qiming-5",
+        "banana-pearson-Level3",
+        "banana-jump-bullfrog",
+        "banana-natgeo-2",
+        "banana-raz-3",
+        "banana-red-rocket-3",
+        "banana-heinemann-3",
+        "banana-youyou-3",
+        "banana-unicorn-yeti",
+        "banana-hedgehog",
+        "banana-water",
+        "banana-bumble-bee",
+        "banana-maisy-first",
+        "banana-ort-first",
+        "banana-magic-bus-bridge",
+        "banana-croc-ally",
+        "banana-jack",
+        "banana-fly-guy",
+        "banana-little-match",
+        "banana-clifford",
+        "banana-moby",
+        "banana-fairlight"
+      ],
+      "type": "parallel",
+      "label": "不同套系同难度一起读，再进阶",
+      "evidence": "分级书单原文",
+      "pages": [
+        11,
+        15
+      ]
+    },
+    {
+      "from": "banana-4",
+      "to": [
+        "banana-flr-waiyan-I&J",
+        "banana-sight-word-I&J",
+        "banana-big-cat-waiyan-7-9",
+        "banana-songbirds-7-11",
+        "banana-encyclopedia-7-9",
+        "banana-bookworms-5&6",
+        "banana-read-china-5-7",
+        "banana-ort-7-9",
+        "banana-qiming-6-8",
+        "banana-pearson-Level4-6",
+        "banana-jump-pogo",
+        "banana-jump-blue-owl",
+        "banana-natgeo-2",
+        "banana-raz-4",
+        "banana-red-rocket-4",
+        "banana-heinemann-4",
+        "banana-magic-bus-bridge",
+        "banana-henry-mudge",
+        "banana-flat-stanley",
+        "banana-winnie",
+        "banana-frog-toad",
+        "banana-dragon-blue",
+        "banana-adventure-island",
+        "banana-olive",
+        "banana-press-start",
+        "banana-missy",
+        "banana-journey-west",
+        "banana-rocket-girl",
+        "banana-rocket-west",
+        "banana-mighty-robot",
+        "banana-billy-monsters",
+        "banana-hot-dog",
+        "banana-layla",
+        "banana-mercy",
+        "banana-owl-diaries",
+        "banana-black-princess",
+        "banana-haggis",
+        "banana-pink-princess",
+        "banana-bad-guys",
+        "banana-kung-pow"
+      ],
+      "type": "parallel",
+      "label": "不同套系同难度一起读，再进阶",
+      "evidence": "分级书单原文",
+      "pages": [
+        12,
+        13,
+        16
+      ]
+    },
+    {
+      "from": "banana-flr-waiyan-A&B",
+      "to": "banana-sight-word-A&B",
+      "type": "overlap",
+      "label": "含学乐高频词，版本内容重叠",
+      "pages": [
+        5,
+        6,
+        8,
+        12
+      ]
+    },
+    {
+      "from": "banana-flr-waiyan-A&B",
+      "to": "banana-flr-A&B",
+      "type": "overlap",
+      "label": "含First Little Readers，避免重复购买",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "from": "banana-flr-waiyan-C&D",
+      "to": "banana-sight-word-C&D",
+      "type": "overlap",
+      "label": "含学乐高频词，版本内容重叠",
+      "pages": [
+        5,
+        6,
+        8,
+        12
+      ]
+    },
+    {
+      "from": "banana-flr-waiyan-C&D",
+      "to": "banana-flr-C&D",
+      "type": "overlap",
+      "label": "含First Little Readers，避免重复购买",
+      "pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "from": "banana-flr-waiyan-E&F",
+      "to": "banana-sight-word-E&F",
+      "type": "overlap",
+      "label": "含学乐高频词，版本内容重叠",
+      "pages": [
+        5,
+        6,
+        8,
+        12
+      ]
+    },
+    {
+      "from": "banana-flr-waiyan-I&J",
+      "to": "banana-sight-word-I&J",
+      "type": "overlap",
+      "label": "含学乐高频词，版本内容重叠",
+      "pages": [
+        5,
+        6,
+        8,
+        12
+      ]
+    },
+    {
+      "from": "banana-big-cat-waiyan-1&2",
+      "to": "banana-big-cat-bien-1&2",
+      "type": "overlap",
+      "label": "同书不同引进版；原文数量可能不同",
+      "pages": [
+        6
+      ]
+    },
+    {
+      "from": "banana-big-cat-waiyan-3&4",
+      "to": "banana-big-cat-bien-3&4",
+      "type": "overlap",
+      "label": "同书不同引进版；原文数量可能不同",
+      "pages": [
+        8
+      ]
+    },
+    {
+      "from": "banana-mth-comic",
+      "to": "banana-mth",
+      "type": "parallel",
+      "label": "看漫画听初章音频，辅助听力入章",
+      "pages": [
+        17
+      ]
+    }
+  ],
+  "notes": [
+    "这是亲子共读为主、提升英语听力的计划；动画不作为主线。可在合理用眼时间内看喜欢的英文动画，并用动画音频磨耳朵。",
+    "三个年龄起点共享阶段，但阅读量、速度、输出和自拼时机不同；非零基础按当前听力水平切入。年龄与时间不是硬性晋级条件。",
+    "原文没有提供各阶段听力词汇量，不能直接将70词对应到确定年级。",
+    "每天尽量保证30分钟熏听；看书听时长与熏听时长应分别理解。",
+    "新书建议：第一遍亲子共读、帮助理解 → 第二遍边听原声边看书 → 熏听。",
+    "阶段书目数量用于保证语言内容丰富度，不是必须购入的全套清单。",
+    "不同套系同难度一起读再进阶；不喜欢分级可用绘本替代，但注意虚构/非虚构比例。",
+    "短期不愿重复可按级别/套系整体重复；不喜欢的书不强求，多重复喜欢的书；可补充平行难度书。",
+    "低级别重在基础句型重复理解；高级别连续故事可一气呵成，再通过音频重复。",
+    "2/3岁起点可将非虚构延后一个阶段；原表“最早年龄”需要结合个体认知，不能按出生日期机械推进。",
+    "第9页与第10页内容完全重复，素材只录入一次并保留页码说明。",
+    "大猫3&4级：外研社列52册，小彼恩列51册，按原文分别保留。",
+    "Kung Pow Chicken 蓝思值原图为550-530L，疑似印刷错误，原样标注而未擅改。",
+    "书籍年龄路线概览图没有作者署名，单独作为“补充分级对照图”，不归属香蕉妈妈；图中年龄仅是该图建议，不代表听力能力。",
+    "补充对照图多个套系级别横向对齐仅供约略参考；听力、识字、词汇、内容认知难度不等同。",
+    "初章书单按听的难度排序，含作者主观感受；不是严格前后依赖，AR与蓝思亦非听力门槛。"
+  ],
+  "ageComparison": {
+    "title": "补充分级年龄与套系对照",
+    "author": "未署名",
+    "source": {
+      "file": "assets/sources/banana-age.jpg",
+      "preview": "assets/previews/banana-age.jpg"
+    },
+    "evidence": "用户提供图片，独立于香蕉妈妈PDF",
+    "rows": [
+      {
+        "title": "牛津树",
+        "suggestedAge": "3岁+",
+        "levels": [
+          "L1+ 36册",
+          "L2 35册",
+          "L3 24册",
+          "L4 24册",
+          "L5 24册",
+          "L6 18册",
+          "L7 15册",
+          "L8 9册",
+          "L9 10册"
+        ],
+        "description": "拓展阅读全套195册，自拼102册，全部上线后自拼预计258册",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "红火箭",
+        "suggestedAge": "4岁+",
+        "levels": [
+          "紫色+粉色30+24册",
+          "玫红24本",
+          "红色24本",
+          "红色",
+          "黄色+蓝色24+24本",
+          "蓝色+绿色",
+          "绿色24本",
+          "绿色+流畅1",
+          "流畅1 24本",
+          "流畅1+2",
+          "流畅3+4"
+        ],
+        "description": "511本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "大猫",
+        "suggestedAge": "2岁+",
+        "levels": [
+          "1级22+22册",
+          "1-2级",
+          "2级22+22册",
+          "3级28册",
+          "4级30册",
+          "5级21册",
+          "6级22册",
+          "7级22册",
+          "7-8级21册",
+          "9级22册",
+          "10-18级（10、11各17册）"
+        ],
+        "description": "18个级别，共723册",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "RAZ",
+        "suggestedAge": "5岁+",
+        "levels": [
+          "AA-B：AA90、A90、B92册",
+          "C93册",
+          "D86册",
+          "E86册",
+          "F84册",
+          "G-H：G84、H75册",
+          "I74册",
+          "J-K：J78、K77册",
+          "L76册",
+          "M-Z2-"
+        ],
+        "description": "2275本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "海尼曼",
+        "suggestedAge": null,
+        "levels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G-I",
+          "J",
+          "K",
+          "L",
+          "M-Z"
+        ],
+        "description": "1343本，每个级别50本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "培生",
+        "suggestedAge": "2岁+",
+        "levels": [
+          "培生词汇妙趣屋96册",
+          "预备级85册",
+          "基础级102册",
+          "提高级54册"
+        ],
+        "description": "培生词汇妙趣屋96册；培生启明星241册",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "海狸",
+        "suggestedAge": "2岁+",
+        "levels": [
+          "1+2",
+          "L3",
+          "L4+L5+L6",
+          "L6+L7",
+          "L7",
+          "L8",
+          "L9",
+          "L10"
+        ],
+        "description": "每级36本，10个级别共360册",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "美国Jump百科",
+        "suggestedAge": "2.5岁+",
+        "levels": [
+          "蝌蚪系列",
+          "牛蛙系列"
+        ],
+        "description": "蝌蚪+牛蛙共418册，每盒30-50本不等",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "学乐",
+        "suggestedAge": "2.5岁+",
+        "levels": [
+          "A-C",
+          "D",
+          "E+F",
+          "G+H"
+        ],
+        "description": "学乐小读者（外研社）282册；A-D每级48本，后面每包30本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "丽声英语百科",
+        "suggestedAge": "3岁+",
+        "levels": [
+          "第一级5本",
+          "第二级5本",
+          "第三级/第四级",
+          "第五级",
+          "第六级"
+        ],
+        "description": "每级5本，1-6共30本，后面还有7-11级",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "悦读中国",
+        "suggestedAge": "3岁+",
+        "levels": [
+          "第1级6本",
+          "第2级6本",
+          "第3级6本",
+          "第4级6本",
+          "第5级6本",
+          "第6级6本",
+          "第7级6本"
+        ],
+        "description": "每级6本，共42册",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "丽声中国文化英语分级阅读",
+        "suggestedAge": "4岁+",
+        "levels": [
+          "第1级6+6本",
+          "第2级6+6本",
+          "第3级6+6本",
+          "第4级6+6本",
+          "第5级6+6本",
+          "第6级6+6本"
+        ],
+        "description": "每级上下两辑各6本，每级12本，全套72本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "悠游阅读成长计划",
+        "suggestedAge": "2岁+",
+        "levels": [
+          "第1级：1-5为30册，6-10为30册",
+          "第2级",
+          "第3级",
+          "第4级：语言难度3，自拼开始阶段"
+        ],
+        "description": "每个级别10小辑，共60册；比较推荐买2级别和3级别回去做绘本补充，共120册（补充图原文）",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "小书虫",
+        "suggestedAge": "4岁+",
+        "levels": [
+          "第1级8本",
+          "第2级8本",
+          "第3级8本",
+          "第4级8本",
+          "第5级/第6级",
+          "第7级",
+          "第8级"
+        ],
+        "description": "每级8本，从3级别开始科普虚构1:1",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "托马斯和朋友",
+        "suggestedAge": "2.5岁+",
+        "levels": [
+          "全套15册，对标2/3级别难度"
+        ],
+        "description": "版本名称细字不清，册数和难度对标按补充图保留。",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "丽声冒险故事岛",
+        "suggestedAge": "4岁+",
+        "levels": [
+          "第1级8本",
+          "第2级8本",
+          "第3级8本",
+          "第4级8本",
+          "第5级8本",
+          "第6级8本",
+          "第7级8本"
+        ],
+        "description": "每级8本，全套56本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      },
+      {
+        "title": "牛津阅读树丽声经典故事屋",
+        "suggestedAge": "2岁+",
+        "levels": [
+          "第1级4本",
+          "第2级4本",
+          "第3级4本",
+          "第4级4本",
+          "第5级4本",
+          "第6级4本"
+        ],
+        "description": "每级4本，24本",
+        "preview": "assets/previews/banana-age.jpg",
+        "sourceStatus": "补充图原文；不代表统一难度标准"
+      }
+    ],
+    "notes": [
+      "横向对齐只保留在原图视觉预览中，不将图上的单元格合并关系转换为精确能力等式。",
+      "各版本数量与香蕉PDF可能不一致，分别保留来源。",
+      "补充图版本名称和部分细字分辨率有限，精确版本请以原图放大核对；未用于儿童推荐。"
+    ]
+  },
+  "coverage": {
+    "pagesReviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "duplicatePages": [
+      [
+        9,
+        10
+      ]
+    ],
+    "method": "Swift Vision zh-Hans+en-US OCR，逐页视觉对照",
+    "limitations": [
+      "没有原文词汇量门槛；不补造。",
+      "书单可见封面是所给PDF缩图，内容原本分辨率有限。",
+      "补充年龄图细字以原图为准。"
+    ]
+  }
+}

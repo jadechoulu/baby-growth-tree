@@ -1,0 +1,26 @@
+name = "xiaoya-growth-api"
+main = "index.mjs"
+compatibility_date = "2025-05-05"
+workers_dev = true
+
+[[durable_objects.bindings]]
+name = "AUTH_STATE"
+class_name = "AuthState"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["AuthState"]
+
+[vars]
+# 部署前替换为实际地址；FRONTEND_URL 可包含 GitHub Pages 项目路径。
+FRONTEND_URL = "https://jadechoulu.github.io/baby-growth-tree/"
+WORKER_URL = "https://xiaoya-growth-api.YOUR_SUBDOMAIN.workers.dev"
+GITHUB_ALLOWED_USER_ID = ""
+GITHUB_DATA_REPO = ""
+GITHUB_DATA_BRANCH = "main"
+GITHUB_DATA_PATH = "records/xiaoya.json"
+# 可选：只允许一个本机开发来源；不用于 OAuth 完成通知。
+# DEV_FRONTEND_ORIGIN = "http://127.0.0.1:5317"
+
+# 以下通过 wrangler secret put 配置，禁止写入本文件：
+# GITHUB_CLIENT_ID / GITHUB_CLIENT_SECRET / GITHUB_DATA_TOKEN
