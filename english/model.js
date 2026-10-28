@@ -242,13 +242,20 @@
         summary: data.description || data.summary || data.scope || data.title || '',
         notes: notes(data.notes).concat(notes(data.uncertainties)), stages: [] };
       var mainVariant = addVersion(route, data, routeId === 'xu' ? 'xu-listening' : routeId, routeId,
-        routeId === 'xu' ? '听力进阶' : ROUTES[routeId].name + '路线');
+        routeId === 'xu' ? '六阶段组合表' : ROUTES[routeId].name + '路线');
       route.stages = mainVariant.stages;
       if (routeId === 'xu') {
         route.variants = [mainVariant];
         array(raw.xuSupplements).forEach(function (supplement) {
           route.variants.push(addVersion(route, supplement, supplement.id, supplement.id, supplement.label || supplement.title || supplement.id));
         });
+        if (raw.xuCurrent && route.variants.some(function (variant) { return variant.id === 'xu-panorama'; })) {
+          var current = addVersion(route, raw.xuCurrent, 'xu-current', 'xu-panorama', raw.xuCurrent.label);
+          route.variants.unshift(current);
+          route.defaultVariantId = current.id;
+          route.stages = current.stages;
+          route.summary = current.description;
+        }
       }
       routes.push(route);
     });
@@ -350,6 +357,7 @@
 
   function vocabularyFloor(stage) {
     var raw = stage.raw || {}, vocabulary = raw.vocabulary || {};
+    if (raw.vocabularyBrowseMin != null) return Number(raw.vocabularyBrowseMin);
     if (raw.vocabularyMin != null) return Number(raw.vocabularyMin);
     return Number(vocabulary.min != null ? vocabulary.min : vocabulary.value != null ? vocabulary.value : vocabulary.approx != null ? vocabulary.approx : 0);
   }
@@ -360,9 +368,10 @@
     var birth = profile.birthDate || profile.birthday || profile.dob;
     var age = birth ? getAge(birth, profile.asOf) : null;
     var underThree = !!age && age.totalMonths < 36;
-    var start = words < 200, routeStages = {}, selected = [];
+    var hasCurrent = array(catalog.routes).some(function (route) { return route.id === 'xu' && route.defaultVariantId === 'xu-current'; });
+    var start = words < (hasCurrent ? 300 : 200), routeStages = {}, selected = [];
     array(catalog.routes).forEach(function (route) {
-      var mainVariant = route.id === 'xu' && array(route.variants).find(function (variant) { return variant.id === 'xu-listening'; });
+      var mainVariant = route.id === 'xu' && array(route.variants).find(function (variant) { return variant.id === (route.defaultVariantId || 'xu-listening'); });
       var recommendationStages = mainVariant ? mainVariant.stages : route.stages;
       var candidate = recommendationStages[0];
       if (!start) recommendationStages.forEach(function (stage) { if (vocabularyFloor(stage) > 0 && vocabularyFloor(stage) <= words) candidate = stage; });
@@ -385,7 +394,7 @@
       ? '目前约 ' + words + ' 个听力词汇，先浏览名词、动作与生活短句的起点：香蕉妈妈起步段、许密杉第一阶段、庆爸常规 1。各路线词数属于积累目标，不能当作入门门槛。'
       : '按约 ' + words + ' 个听力词汇提供浏览候选；词数属于阶段目标，不能据此判断已晋级，仍需核验实际理解、兴趣与原文准入条件。',
       underThree: underThree, level: start ? 'start' : 'browse', suggested: suggested.slice(0, 10),
-      next: (underThree ? '庆爸原文面向 3–4 岁，当前仅供对照。' : '') + '先选孩子能理解且愿意重复的同级材料；升档前核验实际理解。庆爸还需核验投入时间与测试 Phase，成长计划 Phase 不能替代测试。',
+      next: (hasCurrent && start ? '闪卡与闪卡式绘本属于同一阶段，可并行使用；300词是起步积累目标。' : '') + (underThree ? '庆爸原文面向 3–4 岁，当前仅供对照。' : '') + '先选孩子能理解且愿意重复的同级材料；升档前核验实际理解。庆爸还需核验投入时间与测试 Phase，成长计划 Phase 不能替代测试。',
       age: age, vocabulary: words, automaticPromotion: false };
   }
 

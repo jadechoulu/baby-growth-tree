@@ -8,7 +8,55 @@ const raw = Object.fromEntries(['banana', 'xu', 'qing'].map(id => [id, JSON.pars
 const catalog = model.normalize(raw);
 const xuSupplements = ['xu-thousand', 'xu-panorama'].map(id => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', id + '.json'), 'utf8')));
 const extendedCatalog = model.normalize({ ...raw, xuSupplements });
+const xuCurrent = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'xu-current.json'), 'utf8'));
+const currentCatalog = model.normalize({ ...raw, xuSupplements, xuCurrent });
 const sssSongs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'sss-songs.json'), 'utf8'));
+
+test('默认起步把闪卡与闪卡式绘本并行，保留原表节点与准确的来源级别', () => {
+  const xu = currentCatalog.routes.find(route => route.id === 'xu');
+  assert.equal(xu.defaultVariantId, 'xu-current');
+  assert.equal(xu.stages[0].id, 'xu-current-300');
+  assert.equal(xu.stages.length, 5);
+  assert.ok(xu.stages.every(stage => stage.domain === 'listening'));
+  const first = xu.stages[0];
+  const materials = first.materials.map(material => ({ ...material, resource: currentCatalog.resources.find(resource => resource.id === material.resourceId) }));
+  assert.ok(materials.some(material => material.resource.type === 'flashcard'));
+  assert.ok(materials.some(material => material.resource.title === '培生词汇妙趣屋' && material.level === ''));
+  assert.ok(materials.some(material => material.resource.title === '大猫分级' && material.level === '预备级'));
+  assert.ok(materials.some(material => material.resource.title === 'SSS 指令式儿歌' && material.sourceId === 'xu'));
+  assert.ok(materials.filter(material => material.resource.title !== 'SSS 指令式儿歌').every(material => material.sourceId === 'xu-panorama'));
+  for (const stage of xu.stages) {
+    const original = currentCatalog.stages.find(item => item.id === stage.raw.sourceStageId);
+    assert.equal(original.sourceId, stage.sourceId);
+    for (const material of original.materials) assert.ok(stage.materials.some(item => item.resourceId === material.resourceId && item.level === material.level && item.sourceId === material.sourceId));
+  }
+  for (const stage of catalog.stages) assert.deepEqual(currentCatalog.stages.find(item => item.id === stage.id), stage);
+  for (const resource of catalog.resources) assert.ok(currentCatalog.resources.some(item => item.id === resource.id));
+});
+
+test('70至299词都可在同一起步节点共读，查看其他资料不改变听力推荐', () => {
+  const xu = currentCatalog.routes.find(route => route.id === 'xu');
+  for (const words of [0, 70, 199, 200, 299, 300, 500, 800, 1000, 8000]) {
+    const profile = { birthDate: '2024-11-24', asOf: '2026-10-28', listeningWords: words };
+    const recommendation = model.recommend(profile, currentCatalog);
+    assert.equal(recommendation.automaticPromotion, false);
+    if (words < 300) {
+      assert.equal(recommendation.routeStages.xu, 'xu-current-300');
+      assert.ok(recommendation.suggested.some(id => currentCatalog.resources.find(resource => resource.id === id).type === 'reader'));
+      assert.ok(recommendation.suggested.every(id => currentCatalog.resources.find(resource => resource.id === id).type !== 'animation'));
+    }
+    assert.equal(currentCatalog.stages.find(stage => stage.id === recommendation.routeStages.xu).variantId, 'xu-current');
+    for (const variant of xu.variants) {
+      const viewingAnotherVersion = { ...currentCatalog, routes: currentCatalog.routes.map(route => route.id === 'xu' ? { ...route, stages: variant.stages } : route) };
+      assert.deepEqual(model.recommend(profile, viewingAnotherVersion), recommendation);
+    }
+  }
+  const first = currentCatalog.stages.find(stage => stage.id === 'xu-current-300');
+  const matches = model.compareStages(currentCatalog, first.id);
+  assert.ok(matches.some(route => route.routeId === 'qing' && route.matches.length));
+  const song = model.getSongResources(currentCatalog, sssSongs).find(resource => resource.title === 'SSS 指令式儿歌');
+  assert.ok(song.appearances.some(appearance => appearance.stageId === first.id && appearance.sourceId === 'xu'));
+});
 
 test('SSS 歌单保留多分类、独立版本与已有路线素材关联', () => {
   assert.equal(sssSongs.songs.length, 42);
