@@ -12,6 +12,23 @@
     return { name: value.name.trim(), birthDate: day };
   }
   function same(a, b) { return (a?.name || '宝宝') === (b?.name || '宝宝') && (a?.birthDate || '') === (b?.birthDate || ''); }
+  function ageLabel(birthDate, now = new Date()) {
+    const profile = normalize({ name: '宝宝', birthDate });
+    if (!profile || !Number.isFinite(now.getTime())) return '';
+    const birth = new Date(profile.birthDate + 'T00:00:00Z');
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    if (today < birth.getTime()) return '';
+    const anniversary = months => {
+      const first = new Date(Date.UTC(birth.getUTCFullYear(), birth.getUTCMonth() + months, 1));
+      const last = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate();
+      return Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), Math.min(birth.getUTCDate(), last));
+    };
+    let totalMonths = (now.getFullYear() - birth.getUTCFullYear()) * 12 + now.getMonth() - birth.getUTCMonth();
+    if (anniversary(totalMonths) > today) totalMonths -= 1;
+    const years = Math.floor(totalMonths / 12), months = totalMonths % 12;
+    const days = Math.round((today - anniversary(totalMonths)) / 86400000);
+    return `${years ? years + '岁' : ''}${months ? months + '个月' : ''}${days ? days + '天' : ''}` || '0天';
+  }
   function conflict() { return Object.assign(new Error('其他页面已更新宝宝资料，请关闭档案后重新打开，再确认修改。'), { code: 'PROFILE_CONFLICT' }); }
   function createStore(indexedDB) {
     let opening;
@@ -109,7 +126,8 @@
     if (channel) channel.onmessage = onRefresh;
     env.addEventListener?.('focus', onRefresh);
     env.addEventListener?.('pageshow', onRefresh);
-    env.document?.addEventListener('visibilitychange', () => { if (env.document.visibilityState === 'visible') onRefresh(); });
+    const onVisibility = () => { if (env.document.visibilityState === 'visible') onRefresh(); };
+    env.document?.addEventListener('visibilitychange', onVisibility);
     return {
       async init() {
         return accept(await initialize(store, async () => {
@@ -122,9 +140,15 @@
       async save(profile, expected = current?.profile) { const saved = await store.save(profile, expected); accept(saved); channel?.postMessage('changed'); return this.get(); },
       refresh,
       subscribe(listener) { listeners.add(listener); return () => listeners.delete(listener); },
+      destroy() {
+        channel?.close(); listeners.clear();
+        env.removeEventListener?.('focus', onRefresh);
+        env.removeEventListener?.('pageshow', onRefresh);
+        env.document?.removeEventListener('visibilitychange', onVisibility);
+      },
     };
   }
-  const api = { BIRTH_DATE, normalize, same, candidates, initialize, createStore, createClient };
+  const api = { BIRTH_DATE, normalize, same, ageLabel, candidates, initialize, createStore, createClient };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.XiaoyaBabyProfile = api;
 })(typeof window === 'object' ? window : globalThis);
