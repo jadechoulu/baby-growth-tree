@@ -835,7 +835,14 @@ body.site-navigation-open{overflow:hidden}
  .site-shortcuts .site-nav-item{flex:1;flex-direction:column;justify-content:center;gap:2px;margin:0;padding:4px 2px;min-width:0;min-height:48px;font-size:12px;border-radius:9px;white-space:nowrap;line-height:1.5}
  .site-shortcuts .site-nav-item>.site-icon{width:18px;height:18px;flex-basis:18px}
  .site-keyboard-open .site-shortcuts{display:none}
- .site-directory-dialog{width:min(380px,calc(100vw - 32px));height:100dvh;max-height:100dvh;margin:0;border-radius:0 18px 18px 0}
+ .site-directory-dialog{width:100%;max-width:100%;height:auto;max-height:85dvh;margin:auto 0 0;border-radius:18px 18px 0 0;border-bottom:0;box-shadow:0 -12px 60px #15251f30}
+ .site-directory-dialog[open]{animation:site-directory-rise .2s ease-out}
+ .site-directory-dialog .site-navigation-head{padding:8px 16px}
+ .site-directory-dialog .site-navigation-scroll{padding-bottom:calc(16px + env(safe-area-inset-bottom));padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+ .site-directory-dialog .site-directory-caption{margin:10px 12px;font-size:15px}
+ .site-directory-dialog .site-nav-group+.site-nav-group{margin-top:16px}
+ .site-directory-dialog .site-nav-item>span{min-width:0;flex:1}
+ .site-directory-dialog .site-nav-item>small{flex-shrink:0}
  .site-navigation-dialog .site-nav-item{min-height:48px;font-size:15px}
  .site-enabled :is(input,select,textarea){font-size:16px!important}
  .site-enabled :is(.button,.primary-button,.secondary-button,.circle-button,.icon-button,.text-button){min-height:44px}
@@ -858,6 +865,8 @@ body.site-navigation-open{overflow:hidden}
  .site-enabled .preview-controls{flex-wrap:wrap}
  .site-welcome{padding:24px 0 20px}.site-card{padding:24px}.site-cards{gap:16px}
 }
+@keyframes site-directory-rise{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.site-directory-dialog[open]{animation:none}}
 @media(max-width:600px){
  .site-brand>small,.site-baby-name,.site-category-full{display:none}
  .site-category-short{display:inline}
