@@ -435,3 +435,94 @@
   .next-training-grid .next-skill-actions { align-items: center; }
   .next-training-grid .next-skill-actions > .primary-button { width: auto; }
 }
+
+/* 窄屏先完成阅读任务，图谱证据位于清单之后；平板保留横向可用空间。 */
+@media (max-width: 900px) {
+  .site-enabled .growth-content .hero { padding: 10px 12px; border-radius: 10px; }
+  .site-enabled .growth-content .hero h1 { font-size: 20px; line-height: 1.35; margin: 0; letter-spacing: 0; }
+  .site-enabled .growth-content .hero :is(.eyebrow,.hero-copy>p,.garden-art,.hero-counter) { display: none; }
+  .site-enabled .growth-content .hero-title-full { display: none; }
+  .site-enabled .growth-content .hero-title-mobile { display: inline; }
+  .site-enabled .growth-content .baby-meta { margin-top: 2px; gap: 6px; }
+  .site-enabled .growth-content .baby-meta>.text-button { margin-left: auto; }
+  .site-enabled .growth-content .age-pill { padding: 4px 6px; }
+  .site-enabled .growth-content .stage-picker { margin: 10px 0; }
+  .site-enabled .growth-content .stage-picker-heading { display: none; }
+  .site-enabled .growth-content .stage-lineage { margin: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+  .site-enabled .growth-content .stage-lineage .domain-cards { grid-template-columns: repeat(4,minmax(0,1fr)); margin: 0; gap: 6px; }
+  .site-enabled .growth-content .stage-lineage .domain-card { grid-template-columns: minmax(0,1fr); min-height: 62px; padding: 7px 4px 5px; gap: 2px; text-align: center; }
+  .site-enabled .growth-content .stage-lineage .domain-icon { display: none; }
+  .site-enabled .growth-content .stage-lineage .domain-card-label { grid-column: 1; grid-row: 1; font-size: 14px; justify-content: center; white-space: nowrap; }
+  .site-enabled .growth-content .stage-lineage .domain-card-label>span { display: none; }
+  .site-enabled .growth-content .stage-lineage .domain-count { grid-column: 1; grid-row: 2; font-size: 12px; }
+  .site-enabled .growth-content .stage-lineage .domain-count strong { font-size: 14px; }
+  .site-enabled .growth-content .milestones { margin-top: 14px; }
+  .site-enabled .growth-content .milestones>.section-title-row { flex-wrap: nowrap; align-items: center; gap: 8px; }
+  .site-enabled .growth-content .milestones .section-title-row :is(.section-kicker,p),
+  .site-enabled .growth-content .milestones h2>span,.site-enabled .growth-content .filter-caption { display: none; }
+  .site-enabled .growth-content .milestones h2 { font-size: 18px; line-height: 1.4; }
+  .site-enabled .growth-content .current-badge { font-size: 12px; margin-left: 6px; }
+  .site-enabled .growth-content .stage-summary-actions { margin: 0; flex-direction: row; align-self: auto; }
+  .site-enabled .growth-content .stage-summary { display: none; }
+  .site-enabled .growth-content .stage-complete-button { min-height: 44px; font-size: 12px; }
+  .site-enabled .growth-content .list-toolbar { display: grid; grid-template-columns: minmax(0,1fr) minmax(100px,.7fr); gap: 8px; margin-top: 6px; padding-bottom: 6px; }
+  .site-enabled .growth-content .list-toolbar .status-tabs { width: auto; min-width: 0; }
+  .site-enabled .growth-content .status-tabs button { padding: 6px 5px; font-size: 13px; gap: 3px; }
+  .site-enabled .growth-content .status-tabs small { font-size: 12px; }
+  .site-enabled .growth-content .search-box { width: 100%; min-width: 0; min-height: 44px; padding: 6px; }
+  .site-enabled .growth-content .search-box input { min-width: 0; width: 100%; }
+  .site-enabled .growth-content .skill-groups { margin-top: 4px; gap: 10px; }
+  .site-enabled .growth-content .group-heading { padding: 8px 12px; gap: 8px; }
+  .site-enabled .growth-content .group-heading .domain-icon { width: 26px; height: 26px; }
+  .site-enabled .growth-content .group-heading p { display: none; }
+  .site-enabled .growth-content .skill-items { padding: 0 10px; }
+  .site-enabled .growth-content .skill-row { min-height: 66px; gap: 6px; }
+  .site-enabled .growth-content .group-footer { padding: 7px 12px; }
+  .site-enabled .growth-content>.growth-mobile-fold { margin-top: 12px; }
+  .site-enabled .growth-content .growth-mobile-fold>summary { padding: 10px 12px; }
+  .site-enabled .growth-content>.growth-mobile-fold>.section-title-row { padding: 12px 12px 0; }
+  .site-enabled .growth-content>.growth-mobile-fold>.stage-lineage-focus { padding: 12px; }
+  .site-enabled .growth-content .next-step-view { margin-top: 0; }
+  .site-enabled .growth-content :is(.next-step-header,.lineage-header) { padding: 12px; box-shadow: none; border-radius: 10px; }
+  .site-enabled .growth-content :is(.next-step-header h1,.lineage-header h1) { font-size: 22px; margin: 0; }
+  .site-enabled .growth-content .next-step-header p { font-size: 15px; line-height: 1.6; margin-top: 6px; }
+  .site-enabled .growth-content .next-current-age { margin-top: 2px; gap: 4px 8px; }
+  .site-enabled .growth-content .lineage-domains { margin: 10px 0; gap: 6px; }
+  .site-enabled .growth-content .lineage-domain { min-height: 44px; padding: 8px; }
+  .site-enabled .growth-content :is(.lineage-controls,.focus-strip) { margin: 10px 0; gap: 8px; }
+  .site-enabled .growth-content .next-age-legend { gap: 4px 6px; margin-bottom: 8px; }
+  .site-enabled .growth-content .next-results-summary { margin: 8px 0; font-size: 12px; }
+  .site-enabled .growth-content .next-training-group { margin-top: 12px; }
+  .site-enabled .growth-content .next-training-group>h2 { margin-bottom: 6px; }
+  .site-enabled .growth-content .next-training-grid { gap: 10px; }
+  .site-enabled .growth-content .next-training-grid .next-skill-card { padding: 12px; box-shadow: none; }
+  .site-enabled .growth-content .next-training-grid .next-skill-meaning { font-size: 15px; line-height: 1.65; }
+  .site-enabled .growth-content .next-training-grid :is(.next-skill-meta,.next-prerequisites,.next-skill-actions>button) { font-size: 12px; }
+  .site-enabled .growth-content .next-training-grid .next-skill-actions { margin-top: 8px; }
+  .site-enabled .growth-content .next-practice>summary { min-height: 44px; font-size: 14px; }
+  .site-enabled .growth-content .next-practice .next-skill-tips p { font-size: 15px; line-height: 1.65; }
+  .site-enabled .app-dialog { padding: 16px; width: calc(100vw - 16px); }
+  .site-enabled .app-dialog .dialog-header { top: -16px; gap: 6px 10px; padding: 6px 0 10px; margin-bottom: 10px; }
+  .site-enabled .app-dialog .dialog-header .section-kicker { display: none; }
+  .site-enabled .app-dialog .dialog-header h2 { font-size: 21px; line-height: 1.4; margin: 0; }
+  .site-enabled .app-dialog .detail-tags { margin: 0 0 12px; }
+  .site-enabled .app-dialog .guide-heading { margin-bottom: 10px; }
+  .site-enabled .app-dialog .guide-example { margin-top: 10px; padding: 10px 12px; }
+  .site-enabled .app-dialog .growth-reading-fold { margin: 10px 0; }
+  .site-enabled .app-dialog .growth-reading-fold>summary { padding: 10px 12px; }
+  .site-enabled .app-dialog .detail-status { padding: 10px; margin: 12px 0; }
+  .site-enabled .app-dialog .skill-relations { padding-top: 12px; margin-top: 16px; }
+}
+@media (max-width: 359px) {
+  .site-enabled .growth-content .list-toolbar { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  .site-enabled .growth-content .birth-label { display: none; }
+  .site-enabled .growth-content .current-badge { display: block; width: fit-content; margin: 3px 0 0; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .site-enabled .growth-content .list-toolbar { grid-template-columns: max-content minmax(160px,320px); justify-content: space-between; }
+  .site-enabled .growth-content .status-tabs button { padding-inline: 12px; }
+  .site-enabled .growth-content .stage-lineage .domain-card { grid-template-columns: 1fr auto; text-align: left; padding: 10px; min-height: 44px; }
+  .site-enabled .growth-content .stage-lineage .domain-card-label { justify-content: flex-start; }
+  .site-enabled .growth-content .stage-lineage .domain-count { grid-column: 2; grid-row: 1; }
+  .site-enabled .growth-content .stage-lineage .progress-track { grid-row: 2; }
+}
