@@ -1,4 +1,4 @@
-import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkill, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-next-step';
+import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
 import { getSkillRelations, getBranchGraph, getStageGraph, getLineagePaths, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
@@ -540,27 +540,46 @@ function milestoneList() {
   </section>`;
 }
 
+function nextTrainingCard(skill, timing) {
+  const guide = skillGuides.skills[skill.id];
+  const parents = catalog.filter(item => skill.parents.includes(item.id));
+  return html`<article class="next-skill-card timing-${timing}" data-next-skill="${skill.id}">
+    <div class="next-skill-meta"><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>
+    <h3>${skill.title}</h3>${guide?.meaning ? html`<p class="next-skill-meaning">${guide.meaning}</p>` : ''}
+    <p class="next-prerequisites">${parents.length ? `接着练：${parents.map(item => item.title).join('、')} → ${skill.title}` : '本分支的起点 · 原图未列前置技能'}</p>
+    ${guide?.observe || guide?.play ? html`<details class="next-practice"><summary>怎么观察、怎么陪玩 ${icon('chevron')}</summary><div class="next-skill-tips">${guide.observe ? html`<div><h4>怎么观察</h4><p>${guide.observe}</p></div>` : ''}${guide.play ? html`<div><h4>可以这样陪玩</h4><p>${guide.play}</p></div>` : ''}</div></details>` : ''}
+    <div class="next-skill-actions"><button class="primary-button" data-toggle="${skill.id}" aria-label="标记完成：${skill.title}">${icon('check')} 标记完成</button><button class="secondary-button" data-detail="${skill.id}" aria-label="查看${skill.title}解释与手记">${icon('book')} 解释与手记</button><button class="text-button" data-lineage="${skill.id}" aria-label="查看${skill.title}完整脉络">${icon('tree')} 完整脉络</button></div>
+  </article>`;
+}
+
 function nextStepView() {
   const domain = domainInfo(state.domain);
   const current = currentStage();
-  const skill = getNextSkill(catalog, state.records, domain.id);
-  const timingLabels = { earlier: '此前阶段 · 可补记', current: '宝宝当前阶段', next: '下一月龄阶段', later: '更后面的阶段', unknown: '月龄暂未定位' };
-  const timing = skill ? getSkillAgeStatus(skill, current?.id) : 'unknown';
-  const guide = skill && skillGuides.skills[skill.id];
-  const parents = skill ? catalog.filter(item => skill.parents.includes(item.id)) : [];
-  const missing = parents.filter(item => !isDone(item.id));
+  const skills = getNextSkills(catalog, state.records, domain.id, current?.id);
+  const pending = catalog.filter(skill => skill.domain === domain.id && !isDone(skill.id));
+  const groups = [
+    { id: 'current', label: '当前阶段 · 可以开始' },
+    { id: 'earlier', label: '此前阶段 · 补充基础' },
+    { id: 'next', label: '下一月龄阶段 · 顺着脉络继续' },
+    { id: 'later', label: '更后阶段 · 已走到这一步' },
+    { id: 'unknown', label: '可以开始的技能' },
+  ];
   const undo = state.lastUndo;
   const canUndo = undo?.id && !undo.previous?.completedAt && isDone(undo.id);
   return html`<section class="next-step-view domain-${domain.id}" aria-label="下一步待完成技能">
-    <header class="next-step-header"><div class="section-kicker">一次只看一小步</div><h1>下一项，一起慢慢探索。</h1><p>四大领域各看一项，不按月龄筛选。标记完成后，自动接着看下一项。</p><span class="next-current-age">${babyAge() ? `${state.profile.name} · ${babyAge().label}` : state.profile.name}${current ? ` · 当前 ${current.label}` : ''}<button class="text-button" data-action="profile">${current ? '编辑资料' : '设置生日'}</button></span></header>
+    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p><span class="next-current-age">${babyAge() ? `${state.profile.name} · ${babyAge().label}` : state.profile.name}${current ? ` · 当前 ${current.label}` : ''}<button class="text-button" data-action="profile">${current ? '编辑资料' : '设置生日'}</button></span></header>
     <div class="lineage-domains next-domains" role="group" aria-label="下一步技能领域">${DOMAINS.map(item => {
-      const stats = getStats(catalog.filter(node => node.domain === item.id), state.records);
-      return html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>待完成 ${stats.remaining}</span></button>`;
+      const count = getNextSkills(catalog, state.records, item.id, current?.id).length;
+      return html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>可探索 ${count}</span></button>`;
     })}</div>
-    <div class="next-age-legend" aria-label="月龄颜色图例"><span class="timing-current">当前阶段</span><span class="timing-next">下一月龄阶段</span><span class="timing-later">更后阶段</span><span class="timing-earlier">此前阶段</span><small>颜色仅作年龄参考，阶段内技能不要求同时完成。</small></div>
-    ${skill ? html`<article class="next-skill-card timing-${timing}" data-next-skill="${skill.id}"><div class="next-skill-meta"><span class="next-timing-label">${timingLabels[timing]}</span><span>${skillStageLabel(skill)} · ${skill.category}</span></div><h2>${skill.title}</h2>${guide?.meaning ? html`<p class="next-skill-meaning">${guide.meaning}</p>` : ''}<p class="next-prerequisites">${missing.length ? `前置尚未标注：${missing.map(item => item.title).join('、')}。可先核对已有记录，也可以直接记录本项。` : parents.length ? `前置已完成：${parents.map(item => item.title).join('、')}` : '这是原图中的分支起点，没有前置技能。'}</p>${guide?.observe || guide?.play ? html`<div class="next-skill-tips">${guide.observe ? html`<div><h3>怎么观察</h3><p>${guide.observe}</p></div>` : ''}${guide.play ? html`<div><h3>可以这样陪玩</h3><p>${guide.play}</p></div>` : ''}</div>` : ''}<div class="next-skill-actions"><button class="primary-button" data-toggle="${skill.id}">${icon('check')} 标记完成，查看下一项</button><button class="secondary-button" data-detail="${skill.id}">${icon('book')} 解释与手记</button><button class="text-button" data-lineage="${skill.id}">${icon('tree')} 查看完整脉络</button></div></article>` : html`<div class="next-complete"><span>${icon('check')}</span><h2>${domain.label}的技能已全部点亮</h2><p>可以切换其他领域，或在技能全景回顾、回退完成状态。</p></div>`}
+    <div class="next-age-legend" aria-label="月龄颜色图例"><span class="timing-current">蓝 · 当前阶段</span><span class="timing-next">橙 · 下一月龄</span><span class="timing-later">紫 · 更后阶段</span><span class="timing-earlier">灰 · 此前阶段</span><small>月龄仅作参考，可按宝宝的兴趣选择；同一技能只列一次。</small></div>
     ${canUndo ? html`<div class="next-undo"><span>刚刚完成：${catalog.find(item => item.id === undo.id)?.title}</span><button class="text-button" data-action="undo">撤销上次完成</button></div>` : ''}
-    <p class="next-step-rule">按原图顺序，优先展示前置已完成的未完成技能；月龄只用于颜色提示。这里与宝宝视角、技能全景共用完成记录。</p>
+    <div class="next-results-summary" role="status">${domain.label} · ${skills.length} 项可探索${pending.length > skills.length ? ` · 另有 ${pending.length - skills.length} 项等待前置完成或进入相应月龄` : ''}</div>
+    ${skills.length ? groups.map(group => {
+      const items = skills.filter(skill => getSkillAgeStatus(skill, current?.id) === group.id);
+      return items.length ? html`<section class="next-training-group timing-${group.id}" aria-label="${group.label}"><h2><span class="next-timing-label">${group.label}</span><small>${items.length} 项</small></h2><div class="next-training-grid">${items.map(skill => nextTrainingCard(skill, group.id))}</div></section>` : '';
+    }) : html`<div class="next-complete"><span>${icon(pending.length ? 'sprout' : 'check')}</span><h2>${pending.length ? '当前没有前置已完成的技能' : `${domain.label}的技能已全部点亮`}</h2><p>${pending.length ? '可以在其他领域补充前置技能，或在宝宝视角核对完成记录；新的独立分支会在相应月龄出现。' : '可以切换其他领域，或在技能全景回顾、回退完成状态。'}</p></div>`}
+    <p class="next-step-rule">有多项前置时，全部标注完成后才列出后续技能；路径中的分叉可同时展示。这里与宝宝视角、技能全景共用完成记录，回退后也会重新计算。</p>
   </section>`;
 }
 
