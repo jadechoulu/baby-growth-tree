@@ -26,6 +26,8 @@ git push -u origin HEAD
 
 main 推进后，协调器更新其他开放任务分支并重新验证；冲突或测试失败时停止自动合并，在原 PR 修复后再次推送即可。已合并分支不复用，下个任务从最新 origin/main 新建分支。不强推，不直接向 main 或旧发布分支提交。
 
+verify 由 main、两类专属分支的 push 或显式 dispatch 启动，不订阅机器人 PR 的 pull_request 事件，避免产生需要人工授权的空检查。其他命名的分支或外部 fork 不在这套自动交付范围内。
+
 内置 GITHUB_TOKEN 创建 PR、更新分支、合并后不会可靠触发后续事件，协调器会显式 dispatch 验证，直接等待本次同一提交的验证结果，再安排受保护合并与 main 发布。等待最多十分钟，失败或超时保留 PR，不绕过检查。合并后也会主动同步其他开放任务 PR，不依赖机器人事件继续串联。工作流只对同仓库受管理分支操作，成功运行的 head SHA 必须仍是 PR 当前提交，拒绝过期结果与外部 fork。协调代码始终从 main 读取，不执行 PR 中的协调脚本。不存储个人 Token。
 
 只有 main 的成功构建可运行 deploy job，PR 和任务分支只验证、不部署。网站来源、相对路径及浏览器数据库不变。GitHub Pages 设置使用 GitHub Actions（`build_type=workflow`），不再使用 legacy 发布分支。
