@@ -1,6 +1,6 @@
 # 小芽 · 成长与英语启蒙
 
-一个公开仓库维护两套工具：**成长技能树**与**英语启蒙路线导航**。源码统一在 [jadechoulu/baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree) 的 `main` 分支；同仓库的 `codex/pages` 分支保存生成网页，供 GitHub Pages 发布。
+一个网站承载多个平级启蒙分类，目前包括**成长技能树**与**英语启蒙**。源码统一在 [jadechoulu/baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree) 的 `main` 分支；同仓库的 `codex/pages` 分支保存生成网页，供 GitHub Pages 发布。
 
 | 工具 | 本地入口 | 在线入口 |
 |---|---|---|
@@ -8,9 +8,18 @@
 | 成长技能树 | [index.html](index.html) | [成长花园](https://jadechoulu.github.io/baby-growth-tree/) |
 | 英语启蒙 | [english/index.html](english/index.html) | [路线与素材](https://jadechoulu.github.io/baby-growth-tree/english/index.html#routes) |
 
-两边顶部通过内部相对链接互相跳转，保留现有根页面、英语路径、hash 和单文件入口。共同首页不替换成长树的旧网址。两边的宝宝资料、成长记录与英语收藏分别保存，不因切换工具自动合并或清除。
+首页、成长与英语共用站点框架：顶部随时切换分类，桌面常驻侧栏，窄屏展开完整目录并显示分类快捷栏，详情与预览内也可切换。保留现有根页面、英语路径、hash 和单文件入口；共同首页不替换成长树的旧网址。昵称和生日全站共用，成长记录、英语词汇、素材进度与收藏分别保存。
 
-长期维护入口为 [AGENTS.md](AGENTS.md) 和 [站点架构与设计原则](docs/architecture.md)。小芽按一个网站、多个平级分类规划；本次 [共享框架改造方案](.rich-harness/tasks/unified-site-shell/spec/tech-design.md) 已整理，待确认后实施。当前两分类的导航实现尚未统一，文档目标不代表已上线功能。
+长期维护入口为 [AGENTS.md](AGENTS.md) 和 [站点架构与设计原则](docs/architecture.md)。本次 [共享框架改造方案](.rich-harness/tasks/unified-site-shell/spec/tech-design.md) 已确认并实现；新增分类沿用同一注册表、导航与移动阅读规范。
+
+## 共享框架与新增分类
+
+- `shared/site-sections.json`：唯一分类注册表，首页卡片和所有分类选择器从这里生成。`shared/site-config.js` 为自动生成文件，不手改。
+- `shared/site-shell.js`：共用站点栏、目录、侧栏、快捷栏和焦点管理；`site.css` 提供统一布局与主题变量。
+- 分类接入 `XiaoyaSite.createShell()`，提供局部目录与业务动作；重绘只更新正文和导航快照。成长、英语保留各自领域模型。
+- 新增分类：创建内容入口 → 在注册表加入 ID、入口、简介和主题 → 接入共用框架 → 将运行文件加入发布清单 → 验证各分类互跳与手机阅读。无需逐页修改菜单。
+- `node scripts/build-site-config.mjs` 可单独刷新注册配置；成长及英语构建都会刷新。英语单文件内联同一份配置、框架和样式。
+- 手机优先显示当前选择与摘要；阶段、筛选、图谱、套系和引用按需展开，长素材列表分批阅读。导航断点统一为 `900px`。
 
 ## 唯一维护与发布入口
 

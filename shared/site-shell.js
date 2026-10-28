@@ -70,6 +70,7 @@
     menu.setAttribute('aria-label', '展开完整目录');
     menu.setAttribute('aria-haspopup', 'dialog');
     menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-controls', 'site-navigation');
     menu.addEventListener('click', () => openNavigation('directory', menu));
     const switcher = createSectionSwitch();
     const title = node('span', 'site-location');
@@ -78,6 +79,7 @@
     const sidebar = node('aside', 'site-sidebar');
     const content = node('main', 'site-main');
     content.id = 'main-content';
+    content.tabIndex = -1;
     const bottom = node('nav', 'site-shortcuts');
     bottom.setAttribute('aria-label', '当前分类快捷导航');
     const skip = node('a', 'site-skip', '跳到正文');
@@ -95,6 +97,7 @@
       button.setAttribute('aria-label', '切换启蒙分类');
       button.setAttribute('aria-haspopup', 'dialog');
       button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-controls', 'site-navigation');
       button.addEventListener('click', () => openNavigation('sections', button));
       return button;
     }
@@ -156,6 +159,7 @@
       if (destroyed) return;
       if (activeDialog) { activeDialog.querySelector('button')?.focus(); return; }
       const dialog = node('dialog', 'site-navigation-dialog' + (mode === 'directory' ? ' site-directory-dialog' : ''));
+      dialog.id = 'site-navigation';
       dialog.setAttribute('aria-label', mode === 'directory' ? '浏览目录' : '切换启蒙分类');
       const head = node('header', 'site-navigation-head');
       const close = node('button', 'site-close');

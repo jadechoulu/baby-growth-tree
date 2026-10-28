@@ -11,38 +11,10 @@
 }
 body { background: #fffaf0; }
 button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
-textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }
-
-/* 明亮蓝色导航承托内容，当前视角与年龄都有明确落点。 */
-.sidebar { background: #2456b4; border-color: #3971cc; color: #fff8ec; }
-.brand { color: #fff8ec; }
-.brand-mark { background: #ffcc47; color: #17376d; box-shadow: 0 4px 0 #17428c; }
-.brand small, .sidebar-section-label { color: #c4dcff; }
-.sidebar-section-label { font-size: 11px; }
-.nav-item { color: #ecf4ff; font-size: 14px; }
-.nav-item:hover { background: #3269c5; }
-.nav-item.active { background: #ffcf55; color: #17376d; font-weight: 700; }
-.nav-active-dot { background: #2456b4; }
-.stage-nav:before { background: #6492d6; }
-.stage-nav-item { color: #e0edff; font-size: 13px; }
-.stage-nav-item:hover { background: #3269c5; }
-.stage-nav-item.selected { background: #3e76d1; color: #fff6de; }
-.stage-dot { background: #2456b4; border-color: #9abeef; }
-.stage-dot.filled { background: #acccff; border-color: #acccff; }
-.selected .stage-dot { background: #ffd757; border-color: #ffd757; box-shadow: 0 0 0 3px #5489db; }
-.stage-nav-item small { background: #ffd95f; color: #50351f; font-size: 10px; }
-.stage-mini-count { color: #c4dcff; font-size: 11px; }
-.garden-note, .profile-button { border-color: #5d88cf; }
-.garden-note > .icon { color: #b8e65c; }
-.garden-note p { color: #e0edff; }
-.garden-note p span, .profile-text small { color: #c4dcff; }
-.avatar { background: #ffc483; color: #683b24; font-weight: 700; }
-.profile-text strong { color: #fff5e4; font-size: 12px; }
-.profile-button > .icon { color: #d5e6ff; }
+textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }/* 明亮蓝色导航承托内容，当前视角与年龄都有明确落点。 */
 
 /* 奶油黄主视觉，保留原有的小植物。 */
-.breadcrumb { color: #514260; font-size: 13px; }
-.breadcrumb span { color: #b09bbc; }
+
 .today-label, .icon-button { color: #7e6b8c; font-size: 12px; }
 .icon-button:hover { color: #6535bf; }
 .hero { background: linear-gradient(115deg, #ffed9f 0%, #ffe8a4 52%, #ffceb2 100%); border: 1px solid #f5d383; box-shadow: 0 6px 0 #f5e9d5; }
@@ -184,18 +156,17 @@ textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }
 .loading, .load-error { color: #8d53c7; }
 
 @media (max-width: 760px) {
-  .sidebar { background: #2456b4f5; border-bottom-color: #5d88cf; }
-  .nav-item { font-size: 12px; }
+
   .hero-copy > p { font-size: 12px; }
   .garden-art { opacity: .8; }
-  .brand small { color: #cee1ff; }
+
 }
 @media (max-width: 560px) {
   .topbar-actions { gap: 11px; }
   .save-status { font-size: 10px; padding: 5px 7px; gap: 4px; }
   .storage-details { padding: 12px; }
   .storage-details p, .storage-details dl { font-size: 11px; }
-  .nav-item { font-size: 11px; padding: 9px 8px; }
+
   .hero-copy > p { max-width: 255px; font-size: 12px; }
   .garden-art { opacity: .5; }
   .eyebrow { font-size: 8px; }

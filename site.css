@@ -177,3 +177,17 @@ body.site-navigation-open{overflow:hidden}
  .site-enabled .app-dialog .guide-practice{grid-template-columns:1fr}
  .site-enabled .app-dialog :is(.guide-concept summary,.guide-sources summary){font-size:14px;min-height:44px}
 }
+.growth-mobile-fold>summary{display:none}
+@media(max-width:900px){
+ .growth-mobile-fold{border:1px solid var(--site-border);border-radius:11px;background:var(--site-surface);margin-top:16px;min-width:0}
+ .growth-mobile-fold>summary{display:list-item;cursor:pointer;font-size:15px;font-weight:600;color:var(--site-accent);line-height:1.7;padding:14px 16px;min-height:48px}
+ .growth-mobile-fold[open]>summary{border-bottom:1px solid var(--site-border)}
+ .growth-mobile-fold>.graph-workspace{border:0;border-radius:0;margin-top:0}
+ .growth-mobile-fold>.direct-relations,.growth-mobile-fold>.path-reader,.growth-mobile-fold>.lineage-footnote{margin:14px}
+ .growth-mobile-fold>.resource-section{margin:0;border:0}
+}
+@media print{.growth-mobile-fold>summary{display:none}.growth-mobile-fold>*:not(summary){display:block!important}}
+@media(max-width:900px){
+ .site-shell:has(input:focus,textarea:focus) .site-shortcuts{display:none}
+ .site-enabled .content :is(.chip,.resource-topline,.resource-bottom,.small-note,.material-legend,.stage-meta,.fact small){font-size:12px;line-height:1.7}
+}
