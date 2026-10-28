@@ -12,6 +12,8 @@
 
 长期维护入口为 [AGENTS.md](AGENTS.md) 和 [站点架构与设计原则](docs/architecture.md)。本次 [共享框架改造方案](.rich-harness/tasks/unified-site-shell/spec/tech-design.md) 已确认并实现；新增分类沿用同一注册表、导航与移动阅读规范。
 
+英语与成长各自的会话、worktree、任务分支和自动交付流程见 [独立迭代说明](docs/development.md)。
+
 ## 共享框架与新增分类
 
 - `shared/site-sections.json`：唯一分类注册表，首页卡片和所有分类选择器从这里生成。`shared/site-config.js` 为自动生成文件，不手改。
