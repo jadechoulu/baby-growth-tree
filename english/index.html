@@ -576,6 +576,11 @@
   .section-head>.text-link{flex-shrink:0;white-space:nowrap;font-size:12px}
 }
 .xu-options-fold>summary,.origin-stage>summary{display:none}
+.comparison-selection,.route-browse-controls{display:contents}
+.mobile-baby-title,.baby-profile-overview>summary{display:none}
+@media(min-width:901px){
+  .baby-profile-overview>.reading-fold-body{padding:0}
+}
 @media(min-width:901px){
   .xu-options-fold>.reading-fold-body,.origin-stage>.reading-fold-body{padding:0}
 }
@@ -589,6 +594,89 @@
   .origin-stage-title>strong{font-size:15px}.origin-stage-title>small{font-size:12px}
   .origin-stage>.reading-fold-body{padding:0 10px 10px}
   .complete-comparison .origin-stage .stage-card{border:0;box-shadow:none;padding:8px}
+}
+
+/* 窄屏把首屏还给具体内容；控件保持 44px，正文保持 15px。 */
+@media(max-width:900px){
+  .page-heading,.routes-view .page-heading{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+  .page-heading>div,.routes-view .page-heading>div{display:block;min-width:0;flex:1}
+  .page-heading .eyebrow,.page-heading .sub{display:none}
+  .page-heading h1,.routes-view .page-heading h1{font-size:20px;line-height:1.4;letter-spacing:0}
+  .page-heading>.button,.routes-view .page-heading>.button{margin:0;min-height:44px;padding:6px 10px;white-space:normal;font-size:12px}
+  .toolbar{margin-bottom:8px;gap:6px}
+  .roadmap-mode{margin-bottom:6px}
+  .roadmap-mode>.segmented{padding:0;min-height:44px}
+  .roadmap-mode .segmented button{min-height:44px;padding:6px 10px}
+  .route-browse-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;margin:0 0 6px;align-items:start}
+  .route-browse-controls:has(.xu-options-fold[open]){grid-template-columns:1fr}
+  .route-browse-controls>.roadmap-mode,.route-browse-controls>.xu-options-fold{margin:0;min-width:0}
+  .route-browse-controls .xu-options-fold>summary{font-size:12px;gap:4px}
+  .xu-options-fold{margin:0 0 6px}
+  .xu-options-fold>summary{min-height:44px;padding:7px 10px}
+  .comparison-selection{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px;align-items:center;margin-bottom:8px}
+  .comparison-panel{display:flex;flex-direction:column}
+  .comparison-panel>.alignment-overview{order:2}
+  .comparison-panel>.alignment-remaining{order:3}
+  .comparison-controls{display:contents}
+  .comparison-controls>label,.mobile-stage-picker>label,.stage-stepper>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .comparison-controls>select{width:100%;min-height:44px;padding:6px;font-size:16px}
+  .mobile-stage-picker{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:2px;margin:0;min-width:0}
+  .mobile-stage-picker>select{grid-column:2;grid-row:1;width:100%;min-height:44px;padding:6px 2px;font-size:16px}
+  .stage-stepper{display:contents}
+  .stage-stepper .button{grid-column:1;grid-row:1;min-width:44px;min-height:44px;padding:0;font-size:18px}
+  .stage-stepper .button:last-child{grid-column:3}
+  .complete-comparison>.stage-comparison-row{padding:8px;gap:8px}
+  .origin-stage>summary{padding:10px;min-height:44px}
+  .origin-stage-title{gap:3px}
+  .origin-stage-title>.chip{font-size:12px}
+  .origin-stage>summary .origin-stage-title>small{display:none}
+  .origin-stage .stage-card>.stage-meta,.origin-stage .stage-card>h3,.origin-stage .stage-comparison-entry{display:none}
+  .origin-stage>.reading-fold-body{padding:0 8px 8px}
+  .origin-stage .stage-card>p{font-size:15px;line-height:1.7;margin:0 0 8px}
+  .origin-stage .stage-card>.age-band{font-size:12px;padding:0;background:transparent;margin:0 0 6px}
+  .origin-stage .stage-resource-tags{gap:4px;margin-top:8px}
+  .origin-stage .stage-resource-tags button{min-height:44px;font-size:13px}
+  .origin-stage .stage-open{min-height:44px;margin-top:6px}
+  .alignment-overview{margin:8px 0;padding:8px 10px}
+  .alignment-overview>summary,.alignment-remaining>summary,.route-help>summary,.stage-criteria>summary{min-height:44px;display:flex;align-items:center}
+  .alignment-target-details>summary{padding:10px;min-height:44px;gap:6px}
+  .alignment-expand{display:none}
+  .mobile-baby-title{display:block;font-size:21px;margin:0 0 8px}
+  .baby-profile-overview{margin:0 0 8px;background:#eaf0e5}
+  .baby-profile-overview>summary{display:flex;padding:9px 12px;min-height:44px}
+  .baby-profile-summary strong{font-size:14px}.baby-profile-summary small{margin-top:2px;font-size:12px}
+  .baby-profile-overview>.reading-fold-body{padding:0 10px 10px}
+  .baby-profile-overview .hero{padding:12px;border:0}
+  .baby-profile-overview .hero .eyebrow,.baby-profile-overview .hero h1{display:none}
+  .baby-profile-overview .hero p{font-size:15px;line-height:1.7}
+  .profile-mode{margin-top:8px}.mode-switch button{min-height:44px;font-size:13px}
+  .section-head{margin:12px 0 8px;gap:8px;align-items:center}
+  .section-head h2{font-size:17px}.section-head .num{display:none}
+  .section-head p{font-size:12px;line-height:1.6;margin-top:3px}
+  .section-head>.text-link{min-height:44px}
+  .chain{gap:8px;margin-bottom:8px}
+  .chain-card{padding:10px}.chain-card h3{font-size:15px;line-height:1.5}
+  .step-number{margin-bottom:4px;font-size:12px}.chain-card .text-link{min-height:44px;margin-top:4px}
+  .library-filters{margin:6px 0}.library-filters>summary{padding:7px 10px}
+  .library-tools{margin-bottom:6px;gap:6px}
+  .result-count{margin:6px 0 8px;font-size:12px;line-height:1.6}
+  .resource-grid{gap:8px}.resource-body{padding:12px}
+  .resource-body>.card-view-btn{min-height:48px}
+  .relation-tabs{margin:6px 0 8px}.relation-tabs .segmented button{min-height:44px}
+  .relation-center{padding:10px}.relation-center p{margin-top:0}
+  .mobile-relations>.reading-fold{margin:8px 0}
+  .source-card-head{padding:12px 12px 8px}.source-card-head>.eyebrow{display:none}
+  .source-card-head h3{font-size:16px}.sources-grid{gap:10px}
+  .source-pages{margin:0 12px 6px}.source-pages>summary{padding:6px 10px;min-height:44px}
+  .source-pages p{font-size:15px;line-height:1.7;margin:0 0 10px}
+  .source-card-actions{padding:4px 12px 10px}.source-card-actions .text-link{min-height:44px}
+  .detail-content{padding:12px 14px calc(20px + env(safe-area-inset-bottom))}
+  .detail-content>div>h2{font-size:21px;margin-top:8px!important;line-height:1.4}
+  .detail-content p,.detail-content li{font-size:15px;line-height:1.7}
+  .detail-section.reading-fold{margin:8px 0}
+  .detail-section.reading-fold>summary{padding:9px 10px;min-height:44px}
+  .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0}
+  .fact{padding:9px;font-size:15px}.fact small{font-size:12px}
 }
 
 /* 小芽共享框架：分类只覆盖颜色变量，布局与交互不分叉。 */
@@ -675,18 +763,18 @@ body.site-navigation-open{overflow:hidden}
 .site-enabled .graph-is-expanded .site-bar{z-index:45}
 @media(max-width:1100px){.site-bar,.site-page-bar{gap:12px}:root{--site-sidebar:205px;--site-space:24px}}
 @media(max-width:900px){
- :root{--site-bar-height:64px;--site-space:20px}
- .site-bar{gap:8px;padding:10px 16px}
- .site-brand{font-size:21px;margin-right:auto}.site-brand>.site-icon{width:25px;height:25px;flex-basis:25px}
+ :root{--site-bar-height:50px;--site-space:16px}
+ .site-bar{gap:8px;padding:2px 12px}
+ .site-brand{font-size:21px;margin-right:auto;min-height:44px}.site-brand>.site-icon{width:25px;height:25px;flex-basis:25px}
  .site-category-link{padding:8px 12px;font-size:13px}
- .site-page-bar{gap:10px;min-height:64px;padding:8px 16px}
+ .site-page-bar{gap:10px;min-height:50px;padding:2px 12px}
  .site-page-heading{flex-direction:column;align-items:flex-start;gap:0}
  .site-page-heading>.site-icon{display:none}
  .site-page-title{font-size:14px;line-height:1.5}
  .site-section-switch{font-size:13px;gap:6px;padding:8px 10px}
  .site-section-switch>.site-icon:first-child{width:18px;flex-basis:18px}
  .site-directory-button{display:flex}.site-directory-button[hidden]{display:none}
- .site-location{font-size:12px;line-height:1.5}
+ .site-location{display:none}
  .site-location:not(:empty)::before{content:none}
  .site-actions{gap:8px}
  .site-actions:empty{display:none}
@@ -696,11 +784,11 @@ body.site-navigation-open{overflow:hidden}
  .site-actions .top-search span{display:inline;font-size:13px}.site-actions .top-search kbd{display:none}
  .site-body{display:block}
  .site-sidebar{display:none}
- .site-main{padding:22px var(--site-space) calc(98px + env(safe-area-inset-bottom))}
- .site-shortcuts:not([hidden]){position:fixed;z-index:40;bottom:0;left:0;right:0;display:flex;justify-content:center;border-top:1px solid var(--site-border);padding:5px 8px max(6px,env(safe-area-inset-bottom));background:var(--site-surface);box-shadow:0 -6px 24px #20362c05}
+ .site-main{padding:12px var(--site-space) calc(80px + env(safe-area-inset-bottom))}
+ .site-shortcuts:not([hidden]){position:fixed;z-index:40;bottom:0;left:0;right:0;display:flex;justify-content:center;border-top:1px solid var(--site-border);padding:3px 6px max(4px,env(safe-area-inset-bottom));background:var(--site-surface);box-shadow:0 -6px 24px #20362c05}
  .site-shortcut-group{display:flex;flex:1;max-width:640px;justify-content:space-around}
- .site-shortcuts .site-nav-item{flex:1;flex-direction:column;justify-content:center;gap:3px;margin:0;padding:6px 2px;min-width:0;min-height:56px;font-size:12px;border-radius:9px;white-space:nowrap;line-height:1.5}
- .site-shortcuts .site-nav-item>.site-icon{width:20px;height:20px;flex-basis:20px}
+ .site-shortcuts .site-nav-item{flex:1;flex-direction:column;justify-content:center;gap:2px;margin:0;padding:4px 2px;min-width:0;min-height:48px;font-size:12px;border-radius:9px;white-space:nowrap;line-height:1.5}
+ .site-shortcuts .site-nav-item>.site-icon{width:18px;height:18px;flex-basis:18px}
  .site-keyboard-open .site-shortcuts{display:none}
  .site-directory-dialog{width:min(380px,calc(100vw - 32px));height:100dvh;max-height:100dvh;margin:0;border-radius:0 18px 18px 0}
  .site-navigation-dialog .site-nav-item{min-height:48px;font-size:15px}
@@ -715,9 +803,9 @@ body.site-navigation-open{overflow:hidden}
  .site-enabled .dialog-header>div{grid-row:2;grid-column:1 / -1}
  .site-enabled .dialog-header>.circle-button{grid-row:1;grid-column:2}
  .site-enabled .dialog-header h2{font-size:23px}
- .site-enabled .detail-head{flex-wrap:wrap;padding:10px 16px}
- .site-enabled .detail-head>span{flex-basis:calc(100% - 55px);font-size:13px}
- .site-enabled .detail-head>.site-section-switch{order:2}
+ .site-enabled .detail-head{flex-wrap:nowrap;padding:4px 12px}
+ .site-enabled .detail-head>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .site-enabled .detail-head>.site-section-switch{order:0}
  .site-enabled .detail-head>.icon-button{margin-left:auto}
  .site-enabled .preview-top>.site-section-switch{order:0}
  .site-enabled .preview-top>h3{flex-basis:100%;font-size:14px}
@@ -1839,13 +1927,27 @@ function organizePage(content){
   }
   if(S.view==='routes'){
     const legend=content.querySelector('.comparison-legend');if(legend)content.querySelector('.route-help>div')?.append(legend.cloneNode(true));
-    const versions=content.querySelector('.xu-version-panel');if(versions){const marker=versions.nextSibling,parent=versions.parentElement;parent.insertBefore(readingFold('xu-view-options',h('span',{},'许密杉视角 · '+xuVariant().label),versions,false,'xu-options-fold'),marker);}
+    const versions=content.querySelector('.xu-version-panel');if(versions){const marker=versions.nextSibling,parent=versions.parentElement;parent.insertBefore(readingFold('xu-view-options',h('span',{},'许密杉 · '+xuVariant().label),versions,false,'xu-options-fold'),marker);}
+    const mode=content.querySelector('.roadmap-mode'),versionOptions=content.querySelector('.xu-options-fold');
+    if(mode&&versionOptions){const tools=h('div',{class:'route-browse-controls'});mode.before(tools);tools.append(mode,versionOptions);}
+    const controls=content.querySelector('.comparison-controls'),picker=content.querySelector('.mobile-stage-picker');
+    if(controls&&picker){const selection=h('div',{class:'comparison-selection'});controls.before(selection);selection.append(controls,picker);}
+    const overview=content.querySelector('.alignment-overview');
+    if(overview)overview.parentElement.classList.add('comparison-panel');
   }
   if(S.view==='baby'){
     const supplement=content.querySelector('.baby-supplement');
     if(supplement){const title=supplement.querySelector('h3');title.remove();supplement.replaceWith(readingFold('baby-supplement',title,Array.from(supplement.childNodes)));}
     content.querySelectorAll('.two-col > .panel').forEach((panel,i)=>foldSection(panel,'baby-panel-'+i));
+    const hero=content.querySelector('.hero'),recommendation=content.querySelector('.recommend-strip');
+    if(hero){const summary=h('span',{class:'baby-profile-summary'},h('strong',{},namePart()+' · '+(age()?.label||'宝宝资料')),h('small',{},'听力约 '+S.profile.vocabulary+' 词 · 资料与呈现偏好'));
+      const overview=readingFold('baby-profile-overview',summary,[hero,recommendation],false,'baby-profile-overview');
+      content.prepend(h('h1',{class:'mobile-baby-title'},'今天的启蒙小计划'),overview);}
+    const supplementFold=content.querySelector('[data-fold-key="baby-supplement"]');
+    if(supplementFold)content.querySelector('.chain')?.after(supplementFold);
   }
+  if(S.view==='library')content.querySelector('.library-filters>.reading-fold-body')?.append(content.querySelector('.material-legend'));
+  if(S.view==='sources')content.querySelectorAll('.source-card').forEach(card=>{const note=card.querySelector('.source-card-head p');if(note)card.querySelector('.source-pages>.reading-fold-body')?.prepend(note);});
   return content;
 }
 function organizeDetail(body,kind,id){
@@ -1961,7 +2063,7 @@ function phaseOverview(route,targets){
 }
 // 小屏先呈现对应阶段，展开后保留完整卡片和关联证据。
 function alignedRouteCell(route,focus,group){
-  if(route.id===focus.routeId){const cell=readingFold('origin-'+focus.id,h('span',{class:'origin-stage-title'},routeChip(route.id),h('strong',{},focus.title),h('small',{},focus.materials.length+' 项素材 · 展开本阶段内容')),stageCard(focus),false,'aligned-route-cell alignment-origin-cell origin-stage');cell.style.setProperty('--route',route.color);cell.dataset.alignedRoute=route.id;return cell;}
+  if(route.id===focus.routeId){const cell=readingFold('origin-'+focus.id,h('span',{class:'origin-stage-title'},routeChip(route.id),h('strong',{},focus.title),h('small',{},focus.materials.length+' 项素材')),stageCard(focus),true,'aligned-route-cell alignment-origin-cell origin-stage');cell.style.setProperty('--route',route.color);cell.dataset.alignedRoute=route.id;return cell;}
   const linked=group.matches.filter(m=>m.overlapCount||m.unspecifiedCount).sort((a,b)=>stages.get(a.stageId).order-stages.get(b.stageId).order);
   return h('details',{class:'aligned-route-cell alignment-target-details','data-aligned-route':route.id,style:{'--route':route.color},open:window.matchMedia('(min-width:901px)').matches},
     h('summary',{},routeChip(route.id),h('strong',{},linked.length?linked.map(m=>stageName(stages.get(m.stageId))).join('、'):'暂无明确关联阶段'),h('span',{class:'alignment-expand'},'展开阶段与共用素材')),
@@ -1973,7 +2075,7 @@ function stageComparison(){
   const rows=route.stages.map(st=>({stage:st,groups:EnglishModel.compareStages(comparisonCatalog(),st.id)}));
   const remaining=columns.map(r=>({route:r,stages:r.id===route.id?[]:r.stages.filter(st=>!rows.some(row=>row.groups.find(g=>g.routeId===r.id).matches.some(m=>m.stageId===st.id&&(m.overlapCount||m.unspecifiedCount))))}));
   return h('div',{},h('div',{class:'toolbar comparison-controls'},h('label',{for:'comparison-route',class:'filter-label'},'以这条路线为起点'),h('select',{id:'comparison-route','aria-label':'阶段对照起点路线',onchange:e=>{S.compareRoute=e.target.value;S.compareStage=null;render();}},['xu','qing','banana'].map(id=>h('option',{value:id,selected:id===route.id},routes.get(id).name))),h('span',{class:'filter-label'},'三条路线保留完整阶段卡片，逐项查看关联素材与级别')),
-    h('div',{class:'mobile-stage-picker'},h('label',{for:'comparison-stage'},'查看阶段'),h('select',{id:'comparison-stage',onchange:e=>{S.compareStage=e.target.value;render();}},route.stages.map(st=>h('option',{value:st.id,selected:st.id===selected.id},(st.group?st.group+' · ':'')+st.title))),h('div',{class:'stage-stepper'},btn('上一阶段','select-compare-stage',{'data-id':route.stages[route.stages.indexOf(selected)-1]?.id,disabled:route.stages.indexOf(selected)===0},'button'),h('span',{},(route.stages.indexOf(selected)+1)+' / '+route.stages.length),btn('下一阶段','select-compare-stage',{'data-id':route.stages[route.stages.indexOf(selected)+1]?.id,disabled:route.stages.indexOf(selected)===route.stages.length-1},'button'))),h('div',{class:'comparison-legend'},h('span',{},h('i',{class:'direct'}),'级别相同 / 部分重叠'),h('span',{},h('i',{class:'uncertain'}),'同套系素材'),h('span',{},h('i',{class:'different'}),'同套系，级别不同（展开查看）')),
+    h('div',{class:'mobile-stage-picker'},h('label',{for:'comparison-stage'},'查看阶段'),h('select',{id:'comparison-stage',onchange:e=>{S.compareStage=e.target.value;render();}},route.stages.map(st=>h('option',{value:st.id,selected:st.id===selected.id},(st.group?st.group+' · ':'')+st.title))),h('div',{class:'stage-stepper'},btn('←','select-compare-stage',{'aria-label':'上一阶段','data-id':route.stages[route.stages.indexOf(selected)-1]?.id,disabled:route.stages.indexOf(selected)===0},'button'),h('span',{},(route.stages.indexOf(selected)+1)+' / '+route.stages.length),btn('→','select-compare-stage',{'aria-label':'下一阶段','data-id':route.stages[route.stages.indexOf(selected)+1]?.id,disabled:route.stages.indexOf(selected)===route.stages.length-1},'button'))),h('div',{class:'comparison-legend'},h('span',{},h('i',{class:'direct'}),'级别相同 / 部分重叠'),h('span',{},h('i',{class:'uncertain'}),'同套系素材'),h('span',{},h('i',{class:'different'}),'同套系，级别不同（展开查看）')),
     h('p',{class:'small-note alignment-note'},'按'+route.name+'的完整阶段顺序排成行，其余两列显示有关联的完整阶段。一个阶段可出现在多行；同一行表示素材关联。未建立关联的阶段保留在末尾。'),
     h('details',{class:'alignment-overview'},h('summary',{},'阶段关联速览 · 查看全部阶段对应'),phaseOverview(route,targets)),h('div',{class:'stage-comparison complete-comparison','aria-label':'三条完整路线的阶段对照'},h('div',{class:'comparison-head'},columns.map(r=>h('div',{style:{'--route':r.color}},routeChip(r.id),h('small',{},r.stages.length+' 个'+(r.stages.some(st=>st.group)?'节点':'阶段')+(r.id===route.id?' · 按此顺序对照':' · 显示关联阶段'))))),rows.map((row,index)=>{const st=row.stage;return [comparisonDomain(st,index,route.stages),h('article',{class:'stage-comparison-row '+(selected.id===st.id?'mobile-current ':'')+(S.compareStage===st.id?'comparison-focused':''),id:'compare-'+st.id,'data-stage-id':st.id,style:{'--route':route.color}},columns.map(r=>alignedRouteCell(r,st,row.groups.find(g=>g.routeId===r.id))))];}),remaining.some(r=>r.stages.length)?h('details',{class:'alignment-remaining'},h('summary',{},'其他未关联阶段 · 展开查看'),h('p',{class:'small-note'},'以下阶段尚未与当前起点路线建立同级或共用素材关联，仍保留完整内容与各自顺序。'),h('div',{class:'alignment-remaining-grid'},remaining.map(({route:r,stages:list})=>h('div',{class:'aligned-route-cell','data-remaining-route':r.id},h('h3',{},routeChip(r.id)),list.length?list.map(st=>compactStage(st)):h('p',{class:'comparison-empty'},'这条路线的全部阶段已在上方展示'))))):null));
 }
@@ -2011,7 +2113,7 @@ function seriesProgression(r){
 function familyCover(r){const div=h('div',{class:'resource-cover cover-type-'+r.type});if(r.cover){div.append(h('img',{src:asset(r.cover),alt:r.title+'，'+coverLabel(r),loading:'lazy'}),h('span',{class:'cover-caption'},coverLabel(r)));}else{div.append(h('span',{class:'generated-cover','aria-hidden':'true'},icon(r.type==='animation'?'play':r.type==='song'?'music':'book'),h('b',{},r.title),h('small',{},'LITTLE LEAF LIBRARY')),h('span',{class:'cover-caption'},'图示 · 点开可看原页'));}return div;}
 window.matchMedia('(min-width:901px)').addEventListener('change',()=>{if(S.view==='library')render();});
 function filteredResources(){let rr=C.resources.filter(r=>(S.type==='all'||r.type===S.type)&&(S.route==='all'||r.appearances.some(a=>a.routeId===S.route))&&(!S.favoriteOnly||S.favorites.includes(r.id))&&(!S.sharedOnly||sharedRoutes(r).length>1));const q=S.search.trim().toLowerCase();if(q)rr=rr.filter(r=>(r.title+' '+(r.aliases||[]).join(' ')+' '+r.levels.join(' ')+' '+r.appearances.map(a=>a.original||'').join(' ')+' '+(r.id===SSS.resourceId?SSS.songs.map(s=>s.title).join(' '):'')).toLowerCase().includes(q));if(S.age==='current'){const ids=new Set(Object.values(rec().routeStages||{}));rr=rr.filter(r=>r.appearances.some(a=>ids.has(a.stageId)));}else if(S.age!=='all'){const route=routes.get('banana');const found=route?.stages.filter(st=>(st.schedules||[]).some(sc=>String(sc.ageGroup||'').includes(S.age)))||[];const ids=new Set(found.map(x=>x.id));rr=rr.filter(r=>r.appearances.some(a=>ids.has(a.stageId)));}return rr.sort((a,b)=>new Set(b.appearances.map(x=>x.routeId)).size-new Set(a.appearances.map(x=>x.routeId)).size);}
-function libraryView(){const rr=filteredResources(),key=JSON.stringify([S.type,S.route,S.age,S.search,S.favoriteOnly,S.sharedOnly]);if(key!==S.libraryKey){S.libraryKey=key;S.libraryLimit=18;}const visible=window.matchMedia('(max-width:900px)').matches?rr.slice(0,S.libraryLimit):rr;const active=[S.route!=='all'?routes.get(S.route).name:'',S.age==='current'?'宝宝当前起点':'',S.sharedOnly?'跨路线共用':''].filter(Boolean);const types=[['all','全部类型'],['book','绘本 / 读物'],['reader','分级'],['animation','动画'],['song','儿歌'],['flashcard','闪卡'],['other','其他']];return h('div',{},heading('THE MATERIAL LIBRARY','每一份素材，都有来处','把绘本、分级、动画和儿歌分开看，也能追踪同一套资料在不同路线中的位置。',btn([icon('heart'),S.favoriteOnly?'查看全部':'我的收藏'],'favorites',{},S.favoriteOnly?'button soft':'button')),h('div',{class:'toolbar library-tools'},h('select',{class:'mobile-type-select','aria-label':'素材类型',onchange:e=>{S.type=e.target.value;render();}},types.map(([id,label])=>h('option',{value:id,selected:S.type===id},label))),h('div',{class:'segmented'},[['all','全部'],['book','绘本 / 读物'],['reader','分级'],['animation','动画'],['song','儿歌'],['flashcard','闪卡'],['other','其他']].map(([id,name])=>btn(name,'type',{'data-type':id,'aria-pressed':S.type===id},S.type===id?'active':''))),h('label',{class:'search-field library-search'},icon('search'),h('input',{id:'library-search',type:'search',value:S.search,placeholder:'搜索名称、级别、英文名','aria-label':'搜索素材',oninput:e=>{S.search=e.target.value;render();}}))),readingFold('library-filters',h('span',{},'筛选与索引',h('small',{},active.length?active.join(' · '):'路线 / 阶段 / 共用素材')),h('div',{class:'toolbar library-filter-options'},h('span',{class:'filter-label'},'来源'),h('select',{'aria-label':'按路线筛选',onchange:e=>{S.route=e.target.value;render();}},[['all','全部路线'],...C.routes.map(r=>[r.id,r.name])].map(([id,label])=>h('option',{value:id,selected:S.route===id},label))),h('select',{'aria-label':'按使用阶段筛选',onchange:e=>{S.age=e.target.value;render();}},[['all','所有阶段'],['current','宝宝当前浏览起点']].map(([id,label])=>h('option',{value:id,selected:S.age===id},label))),btn(S.sharedOnly?'✓ 仅看多路线共用':'仅看多路线共用','shared-filter',{'aria-pressed':S.sharedOnly},S.sharedOnly?'button soft shared-filter':'button shared-filter'),h('span',{class:'spacer'}),btn([icon('calendar'),'年龄关联索引'],'age-index',{},'text-link'),active.length?btn('清除筛选','clear-filters',{},'text-link'):null),false,'library-filters'),materialLegend(),h('p',{class:'result-count'},'共 '+rr.length+' 个素材系列 · '+rr.filter(r=>sharedRoutes(r).length>1).length+' 个为多路线共用；查看各阶段使用的级别。'),rr.length?h('div',{class:'resource-grid'},visible.map(r=>h('article',{class:'resource-card'+(sharedRoutes(r).length>1?' shared':'')},btn(familyCover(r),'resource',{'data-id':r.id,'aria-label':'查看'+r.title},'card-view-btn'),h('div',{class:'resource-body'},h('div',{class:'resource-topline'},h('span',{},TYPES[r.type]||'其他'),h('span',{},r.appearances.length+' 处阶段引用')),btn(h('h3',{},r.title),'resource',{'data-id':r.id},'card-view-btn'),cardUsage(r),r.id===SSS.resourceId?btn([icon('music'),'分类歌单 · 42首 →'],'sss-songs',{},'button soft song-card-link'):null,h('div',{class:'resource-bottom'},btn('详情与套系 →','resource',{'data-id':r.id},''),btn(icon('heart'),'favorite',{'data-id':r.id,'aria-label':(S.favorites.includes(r.id)?'取消收藏':'收藏')+r.title,style:{color:S.favorites.includes(r.id)?'#bc8664':''},'aria-pressed':S.favorites.includes(r.id)},'')))))):h('div',{class:'empty'},h('p',{},'没有匹配的素材，换个关键词或筛选条件试试。'),btn('清除筛选','clear-filters',{},'button soft')),visible.length<rr.length?h('div',{class:'load-more'},h('p',{role:'status'},'已显示 '+visible.length+' / '+rr.length+' 个素材'),btn('再看 18 个素材','library-more',{},'button')):null);}
+function libraryView(){const rr=filteredResources(),key=JSON.stringify([S.type,S.route,S.age,S.search,S.favoriteOnly,S.sharedOnly]);if(key!==S.libraryKey){S.libraryKey=key;S.libraryLimit=18;}const visible=window.matchMedia('(max-width:900px)').matches?rr.slice(0,S.libraryLimit):rr;const active=[S.route!=='all'?routes.get(S.route).name:'',S.age==='current'?'宝宝当前起点':'',S.sharedOnly?'跨路线共用':''].filter(Boolean);const types=[['all','全部类型'],['book','绘本 / 读物'],['reader','分级'],['animation','动画'],['song','儿歌'],['flashcard','闪卡'],['other','其他']];return h('div',{},heading('THE MATERIAL LIBRARY','每一份素材，都有来处','把绘本、分级、动画和儿歌分开看，也能追踪同一套资料在不同路线中的位置。',btn([icon('heart'),S.favoriteOnly?'查看全部':'我的收藏'],'favorites',{},S.favoriteOnly?'button soft':'button')),h('div',{class:'toolbar library-tools'},h('select',{class:'mobile-type-select','aria-label':'素材类型',onchange:e=>{S.type=e.target.value;render();}},types.map(([id,label])=>h('option',{value:id,selected:S.type===id},label))),h('div',{class:'segmented'},[['all','全部'],['book','绘本 / 读物'],['reader','分级'],['animation','动画'],['song','儿歌'],['flashcard','闪卡'],['other','其他']].map(([id,name])=>btn(name,'type',{'data-type':id,'aria-pressed':S.type===id},S.type===id?'active':''))),h('label',{class:'search-field library-search'},icon('search'),h('input',{id:'library-search',type:'search',value:S.search,placeholder:'搜索名称、级别、英文名','aria-label':'搜索素材',oninput:e=>{S.search=e.target.value;render();}}))),readingFold('library-filters',h('span',{},'筛选与图例',h('small',{},active.length?active.join(' · '):'路线 / 阶段 / 共用素材')),h('div',{class:'toolbar library-filter-options'},h('span',{class:'filter-label'},'来源'),h('select',{'aria-label':'按路线筛选',onchange:e=>{S.route=e.target.value;render();}},[['all','全部路线'],...C.routes.map(r=>[r.id,r.name])].map(([id,label])=>h('option',{value:id,selected:S.route===id},label))),h('select',{'aria-label':'按使用阶段筛选',onchange:e=>{S.age=e.target.value;render();}},[['all','所有阶段'],['current','宝宝当前浏览起点']].map(([id,label])=>h('option',{value:id,selected:S.age===id},label))),btn(S.sharedOnly?'✓ 仅看多路线共用':'仅看多路线共用','shared-filter',{'aria-pressed':S.sharedOnly},S.sharedOnly?'button soft shared-filter':'button shared-filter'),h('span',{class:'spacer'}),btn([icon('calendar'),'年龄关联索引'],'age-index',{},'text-link'),active.length?btn('清除筛选','clear-filters',{},'text-link'):null),false,'library-filters'),materialLegend(),h('p',{class:'result-count'},'共 '+rr.length+' 个素材系列 · '+rr.filter(r=>sharedRoutes(r).length>1).length+' 个为多路线共用；查看各阶段使用的级别。'),rr.length?h('div',{class:'resource-grid'},visible.map(r=>h('article',{class:'resource-card'+(sharedRoutes(r).length>1?' shared':'')},btn(familyCover(r),'resource',{'data-id':r.id,'aria-label':'查看'+r.title},'card-view-btn'),h('div',{class:'resource-body'},h('div',{class:'resource-topline'},h('span',{},TYPES[r.type]||'其他'),h('span',{},r.appearances.length+' 处阶段引用')),btn(h('h3',{},r.title),'resource',{'data-id':r.id},'card-view-btn'),cardUsage(r),r.id===SSS.resourceId?btn([icon('music'),'分类歌单 · 42首 →'],'sss-songs',{},'button soft song-card-link'):null,h('div',{class:'resource-bottom'},btn('详情与套系 →','resource',{'data-id':r.id},''),btn(icon('heart'),'favorite',{'data-id':r.id,'aria-label':(S.favorites.includes(r.id)?'取消收藏':'收藏')+r.title,style:{color:S.favorites.includes(r.id)?'#bc8664':''},'aria-pressed':S.favorites.includes(r.id)},'')))))):h('div',{class:'empty'},h('p',{},'没有匹配的素材，换个关键词或筛选条件试试。'),btn('清除筛选','clear-filters',{},'button soft')),visible.length<rr.length?h('div',{class:'load-more'},h('p',{role:'status'},'已显示 '+visible.length+' / '+rr.length+' 个素材'),btn('再看 18 个素材','library-more',{},'button')):null);}
 function relationNodes(r){const left=C.routes.map(route=>{const ap=r.appearances.filter(a=>a.routeId===route.id);return ap.length?{kind:'route',id:route.id,title:route.name,sub:ap.length+' 处引用 · '+ap.map(a=>shortStage(stages.get(a.stageId)||{title:a.stageId})).filter((x,i,a)=>a.indexOf(x)===i).join(' / '),color:route.color}:null;}).filter(Boolean);let rel=C.relationships.filter(e=>e.from===r.id||e.to===r.id);if(S.relationMode==='pair')rel=rel.filter(e=>e.type==='pair');const related=[];for(const e of rel){const id=e.from===r.id?e.to:e.from;if(id===r.id||!byId.has(id))continue;if(!related.some(x=>x.id===id))related.push({kind:'resource',id,title:byId.get(id).title,sub:e.label||'原文同阶段组合',type:e.type,edge:e});}return {left,related};}
 function relationGraph(r){const {left,related}=relationNodes(r);const page=S.relationPage;const right=related.slice(page*4,page*4+4);const canvas=h('div',{class:'graph-canvas',style:{height:'490px'}});const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 800 490');svg.setAttribute('preserveAspectRatio','none');svg.setAttribute('class','relation-lines');const node=(x,y,item)=>{const b=btn([h('small',{},item.kind==='route'?'出现于这条路线':'与此素材的关系'),h('strong',{},item.kind==='route'?h('span',{class:'dot',style:{'--route':item.color}}):null,item.title),h('small',{class:'edge-label'},item.sub)],item.kind==='route'?'resource-route':'graph-focus',{'data-id':r.id,'data-route':item.id,'data-resource':item.id,style:{left:x+'%',top:y+'px'}},'graph-node');return b;};const path=(d,dashed=false)=>{const p=document.createElementNS(svg.namespaceURI,'path');p.setAttribute('d',d);if(dashed)p.setAttribute('class','inferred');svg.append(p);};left.forEach((it,i)=>{const y=left.length===1?245:105+i*280/(left.length-1);path('M 215 '+y+' C 285 '+y+',285 245,320 245');canvas.append(node(15,y,it));});right.forEach((it,i)=>{const y=right.length===1?245:85+i*320/(right.length-1);path('M 480 245 C 530 245,515 '+y+',585 '+y,it.type==='reference');canvas.append(node(85,y,it));});canvas.prepend(svg);canvas.append(h('span',{class:'graph-label',style:{left:'5%'}},'路线中的位置'),h('span',{class:'graph-label',style:{right:'5%'}},S.relationMode==='pair'?'分级与动画原文组合':'配套 / 前后衔接'),btn([h('small',{},TYPES[r.type]+' · 中心素材'),h('strong',{},r.title),h('small',{},'点击查看完整套系与全部出处')],'resource',{'data-id':r.id,style:{left:'50%',top:'245px'}},'graph-node focus'));if(!right.length)canvas.append(h('span',{class:'graph-label',style:{right:'5%',top:'245px'}},'此来源未给出逐项配对'));return {canvas,left,related,right};}
 function mobileRelations(r,g){
@@ -2024,7 +2126,7 @@ function relationTabs(){const tabs=[['resource','路线 × 素材'],['pair','绘
 function ageView(){const banana=routes.get('banana');return h('div',{},heading('AGE IS A REFERENCE','按年龄看，再回到能力','年龄图保留原图范围；宝宝当前位置仍以真实理解与兴趣作为起点。'),relationTabs(),h('div',{class:'notice'},icon('info'),'香蕉妈妈按开始启蒙的年龄提供时间表；许密杉未标年龄；庆爸这份版本面向 3–4 岁。三者不能直接按月龄强行对齐。'),h('div',{class:'age-grid'},C.routes.map(r=>h('section',{class:'age-card'},h('h3',{},routeChip(r.id)),h('p',{},r.id==='banana'?'按 2–3 岁、4–5 岁、6–7 岁开始启蒙，分别给出阶段用时和数量安排。':r.id==='xu'?'这三份许密杉资料均未标固定年龄。六阶段表词数为积累目标，全景图词数仅保留原节点标签；阶段执行表每阶段3个月是计划用时，均不换算成月龄门槛。':'整套常规路线适用 3–4 岁，阶段间用时间和新版 Phase 测试衔接。'),btn(['查看年龄与阶段 ',icon('arrow')],'stage',{'data-id':rec().routeStages[r.id]||r.stages[0].id},'text-link')))),section('香蕉妈妈 · 各年龄起点的完整安排','选择阶段即可在详情查看三组年龄起点的原文计划。'),h('div',{class:'age-grid'},banana.stages.map(st=>readingFold('age-stage-'+st.id,h('strong',{},st.title),h('div',{},h('p',{},st.goal),h('div',{class:'stage-resource-tags'},st.schedules.map(sc=>btn(String(sc.ageGroup||'年龄安排')+' · '+String(sc.duration||''),'stage',{'data-id':st.id},''))),btn('看素材与时间表 →','stage',{'data-id':st.id},'text-link'))))),section('独立参考 · 书籍年龄路线概览','原图未能确认作者，保留独立出处，不作为必须达到的年龄进度。'),h('section',{class:'panel'},btn(h('img',{class:'reference-preview',src:asset(sourcePage('age',1)?.path),alt:'书籍年龄路线概览原图',loading:'lazy'}),'preview',{'data-source':'age','data-page':1},'card-view-btn'),sourceBtn('age',1,'放大原始年龄图'),ageIndexRows(),h('div',{class:'links-inline'},(C.ageComparison?.rows||[]).map(row=>{const name=row.title;const r=findResource([name]);return r?btn(name,'resource',{'data-id':r.id},'chip'):null;}))));}
 function ageIndexRows(){const rows=C.ageComparison.rows;return h('div',{class:'age-grid',style:{marginTop:'20px'}},rows.map(row=>{const r=byId.get(row.resourceIds?.[0])||findResource([row.title]);return readingFold('age-resource-'+row.title,h('span',{class:'age-detail-heading'},h('strong',{},row.title),h('span',{class:'chip'},row.suggestedAge||'')),h('div',{},h('p',{},row.description),h('p',{class:'small-note'},row.levels.join(' / ')),r?btn('查看对应套系与路线 →','resource',{'data-id':r.id},'text-link'):sourceBtn('age',1,'原图套系位置')));}));}
 function readingView(){const cmp=window.ROADMAP_RAW.qing.supplement;const rows=cmp.rows;const current=rows.find(r=>r.raz===S.readingLevel)||rows[1];const idx=rows.findIndex(r=>r.raz===current.raz);const covers=Object.entries(cmp.mergedCellCoverage).map(([name,items])=>({name,levels:items.filter(it=>idx>=rows.findIndex(r=>r.raz===it.fromRAZ)&&idx<=rows.findIndex(r=>r.raz===it.toRAZ)).map(it=>it.level)})).filter(it=>it.levels.length);return h('div',{},heading('READING LEVEL REFERENCE','阅读难度，单独对照','RAZ、牛津树、海尼曼、大猫等映射来自补充原图；阅读分级与听力词汇分开查看。'),relationTabs(),h('div',{class:'notice'},icon('info'),'这是阅读难度参考表。AR、Lexile、年级与级别范围不能直接换算为听力词数，也不能据此给当前宝宝定级。'),h('div',{class:'toolbar'},h('label',{class:'filter-label',for:'reading-select'},'选择原图中的 RAZ 行'),h('select',{id:'reading-select',onchange:e=>{S.readingLevel=e.target.value;render();}},rows.map(row=>h('option',{value:row.raz,selected:row.raz===current.raz},'RAZ '+row.raz+' · '+row.grade)))),h('section',{class:'panel'},h('h3',{},'RAZ '+current.raz+' 所在行与原图合并范围'),h('div',{class:'fact-grid'},fact('原图年级（非宝宝年龄）',current.grade),fact('Lexile（按原图）',current.lexile),fact('AR',current.ar),fact('GRL',current.grl)),h('div',{class:'age-grid',style:{marginTop:'18px'}},covers.map(it=>{const r=findResource([it.name]);return h('div',{class:'age-card'},h('h4',{},it.name),h('p',{},it.levels.join(' / ')),r?btn('追踪套系与路线 →','resource',{'data-id':r.id},'text-link'):sourceBtn('reading',1,'看原图位置'));})),h('p',{class:'small-note'},'按原图单元格的覆盖范围显示，可能同时覆盖多个级别；保留这种重叠，不作精确等号。')),section('回看整张难度对照表','放大查看原图，核对上下文与合并单元格。'),h('section',{class:'panel'},btn(h('img',{class:'reference-preview',src:asset(sourcePage('reading',1)?.path),alt:'常见英文分级读物难度对照表',loading:'lazy'}),'preview',{'data-source':'reading','data-page':1},'card-view-btn'),sourceBtn('reading',1,'放大完整阅读对照图')),h('p',{class:'small-note'},cmp.attribution));}
-function sourcesView(){return h('div',{},heading('BACK TO THE ORIGINAL','每一步，都能回看原文',C.sources.length+' 份本地来源，完整保留逐页预览；资料未提供的封面、分册清单和媒体文件不补造。'),h('div',{class:'sources-grid'},C.sources.map(s=>h('article',{class:'source-card'},h('div',{class:'source-card-head'},h('div',{class:'eyebrow'},s.id==='sss-playlists'?'补充歌单':s.id==='age'||s.id==='reading'?'独立补充参考':'原作者路线'),h('h3',{},s.title),h('p',{},s.note||'')),readingFold('source-pages-'+s.id,'全部 '+s.previews.length+' 页 · 展开缩略预览',h('div',{class:'source-thumbs'},s.previews.map(p=>btn([h('img',{src:asset(p.path),alt:s.title+'第'+p.page+'页',loading:'lazy'}),h('span',{},s.previews.length>1?'第 '+p.page+' 页':'原图')],'preview',{'data-source':s.id,'data-page':p.page},''))),false,'source-pages'),h('div',{class:'source-card-actions'},sourceBtn(s.id,1,'逐页放大查看'),h('a',{class:'text-link',href:asset(s.file),target:'_blank',rel:'noopener'},icon('expand'),'打开原始文件'))))),h('p',{class:'small-note'},'许密杉原六阶段组合表 PDF 第 2 页只有署名水印，无路线内容；许密杉阶段执行表 PDF 共 4 页，配套思维导图是同一计划的图解。香蕉妈妈 PDF 第 9、10 页重复。所有页面均保留，方便核对。'));}
+function sourcesView(){return h('div',{},heading('BACK TO THE ORIGINAL','每一步，都能回看原文',C.sources.length+' 份本地来源，完整保留逐页预览；资料未提供的封面、分册清单和媒体文件不补造。'),h('div',{class:'sources-grid'},C.sources.map(s=>h('article',{class:'source-card'},h('div',{class:'source-card-head'},h('div',{class:'eyebrow'},s.id==='sss-playlists'?'补充歌单':s.id==='age'||s.id==='reading'?'独立补充参考':'原作者路线'),h('h3',{},s.title),h('p',{},s.note||'')),readingFold('source-pages-'+s.id,'来源说明与 '+s.previews.length+' 页预览',h('div',{class:'source-thumbs'},s.previews.map(p=>btn([h('img',{src:asset(p.path),alt:s.title+'第'+p.page+'页',loading:'lazy'}),h('span',{},s.previews.length>1?'第 '+p.page+' 页':'原图')],'preview',{'data-source':s.id,'data-page':p.page},''))),false,'source-pages'),h('div',{class:'source-card-actions'},sourceBtn(s.id,1,'逐页放大查看'),h('a',{class:'text-link',href:asset(s.file),target:'_blank',rel:'noopener'},icon('expand'),'打开原始文件'))))),h('p',{class:'small-note'},'许密杉原六阶段组合表 PDF 第 2 页只有署名水印，无路线内容；许密杉阶段执行表 PDF 共 4 页，配套思维导图是同一计划的图解。香蕉妈妈 PDF 第 9、10 页重复。所有页面均保留，方便核对。'));}
 function openModal(kind,id){if(!S.modal)lastFocus=document.activeElement;S.modal={kind,id};renderModal();document.body.style.overflow='hidden';overlay.querySelector('button,input,select')?.focus({preventScroll:true});}
 function closeModal(){S.modal=null;overlay.replaceChildren();if(!S.preview)document.body.style.overflow='';lastFocus?.focus({preventScroll:true});}
 function detailShell(label,content){return h('div',{class:'modal-backdrop','data-action':'backdrop'},h('section',{class:'detail',role:'dialog','aria-modal':'true','aria-label':label},h('header',{class:'detail-head'},h('span',{},label),siteShell.createSectionSwitch(),btn(icon('close'),'close',{'aria-label':'关闭详情'},'icon-button')),h('div',{class:'detail-content'},content)));}

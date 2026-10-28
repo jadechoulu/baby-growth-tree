@@ -785,12 +785,31 @@ function organizeGrowthReading() {
   };
   if (state.view === 'baby') {
     const lineage = siteShell.content.querySelector('.stage-lineage');
-    if (lineage) wrap('stage-graph', '查看图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.path-reader,.lineage-footnote')));
+    if (lineage) wrap('stage-graph', '阶段图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.path-reader,.lineage-footnote')));
     const resource = siteShell.content.querySelector('.milestones>.resource-section');
     if (resource) wrap('stage-resources', '本阶段的陪伴与启蒙参考', [resource]);
+    layoutGrowthStageReading();
+  }
+}
+function layoutGrowthStageReading() {
+  const content = siteShell?.content;
+  const lineage = content?.querySelector('.stage-lineage');
+  const fold = content?.querySelector('[data-reading-key="stage-graph"]');
+  if (!lineage || !fold) return;
+  const heading = content.querySelector('.stage-lineage>.section-title-row') || fold.querySelector('.section-title-row');
+  const focus = content.querySelector('.stage-lineage-focus');
+  const milestones = content.querySelector('.milestones');
+  if (window.matchMedia('(max-width:900px)').matches) {
+    // 先阶段、领域、技能；完整图谱放在技能清单之后，展开时仍使用原节点。
+    fold.querySelector('summary').after(...[heading, focus].filter(Boolean));
+    milestones?.after(fold);
+  } else {
+    if (heading) lineage.prepend(heading);
+    lineage.querySelector('.domain-cards')?.after(...[focus, fold].filter(Boolean));
   }
 }
 window.matchMedia('(max-width:900px)').addEventListener('change', event => {
+  layoutGrowthStageReading();
   document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? false); });
 });
 
@@ -800,7 +819,7 @@ function render() {
   const selection = focusId ? active.selectionStart : 0;
   const graphViewport = document.querySelector('#graph-viewport');
   const graphScroll = { top: graphViewport?.scrollTop || 0, left: graphViewport?.scrollLeft || 0 };
-  const pathReaderOpen = document.querySelector(`.path-reader[data-reader-view="${state.view}"]`)?.open ?? state.view === 'tree';
+  const pathReaderOpen = document.querySelector(`.path-reader[data-reader-view="${state.view}"]`)?.open ?? (state.view === 'tree' && window.matchMedia('(min-width:901px)').matches);
   document.body.classList.toggle('graph-is-expanded', state.graphExpanded);
   if (!siteShell) {
     siteShell = window.XiaoyaSite.createShell({ sectionId: 'growth', siteRoot: './', onNavigate: navigateGrowth });

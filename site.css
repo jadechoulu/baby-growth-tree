@@ -82,18 +82,18 @@ body.site-navigation-open{overflow:hidden}
 .site-enabled .graph-is-expanded .site-bar{z-index:45}
 @media(max-width:1100px){.site-bar,.site-page-bar{gap:12px}:root{--site-sidebar:205px;--site-space:24px}}
 @media(max-width:900px){
- :root{--site-bar-height:64px;--site-space:20px}
- .site-bar{gap:8px;padding:10px 16px}
- .site-brand{font-size:21px;margin-right:auto}.site-brand>.site-icon{width:25px;height:25px;flex-basis:25px}
+ :root{--site-bar-height:50px;--site-space:16px}
+ .site-bar{gap:8px;padding:2px 12px}
+ .site-brand{font-size:21px;margin-right:auto;min-height:44px}.site-brand>.site-icon{width:25px;height:25px;flex-basis:25px}
  .site-category-link{padding:8px 12px;font-size:13px}
- .site-page-bar{gap:10px;min-height:64px;padding:8px 16px}
+ .site-page-bar{gap:10px;min-height:50px;padding:2px 12px}
  .site-page-heading{flex-direction:column;align-items:flex-start;gap:0}
  .site-page-heading>.site-icon{display:none}
  .site-page-title{font-size:14px;line-height:1.5}
  .site-section-switch{font-size:13px;gap:6px;padding:8px 10px}
  .site-section-switch>.site-icon:first-child{width:18px;flex-basis:18px}
  .site-directory-button{display:flex}.site-directory-button[hidden]{display:none}
- .site-location{font-size:12px;line-height:1.5}
+ .site-location{display:none}
  .site-location:not(:empty)::before{content:none}
  .site-actions{gap:8px}
  .site-actions:empty{display:none}
@@ -103,11 +103,11 @@ body.site-navigation-open{overflow:hidden}
  .site-actions .top-search span{display:inline;font-size:13px}.site-actions .top-search kbd{display:none}
  .site-body{display:block}
  .site-sidebar{display:none}
- .site-main{padding:22px var(--site-space) calc(98px + env(safe-area-inset-bottom))}
- .site-shortcuts:not([hidden]){position:fixed;z-index:40;bottom:0;left:0;right:0;display:flex;justify-content:center;border-top:1px solid var(--site-border);padding:5px 8px max(6px,env(safe-area-inset-bottom));background:var(--site-surface);box-shadow:0 -6px 24px #20362c05}
+ .site-main{padding:12px var(--site-space) calc(80px + env(safe-area-inset-bottom))}
+ .site-shortcuts:not([hidden]){position:fixed;z-index:40;bottom:0;left:0;right:0;display:flex;justify-content:center;border-top:1px solid var(--site-border);padding:3px 6px max(4px,env(safe-area-inset-bottom));background:var(--site-surface);box-shadow:0 -6px 24px #20362c05}
  .site-shortcut-group{display:flex;flex:1;max-width:640px;justify-content:space-around}
- .site-shortcuts .site-nav-item{flex:1;flex-direction:column;justify-content:center;gap:3px;margin:0;padding:6px 2px;min-width:0;min-height:56px;font-size:12px;border-radius:9px;white-space:nowrap;line-height:1.5}
- .site-shortcuts .site-nav-item>.site-icon{width:20px;height:20px;flex-basis:20px}
+ .site-shortcuts .site-nav-item{flex:1;flex-direction:column;justify-content:center;gap:2px;margin:0;padding:4px 2px;min-width:0;min-height:48px;font-size:12px;border-radius:9px;white-space:nowrap;line-height:1.5}
+ .site-shortcuts .site-nav-item>.site-icon{width:18px;height:18px;flex-basis:18px}
  .site-keyboard-open .site-shortcuts{display:none}
  .site-directory-dialog{width:min(380px,calc(100vw - 32px));height:100dvh;max-height:100dvh;margin:0;border-radius:0 18px 18px 0}
  .site-navigation-dialog .site-nav-item{min-height:48px;font-size:15px}
@@ -122,9 +122,9 @@ body.site-navigation-open{overflow:hidden}
  .site-enabled .dialog-header>div{grid-row:2;grid-column:1 / -1}
  .site-enabled .dialog-header>.circle-button{grid-row:1;grid-column:2}
  .site-enabled .dialog-header h2{font-size:23px}
- .site-enabled .detail-head{flex-wrap:wrap;padding:10px 16px}
- .site-enabled .detail-head>span{flex-basis:calc(100% - 55px);font-size:13px}
- .site-enabled .detail-head>.site-section-switch{order:2}
+ .site-enabled .detail-head{flex-wrap:nowrap;padding:4px 12px}
+ .site-enabled .detail-head>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .site-enabled .detail-head>.site-section-switch{order:0}
  .site-enabled .detail-head>.icon-button{margin-left:auto}
  .site-enabled .preview-top>.site-section-switch{order:0}
  .site-enabled .preview-top>h3{flex-basis:100%;font-size:14px}
