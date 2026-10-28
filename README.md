@@ -8,7 +8,7 @@
 | 成长技能树 | [index.html](index.html) | [成长花园](https://jadechoulu.github.io/baby-growth-tree/) |
 | 英语启蒙 | [english/index.html](english/index.html) | [路线与素材](https://jadechoulu.github.io/baby-growth-tree/english/index.html#routes) |
 
-首页、成长与英语共用站点框架：顶部随时切换分类，桌面常驻侧栏，窄屏展开完整目录并显示分类快捷栏，详情与预览内也可切换。保留现有根页面、英语路径、hash 和单文件入口；共同首页不替换成长树的旧网址。昵称和生日全站共用，成长记录、英语词汇、素材进度与收藏分别保存。
+首页、成长与英语共用站点框架：顶部随时切换分类，桌面常驻侧栏，窄屏展开完整目录并显示分类快捷栏，详情与预览内也可切换。保留现有根页面、英语路径、hash 和单文件入口；共同首页不替换成长树的旧网址。昵称和生日全站共用，生日固定为 `2024-11-24`，昵称仍可修改；成长记录、英语词汇、素材进度与收藏分别保存。
 
 长期维护入口为 [AGENTS.md](AGENTS.md) 和 [站点架构与设计原则](docs/architecture.md)。本次 [共享框架改造方案](.rich-harness/tasks/unified-site-shell/spec/tech-design.md) 已确认并实现；新增分类沿用同一注册表、导航与移动阅读规范。
 
@@ -25,7 +25,7 @@
 
 - 根目录：成长树源码、数据、测试和可选 Worker；英语源码在 `english/`，详细内容见 [英语说明](english/README.md)。
 - `node scripts/build-site.mjs`：复用两个去个人资料的构建，统一输出 `dist/site`（根成长树 + `english/` + `home.html`）。`scripts/build-pages.mjs` 与 `english/build.py --pages` 只生成中间组件包，不单独部署到站点根。
-- 只保留公开 [baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree)：在 `main` 修改源码，在 `codex/pages` 发布网页。两个分支属于同一个仓库，不需要私有源码仓。个人资料、完成记录和手记仍存浏览器或独立 JSON 备份，不提交到公开仓库。
+- 只保留公开 [baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree)：在 `main` 修改源码，在 `codex/pages` 发布网页。两个分支属于同一个仓库，不需要私有源码仓。按本人自用要求，共享服务固定生日为 `2024-11-24`；成长记录、收藏和手记仍存浏览器或独立 JSON 备份，不提交到公开仓库。
 - 从本工程运行 `node scripts/publish-site.mjs --target ../baby-growth-tree --push`：检查同仓库的发布分支目录干净且 remote/分支正确，构建、同步显式发布文件、提交并推送到 `codex/pages`。不带 `--push` 时只准备并提交发布副本供检查。命令不会复制源码仓 `.git`、个人备份和工作目录。
 - GitHub Actions 的“构建小芽完整站点”只生成统一产物；已移除分别部署两套应用的旧工作流，避免覆盖。发布副本继续使用现有 legacy Pages 分支发布，见 [发布说明](deploy/README.md)。
 
