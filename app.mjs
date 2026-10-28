@@ -47,7 +47,10 @@ function syncGraphLegend() {
   const legend = document.querySelector('.graph-legend-disclosure');
   if (legend) legend.open = graphLegendOpen ?? !mobileGraphLayout.matches;
 }
-mobileGraphLayout.addEventListener('change', syncGraphLegend);
+mobileGraphLayout.addEventListener('change', () => {
+  syncGraphLegend();
+  if (!mobileGraphLayout.matches) document.querySelector('.navigation-dialog')?.close();
+});
 
 // @CfSecAICode 遵循消费金融安全编码 FE-XSS-001 规范: 模板只解析静态结构，动态内容通过文本节点和属性 API 写入。
 function html(strings, ...values) {
@@ -100,6 +103,7 @@ const paths = {
   sensory: ['M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z', 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z'],
   gross: ['M14 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z', 'M6 9l5-3 4 3 5 1M11 6l-2 7 5 3 1 6M9 13l-4 7'],
   fine: ['M8 13V6a2 2 0 0 1 4 0v6-8a2 2 0 0 1 4 0v8-5a2 2 0 0 1 4 0v8c0 4-3 7-7 7-3 0-5-2-7-5l-3-4a2 2 0 0 1 3-3l2 3Z'],
+  menu: ['M4 6h16M4 12h16M4 18h16'],
   chevron: ['m9 5 7 7-7 7'],
   check: ['m5 12 4 4L19 6'],
   close: ['m6 6 12 12M6 18 18 6'],
@@ -420,12 +424,10 @@ function notify(message, undo = false) {
   toastTimer = setTimeout(() => toast.classList.remove('visible'), undo ? 6500 : 3800);
 }
 
-function sidebar() {
+function sidebarDirectory() {
   const current = currentStage();
   const overall = getStats(catalog, state.records);
-  return html`<aside class="sidebar">
-    <a class="brand" href="#" data-action="home" aria-label="小芽首页"><span class="brand-mark">${icon('sprout')}</span><span>小芽<small>宝宝成长技能树</small></span></a>
-    <div class="sidebar-section-label">一起慢慢长大</div>
+  return html`<div class="sidebar-section-label">一起慢慢长大</div>
     <nav class="main-nav" aria-label="查看方式">
       ${[{ id: 'baby', label: '宝宝视角', icon: 'baby' }, { id: 'tree', label: '技能全景', icon: 'tree' }, { id: 'next', label: '下一步', icon: 'arrow' }].map(view => html`<button class="nav-item ${state.view === view.id ? 'active' : ''}" data-view="${view.id}" aria-current="${state.view === view.id ? 'page' : 'false'}">${icon(view.icon)}<span>${view.label}</span>${state.view === view.id ? html`<span class="nav-active-dot"></span>` : ''}</button>`)}
     </nav>
@@ -438,8 +440,26 @@ function sidebar() {
     </nav>
     <div class="sidebar-bottom"><div class="garden-note">${icon('sprout')}<p>成长有自己的节奏<br /><span>每一点进步，都值得珍藏。</span></p></div>
       <button class="profile-button" data-action="profile"><span class="avatar">${state.profile.name.slice(0, 1)}</span><span class="profile-text"><strong>${state.profile.name}的成长花园</strong><small>已收藏 ${overall.completed} 个成长瞬间</small></span>${icon('settings')}</button>
-    </div>
+    </div>`;
+}
+
+function sidebar() {
+  const viewLabel = state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景';
+  return html`<aside class="sidebar">
+    <a class="brand" href="#" data-action="home" aria-label="小芽首页"><span class="brand-mark">${icon('sprout')}</span><span>小芽<small>宝宝成长技能树</small></span></a>
+    <button class="mobile-menu-toggle" data-action="navigation" aria-haspopup="dialog" aria-controls="app-dialog" aria-expanded="false">${icon('menu')}<span>目录</span><small>${viewLabel}</small></button>
+    ${sidebarDirectory()}
   </aside>`;
+}
+
+function openNavigation() {
+  const dialog = showDialog(html`${dialogHeader('视图与年龄阶段', '成长目录')}${sidebarDirectory()}`, 'navigation-dialog');
+  document.querySelector('.mobile-menu-toggle')?.setAttribute('aria-expanded', 'true');
+  dialog.addEventListener('close', () => {
+    if (document.querySelector('#app-dialog[open]')) return;
+    const trigger = document.querySelector(mobileGraphLayout.matches ? '.mobile-menu-toggle' : '.sidebar .nav-item.active');
+    trigger?.focus({ preventScroll: true });
+  });
 }
 
 function plant() {
@@ -1016,6 +1036,9 @@ async function completeStage(stageId) {
 document.addEventListener('click', async event => {
   const element = event.target.closest('button, a[data-action], [data-view], [data-stage]');
   if (!element) return;
+  if (element.closest('.navigation-dialog') && (element.dataset.view || element.dataset.stage || element.dataset.action === 'profile')) {
+    document.querySelector('.navigation-dialog')?.close();
+  }
   if (element.dataset.view) {
     const previousView = state.view;
     state.view = element.dataset.view;
@@ -1039,6 +1062,7 @@ document.addEventListener('click', async event => {
   else if (element.dataset.action) {
     const index = STAGES.findIndex(stage => stage.id === state.stage);
     switch (element.dataset.action) {
+      case 'navigation': openNavigation(); break;
       case 'home': event.preventDefault(); state.view = 'baby'; state.graphExpanded = false; state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0'); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); break;
       case 'prev-stage': if (index > 0) changeStage(STAGES[index - 1].id); break;
       case 'next-stage': if (index < STAGES.length - 1) changeStage(STAGES[index + 1].id); break;

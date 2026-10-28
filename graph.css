@@ -448,3 +448,31 @@
   .next-training-grid .next-skill-actions { align-items: center; }
   .next-training-grid .next-skill-actions > .primary-button { width: auto; }
 }
+
+/* 窄屏完整目录以侧抽屉打开，复用桌面导航和月龄进度。 */
+.mobile-menu-toggle { display: none; }
+body:has(.navigation-dialog[open]) { overflow: hidden; }
+.navigation-dialog { inset: 0 auto 0 0; margin: 0; width: min(320px, calc(100vw - 28px)); max-width: none; height: 100dvh; max-height: 100dvh; border: 0; border-right: 1px solid #3971cc; border-radius: 0 16px 16px 0; padding: 18px; background: #2456b4; color: #fff8ec; overflow-y: auto; overscroll-behavior: contain; }
+.navigation-dialog[open] { display: flex; flex-direction: column; }
+.navigation-dialog > * { flex-shrink: 0; }
+.navigation-dialog::backdrop { background: #182c5266; }
+.navigation-dialog .dialog-header { position: sticky; top: -18px; z-index: 1; background: #2456b4; padding: 10px 0 14px; margin: 0; }
+.navigation-dialog .dialog-header h2 { color: #fff8ec; font-size: 22px; }
+.navigation-dialog .dialog-header .section-kicker { color: #c4dcff; }
+.navigation-dialog .sidebar-section-label { display: flex; margin: 14px 0 8px; padding: 0 10px; }
+.navigation-dialog .main-nav, .navigation-dialog .stage-nav { display: grid; gap: 4px; }
+.navigation-dialog .nav-item { font-size: 14px; padding: 11px 12px; gap: 10px; min-height: 42px; }
+.navigation-dialog .nav-item .icon { width: 18px; height: 18px; }
+.navigation-dialog .nav-active-dot { display: block; }
+.navigation-dialog .stage-nav-item { font-size: 13px; min-height: 42px; padding: 9px 12px; }
+.navigation-dialog .sidebar-bottom { display: block; padding-top: 14px; }
+.navigation-dialog .garden-note { display: none; }
+.navigation-dialog .profile-text strong { font-size: 12px; max-width: 175px; }
+.navigation-dialog .profile-text small { font-size: 10px; }
+@media (max-width: 760px) {
+  .sidebar > .main-nav { display: none; }
+  .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 7px 10px; border: 1px solid #ffffff50; border-radius: 8px; background: #ffffff18; color: #fff8ec; font-size: 13px; white-space: nowrap; }
+  .mobile-menu-toggle > .icon { width: 17px; height: 17px; }
+  .mobile-menu-toggle > small { font-size: 11px; color: #d8e7ff; padding-left: 7px; border-left: 1px solid #ffffff40; }
+}
+@media print { .mobile-menu-toggle, .navigation-dialog { display: none !important; } }
