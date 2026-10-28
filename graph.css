@@ -323,6 +323,14 @@
 .graph-legend-disclosure[open] .legend-disclosure-hint .icon { transform: rotate(90deg); }
 .graph-legend-disclosure .graph-key { border-bottom: 0; padding-top: 2px; }
 .graph-legend-disclosure > summary:focus-visible { outline: 2px solid #347bea; outline-offset: -3px; }
+.graph-legend-panel { position: relative; }
+.graph-legend-panel summary { min-height: 44px; box-sizing: border-box; }
+.graph-legend-panel summary > span:first-child { min-width: 0; margin-right: 44px; overflow-wrap: anywhere; }
+.graph-legend-panel .legend-disclosure-hint { width: 66px; flex-shrink: 0; justify-content: flex-end; }
+.graph-age-anchor { position: absolute; top: 0; right: 82px; display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; color: #79548e; border: 0; border-radius: 6px; background: transparent; }
+.graph-age-anchor .icon { width: 20px; height: 20px; }
+.graph-age-anchor:hover { background: #f0e8fb; }
+.graph-age-anchor:focus-visible { outline: 2px solid #347bea; outline-offset: -3px; }
 
 @media (max-width: 760px) {
 
@@ -347,6 +355,7 @@
   .graph-toolbar { padding: 7px 10px; gap: 6px; }
   .graph-tools { flex-wrap: wrap; }
   .graph-legend-disclosure > summary { padding: 10px 12px; }
+  .graph-age-anchor { right: 78px; }
   .graph-legend-disclosure .graph-key { padding: 2px 12px 10px; gap: 10px; }
   .graph-legend-disclosure .graph-legend { justify-content: flex-start; gap: 8px 12px; width: 100%; }
   .graph-legend-disclosure .graph-legend > strong { flex-basis: 100%; }

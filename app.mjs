@@ -106,6 +106,7 @@ const paths = {
   fine: ['M8 13V6a2 2 0 0 1 4 0v6-8a2 2 0 0 1 4 0v8-5a2 2 0 0 1 4 0v8c0 4-3 7-7 7-3 0-5-2-7-5l-3-4a2 2 0 0 1 3-3l2 3Z'],
   menu: ['M4 6h16M4 12h16M4 18h16'],
   chevron: ['m9 5 7 7-7 7'],
+  locate: ['M12 2v4M12 18v4M2 12h4M18 12h4', 'M19 12a7 7 0 1 0-14 0 7 7 0 0 0 14 0Z', 'M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z'],
   check: ['m5 12 4 4L19 6'],
   close: ['m6 6 12 12M6 18 18 6'],
   search: ['M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z', 'm17 17 4 4'],
@@ -638,13 +639,13 @@ function neighborList(skills, direction) {
 function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
   return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button><button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
-      <details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
+      <div class="graph-legend-panel"><details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
       <div class="graph-key" role="group" aria-label="技能卡片颜色图例">
         <div class="graph-legend" aria-label="关系连线图例"><strong>连线</strong><span><i class="legend-ancestor" aria-hidden="true"></i>前序脉络</span><span><i class="legend-descendant" aria-hidden="true"></i>后续发展</span><span><i class="legend-supporting" aria-hidden="true"></i>跨分支前置</span><span><i class="legend-neutral" aria-hidden="true"></i>其他关系</span></div>
         <div class="graph-legend"><strong>左侧色条 · 技能分支</strong>${categories.filter(category => graph.nodes.some(skill => skill.category === category)).map(category => html`<span><i class="legend-branch" style="background:${branchColor(category, categories)}" aria-hidden="true"></i>${category}</span>`)}</div>
         <div class="graph-legend"><strong>卡片底色</strong><span><i class="legend-card legend-card-plain" aria-hidden="true"></i>白色：待探索</span><span><i class="legend-card legend-card-supporting" aria-hidden="true"></i>淡黄：跨分支前置</span><span><i class="legend-card legend-card-done" aria-hidden="true">✓</i>淡绿：已完成</span><span><i class="legend-card legend-card-focus" aria-hidden="true"></i>紫色：正在追踪</span></div>
         <p>跨分支前置：后续发展还需要的其他分支技能。完成状态以右下角的 √ 为准。</p>
-      </div></details>
+      </div></details><button type="button" class="graph-age-anchor" data-action="graph-current-age" aria-label="定位当前月龄阶段" title="定位当前月龄阶段${currentStage() ? `：${currentStage().label}` : ''}">${icon('locate')}</button></div>
       <div class="graph-viewport" id="graph-viewport" tabindex="0" aria-label="${domainInfo(relations.skill.domain).label}完整技能脉络，可拖动或滚动查看"><div class="graph-scale-space" id="graph-scale-space" style="width:${layout.width * state.graphZoom}px;height:${layout.height * state.graphZoom}px"><div class="graph-scene" id="graph-scene" style="width:${layout.width}px;height:${layout.height}px;transform:scale(${state.graphZoom})">${layout.stages.map((stage, index) => html`<div class="graph-age-band ${graph.stageIds && stage.id === state.stage ? 'selected-age-band' : ''} ${index % 2 ? 'alternate' : ''}" style="left:${stage.x}px;width:${stage.width}px;height:${layout.height}px">${graphStageHeading(stage)}${graph.stageIds && stage.id === state.stage ? html`<span class="selected-age-label">正在看这个阶段</span>` : ''}</div>`)}<svg id="graph-edges" width="${layout.width}" height="${layout.height}" aria-hidden="true"></svg>${layout.nodes.map(position => graphNode(catalog.find(item => item.id === position.id), position, relations, categories, graph.contextIds))}</div></div></div>
       <div class="graph-bottom-bar"><span>${icon('arrow')} 箭头指向下一项技能 · 拖动画布或横向滚动</span><span>${graph.nodes.length} 个技能 · ${graph.edges.length} 条关系${graph.stageIds ? ` · ${graph.stageIds.length} 项属于所选阶段` : graph.contextIds.length ? ` · 已保留 ${graph.contextIds.length} 项跨分支前序` : ''}</span></div>
     </div>`;
@@ -683,7 +684,7 @@ function stageTreeView() {
   const relationEdges = new Map(relations.edges.map(edge => [`${edge.from}:${edge.to}`, edge.kind]));
   graph.edges = graph.edges.map(edge => ({ ...edge, kind: relationEdges.get(`${edge.from}:${edge.to}`) || 'neutral' }));
   const layout = layoutGraph(graph.nodes, graph.edges);
-  if (currentGraph?.key !== graphKey) graphViewportAction = 'focus';
+  if (currentGraph?.key !== graphKey && graphViewportAction !== 'current-age') graphViewportAction = 'focus';
   currentGraph = { ...graph, layout, relations, focusId: skill.id, key: graphKey };
   const categories = [...new Set(graph.nodes.map(item => item.category))];
   return html`<section class="stage-lineage domain-${domain.id}" aria-label="本阶段技能脉络">
@@ -835,6 +836,7 @@ function render() {
     if (viewport) {
       if (graphViewportAction === 'fit') fitGraph();
       else if (graphViewportAction === 'focus') locateGraphFocus();
+      else if (graphViewportAction === 'current-age') locateCurrentAgeStage(false);
       else { viewport.scrollTop = graphScroll.top; viewport.scrollLeft = graphScroll.left; }
       graphViewportAction = null;
     }
@@ -912,6 +914,34 @@ function locateGraphFocus() {
   if (state.graphZoom < .6) setGraphZoom(.85, false);
   viewport.scrollLeft = (position.x + position.width / 2) * state.graphZoom - viewport.clientWidth / 2;
   viewport.scrollTop = (position.y + position.height / 2) * state.graphZoom - viewport.clientHeight / 2;
+}
+
+function locateCurrentAgeStage(rebuild = true) {
+  const current = currentStage();
+  if (!current) { notify('当前月龄不在图谱范围内'); return; }
+  const stage = currentGraph?.layout.stages.find(item => item.id === current.id);
+  if (!stage && rebuild) {
+    const domain = state.view === 'tree' ? state.treeDomain : state.domain;
+    if (!getStageSkills(catalog, current.id).some(skill => skill.domain === domain)) {
+      notify('当前领域在这个月龄暂无技能，可切换领域查看');
+      return;
+    }
+    if (state.view === 'tree') {
+      state.treeMode = 'overview';
+      state.treeCategory = 'all';
+    } else {
+      state.stage = current.id;
+      state.stageFocus = null;
+    }
+    graphViewportAction = 'current-age';
+    render();
+    return;
+  }
+  const viewport = document.querySelector('#graph-viewport');
+  if (!viewport || !stage) return;
+  if (state.graphZoom < .6) setGraphZoom(.85, false);
+  viewport.scrollLeft = stage.x * state.graphZoom - Math.max(12, (viewport.clientWidth - stage.width * state.graphZoom) / 2);
+  viewport.scrollTop = 0;
 }
 
 function showDialog(content, kind = '') {
@@ -1114,6 +1144,7 @@ document.addEventListener('click', async event => {
       case 'graph-fit': fitGraph(); break;
       case 'stage-graph-current': state.stageFocus = null; graphViewportAction = 'focus'; render(); break;
       case 'graph-locate': locateGraphFocus(); break;
+      case 'graph-current-age': locateCurrentAgeStage(); break;
       case 'graph-expand': state.graphExpanded = !state.graphExpanded; graphViewportAction = 'focus'; render(); break;
       case 'profile': openProfile(); break;
       case 'backup': case 'storage-status': openBackup(); break;
