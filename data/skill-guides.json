@@ -1,0 +1,3107 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "cs-aap-cognition-4-7": {
+      "title": "4–7个月婴儿的认知发展",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Cognitive-Development-4-to-7-Months.aspx",
+      "originalTitle": "Cognitive Development in Infants: 4 to 7 Months"
+    },
+    "cs-aap-cognition-8-12": {
+      "title": "8–12个月婴儿的认知发展",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Cognitive-Development-8-to-12-Months.aspx",
+      "originalTitle": "Cognitive Development in Infants: 8 to 12 Months"
+    },
+    "cs-aap-cognition-1y": {
+      "title": "一岁幼儿的认知发展",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/toddler/Pages/Cognitive-Development-One-Year-Old.aspx",
+      "originalTitle": "Cognitive Development: One-Year-Old"
+    },
+    "cs-aap-cognition-2y": {
+      "title": "两岁幼儿的认知发展",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/toddler/Pages/Cognitive-Development-Two-Year-Old.aspx",
+      "originalTitle": "Cognitive Development: Two-Year-Old"
+    },
+    "cs-aap-cognition-preschool": {
+      "title": "学龄前儿童的认知发展",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/preschool/Pages/Cognitive-Development-In-Preschool-Children.aspx",
+      "originalTitle": "Cognitive Development In Preschool Children"
+    },
+    "cs-aap-vision": {
+      "title": "婴儿视觉发展：宝宝能看见什么？",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Babys-Vision-Development.aspx",
+      "originalTitle": "Infant Vision Development: What Can Babies See?"
+    },
+    "cs-aap-comfort": {
+      "title": "过渡性客体：安抚毯和其他安抚物",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Transitional-Objects.aspx",
+      "originalTitle": "Transitional Objects: Security Blankets & Beyond"
+    },
+    "cs-aap-safe-sleep": {
+      "title": "如何保障宝宝睡眠安全：美国儿科学会政策解读",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/A-Parents-Guide-to-Safe-Sleep.aspx",
+      "originalTitle": "How to Keep Your Sleeping Baby Safe: AAP Policy Explained"
+    },
+    "cs-kidshealth-newborn": {
+      "title": "新生儿的听觉、视觉与其他感觉",
+      "publisher": "Nemours KidsHealth",
+      "url": "https://kidshealth.org/en/parents/sensenewborn.html",
+      "originalTitle": "Your Newborn’s Hearing, Vision, and Other Senses"
+    },
+    "cs-kidshealth-1m": {
+      "title": "1个月宝宝的视觉和听觉",
+      "publisher": "Nemours KidsHealth",
+      "url": "https://kidshealth.org/en/parents/sense13m.html",
+      "originalTitle": "Baby Vision and Hearing: 1 Month"
+    },
+    "cs-kidshealth-4m": {
+      "title": "4个月宝宝的听觉、视觉与其他感觉",
+      "publisher": "Nemours KidsHealth",
+      "url": "https://kidshealth.org/en/parents/sense47m.html",
+      "originalTitle": "Your Baby’s Hearing, Vision, and Other Senses: 4 Months"
+    },
+    "cs-kidshealth-8m": {
+      "title": "8个月宝宝的听觉、视觉与其他感觉",
+      "publisher": "Nemours KidsHealth",
+      "url": "https://kidshealth.org/en/parents/sense812m.html",
+      "originalTitle": "Your Baby’s Hearing, Vision, and Other Senses: 8 Months"
+    },
+    "cs-nhs-first-foods": {
+      "title": "宝宝最初的辅食",
+      "publisher": "英国 NHS",
+      "url": "https://www.nhs.uk/baby/weaning-and-feeding/babys-first-solid-foods/",
+      "originalTitle": "Your baby’s first solid foods"
+    },
+    "cs-nhs-foods-avoid": {
+      "title": "婴幼儿应避免食用的食物",
+      "publisher": "英国 NHS",
+      "url": "https://www.nhs.uk/baby/weaning-and-feeding/foods-to-avoid-giving-babies-and-young-children/",
+      "originalTitle": "Foods to avoid giving babies and young children"
+    },
+    "cs-nhs-fussy": {
+      "title": "孩子挑食怎么办",
+      "publisher": "英国 NHS",
+      "url": "https://www.nhs.uk/baby/weaning-and-feeding/fussy-eaters/",
+      "originalTitle": "Fussy eaters"
+    },
+    "cs-unicef-music": {
+      "title": "音乐如何影响宝宝的大脑：育儿微课堂",
+      "publisher": "联合国儿童基金会 UNICEF Parenting",
+      "url": "https://www.unicef.org/parenting/child-development/how-music-affects-your-babys-brain-class",
+      "originalTitle": "How music affects your baby’s brain: Mini Parenting Master Class"
+    },
+    "cs-aap-joint-attention": {
+      "title": "儿童自闭症的3个早期迹象（共同注意定义参考）",
+      "publisher": "美国儿科学会 HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/Autism/Pages/Early-Signs-of-Autism-Spectrum-Disorders.aspx",
+      "originalTitle": "3 Early Signs of Autism in Children"
+    },
+    "g-aap-baby4": {
+      "title": "4—7个月宝宝的运动发展",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Movement-4-to-7-Months.aspx"
+    },
+    "g-aap-baby8": {
+      "title": "8—12个月宝宝的运动发展",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Movement-8-to-12-Months.aspx"
+    },
+    "g-aap-preschool": {
+      "title": "学龄前儿童的运动发展",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/ages-stages/preschool/Pages/Movement-Milestones-in-Preschoolers.aspx"
+    },
+    "g-aap-sports": {
+      "title": "孩子准备好参加体育运动了吗？",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/healthy-living/sports/Pages/Is-Your-Child-Ready-for-Sports.aspx"
+    },
+    "g-aap-helmet": {
+      "title": "儿童骑行头盔：家长需要知道的事",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-play/Pages/Bicycle-Helmets-What-Every-Parent-Should-Know.aspx"
+    },
+    "g-nhs-activity": {
+      "title": "5岁以下儿童的身体活动建议",
+      "publisher": "英国国家医疗服务体系 NHS",
+      "url": "https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-children-under-five-years/"
+    },
+    "g-nhs-play": {
+      "title": "让宝宝和幼儿保持活动",
+      "publisher": "英国国家医疗服务体系 NHS",
+      "url": "https://www.nhs.uk/baby/babys-development/play-and-learning/keep-baby-or-toddler-active/"
+    },
+    "g-aap-baby1to4": {
+      "title": "1—4个月宝宝的发育表现",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/ages-stages/baby/Pages/Developmental-Milestones-3-Months.aspx"
+    },
+    "g-aap-helmet-beyond": {
+      "title": "骑行以外，哪些活动也需要头盔？",
+      "publisher": "美国儿科学会 AAP · HealthyChildren",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-play/Pages/bicycling-and-beyond-when-your-kids-should-wear-helmets.aspx"
+    },
+    "f-cdc-4m": {
+      "title": "4个月宝宝的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/4-months.html"
+    },
+    "f-cdc-6m": {
+      "title": "6个月宝宝的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/6-months.html"
+    },
+    "f-cdc-9m": {
+      "title": "9个月宝宝的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/9-months.html"
+    },
+    "f-cdc-12m": {
+      "title": "1岁宝宝的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/1-year.html"
+    },
+    "f-cdc-15m": {
+      "title": "15个月宝宝的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/15-months.html"
+    },
+    "f-cdc-18m": {
+      "title": "18个月宝宝的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/18-months.html"
+    },
+    "f-cdc-2y": {
+      "title": "2岁儿童的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/2-years.html"
+    },
+    "f-cdc-30m": {
+      "title": "30个月儿童的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/30-months.html"
+    },
+    "f-cdc-3y": {
+      "title": "3岁儿童的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/3-years.html"
+    },
+    "f-cdc-4y": {
+      "title": "4岁儿童的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/4-years.html"
+    },
+    "f-cdc-5y": {
+      "title": "5岁儿童的发育与陪玩",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/act-early/milestones/5-years.html"
+    },
+    "f-nhft-hand": {
+      "title": "儿童作业治疗：手内操作、拼搭与穿线",
+      "publisher": "英国 NHS 北安普敦郡医疗基金会（NHFT）",
+      "url": "https://www.nhft.nhs.uk/childrens-ot#ChildrensOccupationalTherapyactivities-ChildrensOTProgrammesSchool-HandSkills-HandManipulationIntro"
+    },
+    "f-nhft-drawing": {
+      "title": "儿童作业治疗：涂鸦与书写前能力",
+      "publisher": "英国 NHS 北安普敦郡医疗基金会（NHFT）",
+      "url": "https://www.nhft.nhs.uk/childrens-ot#ChildrensOccupationalTherapyactivities-ChildrensOTProgrammesSchool-HandSkills-PreWritingIntro"
+    },
+    "f-nhft-scissors": {
+      "title": "儿童作业治疗：夹取与剪刀使用",
+      "publisher": "英国 NHS 北安普敦郡医疗基金会（NHFT）",
+      "url": "https://www.nhft.nhs.uk/childrens-ot#ChildrensOccupationalTherapyactivities-ChildrensOTProgrammesSchool-HandSkills-ScissorSkillsIntro"
+    },
+    "f-nhft-daily": {
+      "title": "儿童作业治疗：喝水、餐具与日常自理",
+      "publisher": "英国 NHS 北安普敦郡医疗基金会（NHFT）",
+      "url": "https://www.nhft.nhs.uk/childrens-ot"
+    },
+    "f-cpsc-magnets": {
+      "title": "小磁铁为什么会造成严重伤害",
+      "publisher": "美国消费品安全委员会（CPSC）",
+      "url": "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
+    },
+    "f-cdc-choking": {
+      "title": "婴幼儿容易噎住的食物与预防",
+      "publisher": "美国疾病控制与预防中心（CDC）",
+      "url": "https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/choking-hazards.html"
+    },
+    "f-nichd-sleep": {
+      "title": "安全睡眠环境：仰卧、平坦且不放软物",
+      "publisher": "美国国家儿童健康与人类发展研究所（NICHD）",
+      "url": "https://safetosleep.nichd.nih.gov/reduce-risk/safe-sleep-environment"
+    }
+  },
+  "categories": {
+    "客体恒存": {
+      "meaning": "即使东西暂时看不见，也逐渐明白它仍然存在；这要结合记忆、寻找和实际行动慢慢发展。",
+      "example": "小熊被毛巾遮住后，宝宝会掀开毛巾找它。",
+      "sources": [
+        "cs-aap-cognition-4-7",
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "因果关系": {
+      "meaning": "发现一个动作或事件会带来某种结果，后来还能预想结果、解释原因。",
+      "example": "摇摇铃会响，轻推小车会滚动。",
+      "sources": [
+        "cs-aap-cognition-4-7",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "自我及社会认知": {
+      "meaning": "逐渐认识自己的身体、熟悉的人，以及自己与别人的关系和情绪线索。",
+      "example": "听到“爸爸在哪里”，会转头找爸爸；洗脸时会摸自己的鼻子。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "生活常识": {
+      "meaning": "从日常经验中认识物品的名字、用途、特征及它们之间的联系。",
+      "example": "知道杯子用来喝水，也会把相似的袜子放在一起。",
+      "sources": [
+        "cs-aap-cognition-8-12",
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "角色扮演": {
+      "meaning": "把真实生活中的动作、角色和情节搬进“假装”的游戏，练习想象、语言与理解他人。",
+      "example": "拿空杯子假装喝水，再给娃娃喂一口。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "数理逻辑": {
+      "meaning": "在生活中比较、配对、分类和计数，慢慢理解数量、形状、顺序与规律。",
+      "example": "给每个玩偶发一个盘子，比一比哪堆积木更多。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "触觉": {
+      "meaning": "皮肤和口腔接收软硬、温度、压力、质地等信息，也帮助宝宝获得安慰。",
+      "example": "摸毛巾和光滑杯子时，会有不同的探索或回避反应。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "味觉": {
+      "meaning": "感受食物的味道，并在安全进食中慢慢熟悉不同味道；喜欢什么会受到经验和个体差异影响。",
+      "example": "尝到熟悉的香蕉会张嘴，遇到新蔬菜可能先皱眉再继续吃。",
+      "sources": [
+        "cs-nhs-first-foods",
+        "cs-nhs-fussy"
+      ]
+    },
+    "听觉": {
+      "meaning": "听见声音、分辨熟悉的声音并寻找声源，后来还会感受节奏和模仿声音。",
+      "example": "听见家人在侧面说话，会停一下并转头寻找。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "静态视觉": {
+      "meaning": "看清相对不动的脸、图案和图片，并逐渐辨认细节、物品和画面意思。",
+      "example": "先喜欢看人脸，后来能在图画里找到熟悉的小狗。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "视觉追踪": {
+      "meaning": "用眼睛跟随移动的物体，逐渐结合身体动作判断物体将往哪里去。",
+      "example": "眼睛跟着缓慢滚动的大球移动，再伸手接它。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "嗅觉": {
+      "meaning": "分辨环境和食物的气味，并把气味与熟悉的人、场景和感受联系起来。",
+      "example": "走近厨房闻到饭香，可能转头寻找或露出期待的表情。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "抬头翻身攀爬": {
+      "meaning": "从控制头颈、转动身体，到爬行和攀爬，核心是让身体换姿势、换位置。原图的连线用于整理动作关系，不代表每个孩子必须按同一顺序逐项通关。",
+      "example": "宝宝先能趴着抬头，后来会用自己的方式移动，长大后再尝试适合能力的低处攀爬。",
+      "sources": [
+        "g-aap-baby4",
+        "g-aap-baby8",
+        "g-nhs-activity"
+      ]
+    },
+    "坐与骑": {
+      "meaning": "坐是靠躯干维持身体稳定，骑是坐稳后再配合双腿、方向和速度。摇摇马、平衡车是可选玩法，不是每个孩子都必须使用的发育测验。",
+      "example": "坐着伸手拿玩具时不容易倒，后来能坐在尺寸合适的车上用脚推动。",
+      "sources": [
+        "g-aap-baby4",
+        "g-aap-baby8",
+        "g-aap-sports"
+      ]
+    },
+    "站": {
+      "meaning": "主要看身体在站立、蹲起、单脚支撑等变化中怎样保持平衡。先能借助支撑，再逐渐减少帮助，进展不必整齐划一。",
+      "example": "扶着稳固家具蹲下拿玩具，再自己站起来。",
+      "sources": [
+        "g-aap-baby8",
+        "g-aap-preschool"
+      ]
+    },
+    "走": {
+      "meaning": "不只是向前迈步，还包括停下来、转弯、绕开东西和调整方向。走线、轮滑等是增加难度的玩法，并非普通走路的必经关卡。",
+      "example": "宝宝从扶着沙发侧走，逐渐到自己绕过地上的大积木。",
+      "sources": [
+        "g-aap-baby8",
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "跑跳": {
+      "meaning": "跑会逐渐出现双脚同时离地的瞬间，跳则需要蹬地、腾空和落地的配合。相关游戏应随孩子的兴趣和实际能力逐步增加难度。",
+      "example": "从快走追玩具，发展到双脚离地的小跳，再学着稳稳落地。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports",
+        "g-nhs-activity"
+      ]
+    },
+    "投掷": {
+      "meaning": "这里沿用原图分类，既包含抛接球，也混入了早期伸手、身体探索和配合穿衣等动作。抛接球主要练习看准目标、控制手臂和适时松手或接住。",
+      "example": "先能主动伸手，后来把软球扔给大人，再尝试接住慢慢送来的大球。",
+      "sources": [
+        "g-aap-baby4",
+        "g-aap-baby8",
+        "g-aap-preschool"
+      ]
+    },
+    "单手操作": {
+      "meaning": "主要由一只手抓、捏、放、拨或旋转；另一只手仍可以协助稳定。手眼协调就是眼睛看准位置，再引导手去够、放或调整。",
+      "example": "把大圆片对准投币盒的缝后松手，是手指控制和手眼协调一起工作。",
+      "sources": [
+        "f-cdc-6m",
+        "f-cdc-12m",
+        "f-nhft-hand"
+      ]
+    },
+    "双手配合": {
+      "meaning": "两只手协同完成一件事，既包括一起拍手，也包括一手固定、另一手操作的分工，并不是要求两手动作完全一样。",
+      "example": "一手扶杯、另一手慢慢倒水，或一手扶珠子、另一手穿绳。",
+      "sources": [
+        "f-cdc-9m",
+        "f-cdc-3y",
+        "f-nhft-daily"
+      ]
+    },
+    "操作机关": {
+      "meaning": "根据物品结构选择推、拉、转、按等动作，让机关发生变化；除了手部动作，也需要观察与记住步骤。",
+      "example": "先用一只手扶住罐子，再用另一只手旋开大盖。",
+      "sources": [
+        "f-cdc-2y",
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "构造搭建": {
+      "meaning": "通过摆放、叠高、连接或旋转零件形成结构，逐渐把空间想法变成作品，不只追求塔有多高。",
+      "example": "用两根大积木作桥墩、加一块横板搭成小桥。",
+      "sources": [
+        "f-cdc-15m",
+        "f-nhft-hand"
+      ]
+    },
+    "涂鸦绘画": {
+      "meaning": "从发现自己能留下痕迹，到控制线条、区域和图形表达；折纸与剪贴还需要双手分工。",
+      "example": "先随手画点和短线，再逐渐画圈、涂色，最后用圆和线表达人物。",
+      "sources": [
+        "f-cdc-18m",
+        "f-cdc-3y",
+        "f-nhft-drawing",
+        "f-nhft-scissors"
+      ]
+    },
+    "使用工具": {
+      "meaning": "通过工具延伸手的作用，选择合适握法、方向和力度；工具本身的安全与是否适龄，比使用种类多更重要。",
+      "example": "用勺把食物送到嘴里，或用大夹具夹住布团。",
+      "sources": [
+        "f-cdc-2y",
+        "f-nhft-scissors",
+        "f-nhft-daily"
+      ]
+    }
+  },
+  "skills": {
+    "c-short-memory": {
+      "meaning": "宝宝能把刚刚看过、听过或经历的事情短暂保留在脑中，熟悉的刺激因此可能让他更快安静或注意。",
+      "example": "你停下熟悉的轻声说话后，宝宝仍望着你，像是在等下一句。",
+      "observe": "在安静清醒时，留意宝宝是否对熟悉的脸或声音表现出与陌生刺激不同的反应。",
+      "play": "重复一小段温柔的话或动作，停顿几秒，等宝宝用眼神或声音回应。",
+      "note": "这是对早期记忆的通俗描述，单次没反应不能说明记忆差。",
+      "sources": [
+        "cs-aap-cognition-4-7",
+        "cs-kidshealth-newborn"
+      ]
+    },
+    "c-association": {
+      "meaning": "多次一起出现的事情，宝宝可能开始把它们联系起来；此时不等于已经懂了完整的因果道理。",
+      "example": "听到照护者熟悉的声音时，宝宝可能期待被抱起或喂奶。",
+      "observe": "观察同一种日常提示出现后，宝宝是否反复有相似的期待反应。",
+      "play": "抱起前先温柔地说“来抱抱”，让语言与实际动作稳定地对应。",
+      "note": "不要通过故意延迟喂养或让宝宝哭来测试关联。",
+      "sources": [
+        "cs-aap-cognition-4-7",
+        "cs-kidshealth-newborn"
+      ]
+    },
+    "c-mother-impression": {
+      "meaning": "宝宝逐渐记住经常照顾自己的人的脸、声音和互动方式，看到或听到时更容易认出来。",
+      "example": "熟悉的照护者靠近说话时，宝宝会看过去、笑或变得放松。",
+      "observe": "比较自然相处时，宝宝对熟悉与不熟悉的人是否有不同的注视或安慰反应。",
+      "play": "照护者面对面说话、唱歌并等待回应，让宝宝把脸和声音联系起来。",
+      "note": "原图写“妈妈”，能力也可以针对爸爸、祖辈等稳定照护者发展。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "c-permanence-emerge": {
+      "meaning": "开始意识到东西被挡住后可能还在，注意力会朝它消失的地方停留，寻找行为可能还不稳定。",
+      "example": "玩具滑到布后面，宝宝仍看着布边，而不是马上转向别处。",
+      "observe": "在宝宝看见的情况下部分遮住玩具，看看他是否盯着或伸手够露出的部分。",
+      "play": "把大玩具一半藏在小毛巾后，再慢慢露出来，和宝宝一起说“找到了”。",
+      "note": "不要用一次寻找成功或失败来判断是否“掌握”客体恒存。",
+      "sources": [
+        "cs-aap-cognition-4-7",
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "c-hands-feet": {
+      "meaning": "宝宝会注意到自己的手脚，反复看、碰或活动它们，逐渐把身体动作与感受到的变化联系起来。",
+      "example": "躺着时举手看，或者抓住自己的脚玩一会儿。",
+      "observe": "换尿布或自由活动时，留意他是否主动看手、碰脚或重复有趣的动作。",
+      "play": "让宝宝在安全垫上自由伸展，边轻触边说“这是小手、这是小脚”。",
+      "note": "这里指身体探索，不要求能听懂或说出手脚的名称。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-aap-cognition-4-7"
+      ]
+    },
+    "c-expression-voice": {
+      "meaning": "开始从面部表情、语气和熟悉的声音中获得信息，感受别人是开心、安慰还是不安。",
+      "example": "你笑着轻声回应时他跟着笑，听到突然严厉的语气时会停一下。",
+      "observe": "在正常互动中，观察宝宝是否会看你的脸，并随温和的表情和声音变化作出回应。",
+      "play": "面对面模仿宝宝的表情和声音，再用平静愉快的语气回应。",
+      "note": "不需要故意板脸、吓唬或争吵来测试这一项。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-kidshealth-newborn"
+      ]
+    },
+    "c-simple-occlusion": {
+      "meaning": "能理解一个物品被另一个东西遮住后并未消失，并尝试移开直接挡着它的物体。",
+      "example": "看到球被毛巾盖住，会掀开毛巾找球。",
+      "observe": "先让宝宝看清玩具，再轻盖住一部分，留意他是否主动寻找。",
+      "play": "用薄布只遮住大玩具，轮流进行“藏起来、找出来”的游戏。",
+      "note": "只遮玩具，不把布盖在宝宝脸上。",
+      "sources": [
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "c-simple-cause": {
+      "meaning": "宝宝发现自己的动作能让外界发生变化，会为得到有趣的结果而重复动作。",
+      "example": "敲一下桌面听到声响，于是又敲几次。",
+      "observe": "观察他是否会重复同一个动作，像是在验证“我一做，它就变了”。",
+      "play": "提供一只结实的大摇铃，让宝宝自己摇、停，再听声音如何变化。",
+      "note": "玩具应完整、无可脱落小件，声音以舒适音量为宜。",
+      "sources": [
+        "cs-aap-cognition-4-7"
+      ]
+    },
+    "c-point": {
+      "meaning": "指物可以是“我想要那个”，也可以是“你也看看这个”；后者还涉及与别人分享注意。",
+      "example": "看见窗外的小狗，宝宝指一指，再回头看你的反应。",
+      "observe": "区分他是在伸手索取，还是在物品和你之间来回看、邀请你一起关注。",
+      "play": "跟着宝宝指向的东西看过去，说出名称，再等他继续回应。",
+      "note": "手指动作只是沟通的一种，眼神、展示物品和声音也值得回应。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-1y",
+        "cs-aap-joint-attention"
+      ]
+    },
+    "c-more-body": {
+      "meaning": "在照护和游戏中，逐渐把更多身体部位与名称、动作或感觉联系起来。",
+      "example": "你说“给小脚穿袜子”，宝宝看看脚或把脚伸过来。",
+      "observe": "在穿衣、洗澡时自然提到身体部位，留意他是否看向、摸到或配合相应动作。",
+      "play": "唱一首带手、脚、肚子的短歌，边唱边轻轻指给宝宝看。",
+      "note": "知道名称、能指出和能说出是不同层次，不必一次全会。",
+      "sources": [
+        "cs-kidshealth-1m",
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-parents": {
+      "meaning": "能在熟悉的人中认出主要照护者，并把“爸爸、妈妈”等称呼与具体的人对应起来。",
+      "example": "听见“妈妈在哪里”，会转向妈妈或走过去。",
+      "observe": "在家人都在的自然场景里，留意宝宝是否能用眼神、动作或声音辨认他们。",
+      "play": "一起看家庭照片，说一个人的称呼，再和现实中的人打招呼。",
+      "note": "按实际家庭成员和宝宝常用称呼来观察，不以家庭结构作评判。",
+      "sources": [
+        "cs-kidshealth-8m"
+      ]
+    },
+    "c-complex-occlusion": {
+      "meaning": "不仅会揭开一层遮挡，还开始跟随物体换位置，理解它可能藏在不同地方。",
+      "example": "看到玩具先在杯子后、又移到盒子后，会到新的位置找。",
+      "observe": "让宝宝完整看见一次缓慢移动后，观察他会不会更新寻找位置。",
+      "play": "用两个不透明大盒子，清楚地把玩具藏到其中一个后面，让宝宝来找。",
+      "note": "难度来自位置变化，不需要快手变戏法或制造挫败。",
+      "sources": [
+        "cs-aap-cognition-8-12",
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-familiar-objects": {
+      "meaning": "把经常接触的物品与名称、用途联系起来，从“看见东西”走向“知道它是什么”。",
+      "example": "听到“杯子呢”，会看向杯子或把杯子拿过来。",
+      "observe": "在真实使用物品时，留意宝宝能否看对、拿对或做出合适的动作。",
+      "play": "吃饭时拿出杯子、勺子和碗，边用边说名字，让宝宝自由尝试。",
+      "note": "真实互动通常比反复考认卡片更容易理解物品用途。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "c-mirror-self": {
+      "meaning": "逐渐理解镜中的形象与自己有关；喜欢看镜子、对镜子笑，还不等于已经明确认出自己。",
+      "example": "看到镜里自己帽子歪了，会摸现实中自己的帽子。",
+      "observe": "在镜前一起活动时，留意宝宝是否把镜中的变化对应到自己身上。",
+      "play": "用安全固定的镜子一起挥手、摸头，轻松说“这是你，这是我”。",
+      "note": "镜中自我认识逐步发展，不必做涂脸测试或按单一时间点考核。",
+      "sources": [
+        "cs-kidshealth-1m",
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-facial-features": {
+      "meaning": "逐渐认识眼睛、鼻子、嘴、耳朵等部位，并把它们和日常功能联系起来。",
+      "example": "洗脸时听到“擦擦嘴”，会摸嘴或配合擦拭。",
+      "observe": "用娃娃、照片和自己的脸交替观察，看看是否能在不同对象上找到同一部位。",
+      "play": "玩“鼻子在哪里”，先示范指自己的鼻子，再邀请宝宝自由回应。",
+      "note": "不要把手伸入眼、耳或鼻孔来体验功能。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "c-family": {
+      "meaning": "把更多熟悉家人的脸、声音、称呼和共同经历联系起来，而不只认主要照护者。",
+      "example": "看到爷爷的照片，会看向爷爷或做出和爷爷常玩的动作。",
+      "observe": "留意宝宝是否能在见面、照片或视频中认出经常往来的亲人。",
+      "play": "做一页家庭小相册，每次选两三张照片聊聊“这是谁、我们一起做过什么”。",
+      "note": "与某位亲人接触少、暂时叫不出称呼，不代表社会认知差。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-harder-occlusion": {
+      "meaning": "在更长的等待、更多遮挡或更换位置后，仍尝试记住并寻找东西。",
+      "example": "看见小熊放进大盒子，转去做别的后还记得回盒子里找。",
+      "observe": "在宝宝愿意的寻物游戏里，看看稍等一会儿后能否想起最后放置的位置。",
+      "play": "一起把玩具停进两个“车库”之一，短暂聊几句后再找出来。",
+      "note": "这是原图对寻找游戏难度的描述，并非独立的标准测评项目。",
+      "sources": [
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-composite-cause": {
+      "meaning": "发现有些结果需要连续做两个或更多动作，而不只是碰一下就发生。",
+      "example": "先打开玩具盒盖，再把积木拿出来，才能继续搭塔。",
+      "observe": "遇到熟悉的小难题时，观察宝宝是否会按顺序尝试几步操作。",
+      "play": "给一只容易打开的大盒子，把想玩的玩具放进去，留出自己尝试的时间。",
+      "note": "只用安全的游戏机关，电源开关、插座和家用电器不能作为练习工具。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-care-doll": {
+      "meaning": "把自己被照顾的经历用在娃娃或玩偶身上，是早期假装游戏的一种。",
+      "example": "拿空勺给娃娃“喂饭”，再轻拍它说“睡觉”。",
+      "observe": "留意宝宝是否用喂、抱、盖被等动作，表达对照护过程的理解。",
+      "play": "提供娃娃、空碗和大勺，让宝宝决定娃娃饿了还是困了，你跟着参与。",
+      "note": "不要求固定性别角色，也不把是否爱玩娃娃当成共情测验。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-mimic-work": {
+      "meaning": "观察大人的日常动作后，在游戏中或真实生活中学着做，理解物品与用途的关系。",
+      "example": "拿小布擦桌面，或模仿用梳子梳头。",
+      "observe": "留意他是否会自发重复经常看到的生活动作，而不只是拿物品敲打。",
+      "play": "你擦桌时给宝宝一块干净小布，一边示范一边让他参与。",
+      "note": "清洁剂、热水和锋利工具由成人收好，只提供安全材料。",
+      "sources": [
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-feature-classify": {
+      "meaning": "注意到物品的共同特征，并按颜色、形状、大小或用途中的一种把它们归在一起。",
+      "example": "把小车放一堆，把球放另一堆。",
+      "observe": "看他会不会自发把相似物品放在一起，并允许他的分类理由与你不同。",
+      "play": "用几只大积木先按颜色找朋友，再换成按大小分组。",
+      "note": "重点是比较与发现共同点，不是背分类名称。",
+      "sources": [
+        "cs-aap-cognition-8-12",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-number-experience": {
+      "meaning": "在分东西、装满倒空、比较多少时积累数量感觉，早于准确数数或认识数字。",
+      "example": "发现一个盘子没点心，会指着空盘子要求补一个。",
+      "observe": "观察他是否注意“有和没有”“多和少”，而不是只看会不会背数字。",
+      "play": "给两只玩偶各放一个大积木当点心，邀请宝宝检查谁还没有。",
+      "note": "原图的“感官分辨”不是数学天赋测试，也不需要密集数字训练。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-treasure-hunt": {
+      "meaning": "把物体仍然存在的理解和记忆、线索及寻找策略结合起来，主动找到被藏起的东西。",
+      "example": "记得小熊放在篮子里，会绕到篮子旁把它找出。",
+      "observe": "观察他会不会根据刚才看到的位置或一句简单提示去寻找。",
+      "play": "先当着宝宝面把大玩偶藏在容易找到的位置，再逐步减少露出的部分。",
+      "note": "藏物地点须安全可达，不把食物、小件或贵重物藏作目标。",
+      "sources": [
+        "cs-aap-cognition-1y"
+      ]
+    },
+    "c-cause-knowledge": {
+      "meaning": "把反复经历的生活事件联系起来，理解一些直接、具体的原因和结果。",
+      "example": "知道水洒在桌上要擦，或推得太轻小车就滚不远。",
+      "observe": "在自然发生的小事件后，看看宝宝会不会预想结果或选择合适的下一步。",
+      "play": "在托盘里比较轻推、稍用力推大球的不同结果，边玩边描述变化。",
+      "note": "不需要用烫、摔或惊吓让宝宝“长记性”，理解后果不等于能控制冲动。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-simple-plot": {
+      "meaning": "将几个假装动作串成有前后联系的小故事，而不只重复一个动作。",
+      "example": "先给娃娃做饭，再喂饭，最后送它上床。",
+      "observe": "留意宝宝能否围绕同一个角色连续玩两三个有关联的动作。",
+      "play": "摆好娃娃、碗和小床，问“吃完以后呢”，让宝宝续写故事。",
+      "note": "情节可以跳跃或不合现实，成人不必不断纠正。",
+      "sources": [
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-productive-work": {
+      "meaning": "参与能看到实际结果的简单家务，把动作、目标和完成感联系起来。",
+      "example": "把玩具放回筐里后，地面真的变整齐了。",
+      "observe": "观察宝宝是否开始明白要做成什么事，并愿意把简单步骤做完。",
+      "play": "请他把几本轻薄书放回低书架，你一起做并指出“书找到家了”。",
+      "note": "强调参与而非效率，不用危险或过重的家务作为能力考核。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-secondary-classify": {
+      "meaning": "在一个大类里继续按另一种特征分小类，或换一个规则重新分同一组东西。",
+      "example": "先把衣服从玩具里挑出，再把衣服分成长袖和短袖。",
+      "observe": "观察在成人示范后，宝宝是否能理解“这些都属于一类，还能再分”。",
+      "play": "先把大玩具分成车和动物，再请宝宝给车按颜色找停车位。",
+      "note": "“二级分类”是活动描述，不要求幼儿同时熟练处理很多分类规则。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-jigsaw": {
+      "meaning": "比较碎片的形状和图案，把“这一块”与“整个画面”联系起来，借助尝试找到位置。",
+      "example": "看见拼图片上的半只猫，会找另一半或对应的轮廓。",
+      "observe": "留意他是否会转动、比较边缘，或参考整图，而不只是用力塞。",
+      "play": "从少片数、大片且无小件的拼图开始，先放一两块，剩下的交给宝宝。",
+      "note": "拼图熟练程度受经验影响，不宜用片数排名判断智力。",
+      "sources": [
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-abstract-classify": {
+      "meaning": "按一种需要比较或概括的共同点来分类，而不局限于“东西长得一样”。",
+      "example": "把颜色不同、样子不同的圆形物品放在一组。",
+      "observe": "观察他能否在不完全相同的物品中抓住同一个规则，并用动作或语言表达理由。",
+      "play": "把大图卡按“能吃的”和“不能吃的”分，再聊聊每张卡为什么这样放。",
+      "note": "原图的“抽象”是相对说法，先从熟悉、直观的特征开始即可。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-career-play": {
+      "meaning": "用假装的工具、语言和动作扮演不同职业，开始理解他人在社会中做什么。",
+      "example": "假装医生听诊，或者当司机请乘客上车。",
+      "observe": "观察他是否能围绕一个职业安排相关动作，并愿意分配或交换角色。",
+      "play": "用纸盒做公交车，轮流当司机、乘客和售票员，让宝宝决定故事。",
+      "note": "工具用安全玩具或替代物，职业不按性别限定。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-geometric-shapes": {
+      "meaning": "从物品和图片中认出形状的相似与不同，逐渐理解转了方向、换了大小仍可能是同一种形状。",
+      "example": "在饼干盒、画面和积木中都能找到圆形。",
+      "observe": "留意他是否根据边和角来区分，而不只记住某张卡的颜色。",
+      "play": "在家里玩“找圆形、找三角形”，比较大小和方向不同的安全物品。",
+      "note": "不必提前背很多几何术语，更不需要靠闪卡速度计分。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-number-concept": {
+      "meaning": "逐渐理解数字说的是“有几个”，计数时一个物品对应一个数，最后一个数表示总量。",
+      "example": "按要求拿两个大积木，而不是随手抓一把。",
+      "observe": "在少量实物中观察他能否逐个对应点数，或按很小的数量要求取物。",
+      "play": "摆出两三个盘子，让宝宝给每个玩偶发一个，再一起慢慢数总共有几个。",
+      "note": "会背“一二三”不等于已经理解数量，先在生活中玩小数量。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-small-body": {
+      "meaning": "在认识手、脚等大部位之后，继续注意手指、脚趾、手腕等更细的身体部位。",
+      "example": "穿袜子时能指给你看脚趾，洗手时知道手心和手背。",
+      "observe": "在自然照护中观察他是否能找到相应部位，不要求记住全部名称。",
+      "play": "洗手时玩“手心、手背、小手指”的动作歌，让词语与动作一起出现。",
+      "note": "“小肢体”是原图的通俗分组，不是医学上的标准身体分类。",
+      "sources": [
+        "cs-kidshealth-1m",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-knowledge-apply": {
+      "meaning": "把在一个场景里学到的常识迁移到另一个场景，用来判断或解决真实小问题。",
+      "example": "发现户外下雨，会想到拿雨伞或穿雨衣。",
+      "observe": "留意遇到稍有变化的情况时，孩子是否会调用已有经验，并提出可行做法。",
+      "play": "出门前一起看天气，问“今天带什么更合适”，再实际验证选择。",
+      "note": "给线索和讨论机会即可，不把临场忘记当成“不懂常识”。",
+      "sources": [
+        "cs-aap-cognition-1y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-contour-abstract": {
+      "meaning": "从外形、轮廓或局部线索认出物体，即使没有常见颜色和细节也能联想到完整形象。",
+      "example": "看到只画了轮廓的小猫，仍能根据耳朵、尾巴认出来。",
+      "observe": "换成黑白轮廓、不同角度或少量细节时，观察他是否还认得熟悉物品。",
+      "play": "把熟悉的大玩具与简洁轮廓画配对，一起说说“哪里像”。",
+      "note": "这是原图对视觉识别活动的命名，不是独立诊断或标准里程碑。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "c-math-activity": {
+      "meaning": "把比较、分类、排序和小数量计数用在生活或游戏中，解决“怎么分、够不够、谁先谁后”的问题。",
+      "example": "给四个人摆碗筷时，一边对应座位一边检查是否够用。",
+      "observe": "观察他是否能选择比较或计数的方法，而不只背出数学答案。",
+      "play": "一起布置玩偶餐桌，人数变了就增减餐具，再讨论多了还是少了。",
+      "note": "重在理解与参与，不需要提前练笔算或反复刷题。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-internal-organs": {
+      "meaning": "在身体经验和图画帮助下，初步知道身体里有心、肺、胃等器官，以及它们的大致作用。",
+      "example": "知道跑动后心跳变快，吃进去的食物会到肚子里。",
+      "observe": "观察孩子能否用自己的话说明一两个熟悉器官的简单作用。",
+      "play": "用儿童身体绘本聊“心脏帮忙送血、肺帮忙呼吸”，再安静感受胸口起伏。",
+      "note": "不要求定位精确或背生理知识；不舒服时不能靠游戏解释自行诊断。",
+      "sources": [
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-photo-thinking": {
+      "meaning": "用画面中“看得见谁、可能缺少谁”等线索，尝试推想照片是怎样拍出来的，涉及视角和推理。",
+      "example": "一家人合照里没有爸爸，孩子提出“可能是爸爸按的快门”，也接受自拍等其他可能。",
+      "observe": "看孩子是否愿意根据线索提出解释，成人可追问“还有别的可能吗”。",
+      "play": "轮流给玩偶拍照，对比拍照者在镜头后和自拍时画面有什么不同。",
+      "note": "“谁拍的照片”是原图设计的一道思维游戏，并非客体恒存的标准测验，也没有唯一必然答案。",
+      "sources": [
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-abstract-cause": {
+      "meaning": "从看得见的直接结果，逐步走向讨论需要结合经验推想的原因，例如规则、动机或较长的事件链。",
+      "example": "讨论“如果大家都不收玩具，下一次找玩具会怎样”。",
+      "observe": "观察孩子能否用“因为、所以、如果”表达一个有依据的解释，也容许暂时想不明白。",
+      "play": "读故事时停在一个转折处，问“你觉得为什么、接下来可能怎样”，再对照后文。",
+      "note": "幼儿解释常带想象色彩；成人应避免把生病、离别等复杂事件归咎于孩子。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "c-social-play": {
+      "meaning": "几个孩子或亲子共同维持一个假装情境，协商角色、规则和事件，让游戏像一个小小社会。",
+      "example": "一个人当店员，一个人当顾客，轮流点单、结账和处理“卖完了”的情况。",
+      "observe": "留意孩子是否开始听同伴想法、商量角色，并在游戏变化时调整自己的做法。",
+      "play": "用空盒开一家小店，先约定角色，再让孩子决定商品和故事发展。",
+      "note": "成人提供材料和必要协调，不必把游戏变成严格守规则的课程。",
+      "sources": [
+        "cs-aap-cognition-2y",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "s-wet-reaction": {
+      "meaning": "尿布潮湿、摩擦或皮肤不舒服时，宝宝可能扭动、皱眉或哭，这是对身体感觉的反应。",
+      "example": "换上干爽尿布后，原本烦躁的宝宝慢慢安静下来。",
+      "observe": "正常换尿布时留意潮湿、皮肤状态与不适反应的关系，不刻意拖延更换。",
+      "play": "边温柔换尿布边描述“湿了，换干净的”，让舒适照护成为感觉体验。",
+      "note": "“湿屁屁反应”是生活化观察，不是必须完成的触觉测验；没哭也应及时检查尿布。",
+      "sources": [
+        "cs-kidshealth-newborn"
+      ]
+    },
+    "s-sweet": {
+      "meaning": "宝宝天生可能更容易接受甜味，之后的食物经验还会继续影响喜好。",
+      "example": "吃奶时接受熟悉的味道，面对新味道则可能先停一停。",
+      "observe": "通过正常喂养了解接受情况，不另外喂糖水来测试甜味偏好。",
+      "play": "在日常喂养中回应饥饿和吃饱信号，等适合添加辅食后再接触多样食材。",
+      "note": "“香甜偏好期”并非人人固定经过的阶段；约6个月前通常以母乳或配方奶满足需要，不为训练加糖。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-nhs-first-foods",
+        "cs-nhs-foods-avoid"
+      ]
+    },
+    "s-sound-source": {
+      "meaning": "听到声音后，宝宝可能暂停动作、改变表情，或尝试转头寻找声音来自哪里。",
+      "example": "听见你在旁边轻声说话，宝宝停下吸吮，眼睛朝那个方向看。",
+      "observe": "在安静环境中用正常音量说话，留意宝宝是否有稳定的注意或寻找反应。",
+      "play": "从宝宝看得见的侧前方轻声呼唤，再停下来等回应，不必不断换位置。",
+      "note": "早期反应不一定是完整转头，不要靠突然巨响或贴耳发声测试听力。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-1m"
+      ]
+    },
+    "s-black-white": {
+      "meaning": "视觉尚在发展时，明暗对比强的边缘更容易吸引注意，黑白图案是其中一种选择。",
+      "example": "宝宝可能盯着黑白条纹，比盯着浅色小花更久。",
+      "observe": "清醒舒适时在近处展示简洁图案，观察是否短暂注视，移开眼就休息。",
+      "play": "把一张大幅黑白图放在你脸旁边，轮流看图和面对面说话。",
+      "note": "不是只看得见黑白，也不是必须刷卡；真实人脸同样有吸引力。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-aap-vision"
+      ]
+    },
+    "s-red-white": {
+      "meaning": "红与白的鲜明对比可能比较醒目，宝宝注意到的往往是颜色、亮度和轮廓的组合。",
+      "example": "红色大图形放在白底上时，宝宝可能更容易把视线停在上面。",
+      "observe": "把图案放在舒适的近距离，留意是否愿意看，不比较宝宝“更爱哪种颜色”的高低。",
+      "play": "用大面积、简洁的红白图与其他清楚图案交替看，顺着宝宝兴趣停留。",
+      "note": "“红白偏好”不是所有宝宝固定出现的阶段，也不表示红白卡能加速视力发育。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-aap-vision"
+      ]
+    },
+    "s-mouthing": {
+      "meaning": "宝宝把安全物品送到嘴边，用嘴唇、舌头和口腔感受质地、形状，也在练习手眼口配合。",
+      "example": "拿到完整的牙胶后，会先看、摸，再放到嘴边探索。",
+      "observe": "留意送入口前是否会看或抓握物品，以及物品是否适合入口。",
+      "play": "提供清洁、完整、适龄且无脱落小件的牙胶，让宝宝自主探索并在旁看护。",
+      "note": "口尝不等于可以尝任何东西；小件、电池、磁铁和不适合入口的材料必须收好。",
+      "sources": [
+        "cs-aap-cognition-8-12",
+        "cs-nhs-first-foods"
+      ]
+    },
+    "s-salty": {
+      "meaning": "这项可以理解为逐渐感受到咸味等更多味道，不能理解为宝宝到了某月龄就需要吃咸。",
+      "example": "开始接触合适辅食后，宝宝对不同食材的自然风味会有不同反应。",
+      "observe": "在不额外加盐的正常饮食里观察接受情况，不提供盐水或重口味食品作对比。",
+      "play": "从适合月龄的无额外加盐食材开始，轮流介绍颜色、气味和自然味道。",
+      "note": "“咸味偏好期”并非公认的必经里程碑；不要因此提前加辅食、加盐或用高盐食物刺激味觉。",
+      "sources": [
+        "cs-nhs-first-foods",
+        "cs-nhs-foods-avoid"
+      ]
+    },
+    "s-sound-track": {
+      "meaning": "把看见的移动物体和它发出的声音联系起来，用眼睛和头部跟着寻找。",
+      "example": "你在侧前方轻轻移动摇铃，宝宝的目光和头转向摇铃。",
+      "observe": "观察宝宝是否既注意声音，也会朝可见的发声物移动视线。",
+      "play": "在舒适距离内缓慢移动完整的大摇铃，摇一下、停一下，让宝宝找到它。",
+      "note": "声音不宜贴耳或持续很响，宝宝转开、烦躁时就暂停。",
+      "sources": [
+        "cs-kidshealth-1m",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-look-around": {
+      "meaning": "随着看远、聚焦和控制眼睛的能力发展，宝宝会主动观察更大的环境和更多细节。",
+      "example": "抱到窗边时，会从你的脸转向窗外的树和经过的人。",
+      "observe": "在平常活动中留意目光是否会主动转向不同景物，而不只固定看一个方向。",
+      "play": "清醒时抱着或推车慢慢散步，指给宝宝看一两样真实事物并说名称。",
+      "note": "不需要用强光吸引注意，也不让宝宝直视太阳。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-warm-color": {
+      "meaning": "有些宝宝会对醒目的红、橙等颜色停留更久，但注意力也受亮度、对比和个人经验影响。",
+      "example": "一堆玩具里，宝宝这次先看橙色球，下次也可能先看别的。",
+      "observe": "换不同颜色和背景自然观察兴趣，不把某种颜色当成应掌握的偏好。",
+      "play": "提供少量色彩清楚的安全玩具，让宝宝自己看、选，你描述颜色即可。",
+      "note": "“暖色调偏好”不是人人相同、按月龄固定出现的能力要求。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-aap-vision"
+      ]
+    },
+    "s-geometric-pattern": {
+      "meaning": "开始注意重复的线条、圆圈、格子等图案，比较其中的边缘、对比和排列。",
+      "example": "盯着衣服上的大圆点，或反复看图画里的条纹。",
+      "observe": "观察是否会在不同图案间移动目光，或对新的清晰图案表现出兴趣。",
+      "play": "一起看大圆圈、大条纹的图书或布面，顺着宝宝目光描述“圆圆的、长长的”。",
+      "note": "无需专门训练识别几何名称，避免把图卡当成长时间必修任务。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-face": {
+      "meaning": "人脸的轮廓、眼睛和表情对宝宝很有吸引力，真实的来回互动还会帮助其理解人和声音。",
+      "example": "你靠近微笑说话时，宝宝会看着眼睛或嘴，随后发声回应。",
+      "observe": "清醒平静时，留意他是否愿意看熟悉的脸，并对表情或声音有所回应。",
+      "play": "面对面保持舒适距离，模仿宝宝一个声音，停下来等他的下一轮回应。",
+      "note": "不强行扳脸要求眼神接触，宝宝转开通常是在调整刺激量。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-aap-vision"
+      ]
+    },
+    "s-red-ball-motion": {
+      "meaning": "眼睛跟随大球缓慢左右移动或沿弧线移动，练习连续看住同一个目标。",
+      "example": "红色大球从左边慢慢移到右边，宝宝的目光跟着走。",
+      "observe": "观察能否在舒适范围内跟随一小段移动，累了或转开时停止。",
+      "play": "你手持足够大的球，在宝宝视野前缓慢平移，再做一个小弧线。",
+      "note": "红色不是必须；不把球绕到头后强迫扭头，也不靠近脸突然抛掷。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-touch-hunger": {
+      "meaning": "原图想表达的是宝宝需要温柔的身体接触和及时回应，拥抱、轻抚能带来安全和安慰。",
+      "example": "烦躁时被熟悉的人抱稳、轻声安慰后，身体逐渐放松。",
+      "observe": "留意宝宝在何种抱姿或轻抚下更舒适，也尊重僵硬、扭开等不愿意的信号。",
+      "play": "在宝宝愿意时抱抱、轻抚背部或面对面互动，并随他的反应调整。",
+      "note": "“皮肤饥渴”不是这里可据以判断的医学诊断，不意味着必须按摩或接受强刺激。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-parent-smell": {
+      "meaning": "宝宝能逐渐把熟悉照护者的气味与被照顾的经历联系起来，熟悉气味可能带来安慰。",
+      "example": "被经常照顾自己的家人抱起时，可能因熟悉的声音、气味和姿势而放松。",
+      "observe": "在日常拥抱中观察是否更容易被熟悉的人安慰，不拿香水或衣物遮脸做测试。",
+      "play": "让不同照护者稳定参与抱抱、说话和日常照护，建立各自熟悉的互动。",
+      "note": "“香妈妈臭爸爸”只是原图的戏称，既非科学分类，也不代表妈妈一定香、爸爸一定臭。",
+      "sources": [
+        "cs-kidshealth-newborn",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-picky-eating": {
+      "meaning": "对新味道、气味或口感犹豫甚至拒绝，是学习吃东西时可能出现的反应，喜好也会变化。",
+      "example": "昨天愿意吃的蔬菜今天转头拒绝，过些天温和提供又可能尝一口。",
+      "observe": "结合整体进食和生长情况观察，区分对某种食物犹豫与持续吞咽、疼痛等问题。",
+      "play": "每次给少量新食物，搭配熟悉食物，允许看、摸、闻，不强塞也不靠奖励逼吃。",
+      "note": "“挑食”不等于完成了一项能力；若食物种类持续极少、进食痛苦或影响生长，应咨询专业人员。",
+      "sources": [
+        "cs-nhs-fussy",
+        "cs-nhs-first-foods"
+      ]
+    },
+    "s-unseen-sound": {
+      "meaning": "当声源暂时看不见时，宝宝能用听觉线索判断大致方向，再转头或移动去寻找。",
+      "example": "你在旁边轻声叫他，他先转头，再看见你。",
+      "observe": "在安静熟悉环境里，观察自然声音出现后是否会暂停并朝相应方向寻找。",
+      "play": "你坐在宝宝侧面正常说话，让他有时间转向你，再用笑容回应。",
+      "note": "不要突然躲起照护者造成紧张，也不要以巨响“考听力”。",
+      "sources": [
+        "cs-kidshealth-1m",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-depth-vision": {
+      "meaning": "开始把双眼信息与移动经验结合起来，感受物体有远近、空间有深浅。",
+      "example": "伸手拿玩具时，逐渐更能估计距离，少一些够不到或抓过头。",
+      "observe": "在安全平面活动时，留意伸手和移动是否越来越能适应距离变化。",
+      "play": "把大玩具放在安全垫上不同但可及的位置，让宝宝自己看、伸手和移动。",
+      "note": "不能用床沿、台阶或“视觉悬崖”测试；能感受深度也不代表会避开跌落风险。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-pattern": {
+      "meaning": "视觉更清楚后，宝宝可能更喜欢观察有细节、颜色变化或重复规律的花纹。",
+      "example": "用手摸着衣服上的条纹，同时认真盯着看。",
+      "observe": "换一本图画清楚的书或一块纹理布，留意是否主动观察不同细节。",
+      "play": "一起看大而清晰的叶脉、条纹或图案，用手指慢慢指出相似的部分。",
+      "note": "花纹偏好随情境和个体变化，不需要按月龄训练某一种花纹。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-aap-vision"
+      ]
+    },
+    "s-away-orbit": {
+      "meaning": "在物体逐渐远离、绕弧移动或暂时经过视野边缘时，尝试持续跟随。",
+      "example": "大球慢慢滚远后，目光仍沿着它的方向移动。",
+      "observe": "在地面活动中观察能否跟随一段平缓轨迹，不以追得多快计分。",
+      "play": "坐在安全垫旁把大球缓慢滚出一小段，再滚回来，让宝宝自由看或够。",
+      "note": "“巡回轨迹”是原图的活动说法，不是特定视觉诊断项目。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-smooth-rough": {
+      "meaning": "用手感受表面平滑或有纹理的不同，并逐渐表达喜欢、好奇或不愿意。",
+      "example": "摸到光滑杯子后，再摸柔软毛巾，会换一种揉捏方式。",
+      "observe": "观察是否愿意用指尖、手掌探索不同材质，并在缩手时停止。",
+      "play": "用干净的光滑大积木和有纹理的布比较触感，边摸边说“滑滑的、毛毛的”。",
+      "note": "不强迫接触粗糙材料，不用会划伤皮肤或脱落碎屑的物品；不必出现固定偏好。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-sour-face": {
+      "meaning": "尝到不熟悉或偏酸的食物时可能皱眉、抿嘴，这是即时感觉反馈，不一定代表讨厌。",
+      "example": "尝一点已适合食用的原味酸奶时皱眉，停一下后又愿意张嘴。",
+      "observe": "正常进食中看后续是否继续接受，比只看第一口的表情更有意义。",
+      "play": "提供已适合月龄、处理安全的日常食物，平静描述味道并尊重拒绝。",
+      "note": "不要为逗表情喂柠檬汁、酸粉或强酸食物，也不把皱脸当成必须出现的里程碑。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-nhs-first-foods"
+      ]
+    },
+    "s-rhythm-sway": {
+      "meaning": "听到音乐后，用摆动、弹动、挥手等动作回应节奏和情绪，是音乐参与的早期样子。",
+      "example": "听见熟悉儿歌时，身体轻轻晃动或双手拍动。",
+      "observe": "观察自发动作是否与音乐出现有关，不要求每一下都踩准节拍。",
+      "play": "唱一小段熟悉儿歌，你轻拍自己的腿示范，等宝宝用喜欢的方式回应。",
+      "note": "音量保持舒适，不拉着宝宝的四肢强行跟拍或摇晃身体。",
+      "sources": [
+        "cs-unicef-music",
+        "cs-kidshealth-1m"
+      ]
+    },
+    "s-name-response": {
+      "meaning": "把经常听到的名字或昵称与自己联系起来，听到呼唤时可能看过来、停下或发声回应。",
+      "example": "玩耍时听到熟悉的人叫名字，宝宝抬头看一眼。",
+      "observe": "在不吵、不困且没高度投入玩耍时自然呼唤一次，留意不同日子的总体反应。",
+      "play": "面对面叫宝宝常用昵称，回应后微笑接话，再一起玩他感兴趣的东西。",
+      "note": "偶尔没回应很常见；若反复对名字和环境声音都少有反应，应向儿保医生咨询。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-tiny-object": {
+      "meaning": "视力和注意更细致后，会发现画面或环境里的小细节，不一定需要把真实小物拿在手里。",
+      "example": "注意到绘本里一颗小圆点，或地板上与周围不同的花纹。",
+      "observe": "在图书和远离嘴巴的画面中，观察是否会盯着或指出较小细节。",
+      "play": "在白纸上画一个小色点，与大图形并排，让宝宝自由找一找。",
+      "note": "不用豆子、珠子、纽扣等小物练视力；一旦发现地面小件，应先排除吞咽风险。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-object-cards": {
+      "meaning": "把图片与真实物品联系起来，逐渐理解图上画的东西可以代表生活中的同类物品。",
+      "example": "看见杯子的图片，会再看看桌上的杯子。",
+      "observe": "留意宝宝能否在图片与实物间来回看，或在熟悉图画中找到相应物品。",
+      "play": "用一本图片清楚的书配一两个真实大物品，边使用边指图说名称。",
+      "note": "卡片不是必需，也不必快速闪示或反复考认；生活实物和共读同样有用。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "s-zigzag-fall": {
+      "meaning": "当物体改变方向或沿弯曲路线移动时，眼睛尝试继续跟随，不只会看直线。",
+      "example": "看着你手中的大玩偶缓慢走“弯弯路”，目光随之转动。",
+      "observe": "观察是否会在方向变化后重新找到目标，允许中途看丢。",
+      "play": "成人手持大玩偶在视野前缓慢做小折线或弧线，随宝宝兴趣停下。",
+      "note": "不必真的高处抛落物品，更不在宝宝头脸上方落物；“螺旋下落”不是标准考核。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-water-sand": {
+      "meaning": "通过流动、湿润、松散等不同触感，探索材料会怎样变化，也练习装、倒和拍。",
+      "example": "手掌拍一下浅盘里的水，看见水波后又试一次。",
+      "observe": "观察是否愿意触摸、装倒或用工具探索，回避时允许先看不摸。",
+      "play": "成人全程近距离看护，用浅水和大杯子玩装倒；也可用洁净、无尖锐杂物的适龄沙具。",
+      "note": "玩水后立即倒空容器；不提供水晶宝宝、豆类或可吞小颗粒，不把吃沙当探索要求。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "s-smell-difference": {
+      "meaning": "开始注意不同物品或食物的气味，并把气味与名称、喜好或场景联系起来。",
+      "example": "闻到橙子和熟米饭时，表情不同，或愿意靠近其中一种。",
+      "observe": "在日常环境里观察是否转头、靠近或避开某种气味，不强行贴鼻闻。",
+      "play": "做饭时让孩子从舒适距离闻熟悉食材，边闻边说“这是橙子的味道”。",
+      "note": "不用精油、香水、刺激性清洁剂或未知植物做嗅觉训练；香臭判断也受个人经验影响。",
+      "sources": [
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-taste-expression": {
+      "meaning": "面对不同食物的味道、气味和口感，会用表情和动作表达接受、犹豫、满足或拒绝。",
+      "example": "尝到一种新蔬菜先抿嘴，熟悉后主动再要一口。",
+      "observe": "结合张嘴、转头、推勺和后续进食观察意愿，不只给表情贴“爱吃、难吃”标签。",
+      "play": "一餐里少量提供熟悉食物与一种新食物，让孩子自己决定是否继续。",
+      "note": "表情不是挑战任务，不用辣、过酸、过咸的食物刺激反应，也不强行喂食。",
+      "sources": [
+        "cs-nhs-first-foods",
+        "cs-nhs-fussy",
+        "cs-nhs-foods-avoid"
+      ]
+    },
+    "s-clear-beat": {
+      "meaning": "开始注意音乐里较稳定的脉搏，并尝试让拍手、跺脚或敲击靠近这个节奏。",
+      "example": "你慢慢拍“拍、拍、拍”，孩子跟着拍出几下相近的间隔。",
+      "observe": "观察是否有短时间重复相近节拍的尝试，不要求从头到尾准确。",
+      "play": "选短而节拍清楚的儿歌，你先轻拍腿，再邀请孩子用拍手或身体动作加入。",
+      "note": "节拍感通过愉快参与积累，不用节拍器考核或纠正每一下误差。",
+      "sources": [
+        "cs-unicef-music"
+      ]
+    },
+    "s-percussion": {
+      "meaning": "发现敲打不同材料会发出不同声音，并有意识地用重复敲击来参与音乐。",
+      "example": "用手掌轻拍小鼓，换成拍桌面后发现声音变了。",
+      "observe": "留意是否会尝试停、敲、重复，或回应你的一小段敲击。",
+      "play": "用适龄鼓或结实的大容器轮流轻拍两下，停下来让对方接奏。",
+      "note": "器材应无脱落小件，避免尖锐鼓槌和过大音量，不敲玻璃或易碎容器。",
+      "sources": [
+        "cs-unicef-music",
+        "cs-aap-cognition-8-12"
+      ]
+    },
+    "s-simple-story": {
+      "meaning": "从一幅或连续几幅图片中，看出谁在做什么，开始把图画连接成简单事件。",
+      "example": "看到小兔拿碗的画面，会指着它说“吃饭”。",
+      "observe": "共读时观察是否关注角色动作，能否用指点、动作或简单词回应情节。",
+      "play": "选画面清楚、生活场景熟悉的书，问“它在做什么”，然后跟着孩子的话聊。",
+      "note": "不要求逐字复述，也不把认识字作为看懂图片的前提。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "s-cross-trajectory": {
+      "meaning": "面对两个物体相遇、交错或转弯时，尝试持续关注其中一个目标并重新找到它。",
+      "example": "两辆大玩具车错身后，仍盯着刚才那辆红车。",
+      "observe": "观察交错之后能否继续看同一个目标，不要求持续很久或速度很快。",
+      "play": "成人把两辆大车在桌面缓慢错身，先只走一次，让孩子说或指哪辆去了哪里。",
+      "note": "“复杂交错轨迹”是活动难度描述，不代表必须进行专门追视训练。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-vision"
+      ]
+    },
+    "s-soft-hot-cold": {
+      "meaning": "用触摸比较软硬以及温凉等感觉，并逐渐学会用词语和动作表达。",
+      "example": "捏软海绵，再摸硬木块，会发现用力后变化不同。",
+      "observe": "观察是否会调整抓握、挤压方式，或用“软、硬、凉”等词表达差别。",
+      "play": "比较完整大海绵与光滑大木块，或在成人确认安全后摸微温和常温毛巾。",
+      "note": "只用舒适温度，不碰热水、冰块或极冷物品作测试；成人先确认安全。",
+      "sources": [
+        "cs-kidshealth-1m",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "s-comfort-object": {
+      "meaning": "有些孩子会特别依恋某件熟悉的物品，用它帮助自己面对困倦、分离或陌生环境，也叫安抚物或过渡性客体。",
+      "example": "出门时想带着熟悉的小玩偶，抱一会儿后更愿意探索新地方。",
+      "observe": "留意是否有主动寻找、抱住某件熟悉物品后获得安慰的模式。",
+      "play": "在清醒且有人看护时允许带着安全安抚物，出门前一起放进包里。",
+      "note": "“阿贝贝”是家长圈的口语，并非必需的发展成就；1岁内睡眠区仍不放毯子、毛绒玩具等软物。",
+      "sources": [
+        "cs-aap-comfort",
+        "cs-aap-safe-sleep"
+      ]
+    },
+    "s-strong-weak-beat": {
+      "meaning": "开始听出或表现声音较强、较轻的变化，用轻重不同的动作参与节奏。",
+      "example": "你轻拍两下、稍重拍一下，孩子也尝试做出声音对比。",
+      "observe": "观察是否注意到强弱变化，并用表情、动作或声音回应，不要求理解乐理术语。",
+      "play": "用双手拍自己的腿玩“轻轻走、大步走”，配合短儿歌轮流模仿。",
+      "note": "强拍不等于巨响，始终保持舒适音量，不拍打孩子身体来教轻重。",
+      "sources": [
+        "cs-unicef-music"
+      ]
+    },
+    "s-visual-search": {
+      "meaning": "带着一个目标在画面或环境中寻找，比较细节并从其他信息里挑出所需对象。",
+      "example": "在一页动物图中找到你说的小狗，或在玩具筐里找球。",
+      "observe": "观察是否会扫视不同位置，找到后指给你看，而不只盯着最显眼的图。",
+      "play": "从物品不多的图页开始轮流找东西，再由孩子指定目标让你找。",
+      "note": "先保持目标清楚、数量少，不用复杂找图速度来比较能力。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "s-hum": {
+      "meaning": "记住熟悉旋律的大致走向，并用哼、唱或自己的声音重复，不一定能唱准音高和歌词。",
+      "example": "玩积木时用“嗯嗯嗯”哼出常听儿歌的一个片段。",
+      "observe": "留意是否主动重复熟悉曲调，或在你停顿时接上一个声音。",
+      "play": "唱一段短而熟悉的歌，在句尾停一下，允许孩子用声音或动作接下去。",
+      "note": "不纠正每个音，也不把背完一首歌当成唯一完成标准。",
+      "sources": [
+        "cs-unicef-music",
+        "cs-kidshealth-4m"
+      ]
+    },
+    "s-story-reading": {
+      "meaning": "在成人陪伴下持续关注图片和叙事，理解角色、事件及前后联系，并参与讨论。",
+      "example": "听到故事中小熊丢了帽子，会翻页找帽子或猜它在哪儿。",
+      "observe": "观察是否愿意看、指、问或接话，能不能跟着一小段情节即可。",
+      "play": "每天选孩子感兴趣的短故事，跟着他的指点讲，也允许反复读同一本。",
+      "note": "这里的“阅读”包括听读和看图，不要求提前识字或独立读全文。",
+      "sources": [
+        "cs-kidshealth-8m",
+        "cs-aap-cognition-preschool"
+      ]
+    },
+    "s-food-tasting": {
+      "meaning": "在多样、安全的饮食中，用语言比较味道、气味和口感，也练习表达自己的感受。",
+      "example": "说“这块苹果脆，熟香蕉软”，而不只是说“好吃”。",
+      "observe": "留意能否从酸甜、软硬、香味等方面表达差别，允许用自己的词。",
+      "play": "用已安全处理、适合孩子咀嚼的日常食物一起品尝，轮流描述一种感觉。",
+      "note": "不是盲吃挑战，不用生食、高盐、辛辣或易噎食物测试；始终尊重过敏管理和拒绝。",
+      "sources": [
+        "cs-nhs-first-foods",
+        "cs-nhs-fussy",
+        "cs-nhs-foods-avoid"
+      ]
+    },
+    "s-percussion-dance": {
+      "meaning": "把节奏感、动作控制与表达结合起来，用敲击、舞动或和别人轮流表演参与音乐。",
+      "example": "听到节奏变化时，从慢走改为小步舞动，音乐停下也试着停住。",
+      "observe": "观察能否用自己的动作回应音乐变化，并与伙伴短暂配合。",
+      "play": "留出安全空地，轮流当小指挥，用慢、快、停的口令配合轻声敲鼓游戏。",
+      "note": "重在参与和表达，不需要标准舞步；避免高速旋转、强拉四肢或追求高难动作。",
+      "sources": [
+        "cs-unicef-music"
+      ]
+    },
+    "s-nursery-rhyme": {
+      "meaning": "把熟悉的词句、旋律和节奏连在一起，用唱歌参与互动并记住语言。",
+      "example": "唱到熟悉儿歌的句尾，会主动补上几个词。",
+      "observe": "留意是否愿意接唱、改词或边唱边做动作，不要求全词准确。",
+      "play": "把孩子名字或当天活动编进熟悉曲调，轮流唱一句，听听他怎样改编。",
+      "note": "唱快慢、音准和记词各有差异，不作为语言或音乐能力的单一评判。",
+      "sources": [
+        "cs-unicef-music",
+        "cs-kidshealth-1m"
+      ]
+    },
+    "s-find-difference": {
+      "meaning": "有意识地比较两幅画或两个物品的细节，找出哪些相同、哪些发生了变化。",
+      "example": "发现两只画中小猫的尾巴方向不同。",
+      "observe": "观察会不会在两个目标间来回比较，并指出颜色、数量或位置上的变化。",
+      "play": "先比较两幅只差一处的大图，你示范一处后换孩子找，再交换出题。",
+      "note": "不计时、不排名，找不到时可给局部线索而不是一直催。",
+      "sources": [
+        "cs-aap-vision",
+        "cs-aap-cognition-2y"
+      ]
+    },
+    "s-predict-motion": {
+      "meaning": "结合看过的移动和玩耍经验，估计物体下一步的方向、速度或落点，并提前准备动作。",
+      "example": "大球从你这边慢慢滚来，孩子提前把手放到将经过的位置。",
+      "observe": "在低速地面滚球中，观察是否会提前移动手或身体等待目标。",
+      "play": "坐在相对位置轮流滚球，偶尔轻轻改方向，让孩子自行调整接球位置。",
+      "note": "预判会受动作能力和经验影响，不在马路、台阶或高处测试，也不用硬物朝脸抛。",
+      "sources": [
+        "cs-kidshealth-4m",
+        "cs-kidshealth-8m"
+      ]
+    },
+    "g-upright-head": {
+      "meaning": "竖着抱时，宝宝逐渐能用颈部力量短暂稳住头，并抬起头看看周围。早期仍需要大人托住头颈和身体。",
+      "example": "靠在大人肩前时，宝宝短暂把头抬离肩膀，看一眼你的脸。",
+      "observe": "留意自然抱持中头部控制是否逐渐稳定，不用突然撤掉托扶来测试。",
+      "play": "抱稳头颈和躯干，与宝宝面对面说话，让他按自己的节奏抬头看你。",
+      "note": "竖抱抬头不等于头颈已经完全稳固；不要摇晃或拉着手臂把宝宝拽起。",
+      "sources": [
+        "g-aap-baby1to4"
+      ]
+    },
+    "g-prone-head": {
+      "meaning": "宝宝醒着趴在平坦垫面时，尝试抬起头、转头，后来会用前臂撑起上半身。这个动作帮助练习头颈、肩部和躯干控制。",
+      "example": "趴着时把头抬起来，看看前面的大人或玩具。",
+      "observe": "看宝宝是否逐渐能把脸离开垫面、左右转头，累了能休息。",
+      "play": "在地面垫子上安排短时间、分多次的清醒趴玩，大人俯下身与他对视。",
+      "note": "趴玩须全程看护；睡眠仍采用仰卧姿势，不把趴玩当趴睡。",
+      "sources": [
+        "g-aap-baby1to4",
+        "g-aap-baby4",
+        "g-nhs-play"
+      ]
+    },
+    "g-chew-limbs": {
+      "meaning": "把手或脚送到嘴边，是宝宝探索身体、练习眼手口协调的一种方式。啃手和够脚、啃脚并不是同一个难度，也不一定同时出现。",
+      "example": "躺着时看看自己的手，吃一吃手指，后来会抓住脚趾。",
+      "observe": "在自然玩耍中观察是否主动看手、摸脚或把手送到嘴边。",
+      "play": "让宝宝在干净的地面垫上自由活动手脚，你可以轻声说出身体部位的名字。",
+      "note": "原图把这项放在“投掷”下，但它主要是身体探索；不用把脚硬送进嘴里。",
+      "sources": [
+        "g-aap-baby1to4",
+        "g-aap-baby4",
+        "g-aap-baby8"
+      ]
+    },
+    "g-ground-sit": {
+      "meaning": "坐着时身体略向前倾，用双手撑在身前或两腿之间帮助保持平衡，也常叫“三脚架坐”。此时手还承担支撑作用。",
+      "example": "宝宝坐在地垫上，双手撑地，偶尔抬起一只手摸玩具。",
+      "observe": "看他在有看护的短暂坐姿中是否会主动用手撑住身体。",
+      "play": "宝宝头颈控制较稳、愿意尝试时，在地面近距离保护，放一个容易够到的大玩具。",
+      "note": "不靠长时间摆坐来催进度；倾倒时要有成人及时保护，不能独留在靠枕里。",
+      "sources": [
+        "g-aap-baby4"
+      ]
+    },
+    "g-lean-sit": {
+      "meaning": "坐着时仍需要成人或稳固支撑帮助躯干保持位置。它描述的是有帮助的坐姿，不等于已经会独坐。",
+      "example": "靠在大人怀里短暂坐着，抬头看前方的玩具。",
+      "observe": "留意头能否较稳、身体是否愿意参与，而非完全软倒在支撑上。",
+      "play": "宝宝有相应头颈控制时，让他在你怀中短暂坐着看书，随时根据疲劳换回舒服姿势。",
+      "note": "不要为了打卡强扶久坐，也不要用枕头把尚不能控制姿势的宝宝固定住。",
+      "sources": [
+        "g-aap-baby4"
+      ]
+    },
+    "g-roll-prone-supine": {
+      "meaning": "从肚子朝下转成背朝下，通常要配合头部转向、身体重心移动和手臂位置调整。",
+      "example": "趴着追看侧面的玩具，身体转过去，最后躺成仰卧。",
+      "observe": "在地面自由活动中看他是否自己完成转身，偶然翻倒一次可继续观察。",
+      "play": "在趴玩时把玩具慢慢移到侧面，引导目光和身体一起转动。",
+      "note": "“一阶”是原图的整理方式；有些宝宝先会仰卧翻俯卧，顺序可以不同。",
+      "sources": [
+        "g-aap-baby4"
+      ]
+    },
+    "g-roll-supine-prone": {
+      "meaning": "从背朝下转成肚子朝下，需要把头、肩、躯干和腿的转动接起来。",
+      "example": "仰卧伸手够侧面的玩具，滚过侧卧后翻到肚子上。",
+      "observe": "看宝宝能否自主转动身体，并逐渐把压在身下的手臂调整出来。",
+      "play": "在地面把喜欢的玩具放在侧方可见处，让宝宝自己尝试够和翻。",
+      "note": "不要求先完成上一种翻身；不要拉手臂或扭腿强行翻过去。",
+      "sources": [
+        "g-aap-baby4"
+      ]
+    },
+    "g-roll-continuous": {
+      "meaning": "能比较自如地在俯卧、侧卧和仰卧之间转换，有时会用连续翻滚去接近玩具。",
+      "example": "先翻到肚子上，又翻回背上，滚向旁边的布书。",
+      "observe": "看是否能在不同方向调整姿势，而非要求连续滚满几圈。",
+      "play": "在清空障碍物的地面铺垫，把大玩具放在旁边，给宝宝自行移动的空间。",
+      "note": "开始会翻身后更不能独留在床、沙发或换尿布台上。",
+      "sources": [
+        "g-aap-baby4",
+        "g-aap-baby8"
+      ]
+    },
+    "g-request-hold": {
+      "meaning": "宝宝会朝熟悉的大人伸手、抬起双臂或前倾身体，表达希望被抱起。它同时涉及动作和沟通。",
+      "example": "你走近时，宝宝抬起双手看着你，等你抱。",
+      "observe": "结合眼神、声音和情境理解意思，不把某一次没伸手当作不会。",
+      "play": "抱起前蹲到宝宝面前说“要抱抱吗”，停一停，给他主动回应的机会。",
+      "note": "不是要求宝宝抓住成人手指被拉起，抱起时托好躯干。",
+      "sources": [
+        "g-nhs-play",
+        "g-aap-baby8"
+      ]
+    },
+    "g-steady-sit": {
+      "meaning": "不用手撑地，也不靠大人或靠垫，能保持坐姿并腾出双手玩。逐渐还会转身、前伸后回到坐稳的位置。",
+      "example": "坐在地垫上拿起玩具，换到另一只手，身体仍较稳定。",
+      "observe": "观察日常坐着玩时是否能维持平衡、轻微调整重心。",
+      "play": "在宝宝附近放不同方向的大玩具，让他在自己能控制的范围内伸手拿。",
+      "note": "会被放着坐稳与会自己从躺卧变成坐姿是两种能力，不必同一天出现。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-supported-stand": {
+      "meaning": "宝宝用双手抓稳固定物体，让双腿承担身体重量，并逐渐学会站稳和回到地面。",
+      "example": "扶着不会滑动、不会倾倒的沙发边站起来。",
+      "observe": "看是否主动扶物起身、双脚承重，以及能否在帮助下弯膝坐下。",
+      "play": "把玩具放在稳固低家具边，让已主动扶站的宝宝探索站起和蹲下。",
+      "note": "不拽手臂强拉站立；不用有轮婴儿学步车代替自主练习。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-prone-fly": {
+      "meaning": "趴着时短暂抬起头和胸部，有时手臂、腿也抬离垫面，看起来像“小飞机”。这是趴玩中的一种姿势。",
+      "example": "宝宝趴着抬头，双手向侧面展开，腿轻轻踢动。",
+      "observe": "可以记录自然出现的姿势，不必要求维持时长或反复完成。",
+      "play": "用清醒趴玩、侧方看玩具和自由伸手代替专门练“小燕飞”。",
+      "note": "它不是爬行，更不是每个宝宝必须经历的“一阶爬行”；不需要压背、提腿或追求同时抬起四肢。",
+      "sources": [
+        "g-aap-baby4",
+        "g-aap-baby8"
+      ]
+    },
+    "g-belly-crawl": {
+      "meaning": "肚子大部分贴着地面，用手臂拉、腿蹬或身体扭动向前移动，常叫腹爬、匍匐爬。",
+      "example": "趴着把身体一点点挪向前面的玩具。",
+      "observe": "关注是否愿意移动和探索、左右身体是否都有参与，不只看速度。",
+      "play": "在平坦防滑地面，把感兴趣的大玩具放在稍远但可努力够到的位置。",
+      "note": "不是所有宝宝都会腹爬；也可能采用其他移动方式，不把原图顺序当必修路线。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-knee-crawl": {
+      "meaning": "用双手和双膝支撑，肚子离开地面，交替移动手脚前进。最初也可能只在原地摇晃或往后退。",
+      "example": "双手双膝着地，向前爬去拿玩具。",
+      "observe": "留意能否逐渐协调四肢换重心，并在日常活动中使用两侧身体。",
+      "play": "提供平整、清空小物的地面空间，大人在前方用声音或玩具邀请他靠近。",
+      "note": "有些孩子不采用典型手膝爬；若担心动作或两侧使用差异，可向儿保医生描述实际表现。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-assist-dressing": {
+      "meaning": "穿衣时能按情境伸出手臂、抬脚或把手送进袖口，是动作控制与理解日常流程的配合。",
+      "example": "你拿起袖口说“手伸进来”，宝宝把手臂送过去。",
+      "observe": "观察熟悉穿衣流程中是否会主动配合，不要求每次听口令都成功。",
+      "play": "穿宽松衣服时慢慢说“这只手进袖子”，停下来等宝宝参与。",
+      "note": "这项沿用原图“投掷”分类，实际更接近日常自理与动作配合。",
+      "sources": [
+        "g-nhs-activity",
+        "g-nhs-play"
+      ]
+    },
+    "g-rocking-horse": {
+      "meaning": "坐在尺寸合适的摇摇玩具上，双腿分开跨坐，随轻微摇动调整身体平衡。",
+      "example": "坐在低矮摇摇玩具上，两手扶稳，轻轻前后晃。",
+      "observe": "看是否已经坐稳、双脚能得到适当支撑，并愿意小幅摇动。",
+      "play": "选择符合产品年龄和体型要求的低矮玩具，成人近身保护，从极小幅度体验开始。",
+      "note": "属于可选活动，不是必须购买的发育教具；不让尚不能坐稳的宝宝被绑着摇晃。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-baby8"
+      ]
+    },
+    "g-squat-pick": {
+      "meaning": "站着时屈髋屈膝蹲低，拿到物品后再站起，练习重心上下移动时的平衡。",
+      "example": "走到玩具旁，蹲下来捡起，再站起来。",
+      "observe": "看宝宝是否逐渐能自己控制蹲下和站起，初期扶物也可以。",
+      "play": "把大玩具放在稳固家具旁的地上，让宝宝按能力扶着或独立捡取。",
+      "note": "不要求深蹲姿势标准，注意地面防滑。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-stand-alone": {
+      "meaning": "暂时不用手扶家具或大人，双脚支撑身体保持站立。刚开始常只松手一小会儿。",
+      "example": "扶沙发站着时松开一只手，又短暂把另一只手也放开。",
+      "observe": "在自然玩耍中观察能否自己调整身体，不以站够固定秒数为门槛。",
+      "play": "把喜欢的玩具递到胸前，让已愿意松手的宝宝尝试站着接，成人在旁保护。",
+      "note": "不把宝宝突然放手留在原地，也不要求为了打卡长时间站着。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-cruise": {
+      "meaning": "双手扶着稳固家具，身体侧向移动，一小步一小步横着走，所以像“螃蟹走”。",
+      "example": "扶着沙发边缘，从一头挪到另一头拿玩具。",
+      "observe": "看能否左右换重心、脚跟着挪动，不用追求一次走完整段。",
+      "play": "清空家具边的地面，在侧面放玩具，成人近身看护。",
+      "note": "这里的栏杆指安全稳固的扶手，不是阳台、楼梯边或可攀越的护栏。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-hand-walk": {
+      "meaning": "在成人提供少量平衡帮助时，宝宝自己迈步向前。重点是宝宝主动承重和迈步。",
+      "example": "宝宝愿意走近你，轻扶你的手或躯干，自己走几步。",
+      "observe": "看脚步是不是由宝宝发起，而非被成人提着身体向前拖。",
+      "play": "对已经主动扶站、想迈步的宝宝，蹲低在身边提供轻柔支撑，并让他随时停下。",
+      "note": "不要提着双手吊走、拉手臂赶进度；自主扶物走和地面探索同样有价值。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-obstacle-crawl": {
+      "meaning": "爬行时遇到低矮障碍，能调整手脚、抬起身体或绕过去。",
+      "example": "爬过地面上一条很薄的折叠毯，继续去找玩具。",
+      "observe": "看是否会尝试改变姿势或路线，绕行也是有效解决办法。",
+      "play": "用地面低矮、稳定、不塌陷的垫子做小障碍，大人始终伸手可及。",
+      "note": "不用高沙发、松软枕堆或可能困住头脸的纸箱隧道增加难度。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-throw-down": {
+      "meaning": "手握住球后主动松开，让球向前下方离手。早期动作常像“扔下去”，尚不是准确投掷。",
+      "example": "坐在地垫上把软球往前一丢，看球滚走。",
+      "observe": "区分主动重复松手丢球与偶然掉落，不要求投远或投准。",
+      "play": "在地面近距离互相递、滚、丢大软球，轮流捡回来。",
+      "note": "不用硬球或小到可入口的球，不朝人脸扔。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-stable-ride": {
+      "meaning": "这里可理解为坐在底盘较宽、稳定的无动力骑乘玩具上，用脚蹬地慢慢移动。车型不同，所需能力也不同。",
+      "example": "坐在低矮四轮滑行车上，两脚交替蹬地前进。",
+      "observe": "看宝宝能否独坐、双脚够地、慢慢停住，而不只看是否坐得上去。",
+      "play": "在平整封闭空地选择尺寸合适、符合年龄标注的车，成人近身看护。",
+      "note": "“稳定车”不是统一发育术语；不包括把婴儿放入环形座位的有轮学步车。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-baby8"
+      ]
+    },
+    "g-one-leg-supported": {
+      "meaning": "手扶稳固物体，把一只脚短暂抬起，让另一条腿承担更多重量。",
+      "example": "扶着沙发抬起一只脚，让大人帮忙穿裤腿。",
+      "observe": "在穿衣或游戏中看是否能主动抬脚并短暂保持，不要求固定时长。",
+      "play": "扶着固定家具玩“给小脚穿袜子”，由宝宝主动抬脚，成人在旁保护。",
+      "note": "不要拉高脚或把身体吊在扶物上，左右脚可以慢慢轮换尝试。",
+      "sources": [
+        "g-aap-preschool"
+      ]
+    },
+    "g-fast-walk": {
+      "meaning": "走路越来越快、步子变短变急，可能看起来像小跑；真正跑步后来会出现双脚同时离地。",
+      "example": "听到你叫他，迈着快快的小步走过来。",
+      "observe": "看是否能加快、减慢和停下，允许兴奋时踉跄或改回走路。",
+      "play": "在平整空地玩慢走、快走、停一停的模仿游戏。",
+      "note": "“踮脚跑”不是快步走的标准定义，也不是必须练习的姿势；不用让孩子刻意踮脚跑。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-walk-alone": {
+      "meaning": "不用扶人或扶物，能自己迈出脚步并逐渐保持连续行走。最初两脚站得较宽、双臂抬起很常见。",
+      "example": "松开沙发，自己走几步去抱住大人。",
+      "observe": "看是否主动迈步、能逐渐停下和转向，而非要求一次走很远。",
+      "play": "在防滑平地留出短距离，让宝宝在熟悉大人之间自愿走动。",
+      "note": "走路起步时间有个体差异；不使用有轮婴儿学步车催走。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-backward-pull": {
+      "meaning": "一边向后迈步，一边拉动轻便玩具，需要同时调整身体重心和方向。",
+      "example": "面对玩具小车，向后退两步，把车拉近自己。",
+      "observe": "留意会不会查看身后、控制脚步，先能不拿物倒退也可以。",
+      "play": "清出平坦短路段，用没有长绳的轻便推拉玩具玩两三步倒退，大人在后方保护。",
+      "note": "不用长绳套在身体上，不在楼梯、台阶或道路边练习。",
+      "sources": [
+        "g-aap-baby8",
+        "g-aap-preschool"
+      ]
+    },
+    "g-stair-crawl": {
+      "meaning": "手脚共同支撑，爬上低台阶或较低障碍，再学习控制身体回到低处。上下的动作难度可以不同。",
+      "example": "在成人贴身保护下，用手膝爬上一个低台阶。",
+      "observe": "看是否会主动找支撑、调整手脚，以及能否在帮助下安全退回。",
+      "play": "优先用地面低台阶或稳定软体坡道，成人全程近身保护，一次只做很低的变化。",
+      "note": "楼梯须有安全门，不能让宝宝独自练习；“高阶”不代表要增加高度。",
+      "sources": [
+        "g-aap-baby8"
+      ]
+    },
+    "g-throw-far": {
+      "meaning": "抬起手臂，把球从肩部附近向前抛出，并逐渐学会控制方向。距离和准确度会慢慢变化。",
+      "example": "拿着软球，手臂向后准备，再把球往前扔。",
+      "observe": "看是否主动向前投掷、松手时机逐渐合适，不要求球一定很远。",
+      "play": "用大软球朝近处地面或大筐投掷，前方清空，成人示范一次再轮流玩。",
+      "note": "原图“过肩”是描述动作形式，不必纠正成成人投球姿势。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-kick-ball": {
+      "meaning": "身体由一条腿短暂支撑，另一条腿向前摆动把球踢出去。最初可能只是走过去碰到球。",
+      "example": "对着静止大软球站好，抬起一脚把球向前踢。",
+      "observe": "看是否有主动瞄准和摆腿动作，允许用很多小步调整位置。",
+      "play": "在宽敞平地把大软球放近一点，轮流踢向很宽的目标区域。",
+      "note": "这里不是要求长时间单脚站好再踢，先求愿意尝试和安全站稳。",
+      "sources": [
+        "g-nhs-activity",
+        "g-aap-sports"
+      ]
+    },
+    "g-heel-walk": {
+      "meaning": "抬起前脚掌，短暂用脚后跟着地向前走，是一种有意模仿的平衡游戏。它不同于普通走路的脚跟到脚尖过渡。",
+      "example": "模仿大人“脚尖翘起来”，慢慢走一两步。",
+      "observe": "在孩子已走得较稳、愿意模仿时观察，不要求走成直线或达到固定步数。",
+      "play": "在防滑平地先玩站着翘脚尖，再按兴趣试一两步，成人在旁保护。",
+      "note": "不是这个月龄必须掌握的标准里程碑，也不能用会不会脚后跟走单独判断发育。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-jump-in-place": {
+      "meaning": "两脚一起蹬地，短暂同时离开地面，再落回原处附近。开始可能只是蹲下、踮脚，还没有真正腾空。",
+      "example": "看着大人示范后，在地垫上做一个小小的双脚跳。",
+      "observe": "观察双脚是否有同时离地的瞬间，不要求跳得高或两脚完全并拢。",
+      "play": "在平整防滑地面模仿小兔轻轻跳，成人示范轻柔屈膝落地。",
+      "note": "不拉着双手把孩子提离地面来代替自主跳跃。",
+      "sources": [
+        "g-aap-preschool",
+        "g-nhs-activity"
+      ]
+    },
+    "g-avoid-obstacle": {
+      "meaning": "走路时看到前面的物品，会放慢、转向或绕过，结合了视觉判断和身体控制。",
+      "example": "发现前面有大积木，改变方向从旁边走过去。",
+      "observe": "看是否会注意障碍并尝试调整，先绕大圈也可以。",
+      "play": "在宽敞平地间隔摆两三个大而柔软的标志物，和孩子一起慢慢绕行。",
+      "note": "障碍要明显稳定，不用容易绊倒的细绳或散落小物。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-line-walk": {
+      "meaning": "沿着地面线条的大致方向走，需要注意脚步和身体重心。最初不必脚跟紧贴脚尖。",
+      "example": "沿地板上一条宽色带，从这头走到另一头。",
+      "observe": "留意是否能跟着路线前进，偏出去再调整也算练习的一部分。",
+      "play": "在防滑地面贴平整宽线，玩“沿小路回家”，成人在旁陪走。",
+      "note": "这里只是地面走线，不需要抬高成平衡木，也不要求一次不出线。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-both-feet-stairs": {
+      "meaning": "先一只脚踏上台阶，另一只脚再跟到同一级，两只脚并在一级后再继续，也叫并步上下楼。",
+      "example": "扶着扶手，上一级、并脚，再上一级。",
+      "observe": "分别观察上楼和下楼，能做到一边不代表另一边同样熟练。",
+      "play": "在成人贴身保护和稳固扶手帮助下，从很低的一两级开始，按自己的节奏走。",
+      "note": "上下楼不必同时熟练，不在无人保护的楼梯上练习。",
+      "sources": [
+        "g-aap-baby8",
+        "g-aap-preschool"
+      ]
+    },
+    "g-catch-air-ball": {
+      "meaning": "看着慢慢飞来的球，伸出双手或双臂接住；最初常用胸口和双臂一起抱住球。",
+      "example": "大人从很近处轻轻抛来大软球，孩子用两臂抱住。",
+      "observe": "看是否注意球、主动伸手，偶尔接住即可继续积累，不要求每次成功。",
+      "play": "从近距离慢慢递球、轻抛大软球开始，成人先做接抱示范。",
+      "note": "接球需要视觉追踪和协调持续发展，原图月龄不是必须准时达成的截止线。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-velcro-ball": {
+      "meaning": "把能粘住的软球投向较大的粘靶，练习看目标、向前投和控制力度。",
+      "example": "站在近处，把软粘球扔到胸口以下的大靶面上。",
+      "observe": "看是否会面向目标、有意朝它投，不按连续命中次数评判。",
+      "play": "用大靶、近距离和适龄大软球轮流投，鼓励尝试不同力度。",
+      "note": "是可选球类游戏，普通软球投大筐也能提供类似体验；不用有小零件的球。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "g-balance-obstacle": {
+      "meaning": "骑乘时看到障碍后，能减速、转向或停车，结合车辆控制、平衡和看路。",
+      "example": "在宽阔平地骑着合适的小车，绕开相隔很远的软标志物。",
+      "observe": "先看能否自己停住和转弯，再观察绕行，不以速度为目标。",
+      "play": "戴合适头盔，在封闭平地摆很宽的弯道，成人近身陪同慢速绕行。",
+      "note": "根据车辆类型、产品年龄和孩子能力选择玩法，未能控制停车前不增加障碍。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-helmet"
+      ]
+    },
+    "g-balance-beam": {
+      "meaning": "沿较窄路线一步步走，学着把身体重心保持在支撑范围内。原图“独木桥”可用地面宽线来体验。",
+      "example": "沿地面一条较窄的色带慢慢走，双臂自然展开。",
+      "observe": "观察是否会放慢、调整脚步和身体，偏出路线后可重新开始。",
+      "play": "先走地面宽线；熟练后才用贴地、低矮稳定且有软垫的器材，成人伸手可及。",
+      "note": "不用真正架高的木板或无保护高处；高度不是能力指标。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "g-air-run": {
+      "meaning": "跑动中会出现两只脚同时短暂离开地面的阶段，这是跑与快走的一个区别。",
+      "example": "追泡泡时步子加快，中间有一瞬间双脚都没踩在地上。",
+      "observe": "在自然奔跑中看动作逐渐连贯、能减速，不必逐帧检查或追求距离。",
+      "play": "在平整空旷区域玩短距离追影子、跑到标志物再慢慢停下。",
+      "note": "不要求成人式跑姿，也不要在湿滑地面、楼道或车流边追跑。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-long-jump": {
+      "meaning": "原地用双脚蹬地向前跳，再用双脚落地，练习发力、前进距离和落地平衡。",
+      "example": "从地面线后向前跳一点，落下后站稳。",
+      "observe": "关注是否愿意向前跳、能控制落地，不按厘米数排名。",
+      "play": "在防滑平地放两条距离很近的平面标记，玩“跳过小河”，逐渐按能力调整。",
+      "note": "先练小幅跳和柔和落地，不追求远度或与别的孩子比较。",
+      "sources": [
+        "g-aap-preschool",
+        "g-aap-sports"
+      ]
+    },
+    "g-jump-down": {
+      "meaning": "从低于自己能力上限的小台面跳到平地，需要判断高度、双脚发力与屈膝缓冲。原图标题中的“高处”不等于越高越好。",
+      "example": "在成人贴身保护下，从很低的稳固台阶跳到防滑软垫上。",
+      "observe": "先看平地跳和落地是否较稳；犹豫时允许改成走下来。",
+      "play": "优先在平地练习小跳，准备好后仅尝试低矮稳定台阶，成人近身保护落地区。",
+      "note": "不是必须完成的高空项目；不用床、椅子、栏杆等高处，也不推拉孩子跳下。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "g-alternate-stairs": {
+      "meaning": "左右脚轮换踩不同台阶，一只脚上一级，另一只脚接着上更高一级，也叫交替步。下楼常比上楼更难。",
+      "example": "扶扶手上楼时，左脚上一级，右脚上下一更高一级。",
+      "observe": "分开记录上楼与下楼、扶手与不扶手的情况，允许下楼继续并步。",
+      "play": "成人贴身陪同扶稳扶手，从少量低台阶开始练习交替迈步。",
+      "note": "不要求两种方向同时掌握，不因会交替上楼就撤掉楼梯保护。",
+      "sources": [
+        "g-aap-preschool"
+      ]
+    },
+    "g-bouncing-ball": {
+      "meaning": "标题说的是“地滚球”：球沿地面滚过来，孩子看着球移动，用双手或身体把它拦住。它与接弹起的球是不同任务。",
+      "example": "你把大软球沿地面轻轻滚来，孩子张开双手把球停住。",
+      "observe": "看是否会追踪球、把手放到球的路线附近，先挡住再抱起也可以。",
+      "play": "两人坐在平地上近距离互相滚球，熟悉后再慢慢增加距离。",
+      "note": "这里按原图标题解释为沿地面滚动的球；接弹地球是另一项任务，不混作同一动作。",
+      "sources": [
+        "g-aap-sports",
+        "g-nhs-activity"
+      ]
+    },
+    "g-two-wheel-balance": {
+      "meaning": "坐在没有脚踏的两轮平衡车上，用脚蹬地前进，再逐渐短暂抬脚滑行。核心是平衡、转向和控制停车。",
+      "example": "两脚先在地上走着推车，熟练后短暂抬脚滑一下。",
+      "observe": "先看尺寸是否合适、双脚能稳稳着地和会减速停车，再看滑行。",
+      "play": "佩戴合适头盔，按产品年龄要求在无车流的平整封闭空地慢慢练习。",
+      "note": "平衡车是可选活动，不必为了某个月龄追求脱脚滑行。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-helmet"
+      ]
+    },
+    "g-stepping-stones": {
+      "meaning": "在相隔不远的稳定落脚点之间跨步，练习看准位置、转移重量和维持平衡。",
+      "example": "踩着地面上几块宽大的防滑标记，像过小河一样往前走。",
+      "observe": "看是否会先找下一落脚点、调整跨步，能暂停再走。",
+      "play": "先用贴地防滑标记，熟练后才用低矮、宽大、不滑动的器材，成人近身保护。",
+      "note": "不是去真正河道的石头上练习；间距和高度以孩子能轻松控制为准。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "g-straddle-jump": {
+      "meaning": "这是原图的概括说法，可理解为跳起时双脚分开落地，或向前跳过很低的间隔，练习双腿协调。具体玩法要先说明。",
+      "example": "模仿大人从双脚靠近站立，轻轻跳成双脚分开。",
+      "observe": "观察是否能按示范改变双脚位置并站稳，不要求开合角度标准。",
+      "play": "在防滑平地用脚印贴玩“并拢—分开”，先跨步，愿意时再小跳。",
+      "note": "不跨越硬杆或高障碍；分腿开合跳与跨栏不是同一个必须完成的技能。",
+      "sources": [
+        "g-aap-sports",
+        "g-nhs-activity"
+      ]
+    },
+    "g-climb": {
+      "meaning": "借助手和脚的支撑把身体移向更高或不同位置，并学习如何安全回到地面。",
+      "example": "在适龄低矮攀爬架上，换手、抬脚，再从规定路线下来。",
+      "observe": "看是否能主动寻找手脚支点、听懂停下和返回的约定。",
+      "play": "选择适龄低矮固定器材和缓冲地面，大人近身保护，先练上下一小段。",
+      "note": "不用家具、窗台或护栏代替器材；不把高度作为完成标准。",
+      "sources": [
+        "g-nhs-activity",
+        "g-aap-sports"
+      ]
+    },
+    "g-bat-ball": {
+      "meaning": "双手或单手握住轻便球棒，看准球的位置并挥动去碰球，练习眼手协调与身体转动。",
+      "example": "用轻软球棒把静止大软球从低球座上轻轻打出去。",
+      "observe": "先观察是否能对准静止球、控制挥动方向，再考虑移动的球。",
+      "play": "使用适龄软球棒和大软球，在空旷区轮流击打，其他人站在挥棒范围外。",
+      "note": "属于可选运动体验，不要求参加棒球训练；不用成人硬棒和硬球。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "g-balance-race": {
+      "meaning": "在已经会控制方向和停车的基础上，体验骑行路线和节奏。“竞速”只是原图标题，幼儿更适合无输赢的路线游戏。",
+      "example": "沿宽阔封闭路线骑到标志物，停好车，再慢慢返回。",
+      "observe": "关注看路、减速和停车，不以用时、名次或超过别人判断完成。",
+      "play": "戴合适头盔，在平整封闭空地玩“骑到站点停一停”，成人看护并保持车距。",
+      "note": "学龄前宜以兴趣、基本技能和安全为主，不必安排竞速或追赶超车。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-helmet"
+      ]
+    },
+    "g-plum-stilts": {
+      "meaning": "原图把两类器材放在一起：梅花桩是走过间隔落脚点，高跷还要求控制脚下移动的支撑物，难度与风险不同。",
+      "example": "先踩着地面宽大防滑脚印走，之后按能力尝试贴地稳定踏盘。",
+      "observe": "先看地面跨步和单脚换重心是否稳定，不把两种器材都体验完才算会。",
+      "play": "优先用地面标记或低矮稳定踏盘，大人近身保护，不需要购买或练习真正高跷。",
+      "note": "不是标准必达里程碑；不用成人高跷、高桩或会滑动的自制器材。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "g-parkour": {
+      "meaning": "可理解为把跑、停、绕行、跨步和低处攀爬串成游戏路线。儿童活动中不需要模仿成人高空跑酷。",
+      "example": "沿地面路线慢跑，绕软标志物，跨过一条平贴色带，再停在终点。",
+      "observe": "看能否记住简单路线、控制速度和按约定停下，允许走着完成。",
+      "play": "用地面标记和低矮稳定软体器材安排短路线，成人全程看护并留足缓冲空间。",
+      "note": "不从高处翻越、飞跃或空翻；这是可选组合游戏，不是发育考试。",
+      "sources": [
+        "g-aap-sports",
+        "g-nhs-activity"
+      ]
+    },
+    "g-roller-skating": {
+      "meaning": "穿轮滑鞋时，需要在可滚动的支撑面上维持平衡、控制方向和刹停，是一种专门运动。",
+      "example": "在合适场地、专业指导下，先学习站稳和安全停下，再短距离滑行。",
+      "observe": "先看是否愿意、能听从停下的约定，不能用普通走路熟练代替轮滑准备度。",
+      "play": "按产品年龄与指导要求，使用适合轮滑的头盔和护具，在封闭平整场地由合格成人指导。",
+      "note": "属于可选运动，并非这个阶段必须会；不会刹停前不追求速度或上坡下坡。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-helmet-beyond"
+      ]
+    },
+    "g-rock-climb": {
+      "meaning": "“爬山”是在自然步道上行走，“攀岩”是利用手脚支点攀登专门岩壁，两者所需技能和保护方式不同。",
+      "example": "在成人陪伴下走平缓短步道；攀岩则在适龄设施和专业保护下体验。",
+      "observe": "关注体力、听从约定、看路和休息需求，不用登顶或高度评判。",
+      "play": "先选平缓短步道，若体验攀岩则选择适龄正规场馆，由专业人员配置对应保护系统。",
+      "note": "不在野外岩壁、陡坡或无保护高处攀登，不能把室内会攀爬等同于具备户外攀岩能力。",
+      "sources": [
+        "g-aap-sports",
+        "g-nhs-activity"
+      ]
+    },
+    "g-golf": {
+      "meaning": "用适龄球杆把静止球轻轻击向目标，练习对准、控制力度和轮流等待。幼儿可以从迷你推杆游戏体验。",
+      "example": "用轻便儿童推杆，把大软球推向近处宽目标。",
+      "observe": "看是否愿意对准球、轻推并等待轮流，不要求挥杆姿势或进洞率。",
+      "play": "在空旷平地用适龄轻杆、大软球和宽目标玩近距离推球，成人看护挥杆范围。",
+      "note": "是可选运动，不必购买成人球具或接受专项训练，也不用硬球朝人击打。",
+      "sources": [
+        "g-aap-sports",
+        "g-aap-preschool"
+      ]
+    },
+    "fine-grasp-release": {
+      "meaning": "早期手掌受到轻触时会本能握紧；随后才逐渐学会有目的地抓住和放开，这是两种不同的表现。",
+      "example": "把轻巧摇铃放进手心，宝宝能短暂握住，后来会主动松手。",
+      "observe": "观察宝宝是否开始张开手、看手和自愿放开，不把出生时的握紧反射当成主动抓取。",
+      "play": "清醒时把易握的大件玩具递到手边，给宝宝自己张手和接触的时间。",
+      "note": "不要提拉抓住成人手指的宝宝，也不要硬掰拳头。",
+      "sources": [
+        "f-cdc-4m"
+      ]
+    },
+    "fine-fist-mouth": {
+      "meaning": "宝宝把手靠近嘴、吸吮拳头，是探索身体和安抚自己的方式，也涉及手到嘴的定位。",
+      "example": "躺着时把小拳头送到嘴边，吸一吸后再拿开。",
+      "observe": "留意能否主动把手送到嘴附近，而不要求双拳同时进入嘴里。",
+      "play": "保持双手清洁，清醒时让双臂能自由活动，成人可以面对面轻声回应。",
+      "note": "“吞拳头”是形象说法，不需要把拳头塞入嘴里；不要用绳子把手套或玩具系在身上。",
+      "sources": [
+        "f-cdc-4m"
+      ]
+    },
+    "fine-fists-prone": {
+      "meaning": "趴着时把双臂放在身体前方、用前臂支撑，会为抬头和伸手打基础；重点是舒适的支撑姿势。",
+      "example": "清醒趴玩时，宝宝两只前臂贴着垫子，短暂抬头看成人。",
+      "observe": "看双臂能否参与支撑、头部是否能自由转动，不要求必须把拳头垫在胸口。",
+      "play": "在平坦稳固的地垫上短时间趴玩，把脸或玩具放在宝宝前方吸引注视。",
+      "note": "只在清醒且成人看护时趴玩；睡眠仍仰卧，不用枕头、软垫或玩偶垫高。",
+      "sources": [
+        "f-cdc-4m",
+        "f-nichd-sleep"
+      ]
+    },
+    "fine-pat-press": {
+      "meaning": "拍打是用手掌或手臂碰触目标；按压则逐渐学会把力量朝目标持续施加，属于早期手眼协调。",
+      "example": "看到悬挂的大玩具后挥手碰到它，或用手拍响玩具鼓面。",
+      "observe": "观察是否会朝看见的物品伸手，并开始重复能引起声音或变化的动作。",
+      "play": "把稳固的大按键玩具放在容易够到的位置，先示范一次，再等待宝宝尝试。",
+      "note": "玩具固定牢靠，避免长绳或小部件。",
+      "sources": [
+        "f-cdc-4m",
+        "f-cdc-6m"
+      ]
+    },
+    "fine-reach-toy": {
+      "meaning": "把眼睛看到的位置转化为手的移动，朝想要的物品伸手并碰到或抓住它。",
+      "example": "玩具放在面前，宝宝盯着看，然后伸手去拿。",
+      "observe": "区别随意挥手与有目标地够取，允许先碰到、再逐渐抓牢。",
+      "play": "把易握玩具放在刚好能碰到的地方，左右轮流提供机会。",
+      "note": "不要拉着手臂强迫伸直，也不必让宝宝反复够过远的玩具。",
+      "sources": [
+        "f-cdc-6m"
+      ]
+    },
+    "fine-palm-grasp": {
+      "meaning": "用整只手包住物品、物品贴着掌心，拇指与其余手指尚未精细分工；“乐高手”是原图的形象称呼。",
+      "example": "拿起粗柄摇铃时，几个手指一起包住柄，像小钩子抓着。",
+      "observe": "看能否主动抓牢并稍作调整，而不是检查手指是否摆成某种固定形状。",
+      "play": "提供大小适合手掌、轻巧且没有小零件的环形或粗柄玩具。",
+      "note": "“乐高手”不是标准医学术语，也不是指会玩乐高。",
+      "sources": [
+        "f-cdc-4m",
+        "f-cdc-6m"
+      ]
+    },
+    "fine-two-hands-toys": {
+      "meaning": "两只手能各自握住一件物品，开始在保持一只手动作的同时使用另一只手。",
+      "example": "左手拿着摇铃，右手还能接住另一只大积木。",
+      "observe": "观察接第二件时是否仍能留住第一件，允许先后抓取。",
+      "play": "先递一个轻玩具，等握稳后从另一侧再递一个，让宝宝自行选择。",
+      "note": "玩具要轻且吞不下，不要求两手力量或表现完全一样。",
+      "sources": [
+        "f-cdc-9m"
+      ]
+    },
+    "fine-poke-hole": {
+      "meaning": "用手指探索开口、凹槽的形状和边缘，重点是伸入与触摸，还不要求拿出东西。",
+      "example": "食指去摸形状盒的大孔，沿边缘戳一戳。",
+      "observe": "观察是否开始单独伸出一根手指，而不只用整个手掌拍。",
+      "play": "提供开口圆滑、不会夹住手指的探索盒，陪着说“里面、外面”。",
+      "note": "不使用插座、真实电器孔洞或可能卡指的小孔。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-pull-pick": {
+      "meaning": "把抓住物品后的动作延续为拉出、摘下或取走，逐渐控制方向和用力。",
+      "example": "从松放的布盒里拉出一条布，或从魔术贴板上摘下大图块。",
+      "observe": "观察会不会先抓稳再拉，遇到一点阻力时能否改变手的位置。",
+      "play": "把大布条松松放入纸巾盒式玩具，让宝宝一条条抽出来。",
+      "note": "不要用塑料袋、长绳、细线或容易脱落的小装饰物。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-grasp-combo": {
+      "meaning": "原图把抓、举、晃、啃、丢串成一组探索动作，表示宝宝会用不同方式研究同一个物品。",
+      "example": "拿起摇铃后举到眼前，晃出声音，再放下或松手掉落。",
+      "observe": "留意能否主动变换动作，不需要一次完整做完所有步骤。",
+      "play": "给一件安全大玩具，成人描述宝宝的动作，并允许在安全范围内反复放下再捡起。",
+      "note": "入口探索只用适龄、完整可清洗玩具；不必鼓励朝人或硬物抛掷。",
+      "sources": [
+        "f-cdc-6m",
+        "f-cdc-9m"
+      ]
+    },
+    "fine-toy-basket": {
+      "meaning": "主动把手里的物品移动到容器上方，再有目的地松手；这是控制放手和位置判断的结合。",
+      "example": "把大积木放进敞口篮子，而不是随手掉到身旁。",
+      "observe": "看是否能对准容器再放开，开始时碰到篮沿或投偏都很常见。",
+      "play": "用低边大篮子玩“玩具回家”，一次只给一两件大物品。",
+      "note": "篮子无锐边、不易翻倒，避免用易碎容器。",
+      "sources": [
+        "f-cdc-12m"
+      ]
+    },
+    "fine-hand-transfer": {
+      "meaning": "把同一件物品从一只手交到另一只手，使双手在身体中间相遇并交接。",
+      "example": "右手握着摇铃，左手接住后右手松开。",
+      "observe": "观察是主动交接，还是物品掉下后再捡起来；两种方向都可自然练习。",
+      "play": "递给宝宝一个容易双手抓住的大环，等他摸到两侧后观察是否换手。",
+      "note": "不固定某只手，也不提前指定惯用手。",
+      "sources": [
+        "f-cdc-9m"
+      ]
+    },
+    "fine-bang-objects": {
+      "meaning": "双手各拿一件物品并让它们在中间碰到，结合双手协调、空间判断和声音反馈。",
+      "example": "拿着两只大积木，在胸前碰一下发出声响。",
+      "observe": "看两件物品是否有意相碰，而不要求每次准确或节奏一致。",
+      "play": "成人拿两只大积木慢慢示范，宝宝有兴趣时一起玩“碰一碰”。",
+      "note": "选轻质、无裂口的大件，避免玻璃、金属重物和过大噪声。",
+      "sources": [
+        "f-cdc-9m"
+      ]
+    },
+    "fine-poke-retrieve": {
+      "meaning": "在伸手指探索洞口的基础上，尝试拨动、勾出或取出里面的物品，需要更具体的目标和手指控制。",
+      "example": "用手指从浅凹槽里拨出一块大拼板。",
+      "observe": "观察是否会改变手指角度把物品带出来，而不是只反复戳洞。",
+      "play": "把露出一部分的大布块放在宽口盒里，让宝宝自己拨出或抓出。",
+      "note": "洞口应足够宽且圆滑；不用坚果、豆子或会卡住手指的容器。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-door": {
+      "meaning": "理解门板如何沿铰链转动或沿轨道移动，并用手完成打开和关上。",
+      "example": "推开玩具柜的小门，再轻轻拉回来。",
+      "observe": "看能否根据门的结构选择推、拉或滑动，并逐渐控制关门力度。",
+      "play": "用带防夹设计的玩具门板玩“打开找朋友”，不追求速度。",
+      "note": "真实房门、抽屉和推拉门需防夹手；不让孩子独自操作沉重玻璃门。",
+      "sources": [
+        "f-cdc-30m"
+      ]
+    },
+    "fine-board-book": {
+      "meaning": "抓住厚实书页的边缘并翻过去，是双手配合和控制放手的早期阅读动作。",
+      "example": "一手扶着硬纸板书，另一手把一整页掀到旁边。",
+      "observe": "看是否开始有目的地翻页，初期一次翻多页也属于探索。",
+      "play": "共读时稍抬起一页边角，留给宝宝自己翻开的机会。",
+      "note": "书页边缘完整；不拉扯宝宝手指，也不要求按顺序翻。",
+      "sources": [
+        "f-cdc-30m"
+      ]
+    },
+    "fine-ring-switch": {
+      "meaning": "用一根手指勾住大环，或把拨杆推向另一侧，练习手指分离和有方向的用力。",
+      "example": "拉一下固定的大环使玩具发声，或拨动大型玩具开关。",
+      "observe": "留意是否会单独使用食指，并按机关需要拉或拨。",
+      "play": "提供结构简单的适龄活动板，每次只示范一个机关。",
+      "note": "只用不通电的玩具开关；拉环不能套紧手指或连着长绳。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-four-finger": {
+      "meaning": "“四指捏／猴式抓握”不是统一的专业分期名称，通常形容拇指对掌作用还不明显、其余手指一起把物品拢向掌心的抓法。",
+      "example": "手指像小耙子一样把面前的物品拢近，再抓起来。",
+      "observe": "重点看手指是否开始主动弯曲收拢，不用数够四根手指才算完成。",
+      "play": "在桌面放一个吞不下、容易抓取的大布块，让宝宝自己拢近和拿起。",
+      "note": "不同资料可能把耙式抓取、掌握或初级捏取分开描述；不要用原图名称作诊断。",
+      "sources": [
+        "f-cdc-9m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-mug-ball": {
+      "meaning": "把物品放进较窄容器并取出来，需要判断开口大小、调整手的位置和控制松手。",
+      "example": "把大布球放进宽口杯，再翻转杯子让球出来。",
+      "observe": "看能否对准杯口，发现拿不出时尝试倾倒或换一种抓法。",
+      "play": "用塑料宽口杯和大布球玩“进去、出来”，先从很宽的开口开始。",
+      "note": "不用陶瓷马克杯、玻璃杯或可吞咽小球。",
+      "sources": [
+        "f-cdc-12m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-ring-post": {
+      "meaning": "把圆环的孔对准柱子再向下套，核心是眼睛引导手的位置和释放时机。",
+      "example": "把大圆环举到短柱上方，套到底部。",
+      "observe": "观察是否会转动或移动圆环来对准，而不是只碰到柱子就松手。",
+      "play": "给宽孔大环和低矮圆头柱，先让宝宝摘下，再尝试套回。",
+      "note": "柱子短且圆钝、底座稳定，圆环尺寸必须吞不下。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-marker-cap": {
+      "meaning": "一手稳定笔身，另一手把笔帽与笔端对齐后推上或拔下，练习双手分工。",
+      "example": "把大号粗笔帽套回笔身，听见轻微卡合声。",
+      "observe": "看是否会先对准再施力，是否用另一只手稳住物品。",
+      "play": "可先用两截容易套接的大筒练习，再由成人看护尝试适龄粗笔。",
+      "note": "小笔帽可造成窒息，必须由成人掌管；避免用过紧笔帽造成突然脱手。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-clap": {
+      "meaning": "双手在身体中间靠近并相碰，逐渐能模仿成人节奏，也常用于表达高兴。",
+      "example": "听到熟悉儿歌时，双手碰在一起拍两下。",
+      "observe": "观察宝宝是否主动或模仿拍手，早期两手位置不完全对齐也正常。",
+      "play": "面对面唱短儿歌，慢慢拍手并停下来等宝宝回应。",
+      "note": "不抓着宝宝双手用力对拍。",
+      "sources": [
+        "f-cdc-15m"
+      ]
+    },
+    "fine-twist-candy": {
+      "meaning": "原图用糖果玩具表示两手抓住不同部分、朝相反方向转动，使部件分开或合拢的动作。",
+      "example": "一手握住大玩具糖果主体，另一手拧开外壳。",
+      "observe": "看是否能稳定一侧并转动另一侧，而不是只往外拉。",
+      "play": "用易拧的宽口大罐代替，成人先松开一点让宝宝完成最后半圈。",
+      "note": "使用大件不含食物的玩具，不用硬糖、紧裹糖纸或小包装练习。",
+      "sources": [
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-peel-orange": {
+      "meaning": "一只手扶住水果，另一只手找到边缘、捏住并撕下果皮，是双手分工和力度调节。",
+      "example": "成人先揭开一小块橘皮，孩子接着往下剥。",
+      "observe": "观察能否持续扶稳橘子并沿已开的边缘剥，不要求一整条剥完。",
+      "play": "先用容易剥的橘子，由成人开口，再让孩子剥一两片。",
+      "note": "成人处理水果并根据咀嚼能力提供安全形状；果皮不入口，进食时坐稳看护。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-unlock-press": {
+      "meaning": "用拨、推、压等动作解除简单卡扣，学会把机关的变化与自己的操作联系起来。",
+      "example": "按下玩具盒的大按钮，盒盖弹开露出里面的动物图案。",
+      "observe": "看会不会寻找并重复有效动作，先允许成人提示位置。",
+      "play": "选只有一个大按钮或大滑扣的活动盒，轮流开、关和藏大玩具。",
+      "note": "不使用真实门锁限制孩子出入，机关应防夹手且无弹出的细小零件。",
+      "sources": [
+        "f-cdc-2y",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-thin-book": {
+      "meaning": "用指腹分开较薄的两页，再逐页翻过去；相比厚页书，更需要轻柔捏取和控制力量。",
+      "example": "一起读绘本时，孩子捏住右上角翻到下一页。",
+      "observe": "看是否逐渐从一把翻多页变为单页翻动，不以偶尔撕破作失败。",
+      "play": "从结实、页数少的绘本开始，成人可轻抬页角供孩子接手。",
+      "note": "机关书中的拉条和小附件需牢固，破损后及时收起。",
+      "sources": [
+        "f-cdc-30m"
+      ]
+    },
+    "fine-pop-button": {
+      "meaning": "按按乐需要单指向下压；衣服按扣需要把两部分对齐再压紧，两者共享施力控制但难度不同。",
+      "example": "用食指压下一个大硅胶泡泡，或把练习板上的大按扣按合。",
+      "observe": "分别观察能否准确按到目标，以及能否在另一只手固定时对准按扣。",
+      "play": "先玩大按压玩具，再用放在桌上的大扣练习板练习对准。",
+      "note": "检查按扣牢固，脱落扣子立即收起；不在穿着的衣物上用力压到皮肤。",
+      "sources": [
+        "f-cdc-5y",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-zipper": {
+      "meaning": "一手固定衣物或拉链底部，另一手握住拉片沿轨道拉动；把开口拉链接合通常更难。",
+      "example": "外套拉链已接好，孩子自己从下往上拉。",
+      "observe": "把“能拉动已接好的拉链”和“能独立插好拉链头”分开观察。",
+      "play": "成人先接合底座，再让孩子完成最后一段，逐步减少帮助。",
+      "note": "先在脱下的衣服或练习板上玩，避免夹到下巴与皮肤。",
+      "sources": [
+        "f-nhft-daily"
+      ]
+    },
+    "fine-fingertip": {
+      "meaning": "从整掌抓取转向用指腹或指尖夹住物品，拇指开始与其他手指配合。",
+      "example": "捏起布书上翘起的大布标签，而不是把整页握进掌心。",
+      "observe": "看物品是否主要被指端夹住；不限定必须已经只用拇指和食指。",
+      "play": "提供宽大、牢固的布标签或立起的大拼片，让孩子捏住边缘拿起。",
+      "note": "不需用豆子或米粒验证；小物品和食物有误吞风险。",
+      "sources": [
+        "f-cdc-12m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-bottle-beans": {
+      "meaning": "原图用瓶子与黄豆表示“捏取—对准小口—放入—倾倒”的连续动作，核心是手眼协调和控制放手。",
+      "example": "把大积木逐个放进宽口收纳罐，再把罐子倾斜倒出。",
+      "observe": "观察能否对准开口、主动放开，并知道倾倒能让物品出来。",
+      "play": "改用吞不下的大件和相应宽口容器，开口够大后再逐渐增加对准要求。",
+      "note": "不让幼儿拿黄豆、硬豆或小瓶盖练习；窄口瓶里的小物也不能作为无人看管玩具。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-fit-lid": {
+      "meaning": "将盖子与盒口对齐，调整方向后盖严，涉及形状匹配、双手稳定和力量控制。",
+      "example": "给圆盒盖上圆盖，发现歪了后再挪正。",
+      "observe": "看会不会根据边缘调整位置，而不只把盖子放在上面。",
+      "play": "准备两三个形状差异明显的大塑料盒，先从松紧合适的一对开始。",
+      "note": "选无夹手边缘的大盖，不用小药瓶、玻璃瓶或装有清洁剂的容器。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-container-insert": {
+      "meaning": "把长条或片状物调整到合适角度，送入容器开口，是更精确的空间定位。",
+      "example": "把大卡片转到竖直方向，投进玩具邮筒的宽缝。",
+      "observe": "看能否旋转物品来适应开口，失败后是否会尝试改变角度。",
+      "play": "用圆角大卡片和纸盒宽缝玩寄信，成人先展示“转一转再放”。",
+      "note": "不用尖棍、筷子或会折断刺人的细棒；片状物也应吞不下。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-small-blocks": {
+      "meaning": "一手拿住一片积木、另一手对准连接点并压合，建立双手协作与结构理解。",
+      "example": "把两块大颗粒拼插积木扣在一起，再拆开。",
+      "observe": "看能否先对齐连接面再压，是否会调整双手握的位置。",
+      "play": "从适龄大颗粒、连接松紧适中的两块开始，鼓励自己决定怎么拼。",
+      "note": "原图“小片”不代表必须用小零件；仍爱把东西放嘴里时应使用吞不下的大颗粒。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-drink-cup": {
+      "meaning": "双手稳定杯子、控制倾斜角度并协调吞咽；不洒水是逐渐熟练后的表现。",
+      "example": "用小开口杯喝一口水，再把杯底放回桌上。",
+      "observe": "看是否能稳定送到嘴边并慢慢倾斜，不要求初学就一滴不洒。",
+      "play": "用轻巧小杯装少量常温饮用水，成人在旁扶底并逐步减少帮助。",
+      "note": "坐稳喝水，不边走边喝；18个月时开口杯饮水仍可能洒出，不能据此判断落后。",
+      "sources": [
+        "f-cdc-12m",
+        "f-cdc-18m",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-twist-tap-towel": {
+      "meaning": "拧水龙头是转动手腕调节开关；拧毛巾是双手反向转动，两者都需要抓牢并控制扭力。",
+      "example": "一手固定湿毛巾一端，另一手转动，把水挤出来。",
+      "observe": "分开观察单手旋转与双手反向扭动，不要求一次把毛巾拧得很干。",
+      "play": "在浅托盘上用小毛巾和少量常温水玩“挤水给花喝”。",
+      "note": "真水龙头由成人控制水温，避免热水烫伤；水盆活动始终近距离看护。",
+      "sources": [
+        "f-cdc-30m",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-combination-lock": {
+      "meaning": "简单组合锁需要按某个顺序拨、推或转，除手指操作外还涉及记住步骤和观察线索。",
+      "example": "按图卡把玩具锁的两个大拨块拨到指定位置，再打开盒子。",
+      "observe": "看是否能在提示下完成两三步动作，不把记住密码当成精细动作的唯一标准。",
+      "play": "从一个动作可打开的玩具锁开始，再增加明显的颜色或形状配对。",
+      "note": "不是必须掌握的医学里程碑；不使用药箱、保险柜或真实门禁密码练习。",
+      "sources": [
+        "f-cdc-2y",
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-seat-buckle": {
+      "meaning": "把卡扣两端对齐并推入，直到扣合，涉及双手分工和方向判断。",
+      "example": "在桌面练习板上把大卡扣插入扣座。",
+      "observe": "看能否辨认正反、扶稳一端再推动另一端，不要求用很大力。",
+      "play": "只在独立的玩具卡扣板上练习，成人先给出正确朝向。",
+      "note": "不教孩子解开正在使用的汽车安全座椅或高脚椅安全带；实际约束系统由成人检查与操作。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-two-finger-pinch": {
+      "meaning": "拇指与食指的指端相对夹取，常称“钳式抓握”或“精细捏取”，比多指一起拢抓更精准。",
+      "example": "用拇指和食指捏住大贴纸翘起的一角。",
+      "observe": "观察其余手指是否较少参与夹住目标，但不要求动作像成人一样利落。",
+      "play": "成人揭起一小角大贴纸，让孩子用两指把整张贴下来。",
+      "note": "用大贴纸或大布标签替代豆子；无需让孩子接触可吞咽小物测试。",
+      "sources": [
+        "f-cdc-12m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-tube-beans": {
+      "meaning": "原图用细口试管和绿豆增加对准难度，本质仍是精确捏取、瞄准开口和松手。",
+      "example": "把大号圆片对准玩具投币盒的缝，再放进去。",
+      "observe": "看是否在放手前主动调整手指和物品角度，避免只凭掉落碰巧进入。",
+      "play": "改成大号投币玩具或宽缝纸盒，用吞不下的大圆片练习。",
+      "note": "不用玻璃试管、绿豆或细小零件；“口越小越好”不是训练原则。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-shape-inset": {
+      "meaning": "把拼片与底板的凹槽匹配，调整位置与方向后嵌进去，结合视觉辨别和手部定位。",
+      "example": "把圆形拼片放到圆槽里，再试三角形需要转一下才能放入。",
+      "observe": "看能否根据轮廓寻找位置，而不是只靠成人指出每一个洞。",
+      "play": "先用两三种差异明显、带大手柄的嵌板，允许拿出来再放回。",
+      "note": "拼片尺寸适龄，手柄牢固，避免尖角和小磁吸片。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-key-usb": {
+      "meaning": "将细长物的方向和插口对齐，再平稳插入或拔出，要求较细的手眼配合。",
+      "example": "把玩具钥匙对准玩具锁孔，插好后再拔出来。",
+      "observe": "看会不会先观察朝向，遇到阻力时调整而非强行硬推。",
+      "play": "用不通电的玩具插接板或大号钥匙模型练习方向匹配。",
+      "note": "不要使用真实插座、电源插头或通电 USB 端口；钥匙、USB 头和金属零件也可能被吞入。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-thread-beads": {
+      "meaning": "一手扶住带孔物体，另一手把绳头对准孔穿过去，再拉出，是典型双手分工与手眼协调。",
+      "example": "把短粗绳穿过一个大孔珠，另一手接住绳头拉出来。",
+      "observe": "看能否持续扶住珠子、找到孔的另一端，而不只是成人把绳头塞好。",
+      "play": "从吞不下的大珠、宽孔和短硬绳头开始，先只穿一颗。",
+      "note": "成人全程看护并及时收绳，不戴在颈部、不用长绳或小珠。",
+      "sources": [
+        "f-cdc-3y",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-twist-key": {
+      "meaning": "插入以后用手指和手腕转动钥匙，一手通常还要固定锁体。",
+      "example": "玩具钥匙插进锁孔后转半圈，盒门打开。",
+      "observe": "观察能否在保持插入的同时转动，不以真实锁的阻力测试力量。",
+      "play": "使用阻力小、大手柄的玩具钥匙锁，先由成人扶稳底座。",
+      "note": "不用真实门锁或能锁住人的柜子，玩具钥匙应大而圆钝。",
+      "sources": [
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-horn-buckle": {
+      "meaning": "羊角扣是长条形扣子穿过绳圈或布圈的衣物扣件，需要把扣子转到合适方向再送过去。",
+      "example": "一手拉住布圈，另一手把大羊角扣竖着穿过，再转平固定。",
+      "observe": "看是否理解“先缩小通过的截面、再转回”这个动作，而不只用力拉扯。",
+      "play": "在平放桌面的旧外套或大扣练习板上，由成人先撑开圈。",
+      "note": "纽扣与绳圈缝牢，避免细长绳套住手指；不在颈部衣物上练习。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-untie-laces": {
+      "meaning": "找到鞋带结中可以拉动的绳头，按合适方向松开活结，结合双手稳定和动作顺序。",
+      "example": "一手扶着鞋子，另一手拉出蝴蝶结的一端，让结松开。",
+      "observe": "看能否分辨绳头和绳圈，先学会解开，不要求马上会系结。",
+      "play": "用桌面鞋带板和短粗带，成人打一个很松的单活结供孩子拆。",
+      "note": "绳带不绕颈、不拉长散放，玩完立即收起；穿鞋时成人检查避免绊倒。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-mushroom-pegs": {
+      "meaning": "将带柄拼钉对准底板洞口并按入，练习指尖持物、对准和控制压力。",
+      "example": "握住大号蘑菇钉的帽，把柄对准板洞插好。",
+      "observe": "看能否垂直对准和拔出，是否能在遇阻时换一个角度。",
+      "play": "选吞不下的大号插钉板，先只插一两颗，再按颜色摆放。",
+      "note": "普通小蘑菇钉可被吞入；按产品年龄选大件，破损或松动立即停用。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-pour-cups": {
+      "meaning": "双手分工扶稳接水杯、控制倒水杯的倾角与流量，也包含估计容量和及时停止。",
+      "example": "把半杯常温水慢慢倒进另一只宽口杯，快满时停住。",
+      "observe": "看能否观察水流调整倾斜，不把完全零洒漏作为初学要求。",
+      "play": "在托盘里用两个轻杯和少量常温水来回倒，成人示范慢倒。",
+      "note": "始终近距离看护，不用热液或玻璃；结束后倒净积水并擦干地面。",
+      "sources": [
+        "f-cdc-4y",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-twist-cap": {
+      "meaning": "一手固定瓶身，另一手反复旋转瓶盖，练习抓握、手腕旋转和重新换握。",
+      "example": "把大罐盖拧开，转几次后盖子完全离开罐口。",
+      "observe": "看能否在多次转动中稳定瓶身，并知道何时换手位。",
+      "play": "用空的宽口塑料罐和大盖，成人先松开，再让孩子完成剩余几圈。",
+      "note": "“3圈以上”来自原图玩法，非统一发育门槛；不用药瓶、小瓶盖或残留化学品的容器。",
+      "sources": [
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-five-finger": {
+      "meaning": "按提示让拇指依次碰食指、中指、无名指和小指，练习手指分离与动作次序。",
+      "example": "唱手指歌时，拇指慢慢与其他指尖轮流碰面。",
+      "observe": "看是否开始能分别动不同手指，允许成人示范并慢做，不计速度。",
+      "play": "把拇指当“小火车”，依次到四根手指站点，玩几轮就停。",
+      "note": "“快速”不是必须达成的里程碑，不用掰压手指或长时间机械练习。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-kettle-formula": {
+      "meaning": "原图借“冲奶”描述一手稳定杯子、另一手持壶控制倒入量的生活动作；核心是双手控流与步骤配合。",
+      "example": "用空玩具壶把少量常温水倒进空杯，模拟给娃娃准备饮品。",
+      "observe": "看能否双手分工、慢慢倾壶并及时停下，不考查配奶知识。",
+      "play": "用轻巧儿童壶、宽口杯和常温水在托盘内模拟倒水。",
+      "note": "不让幼儿实际冲泡奶粉、不用热水或热奶；配奶与温度、比例和卫生由成人负责。",
+      "sources": [
+        "f-cdc-4y",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-peel-chestnut": {
+      "meaning": "原图想表现抓住边缘、捏拉外皮与双手稳定，但栗壳坚硬、果仁可噎住，不是必要训练材料。",
+      "example": "把大块可重复贴的贴纸从底板上剥下，另一手按住底板。",
+      "observe": "观察能否持续捏住薄边并调节拉力，不用“能剥开栗子”判断发育。",
+      "play": "以大贴纸、厚纸胶带或成人已开口的橘皮做替代。",
+      "note": "不用带壳栗子考验手劲；坚果和整颗果仁有噎食风险，进食需按能力安全处理。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-safe": {
+      "meaning": "操作玩具保险箱通常包含转盘、按键和开门等连续动作，融合步骤记忆与手部操作。",
+      "example": "照着颜色提示转动大转盘，再拉开玩具盒门。",
+      "observe": "看能否在示范后按顺序完成，不把数字密码记忆当成手部能力。",
+      "play": "改用无锁闭风险的玩具机关盒，只保留一两种清楚的操作。",
+      "note": "这是可选游戏，并非必须会开的生活技能；不用真实保险柜、药柜或门禁练习。",
+      "sources": [
+        "f-cdc-2y",
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-weave": {
+      "meaning": "让一条材料反复从其他材料的上方、下方穿过，涉及交替规则、双手分工和保持张力。",
+      "example": "用宽纸条按“一上一下”穿过纸板格子。",
+      "observe": "看是否能找到下一个空隙，并在另一手扶稳时拉平材料。",
+      "play": "成人先做宽缝纸板，用短宽纸条编两三行，再一起看交错图案。",
+      "note": "用宽纸条替代细绳或毛线长圈，材料不要缠住颈部和手指。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-dress": {
+      "meaning": "把衣服认准方向，伸手伸脚并拉到合适位置，是动作计划、平衡与双手配合的综合自理能力。",
+      "example": "坐稳后把腿伸进宽松裤腿，再站起来拉好腰部。",
+      "observe": "按具体步骤观察孩子能独立做哪一段，扣纽扣、拉链可另作记录。",
+      "play": "从宽松开襟衣和松紧裤开始，成人留最后一步让孩子完成。",
+      "note": "自主穿衣是逐步形成的，不要求某一天突然全会；坐稳穿裤避免跌倒，不强制左右惯用手。",
+      "sources": [
+        "f-cdc-3y",
+        "f-cdc-5y",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-piano-type": {
+      "meaning": "按不同键需要单指活动、按键定位和节奏控制，双手操作时还会加入左右分工。",
+      "example": "在玩具琴上用一根手指按出一个音，再换另一根手指。",
+      "observe": "看是否能有选择地按键、松开再按，不以曲子难度或打字速度评判。",
+      "play": "用大键玩具琴玩“你按一个、我按一个”，也可用桌面手指节奏游戏替代。",
+      "note": "乐器与打字均属可选活动，不是必须完成的发育项目；不必为此增加屏幕时间。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-needle-thread": {
+      "meaning": "核心是把线头与孔眼对准、送入并从另一边拉出，是精细手眼协调与双手交接。",
+      "example": "把粗绳头穿过大号纸板洞，另一只手接住拉出来。",
+      "observe": "观察能否先找孔、再对准、最后拉过，先用大孔也能体现能力。",
+      "play": "用打孔硬纸板和短粗绳，或合规大号圆钝穿线玩具练习。",
+      "note": "不用真实针、尖针、细针或小针眼考验孩子；成人准备材料并收好绳具。",
+      "sources": [
+        "f-cdc-3y",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-embroidery": {
+      "meaning": "在一块底材上连续穿入、穿出，让线形成图案，要求双手协作、保持顺序和调整拉力。",
+      "example": "用圆钝大号玩具穿线工具沿纸板的大孔穿出一条虚线。",
+      "observe": "看是否能接着上一个孔继续穿，线卡住时会不会放慢或调整。",
+      "play": "从大孔穿线板和短粗绳做两三针“缝线画”，成人帮助翻面。",
+      "note": "这是兴趣活动，非必会里程碑；不用真绣针，不让长线缠绕身体，工具全程看护。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-latte-art": {
+      "meaning": "原图名称借用了咖啡拉花，实际可理解为一手稳定容器、另一手调节倾角和流速来形成图案。",
+      "example": "把常温水从小壶慢慢倒入透明杯，观察流线随高度和角度改变。",
+      "observe": "看能否稳定双手并根据流量调整，不要求做出咖啡图案。",
+      "play": "用常温水在托盘内倒流线，或用大画笔画出弧线和圈。",
+      "note": "不向儿童提供咖啡、热奶或热水；咖啡拉花不是儿童必要发育指标。",
+      "sources": [
+        "f-cdc-4y",
+        "f-nhft-daily",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-knock-blocks": {
+      "meaning": "推动搭好的积木让它倒下，体验手的动作带来结构变化，也常是参与搭建游戏的起点。",
+      "example": "成人叠起两块大积木，宝宝伸手一推看它们落到地垫上。",
+      "observe": "看是否有意接近并推动积木，也可留意是否期待再次搭起。",
+      "play": "在地面用轻质大积木搭矮塔，轮流“搭起来、推倒”。",
+      "note": "不在孩子头顶搭高，不用沉重木块或易碎物。",
+      "sources": [
+        "f-cdc-9m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-try-stack": {
+      "meaning": "尝试把一件物品放在另一件上并松手，开始体会放置位置与平衡。",
+      "example": "把大积木举到另一块上方，放歪了再试一次。",
+      "observe": "看有无主动把两块相叠的意图，初期塔立不住不等于没有进步。",
+      "play": "用底面平、大小一致的大积木，成人先示范两块相叠再轮流。",
+      "note": "过程比高度重要，不按一次成功与否下结论。",
+      "sources": [
+        "f-cdc-15m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-stack-two-three": {
+      "meaning": "能把两三块实心积木逐块放稳并松手，较早期尝试更需要精准落点和轻放。",
+      "example": "先放好底块，再把第二块与第三块叠在上面。",
+      "observe": "观察是否能自己放稳，而非成人扶住积木塔才不倒。",
+      "play": "在平整桌面给三块同样大小的轻积木，允许推倒重来。",
+      "note": "层数来自原图活动安排，不是本说明重新规定的年龄标准。",
+      "sources": [
+        "f-cdc-15m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-stack-five": {
+      "meaning": "连续叠放多块积木时，需要保持注意、调整落点并根据塔的倾斜轻放。",
+      "example": "搭到第四块发现歪了，移正后再放第五块。",
+      "observe": "看是否会主动调平和改变放置动作，不只记录最高层数。",
+      "play": "提供五块宽底积木，先让孩子自由搭，再一起观察哪里更稳。",
+      "note": "不把“必须五层”当成统一评估题；用轻质大块并避免在高处搭建。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-block-path": {
+      "meaning": "把积木沿某个方向首尾连接，形成路、围栏等连续结构，涉及空间排列与双手放置。",
+      "example": "在地垫上把长积木一块接一块排成小汽车的路。",
+      "observe": "看能否让相邻积木接近，并根据想走的方向转弯。",
+      "play": "先搭两块当路头，邀请孩子接到玩具车库，不要求边缘完全齐平。",
+      "note": "保持活动区通畅，收好散落积木避免绊倒。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-balance-tree": {
+      "meaning": "把零件放在平衡支点上，感受左右重量和位置如何影响稳定，是手部微调与试错游戏。",
+      "example": "在大号平衡树两侧轮流放积木，看到倾斜后换一个位置。",
+      "observe": "观察会不会轻放、等待结构稳定再加下一件，而非只看搭了几层。",
+      "play": "使用稳定底座、吞不下的大配件，先由成人扶住底座玩一两层。",
+      "note": "“2–4层”是原图玩法，不是医学里程碑；倒下时可能砸手的重件不使用。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-build-solid": {
+      "meaning": "从单纯叠高发展到组合不同方向和形状，做出有空间结构的作品。",
+      "example": "用两根柱子加一块横板搭桥，让玩具车从下面通过。",
+      "observe": "看是否开始带着想法选材料、调整支撑，而不以作品是否像成人示范为准。",
+      "play": "提供几种大积木，问“怎样让车从下面过”，鼓励多种搭法。",
+      "note": "作品无需一次成形，成人可帮助稳定但不替孩子完成每一步。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-tangram-copy": {
+      "meaning": "比较图上的位置、方向与整体轮廓，再把几何片移动、旋转到相应位置。",
+      "example": "看着只有两三片的示意图，用大三角形和正方形拼出房子。",
+      "observe": "观察能否旋转拼片和检查边缘是否相接，先允许照着轮廓摆。",
+      "play": "从大号、片数少、带实际大小轮廓的拼图开始，再逐渐撤掉底图。",
+      "note": "七巧板是可选拼图，不需一开始完成七片；不用含可脱落小磁铁的款式。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-lego": {
+      "meaning": "将有连接结构的积木对齐、压合与拆开，并逐渐依照自己的想法搭建。",
+      "example": "两手把大颗粒拼成小车，再调整车身的长短。",
+      "observe": "看能否扶稳底座、对准连接点并控制压合力度，不按品牌或套装难度评判。",
+      "play": "使用符合实际年龄的大颗粒拼插积木，先自由搭，再尝试一个简单目标。",
+      "note": "“乐高”是品牌举例；小颗粒按年龄标识使用，仍入口探索时不用可吞咽零件。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-build-symbols": {
+      "meaning": "用积木、短棒或拼片表达可辨认的图形、字母或数字，结合空间构造与符号理解。",
+      "example": "用四根宽纸条摆出正方形，或把大积木排成自己名字的一部分。",
+      "observe": "看是否有意表现一个形状，能说出或指出自己摆的是什么。",
+      "play": "先摆熟悉的圆圈、十字或简单图形，让孩子自由改成自己的符号。",
+      "note": "符号搭建不等于必须提前识字；不用尖棒、火柴或细小零件。",
+      "sources": [
+        "f-nhft-hand",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-crawl-paint": {
+      "meaning": "身体移动时，手掌或工具在可涂抹表面留下痕迹，让孩子发现动作与痕迹的关系。",
+      "example": "坐在地垫上用手掌在固定的大纸上抹出一道颜色。",
+      "observe": "看是否注意到自己留下的痕迹，并愿意再次触碰或拖动。",
+      "play": "以固定好的大纸与少量适龄可洗颜料作手掌涂抹，也可用清水刷地垫替代。",
+      "note": "不需要让孩子在湿滑颜料里爬；避免入口，结束后清洁双手和地面。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-water-mat": {
+      "meaning": "用水笔、湿海绵或手掌接触水画材料，让接触处出现颜色或印记，练习按压和移动。",
+      "example": "把蘸少量水的大海绵按到水画垫上，留下圆形水印。",
+      "observe": "观察能否通过按、点、拖主动改变痕迹，而不是必须画出图案。",
+      "play": "选完整大号水画垫、粗水笔或大海绵，成人演示“按一下、拖一拖”。",
+      "note": "只用常温清水，及时晾干；可拧下的小水笔盖由成人保管。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-point-line": {
+      "meaning": "握住画具让笔尖接触纸面，点、戳或短距离拖动，出现点和短线，是早期自主涂鸦。",
+      "example": "用粗蜡笔在纸上点几下，再拖出一小段线。",
+      "observe": "看是否知道笔尖能留下痕迹，并开始有目的地重复动作。",
+      "play": "固定大纸，提供适龄粗蜡笔，让孩子自由画，成人描述线条而不改画。",
+      "note": "画具无毒不等于可食用，笔帽和断裂小蜡笔及时收起。",
+      "sources": [
+        "f-cdc-18m",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-long-arc": {
+      "meaning": "从短促笔划发展为连续移动手臂或手腕，画出较长、弯曲的轨迹。",
+      "example": "在大纸上从左边一口气画到右边，线条像弯弯的小路。",
+      "observe": "观察是否能持续落笔并改变方向，不要求弧线光滑或像示范一样。",
+      "play": "把大纸固定在桌面，和孩子画长长的彩虹路，让小车沿线走。",
+      "note": "给足纸面与自由活动空间，不用反复描线代替自由涂鸦。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-long-zigzag": {
+      "meaning": "在连续画线时多次改变方向，形成来回折转的轨迹，练习停转与继续。",
+      "example": "画一条像山峰一样上上下下的线。",
+      "observe": "看能否主动改变方向并继续画，不要求角度一致或线段等长。",
+      "play": "用粗蜡笔画“上山下山”的长路，成人边画边用简单语言提示方向。",
+      "note": "接受弯曲和折线混合，不把纸笔练习做成限时任务。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-three-finger-draw": {
+      "meaning": "拇指与食指控制画具、中指在下方支持，是常见三指握笔方式；更重要的是舒适、稳定和能控制线条。",
+      "example": "画线时用指端托住粗蜡笔，手掌不再整把包住。",
+      "observe": "看能否轻松控制笔尖、没有明显疼痛或过度用力，不为达到固定手型硬掰手指。",
+      "play": "提供短粗蜡笔、竖面涂画和捏取游戏，让孩子自然练习指端控制。",
+      "note": "握笔方式存在个体差异；持续疼痛、疲劳或明显影响绘画时可咨询专业人员。",
+      "sources": [
+        "f-cdc-4y",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-spiral-open-circle": {
+      "meaning": "用连续弧线围绕中心移动，逐渐接近圆形；线头没有接上也是圆形控制发展中的表现。",
+      "example": "绕着纸上的太阳连续画圈，留下像蜗牛壳的线。",
+      "observe": "看是否能持续改变方向并形成环绕轨迹，不要求立刻封口或等圆。",
+      "play": "一起画“毛线团、蜗牛壳、泡泡”，给孩子选择大小与方向。",
+      "note": "原图把螺旋和未闭合圆放在一起，但两者不必按固定顺序出现。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-shape-color": {
+      "meaning": "在一个有边界的图形区域里反复涂画，开始理解“把这里加上颜色”的任务。",
+      "example": "看到大苹果轮廓后，在里面涂红色，部分线条伸到外面。",
+      "observe": "观察是否把主要涂画集中到目标区域，不要求边缘整齐或涂满。",
+      "play": "用大而简单的圆形、叶子轮廓，提供粗蜡笔任意选色。",
+      "note": "越界是练习的一部分，不代画、不擦掉孩子的作品。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-fold-flat": {
+      "meaning": "将纸的两部分靠拢，并沿折线按压，使折痕能保持；双手通常一手定位、一手压平。",
+      "example": "把纸对折后，用手掌从中间向两边抹平。",
+      "observe": "看是否能稳住纸边再压折，先不要求边角完全重合。",
+      "play": "用较大、柔软但不易破的纸，成人先折出大致方向，让孩子压一压。",
+      "note": "纸边避免划手，材料不用订书钉或细小装饰物。",
+      "sources": [
+        "f-nhft-hand",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-closed-circle": {
+      "meaning": "连续画弧线后让线尾接近起点，形成基本封闭的圆形，反映视觉引导和笔画收尾控制。",
+      "example": "画一个泡泡，线的末端回到开始的位置附近。",
+      "observe": "看能否模仿大致闭合的环，不要求像圆规画的一样圆。",
+      "play": "成人慢慢画一个大圆，邀请孩子画自己的泡泡或车轮。",
+      "note": "不以圆的美观度判定能力；本说明不将原图月龄等同于 CDC 年龄标准。",
+      "sources": [
+        "f-cdc-3y",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-color-spill": {
+      "meaning": "能持续在一个区域里往返涂画，让空白逐渐变少；偶尔涂出轮廓体现边界控制仍在发展。",
+      "example": "给大气球涂颜色，里面大部分填上了，边缘有几笔越界。",
+      "observe": "看是否能注意到空白并继续补色，不要求完全不越线。",
+      "play": "提供轮廓粗、面积大的图案，孩子想停时就停。",
+      "note": "“允许漏出”表示接纳练习中的越界，不需要规定每次涂满。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-diagonal-fold": {
+      "meaning": "把纸的一角对到另一角并压出斜折痕，相比随意对折更需要视觉定位和两手协调。",
+      "example": "把方纸的两个对角靠在一起，压成一个大三角形。",
+      "observe": "看是否会先找角、对齐后再压，而不要求毫米级准确。",
+      "play": "成人在方纸对角贴大色点，孩子把同色点相碰，再一起压平。",
+      "note": "准确是逐渐形成的，避免反复重折使孩子挫败。",
+      "sources": [
+        "f-nhft-hand",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-line-cut": {
+      "meaning": "用一手张合剪刀，另一手扶纸，让剪刀沿直线前进，是工具控制与双手分工。",
+      "example": "沿纸上一条宽直线剪开一张短纸条。",
+      "observe": "看能否稳定坐姿、拇指朝上握剪刀并把扶纸手留在刀口外。",
+      "play": "在成人近距离看护下，用合手的圆头儿童剪刀先剪窄纸条，再剪短直线。",
+      "note": "剪刀只在坐稳时用，成人传递和收纳；不边走边剪，不要求一次剪很长。",
+      "sources": [
+        "f-nhft-scissors"
+      ]
+    },
+    "fine-flower-matchstick": {
+      "meaning": "把圆形和线条组合成有意义的图像，例如花朵或简单人形，体现符号表达与笔画组合。",
+      "example": "画一个圆当头，再添几根线表示手脚。",
+      "observe": "看孩子能否说出画的是什么，不以身体部位齐全或像不像作为唯一标准。",
+      "play": "读完图画书后邀请孩子画一个人物或一朵花，听他讲画里的故事。",
+      "note": "“火柴人”是画法名称，不需要接触火柴；不要纠正成成人式标准人物。",
+      "sources": [
+        "f-cdc-4y",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-color-in-lines": {
+      "meaning": "更有意识地控制笔的方向和幅度，使涂色多留在轮廓内，并逐渐补足空白。",
+      "example": "给一片大树叶着色，靠近边缘时把笔画缩短。",
+      "observe": "看是否会根据边界减小动作，允许少量空白与越界。",
+      "play": "从大图形和粗边界开始，再由孩子自己选择是否尝试更小区域。",
+      "note": "“不漏出”不是必须零越线的考试标准，也不应限制自由绘画。",
+      "sources": [
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-symmetric-fold": {
+      "meaning": "以一条折线把图形两侧尽量重合，体验对称关系并控制纸边对齐。",
+      "example": "把一张圆纸对折，弧边大致叠在一起形成半圆。",
+      "observe": "看能否比较两侧并调整后压平，而不只模仿手的动作。",
+      "play": "用大圆纸或方纸对折，再展开找中间的折线。",
+      "note": "对称折纸兼有认知成分，手部没折齐不等于不理解对称。",
+      "sources": [
+        "f-nhft-hand",
+        "f-nhft-drawing"
+      ]
+    },
+    "fine-zigzag-wave-cut": {
+      "meaning": "在剪刀持续张合时转动纸张、调整前进方向，沿折线或曲线剪，比直线需要更多双手配合。",
+      "example": "剪到粗折线的转角时停一下，转纸再继续。",
+      "observe": "看是否会让扶纸手负责转向，而不是扭转手腕勉强追线。",
+      "play": "成人看护下先剪只有一个缓弯的大图，再尝试少量折角。",
+      "note": "使用合手圆头儿童剪刀，手指始终避开刀口；疲劳或失去兴趣时收好工具。",
+      "sources": [
+        "f-nhft-scissors"
+      ]
+    },
+    "fine-hammer-ball": {
+      "meaning": "手握工具柄，让工具头准确碰到目标，练习手眼协调、方向与力度。",
+      "example": "用轻质玩具槌敲一下大型木琴键，听到一个音。",
+      "observe": "看能否先看目标再敲，力量是否逐渐可控，不追求大力。",
+      "play": "提供适龄敲击台和轻槌，成人轮流示范轻敲、停下。",
+      "note": "用玩具槌而非真实锤子，避开手指、脸部和玻璃，控制音量。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-large-spoon": {
+      "meaning": "用勺面托起物品并平稳送到另一个容器，练习手腕保持方向和目标定位。",
+      "example": "用大勺把大布球从浅盆舀进旁边的篮子。",
+      "observe": "看能否让勺面尽量朝上，转移途中是否会减慢速度。",
+      "play": "选宽勺和吞不下的大件，从两只紧挨着的宽口容器开始。",
+      "note": "不用可吞咽小球；真实进食与游戏材料分开。",
+      "sources": [
+        "f-cdc-18m",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-clip": {
+      "meaning": "通过手指捏合与放松控制夹子的开闭，再把物品夹住和释放，为工具使用打基础。",
+      "example": "捏开大夹子夹住一团大布，再放到篮子里。",
+      "observe": "看是否能主动捏开、保持开口并在目标处放松，不要求一开始就夹牢。",
+      "play": "用低阻力大夹子或儿童夹具夹大布团，成人先示范“捏开、松手”。",
+      "note": "夹子不夹皮肤或头发，弹簧牢固，零件脱落立即收起。",
+      "sources": [
+        "f-nhft-scissors"
+      ]
+    },
+    "fine-magnet-fish-short": {
+      "meaning": "短线钓鱼玩具让孩子控制竿端位置，慢慢把连接头靠近目标，体验工具延伸后的手眼协调。",
+      "example": "把短竿的大接头移到玩具鱼上方，连接后轻轻提起。",
+      "observe": "看是否能先停稳、对准再提，不把快速甩竿算作成功。",
+      "play": "优先用短竿大号魔术贴钓鱼，在浅托盘内练习对准和提起。",
+      "note": "小磁铁吞入可致严重肠道伤害；不用可拆卸磁铁，玩具磁体必须完全封装且无破损，短绳全程看护。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cpsc-magnets"
+      ]
+    },
+    "fine-roleplay-tools": {
+      "meaning": "在假装游戏中选择合适工具、握持并做相应动作，例如梳头、看诊或修车。",
+      "example": "给娃娃梳头，或拿玩具扳手拧大号玩具螺母。",
+      "observe": "看孩子是否把工具与用途联系起来，并能调整握法，而不只摆弄物品。",
+      "play": "提供两三件大号圆钝职业玩具，由孩子决定故事，成人接着扮演。",
+      "note": "只用适龄玩具工具，不拿真实药品、针具、电器或尖锐五金作道具。",
+      "sources": [
+        "f-cdc-30m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-brush-scraper": {
+      "meaning": "握柄刷动或推拉刮板，控制工具与表面的角度、压力和移动路径。",
+      "example": "用大刷子把常温清水刷在户外板面上，再用塑料刮板推水。",
+      "observe": "看能否让工具持续接触表面，并改变方向把水推到指定区域。",
+      "play": "在浅托盘里用清水和圆角刷刮工具画“水路”，成人先示范轻重变化。",
+      "note": "不用清洁剂、尖金属刮刀或油漆，地面保持防滑。",
+      "sources": [
+        "f-nhft-drawing",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-small-spoon-beans": {
+      "meaning": "比大勺转移更强调小幅度控制勺面和倾倒位置；豆子只是原图举例的材料。",
+      "example": "用儿童小勺把常温稠酸奶从一只碗移到另一只碗。",
+      "observe": "看是否减少手腕晃动，并能到达目标后再倾斜勺面。",
+      "play": "用适合孩子的软食或大块游戏材料练习，容器先靠近放置。",
+      "note": "干豆、硬豆有噎食风险，不作为幼儿精细动作玩具；进食时坐稳并全程看护。",
+      "sources": [
+        "f-cdc-2y",
+        "f-nhft-daily",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-magnetic-pen": {
+      "meaning": "握住笔状工具，通过移动笔端控制封闭玩具中的目标，练习持笔定位和持续追踪。",
+      "example": "用全封闭轨道板的系留笔带着大滑块绕过弯道。",
+      "observe": "看是否能目光跟随目标，并在弯道处放慢，而不要求握成标准三指。",
+      "play": "优先选无散落磁珠的封闭大轨道板，短时间自由探索即可。",
+      "note": "检查外壳、笔端和系绳完整；不用可取出的磁珠、小磁铁或破裂磁力板。",
+      "sources": [
+        "f-nhft-drawing",
+        "f-cpsc-magnets"
+      ]
+    },
+    "fine-knife": {
+      "meaning": "用工具边缘向下或前后施力，把软材料分开，体现扶稳材料与切割动作的双手分工。",
+      "example": "用儿童钝头塑料刀把一条彩泥分成两段。",
+      "observe": "看扶材料的手能否远离切口，刀刃方向是否始终朝向工作面。",
+      "play": "先用钝头玩具刀切彩泥，成人再按能力陪同使用儿童餐具处理合适软食。",
+      "note": "不用真菜刀、尖刀或热食；工具全程看护，不以切得快或用力大为目标。",
+      "sources": [
+        "f-nhft-daily",
+        "f-nhft-scissors"
+      ]
+    },
+    "fine-magnet-fish-long": {
+      "meaning": "延长竿线会让接头更易摆动，需要先稳定手臂，再微调竿尖的位置；只是游戏难度变化。",
+      "example": "等玩具接头晃动变小，再把它缓慢靠近目标鱼。",
+      "observe": "看孩子是否能停住等待和慢移竿身，而不要求越长越好。",
+      "play": "仍以短绳大号魔术贴钓鱼为主，通过目标间距而非长绳增加挑战。",
+      "note": "长线可能缠绕颈部，小磁铁可能误吞；不使用长绳或暴露、松脱磁体。",
+      "sources": [
+        "f-nhft-hand",
+        "f-cpsc-magnets"
+      ]
+    },
+    "fine-broom": {
+      "meaning": "双手握住长柄并配合手臂、躯干推动扫帚，让扫帚头沿地面移动到目标位置。",
+      "example": "把几片大纸片慢慢扫进成人扶着的簸箕。",
+      "observe": "看是否会让扫帚头贴地、控制方向，而不只在空中挥柄。",
+      "play": "用适合身高的轻质儿童扫帚，在宽敞地面扫大纸片。",
+      "note": "柄端圆钝，周围无人脸或易碎品；不扫玻璃渣、灰尘堆或化学品。",
+      "sources": [
+        "f-cdc-18m",
+        "f-nhft-hand"
+      ]
+    },
+    "fine-spoon-soup": {
+      "meaning": "把勺放入液体或稠食、舀起并保持相对平稳，再送到嘴边，要求更细的手腕和速度控制。",
+      "example": "坐在餐椅里，用小勺舀一口已放凉的浓汤。",
+      "observe": "看能否逐步减少途中洒落，并在嘴边放慢，不要求完全干净。",
+      "play": "先用浅碗、短柄儿童勺和适宜稠度的常温或温凉食物练习。",
+      "note": "成人确认温度和食物质地，孩子坐稳进食；不拿热汤训练。",
+      "sources": [
+        "f-cdc-2y",
+        "f-nhft-daily"
+      ]
+    },
+    "fine-scissors": {
+      "meaning": "一只手反复张合剪刀，另一只手固定并逐渐转动纸张，是双手分工的工具技能。",
+      "example": "剪开一张窄纸条，纸条每按合一次就向前断开一点。",
+      "observe": "看能否坐稳握住工具、协调开合，先不要求沿线。",
+      "play": "成人近距离看护，使用适龄圆头儿童剪刀，先剪短窄纸条或软彩泥。",
+      "note": "刀口始终远离扶纸手，只在坐稳时操作，结束后由成人收好。",
+      "sources": [
+        "f-nhft-scissors"
+      ]
+    },
+    "fine-saw": {
+      "meaning": "原图借锯子表示一手稳定材料、另一手做往返推拉的动作；儿童可用玩具模拟这种配合。",
+      "example": "用圆钝玩具锯在软彩泥上前后移动，留下锯痕。",
+      "observe": "观察能否保持往返路径、扶稳材料，不以能锯断木头作为能力指标。",
+      "play": "使用无齿或软质钝头玩具锯与彩泥，成人陪同慢慢推、拉。",
+      "note": "不用真实木工锯、带齿金属工具或可能出木刺的材料；这是可选游戏。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-hook-fish": {
+      "meaning": "把有弯曲连接端的玩具竿移到目标环附近，调整角度使其挂住，练习工具定位和角度判断。",
+      "example": "用圆钝大塑料弯头把大环鱼提起，再放回托盘。",
+      "observe": "看能否转动竿端对准环口，失败后愿意调整而非甩动。",
+      "play": "选大环、宽钝连接头和短竿，从固定目标开始。",
+      "note": "不用真鱼钩、尖钩或长鱼线；玩具竿避免指向脸和眼睛。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-training-chopsticks": {
+      "meaning": "借辅助结构帮助两根筷子开合、对准并夹住食物，是餐具探索的一种选择。",
+      "example": "用儿童辅助筷夹起一块适宜大小的熟软蔬菜，再放进碗里。",
+      "observe": "看是否能主动开合、保持夹持并送到目标，不以筷子代替勺叉作为进步标准。",
+      "play": "先用短而圆钝的儿童夹具夹大块安全材料，再按兴趣尝试辅助筷。",
+      "note": "坐稳使用，尖端不对人、不边走边拿；不夹硬豆或整颗坚果练习进食。",
+      "sources": [
+        "f-nhft-scissors",
+        "f-nhft-daily",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-clay-tools": {
+      "meaning": "选择压、滚、切、刻等工具改变彩泥形状，需要稳定材料并控制工具压力与方向。",
+      "example": "一手扶住彩泥，另一手用大滚筒把它压平，再盖一个大印章。",
+      "observe": "看能否根据想做的形状选择工具，并逐步调整用力。",
+      "play": "给适龄彩泥和两三件大号圆钝工具，让孩子自由做小点心或动物。",
+      "note": "彩泥不入口，小模具和脱落部件收好；有入口习惯时选更合适的活动。",
+      "sources": [
+        "f-nhft-hand",
+        "f-nhft-scissors"
+      ]
+    },
+    "fine-axe": {
+      "meaning": "“斧子劈”在原图中表示双手或单手挥动工具、对准目标的动作，不应要求幼儿使用真斧。",
+      "example": "用轻软玩具槌向下敲散预先松拼的大泡棉块。",
+      "observe": "看能否控制抬起和落下的范围，听到“停”能停，不以劈开硬物为目标。",
+      "play": "用软质圆钝玩具替代，限定小幅度敲击区域，成人陪同轮流。",
+      "note": "不用真实斧子、刀刃、木柴或重工具；这是兴趣游戏，并非必会发育技能。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-golf-gateball": {
+      "meaning": "双手或单手控制球杆，调整杆头与球的位置，用适当力度把球推向目标，涉及全身稳定与手眼协调。",
+      "example": "用轻质儿童球杆把大泡棉球推过两个软积木之间。",
+      "observe": "看是否会先站稳、看准目标再推动，不要求标准运动姿势。",
+      "play": "在空旷平地用短软杆和吞不下的大软球，先从很近的宽球门开始。",
+      "note": "不用成人重球杆或硬小球，周围留足空间，不向人挥杆。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-chinese-meal": {
+      "meaning": "原图名称泛指逐渐使用碗、勺、筷等完成进餐，核心是自理与合适餐具的控制，并无一种必须统一的吃法。",
+      "example": "坐稳后自己用勺盛饭、用手或合适餐具吃软食，再把餐具放回。",
+      "observe": "分别记录孩子会使用哪些餐具、需要哪些帮助，不把会用筷子当成唯一标准。",
+      "play": "提供合手餐具与防滑碗，让孩子在日常餐次中承担能完成的一步。",
+      "note": "按咀嚼吞咽能力处理食物，避免热食、硬豆与整颗坚果；少量洒落很正常。",
+      "sources": [
+        "f-cdc-2y",
+        "f-cdc-3y",
+        "f-nhft-daily",
+        "f-cdc-choking"
+      ]
+    },
+    "fine-dumpling": {
+      "meaning": "把软面皮和馅料组合，再捏合边缘，融合双手支撑、指尖捏取和连续操作。",
+      "example": "用一片彩泥折成半圆，沿边缘轻轻捏紧，做成“饺子”。",
+      "observe": "看能否一手扶住形状、另一手连续捏合，不要求外形整齐或封得严实。",
+      "play": "先用适龄彩泥模拟包饺子；真实厨房活动只让孩子接触成人准备好的安全材料。",
+      "note": "不入口尝生面、生馅；远离生肉、刀具、炉灶和热水，料理卫生与烹煮由成人负责。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-woodwork": {
+      "meaning": "把量、对齐、连接、装配等动作组合完成作品，是可选的构造活动；幼儿可用安全模型体验。",
+      "example": "用大号玩具螺母和圆钝玩具扳手把两块泡棉板连接起来。",
+      "observe": "看是否能先对齐孔位、稳定一块再转动另一件，不以操作真工具作为目标。",
+      "play": "使用适龄大件拼装工作台、软木模型或泡棉连接件，成人陪着一步步搭。",
+      "note": "不用真锯、斧、钉子、电钻或尖锐螺丝；不提供带木刺材料，小零件替换为吞不下的大件。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    },
+    "fine-fishing": {
+      "meaning": "原图把钓鱼列作工具定位的进阶兴趣活动，可理解为稳住竿、观察目标并控制提拉的综合动作。",
+      "example": "在地面托盘里把短竿接头对准玩具鱼，挂住后慢慢提起放入篮子。",
+      "observe": "看是否能等待目标稳定、控制提拉并安全放下竿，不要求实际钓到鱼。",
+      "play": "用短竿、大环或魔术贴玩具在干地上模拟钓鱼。",
+      "note": "不用真鱼钩、尖钩、长线或暴露磁铁；无需为练习靠近池塘、河边或深水。",
+      "sources": [
+        "f-nhft-hand"
+      ]
+    }
+  }
+}

@@ -207,3 +207,66 @@ textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }
   .search-box input { font-size: 12px; }
   .form-actions > small { max-width: 145px; }
 }
+
+/* 云端连接、迁移与冲突，沿用蓝色导航和明亮配色。 */
+.cloud-banner { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:16px 20px; margin:8px 0 24px; border:1px solid #b8d5ff; border-radius:18px; background:linear-gradient(110deg,#eaf4ff,#f0f0ff); color:#254f85; }
+.cloud-banner > span { display:flex; align-items:center; gap:10px; flex:1; min-width:220px; line-height:1.65; }
+.cloud-banner .icon { flex-shrink:0; }
+.cloud-banner button { white-space:nowrap; }
+.cloud-actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0; }
+.local-migration { border-top:1px solid #e0e7f2; margin-top:22px; padding-top:18px; }
+.local-migration > p { color:#69728b; font-size:13px; line-height:1.7; }
+.migration-item { padding:16px; background:#f1f7ff; border:1px solid #d4e5ff; border-radius:14px; margin:12px 0; display:grid; gap:10px; }
+.migration-item > span { color:#526c91; font-size:13px; }
+.migration-item > div { display:flex; flex-wrap:wrap; gap:10px; }
+.conflict-field { margin:18px 0; border:1px solid #cbdcff; border-radius:14px; padding:14px; min-width:0; }
+.conflict-field legend { padding:0 6px; font-weight:700; }
+.conflict-field label { display:block; padding:10px; margin:6px 0; background:#f5f8ff; border-radius:10px; cursor:pointer; }
+.conflict-field pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; font-size:13px; margin:8px 0 0 22px; line-height:1.7; max-height:180px; overflow:auto; }
+button:disabled, textarea:disabled { cursor:default; opacity:.55; }
+@media(max-width:600px) { .cloud-banner { padding:14px; } .cloud-banner > span { min-width:100%; } }
+
+.stage-complete-button { display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:8px 11px; border:1px solid #bad8ff; border-radius:8px; background:#edf5ff; color:#245ca4; font-size:11px; line-height:1.4; white-space:nowrap; font-weight:600; }
+.stage-complete-button .icon { width:14px; height:14px; }
+.stage-complete-button:hover:not(:disabled) { background:#dbeaff; border-color:#719fe0; }
+.stage-complete-button:disabled { color:#258153; border-color:#b5e0c9; background:#e9f8ee; opacity:1; }
+.stage-complete-badge { display:inline-flex; align-items:center; gap:4px; border-radius:5px; padding:4px 7px; background:#dff7e9; color:#14754d; font-size:10px; font-weight:600; line-height:1.4; letter-spacing:0; white-space:nowrap; }
+.stage-complete-badge .icon { width:12px; height:12px; }
+.stage-summary-actions { display:flex; align-items:center; gap:16px; flex-shrink:0; }
+.stage-pill-check { width:12px; height:12px; color:#158958; flex-shrink:0; }
+.stage-pill.active .stage-pill-check { color:inherit; }
+
+/* 技能释义放在记录之前，先看懂，再按宝宝的实际表现记录。 */
+.skill-guide { margin:0 0 25px; color:#4a5269; font-size:13px; line-height:1.85; }
+.guide-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px; }
+.guide-heading > span { display:inline-flex; align-items:center; gap:7px; color:#285fa4; font-size:13px; font-weight:650; }
+.guide-heading .icon { width:17px; height:17px; }
+.guide-heading small { color:#7d8799; font-size:10px; }
+.skill-guide h3 { font-size:17px; color:#293d60; font-weight:650; margin-bottom:8px; }
+.skill-guide h4 { font-size:12px; font-weight:650; color:#405675; margin-bottom:6px; display:flex; align-items:center; gap:5px; }
+.guide-meaning { font-size:14px; color:#3b4d68; }
+.guide-example { background:#fff2cd; border:1px solid #f3db93; border-radius:12px; padding:15px 17px; margin-top:16px; }
+.guide-example h4 { color:#896220; }
+.guide-practice { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+.guide-practice > section { background:#edf6ff; border:1px solid #d5e6f9; padding:14px; border-radius:12px; }
+.guide-practice > section:last-child { background:#eef8f1; border-color:#d7e9dd; }
+.guide-practice .icon { width:14px; height:14px; flex-shrink:0; }
+.guide-note { display:flex; gap:8px; margin-top:14px; padding:12px 14px; background:#fff5ed; border-left:3px solid #e9ad78; border-radius:5px 10px 10px 5px; color:#8b6244; font-size:12px; }
+.guide-note > .icon { width:16px; height:16px; margin-top:3px; flex-shrink:0; }
+.guide-concept, .guide-sources { margin-top:14px; border-top:1px solid #dfe7f1; padding-top:12px; }
+.guide-concept > summary, .guide-sources > summary { display:flex; align-items:center; justify-content:space-between; gap:8px; cursor:pointer; list-style:none; color:#406799; font-size:12px; font-weight:600; }
+.guide-concept > summary::-webkit-details-marker, .guide-sources > summary::-webkit-details-marker { display:none; }
+.guide-concept > summary .icon, .guide-sources > summary .icon { width:14px; height:14px; transition:transform .15s; }
+.guide-concept[open] > summary .icon, .guide-sources[open] > summary .icon { transform:rotate(90deg); }
+.guide-concept > p { margin-top:10px; }
+.concept-example { color:#79859a; font-size:12px; }
+.guide-sources > p { color:#7d8799; font-size:11px; margin-top:9px; }
+.guide-sources ul { list-style:none; padding:0; display:grid; gap:10px; margin-top:12px; }
+.guide-sources li { display:grid; gap:2px; }
+.guide-sources a { display:inline-flex; align-items:center; gap:5px; color:#2867af; font-size:12px; text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+.guide-sources a .icon { width:12px; height:12px; flex-shrink:0; }
+.guide-sources li > span { color:#8c94a4; font-size:10px; }
+.detail-dialog #skill-form { border-top:1px solid #dfe7f1; padding-top:20px; }
+@media(max-width:560px) { .guide-practice { grid-template-columns:1fr; gap:9px; } .guide-heading { align-items:flex-start; } .guide-heading small { font-size:9px; } .guide-example { padding:13px; } .skill-guide { font-size:13px; } }
+@media(max-width:760px) { .stage-summary-actions { align-self:flex-start; flex-direction:column; gap:10px; } }
+@media(max-width:560px) { .stage-complete-button { padding:7px 8px; font-size:10px; } .stage-summary-actions { margin-top:14px; } .milestones > .section-title-row { flex-wrap:wrap; } .milestones h2 .stage-complete-badge { font-size:9px; } }

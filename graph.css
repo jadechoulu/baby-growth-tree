@@ -1,4 +1,52 @@
 /* 完整脉络：节点、箭头、直接关系与逐条路线共用一份真实关系数据。 */
+.next-step-view { container: next-step / inline-size; max-width: 1080px; margin: 12px auto 0; }
+.next-step-header { padding: 26px 30px; border: 1px solid #edbe34; border-radius: 16px; background: #ffdf64; box-shadow: 0 4px 0 #f2dca5; }
+.next-step-header h1 { margin: 8px 0; font-size: 28px; line-height: 1.4; color: #42304f; }
+.next-step-header p { color: #805e3c; font-size: 13px; line-height: 1.8; }
+.next-current-age { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; color: #805e3c; font-size: 12px; }
+.next-step-view .next-domains { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.next-age-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+.next-age-legend > span, .next-timing-label { border-radius: 5px; padding: 5px 8px; background: var(--timing-soft); color: var(--timing-ink); font-size: 11px; font-weight: 600; }
+.next-age-legend small { font-size: 11px; color: #8e789c; line-height: 1.6; }
+.timing-current { --timing: #347bea; --timing-soft: #eaf2ff; --timing-ink: #2357a3; }
+.timing-next { --timing: #e98a21; --timing-soft: #fff1d9; --timing-ink: #94500c; }
+.timing-later { --timing: #9460df; --timing-soft: #f2eaff; --timing-ink: #7241ac; }
+.timing-earlier, .timing-unknown { --timing: #96a2ad; --timing-soft: #edf1f4; --timing-ink: #536271; }
+.next-skill-card { padding: 26px 30px; border: 1px solid #dfd1e8; border-top: 5px solid var(--timing); border-radius: 14px; background: #fffdf9; box-shadow: 0 4px 0 #eee2ed; }
+.next-skill-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; color: #8e789c; font-size: 12px; line-height: 1.6; }
+.next-skill-card h2 { margin: 18px 0 12px; color: #543968; font-size: 26px; line-height: 1.5; }
+.next-skill-meaning { color: #755e83; font-size: 14px; line-height: 1.9; }
+.next-prerequisites { margin-top: 14px; padding: 11px 14px; background: var(--timing-soft); color: var(--timing-ink); font-size: 12px; line-height: 1.8; border-radius: 8px; }
+.next-skill-tips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+.next-skill-tips h3 { color: #75518e; font-size: 13px; margin-bottom: 7px; }
+.next-skill-tips p { color: #8b7695; font-size: 13px; line-height: 1.9; }
+.next-skill-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
+.next-skill-actions > button { display: inline-flex; align-items: center; gap: 6px; }
+.next-skill-actions .icon { width: 17px; height: 17px; }
+.next-undo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 18px; padding: 13px 16px; border-radius: 8px; background: #eaf8ef; color: #24714e; font-size: 12px; }
+.next-step-rule { margin-top: 18px; color: #98839f; font-size: 11px; line-height: 1.8; }
+.next-complete { padding: 50px 24px; text-align: center; background: #f1fbf3; border: 1px solid #bbdec7; border-radius: 14px; }
+.next-complete > span { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: white; background: #21a476; }
+.next-complete h2 { color: #24714e; font-size: 22px; margin: 18px 0 10px; }
+.next-complete p { font-size: 13px; line-height: 1.8; color: #6b8d78; }
+@container next-step (max-width: 680px) {
+  .next-step-view .next-domains { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .sidebar { padding-inline: 10px; }
+  .main-nav .nav-item { padding-inline: 6px; gap: 3px; }
+  .next-main .topbar { flex-wrap: wrap; height: auto; min-height: 55px; gap: 8px; padding-block: 12px; }
+  .next-main .breadcrumb { flex-shrink: 0; white-space: nowrap; }
+  .next-main .topbar-actions { margin-left: auto; gap: 8px; }
+  .next-main .source-link > span { display: none; }
+  .next-main .icon-button { white-space: nowrap; }
+  .next-step-header, .next-skill-card { padding: 20px 18px; }
+  .next-step-header h1 { font-size: 23px; }
+  .next-skill-card h2 { font-size: 23px; }
+  .next-skill-tips { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .next-skill-actions { align-items: stretch; }
+  .next-skill-actions > .primary-button { justify-content: center; width: 100%; }
+}
 .graph-main { padding-inline: 30px; }
 .graph-main .topbar { height: 70px; }
 .lineage-view { padding-bottom: 10px; }
@@ -43,6 +91,17 @@
 .graph-legend .legend-focus { width: 9px; height: 9px; background: #9460df; border-radius: 3px; }
 .legend-descendant { background: #eb4b95; }
 .legend-supporting { background: repeating-linear-gradient(90deg, #bf941d 0 4px, transparent 4px 6px); }
+.legend-neutral { background: #cbbdd6; }
+.graph-legend > strong { color: #75598a; font-size: 10px; font-weight: 600; }
+.graph-key { display: grid; gap: 7px; padding: 10px 16px; border-bottom: 1px solid #ecdfed; background: #fffdf9; }
+.graph-key .graph-legend { gap: 6px 13px; line-height: 1.5; }
+.graph-key .legend-branch { width: 4px; height: 13px; flex-shrink: 0; }
+.graph-key .legend-card { width: 13px; height: 13px; border: 1px solid #d7c7e3; border-radius: 3px; }
+.graph-key .legend-card-plain { background: white; }
+.graph-key .legend-card-supporting { background: #fffdf3; border-color: #bf941d; }
+.graph-key .legend-card-done { display: inline-grid; place-items: center; background: #f1fbf3; border-color: #21a476; color: #168a61; font-size: 10px; font-style: normal; line-height: 1; }
+.graph-key .legend-card-focus { background: #8950df; border-color: #6d35c1; }
+.graph-key p { color: #8e789c; font-size: 10px; line-height: 1.6; margin: 0; }
 .graph-tools { display: flex; align-items: center; gap: 5px; margin-left: auto; }
 .graph-tools > button { border: 1px solid #e2d1eb; border-radius: 5px; padding: 6px 8px; font-size: 10px; color: #866098; background: white; line-height: 1.5; white-space: nowrap; }
 .graph-tools > button:hover { background: #f0e5ff; border-color: #b18ad0; }
@@ -63,10 +122,8 @@
 .edge-neutral .graph-edge { stroke-width: 1.8; }
 .graph-edge-group { transition: opacity .15s; }
 .graph-node { position: absolute; z-index: 2; background: white; border: 1.5px solid #d7c7e3; border-left: 4px solid var(--branch-color); border-radius: 10px; box-shadow: 0 3px 0 #e9deef; overflow: hidden; cursor: auto; }
-.graph-node.role-ancestor { border-color: #8cb6f7; border-left-color: #347bea; }
-.graph-node.role-descendant { border-color: #f2a1c8; border-left-color: #eb4b95; }
-.graph-node.role-supporting { border-color: #d8bf6f; border-left-color: #bf941d; background: #fffdf3; }
-.graph-node.role-focus { background: #8950df; border: 2.5px solid #6d35c1; box-shadow: 0 4px 0 #d7b7f4, 0 0 0 5px #af7fe717; }
+.graph-node.role-supporting { border-color: #d8bf6f; border-left-color: var(--branch-color); background: #fffdf3; }
+.graph-node.role-focus { background: #8950df; border: 2.5px solid #6d35c1; border-left: 4px solid var(--branch-color); box-shadow: 0 4px 0 #d7b7f4, 0 0 0 5px #af7fe717; }
 .graph-node.node-completed:not(.role-focus) { background: #f1fbf3; }
 .graph-node:hover { box-shadow: 0 4px 0 #d7c5e4, 0 0 0 3px #a66dd720; }
 .graph-select { display: flex; flex-direction: column; width: 100%; height: 77px; align-items: stretch; justify-content: flex-start; padding: 10px 12px 4px; text-align: left; gap: 6px; color: #5b416d; }
@@ -79,9 +136,13 @@
 .role-focus .graph-node-bottom { border-color: #ffffff38; }
 .role-focus .skill-check { border-color: #e0c6ff; background: #ffffff1a; }
 .graph-node-bottom { display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-top: 1px solid #f0e7f5; height: 31px; }
+.graph-explain { color:#396fae; font-size:10px; padding:2px 4px; border-radius:4px; border:1px solid #d2e3f7; background:#eff6ff; white-space:nowrap; }
+.graph-explain:hover { background:#deedff; }
+.role-focus .graph-explain { color:#fff; background:#ffffff1a; border-color:#ffffff66; }
 .node-link-count { display: inline-flex; align-items: center; gap: 5px; color: #a089ad; font-size: 10px; font-variant-numeric: tabular-nums; }
 .node-link-count > span { color: #cbb7d7; }
 .node-focus-badge { color: #8a4bca; font-size: 9px; margin-left: auto; }
+.graph-node.node-completed .node-focus-badge { color: #126143; background: #ddf9e9; padding: 2px 4px; border-radius: 4px; white-space: nowrap; }
 .node-done-label { color: #329162; font-size: 9px; margin-left: auto; }
 .graph-node .skill-check { width: 18px; height: 18px; padding: 2px; margin-left: auto; border-color: #ceb6de; --domain: #21a476; }
 .graph-node .skill-check > .icon { width: 12px; height: 12px; }
@@ -115,6 +176,9 @@
 .relation-focus-card { text-align: center; background: #f3e9ff; border: 1.5px solid #c5a4e5; padding: 20px 14px; }
 .relation-focus-card > span { color: #a17eb6; font-size: 10px; }
 .relation-focus-card h3 { font-size: 16px; font-weight: 600; line-height: 1.7; color: #7548a1; margin: 12px 0 17px; }
+.relation-completion { display: flex; align-items: center; justify-content: center; gap: 5px; width: fit-content; margin: -7px auto 14px; padding: 4px 9px; border-radius: 12px; color: #816393; background: #e9ddf6; font-size: 11px; }
+.relation-completion.done { color: #126143; background: #ddf9e9; }
+.relation-completion .icon { width: 13px; height: 13px; }
 .relation-focus-card > div { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .relation-focus-card .primary-button, .relation-focus-card .secondary-button { font-size: 11px; padding: 9px 11px; }
 .path-reader { background: #fffdf9; border: 1px solid #e3d1ec; border-radius: 11px; margin-top: 24px; padding: 0 21px 7px; }
@@ -136,6 +200,9 @@
 .path-step.selected { background: #9460df; border-color: #9460df; box-shadow: 0 2px 0 #d3b6ec; }
 .path-step.selected > small { color: #e4d5f9; }
 .path-step.selected > span { color: white; font-weight: 600; }
+.path-step.selected > .path-step-status { width: fit-content; margin: 5px 0 0; padding: 2px 5px; border-radius: 4px; background: #ffffff24; color: white; }
+.path-step.selected.done > .path-step-status { color: #126143; background: #ddf9e9; }
+.path-step.selected.done > span > .icon { color: #ddf9e9; }
 .path-step.done:not(.selected) { background: #eaf9f0; border-color: #b7e6cf; }
 .path-step:hover { border-color: #a572c6; }
 .path-arrow { color: #c5a6d7; width: 16px; height: 16px; }
@@ -185,6 +252,7 @@
   .direct-relations { grid-template-columns: 1fr 1fr; }
   .relation-focus-card { grid-column: 1 / -1; grid-row: 1; padding: 15px; }
   .relation-focus-card h3 { display: inline; margin-left: 8px; font-size: 15px; }
+  .relation-completion { margin-top: 9px; margin-bottom: 0; }
   .relation-focus-card > div { margin-top: 14px; }
   .path-route { flex-direction: column; align-items: stretch; gap: 10px; }
   .path-number { padding-top: 0; }
@@ -244,3 +312,46 @@
   .lineage-entry .icon { width: 13px; height: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { .graph-edge-group { transition: none; } }
+
+.graph-stage-heading { position:absolute; top:14px; left:14px; right:14px; pointer-events:none; }
+.graph-stage-title { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.graph-stage-title > strong { color:#80628f; font-size:14px; font-weight:600; white-space:nowrap; }
+.graph-stage-title .stage-complete-button { pointer-events:auto; }
+.graph-stage-badges { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-top:7px; }
+.graph-stage-badges .stage-complete-badge { background:#dff7e9; color:#14754d; font-weight:600; }
+
+.stage-lineage { container: stage-lineage / inline-size; margin: 24px 0 32px; padding: 20px; border: 1px solid #ddcff0; border-radius: 16px; background: #fffdf9; box-shadow: 0 4px 0 #eee3f7; }
+.stage-lineage .section-title-row { margin-bottom: 0; }
+.stage-lineage .section-title-row p { max-width: 650px; margin-top: 6px; line-height: 1.6; }
+.stage-lineage .domain-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 14px 0; gap: 10px; }
+.stage-lineage .domain-card { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 3px 9px; min-width: 0; padding: 10px 12px 8px; border-top-width: 3px; border-radius: 10px; }
+.stage-lineage .domain-card-top { display: contents; }
+.stage-lineage .domain-icon { grid-column: 1; grid-row: 1 / 3; width: 28px; height: 28px; border-radius: 8px; }
+.stage-lineage .domain-icon .icon { width: 17px; height: 17px; }
+.stage-lineage .domain-count { grid-column: 2; grid-row: 2; font-size: 11px; line-height: 1.2; white-space: nowrap; }
+.stage-lineage .domain-count strong { font-size: 16px; }
+.stage-lineage .domain-card-label { grid-column: 2; grid-row: 1; flex-wrap: wrap; min-width: 0; margin: 0; gap: 2px 6px; font-size: 13px; line-height: 1.3; white-space: normal; }
+.stage-lineage .domain-card-label > span { font-size: 10px; }
+.stage-lineage .progress-track { grid-column: 1 / -1; grid-row: 3; width: 100%; height: 3px; margin: 3px 0 0; }
+.stage-lineage .graph-viewport { height: 680px; }
+.stage-lineage-focus { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; padding: 0 0 14px; font-size: 12px; color: #75518e; }
+.stage-lineage-focus > span { display: flex; gap: 7px; align-items: center; flex: 1; flex-wrap: wrap; }
+.stage-lineage-focus .icon { width: 16px; height: 16px; }
+.stage-lineage-focus small { font-size: 11px; color: #a18aaa; }
+.stage-lineage .selected-age-band { background: #e6dbffb8; border: 2px solid #b28ae7; }
+.graph-age-band > .selected-age-label { top: 70px; left: 14px; font-size: 10px; color: #7643af; background: #f6edff; border-radius: 4px; padding: 3px 6px; }
+.node-in-stage:not(.role-focus) { box-shadow: 0 3px 0 #d5bee9, 0 0 0 2px #c2a3e966; }
+.stage-lineage .graph-workspace.is-expanded .graph-viewport { height: auto; }
+@container stage-lineage (max-width: 640px) {
+  .stage-lineage .domain-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container stage-lineage (max-width: 280px) {
+  .stage-lineage .domain-cards { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .stage-lineage { padding: 16px 12px; margin-top: 20px; }
+  .stage-lineage .domain-cards { gap: 8px; margin: 12px 0; }
+  .stage-lineage .domain-card { padding: 9px 10px 7px; column-gap: 7px; }
+  .stage-lineage .graph-viewport { height: 560px; }
+  .stage-lineage-focus > span { flex-basis: 100%; }
+}
