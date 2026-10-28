@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-当前已合并为单仓库、单站点，拥有共同首页和相对路径互跳；成长与英语仍分别实现侧栏、移动目录和详情框架。本文的共享框架为本次推荐目标，**尚未实现、尚未上线**，不能据此宣称改造完成。实施后同步更新本节与 README。
+已实现单仓库、单站点、共享分类注册与导航运行时。首页、成长和英语共用站点栏、侧栏、窄屏目录及快捷栏；详情与预览共用分类选择器。旧地址与英语离线构建保持兼容。验收记录独立保存，具体浏览器与设备覆盖不由本设计文档代替。
 
 ## 一个网站，多个分类
 
@@ -26,7 +26,7 @@
 | `growth` | 成长技能树 | `index.html` | 成长主题 |
 | `english` | 英语启蒙 | `english/index.html#routes` | 英语主题 |
 
-目标注册表放在 `shared/site-sections.json`。每项含稳定 ID、标题、相对站点根的入口、主题 ID、图标 ID、简介。首页卡片与所有分类切换入口读取同一注册表。新增分类不提供空白占位入口；待内容可访问时再注册。
+唯一注册表放在 `shared/site-sections.json`。每项含稳定 ID、标题、相对站点根的入口、主题 ID、图标 ID、简介。首页卡片与所有分类切换入口读取同一注册表。新增分类不提供空白占位入口；待内容可访问时再注册。
 
 所有内部导航生成相对路径，显式传入当前页面到站点根的路径。根入口为 `./`，英语为 `../`，单文件导出为 `../../`。不能通过猜测域名、路径长度或 GitHub 账户定位根目录。
 
@@ -63,9 +63,9 @@
 
 框架仅管理导航开关、焦点与布局模式等临时状态。筛选、当前阶段、图谱焦点、阅读展开和领域记录各由所属分类维护；宝宝昵称和生日使用独立的共享数据服务，导航框架不拥有档案。
 
-成长保留 IndexedDB `xiaoya-growth`、旧记录 `xiaoya-growth-v1` 及查看偏好 `xiaoya-growth-view-v1`；英语保留 `little-leaf-english-v1`。个人生日、词汇、手记和收藏不得成为公开默认值或框架配置。
+成长保留 IndexedDB `xiaoya-growth`、旧记录 `xiaoya-growth-v1` 及查看偏好 `xiaoya-growth-view-v1`；英语保留 `little-leaf-english-v1`。词汇、手记和收藏不得成为公开默认值或框架配置。生日仅按本轮用户明确授权固定，通用成长模型 `DEFAULT_PROFILE` 与英语启动占位仍为空；实际活动档案统一由共享服务初始化。
 
-宝宝昵称与生日统一由 `shared/baby-profile.js` 读写 IndexedDB `xiaoya-site` 的 `profile/default`。根页面、英语及单文件构建使用同一份服务，新增分类直接接入。旧资料一致时自动迁移，不一致时展示来源供用户选择，迁移来源保存在共享档案中，原领域记录不删除。已有共享档案后不会再次被旧分页资料覆盖。
+宝宝昵称与生日统一由 `shared/baby-profile.js` 读写 IndexedDB `xiaoya-site` 的 `profile/default`。根页面、英语及单文件构建使用同一份服务，新增分类直接接入。按用户明确要求，个人自用网站的生日固定为 `2024-11-24`；自动沿用该生日的旧档案，无匹配资料时以该生日建立档案，不再弹出选择框。已有共享资料若生日不同也按此规则归一。迁移来源保留，领域记录不删除。昵称仍可全站同步修改，生日只读。
 
 成长数据库和 JSON 备份仍包含基础档案的兼容快照，活动页面以共享档案为准；英语本地 profile 仅写词汇量、呈现偏好等专属字段，导出时附上共享姓名与生日。跨标签使用 BroadcastChannel 通知，并在页面重新可见时回读；旧表单检查打开后的并发修改，冲突不覆盖。同一浏览器、同一网站来源内共用；本地预览、GitHub Pages 和 file 页面不属于同一来源，这不代表跨设备云同步。
 
@@ -73,8 +73,17 @@
 
 ## 构建与维护
 
-推荐共享文件为 `shared/site-sections.json`、`shared/site-shell.js` 和 `site.css`。根页面与首页载入共享运行时，英语构建将同一份注册表、运行时和样式内联，以保留离线单文件能力。生成 HTML 不作为独立维护源。
+共享文件为 `shared/site-sections.json`、`shared/site-shell.js` 、`shared/site-config.js`、`shared/site-home.js` 和 `site.css`。根页面与首页载入共享运行时，英语构建将同一份注册表、运行时和样式内联，以保留离线单文件能力。生成 HTML 不作为独立维护源。
 
 统一发布仍走 `scripts/build-site.mjs`，输出 `dist/site`。运行时文件按白名单进入发布包；`AGENTS.md`、本文件、方案和测试保存在 `main`，不复制到 `codex/pages` 网站包。发布副本只接收构建结果，不在副本开发。
 
 每次框架修改同时验收成长、英语、首页、详情与预览，覆盖窄屏、断点两侧和宽屏；保留状态与未保存行为。方案、实现状态和验收证据分开记录，不用设计目标充当通过证据。
+
+
+## 接入接口与实现位置
+
+`XiaoyaSite.createShell({ sectionId, siteRoot, navigation, activeId, title, onNavigate })` 返回 `element`、`content`、`actions`、`update()`、`createSectionSwitch()`、`openDirectory()`、`closeNavigation()` 和 `destroy()`。`content` 是领域正文槽，`actions` 是搜索/保存等动作槽；分类不重新实现侧栏和底栏。目录项以稳定 ID 回调到领域接入层，最多五项可标记为 `shortcut`。
+
+分类注册生成由 `scripts/build-site-config.mjs` 与 `english/build.py` 各自从同一 JSON 读取，确保单独构建也可用。框架通过 `data-site-section` 选择主题；新增主题在 `site.css` 只覆盖颜色变量。框架不持久保存档案，基础档案服务的职责与导航分离。
+
+成长的 `organizeGrowthReading()` 在窄屏收纳完整阶段图谱、直接前后关系与逐条脉络，保留阶段/领域和技能清单；英语的阅读分组、单阶段对照与素材分批由各自接入层维护。断点内的临时展开状态不写入宝宝档案。

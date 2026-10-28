@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
-const { normalize, same, candidates, initialize, createStore } = createRequire(import.meta.url)('../shared/baby-profile.js');
-const a = { name: '测试甲', birthDate: '2025-01-10' };
-const b = { name: '测试乙', birthDate: '2025-02-11' };
+const { BIRTH_DATE, normalize, same, candidates, initialize, createStore } = createRequire(import.meta.url)('../shared/baby-profile.js');
+const a = { name: '测试甲', birthDate: BIRTH_DATE };
+const b = { name: '测试乙', birthDate: BIRTH_DATE };
 
 test('基础档案只读取昵称生日，专属英语字段不进入共享数据', () => {
   assert.deepEqual(normalize({ ...a, vocabulary: 80, mode: 'audio' }), a);
@@ -33,14 +33,24 @@ test('只有一份旧档案时自动迁移，并留存迁移来源', async () =>
   assert.deepEqual(saved, [a, null, sources]);
 });
 
-test('旧资料冲突必须经过选择，取消不写入，选择保留所有来源', async () => {
-  const sources = candidates(a, null, b);
-  let writes = 0;
-  const store = { load: async () => null, save: async (profile, expected, originals) => { writes++; assert.deepEqual(originals, sources); return { profile }; } };
-  assert.equal(await initialize(store, async () => sources, async () => null), null);
-  assert.equal(writes, 0);
-  assert.deepEqual((await initialize(store, async () => sources, async () => b)).profile, b);
-  assert.equal(writes, 1);
+test('旧资料不一致时自动选指定生日，不需要选择，原始来源仍保留', async () => {
+  const old = { name: '其他档案', birthDate: '2025-01-10' };
+  const sources = candidates(old, null, a);
+  let saved;
+  const result = await initialize({ load: async () => null, save: async (...args) => { saved = args; return { profile: args[0] }; } }, async () => sources);
+  assert.deepEqual(result.profile, a);
+  assert.deepEqual(saved, [a, null, sources]);
+});
+
+test('全新浏览器默认建立指定生日，已有错误生日自动改用指定档案', async () => {
+  const writes = [];
+  const old = { name: '其他档案', birthDate: '2025-01-10' };
+  const store = { load: async () => ({ profile: old }), save: async (...args) => { writes.push(args); return { profile: args[0] }; } };
+  assert.deepEqual((await initialize(store, async () => candidates(a))).profile, a);
+  assert.deepEqual(writes[0][1], old);
+  assert.deepEqual(writes[0][2].at(-1).profile, old);
+  const fresh = { load: async () => null, save: async profile => ({ profile }) };
+  assert.deepEqual((await initialize(fresh, async () => [])).profile, { name: '宝宝', birthDate: BIRTH_DATE });
 });
 
 test('两个页面同时首次迁移时，以已成功提交的共享档案为准', async () => {
@@ -108,4 +118,11 @@ test('没有 BroadcastChannel 时，重新聚焦页面也会读到另一分类�
   assert.deepEqual(client.get(), a);
   events.focus(); await new Promise(setImmediate);
   assert.deepEqual(client.get(), b);
+});
+
+
+test('保存昵称或导入旧资料时，调用方不能更换固定生日', async () => {
+  const fake = database({ profile: a });
+  const saved = await createStore(fake).save({ ...a, birthDate: '2025-03-01' }, a);
+  assert.equal(saved.profile.birthDate, '2024-11-24');
 });

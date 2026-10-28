@@ -155,7 +155,7 @@ async function persist(options = {}) {
   saveRevision += 1;
   try {
     if (!window.XiaoyaBabyProfile.same(state.profile, sharedProfile.get())) {
-      await sharedProfile.save(state.profile, sharedProfile.get());
+      state.profile = await sharedProfile.save(state.profile, sharedProfile.get());
     }
     return await saveController.request(options);
   } catch (error) {
@@ -944,7 +944,7 @@ function openDetail(id) {
 function openProfile() {
   if (!requireEditable(false)) return;
   profileEditBase = sharedProfile.get();
-  showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><label class="form-field">出生日期<input type="date" name="birthDate" value="${state.profile.birthDate}" required /></label><p class="form-help">昵称和生日全站共用；在任一分类修改，其他分类会同步更新。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
+  showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><label class="form-field">出生日期<input type="date" name="birthDate" value="${state.profile.birthDate}" readonly required /></label><p class="form-help">全站使用同一份宝宝资料，生日已固定；修改昵称会同步到其他分类。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
 }
 
 async function openBackup() {

@@ -18,11 +18,12 @@ class EnglishPagesTests(unittest.TestCase):
         match = re.search(r'window\.ROADMAP_RAW=(.*?);window\.ROADMAP_ASSETS=', cls.html)
         cls.data = json.loads(match.group(1))
 
-    def test_public_page_has_blank_profile_and_no_personal_context(self):
+    def test_fixed_birthday_uses_shared_service_without_browser_records(self):
         self.assertNotIn('2020-11-24', self.html)
         self.assertNotIn('/Users/', self.html)
         self.assertNotIn('23个月3天', self.html)
         self.assertIn("birthDate:'',vocabulary:0", self.html)
+        self.assertIn("const BIRTH_DATE = '2024-11-24'", self.html)
         self.assertNotIn('recommendation', self.data['editorial'])
 
     def test_every_referenced_source_and_preview_is_in_the_package(self):

@@ -1,7 +1,8 @@
 /* 全站宝宝基础档案；领域记录与导出快照继续保留各自格式。 */
 (function (root) {
   'use strict';
-  const EMPTY = Object.freeze({ name: '宝宝', birthDate: '' });
+  const BIRTH_DATE = '2024-11-24';
+  const EMPTY = Object.freeze({ name: '宝宝', birthDate: BIRTH_DATE });
   function normalize(value) {
     if (!value || typeof value.name !== 'string' || !value.name.trim() || value.name.trim().length > 30) return null;
     const day = value.birthDate;
@@ -37,7 +38,7 @@
       });
     }
     async function save(profile, expected, legacySources) {
-      const next = normalize(profile);
+      const next = normalize({ ...profile, birthDate: BIRTH_DATE });
       if (!next) throw new Error('请填写昵称和有效的出生日期。');
       const db = await open();
       return new Promise((resolve, reject) => {
@@ -48,7 +49,7 @@
         request.onsuccess = () => {
           const current = request.result;
           if (!same(current?.profile, expected) && !same(current?.profile, next)) { error = conflict(); tx.abort(); return; }
-          result = { profile: next, savedAt: new Date().toISOString(), legacySources: current?.legacySources || legacySources || [] };
+          result = { profile: next, savedAt: new Date().toISOString(), legacySources: legacySources || current?.legacySources || [] };
           store.put(result, 'default');
         };
         tx.oncomplete = () => resolve(result);
@@ -83,41 +84,18 @@
     }
     return result;
   }
-  async function initialize(store, sources, choose) {
+  async function initialize(store, sources) {
     const current = await store.load();
-    if (current) return current;
-    const options = await sources();
-    if (!options.length) return null;
-    const selected = options.length === 1 ? options[0].profile : await choose(options);
-    if (!selected) return null;
-    try { return await store.save(selected, null, options); }
+    if (current?.profile.birthDate === BIRTH_DATE) return current;
+    const options = [...(current?.legacySources || []), ...await sources()];
+    if (current?.profile) options.push({ label: '此前共享档案', profile: current.profile });
+    const selected = options.find(item => item.profile.birthDate === BIRTH_DATE)?.profile || EMPTY;
+    try { return await store.save(selected, current?.profile || null, options); }
     catch (error) { if (error.code === 'PROFILE_CONFLICT') return store.load(); throw error; }
-  }
-  function chooseProfile(options) {
-    return new Promise(resolve => {
-      const dialog = document.createElement('dialog');
-      dialog.setAttribute('aria-labelledby', 'shared-profile-title');
-      dialog.style.cssText = 'margin:auto;padding:24px;max-width:440px;width:calc(100% - 32px);border:1px solid #ced8ea;border-radius:16px;color:#263c59;background:#fff;';
-      const title = document.createElement('h2'); title.id = 'shared-profile-title'; title.textContent = '选择全站共用的宝宝资料';
-      const intro = document.createElement('p'); intro.textContent = '发现不同的旧档案，请选择一份作为全站资料。原档案会保留，技能、收藏和手记不会合并或删除。'; intro.style.cssText = 'line-height:1.8;margin:14px 0;';
-      dialog.append(title, intro);
-      const finish = value => { dialog.close(); dialog.remove(); resolve(value); };
-      for (const option of options) {
-        const button = document.createElement('button'); button.type = 'button';
-        // 档案文本通过 textContent 展示，姓名不作为 HTML 解析。
-        button.textContent = option.label + '：' + option.profile.name + ' · ' + option.profile.birthDate;
-        button.style.cssText = 'display:block;width:100%;min-height:48px;margin:10px 0;padding:12px;text-align:left;border:1px solid #bccce5;border-radius:8px;background:#edf4ff;color:#263c59;font:inherit;cursor:pointer;';
-        button.onclick = () => finish(option.profile); dialog.append(button);
-      }
-      const later = document.createElement('button'); later.textContent = '稍后选择'; later.style.cssText = 'min-height:44px;padding:8px;font:inherit;'; later.onclick = () => finish(null); dialog.append(later);
-      dialog.addEventListener('cancel', event => { event.preventDefault(); finish(null); });
-      document.body.append(dialog); dialog.showModal();
-    });
   }
   function createClient(env = root) {
     const store = createStore(env.indexedDB);
     let current = null;
-    let migrationSources = [];
     const listeners = new Set();
     const channel = typeof env.BroadcastChannel === 'function' ? new env.BroadcastChannel('xiaoya-baby-profile') : null;
     function accept(value) {
@@ -137,17 +115,16 @@
         return accept(await initialize(store, async () => {
           const growth = await legacyGrowth(env.indexedDB);
           const read = key => { const raw = env.localStorage.getItem(key); if (!raw) return null; try { return JSON.parse(raw)?.profile; } catch { return null; } };
-          migrationSources = candidates(growth, read('xiaoya-growth-v1'), read('little-leaf-english-v1'));
-          return migrationSources;
-        }, chooseProfile));
+          return candidates(growth, read('xiaoya-growth-v1'), read('little-leaf-english-v1'));
+        }));
       },
       get() { return { ...(current?.profile || EMPTY) }; },
-      async save(profile, expected = current?.profile) { const saved = await store.save(profile, expected, migrationSources); accept(saved); channel?.postMessage('changed'); return this.get(); },
+      async save(profile, expected = current?.profile) { const saved = await store.save(profile, expected); accept(saved); channel?.postMessage('changed'); return this.get(); },
       refresh,
       subscribe(listener) { listeners.add(listener); return () => listeners.delete(listener); },
     };
   }
-  const api = { normalize, same, candidates, initialize, createStore, createClient };
+  const api = { BIRTH_DATE, normalize, same, candidates, initialize, createStore, createClient };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.XiaoyaBabyProfile = api;
 })(typeof window === 'object' ? window : globalThis);
