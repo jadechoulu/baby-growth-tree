@@ -281,6 +281,14 @@
 
 .stage-lineage { container: stage-lineage / inline-size; margin: 24px 0 32px; padding: 20px; border: 1px solid #ddcff0; border-radius: 16px; background: #fffdf9; box-shadow: 0 4px 0 #eee3f7; }
 .stage-lineage .section-title-row { margin-bottom: 0; }
+.stage-lineage .lineage-title-row, .growth-mobile-fold .lineage-title-row { justify-content: flex-start; gap: 4px 10px; }
+.site-enabled .growth-content .lineage-title-row { flex-wrap: nowrap; }
+.lineage-title-row h2 { margin: 0; min-width: 0; flex: 0 1 auto; }
+.section-tools { display: inline-flex; flex-shrink: 0; align-items: center; gap: 2px; }
+.section-tools > button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; color: #75518e; }
+.section-tools > button:hover { background: #eee3f7; }
+.section-tools > button:focus-visible, .group-heading:focus-visible { outline: 2px solid #347bea; outline-offset: -2px; }
+.section-tools .icon { width: 19px; height: 19px; }
 .stage-lineage .section-title-row p { max-width: 650px; margin-top: 6px; line-height: 1.6; }
 .stage-lineage .domain-cards { grid-template-columns: repeat(4, minmax(76px, 1fr)); margin: 14px 0; gap: 10px; overflow-x: auto; padding: 3px 3px 7px; touch-action: auto; scrollbar-width: thin; }
 .stage-lineage .domain-card { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 3px 9px; min-width: 0; padding: 10px 12px 8px; border-top-width: 3px; border-radius: 10px; }
@@ -297,6 +305,30 @@
 .stage-lineage-focus > span { display: flex; gap: 7px; align-items: center; flex: 1; flex-wrap: wrap; }
 .stage-lineage-focus .icon { width: 16px; height: 16px; }
 .stage-lineage-focus small { font-size: 11px; color: #a18aaa; }
+
+/* 单领域占满容器；根据实际阅读宽度分列，不保留空的领域列。 */
+.milestones { container: milestones / inline-size; }
+.milestones .skill-groups { grid-template-columns: minmax(0, 1fr); margin-top: 10px; }
+.skill-group > .group-heading { cursor: pointer; list-style: none; padding: 10px 14px; min-height: 44px; gap: 10px; }
+.skill-group > .group-heading::-webkit-details-marker { display: none; }
+.skill-group:not([open]) > .group-heading { border-bottom: 0; }
+.group-label { min-width: 0; }
+.group-label > strong { display: block; font-size: 15px; color: var(--domain-ink); }
+.group-label > span { display: block; margin-top: 2px; font-size: 12px; color: var(--domain-ink); opacity: .84; }
+.group-fold-icon { width: 16px; height: 16px; flex-shrink: 0; transition: transform .15s; }
+.skill-group[open] > .group-heading .group-fold-icon { transform: rotate(90deg); }
+.milestones .skill-items { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 14px; }
+.milestones .skill-row { min-width: 0; min-height: 56px; }
+.milestones .skill-open { padding-block: 8px; gap: 2px; }
+@container milestones (min-width: 700px) {
+  .milestones .skill-items { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+  .milestones .skill-row:nth-child(odd):nth-last-child(2) { border-bottom: 0; }
+}
+@media (max-width: 900px) {
+  .site-enabled .growth-content .group-label > span { display: none; }
+  .site-enabled .growth-content .lineage-title-row h2 { margin: 0; font-size: 18px; line-height: 1.4; }
+  .site-enabled .growth-content .lineage-title-row h2 > span { font-size: inherit; }
+}
 .stage-lineage .selected-age-band { background: #e6dbffb8; border: 2px solid #b28ae7; }
 .graph-age-band > .selected-age-label { top: 70px; left: 14px; font-size: 10px; color: #7643af; background: #f6edff; border-radius: 4px; padding: 3px 6px; }
 .node-in-stage:not(.role-focus) { box-shadow: 0 3px 0 #d5bee9, 0 0 0 2px #c2a3e966; }
@@ -442,8 +474,8 @@
   .site-enabled .growth-content .group-footer { padding: 7px 12px; }
   .site-enabled .growth-content>.growth-mobile-fold { margin-top: 12px; }
   .site-enabled .growth-content .growth-mobile-fold>summary { padding: 10px 12px; }
-  .site-enabled .growth-content>.growth-mobile-fold>.section-title-row { padding: 12px 12px 0; }
-  .site-enabled .growth-content>.growth-mobile-fold>.stage-lineage-focus { padding: 12px; }
+  .site-enabled .growth-content>.growth-mobile-fold>.section-title-row { padding: 6px 12px 0; }
+  .site-enabled .growth-content>.growth-mobile-fold>.stage-lineage-focus { padding: 2px 12px 10px; gap: 6px; }
   .site-enabled .growth-content .next-step-view { margin-top: 0; }
   .site-enabled .growth-content :is(.next-step-header,.lineage-header) { padding: 12px; box-shadow: none; border-radius: 10px; }
   .site-enabled .growth-content :is(.next-step-header h1,.lineage-header h1) { font-size: 22px; margin: 0; }
