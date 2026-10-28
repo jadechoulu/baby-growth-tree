@@ -415,3 +415,36 @@
   .main .icon-button { min-height: 32px; }
   .graph-tools > button { min-height: 32px; }
 }
+
+/* 下一步按脉络列出可并行探索的技能，年龄用分组与颜色共同说明。 */
+.next-results-summary { color: #806390; font-size: 12px; line-height: 1.7; margin: 14px 0; }
+.next-training-group { margin-top: 22px; }
+.next-training-group > h2 { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; font-size: 14px; }
+.next-training-group > h2 small { color: #927a9e; font-size: 11px; font-weight: 400; }
+.next-training-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.next-training-grid .next-skill-card { padding: 16px; min-width: 0; }
+.next-training-grid .next-skill-meta { font-size: 11px; gap: 6px; }
+.next-training-grid .next-skill-card h3 { margin: 10px 0 8px; color: #543968; font-size: 19px; line-height: 1.5; }
+.next-training-grid .next-skill-meaning { font-size: 12px; line-height: 1.8; }
+.next-training-grid .next-prerequisites { font-size: 11px; margin-top: 10px; padding: 8px 10px; }
+.next-practice { margin-top: 12px; }
+.next-practice > summary { display: flex; align-items: center; gap: 5px; color: #806390; font-size: 11px; cursor: pointer; list-style: none; padding: 5px 0; }
+.next-practice > summary::-webkit-details-marker { display: none; }
+.next-practice > summary .icon { width: 13px; height: 13px; }
+.next-practice[open] > summary .icon { transform: rotate(90deg); }
+.next-practice .next-skill-tips { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 8px; }
+.next-practice h4 { font-size: 12px; color: #75518e; margin-bottom: 4px; }
+.next-practice .next-skill-tips p { font-size: 12px; }
+.next-training-grid .next-skill-actions { gap: 8px; margin-top: 14px; }
+.next-training-grid .next-skill-actions > button { font-size: 11px; }
+.next-undo + .next-results-summary { margin-top: 14px; }
+@container next-step (max-width: 680px) {
+  .next-training-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .next-results-summary { font-size: 11px; }
+  .next-training-group { margin-top: 18px; }
+  .next-training-group > h2 { flex-wrap: wrap; gap: 6px; }
+  .next-training-grid .next-skill-actions { align-items: center; }
+  .next-training-grid .next-skill-actions > .primary-button { width: auto; }
+}

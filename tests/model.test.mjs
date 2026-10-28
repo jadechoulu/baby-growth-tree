@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   DEFAULT_PROFILE, STAGES, localDateString, getAge, getStageForAge,
-  skillInStage, getStageSkills, getNextSkill, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup,
+  skillInStage, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup,
 } from '../lib/model.mjs';
 
 const localDay = (year, month, day) => new Date(year, month - 1, day, 12);
@@ -131,33 +131,62 @@ test('阶段全部完成复用跨阶段技能，单项回退同步移除涉及�
   assert.throws(() => completeRecords({}, s2, '2025-02-29'), /日期/);
 });
 
-test('下一步仅返回所选领域的一项，优先前置已完成且不按月龄过滤', () => {
+test('下一步同时覆盖当前阶段所有分支、同分支分叉，合流节点去重且不越过未完成项', () => {
   const catalog = [
-    { id: 'child', domain: 'fine', stage: 's0', parents: ['parent'] },
-    { id: 'other', domain: 'gross', stage: 's0', parents: [] },
-    { id: 'parent', domain: 'fine', stage: 's8', parents: [] },
-    { id: 'sibling', domain: 'fine', stage: 's1', parents: ['parent'] },
+    { id: 'root', domain: 'cognition', stage: 's4', parents: [] },
+    { id: 'a', domain: 'cognition', stage: 's5', category: '同一分支', parents: ['root'] },
+    { id: 'b', domain: 'cognition', stage: 's5', category: '同一分支', parents: ['root'] },
+    { id: 'independent', domain: 'cognition', stage: 's5', parents: [] },
+    { id: 'merge', domain: 'cognition', stage: 's6', parents: ['a', 'b'] },
+    { id: 'after', domain: 'cognition', stage: 's7', parents: ['merge'] },
+    { id: 'other', domain: 'gross', stage: 's5', parents: [] },
   ];
-  const records = Object.freeze({ parent: Object.freeze({ note: '尚未完成' }) });
-  assert.equal(getNextSkill(catalog, records, 'fine').id, 'parent');
-  assert.equal(getNextSkill(catalog, records, 'gross').id, 'other');
-  const completed = toggleRecord(records, 'parent', '2026-10-28');
-  assert.equal(getNextSkill(catalog, completed, 'fine').id, 'child');
-  assert.equal(getNextSkill(catalog, toggleRecord(completed, 'parent', '2026-10-28'), 'fine').id, 'parent');
-  assert.deepEqual(records.parent, { note: '尚未完成' });
-  assert.equal(getNextSkill(catalog, {}, 'unknown'), null);
+  const ids = records => getNextSkills(catalog, records, 'cognition', 's5').map(skill => skill.id);
+  const records = Object.freeze({ root: Object.freeze({ completedAt: '2026-10-27' }) });
+  assert.deepEqual(ids(records), ['a', 'b', 'independent']);
+  const doneA = toggleRecord(records, 'a', '2026-10-28');
+  assert.deepEqual(ids(doneA), ['b', 'independent']);
+  const doneB = toggleRecord(doneA, 'b', '2026-10-28');
+  assert.deepEqual(ids(doneB), ['independent', 'merge']);
+  const doneMerge = toggleRecord(doneB, 'merge', '2026-10-28');
+  assert.deepEqual(ids(doneMerge), ['independent', 'after']);
+  assert.deepEqual(ids(toggleRecord(doneMerge, 'merge', '2026-10-28')), ['independent', 'merge']);
+  assert.equal(records.a, undefined);
+  assert.deepEqual(getNextSkills(catalog, doneB, 'unknown', 's5'), []);
 });
 
-test('下一步复用跨领域记录，前置未标注时仍保留唯一待完成项供核对', () => {
+test('下一步跨越紧邻和更后月龄，未来独立起点等到相应月龄，跨阶段技能仍可列出', () => {
+  const catalog = [
+    { id: 'past', domain: 'fine', stage: 's3', parents: [] },
+    { id: 'shared', domain: 'fine', stage: 's4', endStage: 's7', parents: [] },
+    { id: 'future-root', domain: 'fine', stage: 's6', parents: [] },
+    { id: 'next', domain: 'fine', stage: 's6', parents: ['past'] },
+    { id: 'skip', domain: 'fine', stage: 's8', parents: ['past'] },
+  ];
+  assert.deepEqual(getNextSkills(catalog, {}, 'fine', 's5').map(s => s.id), ['past', 'shared']);
+  const records = { past: { completedAt: '2026-10-28' } };
+  assert.deepEqual(getNextSkills(catalog, records, 'fine', 's5').map(s => s.id), ['shared', 'next', 'skip']);
+  assert.deepEqual(getNextSkills(catalog, records, 'fine', 's6').map(s => s.id), ['shared', 'future-root', 'next', 'skip']);
+  assert.equal(getSkillAgeStatus(catalog[1], 's5'), 'current');
+  assert.equal(getSkillAgeStatus(catalog[3], 's5'), 'next');
+  assert.equal(getSkillAgeStatus(catalog[4], 's5'), 'later');
+});
+
+test('下一步复用跨领域完成记录，不把前置未完成的节点当作可开始，回退会恢复前置', () => {
   const catalog = [
     { id: 'parent', domain: 'gross', stage: 's1', parents: [] },
     { id: 'child', domain: 'fine', stage: 's2', parents: ['parent'] },
+    { id: 'future', domain: 'fine', stage: 's8', parents: [] },
   ];
-  assert.equal(getNextSkill(catalog, {}, 'fine').id, 'child');
-  const records = completeRecords({}, catalog, '2026-10-28');
-  assert.equal(getNextSkill(catalog, records, 'fine'), null);
-  const reverted = toggleRecord(records, 'child', '2026-10-28');
-  assert.equal(getNextSkill(catalog, reverted, 'fine').id, 'child');
+  assert.deepEqual(getNextSkills(catalog, {}, 'fine', 's5'), []);
+  const records = { parent: { completedAt: '2026-10-28' }, child: { note: '只有手记' } };
+  assert.deepEqual(getNextSkills(catalog, records, 'fine', 's5').map(s => s.id), ['child']);
+  const completed = completeRecords(records, catalog, '2026-10-28');
+  assert.deepEqual(getNextSkills(catalog, completed, 'fine', 's5'), []);
+  const reverted = toggleRecord(completed, 'parent', '2026-10-28');
+  assert.deepEqual(getNextSkills(catalog, reverted, 'gross', 's5').map(s => s.id), ['parent']);
+  assert.deepEqual(getNextSkills(catalog, {}, 'fine').map(s => s.id), ['future']);
+  assert.deepEqual(getNextSkills([], {}, 'fine', 's5'), []);
 });
 
 test('下一步年龄提示区分当前、紧邻下一阶段、更后、此前及未知；跨阶段技能按范围判断', () => {
