@@ -476,7 +476,9 @@
   .site-enabled .growth-content .group-heading .domain-icon { width: 26px; height: 26px; }
   .site-enabled .growth-content .group-heading p { display: none; }
   .site-enabled .growth-content .skill-items { padding: 0 10px; }
-  .site-enabled .growth-content .skill-row { min-height: 66px; gap: 6px; }
+  .site-enabled .growth-content .skill-row { min-height: 56px; gap: 8px; }
+  .site-enabled .growth-content .skill-open { padding: 7px 0; gap: 2px; }
+  .site-enabled .growth-content .skill-category { line-height: 1.4; }
   .site-enabled .growth-content .group-footer { padding: 7px 12px; }
   .site-enabled .growth-content>.growth-mobile-fold { margin-top: 12px; }
   .site-enabled .growth-content .growth-mobile-fold>summary { padding: 10px 12px; }
