@@ -568,6 +568,11 @@
   .section-head>.text-link{flex-shrink:0;white-space:nowrap;font-size:12px}
 }
 .xu-options-fold>summary,.origin-stage>summary{display:none}
+.comparison-selection,.route-browse-controls{display:contents}
+.mobile-baby-title,.baby-profile-overview>summary{display:none}
+@media(min-width:901px){
+  .baby-profile-overview>.reading-fold-body{padding:0}
+}
 @media(min-width:901px){
   .xu-options-fold>.reading-fold-body,.origin-stage>.reading-fold-body{padding:0}
 }
@@ -581,4 +586,87 @@
   .origin-stage-title>strong{font-size:15px}.origin-stage-title>small{font-size:12px}
   .origin-stage>.reading-fold-body{padding:0 10px 10px}
   .complete-comparison .origin-stage .stage-card{border:0;box-shadow:none;padding:8px}
+}
+
+/* 窄屏把首屏还给具体内容；控件保持 44px，正文保持 15px。 */
+@media(max-width:900px){
+  .page-heading,.routes-view .page-heading{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+  .page-heading>div,.routes-view .page-heading>div{display:block;min-width:0;flex:1}
+  .page-heading .eyebrow,.page-heading .sub{display:none}
+  .page-heading h1,.routes-view .page-heading h1{font-size:20px;line-height:1.4;letter-spacing:0}
+  .page-heading>.button,.routes-view .page-heading>.button{margin:0;min-height:44px;padding:6px 10px;white-space:normal;font-size:12px}
+  .toolbar{margin-bottom:8px;gap:6px}
+  .roadmap-mode{margin-bottom:6px}
+  .roadmap-mode>.segmented{padding:0;min-height:44px}
+  .roadmap-mode .segmented button{min-height:44px;padding:6px 10px}
+  .route-browse-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;margin:0 0 6px;align-items:start}
+  .route-browse-controls:has(.xu-options-fold[open]){grid-template-columns:1fr}
+  .route-browse-controls>.roadmap-mode,.route-browse-controls>.xu-options-fold{margin:0;min-width:0}
+  .route-browse-controls .xu-options-fold>summary{font-size:12px;gap:4px}
+  .xu-options-fold{margin:0 0 6px}
+  .xu-options-fold>summary{min-height:44px;padding:7px 10px}
+  .comparison-selection{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px;align-items:center;margin-bottom:8px}
+  .comparison-panel{display:flex;flex-direction:column}
+  .comparison-panel>.alignment-overview{order:2}
+  .comparison-panel>.alignment-remaining{order:3}
+  .comparison-controls{display:contents}
+  .comparison-controls>label,.mobile-stage-picker>label,.stage-stepper>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .comparison-controls>select{width:100%;min-height:44px;padding:6px;font-size:16px}
+  .mobile-stage-picker{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:2px;margin:0;min-width:0}
+  .mobile-stage-picker>select{grid-column:2;grid-row:1;width:100%;min-height:44px;padding:6px 2px;font-size:16px}
+  .stage-stepper{display:contents}
+  .stage-stepper .button{grid-column:1;grid-row:1;min-width:44px;min-height:44px;padding:0;font-size:18px}
+  .stage-stepper .button:last-child{grid-column:3}
+  .complete-comparison>.stage-comparison-row{padding:8px;gap:8px}
+  .origin-stage>summary{padding:10px;min-height:44px}
+  .origin-stage-title{gap:3px}
+  .origin-stage-title>.chip{font-size:12px}
+  .origin-stage>summary .origin-stage-title>small{display:none}
+  .origin-stage .stage-card>.stage-meta,.origin-stage .stage-card>h3,.origin-stage .stage-comparison-entry{display:none}
+  .origin-stage>.reading-fold-body{padding:0 8px 8px}
+  .origin-stage .stage-card>p{font-size:15px;line-height:1.7;margin:0 0 8px}
+  .origin-stage .stage-card>.age-band{font-size:12px;padding:0;background:transparent;margin:0 0 6px}
+  .origin-stage .stage-resource-tags{gap:4px;margin-top:8px}
+  .origin-stage .stage-resource-tags button{min-height:44px;font-size:13px}
+  .origin-stage .stage-open{min-height:44px;margin-top:6px}
+  .alignment-overview{margin:8px 0;padding:8px 10px}
+  .alignment-overview>summary,.alignment-remaining>summary,.route-help>summary,.stage-criteria>summary{min-height:44px;display:flex;align-items:center}
+  .alignment-target-details>summary{padding:10px;min-height:44px;gap:6px}
+  .alignment-expand{display:none}
+  .mobile-baby-title{display:block;font-size:21px;margin:0 0 8px}
+  .baby-profile-overview{margin:0 0 8px;background:#eaf0e5}
+  .baby-profile-overview>summary{display:flex;padding:9px 12px;min-height:44px}
+  .baby-profile-summary strong{font-size:14px}.baby-profile-summary small{margin-top:2px;font-size:12px}
+  .baby-profile-overview>.reading-fold-body{padding:0 10px 10px}
+  .baby-profile-overview .hero{padding:12px;border:0}
+  .baby-profile-overview .hero .eyebrow,.baby-profile-overview .hero h1{display:none}
+  .baby-profile-overview .hero p{font-size:15px;line-height:1.7}
+  .profile-mode{margin-top:8px}.mode-switch button{min-height:44px;font-size:13px}
+  .section-head{margin:12px 0 8px;gap:8px;align-items:center}
+  .section-head h2{font-size:17px}.section-head .num{display:none}
+  .section-head p{font-size:12px;line-height:1.6;margin-top:3px}
+  .section-head>.text-link{min-height:44px}
+  .chain{gap:8px;margin-bottom:8px}
+  .chain-card{padding:10px}.chain-card h3{font-size:15px;line-height:1.5}
+  .step-number{margin-bottom:4px;font-size:12px}.chain-card .text-link{min-height:44px;margin-top:4px}
+  .library-filters{margin:6px 0}.library-filters>summary{padding:7px 10px}
+  .library-tools{margin-bottom:6px;gap:6px}
+  .result-count{margin:6px 0 8px;font-size:12px;line-height:1.6}
+  .resource-grid{gap:8px}.resource-body{padding:12px}
+  .resource-body>.card-view-btn{min-height:48px}
+  .relation-tabs{margin:6px 0 8px}.relation-tabs .segmented button{min-height:44px}
+  .relation-center{padding:10px}.relation-center p{margin-top:0}
+  .mobile-relations>.reading-fold{margin:8px 0}
+  .source-card-head{padding:12px 12px 8px}.source-card-head>.eyebrow{display:none}
+  .source-card-head h3{font-size:16px}.sources-grid{gap:10px}
+  .source-pages{margin:0 12px 6px}.source-pages>summary{padding:6px 10px;min-height:44px}
+  .source-pages p{font-size:15px;line-height:1.7;margin:0 0 10px}
+  .source-card-actions{padding:4px 12px 10px}.source-card-actions .text-link{min-height:44px}
+  .detail-content{padding:12px 14px calc(20px + env(safe-area-inset-bottom))}
+  .detail-content>div>h2{font-size:21px;margin-top:8px!important;line-height:1.4}
+  .detail-content p,.detail-content li{font-size:15px;line-height:1.7}
+  .detail-section.reading-fold{margin:8px 0}
+  .detail-section.reading-fold>summary{padding:9px 10px;min-height:44px}
+  .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0}
+  .fact{padding:9px;font-size:15px}.fact small{font-size:12px}
 }
