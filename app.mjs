@@ -1294,7 +1294,7 @@ document.addEventListener('submit', async event => {
 
 let touchStart = null;
 document.addEventListener('touchstart', event => {
-  if (event.target.closest('.stage-picker, .milestones, .domain-cards') && !event.target.closest('input, textarea, a, select')) {
+  if (event.target.closest('.stage-picker, .milestones') && !event.target.closest('input, textarea, a, select, .domain-cards')) {
     touchStart = { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY };
   } else touchStart = null;
 }, { passive: true });
