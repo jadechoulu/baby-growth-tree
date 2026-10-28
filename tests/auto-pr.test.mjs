@@ -43,7 +43,7 @@ function setup({ event = 'push', branch = 'codex/english/example', conclusion = 
   const repository = context.repo;
   Object.defineProperty(context, 'repo', { enumerable: false, get: () => repository });
   const core = { info() {}, warning() {} };
-  return { calls, pr, run: () => coordinate({ github, context, core, wait: async () => {} }) };
+  return { calls, pr, github, run: () => coordinate({ github, context, core, wait: async () => {} }) };
 }
 
 test('专属分支推送自动创建 main PR，直接等待验证并合并发布，不依赖机器人后续事件', async () => {
@@ -112,4 +112,20 @@ test('直接等待的验证失败或一直只有其他 SHA 时，保留 PR，不
     assert.equal(app.calls.filter(c => c.name === 'merge').length, 0);
     assert.deepEqual(app.calls.filter(c => c.name === 'dispatch').map(c => c.args.ref), ['codex/english/example']);
   }
+});
+
+test('等待验证排队结束后重新核对 PR，期间出现新提交则不能合并旧 SHA', async () => {
+  const app = setup();
+  const listRuns = app.github.rest.actions.listWorkflowRuns;
+  let attempts = 0;
+  app.github.rest.actions.listWorkflowRuns = async args => {
+    if (++attempts === 1) return { data: { workflow_runs: [] } };
+    const result = await listRuns(args);
+    app.pr.head.sha = 'b'.repeat(40);
+    return result;
+  };
+  await app.run();
+  assert.equal(attempts, 2);
+  assert.equal(app.calls.filter(c => c.name === 'merge').length, 0);
+  assert.deepEqual(app.calls.filter(c => c.name === 'dispatch').map(c => c.args.ref), ['codex/english/example']);
 });
