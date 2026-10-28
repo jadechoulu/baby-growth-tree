@@ -10,7 +10,7 @@
 
 ## 内容维护
 
-源码统一维护在私有仓库 `jadechoulu/baby-english-tree`。此公开仓库只接收 `scripts/build-site.mjs` 生成的 `dist/site`，不在这里单独开发。更新应在私有源码工程完成测试后，运行 `scripts/publish-site.mjs` 同步发布包；不复制整个工程、历史记录或个人备份。
+源码统一维护在公开仓库 [jadechoulu/baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree) 的 `main` 分支，当前 `codex/pages` 分支只接收 `scripts/build-site.mjs` 生成的 `dist/site`。更新应在 `main` 完成测试后，运行 `scripts/publish-site.mjs` 同步发布包；不复制个人记录、备份或原私有 Git 历史。
 
 GitHub Pages 继续从 `codex/pages` 分支根目录发布。静态网页、图片和原文资料可公开查看；此发布副本不包含个人生日、成长记录、手记、收藏或本机来源路径。
 
