@@ -1,5 +1,5 @@
 import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkill, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-next-step';
-import { getSkillRelations, getBranchGraph, getStageGraph, getLineagePaths, layoutGraph } from './lib/graph.mjs';
+import { getSkillRelations, getBranchGraph, getStageGraph, getLineagePaths, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
 import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
