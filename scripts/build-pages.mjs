@@ -1,6 +1,7 @@
 import { copyFile, mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildSiteConfig } from './build-site-config.mjs';
 
 const PROJECT_ROOT = fileURLToPath(new URL('../', import.meta.url));
 
@@ -9,7 +10,11 @@ export const PUBLIC_FILES = Object.freeze([
   'index.html',
   'home.html',
   'site.css',
+  'shared/site-config.js',
+  'shared/site-shell.js',
+  'shared/site-home.js',
   'app.mjs',
+  'shared/baby-profile.js',
   'styles.css',
   'theme.css',
   'graph.css',
@@ -65,6 +70,7 @@ export async function buildPages({ sourceRoot = PROJECT_ROOT, outputDir = path.j
   }
   const publicApi = normalizeApiBase(configuredApi, { allowLocalApi });
   await checkPublicProfile(sourcePath);
+  await buildSiteConfig(sourcePath);
   for (const relative of PUBLIC_FILES) {
     if (!(await stat(path.join(sourcePath, relative))).isFile()) throw new Error(`缺少网页运行文件：${relative}`);
   }

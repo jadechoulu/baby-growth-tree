@@ -13,8 +13,15 @@ RAW['xuSupplements'][0]['relatedSources'] = [{'id':'xu-thousand-map','title':'�
 def inline_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
 
-css=(ROOT.parent/'site.css').read_text()+'\n'+(ROOT/'styles.css').read_text().replace("@import url('');\n",'')
-js='\n'.join((ROOT/file).read_text() for file in ['model.js','app.js'])
+css=(ROOT/'styles.css').read_text().replace("@import url('');\n",'')+'\n'+(ROOT.parent/'site.css').read_text()
+sections=json.loads((ROOT.parent/'shared/site-sections.json').read_text())
+assert len({item['id'] for item in sections}) == len(sections), '分类 ID 重复'
+for item in sections:
+    assert (ROOT.parent/item['entry'].split('#')[0].split('?')[0]).is_file(), '分类入口不存在：'+item['entry']
+config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
+config_path=ROOT.parent/'shared/site-config.js'
+if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
+js=(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['model.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
@@ -30,6 +37,7 @@ BASE='''<!doctype html>
 <body>
 <div id="app"><div class="loading">正在展开启蒙小地图…</div></div>
 <div id="overlay"></div><div id="preview"></div>
+<script>window.XIAOYA_SITE_SECTIONS=__SECTIONS__;window.XIAOYA_SITE_ROOT=__ROOT__;</script>
 <script>window.ROADMAP_SITE=__SITE__;window.ROADMAP_RAW=__RAW__;window.ROADMAP_ASSETS=__ASSETS__;</script>
 <script>__JS__</script>
 </body>
@@ -37,7 +45,7 @@ BASE='''<!doctype html>
 
 def write(path, assets, raw=RAW, script=js, site=None):
     site = site or {'home':'../home.html','growth':'../index.html'}
-    html=BASE.replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__JS__',script)
+    html=BASE.replace('__SECTIONS__',inline_json(sections)).replace('__ROOT__',inline_json(site['home'].removesuffix('home.html'))).replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__JS__',script)
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(html)
     print(str(path), f'{path.stat().st_size / 1024 / 1024:.1f} MB')

@@ -1,3 +1,4 @@
+import './shared/baby-profile.js?v=20261028-shared-profile-1';
 import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
 import { getSkillRelations, getBranchGraph, getStageGraph, getLineagePaths, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
@@ -6,6 +7,8 @@ import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
 import { combineLocalImports, mergeImportedGrowth } from './lib/import.mjs';
 
 const app = document.querySelector('#app');
+const sharedProfile = window.XiaoyaBabyProfile.createClient();
+let profileEditBase = null;
 let catalog = [];
 let resources = {};
 let skillGuides = { sources: {}, categories: {}, skills: {} };
@@ -49,7 +52,6 @@ function syncGraphLegend() {
 }
 mobileGraphLayout.addEventListener('change', () => {
   syncGraphLegend();
-  if (!mobileGraphLayout.matches) document.querySelector('.navigation-dialog')?.close();
 });
 
 // @CfSecAICode 遵循消费金融安全编码 FE-XSS-001 规范: 模板只解析静态结构，动态内容通过文本节点和属性 API 写入。
@@ -148,10 +150,18 @@ function requireEditable(needsProfile = true) {
   if (needsProfile && !state.profile.birthDate) { openProfile(); return false; }
   return true;
 }
-function persist(options = {}) {
-  if (!canEdit() || !state.profile.birthDate) return Promise.resolve(false);
+async function persist(options = {}) {
+  if (!canEdit() || !state.profile.birthDate) return false;
   saveRevision += 1;
-  return saveController.request(options);
+  try {
+    if (!window.XiaoyaBabyProfile.same(state.profile, sharedProfile.get())) {
+      await sharedProfile.save(state.profile, sharedProfile.get());
+    }
+    return await saveController.request(options);
+  } catch (error) {
+    state.storageError = error.message; state.hasUnsavedChanges = true;
+    updateSaveStatus(); return false;
+  }
 }
 function saveProblem() { return state.storageError; }
 function saveLabel() {
@@ -234,8 +244,8 @@ function restoreView() {
 function growthSnapshot(data) {
   return { version: 1, profile: { ...data.profile }, records: Object.fromEntries(Object.entries(data.records).map(([id, record]) => [id, { ...record }])) };
 }
-function applyGrowth(data) {
-  state.profile = { ...data.profile };
+function applyGrowth(data, importing = false) {
+  state.profile = importing ? { ...data.profile } : sharedProfile.get();
   state.records = structuredClone(data.records);
 }
 function setSessionToken(token) {
@@ -311,7 +321,7 @@ async function connectLocal() {
     state.localLoaded = true;
     state.storageError = '';
     if (!saveController) configureSaveQueue(localStore);
-    if (!envelope.snapshot) { state.profile = { ...DEFAULT_PROFILE }; state.records = {}; }
+    if (!envelope.snapshot) { state.profile = sharedProfile.get(); state.records = {}; }
     saveController.adopt(envelope);
     state.stage = currentStage()?.id || state.stage;
     lastCurrentStage = currentStage()?.id;
@@ -348,7 +358,7 @@ async function connectCloud() {
       saveController.adopt(envelope, merged.snapshot);
       if (!sameGrowth(merged.snapshot, envelope.snapshot)) void persist();
     } else {
-      if (!envelope.snapshot) { state.profile = { ...DEFAULT_PROFILE }; state.records = {}; }
+      if (!envelope.snapshot) { state.profile = sharedProfile.get(); state.records = {}; }
       saveController.adopt(envelope);
     }
     state.stage = currentStage()?.id || state.stage;
@@ -395,7 +405,7 @@ async function logoutCloud() {
   catch { notify('未能确认云端注销，请重试'); return; }
   setSessionToken('');
   state.auth = 'signed-out'; state.user = null; state.cloudLoaded = false;
-  state.profile = { ...DEFAULT_PROFILE }; state.records = {}; state.savedAt = null;
+  state.profile = sharedProfile.get(); state.records = {}; state.savedAt = null;
   state.lastUndo = null; saveController = null;
   document.querySelector('#app-dialog')?.close(); render();
 }
@@ -424,42 +434,34 @@ function notify(message, undo = false) {
   toastTimer = setTimeout(() => toast.classList.remove('visible'), undo ? 6500 : 3800);
 }
 
-function sidebarDirectory() {
-  const current = currentStage();
-  const overall = getStats(catalog, state.records);
-  return html`<div class="sidebar-section-label">一起慢慢长大</div>
-    <nav class="main-nav" aria-label="查看方式">
-      ${[{ id: 'baby', label: '宝宝视角', icon: 'baby' }, { id: 'tree', label: '技能全景', icon: 'tree' }, { id: 'next', label: '下一步', icon: 'arrow' }].map(view => html`<button class="nav-item ${state.view === view.id ? 'active' : ''}" data-view="${view.id}" aria-current="${state.view === view.id ? 'page' : 'false'}">${icon(view.icon)}<span>${view.label}</span>${state.view === view.id ? html`<span class="nav-active-dot"></span>` : ''}</button>`)}
-    </nav>
-    <div class="sidebar-section-label stage-nav-label">成长的每一站 <span>0–6岁</span></div>
-    <nav class="stage-nav" aria-label="年龄阶段">
-      ${STAGES.map(stage => {
-        const stats = getStats(getStageSkills(catalog, stage.id), state.records);
-        return html`<button class="stage-nav-item ${state.stage === stage.id && state.view === 'baby' ? 'selected' : ''}" data-stage="${stage.id}"><span class="stage-dot ${stats.total && stats.completed === stats.total ? 'filled' : ''}"></span><span>${stage.label}</span>${current?.id === stage.id ? html`<small>当前</small>` : html`<span class="stage-mini-count">${stats.completed}/${stats.total}</span>`}</button>`;
-      })}
-    </nav>
-    <div class="sidebar-bottom"><div class="garden-note">${icon('sprout')}<p>成长有自己的节奏<br /><span>每一点进步，都值得珍藏。</span></p></div>
-      <button class="profile-button" data-action="profile"><span class="avatar">${state.profile.name.slice(0, 1)}</span><span class="profile-text"><strong>${state.profile.name}的成长花园</strong><small>已收藏 ${overall.completed} 个成长瞬间</small></span>${icon('settings')}</button>
-    </div>`;
+let siteShell;
+function growthNavigation() {
+  return [
+    { id: 'views', title: '一起慢慢长大', items: [
+      { id: 'baby', label: '宝宝视角', icon: 'baby', shortcut: true },
+      { id: 'tree', label: '技能全景', icon: 'tree', shortcut: true },
+      { id: 'next', label: '下一步', icon: 'arrow', shortcut: true }
+    ] },
+    { id: 'stages', title: '成长的每一站 · 0–6岁', items: STAGES.map(stage => ({
+      id: 'stage:' + stage.id, label: stage.label, icon: 'sprout',
+      description: currentStage()?.id === stage.id ? '当前月龄' : (() => { const stats = getStats(getStageSkills(catalog, stage.id), state.records); return stats.completed + '/' + stats.total; })()
+    })) },
+    { id: 'profile', title: '我的成长花园', items: [{ id: 'profile', label: '宝宝资料', icon: 'settings' }, { id: 'backup', label: '记录与备份', icon: 'source' }] }
+  ];
 }
-
-function sidebar() {
-  const viewLabel = state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景';
-  return html`<aside class="sidebar">
-    <a class="brand" href="#" data-action="home" aria-label="小芽首页"><span class="brand-mark">${icon('sprout')}</span><span>小芽<small>宝宝成长技能树</small></span></a>
-    <button class="mobile-menu-toggle" data-action="navigation" aria-haspopup="dialog" aria-controls="app-dialog" aria-expanded="false">${icon('menu')}<span>目录</span><small>${viewLabel}</small></button>
-    ${sidebarDirectory()}
-  </aside>`;
-}
-
-function openNavigation() {
-  const dialog = showDialog(html`${dialogHeader('视图与年龄阶段', '成长目录')}${sidebarDirectory()}`, 'navigation-dialog');
-  document.querySelector('.mobile-menu-toggle')?.setAttribute('aria-expanded', 'true');
-  dialog.addEventListener('close', () => {
-    if (document.querySelector('#app-dialog[open]')) return;
-    const trigger = document.querySelector(mobileGraphLayout.matches ? '.mobile-menu-toggle' : '.sidebar .nav-item.active');
-    trigger?.focus({ preventScroll: true });
-  });
+function navigateGrowth(id) {
+  if (id.startsWith('stage:')) { state.view = 'baby'; state.graphExpanded = false; changeStage(id.slice(6)); }
+  else if (id === 'profile') openProfile();
+  else if (id === 'backup') openBackup();
+  else {
+    const previousView = state.view;
+    state.view = id; state.search = ''; state.status = 'all'; state.stageFocus = null;
+    if (id === 'baby') state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
+    if (id !== previousView) graphViewportAction = 'focus';
+    if (id !== 'tree') state.graphExpanded = false;
+    render();
+  }
+  window.scrollTo(0, 0);
 }
 
 function plant() {
@@ -496,7 +498,7 @@ function stageNavigator() {
   const preview = state.view === 'baby' && Boolean(current) && current.id !== stage.id;
   return html`<section class="stage-picker" aria-label="切换成长阶段">
     <div class="stage-picker-heading"><span class="section-kicker">跟着宝宝的节奏</span><span class="swipe-hint">左右滑动，看看前后阶段 ${icon('arrow')}</span></div>
-    <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}${getStats(getStageSkills(catalog, item.id), state.records).remaining === 0 ? icon('check', 'stage-pill-check') : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button></div>
+    <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><label class="stage-select-label"><span>当前阶段</span><select id="growth-stage-select" aria-label="选择成长阶段">${STAGES.map(item => html`<option value="${item.id}" selected="${item.id === stage.id}">${item.label}${item.id === current?.id ? ' · 宝宝当前阶段' : ''}</option>`)}</select></label><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}${getStats(getStageSkills(catalog, item.id), state.records).remaining === 0 ? icon('check', 'stage-pill-check') : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button></div>
     ${preview ? html`<div class="preview-caption">正在预览 ${stage.label}<button class="text-button" data-action="current-stage">回到宝宝当前阶段 ${icon('arrow')}</button></div>` : !current && state.view === 'baby' ? html`<div class="preview-caption">${babyAge() ? '宝宝已超出图谱年龄范围，可以继续回顾每个阶段。' : state.profile.birthDate ? '宝宝还未出生，可以先预览各阶段。' : state.localMode ? '导入记录或建立宝宝资料后自动定位。' : '先浏览各个阶段，登录并建立宝宝资料后自动定位。'}</div>` : ''}
   </section>`;
 }
@@ -529,7 +531,7 @@ function skillGuideSection(skill) {
     <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>从日常小事理解成长</small></div>
     <h3>这是什么意思？</h3><p class="guide-meaning">${guide.meaning}</p>
     <div class="guide-example"><h4>生活里的样子</h4><p>${guide.example}</p></div>
-    <div class="guide-practice"><section><h4>${icon('sprout')} 可以这样陪玩</h4><p>${guide.play}</p></section><section><h4>${icon('check')} 可以观察什么</h4><p>${guide.observe}</p></section></div>
+    <details class="growth-reading-fold"><summary>陪玩方法与观察要点</summary><div class="guide-practice"><section><h4>${icon('sprout')} 可以这样陪玩</h4><p>${guide.play}</p></section><section><h4>${icon('check')} 可以观察什么</h4><p>${guide.observe}</p></section></div></details>
     ${guide.note ? html`<aside class="guide-note">${icon('info')}<p>${guide.note}</p></aside>` : ''}
     ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary><p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p></details>` : ''}
     <details class="guide-sources"><summary>参考资料 · ${sourceIds.length} 项${icon('chevron')}</summary><p>以下资料用于解释相关能力与活动，原图的月龄、名称和进阶顺序不等于这些资料的统一标准。</p><ul>${sourceIds.map(id => {
@@ -764,6 +766,34 @@ function selectGraphSkill(id) {
   render();
 }
 
+const growthReadingState = new Map();
+function organizeGrowthReading() {
+  const narrow = window.matchMedia('(max-width:900px)').matches;
+  const wrap = (key, label, nodes) => {
+    const items = nodes.filter(Boolean);
+    if (!items.length) return;
+    const fold = document.createElement('details');
+    fold.className = 'growth-mobile-fold';
+    fold.dataset.readingKey = key;
+    fold.open = !narrow || (growthReadingState.get(key) ?? false);
+    const summary = document.createElement('summary'); summary.textContent = label;
+    items[0].before(fold); fold.append(summary, ...items);
+    fold.addEventListener('toggle', () => {
+      if (window.matchMedia('(max-width:900px)').matches) growthReadingState.set(key, fold.open);
+      if (fold.open && fold.querySelector('#graph-viewport')) requestAnimationFrame(() => { drawTree(); locateGraphFocus(); });
+    });
+  };
+  if (state.view === 'baby') {
+    const lineage = siteShell.content.querySelector('.stage-lineage');
+    if (lineage) wrap('stage-graph', '查看图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.path-reader,.lineage-footnote')));
+    const resource = siteShell.content.querySelector('.milestones>.resource-section');
+    if (resource) wrap('stage-resources', '本阶段的陪伴与启蒙参考', [resource]);
+  }
+}
+window.matchMedia('(max-width:900px)').addEventListener('change', event => {
+  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? false); });
+});
+
 function render() {
   const active = document.activeElement;
   const focusId = active?.id === 'skill-search' ? active.id : null;
@@ -772,7 +802,17 @@ function render() {
   const graphScroll = { top: graphViewport?.scrollTop || 0, left: graphViewport?.scrollLeft || 0 };
   const pathReaderOpen = document.querySelector(`.path-reader[data-reader-view="${state.view}"]`)?.open ?? state.view === 'tree';
   document.body.classList.toggle('graph-is-expanded', state.graphExpanded);
-  app.replaceChildren(html`${sidebar()}<main class="main ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><nav class="site-nav" aria-label="小芽工具导航"><a class="site-home-link" href="./home.html">小芽 · 首页</a><span aria-current="page">成长技能树</span><a href="./english/index.html#routes">英语启蒙</a></nav><header class="topbar"><div class="breadcrumb">成长花园 <span>/</span> ${state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景'}</div><div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></main>`);
+  if (!siteShell) {
+    siteShell = window.XiaoyaSite.createShell({ sectionId: 'growth', siteRoot: './', onNavigate: navigateGrowth });
+    app.replaceChildren(siteShell.element);
+  }
+  const viewLabel = state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景';
+  siteShell.update({ navigation: growthNavigation(), activeId: state.view, title: viewLabel });
+  siteShell.actions.replaceChildren(html`<div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
+  siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
+
+  organizeGrowthReading();
+  if (state.graphExpanded) document.querySelector('.graph-toolbar')?.append(siteShell.createSectionSwitch());
   syncGraphLegend();
   document.querySelector('.graph-legend-disclosure > summary')?.addEventListener('click', event => {
     graphLegendOpen = !event.currentTarget.parentElement.open;
@@ -887,7 +927,7 @@ function showDialog(content, kind = '') {
   dialog.showModal();
   return dialog;
 }
-function dialogHeader(kicker, title) { return html`<header class="dialog-header"><div><span class="section-kicker">${kicker}</span><h2 id="dialog-title">${title}</h2></div><button class="circle-button" data-action="close-dialog" aria-label="关闭">${icon('close')}</button></header>`; }
+function dialogHeader(kicker, title) { return html`<header class="dialog-header"><div><span class="section-kicker">${kicker}</span><h2 id="dialog-title">${title}</h2></div>${siteShell.createSectionSwitch()}<button class="circle-button" data-action="close-dialog" aria-label="关闭">${icon('close')}</button></header>`; }
 
 function openDetail(id) {
   const skill = catalog.find(item => item.id === id);
@@ -896,14 +936,15 @@ function openDetail(id) {
   const parents = (skill.parents || []).map(parent => catalog.find(item => item.id === parent)).filter(Boolean);
   const children = catalog.filter(item => item.parents?.includes(id));
   const done = isDone(id);
-  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>${skillGuideSection(skill)}<form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>手记与完成状态自动同步到私有云端</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">原始图谱第 ${skill.sourcePage} 页 · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog');
+  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>${skillGuideSection(skill)}<form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>${state.localMode ? '手记与完成状态自动保存到本机' : '手记与完成状态自动同步到私有云端'}</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">原始图谱第 ${skill.sourcePage} 页 · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog');
   dialog.dataset.skillId = id;
   updateSaveStatus();
 }
 
 function openProfile() {
   if (!requireEditable(false)) return;
-  showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><label class="form-field">出生日期<input type="date" name="birthDate" value="${state.profile.birthDate}" required /></label><p class="form-help">月龄会随日期自动更新，并定位到宝宝当前的成长阶段。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
+  profileEditBase = sharedProfile.get();
+  showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><label class="form-field">出生日期<input type="date" name="birthDate" value="${state.profile.birthDate}" required /></label><p class="form-help">昵称和生日全站共用；在任一分类修改，其他分类会同步更新。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
 }
 
 async function openBackup() {
@@ -1036,9 +1077,6 @@ async function completeStage(stageId) {
 document.addEventListener('click', async event => {
   const element = event.target.closest('button, a[data-action], [data-view], [data-stage]');
   if (!element) return;
-  if (element.closest('.navigation-dialog') && (element.dataset.view || element.dataset.stage || element.dataset.action === 'profile')) {
-    document.querySelector('.navigation-dialog')?.close();
-  }
   if (element.dataset.view) {
     const previousView = state.view;
     state.view = element.dataset.view;
@@ -1062,7 +1100,7 @@ document.addEventListener('click', async event => {
   else if (element.dataset.action) {
     const index = STAGES.findIndex(stage => stage.id === state.stage);
     switch (element.dataset.action) {
-      case 'navigation': openNavigation(); break;
+      case 'navigation': siteShell.openDirectory(); break;
       case 'home': event.preventDefault(); state.view = 'baby'; state.graphExpanded = false; state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0'); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); break;
       case 'prev-stage': if (index > 0) changeStage(STAGES[index - 1].id); break;
       case 'next-stage': if (index < STAGES.length - 1) changeStage(STAGES[index + 1].id); break;
@@ -1117,7 +1155,7 @@ document.addEventListener('click', async event => {
       case 'close-dialog': document.querySelector('#app-dialog')?.close(); break;
       case 'confirm-import': {
         if (!pendingImport || !requireEditable(false)) break;
-        applyGrowth(mergeImportedGrowth(state, pendingImport));
+        applyGrowth(mergeImportedGrowth(state, pendingImport), true);
         pendingImport = null;
         state.lastUndo = null;
         state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
@@ -1172,6 +1210,7 @@ document.addEventListener('input', event => {
   }
 });
 document.addEventListener('change', event => {
+  if (event.target.id === 'growth-stage-select') changeStage(event.target.value);
   if (event.target.id === 'tree-category') {
     state.treeCategory = event.target.value;
     const graph = getBranchGraph(catalog, state.treeDomain, state.treeCategory);
@@ -1183,6 +1222,7 @@ document.addEventListener('change', event => {
   if (event.target.id === 'import-file') void importBackup(event.target.files);
 });
 document.addEventListener('keydown', event => {
+  if (window.XiaoyaSite.navigationOpen()) return;
   if (event.key === 'Escape' && state.graphExpanded && !document.querySelector('#app-dialog')) { state.graphExpanded = false; render(); }
   if (event.target.closest('#graph-viewport') && ['+', '=', '-'].includes(event.key)) { event.preventDefault(); setGraphZoom(state.graphZoom + (event.key === '-' ? -.15 : .15)); }
   if (event.target.id === 'import-label' && ['Enter', ' '].includes(event.key)) { event.preventDefault(); document.querySelector('#import-file')?.click(); }
@@ -1209,7 +1249,7 @@ document.addEventListener('submit', async event => {
   if (form.id === 'profile-form') {
     try {
       const validated = validateBackup({ version: 1, profile: { name: data.get('name'), birthDate: data.get('birthDate') }, records: state.records }, catalog.map(skill => skill.id));
-      state.profile = validated.profile;
+      state.profile = await sharedProfile.save(validated.profile, profileEditBase);
       state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
       lastCurrentStage = currentStage()?.id;
       state.view = 'baby';
@@ -1294,7 +1334,7 @@ async function syncGrowth(force = false) {
   try {
     const loaded = await store.load();
     if (!canEdit() || state.savePending || state.hasUnsavedChanges || editRevision !== saveRevision) return;
-    if (!loaded.snapshot) { state.profile = { ...DEFAULT_PROFILE }; state.records = {}; }
+    if (!loaded.snapshot) { state.profile = sharedProfile.get(); state.records = {}; }
     saveController.adopt(loaded);
     state.storageError = '';
     state.cloudEmpty = loaded.snapshot === null;
@@ -1318,6 +1358,15 @@ async function start() {
     catalog = await catalogResponse.json();
     resources = await resourcesResponse.json();
     skillGuides = await guidesResponse.json();
+    state.profile = await sharedProfile.init();
+    sharedProfile.subscribe((profile, error) => {
+      if (error) { state.storageError = error.message; updateSaveStatus(); return; }
+      const followsCurrent = state.stage === lastCurrentStage;
+      state.profile = profile;
+      if (followsCurrent) state.stage = currentStage()?.id || state.stage;
+      lastCurrentStage = currentStage()?.id;
+      render();
+    });
     await findLocalMigrations();
     try {
       const response = await fetch('./cloud-config.json', { cache: 'no-store' });
