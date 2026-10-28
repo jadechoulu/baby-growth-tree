@@ -11,9 +11,25 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
   const branch = run ? run.head_branch : context.ref.replace('refs/heads/', '');
   if (branch !== 'main' && !managedBranch(branch)) return;
 
-  const dispatch = async ref => {
+  const dispatch = async (ref, expectedSha) => {
+    const started = new Date(Date.now() - 1000).toISOString();
     await github.rest.actions.createWorkflowDispatch({ ...repo, workflow_id: 'site.yml', ref });
     core.info(`已安排验证：${ref}`);
+    if (!expectedSha) return;
+    // 内置令牌的验证完成也可能不触发 workflow_run，直接等待刚安排的同一提交。
+    for (let attempt = 0; attempt < 120; attempt++) {
+      const { data } = await github.rest.actions.listWorkflowRuns({ ...repo, workflow_id: 'site.yml',
+        branch: ref, event: 'workflow_dispatch', created: `>=${started}`, per_page: 20 });
+      const result = data.workflow_runs.find(item => item.head_sha === expectedSha &&
+        item.head_repository?.full_name === fullName);
+      if (result?.status === 'completed') {
+        if (result.conclusion !== 'success') throw new Error(`验证未通过，保留 PR：${result.html_url}`);
+        return coordinate({ github, core, wait, context: { ...context,
+          payload: { ...context.payload, workflow_run: result } } });
+      }
+      await wait(5000);
+    }
+    throw new Error(`等待 ${ref} 验证超时，保留 PR；请重跑协调工作流。`);
   };
   const owned = pr => pr.head.repo?.full_name === fullName && pr.base.ref === 'main' &&
     [repo.owner.toLowerCase(), 'github-actions[bot]'].includes(pr.user.login.toLowerCase());
@@ -35,7 +51,7 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
       const { data: updated } = await github.rest.pulls.get({ ...repo, pull_number: pr.number });
       if (updated.head.sha !== pr.head.sha) {
         // 内置令牌更新分支不会触发 push，必须显式触发验证。
-        await dispatch(updated.head.ref);
+        await dispatch(updated.head.ref, updated.head.sha);
         return true;
       }
       await wait(1000);
@@ -43,9 +59,12 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
     throw new Error(`PR #${pr.number} 分支更新仍未完成，请重新运行协调工作流。`);
   }
 
-  if (branch === 'main') {
+  async function synchronizeOpen() {
     const prs = await github.paginate(github.rest.pulls.list, { ...repo, base: 'main', state: 'open', per_page: 100 });
     for (const pr of prs.filter(pr => owned(pr) && !pr.draft && managedBranch(pr.head.ref))) await synchronize(pr);
+  }
+  if (branch === 'main') {
+    await synchronizeOpen();
     return;
   }
 
@@ -54,7 +73,10 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
   if (!pr && run) {
     // 内置令牌自动合并不会触发 main 的 push；验证完成后显式安排统一发布。
     const merged = candidates.find(pr => owned(pr) && pr.merged_at && pr.head.sha === run.head_sha);
-    if (merged) await dispatch('main');
+    if (merged) {
+      await dispatch('main');
+      await synchronizeOpen();
+    }
     return;
   }
   if (!pr) {
@@ -71,7 +93,10 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
   ({ data: pr } = await github.rest.pulls.get({ ...repo, pull_number: pr.number }));
   if (run && pr.head.sha !== run.head_sha) return;
   if (pr.merged || pr.merged_at) {
-    if (run) await dispatch('main');
+    if (run) {
+      await dispatch('main');
+      await synchronizeOpen();
+    }
     return;
   }
   if (await synchronize(pr)) return;
@@ -87,16 +112,17 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
       if (!latest.merged && !latest.merged_at) throw error;
     }
     await dispatch('main');
+    await synchronizeOpen();
     return;
   }
 
-  await dispatch(branch);
   try {
     await github.graphql('mutation($id:ID!){enablePullRequestAutoMerge(input:{pullRequestId:$id,mergeMethod:SQUASH}){pullRequest{number}}}', { id: pr.node_id });
   } catch (error) {
     // 已经启用或当前状态尚不可启用时，验证完成事件仍会按受保护规则合并。
     core.warning(`PR #${pr.number} 自动合并由验证完成事件继续处理：${error.message}`);
   }
+  await dispatch(branch, pr.head.sha);
 };
 
 module.exports.managedBranch = managedBranch;
