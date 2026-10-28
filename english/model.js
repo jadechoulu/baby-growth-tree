@@ -548,6 +548,14 @@
     }).filter(function (group) { return group.stages.length; });
   }
 
+  // 歌单关联到原路线的各个 SSS 版本，不归并媒介、级别或个人记录。
+  function getSongResources(catalog, library) {
+    var ids = unique([library.resourceId].concat(array(library.routeResourceIds).map(function (id) {
+      return catalog.rawToCanonical[id];
+    })));
+    return catalog.resources.filter(function (resource) { return ids.includes(resource.id); });
+  }
+
   function filterSongs(library, filters) {
     filters = filters || {};
     var category = array(library.categories).find(function (item) { return item.id === filters.category; });
@@ -560,7 +568,7 @@
     });
   }
 
-  var api = { normalize: normalize, getAge: getAge, recommend: recommend, compareStages: compareStages, getSeriesProgression: getSeriesProgression, filterSongs: filterSongs };
+  var api = { normalize: normalize, getAge: getAge, recommend: recommend, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

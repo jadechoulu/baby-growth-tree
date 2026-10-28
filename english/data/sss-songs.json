@@ -1,5 +1,6 @@
 {
   "resourceId": "resource-1bry08c",
+  "routeResourceIds": ["xu-sss", "qing-r043"],
   "title": "SSS 儿歌歌单",
   "attribution": "分类与顺序按用户提供的“小萌芽”歌单截图整理；“大童”为截图中的歌单名称。歌曲链接与预览图来自 Super Simple 官方目录，同名歌曲以链接中的官方版本为准。",
   "verifiedAt": "2026-10-28",

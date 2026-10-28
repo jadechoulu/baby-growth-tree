@@ -225,6 +225,15 @@
 .comparison-domain{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#f1edf6;border:1px solid #e2daea;border-radius:7px;padding:11px 14px;margin:16px 0 8px;color:#806795}.comparison-domain strong{font-size:13px}.comparison-domain small{font-size:10px;color:#9c8aa8}.domain-group.independent .stage-card:after{display:none}
 /* SSS 歌单：分类、生活场景与歌名组合筛选。 */
 .song-entry{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;margin:20px 0;background:var(--green-soft);border-radius:12px}
+.stage-song-link{align-self:flex-start}
+.song-context{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;font-size:13px}
+.song-route-links{margin:8px 0 12px}
+.song-route-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.song-route-row>div:first-child{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;min-width:0}
+.song-route-row strong{font-size:14px}.song-route-row small{flex-basis:100%;font-size:12px;color:var(--muted)}
+.song-route-actions{display:flex;gap:12px;flex-shrink:0}
+.modal-back{flex-shrink:0;white-space:nowrap;min-width:44px}
+@media(max-width:600px){.song-route-row{flex-wrap:wrap}.song-route-actions{width:100%;justify-content:flex-end}.detail-head:has(.modal-back)>span{font-size:12px;line-height:1.4}}
 .song-entry strong{font-size:17px}.song-entry p{margin:5px 0 0;font-size:12px;color:var(--muted)}
 .song-card-link{margin:12px 0 0;align-self:flex-start}
 .song-heading{margin:24px 0 20px}.song-heading h2{font-size:25px;line-height:1.4;margin:9px 0}.song-heading p{color:var(--muted)}

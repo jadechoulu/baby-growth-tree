@@ -35,6 +35,18 @@ test('SSS 分类与场景和关键词叠加筛选，生活歌单按原图顺序'
   assert.equal(model.filterSongs(sssSongs, {}).length, 42);
 });
 
+test('SSS 补充歌单同时关联许密杉和庆爸的独立素材与真实阶段', () => {
+  const linked = model.getSongResources(extendedCatalog, sssSongs);
+  assert.equal(linked.length, 2);
+  assert.deepEqual(linked.map(r => r.id).sort(), [catalog.rawToCanonical['xu-sss'], catalog.rawToCanonical['qing-r043']].sort());
+  const appearances = linked.flatMap(r => r.appearances);
+  assert.ok(appearances.some(a => a.stageId === 'xu-1'));
+  assert.ok(appearances.some(a => a.routeId === 'qing' && /L1/.test(a.level)));
+  assert.ok(appearances.every(a => extendedCatalog.stages.some(st => st.id === a.stageId)));
+  assert.notEqual(linked[0].id, linked[1].id);
+  assert.equal(linked.flatMap(r => r.appearances).filter(a => a.routeId === 'banana').length, 0);
+});
+
 test('SSS 官方入口和原图在构建中可追溯且不扩大为作者路线阶段', () => {
   const withSongs = model.normalize({ ...raw, sssSongs });
   assert.equal(withSongs.stages.length, catalog.stages.length);
