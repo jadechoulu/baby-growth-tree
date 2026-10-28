@@ -1,6 +1,6 @@
 # 小芽 · 成长与英语启蒙
 
-一个网站承载多个平级启蒙分类，目前包括**成长技能树**与**英语启蒙**。源码统一在 [jadechoulu/baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree) 的 `main` 分支；同仓库的 `codex/pages` 分支保存生成网页，供 GitHub Pages 发布。
+一个网站承载多个平级启蒙分类，目前包括**成长技能树**与**英语启蒙**。源码通过独立任务分支的 PR 汇入 [jadechoulu/baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree) 的 `main`，由 GitHub Actions 统一构建并发布 GitHub Pages；`codex/pages` 保留旧发布历史。
 
 | 工具 | 本地入口 | 在线入口 |
 |---|---|---|
@@ -25,9 +25,9 @@
 
 - 根目录：成长树源码、数据、测试和可选 Worker；英语源码在 `english/`，详细内容见 [英语说明](english/README.md)。
 - `node scripts/build-site.mjs`：复用两个去个人资料的构建，统一输出 `dist/site`（根成长树 + `english/` + `home.html`）。`scripts/build-pages.mjs` 与 `english/build.py --pages` 只生成中间组件包，不单独部署到站点根。
-- 只保留公开 [baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree)：在 `main` 修改源码，在 `codex/pages` 发布网页。两个分支属于同一个仓库，不需要私有源码仓。按本人自用要求，共享服务固定生日为 `2024-11-24`；成长记录、收藏和手记仍存浏览器或独立 JSON 备份，不提交到公开仓库。
-- 从本工程运行 `node scripts/publish-site.mjs --target ../baby-growth-tree --push`：检查同仓库的发布分支目录干净且 remote/分支正确，构建、同步显式发布文件、提交并推送到 `codex/pages`。不带 `--push` 时只准备并提交发布副本供检查。命令不会复制源码仓 `.git`、个人备份和工作目录。
-- GitHub Actions 的“构建小芽完整站点”只生成统一产物；已移除分别部署两套应用的旧工作流，避免覆盖。发布副本继续使用现有 legacy Pages 分支发布，见 [发布说明](deploy/README.md)。
+- 英语与成长各用独立会话和 worktree，任务分支分别为 `codex/english/<任务>`、`codex/growth/<任务>`。完成修改和验收后推送分支，GitHub 自动创建 main PR，verify 通过且基线最新后自动 squash 合并。协作规范见 [AGENTS.md](AGENTS.md)。
+- GitHub Actions“小芽验证与发布”只发布合并后的 main；开发会话不再分别操作发布副本。旧 `scripts/publish-site.mjs` 保留历史兼容，不作为日常发布入口。工作流与恢复方法见 [发布说明](deploy/README.md)。
+- 只保留公开 [baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree)，无需额外源码仓或个人 Token。按本人自用要求，共享服务固定生日为 `2024-11-24`；成长记录、收藏和手记仍存浏览器或独立 JSON 备份，不提交到公开仓库。
 
 根据「宝宝技能树_A4_打印版_1.pdf」整理的网页，共 248 个技能点、239 条进阶关系，覆盖 9 个年龄阶段和认知、感知觉、粗大运动、精细动作四个领域。原 PDF 的第 5 页是精细动作横向续页。未补造原图中不存在的语言等领域。
 

@@ -83,7 +83,11 @@
 
 共享文件为 `shared/site-sections.json`、`shared/site-shell.js` 、`shared/site-config.js`、`shared/site-home.js` 和 `site.css`。根页面与首页载入共享运行时，英语构建将同一份注册表、运行时和样式内联，以保留离线单文件能力。生成 HTML 不作为独立维护源。
 
-统一发布仍走 `scripts/build-site.mjs`，输出 `dist/site`。运行时文件按白名单进入发布包；`AGENTS.md`、本文件、方案和测试保存在 `main`，不复制到 `codex/pages` 网站包。发布副本只接收构建结果，不在副本开发。
+统一构建走 `scripts/build-site.mjs`，输出 `dist/site`。运行时文件按白名单进入发布包；`AGENTS.md`、本文件、方案和测试保存在 `main`，不复制到公开网站包。GitHub Actions 从已合并的 main 上传并部署 Pages 产物；`codex/pages` 仅保留旧发布历史，开发会话不再各自操作发布副本。
+
+英语与成长是同仓库的两个独立开发 worktree 和会话，分别读取本工作区 `xiaoya.area=english/growth` 并使用 `codex/english/<任务>`、`codex/growth/<任务>` 分支。分支推送后自动创建面向 main 的 PR，main 要求最新基线和 verify 检查，使用 squash 自动合并。主分支推进时，协调器更新其他开放任务分支并重新验收；有冲突则保留 PR 等待处理。共享框架改动在任务分支同时验收两分类，隔离工作目录不代表拆分产品框架。
+
+`.github/workflows/auto-pr.yml` 仅从 main 读取协调代码，负责创建 PR、同步基线和安排合并。验证工作流 `.github/workflows/site.yml` 对 PR 或显式 dispatch 运行测试与完整构建，只有 main 可以部署网站。内置 GITHUB_TOKEN 创建 PR、更新分支或合并后不会自动派生普通工作流事件，因此协调器会显式 dispatch 验证或 main 发布；不依赖个人 Token。成功验证必须与 PR 当前 head SHA 相同，过期运行、失败检查和外部 fork 不参与自动合并。
 
 每次框架修改同时验收成长、英语、首页、详情与预览，覆盖窄屏、断点两侧和宽屏；保留状态与未保存行为。方案、实现状态和验收证据分开记录，不用设计目标充当通过证据。
 

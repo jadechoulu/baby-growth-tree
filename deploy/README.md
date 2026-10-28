@@ -1,6 +1,6 @@
 # 小芽完整站点发布
 
-只使用公开仓库 `jadechoulu/baby-growth-tree`：`main` 保存完整源码，`codex/pages` 保存构建后的网页。保留现有 Pages 地址与 `codex/pages:/` 发布方式；发布分支目录只是同仓库的另一个 checkout，不是另一个仓库或开发工程。
+只使用公开仓库 `jadechoulu/baby-growth-tree`：`main` 保存完整源码，GitHub Actions 统一构建 `dist/site` 并部署 GitHub Pages。现有网页地址保持不变；`codex/pages` 保留旧发布历史，两个开发会话不再各自写入该分支。
 
 ## 构建与验证
 
@@ -14,17 +14,23 @@ node scripts/build-site.mjs
 
 构建先生成成长白名单组件包和英语去个人资料组件包，再组装统一站点。只复制运行所需文件和已引用资料；不复制个人 JSON、备份、截图、MEMORY.md、tmp、output、Worker 秘密或源码仓 Git 历史。成长默认生日和公开英语档案为空。
 
-## 一条命令更新网站
+## 分支自动提交、合并与发布
 
-先在唯一源码工程修改并完成测试，再运行：
+英语与成长各使用独立 worktree 和任务分支，在自己的工作目录完成修改、验收和提交后推送：
 
 ```sh
-node scripts/publish-site.mjs --target ../baby-growth-tree --push
+git push -u origin HEAD
 ```
 
-脚本只允许已配置到 `jadechoulu/baby-growth-tree` 的干净 `codex/pages` 发布副本。构建后移除 Git 已跟踪的过期发布文件，复制新产物、核对暂存差异、提交并推送；不覆盖未提交工作，不 force push。不带 `--push` 时停在本地发布提交，便于审阅。发布分支目录不手工开发，唯一源码在同仓库 `main` 分支。
+任务分支以 `codex/english/` 或 `codex/growth/` 开头。`.github/workflows/auto-pr.yml` 自动创建或复用面向 main 的开放 PR，并安排“小芽验证与发布”运行 verify。main 保护要求 verify 通过且分支包含最新 main；无需额外审批，通过后自动 squash 合并并删除远端任务分支。旧 PR 和其他命名的分支不会被接管。
 
-GitHub Actions“构建小芽完整站点”可在 `main` 手动运行测试并下载完整产物。它不直接部署；使用上述命令发布到同仓库的 `codex/pages`，无需跨仓库 Token。公开源码只提交整理后的当前快照，原私有 Git 历史保存在本机备份。
+main 推进后，协调器更新其他开放任务分支并重新验证；冲突或测试失败时停止自动合并，在原 PR 修复后再次推送即可。已合并分支不复用，下个任务从最新 origin/main 新建分支。不强推，不直接向 main 或旧发布分支提交。
+
+内置 GITHUB_TOKEN 创建 PR、更新分支、合并后不会触发普通的后续事件，协调器会显式 dispatch 验证与 main 发布，避免“自动创建但永远等不到检查”。工作流只对同仓库受管理分支操作，成功运行的 head SHA 必须仍是 PR 当前提交，拒绝过期结果与外部 fork。协调代码始终从 main 读取，不执行 PR 中的协调脚本。不存储个人 Token。
+
+只有 main 的成功构建可运行 deploy job，PR 和任务分支只验证、不部署。网站来源、相对路径及浏览器数据库不变。GitHub Pages 设置使用 GitHub Actions（`build_type=workflow`），不再使用 legacy 发布分支。
+
+如工作流需要重试，可在 GitHub Actions 重跑失败任务，或执行 `gh workflow run site.yml --ref <任务分支或main>`。`scripts/publish-site.mjs` 仅保留旧流程兼容，日常不运行。原私有 Git 历史仍保存在本机备份。
 
 ## 本机记录与可选云端
 
