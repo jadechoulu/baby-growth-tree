@@ -87,7 +87,7 @@ function navigateEnglish(id){
   if(id.startsWith('route:')){S.route=id.slice(6);S.compareRoute=S.route;S.compareStage=null;S.view='routes';render();window.scrollTo(0,0);history.replaceState(null,'','#routes');return;}
   navigate(id);
 }
-function englishActions(){return h('div',{class:'top-actions'},btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{},'top-search'),btn(icon('settings'),'profile',{'aria-label':'编辑宝宝资料'},'icon-button'));}
+function englishActions(){return h('div',{class:'top-actions'},btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'),btn(icon('settings'),'profile',{'aria-label':'编辑宝宝资料'},'icon-button'));}
 function footer(){return h('footer',{class:'page-foot'},h('span',{},'根据 '+C.sources.length+' 份本地资料整理 · '+C.stages.length+' 个阶段 / 节点 · '+C.resources.length+' 个素材系列'),h('span',{},'陪伴有节奏，成长不赶路。'));}
 function render(){const active=document.activeElement;const id=active?.id;const pos=active?.selectionStart;const x=window.scrollX,y=window.scrollY;const content=({baby:babyView,routes:routesView,library:libraryView,relations:relationsView,sources:sourcesView})[S.view]();organizePage(content);
 if(!siteShell){siteShell=window.XiaoyaSite.createShell({sectionId:'english',siteRoot:window.XIAOYA_SITE_ROOT,onNavigate:navigateEnglish});el.replaceChildren(siteShell.element);}

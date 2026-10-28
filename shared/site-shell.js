@@ -63,7 +63,23 @@
     const top = node('header', 'site-bar');
     const homeLink = node('a', 'site-brand');
     homeLink.href = resolveEntry('home.html', siteRoot);
-    homeLink.append(icon('sprout'), node('span', '', '小芽'), node('small', '', '一起慢慢长大'));
+    homeLink.setAttribute('aria-label', '小芽 · 首页');
+    homeLink.append(icon('sprout'), node('span', '', '小芽'), node('small', '', '首页'));
+    if (home) homeLink.setAttribute('aria-current', 'page');
+    const categories = node('nav', 'site-categories');
+    categories.setAttribute('aria-label', '网站分类');
+    for (const item of sections) {
+      const link = node('a', 'site-category-link', item.title);
+      link.href = resolveEntry(item.entry, siteRoot);
+      if (item.id === options.sectionId) link.setAttribute('aria-current', 'page');
+      categories.append(link);
+    }
+    const page = node('section', 'site-section');
+    page.setAttribute('aria-label', section?.title || '小芽首页');
+    const pageBar = node('header', 'site-page-bar');
+    pageBar.hidden = home;
+    const pageHeading = node('div', 'site-page-heading');
+    pageHeading.append(icon(section?.icon), node('strong', 'site-page-title', section?.title || ''));
     const menu = node('button', 'site-directory-button');
     menu.type = 'button';
     menu.append(icon('menu'), node('span', '', '目录'));
@@ -72,7 +88,6 @@
     menu.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-controls', 'site-navigation');
     menu.addEventListener('click', () => openNavigation('directory', menu));
-    const switcher = createSectionSwitch();
     const title = node('span', 'site-location');
     const actions = node('div', 'site-actions');
     const body = node('div', 'site-body');
@@ -84,9 +99,12 @@
     bottom.setAttribute('aria-label', '当前分类快捷导航');
     const skip = node('a', 'site-skip', '跳到正文');
     skip.href = '#main-content';
-    top.append(homeLink, switcher, menu, title, actions);
+    top.append(homeLink, categories);
+    pageHeading.append(title);
+    pageBar.append(pageHeading, menu, actions);
     body.append(sidebar, content);
-    element.append(skip, top, body, bottom);
+    page.append(pageBar, body, bottom);
+    element.append(skip, top, page);
     document.body.dataset.siteSection = section?.theme || 'home';
     document.body.classList.add('site-enabled');
 
@@ -169,8 +187,8 @@
       close.addEventListener('click', () => closeNavigation());
       head.append(node('strong', '', mode === 'directory' ? '浏览目录' : '今天探索什么？'), close);
       const scroll = node('div', 'site-navigation-scroll');
-      scroll.append(node('p', 'site-nav-label', '全站分类'), sectionLinks());
       if (mode === 'directory' && !home) scroll.append(node('p', 'site-directory-caption', section?.title || ''), navigation());
+      else scroll.append(node('p', 'site-nav-label', '全站分类'), sectionLinks());
       dialog.append(head, scroll);
       let outside = false;
       dialog.addEventListener('pointerdown', event => { outside = event.target === dialog; });
