@@ -1,6 +1,6 @@
 import './shared/baby-profile.js?v=20261028-shared-profile-1';
 import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
-import { getSkillRelations, getBranchGraph, getStageGraph, getLineagePaths, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
+import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
 import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
@@ -638,15 +638,6 @@ function neighborList(skills, direction) {
   return html`<section class="neighbor-column neighbors-${direction}"><h3>${direction === 'before' ? html`${icon('arrow', 'rotate')} 直接前序` : html`直接后续 ${icon('arrow')}`}<span>${skills.length}</span></h3>${skills.length ? html`<div class="neighbor-items">${skills.map(skill => html`<button class="neighbor-skill ${isDone(skill.id) ? 'done' : ''}" data-focus-skill="${skill.id}"><span>${skill.title}</span><small>${skillStageLabel(skill)}${isDone(skill.id) ? ' · 已完成' : ''}</small>${icon('chevron')}</button>`)}</div>` : html`<p class="neighbor-empty">${direction === 'before' ? '这是原图中这条脉络的起点' : '这是原图中这条脉络的末端'}</p>`}</section>`;
 }
 
-function pathReader(skill) {
-  const result = getLineagePaths(catalog, skill.id);
-  const byId = new Map(catalog.map(item => [item.id, item]));
-  return html`<details class="path-reader" data-reader-view="${state.view}"><summary><span>${icon('tree')} 逐条读完整脉络 <small>${result.total} 条路线</small></span>${icon('chevron')}</summary><p class="path-reader-hint">每条都从原图起点走到末端，经过当前技能；每一个箭头都对应原图中的关系。</p><div class="path-list">${result.paths.map((path, index) => html`<article class="path-route"><span class="path-number">路线 ${String(index + 1).padStart(2, '0')}</span><div class="path-steps">${path.ids.map((id, step) => {
-    const item = byId.get(id);
-    return html`${step ? icon('arrow', 'path-arrow') : ''}<button class="path-step ${id === skill.id ? 'selected' : ''} ${isDone(id) ? 'done' : ''}" data-focus-skill="${id}" aria-label="${skillStageLabel(item)} ${item.title}，${isDone(id) ? '已完成' : '探索中'}"><small>${skillStageLabel(item)}</small><span>${isDone(id) ? icon('check') : ''}${item.title}</span>${id === skill.id ? html`<small class="path-step-status">${isDone(id) ? '已完成' : '探索中'}</small>` : ''}</button>`;
-  })}</div></article>`)}</div>${result.truncated ? html`<p class="path-reader-hint">共 ${result.total} 条路线，当前显示前 ${result.paths.length} 条，可选择中间技能继续追踪。</p>` : ''}</details>`;
-}
-
 function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
   return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button><button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
@@ -704,7 +695,6 @@ function stageTreeView() {
     <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span><button class="text-button" data-action="stage-graph-current">定位本阶段 ${icon('arrow')}</button><button class="text-button" data-lineage="${skill.id}">在技能全景展开 ${icon('arrow')}</button></div>
     ${graphWorkspace(graph, layout, relations, categories)}
     ${directRelations(relations)}
-    ${pathReader(skill)}
     <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。下方清单的筛选不会隐藏这里的依赖关系。</p>
   </section>`;
 }
@@ -731,7 +721,7 @@ function treeView() {
     <div class="focus-strip"><span class="focus-strip-icon">${icon(domain.id)}</span><div><span class="focus-strip-kicker">正在追踪 · ${skillStageLabel(skill)}</span><h2>${skill.title}</h2></div><div class="trace-counts"><span><strong>${relations.ancestors.length}</strong> 项上游</span><span><strong>${relations.descendants.length}</strong> 项后续</span><span><strong>${stats.completed}/${stats.total}</strong> 已完成</span></div></div>
     ${graphWorkspace(graph, layout, relations, categories)}
     ${directRelations(relations)}
-    ${pathReader(skill)}<p class="lineage-footnote">${icon('info')} 脉络来自原始图谱的发展关系，支持跨年龄、跨分支查看；前序尚未标注，也可以记录后续技能。</p>
+    <p class="lineage-footnote">${icon('info')} 脉络来自原始图谱的发展关系，支持跨年龄、跨分支查看；前序尚未标注，也可以记录后续技能。</p>
   </section>`;
 }
 
@@ -785,7 +775,7 @@ function organizeGrowthReading() {
   };
   if (state.view === 'baby') {
     const lineage = siteShell.content.querySelector('.stage-lineage');
-    if (lineage) wrap('stage-graph', '阶段图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.path-reader,.lineage-footnote')));
+    if (lineage) wrap('stage-graph', '阶段图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.lineage-footnote')));
     const resource = siteShell.content.querySelector('.milestones>.resource-section');
     if (resource) wrap('stage-resources', '本阶段的陪伴与启蒙参考', [resource]);
     layoutGrowthStageReading();
@@ -819,7 +809,6 @@ function render() {
   const selection = focusId ? active.selectionStart : 0;
   const graphViewport = document.querySelector('#graph-viewport');
   const graphScroll = { top: graphViewport?.scrollTop || 0, left: graphViewport?.scrollLeft || 0 };
-  const pathReaderOpen = document.querySelector(`.path-reader[data-reader-view="${state.view}"]`)?.open ?? (state.view === 'tree' && window.matchMedia('(min-width:901px)').matches);
   document.body.classList.toggle('graph-is-expanded', state.graphExpanded);
   if (!siteShell) {
     siteShell = window.XiaoyaSite.createShell({ sectionId: 'growth', siteRoot: './', onNavigate: navigateGrowth });
@@ -843,8 +832,6 @@ function render() {
     input?.focus({ preventScroll: true });
     if (selection !== null && input) input.setSelectionRange(selection, selection);
   }
-  const reader = document.querySelector('.path-reader');
-  if (reader) reader.open = pathReaderOpen;
   requestAnimationFrame(() => {
     drawTree();
     const viewport = document.querySelector('#graph-viewport');
