@@ -38,6 +38,11 @@
 
 ## 代码与交付约定
 
+- 英语与成长使用独立会话、独立 Git worktree：英语会话负责英语，成长专属会话负责成长。每次开工读取 `git config --worktree xiaoya.area`（`english` / `growth`），并核对当前目录与分支；不能跨会话共用工作目录或改变另一工作区的分支。
+- 源码任务从最新 `origin/main` 创建 `codex/english/<任务>` 或 `codex/growth/<任务>` 分支。已合并的任务分支不复用；保留本地未提交工作，先 fetch，再在自己的分支合并 main，冲突由当前任务处理，不强推。
+- 用户已长期授权：每次完成所属范围的修改、验收和暂存核对后，自动提交并推送任务分支，不再逐次询问是否创建 PR。GitHub 工作流会自动向 `main` 创建或更新 PR，通过必需的 `verify` 检查且与最新 main 同步后自动 squash 合并；测试失败或冲突时保留 PR 修复，不能绕过检查。创建或接手 PR 后在会话中附加对应 PR。
+- `shared/`、`site.css`、构建与工作流是共享范围；有必要时在自己的任务分支修改，并同时验证两分类。不要跨会话转派用户问题或重复安排同一需求；以仓库和 PR 状态为准，不依赖其他聊天的进度描述。
+- 网站只由合并后的 `main` 通过 GitHub Actions 统一构建和发布，两个开发会话不再分别写入或推送 `codex/pages` 发布副本。该旧分支仅保留历史；不要用本机工作分支发布覆盖正式站。
 - 修改前检查工作区与相关目录的 `AGENTS.md`，保留其他会话的未提交工作；不代为提交不属于当前任务的改动。
 - 开发说明、提交说明默认中文。提交前核对暂存差异；不强制推送、不绕过提交钩子。
 - 源码、生成页与发布产物职责分明：英语修改 `english/app.js`、`english/styles.css` 等源文件，通过 `english/build.py` 重建，不能只手改生成 HTML。
@@ -51,6 +56,6 @@
 - 保留历史备份；同名文件另存，不覆盖、合并或删除已有记录。
 - 网页正在使用的浏览器数据库与 JSON 备份分开管理，不因整理目录清空浏览器记录。
 - 项目源码仍在当前工作区维护；本地页面使用 `scripts/local-server.py` 提供备份写盘能力，服务用 `codex-dev` 管理。
-- 按用户最新要求，只保留公开仓库 `jadechoulu/baby-growth-tree`。完整工程在 `main` 分支统一维护，生成网页放在同仓库的 `codex/pages` 分支供 GitHub Pages 发布；不再使用原私有源码仓和空记录仓。通过 `node scripts/build-site.mjs` 生成 `dist/site`，组件包 `dist/pages`、`dist/english-pages` 不单独部署到站点根。只公开工具源码和资料；除用户授权固定生日外，不发布成长记录、手记、收藏、本机备份、密钥或原私有 Git 历史。保留根成长页面、`home.html`、`english/` 及 `output/web/` 单文件的相对导航，不改两应用存储名称或静默合并档案。
+- 按用户最新要求，只保留公开仓库 `jadechoulu/baby-growth-tree`。完整工程通过任务 PR 汇入 `main`，GitHub Actions 从 main 的 `dist/site` 发布 GitHub Pages，`codex/pages` 仅保留旧发布历史；不再使用原私有源码仓和空记录仓。通过 `node scripts/build-site.mjs` 生成 `dist/site`，组件包 `dist/pages`、`dist/english-pages` 不单独部署到站点根。只公开工具源码和资料；除用户授权固定生日外，不发布成长记录、手记、收藏、本机备份、密钥或原私有 Git 历史。保留根成长页面、`home.html`、`english/` 及 `output/web/` 单文件的相对导航，不改两应用存储名称或静默合并档案。
 
 宝宝年龄由共享档案计算并统一显示在全站栏，分类正文不重复展示实际年龄与出生日期；手机隐藏成长页装饰性 banner，直接进入阶段与技能。年龄随资料更新和页面重新可见时刷新，昵称编辑入口保留在目录中。

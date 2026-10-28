@@ -1,0 +1,97 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import coordinate from '../.github/scripts/auto-pr.cjs';
+
+const fullName = 'example/baby';
+const sha = 'a'.repeat(40);
+function setup({ event = 'push', branch = 'codex/english/example', conclusion = 'success', head = sha, fork = false, behind = 0, candidates, updatedSha } = {}) {
+  const pr = { number: 2, node_id: 'PR_2', state: 'open', draft: false, user: { login: 'example' },
+    head: { ref: branch, sha, repo: { full_name: fullName } }, base: { ref: 'main' } };
+  const calls = [];
+  const call = (name, result) => async args => {
+    calls.push({ name, args });
+    return { data: typeof result === 'function' ? result(args) : result };
+  };
+  let updated = false;
+  const github = {
+    rest: {
+      pulls: {
+        list: call('list', candidates ?? [pr]),
+        get: call('get', () => updated && updatedSha ? { ...pr, head: { ...pr.head, sha: updatedSha } } : pr),
+        create: call('create', pr),
+        updateBranch: call('update', () => { updated = true; return {}; }),
+        merge: call('merge', { merged: true }),
+      },
+      repos: { compareCommits: call('compare', { behind_by: behind, ahead_by: 1, commits: [{ commit: { message: '改进英语页面' } }] }) },
+      actions: { createWorkflowDispatch: call('dispatch', {}) },
+    },
+    graphql: async (...args) => { calls.push({ name: 'auto', args }); },
+    paginate: async (fn, args) => (await fn(args)).data,
+  };
+  const context = { repo: { owner: 'example', repo: 'baby' }, ref: `refs/heads/${branch}`,
+    payload: { repository: { full_name: fullName }, ...(event === 'workflow_run' ? { workflow_run: {
+      head_repository: { full_name: fork ? 'other/baby' : fullName }, head_branch: branch,
+      head_sha: head, conclusion, event: 'workflow_dispatch',
+    } } : {}) } };
+  const core = { info() {}, warning() {} };
+  return { calls, pr, run: () => coordinate({ github, context, core, wait: async () => {} }) };
+}
+
+test('专属分支推送自动创建 main PR，显式触发验证并启用 squash 自动合并', async () => {
+  const app = setup({ candidates: [] });
+  await app.run();
+  assert.equal(app.calls.find(c => c.name === 'create').args.base, 'main');
+  assert.deepEqual(app.calls.filter(c => c.name === 'dispatch').map(c => c.args.ref), ['codex/english/example']);
+  assert.equal(app.calls.filter(c => c.name === 'auto').length, 1);
+  assert.equal(app.calls.filter(c => c.name === 'merge').length, 0);
+});
+
+test('只有成功验证的当前提交可以合并，并显式触发 main 发布', async () => {
+  const app = setup({ event: 'workflow_run' });
+  await app.run();
+  assert.equal(app.calls.find(c => c.name === 'merge').args.sha, sha);
+  assert.deepEqual(app.calls.filter(c => c.name === 'dispatch').map(c => c.args.ref), ['main']);
+});
+
+test('失败、外部 fork 和非专属分支都不能使用协调器写权限', async () => {
+  for (const options of [{ event: 'workflow_run', conclusion: 'failure' }, { event: 'workflow_run', fork: true }, { branch: 'codex/cloud-records' }]) {
+    const app = setup(options);
+    await app.run();
+    assert.equal(app.calls.length, 0);
+  }
+});
+
+test('过期的成功验证不能合并已经出现新提交的 PR', async () => {
+  const app = setup({ event: 'workflow_run', head: 'b'.repeat(40) });
+  await app.run();
+  assert.equal(app.calls.filter(c => ['merge', 'dispatch', 'auto'].includes(c.name)).length, 0);
+});
+
+test('落后 main 时先更新分支并重新验证，不能沿用旧检查合并', async () => {
+  const app = setup({ event: 'workflow_run', behind: 1, updatedSha: 'b'.repeat(40) });
+  await app.run();
+  assert.equal(app.calls.find(c => c.name === 'update').args.expected_head_sha, sha);
+  assert.deepEqual(app.calls.filter(c => c.name === 'dispatch').map(c => c.args.ref), ['codex/english/example']);
+  assert.equal(app.calls.filter(c => c.name === 'merge').length, 0);
+});
+
+test('原生自动合并先完成时，验证完成事件仍会安排 main 发布', async () => {
+  const app = setup({ event: 'workflow_run', candidates: [] });
+  app.pr.state = 'closed';
+  app.pr.merged_at = '2026-10-28T00:00:00Z';
+  const merged = setup({ event: 'workflow_run', candidates: [app.pr] });
+  await merged.run();
+  assert.deepEqual(merged.calls.filter(c => c.name === 'dispatch').map(c => c.args.ref), ['main']);
+});
+
+test('main 更新只同步本仓库的专属开放 PR，不接管已有其他分支', async () => {
+  const app = setup({ branch: 'main', candidates: [] });
+  const prs = [
+    { ...app.pr, head: { ...app.pr.head, ref: 'codex/growth/example' } },
+    { ...app.pr, head: { ...app.pr.head, ref: 'codex/cloud-records' } },
+    { ...app.pr, user: { login: 'someone-else' }, head: { ...app.pr.head, ref: 'codex/english/external' } },
+  ];
+  const run = setup({ branch: 'main', candidates: prs });
+  await run.run();
+  assert.equal(run.calls.filter(c => c.name === 'compare').length, 1);
+});
