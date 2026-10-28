@@ -553,7 +553,7 @@ function milestoneList() {
     ${skills.length ? html`<div class="skill-groups">${DOMAINS.filter(domain => skills.some(skill => skill.domain === domain.id)).map(domain => {
       const items = skills.filter(skill => skill.domain === domain.id);
       const domainStats = getStats(allStageSkills.filter(skill => skill.domain === domain.id), state.records);
-      return html`<section class="skill-group domain-${domain.id}"><header class="group-heading"><span class="domain-icon">${icon(domain.id)}</span><div><h3>${domain.label}</h3><p>${domain.description}</p></div><span class="group-count">${domainStats.completed} / ${domainStats.total}</span></header><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></section>`;
+      return html`<details class="skill-group domain-${domain.id}" open><summary class="group-heading" title="展开或收起技能清单"><span class="domain-icon">${icon(domain.id)}</span><span class="group-label"><strong>${domain.label}</strong><span>${domain.description}</span></span><span class="group-count">${domainStats.completed} / ${domainStats.total}</span>${icon('chevron', 'group-fold-icon')}</summary><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></details>`;
     })}</div>` : html`<div class="empty-state">${icon(state.status === 'done' ? 'sprout' : 'search')}<h3>${state.search ? '还没找到这个技能' : state.status === 'done' ? '第一颗小芽，等你来点亮' : '这里的小技能都探索过啦'}</h3><p>${state.search ? '换个词试试，或清除筛选看看。' : state.status === 'done' ? '点一下技能旁的圆圈，记下宝宝的成长。' : '可以回顾已完成的技能，或看看下一阶段。'}</p><button class="secondary-button" data-action="clear-filters">清除筛选</button></div>`}
     ${resourceSection(resources[stage.id])}
     <div class="list-footnote">${icon('info')} 点圆圈记录完成，再点一次即可回退；点技能名称看解释、陪玩方法或写手记。</div>
@@ -688,9 +688,9 @@ function stageTreeView() {
   currentGraph = { ...graph, layout, relations, focusId: skill.id, key: graphKey };
   const categories = [...new Set(graph.nodes.map(item => item.category))];
   return html`<section class="stage-lineage domain-${domain.id}" aria-label="本阶段技能脉络">
-    <div class="section-title-row"><div><div class="section-kicker">把小技能，连成一条成长路线</div><h2>${stage.label}<span>的成长脉络</span></h2><p>高亮区域是所选阶段，左右保留前序与后续；点技能追踪它从哪里来、向哪里去。</p></div></div>
+    <div class="section-title-row lineage-title-row"><h2>${stage.label}<span>的成长脉络</span></h2><div class="section-tools" role="group" aria-label="成长脉络工具栏"><button data-action="stage-graph-current" aria-label="定位本阶段" title="定位本阶段">${icon('locate')}</button><button data-lineage="${skill.id}" aria-label="在技能全景展开" title="在技能全景展开">${icon('expand')}</button></div></div>
     ${domainCards()}
-    <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span><button class="text-button" data-action="stage-graph-current">定位本阶段 ${icon('arrow')}</button><button class="text-button" data-lineage="${skill.id}">在技能全景展开 ${icon('arrow')}</button></div>
+    <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span></div>
     ${graphWorkspace(graph, layout, relations, categories)}
     ${directRelations(relations)}
     <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。下方清单的筛选不会隐藏这里的依赖关系。</p>
@@ -757,6 +757,12 @@ function selectGraphSkill(id) {
 const growthReadingState = new Map();
 function organizeGrowthReading() {
   const narrow = window.matchMedia('(max-width:900px)').matches;
+  siteShell.content.querySelectorAll('details.skill-group').forEach(fold => {
+    fold.open = growthReadingState.get('skill-list') ?? true;
+    fold.addEventListener('toggle', () => {
+      if (fold.isConnected) growthReadingState.set('skill-list', fold.open);
+    });
+  });
   const wrap = (key, label, nodes) => {
     const items = nodes.filter(Boolean);
     if (!items.length) return;
