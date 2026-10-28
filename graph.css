@@ -4,7 +4,9 @@
 .next-step-header h1 { margin: 8px 0; font-size: 28px; line-height: 1.4; color: #42304f; }
 .next-step-header p { color: #805e3c; font-size: 13px; line-height: 1.8; }
 .next-current-age { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; color: #805e3c; font-size: 12px; }
-.next-step-view .next-domains { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.next-step-view .next-domains { grid-template-columns: repeat(4, minmax(max-content, 1fr)); overflow-x: auto; padding: 2px 2px 6px; scroll-snap-type: x proximity; }
+.next-domains .lineage-domain { min-width: 112px; white-space: nowrap; scroll-snap-align: start; }
+.next-domains .lineage-domain > .icon { flex-shrink: 0; }
 .next-age-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
 .next-age-legend > span, .next-timing-label { border-radius: 5px; padding: 5px 8px; background: var(--timing-soft); color: var(--timing-ink); font-size: 11px; font-weight: 600; }
 .next-age-legend small { font-size: 11px; color: #8e789c; line-height: 1.6; }
@@ -29,9 +31,6 @@
 .next-complete > span { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: white; background: #21a476; }
 .next-complete h2 { color: #24714e; font-size: 22px; margin: 18px 0 10px; }
 .next-complete p { font-size: 13px; line-height: 1.8; color: #6b8d78; }
-@container next-step (max-width: 680px) {
-  .next-step-view .next-domains { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (max-width: 560px) {
   .sidebar { padding-inline: 10px; }
   .main-nav .nav-item { padding-inline: 6px; gap: 3px; }
