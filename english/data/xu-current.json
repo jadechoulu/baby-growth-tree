@@ -1,0 +1,462 @@
+{
+  "id": "xu-current",
+  "label": "听力路线 · 并行起步",
+  "description": "闪卡＋闪卡式绘本从第一阶段并行，起步目标约300听力词。后续按全景图500／800／1000／2000词节点查阅。",
+  "scope": "网站整理视图：以用户提供的全景图听力分支为骨架，加入六阶段表的SSS参考。保留各素材来源；不是声称作者新发布了这份五阶段完整修订版。",
+  "notes": [
+    "默认展示并行起步；后续词数是全景图原节点，不与其他资料的阶段编号混排。",
+    "全景图、六阶段表、四阶段执行表均未标作者发布日期，不能凭文件名或转存时间判断新旧。",
+    "2026-10-28已查作者主页：最近相关说明为2026-10-27；当前置顶完整听力回放发布于2026-06-26。尚未取得带修订日期、可逐项核验的最新完整书单。"
+  ],
+  "resources": [],
+  "stages": [
+    {
+      "id": "xu-current-300",
+      "order": 1,
+      "title": "第一阶段 · 闪卡＋闪卡式绘本（0–300词）",
+      "shortTitle": "第一阶段 · 0–300词",
+      "group": "",
+      "domain": "listening",
+      "goal": "起步积累至约300个听力词；闪卡与闪卡式绘本并行，用实物、动作和短故事建立理解。",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "全景图的300词节点同时列出闪卡、闪卡式绘本。本视图把它们合在同一入门阶段，按实际理解并行使用，不要求先刷完闪卡。",
+        "200词来自另一份六阶段组合表中闪卡的分项目标；这里的300词是整体入门听力目标，不是绘本准入门槛。",
+        "SSS为六阶段组合表的配套儿歌参考；不表示全景原图列了SSS。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-noun-cards",
+          "level": null,
+          "role": "闪卡",
+          "original": "名词卡",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-verb-cards",
+          "level": null,
+          "role": "闪卡",
+          "original": "动词卡",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-badi",
+          "level": null,
+          "role": "闪卡式绘本",
+          "original": "巴蒂英语",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-pearson-vocabulary",
+          "level": null,
+          "role": "闪卡式绘本",
+          "original": "培生词汇妙趣屋",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-big-cat",
+          "level": "预备级",
+          "role": "闪卡式绘本",
+          "original": "大猫预备级",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-youyou",
+          "level": "第一级",
+          "role": "闪卡式绘本",
+          "original": "悠游第一级",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-sss",
+          "sourceId": "xu",
+          "level": null,
+          "role": "配套儿歌参考",
+          "original": "SSS 指令式儿歌",
+          "page": 1
+        }
+      ],
+      "activities": [
+        {
+          "title": "闪卡",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-noun-cards",
+            "xu-panorama-verb-cards"
+          ],
+          "method": "同一阶段并行使用：名词卡、动词卡。原图未给频率、每日时长或具体品牌。",
+          "minutes": ""
+        },
+        {
+          "title": "闪卡式绘本",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-badi",
+            "xu-panorama-pearson-vocabulary",
+            "xu-panorama-big-cat",
+            "xu-panorama-youyou"
+          ],
+          "method": "同一阶段并行使用：巴蒂英语、培生词汇妙趣屋、大猫预备级、悠游第一级。",
+          "minutes": ""
+        }
+      ],
+      "sourceStageId": "xu-panorama-listening-300",
+      "vocabularyBrowseMin": 0,
+      "entry": "从零基础即可开始；不要求先达到200词或300词才共读。"
+    },
+    {
+      "id": "xu-current-500",
+      "order": 2,
+      "title": "听力节点 · 500词",
+      "shortTitle": "听力500词",
+      "group": "",
+      "domain": "listening",
+      "goal": "500词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "500词为原图节点标签，不作为自动准入门槛。",
+        "学乐未注明具体套系；保留品牌与原级别，不推断为FLR。",
+        "本节点保留全景图材料；词数用于寻找相邻试读候选，不代表自动晋级。不能把其他视频的分级级别直接覆盖到此图。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-heinemann",
+          "level": "GK",
+          "role": "海尼曼GK主节点",
+          "original": "海尼曼GK",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-big-cat",
+          "level": "1–3",
+          "role": "海尼曼GK配套分支",
+          "original": "大猫1-3级别",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-pearson-starlight",
+          "level": "1–3",
+          "role": "海尼曼GK配套分支",
+          "original": "培生启明星1-3级别",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-scholastic-unspecified",
+          "level": "A–C",
+          "role": "海尼曼GK配套分支",
+          "original": "学乐A-C级别",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-pearson-story-house",
+          "level": "基础级",
+          "role": "海尼曼GK配套分支",
+          "original": "培生亲子故事屋基础级",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-green-forest",
+          "level": null,
+          "role": "动画片",
+          "original": "绿色大森林",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-bat-friends",
+          "level": null,
+          "role": "动画片",
+          "original": "蝙蝠和朋友们",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        }
+      ],
+      "activities": [
+        {
+          "title": "海尼曼GK及配套分级",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-heinemann",
+            "xu-panorama-big-cat",
+            "xu-panorama-pearson-starlight",
+            "xu-panorama-scholastic-unspecified",
+            "xu-panorama-pearson-story-house"
+          ],
+          "method": "海尼曼GK分支下列出大猫1–3、培生启明星1–3、学乐A–C、培生亲子故事屋基础级。图中未给日程。",
+          "minutes": ""
+        },
+        {
+          "title": "动画片",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-green-forest",
+            "xu-panorama-bat-friends"
+          ],
+          "method": "绿色大森林、蝙蝠和朋友们。",
+          "minutes": ""
+        }
+      ],
+      "sourceStageId": "xu-panorama-listening-500",
+      "vocabularyBrowseMin": 300
+    },
+    {
+      "id": "xu-current-800",
+      "order": 3,
+      "title": "听力节点 · 800词",
+      "shortTitle": "听力800词",
+      "group": "",
+      "domain": "listening",
+      "goal": "800词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "800词为原图节点标签，不作为自动准入门槛。",
+        "学乐原文写“D E级别”，按两个相邻字母级别显示为D–E；具体套系仍不明。",
+        "本节点保留全景图材料；词数用于寻找相邻试读候选，不代表自动晋级。不能把其他视频的分级级别直接覆盖到此图。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-oxford-tree",
+          "level": "1–3",
+          "role": "牛津树1–3主节点",
+          "original": "牛津树1-3",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-big-cat",
+          "level": "4–5",
+          "role": "牛津树配套分支",
+          "original": "大猫4-5级别",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-pearson-starlight",
+          "level": "4–5",
+          "role": "牛津树配套分支",
+          "original": "培生启明星4-5级别",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-pearson-story-house",
+          "level": "进阶级",
+          "role": "牛津树配套分支",
+          "original": "培生亲子故事屋进阶级",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-scholastic-unspecified",
+          "level": "D–E",
+          "role": "牛津树配套分支",
+          "original": "学乐D E级别",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        }
+      ],
+      "activities": [
+        {
+          "title": "牛津树1–3及配套分级",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-oxford-tree",
+            "xu-panorama-big-cat",
+            "xu-panorama-pearson-starlight",
+            "xu-panorama-pearson-story-house",
+            "xu-panorama-scholastic-unspecified"
+          ],
+          "method": "牛津树1–3分支下列出大猫4–5、培生启明星4–5、培生亲子故事屋进阶级和学乐D、E。",
+          "minutes": ""
+        }
+      ],
+      "sourceStageId": "xu-panorama-listening-800",
+      "vocabularyBrowseMin": 500
+    },
+    {
+      "id": "xu-current-1000",
+      "order": 4,
+      "title": "听力节点 · 1000词",
+      "shortTitle": "听力1000词",
+      "group": "",
+      "domain": "listening",
+      "goal": "1000词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "1000词为原图节点标签，不作为自动准入门槛。",
+        "此全景图在听力1000词列桥梁书，与原六阶段拉听力表的编排不同；作为独立版本保留。",
+        "本节点保留全景图材料；词数用于寻找相邻试读候选，不代表自动晋级。不能把其他视频的分级级别直接覆盖到此图。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-fly-guy",
+          "level": null,
+          "role": "桥梁书",
+          "original": "苍蝇小子",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-frog-little",
+          "level": null,
+          "role": "桥梁书",
+          "original": "蛙小弟",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-pete-cat",
+          "level": null,
+          "role": "桥梁书",
+          "original": "皮特猫",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-muzzy",
+          "level": null,
+          "role": "动画片",
+          "original": "大马泽",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        },
+        {
+          "resourceId": "xu-panorama-wow",
+          "level": null,
+          "role": "动画片",
+          "original": "WOW",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        }
+      ],
+      "activities": [
+        {
+          "title": "桥梁书",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-fly-guy",
+            "xu-panorama-frog-little",
+            "xu-panorama-pete-cat"
+          ],
+          "method": "苍蝇小子、蛙小弟、皮特猫。原图未给单册顺序或级别。",
+          "minutes": ""
+        },
+        {
+          "title": "动画片",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-muzzy",
+            "xu-panorama-wow"
+          ],
+          "method": "大马泽、WOW。原图未给季数。",
+          "minutes": ""
+        }
+      ],
+      "sourceStageId": "xu-panorama-listening-1000",
+      "vocabularyBrowseMin": 800
+    },
+    {
+      "id": "xu-current-2000",
+      "order": 5,
+      "title": "听力节点 · 2000词",
+      "shortTitle": "听力2000词",
+      "group": "",
+      "domain": "listening",
+      "goal": "2000词",
+      "page": 1,
+      "preview": "assets/previews/xu-panorama.jpg",
+      "notes": [
+        "2000词为原图节点标签，不作为自动准入门槛。",
+        "初章书没有具体书名；不把阅读泛读分支的书目自动补到此节点。",
+        "本节点保留全景图材料；词数用于寻找相邻试读候选，不代表自动晋级。不能把其他视频的分级级别直接覆盖到此图。"
+      ],
+      "materials": [
+        {
+          "resourceId": "xu-panorama-peppa",
+          "level": null,
+          "role": "动画片",
+          "original": "小猪佩奇",
+          "page": 1,
+          "sourceId": "xu-panorama"
+        }
+      ],
+      "activities": [
+        {
+          "title": "初章书",
+          "frequency": "",
+          "materials": [],
+          "method": "原图在听力2000词节点只写“初章书”，没有列具体书名、套系或级别。",
+          "minutes": ""
+        },
+        {
+          "title": "动画片",
+          "frequency": "",
+          "materials": [
+            "xu-panorama-peppa"
+          ],
+          "method": "小猪佩奇，未注明季数。",
+          "minutes": ""
+        }
+      ],
+      "sourceStageId": "xu-panorama-listening-2000",
+      "vocabularyBrowseMin": 1000
+    }
+  ],
+  "verification": {
+    "checkedAt": "2026-10-28",
+    "conclusion": "第一阶段按闪卡与闪卡式绘本并行，向约300听力词积累；200词是六阶段表的闪卡分项目标。不同资料目标口径不混用。",
+    "limitation": "已核对作者页面的发布时间、标题与可见画面；平台AI章节、AI转载和读者评论不作为作者逐字原文。未取得有修订日期的最新完整书单，默认路线依据可回看的全景图整理。",
+    "items": [
+      {
+        "date": "2026-10-27",
+        "kind": "作者原视频 · 最近相关说明",
+        "title": "手把手教学：用分级阅读铺好拉听力的台阶",
+        "url": "https://www.douyin.com/video/7701130161254052470",
+        "note": "作者主页最近公开相关说明；主题是分级阅读台阶，不能据此宣布整份路线的所有级别已更新。"
+      },
+      {
+        "date": "2026-06-26",
+        "kind": "作者原视频 · 当前置顶完整回放",
+        "title": "拉听力完整版：零基础到1000听力词汇（直播回放）",
+        "url": "https://www.douyin.com/video/7655658248976076072",
+        "note": "页面显示完整回放74分15秒，作者在10月27日相关视频评论中仍引导看主页第一个视频。"
+      },
+      {
+        "date": "2026-05-11",
+        "kind": "作者原视频 · 分级攻略",
+        "title": "市面主流分级：英语渣妈上手完全攻略",
+        "url": "https://www.douyin.com/video/7638656721363940260",
+        "note": "页面章节为零基础、300–500、500–800、800–1000词。章节摘要由平台AI生成，仅作为定位线索。"
+      },
+      {
+        "date": "2026-05-17",
+        "kind": "AI转载整理 · 仅作检索线索",
+        "title": "英语分级阅读进阶全攻略：从零基础到听力1000词",
+        "url": "https://post.smzdm.com/p/aqr5eoq7/",
+        "note": "页面明确标注AIGC并链接5月11日原视频。不能把转载日期当作者修订时间，也不采纳其有歧义的后续级别表。"
+      },
+      {
+        "date": "2025-11-30",
+        "kind": "转载页面 · 非作者发布日期",
+        "title": "从零基础到听懂300词：闪卡式绘本实操带学",
+        "url": "https://post.smzdm.com/zz/p/adoornez/",
+        "note": "转载视频署名许密杉；标题支持300词起步口径，页面AI总结不作为作者原话。"
+      }
+    ]
+  }
+}

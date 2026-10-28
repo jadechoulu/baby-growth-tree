@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parent
 RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','editorial']}
 RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read_text())
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
+RAW['xuCurrent'] = json.loads((ROOT / 'data' / 'xu-current.json').read_text())
 
 RAW['xuSupplements'] = [json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['xu-thousand','xu-panorama']]
 RAW['xuSupplements'][0]['relatedSources'] = [{'id':'xu-thousand-map','title':'许密杉路线 · 四阶段图解','file':'assets/sources/xu-thousand-map.png','previews':[{'page':1,'path':'assets/previews/xu-thousand-map.jpg'}],'note':'用户提供的团拼整理图，与许密杉阶段执行表PDF的四阶段为同一计划的图解；不另计为新阶段。PDF优先保留其完整原文，两者细节差异分别注明。'}]
