@@ -13,5 +13,5 @@
 .site-home .site-card h2{font-size:24px;margin:12px 0}.site-home .site-card p{font-size:14px;color:#71816f;flex:1;margin:0 0 24px}.site-home .card-kind{font-size:12px;color:#8a69b0}.site-home .english .card-kind{color:#4d8668}
 .site-home .card-action{font-size:14px;font-weight:600;color:#456849}.site-home footer{margin-top:40px;padding-top:20px;border-top:1px solid #dfe6dc;color:#7a8777;font-size:12px}
 @media(max-width:760px){.workspace>.site-nav{padding:10px 22px}.site-nav{font-size:12px;gap:5px}.site-nav a,.site-nav [aria-current]{padding:6px 10px;min-height:34px}.site-home main{padding:0 20px 32px}.site-home .welcome{padding:38px 0 22px}.site-home h1{font-size:30px}.site-home .site-cards{grid-template-columns:1fr;gap:16px}.site-home .site-card{padding:23px}}
-@media(max-width:380px){.site-nav .site-home-link{flex-basis:100%;margin:0;padding-bottom:0}.workspace>.site-nav{padding:8px 17px}}
+@media(max-width:600px){.site-nav{flex-wrap:nowrap;gap:3px;font-size:12px}.site-nav a,.site-nav [aria-current]{padding:7px 8px;min-height:40px}.site-nav .site-home-link{flex-basis:auto;margin-right:auto;white-space:nowrap}.workspace>.site-nav{padding:6px 16px}}
 @media print{.site-nav{display:none}}
