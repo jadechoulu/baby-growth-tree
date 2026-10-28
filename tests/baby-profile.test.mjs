@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
-const { BIRTH_DATE, normalize, same, candidates, initialize, createStore } = createRequire(import.meta.url)('../shared/baby-profile.js');
+const { BIRTH_DATE, normalize, same, ageLabel, candidates, initialize, createStore } = createRequire(import.meta.url)('../shared/baby-profile.js');
 const a = { name: '测试甲', birthDate: BIRTH_DATE };
 const b = { name: '测试乙', birthDate: BIRTH_DATE };
 
@@ -125,4 +125,16 @@ test('保存昵称或导入旧资料时，调用方不能更换固定生日', as
   const fake = database({ profile: a });
   const saved = await createStore(fake).save({ ...a, birthDate: '2025-03-01' }, a);
   assert.equal(saved.profile.birthDate, '2024-11-24');
+});
+
+test('全站年龄按真实日历计算，跨月底与闰年不提前增长', () => {
+  const at = value => new Date(value + 'T12:00:00');
+  assert.equal(ageLabel(BIRTH_DATE, at('2026-10-28')), '1岁11个月4天');
+  assert.equal(ageLabel(BIRTH_DATE, at('2024-11-24')), '0天');
+  assert.equal(ageLabel('2024-01-31', at('2024-02-28')), '28天');
+  assert.equal(ageLabel('2024-01-31', at('2024-02-29')), '1个月');
+  assert.equal(ageLabel('2024-02-29', at('2025-02-28')), '1岁');
+  assert.equal(ageLabel(BIRTH_DATE, at('2024-11-23')), '');
+  assert.equal(ageLabel('2024-02-30', at('2026-10-28')), '');
+  assert.equal(ageLabel('', at('2026-10-28')), '');
 });

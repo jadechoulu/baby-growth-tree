@@ -69,7 +69,9 @@
     const categories = node('nav', 'site-categories');
     categories.setAttribute('aria-label', '网站分类');
     for (const item of sections) {
-      const link = node('a', 'site-category-link', item.title);
+      const link = node('a', 'site-category-link');
+      link.setAttribute('aria-label', item.title);
+      link.append(node('span', 'site-category-full', item.title), node('span', 'site-category-short', item.shortTitle || item.title));
       link.href = resolveEntry(item.entry, siteRoot);
       if (item.id === options.sectionId) link.setAttribute('aria-current', 'page');
       categories.append(link);
@@ -99,7 +101,25 @@
     bottom.setAttribute('aria-label', '当前分类快捷导航');
     const skip = node('a', 'site-skip', '跳到正文');
     skip.href = '#main-content';
-    top.append(homeLink, categories);
+    const baby = node('div', 'site-baby');
+    baby.setAttribute('aria-label', '宝宝当前年龄');
+    const babyName = node('span', 'site-baby-name');
+    const babyAge = node('span', 'site-baby-age');
+    baby.append(babyName, babyAge);
+    const profileClient = root.XiaoyaBabyProfile?.createClient();
+    function updateBabyAge() {
+      if (destroyed) return;
+      const profile = profileClient?.get();
+      babyAge.textContent = root.XiaoyaBabyProfile?.ageLabel(profile?.birthDate) || '';
+      babyName.textContent = profile?.name || '';
+      baby.hidden = !babyAge.textContent;
+    }
+    const unsubscribeProfile = profileClient?.subscribe(updateBabyAge);
+    updateBabyAge();
+    profileClient?.init().then(updateBabyAge).catch(() => { if (!destroyed) baby.hidden = true; });
+    root.addEventListener('focus', updateBabyAge);
+    document.addEventListener('visibilitychange', updateBabyAge);
+    top.append(homeLink, baby, categories);
     pageHeading.append(title);
     pageBar.append(pageHeading, menu, actions);
     body.append(sidebar, content);
@@ -253,6 +273,9 @@
       },
       destroy() {
         destroyed = true; closeNavigation(false);
+        unsubscribeProfile?.(); profileClient?.destroy();
+        root.removeEventListener('focus', updateBabyAge);
+        document.removeEventListener('visibilitychange', updateBabyAge);
         narrow.removeEventListener('change', onResize);
         document.removeEventListener('keydown', onKey, true);
         root.visualViewport?.removeEventListener('resize', onViewport);

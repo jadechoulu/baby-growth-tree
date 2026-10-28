@@ -1,4 +1,3 @@
-import './shared/baby-profile.js?v=20261028-shared-profile-1';
 import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
 import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
@@ -472,10 +471,8 @@ function plant() {
 }
 
 function hero() {
-  const age = babyAge();
-  const current = currentStage();
   const overall = getStats(catalog, state.records);
-  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p><div class="baby-meta"><span class="age-pill">${icon('baby')}${age?.label || (state.profile.birthDate ? '等待宝宝到来' : state.localMode ? '导入或填写宝宝生日' : '登录后查看宝宝年龄')}</span>${state.profile.birthDate ? html`<span class="birth-label">${dateLabel(state.profile.birthDate)} 出生</span>` : ''}<button class="text-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}</button></div></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
 }
 
 function stageCompleteBadge(stageId) {
@@ -589,7 +586,7 @@ function nextStepView() {
   const undo = state.lastUndo;
   const canUndo = undo?.id && !undo.previous?.completedAt && isDone(undo.id);
   return html`<section class="next-step-view domain-${domain.id}" aria-label="下一步待完成技能">
-    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p><span class="next-current-age">${babyAge() ? `${state.profile.name} · ${babyAge().label}` : state.profile.name}${current ? ` · 当前 ${current.label}` : ''}<button class="text-button" data-action="profile">${current ? '编辑资料' : '设置生日'}</button></span></header>
+    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p><span class="next-current-age">${current ? `当前 ${current.label}` : '训练建议'}<button class="text-button" data-action="profile">编辑资料</button></span></header>
     <div class="lineage-domains next-domains" role="group" aria-label="下一步技能领域">${DOMAINS.map(item => {
       const count = getNextSkills(catalog, state.records, item.id, current?.id).length;
       return html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>可探索 ${count}</span></button>`;
@@ -950,7 +947,7 @@ function openDetail(id) {
 function openProfile() {
   if (!requireEditable(false)) return;
   profileEditBase = sharedProfile.get();
-  showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><label class="form-field">出生日期<input type="date" name="birthDate" value="${state.profile.birthDate}" readonly required /></label><p class="form-help">全站使用同一份宝宝资料，生日已固定；修改昵称会同步到其他分类。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
+  showDialog(html`${dialogHeader('小小主角', '宝宝的成长资料')}<form id="profile-form"><label class="form-field">宝宝昵称<input name="name" value="${state.profile.name}" required maxlength="30" autocomplete="off" /></label><input type="hidden" name="birthDate" value="${state.profile.birthDate}" /><p class="form-help">全站使用同一份宝宝资料；修改昵称会同步到其他分类。</p><div id="form-error" class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="secondary-button" data-action="close-dialog">取消</button><button class="primary-button" type="submit">保存资料</button></div></form>`);
 }
 
 async function openBackup() {
