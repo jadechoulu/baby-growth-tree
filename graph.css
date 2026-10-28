@@ -355,3 +355,63 @@
   .stage-lineage .graph-viewport { height: 560px; }
   .stage-lineage-focus > span { flex-basis: 100%; }
 }
+
+/* 图例统一收纳；手机默认折叠，操作工具始终可见。 */
+.hero h1 > .hero-title-full { color: inherit; }
+.hero-title-full > span { color: #f47744; }
+.hero h1 > .hero-title-mobile { display: none; color: inherit; }
+.graph-legend-disclosure { border-bottom: 1px solid #ecdfed; background: #fffdf9; }
+.graph-legend-disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 16px; color: #79548e; font-size: 11px; cursor: pointer; list-style: none; }
+.graph-legend-disclosure > summary::-webkit-details-marker { display: none; }
+.legend-disclosure-hint { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; color: #96799f; white-space: nowrap; }
+.legend-disclosure-hint .icon { width: 13px; height: 13px; }
+.legend-collapse-label, .graph-legend-disclosure[open] .legend-expand-label { display: none; }
+.graph-legend-disclosure[open] .legend-collapse-label { display: inline; }
+.graph-legend-disclosure[open] .legend-disclosure-hint .icon { transform: rotate(90deg); }
+.graph-legend-disclosure .graph-key { border-bottom: 0; padding-top: 2px; }
+.graph-legend-disclosure > summary:focus-visible { outline: 2px solid #347bea; outline-offset: -3px; }
+
+@media (max-width: 760px) {
+  .sidebar { padding-block: 8px; }
+  .brand small { display: none; }
+  .main > .site-nav { margin: 0; padding: 5px 0; gap: 6px; }
+  .main > .site-nav a, .main > .site-nav > span { min-height: 32px; padding: 6px 9px; font-size: 11px; }
+  .main .topbar { height: auto; min-height: 42px; gap: 8px; padding-block: 4px; flex-wrap: wrap; }
+  .main .topbar-actions { margin-left: auto; gap: 10px; }
+  .hero { min-height: 0; padding: 14px 16px; border-radius: 12px; }
+  .hero-copy { min-width: 0; max-width: 100%; flex-shrink: 1; }
+  .hero .eyebrow, .hero-copy > p, .hero .garden-art { display: none; }
+  .hero h1 { margin: 0; font-size: 20px; line-height: 1.4; letter-spacing: 0; }
+  .hero h1 > .hero-title-full { display: none; }
+  .hero h1 > .hero-title-mobile { display: inline; }
+  .hero .baby-meta { margin-top: 9px; gap: 7px; flex-wrap: wrap; }
+  .hero .age-pill { font-size: 11px; padding: 5px 8px; }
+  .hero .birth-label { font-size: 10px; letter-spacing: 0; }
+  .hero .baby-meta > .text-button { padding: 7px; }
+  .stage-picker { margin: 15px 0 12px; }
+  .stage-picker-heading { margin-bottom: 7px; }
+  .stage-lineage { margin-top: 12px; }
+  .lineage-header, .next-step-header { padding: 14px 16px; }
+  .lineage-header h1, .next-step-header h1 { font-size: 21px; margin: 0; }
+  .lineage-header .lineage-eyebrow, .next-step-header .section-kicker { display: none; }
+  .lineage-header p, .next-step-header p { font-size: 11px; line-height: 1.6; margin-top: 5px; }
+  .next-current-age { margin-top: 8px; gap: 8px; }
+  .graph-toolbar { padding: 7px 10px; gap: 6px; }
+  .graph-tools { flex-wrap: wrap; }
+  .graph-legend-disclosure > summary { padding: 10px 12px; }
+  .graph-legend-disclosure .graph-key { padding: 2px 12px 10px; gap: 10px; }
+  .graph-legend-disclosure .graph-legend { justify-content: flex-start; gap: 8px 12px; width: 100%; }
+  .graph-legend-disclosure .graph-legend > strong { flex-basis: 100%; }
+  .graph-workspace.is-expanded .graph-toolbar { min-height: 0; }
+  .graph-workspace.is-expanded .graph-legend-disclosure { flex-shrink: 0; max-height: 40dvh; overflow-y: auto; }
+  .graph-viewport, .stage-lineage .graph-viewport { height: clamp(420px, 65dvh, 600px); }
+  .graph-workspace.is-expanded .graph-viewport { height: auto; min-height: 0; }
+}
+@media (max-width: 560px) {
+  .main .breadcrumb { display: none; }
+  .main .source-link > span { display: none; }
+  .main .topbar-actions { width: 100%; }
+  .main .save-status { margin-right: auto; }
+  .main .icon-button { min-height: 32px; }
+  .graph-tools > button { min-height: 32px; }
+}

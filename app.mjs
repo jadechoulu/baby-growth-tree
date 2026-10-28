@@ -41,6 +41,13 @@ let currentGraph = null;
 let graphViewportAction = null;
 let lastCalendarDate = localDateString();
 let lastCurrentStage = null;
+const mobileGraphLayout = window.matchMedia('(max-width: 760px)');
+let graphLegendOpen = null;
+function syncGraphLegend() {
+  const legend = document.querySelector('.graph-legend-disclosure');
+  if (legend) legend.open = graphLegendOpen ?? !mobileGraphLayout.matches;
+}
+mobileGraphLayout.addEventListener('change', syncGraphLegend);
 
 // @CfSecAICode 遵循消费金融安全编码 FE-XSS-001 规范: 模板只解析静态结构，动态内容通过文本节点和属性 API 写入。
 function html(strings, ...values) {
@@ -446,7 +453,7 @@ function hero() {
   const age = babyAge();
   const current = currentStage();
   const overall = getStats(catalog, state.records);
-  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1>小小的进步，<br />慢慢长成大大的世界<span>。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p><div class="baby-meta"><span class="age-pill">${icon('baby')}${age?.label || (state.profile.birthDate ? '等待宝宝到来' : state.localMode ? '导入或填写宝宝生日' : '登录后查看宝宝年龄')}</span>${state.profile.birthDate ? html`<span class="birth-label">${dateLabel(state.profile.birthDate)} 出生</span>` : ''}<button class="text-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}</button></div></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p><div class="baby-meta"><span class="age-pill">${icon('baby')}${age?.label || (state.profile.birthDate ? '等待宝宝到来' : state.localMode ? '导入或填写宝宝生日' : '登录后查看宝宝年龄')}</span>${state.profile.birthDate ? html`<span class="birth-label">${dateLabel(state.profile.birthDate)} 出生</span>` : ''}<button class="text-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}</button></div></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
 }
 
 function stageCompleteBadge(stageId) {
@@ -601,12 +608,14 @@ function pathReader(skill) {
 
 function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
-  return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-legend" aria-label="关系连线图例"><strong>连线</strong><span><i class="legend-ancestor" aria-hidden="true"></i>前序脉络</span><span><i class="legend-descendant" aria-hidden="true"></i>后续发展</span><span><i class="legend-supporting" aria-hidden="true"></i>跨分支前置</span><span><i class="legend-neutral" aria-hidden="true"></i>其他关系</span></div><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button><button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
+  return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button><button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
+      <details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
       <div class="graph-key" role="group" aria-label="技能卡片颜色图例">
+        <div class="graph-legend" aria-label="关系连线图例"><strong>连线</strong><span><i class="legend-ancestor" aria-hidden="true"></i>前序脉络</span><span><i class="legend-descendant" aria-hidden="true"></i>后续发展</span><span><i class="legend-supporting" aria-hidden="true"></i>跨分支前置</span><span><i class="legend-neutral" aria-hidden="true"></i>其他关系</span></div>
         <div class="graph-legend"><strong>左侧色条 · 技能分支</strong>${categories.filter(category => graph.nodes.some(skill => skill.category === category)).map(category => html`<span><i class="legend-branch" style="background:${branchColor(category, categories)}" aria-hidden="true"></i>${category}</span>`)}</div>
         <div class="graph-legend"><strong>卡片底色</strong><span><i class="legend-card legend-card-plain" aria-hidden="true"></i>白色：待探索</span><span><i class="legend-card legend-card-supporting" aria-hidden="true"></i>淡黄：跨分支前置</span><span><i class="legend-card legend-card-done" aria-hidden="true">✓</i>淡绿：已完成</span><span><i class="legend-card legend-card-focus" aria-hidden="true"></i>紫色：正在追踪</span></div>
         <p>跨分支前置：后续发展还需要的其他分支技能。完成状态以右下角的 √ 为准。</p>
-      </div>
+      </div></details>
       <div class="graph-viewport" id="graph-viewport" tabindex="0" aria-label="${domainInfo(relations.skill.domain).label}完整技能脉络，可拖动或滚动查看"><div class="graph-scale-space" id="graph-scale-space" style="width:${layout.width * state.graphZoom}px;height:${layout.height * state.graphZoom}px"><div class="graph-scene" id="graph-scene" style="width:${layout.width}px;height:${layout.height}px;transform:scale(${state.graphZoom})">${layout.stages.map((stage, index) => html`<div class="graph-age-band ${graph.stageIds && stage.id === state.stage ? 'selected-age-band' : ''} ${index % 2 ? 'alternate' : ''}" style="left:${stage.x}px;width:${stage.width}px;height:${layout.height}px">${graphStageHeading(stage)}${graph.stageIds && stage.id === state.stage ? html`<span class="selected-age-label">正在看这个阶段</span>` : ''}</div>`)}<svg id="graph-edges" width="${layout.width}" height="${layout.height}" aria-hidden="true"></svg>${layout.nodes.map(position => graphNode(catalog.find(item => item.id === position.id), position, relations, categories, graph.contextIds))}</div></div></div>
       <div class="graph-bottom-bar"><span>${icon('arrow')} 箭头指向下一项技能 · 拖动画布或横向滚动</span><span>${graph.nodes.length} 个技能 · ${graph.edges.length} 条关系${graph.stageIds ? ` · ${graph.stageIds.length} 项属于所选阶段` : graph.contextIds.length ? ` · 已保留 ${graph.contextIds.length} 项跨分支前序` : ''}</span></div>
     </div>`;
@@ -725,6 +734,10 @@ function render() {
   const pathReaderOpen = document.querySelector(`.path-reader[data-reader-view="${state.view}"]`)?.open ?? state.view === 'tree';
   document.body.classList.toggle('graph-is-expanded', state.graphExpanded);
   app.replaceChildren(html`${sidebar()}<main class="main ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><nav class="site-nav" aria-label="小芽工具导航"><a class="site-home-link" href="./home.html">小芽 · 首页</a><span aria-current="page">成长技能树</span><a href="./english/index.html#routes">英语启蒙</a></nav><header class="topbar"><div class="breadcrumb">成长花园 <span>/</span> ${state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景'}</div><div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></main>`);
+  syncGraphLegend();
+  document.querySelector('.graph-legend-disclosure > summary')?.addEventListener('click', event => {
+    graphLegendOpen = !event.currentTarget.parentElement.open;
+  });
   persistView();
   updateSaveStatus();
   if (focusId) {
