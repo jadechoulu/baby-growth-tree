@@ -215,3 +215,16 @@ body.site-navigation-open{overflow:hidden}
  .site-shell:has(input:focus,textarea:focus) .site-shortcuts{display:none}
  .site-enabled .content :is(.chip,.resource-topline,.resource-bottom,.small-note,.material-legend,.stage-meta,.fact small){font-size:12px;line-height:1.7}
 }
+
+/* 共享正文与弹层允许长内容换行；局部图谱保留独立画布。 */
+.site-main,.site-navigation-dialog,.site-enabled .app-dialog{overflow-wrap:anywhere}
+.site-main :is(.section-title-row,.form-actions,.detail-status)>*,.site-enabled .app-dialog :is(.dialog-header,.form-actions,.detail-status)>*{min-width:0}
+.site-enabled :is(.primary-button,.secondary-button,.relation-chip,.backup-option){max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.site-enabled :is(input,textarea,select){max-width:100%;min-width:0;box-sizing:border-box}
+.site-enabled .growth-content .stage-track{flex-wrap:wrap;overflow:visible}
+.site-enabled .growth-content .stage-pill{flex:1 1 68px;min-width:0;white-space:normal}
+@media(max-width:900px){
+  .site-enabled .app-dialog :is(.detail-tags,.relation-chips,.form-actions){flex-wrap:wrap}
+  .site-enabled .page-footer>span:first-child{white-space:normal}
+  .site-enabled .growth-content .section-title-row{flex-wrap:wrap}
+}
