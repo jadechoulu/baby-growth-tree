@@ -632,10 +632,6 @@ function graphNode(skill, position, relations, categories, contextIds) {
   </article>`;
 }
 
-function neighborList(skills, direction) {
-  return html`<section class="neighbor-column neighbors-${direction}"><h3>${direction === 'before' ? html`${icon('arrow', 'rotate')} 直接前序` : html`直接后续 ${icon('arrow')}`}<span>${skills.length}</span></h3>${skills.length ? html`<div class="neighbor-items">${skills.map(skill => html`<button class="neighbor-skill ${isDone(skill.id) ? 'done' : ''}" data-focus-skill="${skill.id}"><span>${skill.title}</span><small>${skillStageLabel(skill)}${isDone(skill.id) ? ' · 已完成' : ''}</small>${icon('chevron')}</button>`)}</div>` : html`<p class="neighbor-empty">${direction === 'before' ? '这是原图中这条脉络的起点' : '这是原图中这条脉络的末端'}</p>`}</section>`;
-}
-
 function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
   return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button>${state.view === 'tree' ? html`<button type="button" data-action="graph-current-age" aria-label="回到宝宝当前月龄" title="回到宝宝当前月龄${currentStage() ? `：${currentStage().label}` : ''}">${icon('locate')}</button>` : ''}<button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
@@ -649,11 +645,6 @@ function graphWorkspace(graph, layout, relations, categories) {
       <div class="graph-viewport" id="graph-viewport" tabindex="0" aria-label="${domainInfo(relations.skill.domain).label}完整技能脉络，可拖动或滚动查看"><div class="graph-scale-space" id="graph-scale-space" style="width:${layout.width * state.graphZoom}px;height:${layout.height * state.graphZoom}px"><div class="graph-scene" id="graph-scene" style="width:${layout.width}px;height:${layout.height}px;transform:scale(${state.graphZoom})">${layout.stages.map((stage, index) => html`<div class="graph-age-band ${graph.stageIds && stage.id === state.stage ? 'selected-age-band' : ''} ${index % 2 ? 'alternate' : ''}" style="left:${stage.x}px;width:${stage.width}px;height:${layout.height}px">${graphStageHeading(stage)}${graph.stageIds && stage.id === state.stage ? html`<span class="selected-age-label">正在看这个阶段</span>` : ''}</div>`)}<svg id="graph-edges" width="${layout.width}" height="${layout.height}" aria-hidden="true"></svg>${layout.nodes.map(position => graphNode(catalog.find(item => item.id === position.id), position, relations, categories, graph.contextIds))}</div></div></div>
       <div class="graph-bottom-bar"><span>${icon('arrow')} 箭头指向下一项技能 · 拖动画布或横向滚动</span><span>${graph.nodes.length} 个技能 · ${graph.edges.length} 条关系${graph.stageIds ? ` · ${graph.stageIds.length} 项属于所选阶段` : graph.contextIds.length ? ` · 已保留 ${graph.contextIds.length} 项跨分支前序` : ''}</span></div>
     </div>`;
-}
-
-function directRelations(relations) {
-  const skill = relations.skill;
-  return html`<section class="direct-relations" aria-label="当前技能的直接前序与后续">${neighborList(relations.parents, 'before')}<div class="relation-focus-card"><span>当前技能 · ${skillStageLabel(skill)}</span><h3>${skill.title}</h3><p class="relation-completion ${isDone(skill.id) ? 'done' : ''}">${icon(isDone(skill.id) ? 'check' : 'sprout')}${isDone(skill.id) ? '已完成' : '探索中'}</p><div><button class="primary-button" data-detail="${skill.id}">${icon('book')} 技能解释与手记</button><button class="secondary-button" data-toggle="${skill.id}" aria-pressed="${isDone(skill.id)}">${isDone(skill.id) ? '回退完成' : '标记完成'}</button></div></div>${neighborList(relations.children, 'after')}</section>`;
 }
 
 function stageTreeView() {
@@ -692,7 +683,6 @@ function stageTreeView() {
     ${domainCards()}
     <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span></div>
     ${graphWorkspace(graph, layout, relations, categories)}
-    ${directRelations(relations)}
     <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。下方清单的筛选不会隐藏这里的依赖关系。</p>
   </section>`;
 }
@@ -718,7 +708,6 @@ function treeView() {
     })}</select></label>${state.treeMode === 'overview' ? html`<label class="lineage-picker branch-picker"><span>能力分支</span><select id="tree-category" aria-label="选择技能分支"><option value="all" selected="${state.treeCategory === 'all'}">全部分支</option>${categories.map(category => html`<option value="${category}" selected="${state.treeCategory === category}">${category}</option>`)}</select></label>` : ''}</div>
     <div class="focus-strip"><span class="focus-strip-icon">${icon(domain.id)}</span><div><span class="focus-strip-kicker">正在追踪 · ${skillStageLabel(skill)}</span><h2>${skill.title}</h2></div><div class="trace-counts"><span><strong>${relations.ancestors.length}</strong> 项上游</span><span><strong>${relations.descendants.length}</strong> 项后续</span><span><strong>${stats.completed}/${stats.total}</strong> 已完成</span></div></div>
     ${graphWorkspace(graph, layout, relations, categories)}
-    ${directRelations(relations)}
     <p class="lineage-footnote">${icon('info')} 脉络来自原始图谱的发展关系，支持跨年龄、跨分支查看；前序尚未标注，也可以记录后续技能。</p>
   </section>`;
 }
@@ -779,7 +768,7 @@ function organizeGrowthReading() {
   };
   if (state.view === 'baby') {
     const lineage = siteShell.content.querySelector('.stage-lineage');
-    if (lineage) wrap('stage-graph', '阶段图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.lineage-footnote')));
+    if (lineage) wrap('stage-graph', '阶段图谱与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.lineage-footnote')));
     const resource = siteShell.content.querySelector('.milestones>.resource-section');
     if (resource) wrap('stage-resources', '本阶段的陪伴与启蒙参考', [resource]);
     layoutGrowthStageReading();
