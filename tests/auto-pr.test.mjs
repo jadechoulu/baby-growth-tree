@@ -39,6 +39,9 @@ function setup({ event = 'push', branch = 'codex/english/example', conclusion = 
       head_repository: { full_name: fork ? 'other/baby' : fullName }, head_branch: branch,
       head_sha: head, conclusion, event: 'workflow_dispatch',
     } } : {}) } };
+  // github-script 的 context.repo 是原型 getter，不能依靠对象展开保留。
+  const repository = context.repo;
+  Object.defineProperty(context, 'repo', { enumerable: false, get: () => repository });
   const core = { info() {}, warning() {} };
   return { calls, pr, run: () => coordinate({ github, context, core, wait: async () => {} }) };
 }

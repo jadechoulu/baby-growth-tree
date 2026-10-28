@@ -24,7 +24,7 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
         item.head_repository?.full_name === fullName);
       if (result?.status === 'completed') {
         if (result.conclusion !== 'success') throw new Error(`验证未通过，保留 PR：${result.html_url}`);
-        return coordinate({ github, core, wait, context: { ...context,
+        return coordinate({ github, core, wait, context: { repo: context.repo, ref: context.ref,
           payload: { ...context.payload, workflow_run: result } } });
       }
       await wait(5000);
@@ -103,7 +103,7 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
 
   if (run) {
     // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 只合并本次通过验证的同一提交，拒绝过期运行。
-    if (!['workflow_dispatch', 'pull_request'].includes(run.event)) return;
+    if (!['workflow_dispatch', 'push'].includes(run.event)) return;
     try {
       const { data: result } = await github.rest.pulls.merge({ ...repo, pull_number: pr.number, sha: run.head_sha, merge_method: 'squash' });
       if (!result.merged) throw new Error(`PR #${pr.number} 尚未满足合并条件：${result.message}`);
@@ -119,8 +119,8 @@ module.exports = async function coordinate({ github, context, core, wait = ms =>
   try {
     await github.graphql('mutation($id:ID!){enablePullRequestAutoMerge(input:{pullRequestId:$id,mergeMethod:SQUASH}){pullRequest{number}}}', { id: pr.node_id });
   } catch (error) {
-    // 已经启用或当前状态尚不可启用时，验证完成事件仍会按受保护规则合并。
-    core.warning(`PR #${pr.number} 自动合并由验证完成事件继续处理：${error.message}`);
+    // 已经启用或当前状态尚不可启用时，直接等待验证后继续按受保护规则合并。
+    core.warning(`PR #${pr.number} 自动合并将等待验证后继续处理：${error.message}`);
   }
   await dispatch(branch, pr.head.sha);
 };
