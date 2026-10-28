@@ -27,6 +27,7 @@ async function fixture(t) {
       ? "export const DEFAULT_PROFILE = Object.freeze({ name: '宝宝', birthDate: '' });\n"
       : '公开运行内容\n');
   }
+  await writeFile(path.join(sourceRoot, 'shared/site-sections.json'), JSON.stringify([{id:'growth',title:'成长',entry:'index.html',theme:'growth'}]));
   await writeFile(path.join(sourceRoot, 'cloud-config.json'), JSON.stringify({ apiBase: '', privateSecret: 'must-not-be-published' }));
   return { directory, sourceRoot, outputDir };
 }
@@ -112,9 +113,11 @@ test('统一发布包保留两边入口，子路径互跳和运行时引用完�
     assert.equal(url.pathname.startsWith('/baby-growth-tree/'), true, `${name} 不能跳出项目路径`);
     assert.ok(files.has(url.pathname.replace('/baby-growth-tree/', '')));
   }
-  const growth = await readFile(path.join(outputDir, 'app.mjs'), 'utf8');
-  assert.ok(growth.includes('href="./english/index.html#routes"'));
-  assert.ok(growth.includes('href="./home.html"'));
+  const config = await readFile(path.join(outputDir, 'shared/site-config.js'), 'utf8');
+  assert.ok(config.includes('english/index.html#routes'));
+  assert.ok(config.includes('成长技能树'));
+  assert.ok(english.includes('XiaoyaSite.createShell'));
+  assert.ok((await readFile(path.join(outputDir, 'app.mjs'), 'utf8')).includes('XiaoyaSite.createShell'));
   const storage = await readFile(path.join(outputDir, 'lib/storage.mjs'), 'utf8');
   assert.ok(storage.includes('xiaoya-growth-view-v1'));
   assert.ok(english.includes('little-leaf-english-v1'));
