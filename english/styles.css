@@ -229,6 +229,16 @@
 .song-source .source-thumbs{padding:14px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.song-source img{width:100%;height:150px;object-fit:contain}
 @media(max-width:600px){.song-entry{align-items:flex-start;flex-direction:column;padding:15px}.song-heading h2{font-size:21px}.song-filters{padding:12px}.song-tabs{gap:6px}.song-tabs .button{font-size:12px;padding:7px 10px}.song-filter-row .search-field{flex-basis:100%;min-width:0}.song-row{gap:10px;flex-wrap:wrap;padding:16px 0}.song-number{flex-basis:16px}.song-cover{width:70px;height:52px}.song-info h3{font-size:14px}.song-links{flex-basis:100%;flex-direction:row;justify-content:flex-end;gap:14px}.song-source .source-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .mobile-version-select{display:none}
+.directory-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);font-size:13px;font-weight:600;white-space:nowrap}
+.directory-toggle .icon{width:20px;height:20px}
+.directory-dialog{width:min(328px,88vw);max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;border-right:1px solid var(--line);background:#fcfdf9;color:var(--ink);box-shadow:15px 0 55px #172e2726;overflow:auto;overscroll-behavior:contain}
+.directory-dialog::backdrop{background:#1f342c70;backdrop-filter:blur(2px)}
+body:has(.directory-dialog[open]){overflow:hidden}
+.directory-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:60px;padding:8px 16px;border-bottom:1px solid var(--line);background:#fcfdf9}
+.directory-head strong{font-size:15px}.directory-head .icon-button{min-width:44px;min-height:44px}
+.directory-dialog .directory-sidebar{display:flex;position:static;width:100%;height:auto;min-height:calc(100dvh - 60px);padding:22px 16px max(20px,env(safe-area-inset-bottom));border:0}
+.directory-sidebar .nav-caption{margin-top:24px}.directory-sidebar .nav button,.directory-sidebar .route-key{min-height:46px;font-size:14px}
+.directory-sidebar .nav-caption,.directory-sidebar .side-note,.directory-sidebar .profile-button small{font-size:12px}
 .card-usage>summary{display:none}
 .version-context>summary{display:none}
 .route-help{margin:0 0 18px;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:#eef2e9;color:#64775e;font-size:12px}
