@@ -1,4 +1,4 @@
-/* 完整脉络：节点、箭头、直接关系与逐条路线共用一份真实关系数据。 */
+/* 完整脉络：节点、箭头与直接关系共用一份真实关系数据。 */
 .next-step-view { container: next-step / inline-size; max-width: 1080px; margin: 12px auto 0; }
 .next-step-header { padding: 26px 30px; border: 1px solid #edbe34; border-radius: 16px; background: #ffdf64; box-shadow: 0 4px 0 #f2dca5; }
 .next-step-header h1 { margin: 8px 0; font-size: 28px; line-height: 1.4; color: #42304f; }
@@ -177,31 +177,6 @@
 .relation-completion .icon { width: 13px; height: 13px; }
 .relation-focus-card > div { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .relation-focus-card .primary-button, .relation-focus-card .secondary-button { font-size: 11px; padding: 9px 11px; }
-.path-reader { background: #fffdf9; border: 1px solid #e3d1ec; border-radius: 11px; margin-top: 24px; padding: 0 21px 7px; }
-.path-reader > summary { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 19px 0; cursor: pointer; list-style: none; color: #79548e; }
-.path-reader > summary::-webkit-details-marker { display: none; }
-.path-reader > summary > span { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 600; flex-wrap: wrap; }
-.path-reader > summary .icon { width: 17px; height: 17px; }
-.path-reader > summary small { font-size: 11px; font-weight: 400; background: #eee3fa; color: #986fb0; border-radius: 4px; padding: 4px 6px; }
-.path-reader[open] > summary > .icon { transform: rotate(90deg); }
-.path-reader-hint { font-size: 11px; color: #a78bad; line-height: 1.8; margin: 0 0 15px; }
-.path-list { display: grid; gap: 10px; padding-bottom: 13px; }
-.path-route { display: flex; gap: 13px; align-items: center; padding: 14px; border: 1px solid #f0e6f4; border-radius: 8px; background: #fcf9ff; }
-.path-number { font-size: 10px; color: #ad94ba; white-space: nowrap; align-self: flex-start; padding-top: 12px; }
-.path-steps { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; }
-.path-step { border: 1px solid #dfcde9; background: white; border-radius: 6px; text-align: left; padding: 8px 10px; max-width: 200px; }
-.path-step > small { display: block; color: #8d7298; font-size: 10px; margin-bottom: 4px; }
-.path-step > span { font-size: 13px; color: #6e4e80; line-height: 1.7; display: flex; align-items: center; gap: 4px; }
-.path-step > span > .icon { width: 11px; height: 11px; color: #34a172; }
-.path-step.selected { background: #9460df; border-color: #9460df; box-shadow: 0 2px 0 #d3b6ec; }
-.path-step.selected > small { color: #e4d5f9; }
-.path-step.selected > span { color: white; font-weight: 600; }
-.path-step.selected > .path-step-status { width: fit-content; margin: 5px 0 0; padding: 2px 5px; border-radius: 4px; background: #ffffff24; color: white; }
-.path-step.selected.done > .path-step-status { color: #126143; background: #ddf9e9; }
-.path-step.selected.done > span > .icon { color: #ddf9e9; }
-.path-step.done:not(.selected) { background: #eaf9f0; border-color: #b7e6cf; }
-.path-step:hover { border-color: #a572c6; }
-.path-arrow { color: #c5a6d7; width: 16px; height: 16px; }
 .lineage-footnote { font-size: 11px; color: #aa91b3; line-height: 1.9; display: flex; gap: 7px; margin-top: 18px; }
 .lineage-footnote .icon { width: 13px; height: 13px; margin-top: 3px; }
 .lineage-entry { display: flex; align-items: center; gap: 4px; color: #ab82c2; padding: 6px 5px; flex-shrink: 0; font-size: 10px; }
@@ -250,8 +225,6 @@
   .relation-focus-card h3 { display: inline; margin-left: 8px; font-size: 15px; }
   .relation-completion { margin-top: 9px; margin-bottom: 0; }
   .relation-focus-card > div { margin-top: 14px; }
-  .path-route { flex-direction: column; align-items: stretch; gap: 10px; }
-  .path-number { padding-top: 0; }
 }
 @media (max-width: 560px) {
   .graph-main { padding-inline: 15px; }
@@ -293,16 +266,6 @@
   .direct-relations { margin-top: 19px; gap: 9px; }
   .relation-focus-card > span { font-size: 9px; }
   .relation-focus-card h3 { display: block; margin: 8px 0 0; font-size: 15px; }
-  .path-reader { padding-inline: 14px; margin-top: 20px; }
-  .path-reader > summary > span { font-size: 13px; gap: 7px; }
-  .path-reader > summary small { font-size: 10px; }
-  .path-reader-hint { font-size: 10px; }
-  .path-route { padding: 12px 9px; }
-  .path-steps { gap: 6px; }
-  .path-step { padding: 7px 8px; max-width: 180px; }
-  .path-step > span { font-size: 12px; }
-  .path-step > small { font-size: 10px; }
-  .path-arrow { width: 13px; height: 13px; }
   .lineage-footnote { font-size: 10px; }
   .lineage-entry { font-size: 10px; padding-inline: 4px; }
   .lineage-entry .icon { width: 13px; height: 13px; }
