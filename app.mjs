@@ -775,7 +775,7 @@ function organizeGrowthReading() {
     const fold = document.createElement('details');
     fold.className = 'growth-mobile-fold';
     fold.dataset.readingKey = key;
-    fold.open = !narrow || (growthReadingState.get(key) ?? false);
+    fold.open = !narrow || (growthReadingState.get(key) ?? key === 'stage-graph');
     const summary = document.createElement('summary'); summary.textContent = label;
     items[0].before(fold); fold.append(summary, ...items);
     fold.addEventListener('toggle', () => {
@@ -810,7 +810,7 @@ function layoutGrowthStageReading() {
 }
 window.matchMedia('(max-width:900px)').addEventListener('change', event => {
   layoutGrowthStageReading();
-  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? false); });
+  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? fold.dataset.readingKey === 'stage-graph'); });
 });
 
 function render() {
