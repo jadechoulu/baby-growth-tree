@@ -523,3 +523,9 @@
   .stage-lineage .domain-count { grid-column: 1; grid-row: 2; font-size: 12px; }
   .stage-lineage .domain-count strong { font-size: 14px; }
 }
+
+/* 下一步的领域筛选按可用宽度排布，全部选项直接可见。 */
+@container next-step (max-width:640px){
+  .next-step-view .next-domains{grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;gap:8px}
+  .next-domains .lineage-domain{min-width:0;white-space:normal;flex-wrap:wrap;gap:4px 8px}
+}

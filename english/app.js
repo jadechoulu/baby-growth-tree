@@ -61,7 +61,7 @@ function organizePage(content){
     const mode=content.querySelector('.roadmap-mode'),versionOptions=content.querySelector('.xu-options-fold');
     if(mode&&versionOptions){const tools=h('div',{class:'route-browse-controls'});mode.before(tools);tools.append(mode,versionOptions);}
     const controls=content.querySelector('.comparison-controls'),picker=content.querySelector('.mobile-stage-picker');
-    if(controls&&picker){const selection=h('div',{class:'comparison-selection'});controls.before(selection);selection.append(controls,picker);}
+    if(controls&&picker){const selection=h('div',{class:'comparison-selection'});controls.before(selection);selection.append(controls,picker);const stageSelect=picker.querySelector('select');selection.append(h('p',{class:'comparison-current-stage'},stageSelect.selectedOptions[0].textContent));}
     const overview=content.querySelector('.alignment-overview');
     if(overview)overview.parentElement.classList.add('comparison-panel');
   }

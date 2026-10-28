@@ -536,7 +536,7 @@
   .fact-grid{grid-template-columns:1fr}
   .source-thumbs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .source-card-actions .text-link{font-size:12px}
-  .song-tabs{flex-wrap:nowrap;overflow:auto;padding-bottom:6px}.song-tabs .button{flex-shrink:0}
+  .song-tabs{flex-wrap:wrap;overflow:visible}.song-tabs .button{flex:1 1 110px}
   .song-entry{padding:12px;gap:10px}.song-heading h2{font-size:21px}.song-heading p{font-size:12px}
 }
 @media print{
@@ -582,7 +582,7 @@
   .stage-criteria>summary{display:flex;font-size:12px;padding:8px 10px;min-height:36px;font-weight:500}
   .stage-criteria{margin:10px 0;background:#f6f8f3}.stage-criteria>.reading-fold-body{padding:0 10px 10px}
   .library-search input,.mobile-type-select,.library-filter-options select,.mobile-relation-select select,.mobile-stage-picker select{font-size:16px}
-  .section-head>.text-link{flex-shrink:0;white-space:nowrap;font-size:12px}
+  .section-head>.text-link{flex:0 1 auto;white-space:normal;font-size:12px}
 }
 .xu-options-fold>summary,.origin-stage>summary{display:none}
 .comparison-selection,.route-browse-controls{display:contents}
@@ -686,6 +686,36 @@
   .detail-section.reading-fold>summary{padding:9px 10px;min-height:44px}
   .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0}
   .fact{padding:9px;font-size:15px}.fact small{font-size:12px}
+}
+
+/* 内容宽度由容器决定，长书名、阶段名和操作组完整换行。 */
+.content,.detail-content{overflow-wrap:anywhere}
+:is(.stage-card,.resource-body,.detail-section,.series-block,.fact,.song-filters,.song-info,.reading-fold-body){min-width:0;max-width:100%}
+:is(.section-head,.material-mini,.detail-resource-row,.series-route-title,.song-route-row)>:not(.icon){min-width:0}
+:is(.button,.text-link,.stage-resource-tags button,.chip,.usage-stage,.card-view-btn){max-width:100%;white-space:normal;overflow-wrap:anywhere}
+:is(.button,.text-link,.detail-resource-row)>.icon{flex-shrink:0}
+.segmented{flex-wrap:wrap;overflow:visible;min-width:0}
+.segmented button{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.comparison-current-stage{display:none}
+@media(max-width:900px){
+  .section-head{flex-wrap:wrap}.section-head>div{flex:1 1 160px}
+  .route-browse-controls{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+  .roadmap-mode .segmented button{flex:1}
+  .library-filter-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .comparison-selection{align-items:start}
+  .comparison-current-stage{display:block;grid-column:1/-1;margin:0;font-size:14px;line-height:1.6;color:var(--green)}
+  .alignment-target-details>summary{padding-right:32px}
+  .alignment-target-details>summary>strong{min-width:0;flex-basis:120px}
+  .song-tabs .button{min-height:44px}
+  .song-links,.song-route-actions{flex-wrap:wrap;min-width:0;max-width:100%}
+  .song-links>a{min-width:0;max-width:100%;overflow-wrap:anywhere}
+  .song-info{flex-basis:120px}
+  .song-filters .search-field{width:100%;max-width:100%}
+  .song-scene-select{flex-wrap:wrap}.song-scene-select select{flex-basis:120px}
+}
+@media(max-width:375px){
+  .fact-grid,.series-usage-table tr{grid-template-columns:minmax(0,1fr)}
+  .series-usage-table td{grid-column:1/-1}
 }
 
 /* 小芽共享框架：分类只覆盖颜色变量，布局与交互不分叉。 */
@@ -841,6 +871,8 @@ body.site-navigation-open{overflow:hidden}
 .site-enabled .growth-content :is(.section-kicker,.eyebrow,.swipe-hint){font-size:12px;letter-spacing:.5px}
 .site-enabled .growth-content :is(.guide-heading,.guide-heading small,.guide-concept summary,.guide-sources summary,.guide-note,.skill-guide li,.resource-section h4){font-size:13px}
 .site-enabled .growth-content .skill-open{text-align:left}
+.site-enabled .growth-content .skill-row>.skill-check{width:18px;height:18px;min-width:18px;min-height:0;flex:0 0 18px;padding:2px}
+.site-enabled .growth-content .skill-row>.skill-check>.icon{width:12px;height:12px}
 .site-enabled .growth-content .graph-node .skill-title{font-size:12px}
 .site-enabled .growth-content .stage-pill{font-size:13px;min-height:44px}
 .site-enabled .growth-content .form-actions>small,.site-enabled .app-dialog :is(.form-help,.backup-footnote,.detail-source,.form-actions>small,.backup-option small,.guide-note p){font-size:12px;line-height:1.8}
@@ -902,6 +934,19 @@ body.site-navigation-open{overflow:hidden}
 @media(max-width:900px){
  .site-shell:has(input:focus,textarea:focus) .site-shortcuts{display:none}
  .site-enabled .content :is(.chip,.resource-topline,.resource-bottom,.small-note,.material-legend,.stage-meta,.fact small){font-size:12px;line-height:1.7}
+}
+
+/* 共享正文与弹层允许长内容换行；局部图谱保留独立画布。 */
+.site-main,.site-navigation-dialog,.site-enabled .app-dialog{overflow-wrap:anywhere}
+.site-main :is(.section-title-row,.form-actions,.detail-status)>*,.site-enabled .app-dialog :is(.dialog-header,.form-actions,.detail-status)>*{min-width:0}
+.site-enabled :is(.primary-button,.secondary-button,.relation-chip,.backup-option){max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.site-enabled :is(input,textarea,select){max-width:100%;min-width:0;box-sizing:border-box}
+.site-enabled .growth-content .stage-track{flex-wrap:wrap;overflow:visible}
+.site-enabled .growth-content .stage-pill{flex:1 1 68px;min-width:0;white-space:normal}
+@media(max-width:900px){
+  .site-enabled .app-dialog :is(.detail-tags,.relation-chips,.form-actions){flex-wrap:wrap}
+  .site-enabled .page-footer>span:first-child{white-space:normal}
+  .site-enabled .growth-content .section-title-row{flex-wrap:wrap}
 }
 </style>
 </head>
@@ -1947,7 +1992,7 @@ function organizePage(content){
     const mode=content.querySelector('.roadmap-mode'),versionOptions=content.querySelector('.xu-options-fold');
     if(mode&&versionOptions){const tools=h('div',{class:'route-browse-controls'});mode.before(tools);tools.append(mode,versionOptions);}
     const controls=content.querySelector('.comparison-controls'),picker=content.querySelector('.mobile-stage-picker');
-    if(controls&&picker){const selection=h('div',{class:'comparison-selection'});controls.before(selection);selection.append(controls,picker);}
+    if(controls&&picker){const selection=h('div',{class:'comparison-selection'});controls.before(selection);selection.append(controls,picker);const stageSelect=picker.querySelector('select');selection.append(h('p',{class:'comparison-current-stage'},stageSelect.selectedOptions[0].textContent));}
     const overview=content.querySelector('.alignment-overview');
     if(overview)overview.parentElement.classList.add('comparison-panel');
   }
