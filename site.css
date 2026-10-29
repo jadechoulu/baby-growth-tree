@@ -251,3 +251,24 @@ body.site-navigation-open{overflow:hidden}
 
 /* 手机首屏直接进入阶段与技能，装饰性欢迎语留给宽屏。 */
 @media(max-width:900px){.site-enabled .growth-content .hero{display:none}}
+/* 全站记录同步：紧凑入口，迁移和冲突按需阅读。 */
+.site-sync-button { display:inline-flex; align-items:center; justify-content:center; gap:5px; min-width:44px; min-height:44px; padding:6px 9px; border:1px solid var(--site-border, #d8e1d9); border-radius:10px; color:inherit; background:transparent; cursor:pointer; font:inherit; font-size:12px; }
+.site-sync-button svg { width:19px; height:19px; flex:none; }
+.site-sync-dialog { width:min(580px,calc(100% - 24px)); max-height:85dvh; padding:0; color:#24392e; background:#fffefa; border:1px solid #d7ded6; border-radius:16px; box-sizing:border-box; }
+.site-sync-dialog::backdrop { background:rgb(15 29 24 / .46); }
+.site-sync-dialog > header { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 14px; border-bottom:1px solid #d7ded6; position:sticky; top:0; background:#fffefa; z-index:1; }
+.site-sync-dialog h2 { margin:0; font-size:19px; }
+.site-sync-body { padding:12px 14px max(14px,env(safe-area-inset-bottom)); font-size:15px; line-height:1.55; overflow-wrap:anywhere; }
+.site-sync-body p { margin:5px 0 9px; }
+.site-sync-body small { display:block; font-size:12px; margin-bottom:7px; }
+.site-sync-error { color:#9a3930; }
+.site-sync-error:empty { display:none; }
+.site-sync-card { padding:12px 0; border-top:1px solid #d7ded6; }
+.site-sync-card h3 { margin:0 0 6px; font-size:16px; }
+.site-sync-action { min-height:44px; padding:7px 12px; border:1px solid #b5c6b9; border-radius:9px; background:#f0f5ee; color:#234c39; font:inherit; font-size:15px; cursor:pointer; margin:3px 6px 3px 0; white-space:normal; overflow-wrap:anywhere; }
+.site-sync-action:disabled { opacity:.6; cursor:wait; }
+.site-sync-card fieldset { margin:8px 0; min-width:0; padding:8px; border:1px solid #d7ded6; border-radius:8px; }
+.site-sync-card label { display:flex; align-items:flex-start; gap:8px; margin:7px 0; white-space:pre-wrap; }
+.site-sync-card input { margin-top:5px; width:18px; height:18px; flex:none; }
+.site-sync-preview { margin-top:8px; padding:10px; background:#f0f5ee; border-radius:9px; }
+@media (max-width:600px) { .site-sync-button span { display:none; } .site-sync-button { padding:6px; } .site-sync-dialog { width:calc(100% - 16px); } }

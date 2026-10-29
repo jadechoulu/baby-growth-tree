@@ -1,0 +1,71 @@
+# 全站私人记录同步
+
+更新：2026-10-29。
+
+## 实现与上线状态
+
+- 公开源码与网页仍只有 `jadechoulu/baby-growth-tree`。
+- 私有数据仓 `jadechoulu/baby-growth-records` 已接收本人确认的档案、155 项已完成成长记录，以及听力词汇量为 70 的英语记录。
+- 同步代码已接入首页、成长、英语及英语单文件构建。本机数据先保存，云端可失败重试；第一次连接须逐类预览确认。
+- 当前后端使用 Netlify，GitHub OAuth App 与最小私有仓令牌已配置。本人已实际登录，并从原 5317 入口预览确认后迁入记录；已通过 GitHub API 独立核对三个私有文件。`cloud-config.json` 已填真实公开 API 来源。
+- 本批已获得用户“提交合并”授权，按统一 PR、必需检查和 main Pages 工作流发布；后续日常改动仍等待单独的提交授权。
+
+当前生产部署为 `6ae2e7a9df9759ea7f15c0f1`，Free 团队 `lu-chou` 下的 `xiaoya-jadechoulu-sync`，实际来源为 `https://xiaoya-jadechoulu-sync.netlify.app`。线上健康接口返回 `provider: netlify, ready: true`。本人实际 OAuth 登录与私有记录读写已完成；健康检查本身不作为凭据有效的证据。平台 SSO 拦截已关闭，应用继续以 GitHub 本人鉴权保护数据。未登录的受信来源读写返回 401，其他来源返回 403。
+
+本批首次正式发布已获用户授权，GitHub 仓库变量 `XIAOYA_API_BASE` 已配置为上述公开地址，由 main 的统一工作流发布；实际部署结果以 GitHub Actions 和正式入口的配置、运行脚本为准。发布前的正式站地址为空，旧页面的完成操作仅存于所在设备；刷新到新页面后仍保留同一来源的本机记录，首次连接时预览合入，不能要求清空浏览器数据。新设备首次登录并逐类连接后自动同步；断网先保存本机，恢复连接后重试，12 小时会话过期时重新登录，不要求每台设备录入私有仓令牌。同一浏览器的另一来源恢复已由本人确认：原为空的 5318 现已显示 155 项完成记录。真实多设备并发仍需单独验收。
+
+Netlify 复用既有 Worker 核心与前端接口，站点级 Blobs 只存短期登录状态，强一致读取加 ETag 条件更新实现一次性消费。真实状态库验收通过并已删除临时测试项，定时清理公网入口返回 403。4 项新增测试、全部 177 项 Node 测试及统一网页构建通过。操作步骤见 [Netlify 同步接口说明](../backend/netlify/README.md)。
+
+## 三类服务的职责
+
+GitHub Pages 放公开网页；私有 GitHub 仓库放个人 JSON 与版本历史；Netlify Functions 只负责登录与私有 API 中转，不作为宝宝记录主库。站点级 Netlify Blobs 保存一次性 OAuth state 和短期会话哈希，不存宝宝记录主文档。GitHub 私有仓库凭据只配置在后端，不写网页、源码、日志或聊天。原 Cloudflare、Vercel 适配保留兼容，均未部署。
+
+| 分类 | 远端固定文件 | 数据 |
+| --- | --- | --- |
+| 档案 | `records/profile.json` | 全站昵称、固定生日 |
+| 成长 | `records/growth.json` | 技能完成日期与手记 |
+| 英语 | `records/english.json` | 词汇、呈现偏好、收藏、素材状态与笔记 |
+
+API 分别为 `/api/data/profile`、`/api/data/growth`、`/api/data/english`，使用 `GET` / `PUT`。写入携带最近 GitHub 文件 SHA；冲突重新读取并做字段级三方合并。旧 `/api/records` 保留兼容原成长快照。
+
+## 本机与同步日志
+
+原 `xiaoya-site`、`xiaoya-growth`、`little-leaf-english-v1` 存储保持不变。断网修改先保存到这些领域存储，刷新后仍可读；网络恢复、重新登录、页面重新可见、前台每 15 秒回读或手动同步时继续提交。已登录并连接的设备，普通完成标记和手记保存自动排队上传，其他设备自动检查，无需每次打开同步面板。此机制不是即时推送，跨设备显示包含本机保存、上传、下一次回读及网络耗时。
+
+IndexedDB `xiaoya-sync/documents` 按公开 API 来源与领域隔离，保存同步基线、迁移前双方快照、待应用的云端确认回执和冲突。回执先落日志再应用到领域库，防止服务端保存成功但页面关闭后旧本机覆盖新云端。凭据不进入日志。每类同步使用 Web Locks 串行化同源标签任务；不支持 Web Locks 的浏览器保留本机功能并明确报告不能同步，不静默降级并发保护。
+
+本机端口、正式站与 file 仍是不同来源；连接同一个后端并登录后才共享远端记录。不能通过换端口证明原数据丢失。暂停同步或退出登录不删除本机记录；浏览器清理站点数据仍会删除本机副本和日志，务必先确认云端保存或导出 JSON。
+
+## Vercel 部署
+
+按 [Vercel 后端说明](../backend/README.md) 操作。网页仍使用 GitHub 一键授权，只允许固定本人 GitHub 数字身份；家长无需在每个设备录入仓库令牌。手机号验证属于 Vercel 部署账号注册，不属于宝宝网页日常登录流程。
+
+历史尝试：Vercel 注册无法收到验证短信，已改为 Netlify 并完成真实部署；不再等待 Vercel 授权，也不再次索取其手机号验证。
+
+## 原 Cloudflare 部署顺序（兼容保留）
+
+1. 使用 `npx --yes wrangler@4.45.0 login` 完成本机部署工具授权；只登录 Cloudflare 网站不等于 Wrangler 已授权。通过 `whoami` 确认。
+2. 核对 `worker/wrangler.toml` 的 GitHub 数字身份与私有记录仓配置。部署后得到实际 Worker 来源，替换 `WORKER_URL` 的占位域名。
+3. 在 GitHub 设置创建 OAuth App：Homepage URL 为正式 Pages，回调为实际 Worker 来源加 `/auth/callback`。只请求 `read:user`，此 OAuth 不承担仓库权限。
+4. 创建 fine-grained GitHub token，只选择私有数据仓，授予 Contents read/write。不要复用 `gh` 的全局登录令牌，也不要选择公开网页仓。
+5. 在本机终端逐一执行下列交互命令输入秘密，禁止把实际值写到命令参数、源码或聊天。
+
+```sh
+npx --yes wrangler@4.45.0 secret put GITHUB_CLIENT_ID --config worker/wrangler.toml
+npx --yes wrangler@4.45.0 secret put GITHUB_CLIENT_SECRET --config worker/wrangler.toml
+npx --yes wrangler@4.45.0 secret put GITHUB_DATA_TOKEN --config worker/wrangler.toml
+npx --yes wrangler@4.45.0 deploy --config worker/wrangler.toml
+```
+
+6. 本地 `cloud-config.json` 配置实际公开 API 来源。正式构建设置仓库变量 `XIAOYA_API_BASE`；变量只保存公开地址，不存凭据。等用户要求提交合并后由 main 工作流发布。
+7. 本机开发来源只接受配置白名单中的 `127.0.0.1:5317`、`127.0.0.1:5318`，OAuth 结果只发往一次性 state 绑定的对应来源；不开放任意来源、端口或回跳 URL。
+
+## 首次迁入与验收
+
+先从仍有记录的原入口导出最新 JSON 到用户育儿目录，不根据旧文件的修改时间推断最新记录。登录后在“记录同步与迁移”分别预览档案、成长、英语：确认本机与云端的数量及差异，再连接。相同字段冲突逐项选择，远端版本变化后旧选择失效。空远端没有自动初始化；新设备的空状态不能直接覆盖已有记录。
+
+完成真实 OAuth、首次迁入、另一来源登录恢复、两端冲突、断网刷新、登录过期重试验收后，才能宣告跨设备同步上线。模拟服务测试或 Worker dry-run 只能证明代码路径与构建，不证明账号配置或真实云保存成功。
+
+2026-10-29 已完成真实 OAuth 和首次迁入。曾在 5318 新来源看到成长无记录，原因是原记录属于 5317；随后恢复原端口服务，使用本工作区运行文件提供预览，未改动原工作区源码或浏览器数据库。本人确认原记录仍在，并在原入口完成连接；云端独立核对为 155 项已完成、0 篇手记。5318 的空状态没有替代或清空原入口的数据。英语远端为 70 听力词汇、0 收藏、0 份素材记录；这不能用于推断其他设备是否有尚未上传的收藏或手记。
+
+随后本人回到已登录并连接的 5318 页面，确认同样显示 155 项已完成。此项证明真实后端的跨来源恢复，不等同于不同设备、正式 Pages、真实并发或断网冲突均已验收。

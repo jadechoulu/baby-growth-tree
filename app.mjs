@@ -24,6 +24,7 @@ let saveRevision = 0;
 let apiBase = '';
 let sessionToken = '';
 let cloudStore = null;
+let siteSync = null;
 let localStore = null;
 state.localMode = false;
 state.localLoaded = false;
@@ -119,6 +120,7 @@ const paths = {
   heart: ['M20 5c-3-3-6-1-8 1-2-2-5-4-8-1-6 6 8 15 8 15S26 11 20 5Z'],
   info: ['M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z', 'M12 11v6M12 7h.01'],
   expand: ['M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5'],
+  fit: ['M8 3v5H3M16 3v5h5M21 16h-5v5M3 16h5v5', 'm3 3 5 5M21 3l-5 5m5 13-5-5M3 21l5-5'],
 };
 function icon(name, className = '') {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -505,14 +507,23 @@ function domainCards() {
   const stageSkills = getStageSkills(catalog, state.stage);
   return html`<section class="domain-cards" aria-label="各领域进度">${DOMAINS.map(domain => {
     const stats = getStats(stageSkills.filter(skill => skill.domain === domain.id), state.records);
-    return html`<button class="domain-card domain-${domain.id} ${state.domain === domain.id ? 'chosen' : ''}" data-domain="${domain.id}" aria-pressed="${state.domain === domain.id}"><span class="domain-card-top"><span class="domain-icon">${icon(domain.id)}</span><span class="domain-count"><strong>${stats.completed}</strong> / ${stats.total}</span></span><span class="domain-card-label">${domain.label}<span>${stats.percent}%</span></span><span class="progress-track"><span style="width: ${stats.percent}%"></span></span></button>`;
+    return html`<button class="domain-card domain-${domain.id} ${state.domain === domain.id ? 'chosen' : ''}" data-domain="${domain.id}" aria-pressed="${state.domain === domain.id}"><span class="domain-card-top"><span class="domain-icon">${icon(domain.id)}</span><span class="domain-count"><strong>${stats.completed}</strong> / ${stats.total}</span></span><span class="domain-card-label"><span class="domain-name">${domain.label}</span><span class="domain-percent">${stats.percent}%</span></span><span class="progress-track"><span style="width: ${stats.percent}%"></span></span></button>`;
   })}</section>`;
 }
 
 function skillRow(skill, tree = false) {
   const record = state.records[skill.id];
   const done = isDone(skill.id);
-  return html`<article class="skill-row ${done ? 'completed' : ''} ${tree ? 'tree-node' : ''}" data-node="${tree ? skill.id : ''}" data-skill-id="${skill.id}"><button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button><button class="skill-open" data-detail="${skill.id}" title="点击查看通俗解释、陪玩方法与手记"><span class="skill-title">${skill.title}</span><span class="skill-category">${skill.category}${record?.note ? html`<span class="has-note">${icon('note')} 有手记</span>` : ''}</span></button><button class="lineage-entry" data-lineage="${skill.id}" aria-label="查看${skill.title}完整脉络">${icon('tree')}<span>脉络</span></button>${tree ? '' : html`<button class="detail-arrow" data-detail="${skill.id}" aria-label="查看${skill.title}解释与手记">${icon('chevron')}</button>`}</article>`;
+  return html`<article class="skill-row ${done ? 'completed' : ''} ${tree ? 'tree-node' : ''}" data-node="${tree ? skill.id : ''}" data-skill-id="${skill.id}">
+    <button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button>
+    <div class="skill-label">
+      <div class="skill-name-row">
+        <button class="skill-open" data-detail="${skill.id}" title="点击查看通俗解释、陪玩方法与手记"><span class="skill-title">${skill.title}</span></button>
+        <button class="lineage-entry" data-lineage="${skill.id}" title="查看${skill.title}完整脉络" aria-label="查看${skill.title}完整脉络">${icon('tree')}<span>脉络</span></button>
+      </div>
+      <span class="skill-category">${skill.category}${record?.note ? html`<span class="has-note">${icon('note')} 有手记</span>` : ''}</span>
+    </div>
+  </article>`;
 }
 
 function resourceSection(config) {
@@ -634,7 +645,10 @@ function graphNode(skill, position, relations, categories, contextIds) {
 
 function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
-  return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button>${state.view === 'tree' ? html`<button type="button" data-action="graph-current-age" aria-label="回到宝宝当前月龄" title="回到宝宝当前月龄${currentStage() ? `：${currentStage().label}` : ''}">${icon('locate')}</button>` : ''}<button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
+  return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools" role="group" aria-label="图谱工具栏">
+      <div class="graph-zoom-tools" role="group" aria-label="图谱缩放"><button data-action="graph-zoom-out" aria-label="缩小技能树" title="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树" title="放大技能树">＋</button></div>
+      <div class="graph-view-tools" role="group" aria-label="图谱视图"><button data-action="graph-fit" aria-label="一屏看全" title="一屏看全">${icon('fit')}</button><button data-action="graph-locate" aria-label="定位当前技能" title="定位当前技能">${icon('locate')}</button>${state.view === 'tree' ? html`<button type="button" data-action="graph-current-age" aria-label="回到宝宝当前月龄" title="回到宝宝当前月龄${currentStage() ? `：${currentStage().label}` : ''}">${icon('calendar')}</button>` : ''}<button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}" title="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div>
+    </div></div>
       <div class="graph-legend-panel"><details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
       <div class="graph-key" role="group" aria-label="技能卡片颜色图例">
         <div class="graph-legend" aria-label="关系连线图例"><strong>连线</strong><span><i class="legend-ancestor" aria-hidden="true"></i>前序脉络</span><span><i class="legend-descendant" aria-hidden="true"></i>后续发展</span><span><i class="legend-supporting" aria-hidden="true"></i>跨分支前置</span><span><i class="legend-neutral" aria-hidden="true"></i>其他关系</span></div>
@@ -679,7 +693,7 @@ function stageTreeView() {
   currentGraph = { ...graph, layout, relations, focusId: skill.id, key: graphKey };
   const categories = [...new Set(graph.nodes.map(item => item.category))];
   return html`<section class="stage-lineage domain-${domain.id}" aria-label="本阶段技能脉络">
-    <div class="section-title-row lineage-title-row"><h2>${stage.label}<span>的成长脉络</span></h2><div class="section-tools" role="group" aria-label="成长脉络工具栏"><button data-action="stage-graph-current" aria-label="定位本阶段" title="定位本阶段">${icon('locate')}</button><button data-lineage="${skill.id}" aria-label="在技能全景展开" title="在技能全景展开">${icon('expand')}</button></div></div>
+    <div class="section-title-row lineage-title-row"><h2>${stage.label}<span>的成长脉络</span></h2></div>
     ${domainCards()}
     <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span></div>
     ${graphWorkspace(graph, layout, relations, categories)}
@@ -809,7 +823,7 @@ function render() {
   }
   const viewLabel = state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景';
   siteShell.update({ navigation: growthNavigation(), activeId: state.view, title: viewLabel });
-  siteShell.actions.replaceChildren(html`<div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
+  siteShell.actions.replaceChildren(html`<div class="topbar-actions">${siteSync?.createButton()}<button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
   siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
 
   organizeGrowthReading();
@@ -987,10 +1001,10 @@ async function openBackup() {
       <h3>${icon(saveProblem() ? 'info' : 'check')}${saveLabel()}</h3>
       <p>${saveProblem() || (local ? '完成标记、日期、手记和宝宝资料自动保存在本机，刷新后会恢复。' : apiBase ? '个人记录以 GitHub 私有仓库为主存储。重新登录后可跨设备恢复。' : '云端配置未能加载，请重试。')}</p>
       <p>${saveTimeLabel()}</p>
-      <p>${local ? '本机记录只在此浏览器、此网页地址下可用。换设备或地址时，请使用 JSON 备份迁移。' : '仅云端确认后显示“已同步”。未同步内容暂留本页，请重试或导出后再离开。'}</p>
+      <p>${local ? '本机记录按网页地址隔离。连接全站记录同步后，可在其他设备登录恢复；JSON 备份仍可用于迁移。' : '仅云端确认后显示“已同步”。未同步内容暂留本页，请重试或导出后再离开。'}</p>
       ${state.viewStorageError ? html`<p>${state.viewStorageError}</p>` : ''}
     </section>
-    <div class="cloud-actions">${local ? !state.localLoaded ? html`<button class="primary-button" data-action="reload-local">重新读取本机</button>` : state.storageError ? html`<button class="secondary-button" data-action="retry-save">重试保存到本机</button>` : '' : state.auth === 'ready' ? html`<button class="secondary-button" data-action="logout">退出登录</button>` : apiBase ? html`<button class="primary-button" data-action="login">使用本人 GitHub 登录</button>` : ''}
+    <div class="cloud-actions">${siteSync ? html`<button class="secondary-button" data-action="site-sync">全站记录同步</button>` : ''}${local ? !state.localLoaded ? html`<button class="primary-button" data-action="reload-local">重新读取本机</button>` : state.storageError ? html`<button class="secondary-button" data-action="retry-save">重试保存到本机</button>` : '' : state.auth === 'ready' ? html`<button class="secondary-button" data-action="logout">退出登录</button>` : apiBase ? html`<button class="primary-button" data-action="login">使用本人 GitHub 登录</button>` : ''}
       ${cloudConflict ? html`<button class="primary-button" data-action="resolve-conflicts">处理保存冲突</button>` : !local && state.storageError && state.auth === 'ready' ? html`<button class="secondary-button" data-action="retry-save">重试同步</button>` : !local && state.auth === 'error' && sessionToken ? html`<button class="secondary-button" data-action="reload-cloud">重新读取云端</button>` : ''}
     </div>
     ${state.profile.birthDate ? html`<button class="backup-option" data-action="export">${icon('download')}<span><strong>导出本页成长记录</strong><small>含当前宝宝资料、完成日期和手记，包括尚未保存的修改</small></span>${icon('chevron')}</button>` : ''}
@@ -998,7 +1012,7 @@ async function openBackup() {
     <label class="backup-option" tabindex="0" role="button" id="import-label">${icon('upload')}<span><strong>导入 JSON 备份</strong><small>${local ? '从电脑选择备份，支持多选；校验和预览后保存到本机' : '支持多选；登录并读取云端后，校验、预览并确认合并'}</small></span>${icon('chevron')}<input type="file" id="import-file" accept=".json,application/json" multiple hidden /></label>
     <p class="form-error" data-import-error role="alert" hidden></p>
     ${localMigrations.length ? html`<section class="local-migration"><h3>可导入的本机记录</h3><p>可逐份预览，也可全部导入。重复技能只计算一次；原始备份文件和旧版记录保持原样。</p>${localMigrations.map((item, index) => html`<div class="migration-item"><strong>${item.label}</strong>${item.snapshot ? html`<span>${getStats(catalog, item.snapshot.records).completed} 项已完成</span>` : ''}<div><button class="secondary-button" data-action="export-local" data-index="${index}">导出原记录</button>${item.snapshot ? html`<button class="primary-button" data-action="migrate-local" data-index="${index}">预览迁入</button>` : ''}</div></div>`)}</section>` : ''}
-    <p class="backup-footnote">${local ? '当前使用本机保存。清理此网站的浏览器数据会移除记录，请定期导出备份。云端同步尚未启用。' : '网页和技能目录公开；个人记录由本人身份保护。旧本机数据仅作为迁移来源。'}</p>`);
+    <p class="backup-footnote">${local ? '本机保存始终保留。云端连接与确认状态请查看“全站记录同步”；清理浏览器数据前请确认同步或另存 JSON 备份。' : '网页和技能目录公开；个人记录由本人身份保护。旧本机数据仅作为迁移来源。'}</p>`);
 }
 async function downloadBackup(raw, label) {
   const filename = `小芽${label}_${localDateString()}.json`;
@@ -1137,11 +1151,11 @@ document.addEventListener('click', async event => {
       case 'graph-zoom-in': setGraphZoom(state.graphZoom + .15); break;
       case 'graph-zoom-out': setGraphZoom(state.graphZoom - .15); break;
       case 'graph-fit': fitGraph(); break;
-      case 'stage-graph-current': state.stageFocus = null; graphViewportAction = 'focus'; render(); break;
       case 'graph-locate': locateGraphFocus(); break;
       case 'graph-current-age': locateCurrentAgeStage(); break;
       case 'graph-expand': state.graphExpanded = !state.graphExpanded; graphViewportAction = 'focus'; render(); break;
       case 'profile': openProfile(); break;
+      case 'site-sync': await siteSync?.open(); break;
       case 'backup': case 'storage-status': openBackup(); break;
       case 'export': await exportBackup(); break;
       case 'login': loginCloud(); break;
@@ -1397,30 +1411,24 @@ async function start() {
       render();
     });
     await findLocalMigrations();
-    try {
-      const response = await fetch('./cloud-config.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error('云端配置读取失败');
-      const config = await response.json();
-      if (!config.apiBase) {
-        state.localMode = true;
-        localStore = createLocalSaveStore(window.indexedDB, catalog.map(skill => skill.id));
-        await connectLocal();
-      } else {
-        const url = new URL(config.apiBase);
-        const local = ['localhost', '127.0.0.1'].includes(url.hostname) && ['localhost', '127.0.0.1'].includes(location.hostname);
-        if ((url.protocol !== 'https:' && !(local && url.protocol === 'http:')) || url.username || url.password || url.search || url.hash || (url.pathname !== '/' && url.pathname !== '')) throw new Error('云端地址配置无效');
-        apiBase = url.origin;
-        cloudStore = createCloudStore({ apiBase, validIds: catalog.map(skill => skill.id), getToken: () => sessionToken });
-        state.auth = 'signed-out';
-        try { sessionToken = sessionStorage.getItem(SESSION_KEY) || ''; } catch { /* 仅内存会话。 */ }
-      }
-    } catch (error) { state.storageError = error.message; }
+    state.localMode = true;
+    localStore = createLocalSaveStore(window.indexedDB, catalog.map(skill => skill.id));
+    await connectLocal();
+    siteSync = window.XiaoyaSync.createClient({ siteRoot: './', profileClient: sharedProfile });
+    const saveLocal = localStore.save;
+    localStore.save = async (...args) => {
+      const result = await saveLocal(...args);
+      try { await siteSync.changed('growth'); }
+      catch (error) { state.viewStorageError = '本机记录已保存，但同步队列暂不可用：' + error.message; }
+      return result;
+    };
+    siteSync.subscribe(area => { if (area === 'growth') void syncGrowth(); });
     state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
     lastCurrentStage = currentStage()?.id;
     restoreView();
     viewRestored = true;
     render();
-    if (sessionToken) await connectCloud();
+
   } catch (error) {
     app.replaceChildren(html`<main class="load-error">${icon('sprout')}<h1>小芽还没准备好</h1><p>${error.message}</p><p>请通过本地服务打开网页，避免直接双击 HTML 文件。</p><button class="primary-button" id="retry-button">重新加载</button></main>`);
     document.querySelector('#retry-button').addEventListener('click', () => location.reload());

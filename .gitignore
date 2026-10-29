@@ -8,6 +8,8 @@ dist/
 .env
 .env.*
 .wrangler/
+.vercel/
+.netlify/
 backups/
 output/
 tmp/
