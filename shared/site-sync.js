@@ -15,6 +15,7 @@
     let apiBase = '', token = '', user = null, configurationError = '', dialog, popup, nonce, authTimer, engine, sessionKey;
     let initialized = false, applying = 0;
     const buttons = new Set(), listeners = new Set();
+    const renderedConflicts = new WeakMap();
     const channel = typeof BroadcastChannel === 'function' ? new BroadcastChannel('xiaoya-data-changed') : null;
     const lock = (key, job) => root.navigator?.locks ? root.navigator.locks.request(key, job) : Promise.reject(new Error('此浏览器缺少安全同步所需的 Web Locks，请使用新版浏览器。'));
     const emit = area => { for (const callback of listeners) callback(area); };
@@ -59,8 +60,25 @@
         button.querySelector('span').textContent = label();
         button.dataset.status = label();
       }
-      for (const card of dialog?.querySelectorAll('[data-sync-area]') || []) {
-        const state = engine?.states()[card.dataset.syncArea] || {};
+      for (let card of dialog?.querySelectorAll('[data-sync-area]') || []) {
+        const area = card.dataset.syncArea;
+        const state = engine?.states()[area] || {};
+        // 状态文字与选择表单必须展示同一份快照；普通轮询不重建未变化的表单。
+        if (!sameConflict(renderedConflicts.get(card), state.conflict)) {
+          const focused = card.contains(document.activeElement);
+          const next = createCard(area);
+          if (state.conflict) {
+            const notice = element('p', '记录已更新，请核对以下差异后重新选择。');
+            notice.setAttribute('role', 'status');
+            next.querySelector('[data-sync-state]').after(notice);
+          }
+          card.replaceWith(next);
+          card = next;
+          if (focused) {
+            const heading = card.querySelector('h3');
+            heading.tabIndex = -1; heading.focus({ preventScroll: true });
+          }
+        }
         card.querySelector('[data-sync-state]').textContent = state.error || (state.conflict ? state.conflict.conflicts.length + ' 项冲突，选择后点击确认。' : state.enabled ? state.syncing ? '正在同步' : state.pending ? '本机已保存，等待同步' : '已与云端同步' : '尚未连接；先预览再确认。');
         const saved = card.querySelector('[data-sync-saved]');
         saved.hidden = !state.savedAt;
@@ -138,6 +156,52 @@
       if (area === 'growth') return Object.values(data.records).filter(r => r.completedAt).length + ' 项完成 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
       return data.profile.vocabulary + ' 听力词汇 · ' + data.favorites.length + ' 个收藏 · ' + Object.keys(data.records).length + ' 份素材记录';
     }
+    function sameConflict(left, right) {
+      if (!left || !right) return !left && !right;
+      return M.equal(left.local, right.local) && M.equal(left.remote, right.remote) && M.equal(left.base, right.base) && Boolean(left.applying) === Boolean(right.applying);
+    }
+    function createCard(area) {
+      const card = element('section', undefined, 'site-sync-card');
+      card.dataset.syncArea = area;
+      const state = engine.states()[area] || {};
+      const status = element('p'); status.dataset.syncState = '';
+      const saved = element('small'); saved.dataset.syncSaved = '';
+      card.append(element('h3', names[area]), status, saved);
+      if (state.conflict) {
+        const form = element('form'); const choices = {};
+        const selection = element('p'); selection.setAttribute('role', 'status');
+        const updateSelection = () => { selection.textContent = '已选择 ' + Object.keys(choices).length + ' / ' + state.conflict.conflicts.length + ' 项；确认后生效'; };
+        const bulk = element('div', undefined, 'site-sync-bulk');
+        bulk.setAttribute('role', 'group'); bulk.setAttribute('aria-label', names[area] + '批量选择');
+        for (const side of ['remote', 'local']) bulk.append(action(side === 'remote' ? '全部选云端' : '全部选本机', () => {
+          for (const item of state.conflict.conflicts) choices[item.key] = side;
+          for (const input of form.querySelectorAll('input[type="radio"]')) input.checked = input.value === side;
+          updateSelection();
+        }));
+        updateSelection(); form.append(bulk, selection);
+        state.conflict.conflicts.forEach((item, index) => {
+          const field = element('fieldset'); field.append(element('legend', item.path.join(' / ')));
+          for (const side of ['local', 'remote']) {
+            const label = element('label'); const input = element('input');
+            input.type = 'radio'; input.name = area + '-' + index; input.value = side; input.required = true;
+            input.addEventListener('change', () => { choices[item.key] = side; updateSelection(); });
+            label.append(input, element('span', (side === 'local' ? '本机：' : '云端：') + (item[side] === undefined ? '清空／未完成' : String(item[side])))); field.append(label);
+          }
+          form.append(field);
+        });
+        form.append(action('确认选择并继续同步', async () => { if (!form.reportValidity()) return; await engine.resolve(area, { ...choices }, state.conflict); await open(); }));
+        form.addEventListener('submit', e => e.preventDefault()); card.append(form);
+      } else if (!state.enabled) card.append(action('预览并连接', async () => {
+        const preview = await engine.preview(area);
+        const details = element('div', undefined, 'site-sync-preview');
+        details.append(element('p', '本机：' + summary(area, preview.local)), element('p', '云端：' + summary(area, preview.remote.snapshot)), element('p', preview.conflicts.length ? '存在相同字段的差异，连接后须逐项选择，暂不覆盖。' : '不同记录会合并；空云端可接收本机记录。'));
+        details.append(action('确认连接这类记录', async () => { await engine.enable(area, preview); await open(); }));
+        card.querySelector('.site-sync-preview')?.remove(); card.append(details);
+      }));
+      else card.append(action('立即同步', async () => { await engine.sync(area); await open(); }), action('暂停同步', async () => { await engine.disable(area); await open(); }));
+      renderedConflicts.set(card, state.conflict || null);
+      return card;
+    }
     async function open() {
       if (!initialized) await ready;
       if (dialog?.open) dialog.close();
@@ -155,45 +219,7 @@
       else {
         body.append(element('p', '已登录：' + user.login));
         for (const area of Object.keys(names)) {
-          const card = element('section', undefined, 'site-sync-card');
-          card.dataset.syncArea = area;
-          const state = engine.states()[area] || {};
-          const status = element('p'); status.dataset.syncState = '';
-          const saved = element('small'); saved.dataset.syncSaved = '';
-          card.append(element('h3', names[area]), status, saved);
-          if (state.conflict) {
-            const form = element('form'); const choices = {};
-            const selection = element('p'); selection.setAttribute('role', 'status');
-            const updateSelection = () => { selection.textContent = '已选择 ' + Object.keys(choices).length + ' / ' + state.conflict.conflicts.length + ' 项；确认后生效'; };
-            const bulk = element('div', undefined, 'site-sync-bulk');
-            bulk.setAttribute('role', 'group'); bulk.setAttribute('aria-label', names[area] + '批量选择');
-            for (const side of ['remote', 'local']) bulk.append(action(side === 'remote' ? '全部选云端' : '全部选本机', () => {
-              for (const item of state.conflict.conflicts) choices[item.key] = side;
-              for (const input of form.querySelectorAll('input[type="radio"]')) input.checked = input.value === side;
-              updateSelection();
-            }));
-            updateSelection(); form.append(bulk, selection);
-            state.conflict.conflicts.forEach((item, index) => {
-              const field = element('fieldset'); field.append(element('legend', item.path.join(' / ')));
-              for (const side of ['local', 'remote']) {
-                const label = element('label'); const input = element('input');
-                input.type = 'radio'; input.name = area + '-' + index; input.value = side; input.required = true;
-                input.addEventListener('change', () => { choices[item.key] = side; updateSelection(); });
-                label.append(input, element('span', (side === 'local' ? '本机：' : '云端：') + (item[side] === undefined ? '清空／未完成' : String(item[side])))); field.append(label);
-              }
-              form.append(field);
-            });
-            form.append(action('确认选择并继续同步', async () => { if (!form.reportValidity()) return; await engine.resolve(area, { ...choices }, state.conflict); await open(); }));
-            form.addEventListener('submit', e => e.preventDefault()); card.append(form);
-          } else if (!state.enabled) card.append(action('预览并连接', async () => {
-            const preview = await engine.preview(area);
-            const details = element('div', undefined, 'site-sync-preview');
-            details.append(element('p', '本机：' + summary(area, preview.local)), element('p', '云端：' + summary(area, preview.remote.snapshot)), element('p', preview.conflicts.length ? '存在相同字段的差异，连接后须逐项选择，暂不覆盖。' : '不同记录会合并；空云端可接收本机记录。'));
-            details.append(action('确认连接这类记录', async () => { await engine.enable(area, preview); await open(); }));
-            card.querySelector('.site-sync-preview')?.remove(); card.append(details);
-          }));
-          else card.append(action('立即同步', async () => { await engine.sync(area); await open(); }), action('暂停同步', async () => { await engine.disable(area); await open(); }));
-          body.append(card);
+          body.append(createCard(area));
         }
         body.append(action('退出登录（保留本机记录）', async () => {
           await request('logout', 'POST'); token = ''; user = null; engine.authenticate(false);
