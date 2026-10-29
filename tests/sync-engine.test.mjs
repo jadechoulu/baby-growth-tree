@@ -16,7 +16,7 @@ function harness(initial, cloud = null, area = 'growth') {
     update: async (key, fn) => { const value = fn(copy(entries.get(key) || empty())); entries.set(key, copy(value)); return copy(value); },
   };
   const envelope = () => ({ snapshot: copy(remote), revision: remote ? String(rev) : null, savedAt: remote ? '2026-10-29T01:00:00Z' : null });
-  let onPut = async () => {}, applyFailure = false;
+  let onPut = async () => {}, onGet = async () => {}, applyFailure = false;
   const adapter = {
     read: async () => copy(disk),
     apply: async (snapshot, base) => {
@@ -29,7 +29,7 @@ function harness(initial, cloud = null, area = 'growth') {
   const request = async (_, method, body) => {
     requests.push({ method, body: copy(body) });
     if (offline) throw new Error('离线');
-    if (method === 'GET') return envelope();
+    if (method === 'GET') { await onGet(); return envelope(); }
     await onPut(body);
     if (body.revision !== (remote ? String(rev) : null)) throw Object.assign(new Error('并发'), { code: 'VERSION_CONFLICT' });
     remote = copy(body.snapshot); rev++;
@@ -44,6 +44,7 @@ function harness(initial, cloud = null, area = 'growth') {
     remote: () => copy(remote), disk: () => copy(disk), edit: value => { disk = copy(value); },
     offline: value => { offline = value; }, remoteEdit: value => { remote = copy(value); rev++; },
     onPut: fn => { onPut = fn; }, failApply: value => { applyFailure = value; },
+    onGet: fn => { onGet = fn; },
   };
 }
 async function connect(h, engine) {
@@ -121,12 +122,71 @@ test('选择冲突后远端再变，过期选择不会覆盖新手记', async t 
   assert.equal(e.states().growth.conflict.conflicts[0].remote, '云端二'); assert.equal(h.remote().records.a.note, '云端二');
 });
 
+test('定时检查进行中确认云端选择，决议不会被旧检查覆盖，刷新后也不再冲突', async t => {
+  const h = harness(growth({ a: { note: '原文' } })); let e = await h.make(); await connect(h, e);
+  t.after(() => e.destroy());
+  h.edit(growth({ a: { note: '本机' }, b: { note: '保留新增' } })); h.remoteEdit(growth({ a: { note: '云端' } }));
+  await e.sync('growth');
+  const reviewed = e.states().growth.conflict;
+  let release, started;
+  const entered = new Promise(resolve => { started = resolve; });
+  h.onGet(async () => { started(); await new Promise(resolve => { release = resolve; }); });
+  const polling = e.sync('growth'); await entered;
+  const resolving = e.resolve('growth', { [reviewed.conflicts[0].key]: 'remote' }, reviewed);
+  // 让确认操作与已读旧日志、尚未完成的定时请求交错。
+  await new Promise(resolve => setImmediate(resolve)); h.onGet(async () => {}); release();
+  await Promise.all([polling, resolving]);
+  assert.equal(e.states().growth.conflict, null);
+  assert.deepEqual(h.disk(), growth({ a: { note: '云端' }, b: { note: '保留新增' } }));
+  e.destroy(); e = await h.make(); t.after(() => e.destroy()); e.authenticate(true); await e.sync('growth');
+  assert.equal(e.states().growth.conflict, null); assert.equal(e.states().growth.pending, false);
+  assert.deepEqual(h.disk(), h.remote());
+});
+
 test('请求期间继续编辑，在回执合入时保留新输入并再次排队', async t => {
   const h = harness(growth({ a: { note: '原文' } })); const e = await h.make(); t.after(() => e.destroy()); await connect(h, e);
   h.edit(growth({ a: { note: '第一版' } })); h.onPut(async () => { h.edit(growth({ a: { note: '继续输入' } })); });
   await e.sync('growth');
   assert.equal(h.disk().records.a.note, '继续输入'); assert.equal(h.remote().records.a.note, '第一版'); assert.equal(e.states().growth.pending, true);
   h.onPut(async () => {}); await e.sync('growth'); assert.deepEqual(h.disk(), h.remote());
+});
+
+test('批量决议可逐项覆盖，合入失败后刷新继续原回执，不重新要求选择', async t => {
+  const h = harness(growth({ a: { note: '原文', completedAt: '2026-10-26' } })); let e = await h.make(); t.after(() => e.destroy()); await connect(h, e);
+  h.edit(growth({ a: { note: '本机', completedAt: '2026-10-27' } }));
+  h.remoteEdit(growth({ a: { note: '云端', completedAt: '2026-10-28' } })); await e.sync('growth');
+  const reviewed = e.states().growth.conflict;
+  const choices = Object.fromEntries(reviewed.conflicts.map(item => [item.key, 'remote']));
+  choices[JSON.stringify(['records', 'a', 'note'])] = 'local';
+  h.failApply(true); await e.resolve('growth', choices, reviewed);
+  assert.ok((await h.journal.get('growth')).incoming);
+  e.destroy(); h.failApply(false); e = await h.make(); e.authenticate(true); await e.sync('growth');
+  assert.deepEqual(h.disk(), growth({ a: { note: '本机', completedAt: '2026-10-28' } }));
+  assert.deepEqual(h.disk(), h.remote()); assert.equal(e.states().growth.conflict, null);
+});
+
+test('面板打开后另一任务发现新冲突，旧面板确认不能套用到未查看的新内容', async t => {
+  const h = harness(growth({ a: { note: '原文' } })); const e = await h.make(); t.after(() => e.destroy()); await connect(h, e);
+  h.edit(growth({ a: { note: '本机' } })); h.remoteEdit(growth({ a: { note: '云端一' } })); await e.sync('growth');
+  const reviewed = e.states().growth.conflict;
+  h.remoteEdit(growth({ a: { note: '云端二' } })); await e.sync('growth');
+  await assert.rejects(e.resolve('growth', { [reviewed.conflicts[0].key]: 'local' }, reviewed), /冲突内容已变化/);
+  assert.equal(h.remote().records.a.note, '云端二');
+});
+
+test('云端已确认而合入本机发生冲突，选择云端后回执清理并可持续同步', async t => {
+  const h = harness(growth({ a: { note: '原文', completedAt: '2026-10-26' } })); const e = await h.make(); t.after(() => e.destroy()); await connect(h, e);
+  h.edit(growth({ a: { note: '原文', completedAt: '2026-10-27' } }));
+  h.remoteEdit(growth({ a: { note: '云端手记', completedAt: '2026-10-26' } }));
+  h.onPut(async () => { h.edit(growth({ a: { note: '请求期间输入', completedAt: '2026-10-27' } })); });
+  await e.sync('growth'); const reviewed = e.states().growth.conflict;
+  assert.equal(reviewed.applying, true); assert.ok((await h.journal.get('growth')).incoming);
+  h.onPut(async () => {});
+  await e.resolve('growth', Object.fromEntries(reviewed.conflicts.map(item => [item.key, 'remote'])), reviewed);
+  assert.equal((await h.journal.get('growth')).incoming, null); assert.equal(e.states().growth.conflict, null);
+  await e.sync('growth');
+  assert.deepEqual(h.disk(), growth({ a: { note: '云端手记', completedAt: '2026-10-27' } }));
+  assert.deepEqual(h.remote(), h.disk());
 });
 
 test('云端确认后本机应用失败，重开从回执恢复，不将旧本机当成删除', async t => {

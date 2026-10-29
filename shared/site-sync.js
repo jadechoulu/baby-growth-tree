@@ -61,7 +61,7 @@
       }
       for (const card of dialog?.querySelectorAll('[data-sync-area]') || []) {
         const state = engine?.states()[card.dataset.syncArea] || {};
-        card.querySelector('[data-sync-state]').textContent = state.conflict ? '双方内容均保留，请刷新面板处理冲突。' : state.error || (state.enabled ? state.syncing ? '正在同步' : state.pending ? '本机已保存，等待同步' : '已与云端同步' : '尚未连接；先预览再确认。');
+        card.querySelector('[data-sync-state]').textContent = state.error || (state.conflict ? state.conflict.conflicts.length + ' 项冲突，选择后点击确认。' : state.enabled ? state.syncing ? '正在同步' : state.pending ? '本机已保存，等待同步' : '已与云端同步' : '尚未连接；先预览再确认。');
         const saved = card.querySelector('[data-sync-saved]');
         saved.hidden = !state.savedAt;
         saved.textContent = state.savedAt ? '最近云端确认：' + new Date(state.savedAt).toLocaleString('zh-CN') : '';
@@ -163,17 +163,27 @@
           card.append(element('h3', names[area]), status, saved);
           if (state.conflict) {
             const form = element('form'); const choices = {};
+            const selection = element('p'); selection.setAttribute('role', 'status');
+            const updateSelection = () => { selection.textContent = '已选择 ' + Object.keys(choices).length + ' / ' + state.conflict.conflicts.length + ' 项；确认后生效'; };
+            const bulk = element('div', undefined, 'site-sync-bulk');
+            bulk.setAttribute('role', 'group'); bulk.setAttribute('aria-label', names[area] + '批量选择');
+            for (const side of ['remote', 'local']) bulk.append(action(side === 'remote' ? '全部选云端' : '全部选本机', () => {
+              for (const item of state.conflict.conflicts) choices[item.key] = side;
+              for (const input of form.querySelectorAll('input[type="radio"]')) input.checked = input.value === side;
+              updateSelection();
+            }));
+            updateSelection(); form.append(bulk, selection);
             state.conflict.conflicts.forEach((item, index) => {
               const field = element('fieldset'); field.append(element('legend', item.path.join(' / ')));
               for (const side of ['local', 'remote']) {
                 const label = element('label'); const input = element('input');
                 input.type = 'radio'; input.name = area + '-' + index; input.value = side; input.required = true;
-                input.addEventListener('change', () => { choices[item.key] = side; });
+                input.addEventListener('change', () => { choices[item.key] = side; updateSelection(); });
                 label.append(input, element('span', (side === 'local' ? '本机：' : '云端：') + (item[side] === undefined ? '清空／未完成' : String(item[side])))); field.append(label);
               }
               form.append(field);
             });
-            form.append(action('确认选择并继续同步', async () => { if (!form.reportValidity()) return; await engine.resolve(area, choices); await open(); }));
+            form.append(action('确认选择并继续同步', async () => { if (!form.reportValidity()) return; await engine.resolve(area, { ...choices }, state.conflict); await open(); }));
             form.addEventListener('submit', e => e.preventDefault()); card.append(form);
           } else if (!state.enabled) card.append(action('预览并连接', async () => {
             const preview = await engine.preview(area);

@@ -258,6 +258,7 @@ body.site-navigation-open{overflow:hidden}
 .site-sync-dialog::backdrop { background:rgb(15 29 24 / .46); }
 .site-sync-dialog > header { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 14px; border-bottom:1px solid #d7ded6; position:sticky; top:0; background:#fffefa; z-index:1; }
 .site-sync-dialog h2 { margin:0; font-size:19px; }
+.site-sync-dialog > header .site-sync-action { flex:none; margin:0; white-space:nowrap; padding:7px 10px; }
 .site-sync-body { padding:12px 14px max(14px,env(safe-area-inset-bottom)); font-size:15px; line-height:1.55; overflow-wrap:anywhere; }
 .site-sync-body p { margin:5px 0 9px; }
 .site-sync-body small { display:block; font-size:12px; margin-bottom:7px; }
@@ -271,4 +272,6 @@ body.site-navigation-open{overflow:hidden}
 .site-sync-card label { display:flex; align-items:flex-start; gap:8px; margin:7px 0; white-space:pre-wrap; }
 .site-sync-card input { margin-top:5px; width:18px; height:18px; flex:none; }
 .site-sync-preview { margin-top:8px; padding:10px; background:#f0f5ee; border-radius:9px; }
+.site-sync-bulk { display:flex; flex-wrap:wrap; gap:6px; }
+.site-sync-bulk .site-sync-action { margin:0; flex:1; }
 @media (max-width:600px) { .site-sync-button span { display:none; } .site-sync-button { padding:6px; } .site-sync-dialog { width:calc(100% - 16px); } }
