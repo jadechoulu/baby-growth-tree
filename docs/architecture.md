@@ -112,6 +112,8 @@
 
 2026-10-29 最新部署：Vercel 短信验证失败后选择 Netlify，本人 CLI 已授权，免费项目 `xiaoya-jadechoulu-sync` 已部署。Netlify 原生 Request 入口复用 Worker 核心；站点级 Blobs 仅保存短期 state 与会话哈希，强一致读取、ETag 原子消费与注销已通过真实状态库验收。`--netlify` 构建分支生成单独后端白名单包，GitHub Pages 构建及私有记录仓不变。GitHub 应用与最小仓库凭据已配置，本人真实登录和原 5317 入口首次迁入通过；已独立核对私有仓 155 项成长记录和 70 听力词汇。本地 API 与公开仓库构建变量已接通，本批已获提交合并授权，正式网页由 main 工作流发布；实际上线结果及真实跨设备验收状态见同步说明。新设备须本人登录并逐类连接，不能自动将空入口视为已有记录来源。
 
+2026-10-29 冲突确认补充：共享同步面板支持按记录分类批量选云端或本机，再逐项覆盖并确认；确认决议与普通同步必须共用领域执行队列和跨标签 Web Lock。面板所展示的双方版本改变后禁止套用旧选择。领域页面若因正在保存或显示详情暂缓数据库回读，须在保存结束或详情关闭后补回，不能仅等待下一次数据写入通知。
+
 ## 接入接口与实现位置
 
 `XiaoyaSite.createShell({ sectionId, siteRoot, navigation, activeId, title, onNavigate })` 返回 `element`、`content`、`actions`、`update()`、`createSectionSwitch()`、`openDirectory()`、`closeNavigation()` 和 `destroy()`。`content` 是领域正文槽，`actions` 是搜索/保存等动作槽；分类不重新实现侧栏和底栏。目录项以稳定 ID 回调到领域接入层，最多五项可标记为 `shortcut`。

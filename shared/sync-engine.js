@@ -131,27 +131,36 @@
         }
       } finally { report(area, { syncing: false }); }
     }
-    function sync(area) {
-      if (!adapters.has(area) || closed) return Promise.resolve();
-      if (running.has(area)) { schedule(area); return running.get(area); }
-      clearTimeout(timers.get(area)); timers.delete(area);
-      const task = lock('xiaoya-sync:' + area, () => perform(area)).catch(error => report(area, { error: error.message, pending: true }));
+    function run(area, job) {
+      // 确认决议与定时检查共用同一队列和跨标签锁，旧请求不能覆盖新选择。
+      const previous = running.get(area) || Promise.resolve();
+      const task = previous.catch(() => {}).then(() => lock('xiaoya-sync:' + area, job));
       running.set(area, task);
-      task.finally(() => running.delete(area));
+      const cleanup = () => { if (running.get(area) === task) running.delete(area); };
+      task.then(cleanup, cleanup);
       return task;
     }
-    async function resolve(area, choices) {
-      const entry = await journal.get(keyFor(area));
-      if (!entry.conflict) return;
-      const conflict = entry.conflict;
-      if (!M.equal(await local(area), conflict.local)) throw new Error('本机记录已变化，请重新同步并查看冲突。');
-      if (conflict.conflicts.some(item => !['local', 'remote'].includes(choices[item.key]))) throw new Error('请为每项冲突选择保留内容。');
-      if (conflict.applying) {
-        const merged = M.merge(conflict.base, conflict.local, conflict.remote.snapshot, choices);
-        // 已获云端确认，仅处理本机合入时产生的后续编辑冲突。
-        await applyReceipt(area, { local: conflict.local, remote: conflict.remote, resolved: merged.snapshot });
-      } else await journal.update(keyFor(area), value => ({ ...value, conflict: { ...conflict, choices } }));
-      return sync(area);
+    function sync(area) {
+      if (!adapters.has(area) || closed) return Promise.resolve();
+      if (running.has(area)) { schedule(area); return running.get(area).catch(error => report(area, { error: error.message, pending: true })); }
+      clearTimeout(timers.get(area)); timers.delete(area);
+      return run(area, () => perform(area)).catch(error => report(area, { error: error.message, pending: true }));
+    }
+    function resolve(area, choices, reviewed = states.get(area)?.conflict) {
+      return run(area, async () => {
+        const entry = await journal.get(keyFor(area));
+        if (!entry.conflict) return;
+        const conflict = entry.conflict;
+        if (!reviewed || !M.equal(conflict.local, reviewed.local) || !M.equal(conflict.remote, reviewed.remote) || !M.equal(conflict.base, reviewed.base) || Boolean(conflict.applying) !== Boolean(reviewed.applying)) throw new Error('冲突内容已变化，请刷新面板后重新选择。');
+        if (!M.equal(await local(area), conflict.local)) throw new Error('本机记录已变化，请重新同步并查看冲突。');
+        if (conflict.conflicts.some(item => !['local', 'remote'].includes(choices[item.key]))) throw new Error('请为每项冲突选择保留内容。');
+        if (conflict.applying) {
+          const merged = M.merge(conflict.base, conflict.local, conflict.remote.snapshot, choices);
+          // 已获云端确认，仅处理本机合入时产生的后续编辑冲突。
+          await applyReceipt(area, { local: conflict.local, remote: conflict.remote, resolved: merged.snapshot });
+        } else await journal.update(keyFor(area), value => ({ ...value, conflict: { ...conflict, choices } }));
+        await perform(area);
+      });
     }
     return {
       register, changed, preview, enable, sync, resolve,

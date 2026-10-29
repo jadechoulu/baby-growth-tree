@@ -31,6 +31,7 @@ state.localLoaded = false;
 let saveController = null;
 let cloudConflict = null;
 let cloudRefreshing = false;
+let growthRefreshPending = false;
 let authPopup = null;
 let authRequest = null;
 let authTimer = null;
@@ -312,6 +313,7 @@ function configureSaveQueue(store = cloudStore) {
       state.storageError = status.error?.message || '';
       if (status.error?.code === 'AUTH_REQUIRED') { state.auth = 'expired'; setSessionToken(''); }
       updateSaveStatus();
+      if (growthRefreshPending && !cloudRefreshing && !status.pending && !status.dirty) queueMicrotask(() => void syncGrowth());
     },
     onConflict: conflict => { cloudConflict = conflict; render(); openConflicts(); },
   });
@@ -425,7 +427,10 @@ function conflictLabel(conflict) {
 }
 function openConflicts() {
   if (!cloudConflict) return;
-  showDialog(html`${dialogHeader('双方内容均保留，等待你的选择', '处理同步冲突')}<form id="conflict-form">${cloudConflict.conflicts.map((item, index) => html`<fieldset class="conflict-field"><legend>${conflictLabel(item)}</legend><label><input type="radio" name="conflict-${index}" value="local" required /> 保留本页内容<pre>${item.local || '（清空／未完成）'}</pre></label><label><input type="radio" name="conflict-${index}" value="remote" required /> 保留${state.localMode ? '本机数据库' : '云端'}内容<pre>${item.remote || '（清空／未完成）'}</pre></label></fieldset>`)}<div class="form-actions"><button type="button" class="secondary-button" data-action="export">先导出本页</button><button class="primary-button" type="submit">确认选择并${state.localMode ? '保存' : '同步'}</button></div></form>`, 'conflict-dialog');
+  const dialog = showDialog(html`${dialogHeader('双方内容均保留，等待你的选择', '处理同步冲突')}<form id="conflict-form"><div class="form-actions"><button type="button" class="secondary-button" data-conflict-side="remote">全部选${state.localMode ? '本机数据库' : '云端'}</button><button type="button" class="secondary-button" data-conflict-side="local">全部选本页</button></div>${cloudConflict.conflicts.map((item, index) => html`<fieldset class="conflict-field"><legend>${conflictLabel(item)}</legend><label><input type="radio" name="conflict-${index}" value="local" required /> 保留本页内容<pre>${item.local || '（清空／未完成）'}</pre></label><label><input type="radio" name="conflict-${index}" value="remote" required /> 保留${state.localMode ? '本机数据库' : '云端'}内容<pre>${item.remote || '（清空／未完成）'}</pre></label></fieldset>`)}<div class="form-actions"><button type="button" class="secondary-button" data-action="export">先导出本页</button><button class="primary-button" type="submit">确认选择并${state.localMode ? '保存' : '同步'}</button></div></form>`, 'conflict-dialog');
+  for (const button of dialog.querySelectorAll('[data-conflict-side]')) button.addEventListener('click', () => {
+    for (const input of dialog.querySelectorAll('input[type="radio"]')) input.checked = input.value === button.dataset.conflictSide;
+  });
 }
 
 function notify(message, undo = false) {
@@ -965,7 +970,7 @@ function showDialog(content, kind = '') {
     const bounds = dialog.getBoundingClientRect();
     if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
   });
-  dialog.addEventListener('close', () => { dialog.remove(); render(); });
+  dialog.addEventListener('close', () => { dialog.remove(); render(); if (growthRefreshPending) void syncGrowth(); });
   dialog.showModal();
   return dialog;
 }
@@ -1371,12 +1376,14 @@ document.addEventListener('wheel', event => {
 }, { passive: false });
 async function syncGrowth(force = false) {
   const store = state.localMode ? localStore : cloudStore;
+  growthRefreshPending = true;
   if (!store || !canEdit() || cloudRefreshing || state.savePending || state.hasUnsavedChanges || (!force && document.querySelector('#app-dialog'))) return;
+  growthRefreshPending = false;
   cloudRefreshing = true;
   const editRevision = saveRevision;
   try {
     const loaded = await store.load();
-    if (!canEdit() || state.savePending || state.hasUnsavedChanges || editRevision !== saveRevision) return;
+    if (!canEdit() || state.savePending || state.hasUnsavedChanges || editRevision !== saveRevision || (!force && document.querySelector('#app-dialog'))) { growthRefreshPending = true; return; }
     if (!loaded.snapshot) { state.profile = sharedProfile.get(); state.records = {}; }
     saveController.adopt(loaded);
     state.storageError = '';
@@ -1386,7 +1393,7 @@ async function syncGrowth(force = false) {
     state.storageError = error.message;
     if (error.code === 'AUTH_REQUIRED') { state.auth = 'expired'; setSessionToken(''); }
     updateSaveStatus();
-  } finally { cloudRefreshing = false; }
+  } finally { cloudRefreshing = false; if (growthRefreshPending) queueMicrotask(() => void syncGrowth()); }
 }
 window.addEventListener('beforeunload', event => {
   if (!state.savePending && !state.hasUnsavedChanges) return;
