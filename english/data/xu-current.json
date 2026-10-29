@@ -12,8 +12,10 @@
   "stages": [
     {
       "id": "xu-current-300",
+      "listeningTargetWords": 300,
       "order": 1,
       "title": "第一阶段 · 闪卡＋闪卡式绘本（0–300词）",
+      "displayTitle": "第一阶段 · 积累0–300听力词",
       "shortTitle": "第一阶段 · 0–300词",
       "group": "",
       "domain": "listening",
@@ -109,10 +111,15 @@
       ],
       "sourceStageId": "xu-panorama-listening-300",
       "vocabularyBrowseMin": 0,
-      "entry": "从零基础即可开始；不要求先达到200词或300词才共读。"
+      "entry": "从零基础即可开始；不要求先达到200词或300词才共读。",
+      "startingReference": {
+        "kind": "route-start",
+        "basis": "依据全景图300词节点与用户确认，闪卡和闪卡式绘本在零基础起步并行。"
+      }
     },
     {
       "id": "xu-current-500",
+      "listeningTargetWords": 500,
       "order": 2,
       "title": "听力节点 · 500词",
       "shortTitle": "听力500词",
@@ -214,6 +221,7 @@
     },
     {
       "id": "xu-current-800",
+      "listeningTargetWords": 800,
       "order": 3,
       "title": "听力节点 · 800词",
       "shortTitle": "听力800词",
@@ -289,6 +297,7 @@
     },
     {
       "id": "xu-current-1000",
+      "listeningTargetWords": 1000,
       "order": 4,
       "title": "听力节点 · 1000词",
       "shortTitle": "听力1000词",
@@ -372,6 +381,7 @@
     },
     {
       "id": "xu-current-2000",
+      "listeningTargetWords": 2000,
       "order": 5,
       "title": "听力节点 · 2000词",
       "shortTitle": "听力2000词",

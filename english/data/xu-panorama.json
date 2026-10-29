@@ -400,6 +400,7 @@
   "stages": [
     {
       "id": "xu-panorama-listening-300",
+      "listeningTargetWords": 300,
       "order": 1,
       "title": "听力阶段 · 300词",
       "shortTitle": "听力300词",
@@ -478,10 +479,15 @@
           "method": "巴蒂英语、培生词汇妙趣屋、大猫预备级、悠游第一级。",
           "minutes": ""
         }
-      ]
+      ],
+      "startingReference": {
+        "kind": "route-start",
+        "basis": "全景图听力分支首节点为300词，闪卡和闪卡式绘本并列。"
+      }
     },
     {
       "id": "xu-panorama-listening-500",
+      "listeningTargetWords": 500,
       "order": 2,
       "title": "听力阶段 · 500词",
       "shortTitle": "听力500词",
@@ -573,6 +579,7 @@
     },
     {
       "id": "xu-panorama-listening-800",
+      "listeningTargetWords": 800,
       "order": 3,
       "title": "听力阶段 · 800词",
       "shortTitle": "听力800词",
@@ -640,6 +647,7 @@
     },
     {
       "id": "xu-panorama-listening-1000",
+      "listeningTargetWords": 1000,
       "order": 4,
       "title": "听力阶段 · 1000词",
       "shortTitle": "听力1000词",
@@ -715,6 +723,7 @@
     },
     {
       "id": "xu-panorama-listening-2000",
+      "listeningTargetWords": 2000,
       "order": 5,
       "title": "听力阶段 · 2000词",
       "shortTitle": "听力2000词",

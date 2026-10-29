@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parent
 RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','editorial']}
 RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read_text())
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
+RAW['routePlan'] = json.loads((ROOT / 'data' / 'route-plan.json').read_text())
 RAW['xuCurrent'] = json.loads((ROOT / 'data' / 'xu-current.json').read_text())
 
 RAW['xuSupplements'] = [json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['xu-thousand','xu-panorama']]

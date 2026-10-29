@@ -36,6 +36,7 @@
 .comparison-legend span{display:inline-flex;align-items:center;gap:7px}
 .comparison-legend i{display:inline-block;width:9px;height:9px;border-radius:3px;flex-shrink:0}
 .comparison-legend i.direct{background:#6d9c7f}
+.comparison-legend i.vocabulary{background:#8b75ac}
 .comparison-legend i.uncertain{background:#c69d57}
 .comparison-legend i.different{background:#abb2a9}
 .stage-comparison{min-width:0;display:grid;gap:14px}
@@ -118,8 +119,7 @@
 .shared-filter.active{border-color:#83a37a;background:#e7f0e0;color:#466e40;font-weight:600}
 .shared-filter .icon{width:15px;height:15px}
 .shared-material,.match-evidence-detail strong.shared-material{color:#2e6954;font-weight:650}
-.stage-resource-tags>button.shared-material{color:#2e6954;font-weight:650;background:#e8f1e9}
-.stage-resource-tags>button.shared-material:hover{background:#dbeadc}
+.stage-resource-tags>button.shared-material{font-weight:750}
 .material-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 18px;font-size:12px;color:var(--muted)}
 
 /* 详情中的路线级别表与阶段对照入口。 */
@@ -277,6 +277,11 @@
 .complete-comparison .stage-comparison-entry,.complete-comparison .stage-card:after{display:none}
 .complete-comparison .comparison-route{display:none}
 .alignment-match-label{margin:12px 11px 8px;font-size:11px;color:#477455;line-height:1.7}
+.alignment-basis{font-size:12px;font-weight:400;line-height:1.5;color:#776385;overflow-wrap:anywhere}
+.match-card.vocabulary{border-color:#c9bcda;border-left-color:#8b75ac}
+.match-card.vocabulary>.alignment-match-label{font-size:12px;color:#776385;overflow-wrap:anywhere}
+.overview-stage.vocabulary{background:#f0eaf7;color:#776385}
+.phase-overview-links>.alignment-basis{flex-basis:100%}
 .complete-comparison .uncertain>.alignment-match-label{color:#967439}
 .alignment-remaining{padding:20px 0;margin-top:12px;border-top:1px solid var(--line)}
 .alignment-remaining h2{font-size:20px;margin-bottom:8px}.alignment-remaining>p{margin-bottom:18px}
@@ -304,7 +309,6 @@
   .comparison-controls>span{grid-column:1/-1;font-size:12px}
   .alignment-note{font-size:12px;line-height:1.8}
   .complete-comparison .stage-card p{font-size:13px;line-height:1.85}
-  .stage-resource-tags>button{font-size:12px;padding:7px 9px;line-height:1.65}
   .stage-open{font-size:13px;min-height:44px}
   .stage-meta{font-size:12px}
 }
@@ -590,9 +594,9 @@
   .xu-options-fold>summary{display:flex;font-size:13px;min-height:44px;padding:9px 12px;color:#776385}
   .xu-options-fold>.reading-fold-body{padding:0 4px 4px}.xu-options-fold .xu-version-panel{margin:0;border:0;background:transparent}
   .complete-comparison .origin-stage{margin:0;background:#fff;border-left:3px solid var(--route);gap:0}
-  .origin-stage>summary{display:flex;align-items:flex-start;font-size:14px;padding:12px}
-  .origin-stage-title{display:grid;gap:6px}.origin-stage-title>.chip{justify-self:start}
-  .origin-stage-title>strong{font-size:15px}.origin-stage-title>small{font-size:12px}
+  .origin-stage>summary{display:flex;align-items:center;font-size:14px;padding:12px}
+  .origin-stage-title{display:flex;align-items:center;gap:6px;min-width:0;flex:1}.origin-stage-title>.chip{flex-shrink:0}
+  .origin-stage-title>strong{font-size:15px;min-width:0;flex:1;overflow-wrap:anywhere}.origin-stage-title>small{font-size:12px}
   .origin-stage>.reading-fold-body{padding:0 10px 10px}
   .complete-comparison .origin-stage .stage-card{border:0;box-shadow:none;padding:8px}
 }
@@ -628,15 +632,17 @@
   .stage-stepper .button:last-child{grid-column:3}
   .complete-comparison>.stage-comparison-row{padding:8px;gap:8px}
   .origin-stage>summary{padding:10px;min-height:44px}
-  .origin-stage-title{gap:3px}
+  .origin-stage-title{gap:6px}
   .origin-stage-title>.chip{font-size:12px}
   .origin-stage>summary .origin-stage-title>small{display:none}
   .origin-stage .stage-card>.stage-meta,.origin-stage .stage-card>h3,.origin-stage .stage-comparison-entry{display:none}
   .origin-stage>.reading-fold-body{padding:0 8px 8px}
   .origin-stage .stage-card>p{font-size:15px;line-height:1.7;margin:0 0 8px}
   .origin-stage .stage-card>.age-band{font-size:12px;padding:0;background:transparent;margin:0 0 6px}
+  .stage-resource-tags{align-items:flex-start;gap:4px}
+  .stage-resource-tags>button{min-height:0;font-size:12px;padding:4px 7px;line-height:1.5}
   .origin-stage .stage-resource-tags{gap:4px;margin-top:8px}
-  .origin-stage .stage-resource-tags button{min-height:44px;font-size:13px}
+  .origin-stage .stage-resource-tags button{font-size:13px}
   .origin-stage .stage-open{min-height:44px;margin-top:6px}
   .alignment-overview{margin:8px 0;padding:8px 10px}
   .alignment-overview>summary,.alignment-remaining>summary,.route-help>summary,.stage-criteria>summary{min-height:44px;display:flex;align-items:center}
@@ -709,3 +715,111 @@
   .fact-grid,.series-usage-table tr{grid-template-columns:minmax(0,1fr)}
   .series-usage-table td{grid-column:1/-1}
 }
+
+/* 素材用途按阶段着色，跨路线共用独立用加粗表达。 */
+.material-role-main{--material-ink:#3b528f;--material-bg:#edf1fc;--material-line:#b7c5e8}
+.material-role-featured{--material-ink:#88570d;--material-bg:#fff4df;--material-line:#e6c88c}
+.material-role-auxiliary{--material-ink:#526653;--material-bg:#f1f5ef;--material-line:#cdd9c7}
+:is(.stage-resource-tags>button,.detail-resource-row,.usage-stage,.material-role-key,.material-use-role):is(.material-role-main,.material-role-featured,.material-role-auxiliary){color:var(--material-ink);background:var(--material-bg);border:1px solid var(--material-line)}
+:is(.stage-resource-tags>button,.detail-resource-row,.usage-stage)[data-material-role]:hover{color:var(--material-ink);background:var(--material-bg);border-color:var(--material-ink)}
+[data-material-role] :is(strong,small,b,span),.material-use-role{color:var(--material-ink)}
+.stage-resource-tags>button[data-material-role]{font-weight:500}
+.stage-resource-tags>button.shared-material,.detail-resource-row .shared-material{font-weight:750;color:var(--material-ink)}
+.material-role-key,.material-use-role{display:inline-block;max-width:100%;padding:2px 7px;border-radius:4px;line-height:1.6;overflow-wrap:anywhere}
+.material-legend{gap:6px;margin:10px 0 12px}
+.material-legend strong{font-weight:750;color:#435145}
+.material-use-role{margin-top:4px;font-size:12px}
+.stage-material-list>h3{margin-bottom:8px}
+.stage-material-group{margin-top:14px}
+.stage-material-list h4{font-size:14px;margin-bottom:6px}
+/* 共用套系与具体级别交集分别标记，部分重叠不加粗整个范围。 */
+.stage-resource-tags>button[data-material-role],.material-label{font-weight:400}
+.stage-resource-tags>button .material-name,.material-label .material-name{font-weight:400}
+.stage-resource-tags>button .material-name.shared-material,.material-label .material-name.shared-material,.level-overlap{font-weight:750}
+.stage-resource-tags>button .material-level-part,.material-label .material-level-part{display:inline;font-size:inherit;font-weight:400;color:inherit}
+.stage-resource-tags>button .level-overlap,.material-label .level-overlap{font-weight:750}
+.detail-resource-row .material-label{display:block;font-size:14px;line-height:1.65}
+.match-evidence .material-level-part{display:inline;margin:0;font-size:inherit;color:inherit}
+.match-evidence .material-level-part:not(.level-overlap){font-weight:400}
+.evidence-levels{margin-top:3px;font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+.usage-stage .usage-levels,.series-levels{font-size:12px;font-weight:400}
+.usage-levels .material-level-part,.series-levels .material-level-part{display:inline;font-size:inherit;font-weight:400;color:inherit}
+.usage-levels .level-overlap,.series-levels .level-overlap{font-weight:750}
+
+/* 对照卡先明确关联依据与许密杉资料视角，避免把素材相交读成阶段等同。 */
+.comparison-version-context{display:flex;flex-wrap:wrap;gap:3px 12px;margin:10px 0;padding:9px 11px;border-left:3px solid #a899c6;background:#f3f0f9;color:#695986;font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+.comparison-version-context strong{font-weight:600}
+.match-card>.match-basis-label{margin:0;padding:8px 11px;border-bottom:1px solid #dce7d6;line-height:1.7}
+.stage-meta{flex-wrap:wrap;align-items:baseline}
+.stage-meta>strong{min-width:0;overflow-wrap:anywhere}
+.match-card.starting{border-color:#cbb885;background:#faf7ee}
+.match-card.starting>.match-basis-label{color:#785e24;border-color:#e7dcc0}
+.comparison-legend i.starting{background:#bda46a}
+
+/* 完整对照使用同一层阶段卡，窄屏统一路线名＋完整阶段标题。 */
+.complete-comparison .complete-stage-match{border:1px solid var(--line);border-top:3px solid var(--route);background:#fff}
+.complete-stage-match>.match-basis-label{margin:10px 0 0;padding:8px 0 0;border:0;border-top:1px solid var(--line);font-size:12px}
+.complete-stage-match>.match-more{margin:8px 0 0}
+.complete-stage-match>.match-evidence-detail{margin:8px 0 0}
+@media(max-width:900px){
+  .alignment-target-details>summary{gap:6px;font-size:14px;padding:10px;min-height:44px}
+  .alignment-target-details>summary::after{position:static;margin-left:auto;flex-shrink:0}
+  .alignment-target-details .origin-stage-title{flex-basis:0}
+  .complete-comparison .alignment-target-body .complete-stage-match{border:0;border-radius:0;box-shadow:none;padding:8px;background:transparent}
+  .alignment-single-stage .complete-stage-match>.stage-meta,.alignment-single-stage .complete-stage-match>h3{display:none}
+}
+
+/* 作者路线与能力领域分开，资料文件不作为路线切换项。 */
+.route-tabs{display:none}
+@media(max-width:900px){
+  .route-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;order:-2;min-width:0}
+  .route-tabs>button{min-width:0;min-height:40px;padding:6px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--route);font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+  .route-tabs>button[aria-selected=true]{border-color:var(--route);background:color-mix(in srgb,var(--route) 12%,white);font-weight:700}
+  .route-tabs>button:focus-visible{outline:2px solid var(--route);outline-offset:2px}
+  .complete-comparison>.stage-comparison-row>.route-tab-inactive,.independent-routes .lanes>.route-tab-inactive{display:none}
+  .independent-routes>.desktop-route-controls{display:none}
+  .independent-routes>.route-tabs{margin-bottom:8px}
+  .independent-routes>.lanes{grid-template-columns:minmax(0,1fr)}
+  .independent-routes .lane-heading{position:static}
+}
+@media print{
+  .route-tabs{display:none!important}
+  .route-tab-inactive{display:block!important}
+}
+.route-domain-panel{margin:0 0 14px}
+.route-domain-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;max-width:620px}
+.route-domain-options button{min-width:0;min-height:44px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);font-size:16px;padding:7px 12px}
+.route-domain-options button.active{background:var(--green);color:#fff;border-color:var(--green)}
+.route-domain-panel>p{font-size:13px;line-height:1.7;margin:8px 0 0;color:var(--muted);overflow-wrap:anywhere}
+.route-sources-panel,.domain-methods-panel{border:1px solid var(--line);border-radius:9px;background:#f7f8f3;padding:10px 14px;margin:0 0 12px;min-width:0}
+.route-sources-panel>summary,.domain-methods-panel>summary{cursor:pointer;font-size:13px;line-height:1.7;color:var(--green)}
+.route-sources-panel>p,.domain-method-item>p,.domain-method>p{font-size:15px;line-height:1.8;margin:10px 0;overflow-wrap:anywhere}
+.domain-methods-panel>section{margin:12px 0}.domain-methods-panel h3{font-size:15px}
+.domain-method-item{padding:9px 0;border-bottom:1px solid var(--line);min-width:0}.domain-method-item:last-child{border:0}
+.domain-method-item>.text-link{min-height:44px;display:flex;justify-content:space-between;white-space:normal;text-align:left;max-width:100%;font-size:15px;overflow-wrap:anywhere}
+.domain-method-cell{background:#fff;border:1px solid var(--line);border-top:3px solid var(--route);border-radius:9px}
+.domain-method-cell>.reading-fold-body{padding:10px 14px}
+@media(max-width:900px){
+  .route-domain-panel{margin:0 0 8px}.route-domain-panel>p{font-size:12px;margin:5px 0 0}
+  .route-domain-options{max-width:none;gap:4px}.route-domain-options button{padding:6px;font-size:16px}
+  .route-sources-panel,.domain-methods-panel{padding:7px 10px;margin-bottom:8px}
+  .route-sources-panel>summary,.domain-methods-panel>summary{min-height:30px;display:flex;align-items:center}
+  .domain-method-cell{border:1px solid var(--line);border-left:3px solid var(--route)}
+  .domain-method-cell>summary{padding:10px;min-height:44px;display:flex;align-items:center}
+  .domain-method-cell>.reading-fold-body{padding:0 12px 10px}
+}
+
+/* 预览的操作区与可滚动画布隔离，避免共享浅色主题遮蔽按钮。 */
+.site-enabled .preview-backdrop{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;justify-content:normal;overflow:hidden}
+.site-enabled .preview-backdrop .preview-top{display:grid;grid-template-columns:auto minmax(0,1fr) 44px;gap:6px 10px;padding:8px 12px;max-height:none;overflow:visible;background:var(--site-surface);color:var(--site-text);position:relative;z-index:1}
+.site-enabled .preview-backdrop .preview-top>h3{min-width:0;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.preview-close{grid-column:3;grid-row:1;width:44px;height:44px;color:var(--ink)}
+.site-enabled .preview-backdrop .preview-controls{grid-column:1/-1;display:flex;flex-wrap:wrap;width:auto;gap:6px 10px;color:var(--ink);min-width:0}
+.preview-control-group{display:flex;align-items:center;gap:4px;min-width:0}
+.site-enabled .preview-backdrop .preview-controls :is(button,select,a){min-height:44px;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:6px}
+.site-enabled .preview-backdrop .preview-controls button{min-width:44px;padding:5px 9px}
+.preview-controls output{min-width:44px;text-align:center;font-variant-numeric:tabular-nums}
+.preview-backdrop .preview-scroll{min-width:0;min-height:0;overscroll-behavior:contain;padding:16px}
+.preview-backdrop .preview-scroll img{max-width:none}
+.preview-backdrop .preview-footer{font-size:12px;padding:6px 12px}
+@media(max-width:600px){.site-enabled .preview-backdrop .preview-top{grid-template-columns:minmax(0,1fr) 44px;gap:4px 8px;padding:6px 10px}.preview-backdrop .preview-close{grid-column:2;grid-row:1}.site-enabled .preview-backdrop .preview-top>h3{grid-column:1/-1;grid-row:2;font-size:13px}.site-enabled .preview-backdrop .preview-controls{gap:4px 8px}.preview-backdrop .preview-scroll{padding:12px}.preview-backdrop .preview-footer{font-size:12px;line-height:1.4}}

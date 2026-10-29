@@ -59,7 +59,11 @@
         "qing-r015",
         "qing-r016",
         "qing-r017"
-      ]
+      ],
+      "startingReference": {
+        "kind": "route-start",
+        "basis": "常规路线原表从零基础进入常规1，词数为积累目标。"
+      }
     },
     {
       "id": "qing-s2",

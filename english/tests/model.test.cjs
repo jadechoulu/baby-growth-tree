@@ -12,6 +12,48 @@ const xuCurrent = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 const currentCatalog = model.normalize({ ...raw, xuSupplements, xuCurrent });
 const sssSongs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'sss-songs.json'), 'utf8'));
 
+test('听力词汇目标双向对照覆盖庆爸全部阶段，边界不把常规1放到500词节点', () => {
+  const expected = [[300, ['qing-s1']], [500, ['qing-s2']], [800, ['qing-s3']], [1000, ['qing-s4']], [2000, ['qing-s5', 'qing-s6', 'qing-s7']]];
+  const xu = currentCatalog.routes.find(route => route.id === 'xu');
+  for (const prefix of ['xu-current-', 'xu-panorama-listening-']) {
+    const variantId = prefix === 'xu-current-' ? 'xu-current' : 'xu-panorama';
+    const viewing = { ...currentCatalog, routes: currentCatalog.routes.map(route => route.id === 'xu' ? { ...route, stages: xu.variants.find(variant => variant.id === variantId).stages } : route) };
+    for (const [words, qingIds] of expected) {
+      const group = model.compareStages(viewing, prefix + words).find(group => group.routeId === 'qing');
+      assert.equal(group.vocabularyComparable, true);
+      assert.deepEqual(group.matches.filter(match => match.vocabularyAlignment).map(match => match.stageId).sort(), qingIds);
+      for (const qingId of qingIds) {
+        const reverse = model.compareStages(viewing, qingId).find(group => group.routeId === 'xu');
+        assert.deepEqual(reverse.matches.filter(match => match.vocabularyAlignment).map(match => match.stageId), [prefix + words]);
+      }
+    }
+  }
+  const qing = model.compareStages(currentCatalog, 'xu-current-500').find(group => group.routeId === 'qing');
+  const first = qing.matches.find(match => match.stageId === 'qing-s1');
+  assert.ok(first.sharedCount > 0, '词汇阶段之外的共用资料仍保留');
+  assert.equal(first.vocabularyAlignment, null);
+  assert.equal(qing.matches[0].stageId, 'qing-s2');
+});
+
+test('词汇目标参考独立于共用书籍，不改变级别证据或原节点', () => {
+  const noMaterials = { ...currentCatalog, stages: currentCatalog.stages.map(stage => ({ ...stage, materials: [] })), routes: currentCatalog.routes.map(route => ({ ...route, stages: route.stages.map(stage => ({ ...stage, materials: [] })) })) };
+  const matches = model.compareStages(noMaterials, 'xu-current-2000').find(group => group.routeId === 'qing').matches;
+  assert.deepEqual(matches.map(match => match.stageId), ['qing-s5', 'qing-s6', 'qing-s7']);
+  for (const match of matches) {
+    assert.equal(match.sharedCount, 0);
+    assert.equal(match.overlapCount, 0);
+    assert.deepEqual(match.evidence, []);
+    assert.match(match.vocabularyAlignment.basis, /粗略对照/);
+  }
+  assert.equal(currentCatalog.stages.find(stage => stage.id === 'xu-current-2000').goal, '2000词');
+});
+
+test('年龄、阅读词数及其他许密杉版本不能自动作为听力词汇阶段对应', () => {
+  for (const id of ['banana-pre', 'xu-panorama-reading-extensive', 'xu-thousand-1', 'xu-1']) {
+    assert.ok(model.compareStages(currentCatalog, id).every(group => !group.vocabularyComparable && group.matches.every(match => !match.vocabularyAlignment)));
+  }
+});
+
 test('默认起步把闪卡与闪卡式绘本并行，保留原表节点与准确的来源级别', () => {
   const xu = currentCatalog.routes.find(route => route.id === 'xu');
   assert.equal(xu.defaultVariantId, 'xu-current');
@@ -253,7 +295,7 @@ test('阶段关联依据每次级别，未知级别不会变成同级，且不�
   assert.equal(evidenceFor('xu-3', 'qing', 'qing-s5', '大猫分级')[0].kind, 'different');
 });
 
-test('牛津树一对多覆盖保留：许四/五对应庆二，许六横跨庆三到庆五', () => {
+test('牛津树素材交集保留：许四/五与庆二共用，许六书目覆盖庆三到庆五', () => {
   assert.equal(evidenceFor('xu-4', 'qing', 'qing-s2', '牛津树')[0].kind, 'overlap');
   assert.equal(evidenceFor('xu-5', 'qing', 'qing-s2', '牛津树')[0].kind, 'overlap');
   for (const target of ['qing-s3', 'qing-s4', 'qing-s5']) {
@@ -265,14 +307,16 @@ test('牛津树一对多覆盖保留：许四/五对应庆二，许六横跨庆�
   assert.equal(evidenceFor('xu-6', 'qing', 'qing-s6', '牛津树')[0].kind, 'different');
 });
 
-test('级别规范化兼容范围和中文序数，同时保留加号、选材限定与不同标尺', () => {
-  const compare = (left, right) => {
+function compareMaterialLevels(left, right, title = '同一套系') {
     const sample = model.normalize({
-      banana: { resources: [{ id: 'a', title: '同一套系', category: '分级' }], stages: [{ id: 'a', materials: [{ resourceId: 'a', level: left }] }] },
-      xu: { resources: [{ id: 'b', title: '同一套系', category: '分级' }], stages: [{ id: 'b', materials: [{ resourceId: 'b', level: right }] }] }
+      banana: { resources: [{ id: 'a', title, category: '分级' }], stages: [{ id: 'a', materials: [{ resourceId: 'a', level: left }] }] },
+      xu: { resources: [{ id: 'b', title, category: '分级' }], stages: [{ id: 'b', materials: [{ resourceId: 'b', level: right }] }] }
     });
     return model.compareStages(sample, 'a')[0].matches[0].evidence[0];
-  };
+}
+
+test('级别规范化兼容范围和中文序数，同时保留加号、选材限定与不同标尺', () => {
+  const compare = compareMaterialLevels;
   for (const [left, right] of [['1', '一级'], ['第1-2级', '1&2'], ['1–2', '1&2'], ['A&B', 'A-B'], ['GK70 A/B/C', 'GK70 A-C'], ['S1-3', 'S1&S2&S3'], ['预备级', '预备级']]) {
     assert.equal(compare(left, right).kind, 'exact', `${left} / ${right}`);
   }
@@ -287,6 +331,50 @@ test('级别规范化兼容范围和中文序数，同时保留加号、选材�
   assert.equal(compare('GK1-2', 'G1-1&G1-2').kind, 'different');
   assert.equal(compare('S1-3', '1-3').kind, 'different');
   assert.equal(compare('', '').kind, 'unspecified');
+});
+
+test('级别与册数的统一写法保留实际对应关系，不将数量、季或分册当作普通等级', () => {
+  const compare = compareMaterialLevels;
+  for (const [original, unified] of [
+    ['一级', '1'], ['1&2', '1、2'], ['第1-2级', '1、2'], ['L1', '1'],
+    ['第三级/第四级', '3、4'], ['L4+L5+L6', '4–6'], ['E+F', 'E、F'],
+    ['第一册和第二册', '第1、2册'], ['S1-3', '第1–3季'], ['7–12集', '第7–12集'],
+    ['第一级6-10', '1级 · 第6–10册'], ['1级22+22册', '1 · 22+22册'],
+    ['L1+ 36册', '1+ · 36册'], ['第1级6+6本', '1 · 6+6册'], ['SetA-H', 'Set A–H']
+  ]) {
+    assert.equal(model.formatLevel(original), unified);
+    assert.equal(compare(original, unified).kind, 'exact', `${original} → ${unified}`);
+  }
+  assert.equal(model.formatLevel('24本'), '24册');
+  assert.equal(model.formatLevel('My First'), 'My First');
+  assert.equal(model.formatLevel(''), '');
+  assert.equal(compare('24本', '24册').kind, 'unspecified');
+  assert.equal(compare('24本', '24').kind, 'unspecified');
+  assert.equal(compare('第一册和第二册', '1&2').kind, 'different');
+  assert.equal(compare('1–6集', '1–6级').kind, 'different');
+  assert.equal(compare('S1–3', '1–3').kind, 'different');
+  assert.equal(compare('1级22册', '2级22册').kind, 'different');
+  assert.equal(compare('1级22册', '1级30册').kind, 'overlap');
+  assert.equal(compare('1+&2', '1&2').commonLevels, '2');
+  assert.equal(compare('一级', '1&2').commonLevels, '1');
+  assert.equal(compare('第1-2级', '1&2').commonLevels, '1、2');
+  assert.equal(compare('C93册', 'C').kind, 'exact');
+  assert.equal(compare('流畅1+2', '流畅1、2', '红火箭').kind, 'exact');
+  assert.equal(compare('流畅1+2', '1&2', '红火箭').kind, 'different');
+  assert.equal(compare('黄色24本', '黄', '红火箭').kind, 'exact');
+  assert.equal(compare('黄色24本', '蓝色24本', '红火箭').kind, 'different');
+  const quantityNote = '1级：1-5为30册，6-10为30册';
+  assert.equal(model.formatLevel(quantityNote), '1 · 1-5为30册,6-10为30册');
+  assert.equal(compare(quantityNote, '1').commonLevels, '1');
+});
+
+test('真实培生启明星阶段对照列出共用级别，保留双方原始标注及来源', () => {
+  const evidence = evidenceFor('xu-2', 'banana', 'banana-pre', '培生启明星')[0];
+  assert.equal(evidence.focusLevel, '一级');
+  assert.equal(evidence.targetLevel, '1&2');
+  assert.equal(evidence.commonLevels, '1');
+  assert.equal(evidence.kind, 'overlap');
+  assert.ok(evidence.focusPage && evidence.targetPage);
 });
 
 test('加号相关不计为级别交集，但同阶段范围中真正的共同级别仍保留', () => {
@@ -346,7 +434,7 @@ test('Little Fox级别只从明确的级别前缀提取，不把选片数量当�
   assert.equal(compare('二级别', '').kind, 'unspecified');
 });
 
-test('阶段交集计数按套系去重，排序优先级别交集，证据均能回到两端原文材料', () => {
+test('阶段交集计数按套系去重，起步参考之后优先级别交集，原文证据可追溯', () => {
   for (const focus of catalog.stages) {
     for (const route of model.compareStages(catalog, focus.id)) {
       assert.notEqual(route.routeId, focus.routeId);
@@ -365,13 +453,17 @@ test('阶段交集计数按套系去重，排序优先级别交集，证据均�
         }
         if (index) {
           const previous = route.matches[index - 1];
-          assert.ok(previous.overlapCount > match.overlapCount || previous.overlapCount === match.overlapCount &&
+          assert.ok(Number(!!previous.startingAlignment) >= Number(!!match.startingAlignment));
+          if (!!previous.startingAlignment === !!match.startingAlignment) assert.ok(previous.overlapCount > match.overlapCount || previous.overlapCount === match.overlapCount &&
             (previous.exactCount > match.exactCount || previous.exactCount === match.exactCount && previous.sharedCount >= match.sharedCount));
         }
       }
     }
   }
-  assert.deepEqual(model.compareStages(catalog, 'xu-1').find(route => route.routeId === 'banana').matches, []);
+  const start = model.compareStages(catalog, 'xu-1').find(route => route.routeId === 'banana').matches;
+  assert.deepEqual(start.map(match => match.stageId), ['banana-pre']);
+  assert.ok(start[0].startingAlignment);
+  assert.equal(start[0].sharedCount, 0);
   assert.deepEqual(model.compareStages(catalog, '不存在'), []);
 });
 
@@ -488,4 +580,300 @@ test('同页同名资源保留版本专属详情，补充图片来源不生成�
   assert.deepEqual(resource.details.filter(detail => detail.label === '完整级别').map(detail => detail.sourceId), ['xu', 'xu-supplement']);
   assert.equal(sample.stages.find(stage => stage.id === 'supplement').materials[0].level, '');
   assert.equal(sample.rawToCanonical['xu:a'], sample.rawToCanonical['xu-supplement:a']);
+});
+
+test('素材统一名称和级别，既不重复套系标尺，也不丢失级别限定', () => {
+  const pearson = catalog.resources.find(resource => resource.title === '培生启明星');
+  for (const level of ['二级', '2 级别', 'L2', '2']) assert.equal(model.materialTitle(pearson, level), '培生启明星 · 2');
+  for (const level of ['1&2', '第1–2级']) assert.equal(model.materialTitle(pearson, level), '培生启明星 · 1、2');
+  assert.equal(model.materialTitle(pearson, ''), '培生启明星');
+  assert.equal(model.materialTitle({ title: '海尼曼 GK70' }, 'GK70 A'), '海尼曼 GK70 · A');
+  assert.equal(model.materialTitle({ title: '海尼曼 GK70' }, 'A'), '海尼曼 GK70 · A');
+  assert.equal(model.materialTitle(pearson, '1+'), '培生启明星 · 1+');
+});
+
+test('阶段素材按主线、明确推荐、共用辅线排序，同作者多版本不冒充跨路线共用', () => {
+  const sample = model.normalize({
+    xu: {
+      resources: ['普通', '同套系异级', '同级共用', '主线', '特色', '同作者共用'].map((title, i) => ({ id: 'x' + i, title, type: 'reader' })),
+      stages: [{ id: 'origin', materials: [
+        { resourceId: 'x0', role: 'parallel', level: '1' },
+        { resourceId: 'x1', role: 'parallel', level: '1' },
+        { resourceId: 'x2', role: 'parallel', level: '1', page: 3 },
+        { resourceId: 'x3', role: 'main', level: '1' },
+        { resourceId: 'x4', role: 'recommended', level: '1' },
+        { resourceId: 'x5', role: 'parallel', level: '1' }
+      ] }]
+    },
+    qing: {
+      resources: [{ id: 'q1', title: '同套系异级', type: 'reader' }, { id: 'q2', title: '同级共用', type: 'reader' }],
+      stages: [{ id: 'other', resources: [{ resourceId: 'q1', level: '2' }, { resourceId: 'q2', level: '一级' }] }]
+    },
+    xuSupplements: [{ id: 'xu-extra', label: '补充', resources: [{ id: 'extra', title: '同作者共用', type: 'reader' }], stages: [{ id: 'same-author', materials: [{ resourceId: 'extra', level: '1' }] }] }]
+  });
+  const original = JSON.stringify(sample);
+  const items = model.getStageMaterials(sample, 'origin');
+  assert.deepEqual(items.map(item => item.resource.title), ['主线', '特色', '同级共用', '同套系异级', '普通', '同作者共用']);
+  assert.deepEqual(items.map(item => item.role.kind), ['main', 'featured', 'auxiliary', 'auxiliary', 'auxiliary', 'auxiliary']);
+  assert.equal(items[2].overlap, true);
+  assert.equal(items[3].overlap, false);
+  assert.equal(items[3].shared, true);
+  assert.equal(items[5].shared, false);
+  assert.equal(items[2].material.page, 3);
+  assert.equal(JSON.stringify(sample), original, '展示排序不能改写原素材、用途和出处');
+  assert.deepEqual(model.getStageMaterials(sample, '不存在'), []);
+});
+
+test('真实路线保留阶段用途：第一阶段双主线、庆爸主辅及香蕉原文摘要', () => {
+  const first = model.getStageMaterials(currentCatalog, 'xu-current-300');
+  assert.ok(first.filter(item => /闪卡/.test(item.material.role)).every(item => item.role.kind === 'main'));
+  assert.ok(first.some(item => item.resource.title === '培生词汇妙趣屋' && item.role.kind === 'main'));
+  const qing = model.getStageMaterials(currentCatalog, 'qing-s2');
+  assert.equal(qing.find(item => item.resource.title === '培生启明星').role.kind, 'main');
+  assert.equal(qing.find(item => item.resource.title === '大猫分级').role.kind, 'auxiliary');
+  const banana = model.getStageMaterials(currentCatalog, 'banana-pre');
+  assert.equal(banana.find(item => item.resource.title === 'RAZ').role.kind, 'main');
+  assert.equal(banana.find(item => item.resource.title === '培生启明星').role.kind, 'auxiliary');
+  for (const stage of currentCatalog.stages) {
+    const items = model.getStageMaterials(currentCatalog, stage);
+    assert.equal(items.flatMap(item => item.materials).length, stage.materials.length);
+    assert.ok(items.every(item => item.materials.every(material => stage.materials.includes(material))), stage.id);
+  }
+});
+
+test('同阶段同套系同用途合并级别，保留原始引用且只加粗交集', () => {
+  const sample = model.normalize({
+    xu: { resources: [{ id: 'x', title: '同套系', type: 'reader' }], stages: [{ id: 'one', materials: [
+      { resourceId: 'x', level: '一级', role: 'main', page: 1 },
+      { resourceId: 'x', level: '2', role: 'main', page: 2 },
+      { resourceId: 'x', level: '1&2', role: 'main', page: 3 },
+      { resourceId: 'x', level: '3', role: 'parallel' },
+      { resourceId: 'x', level: '第1册', role: 'main' },
+      { resourceId: 'x', level: '1（虚构）', role: 'main' },
+      { resourceId: 'x', level: '2（非虚构）', role: 'main' },
+      { resourceId: 'x', level: '24册', role: 'main' },
+      { resourceId: 'x', level: '1级22册', role: 'main' }
+    ] }] },
+    qing: { resources: [{ id: 'q', title: '同套系', type: 'reader' }], stages: [{ id: 'peer', resources: [{ resourceId: 'q', level: '1' }] }] }
+  });
+  const original = JSON.stringify(sample);
+  const items = model.getStageMaterials(sample, 'one', [sample.stages.find(stage => stage.id === 'peer')]);
+  const merged = items.find(item => item.materials.length === 3);
+  assert.ok(merged);
+  assert.equal(items.length, 7, '不同用途、标尺、选材限定及逐级册数分别保留');
+  assert.deepEqual(merged.materials.map(material => material.page), [1, 2, 3]);
+  assert.deepEqual(merged.levelSegments, [{ text: '1', shared: true }, { text: '、', shared: false }, { text: '2', shared: false }]);
+  assert.equal(JSON.stringify(sample), original, '展示合并不得改写原数据、来源和稳定ID');
+  assert.ok(model.getStageMaterials(sample, 'one', []).every(item => !item.overlap && item.levelSegments.every(part => !part.shared)));
+  const guli = model.getStageMaterials(currentCatalog, 'qing-s1').filter(item => item.resource.title === '古力小超人');
+  assert.equal(guli.length, 1);
+  assert.equal(guli[0].levelSegments.map(part => part.text).join(''), '1、2');
+  assert.equal(guli[0].materials.length, 2);
+});
+
+test('具体重叠级别独立标记：1与1、2仅1重叠，范围和并列写法等价', () => {
+  const r = { title: '培生启明星' };
+  assert.deepEqual(model.levelSegments('1&2', [{ level: '一级' }], r), [
+    { text: '1', shared: true }, { text: '、', shared: false }, { text: '2', shared: false }
+  ]);
+  for (const level of ['A–B', 'A&B', 'A/B', 'A级和B级']) {
+    assert.deepEqual(model.levelSegments(level, [{ level: 'A&B' }], r), [{ text: 'A、B', shared: true }]);
+  }
+  assert.deepEqual(model.levelSegments('1-3', [{ level: '2' }], r), [
+    { text: '1', shared: false }, { text: '、', shared: false }, { text: '2', shared: true }, { text: '、', shared: false }, { text: '3', shared: false }
+  ]);
+  assert.ok(model.levelSegments('1+', [{ level: '1' }], r).every(part => !part.shared));
+  assert.ok(model.levelSegments('1（虚构）', [{ level: '1（非虚构）' }], r).every(part => !part.shared));
+  assert.ok(model.levelSegments('24册', [{ level: '24册' }], r).every(part => !part.shared));
+  assert.ok(model.levelSegments('第1册', [{ level: '1' }], r).every(part => !part.shared));
+  assert.deepEqual(model.levelSegments('', [{ level: '1' }], r), []);
+});
+
+test('对照卡只使用本行对应阶段，不能因另一阶段用到2就将1、2全部标成重叠', () => {
+  const banana = currentCatalog.stages.find(stage => stage.id === 'banana-pre');
+  const qing1 = currentCatalog.stages.find(stage => stage.id === 'qing-s1');
+  const qing2 = currentCatalog.stages.find(stage => stage.id === 'qing-s2');
+  const getPearson = peers => model.getStageMaterials(currentCatalog, banana, peers).find(item => item.resource.title === '培生启明星');
+  assert.equal(getPearson([qing1]).levelSegments.filter(part => part.shared).map(part => part.text).join(''), '1');
+  assert.equal(getPearson([qing2]).levelSegments.filter(part => part.shared).map(part => part.text).join(''), '2');
+  assert.equal(getPearson([qing1, qing2]).levelSegments.filter(part => part.shared).map(part => part.text).join(''), '1、2');
+  assert.equal(getPearson([]).shared, false);
+  assert.ok(getPearson([]).levelSegments.every(part => !part.shared));
+  assert.equal(getPearson([qing1]).material.level, '1&2');
+});
+
+test('Pre优先参考各自起点，第二阶段或500词节点仅保留为其他素材关联', () => {
+  const xu = currentCatalog.routes.find(route => route.id === 'xu');
+  for (const [variantId, expected] of [['xu-current', 'xu-current-300'], ['xu-listening', 'xu-1'], ['xu-panorama', 'xu-panorama-listening-300']]) {
+    const view = { ...currentCatalog, routes: currentCatalog.routes.map(route => route.id === 'xu' ? { ...route, stages: xu.variants.find(variant => variant.id === variantId).stages } : route) };
+    const group = model.compareStages(view, 'banana-pre').find(route => route.routeId === 'xu');
+    assert.equal(group.startingComparable, true);
+    assert.equal(group.vocabularyComparable, false);
+    assert.equal(group.matches[0].stageId, expected);
+    assert.deepEqual(group.matches.filter(match => match.startingAlignment).map(match => match.stageId), [expected]);
+    const reverse = model.compareStages(view, expected).find(route => route.routeId === 'banana');
+    assert.deepEqual(reverse.matches.filter(match => match.startingAlignment).map(match => match.stageId), ['banana-pre']);
+    assert.ok(group.matches.some(match => !match.startingAlignment && match.overlapCount > 0), '后续材料交集继续保留');
+  }
+  const banana = currentCatalog.stages.find(stage => stage.id === 'banana-pre');
+  assert.equal(banana.raw.vocabularyThreshold, null);
+  assert.equal(currentCatalog.stages.find(stage => stage.id === 'xu-2').raw.title, '第二阶段 · 闪卡式绘本');
+  const qing = model.compareStages(currentCatalog, 'qing-s1').find(route => route.routeId === 'xu');
+  assert.equal(qing.vocabularyComparable, true);
+  assert.equal(qing.startingComparable, false, '已有词汇目标参考继续独立使用，不与起步方式混用');
+});
+
+test('起步参考来自显式来源标注，不凭阶段序号、年龄或零共用书自动制造对应', () => {
+  const sample = model.normalize({ banana: { stages: [{ id: 'b', title: 'Pre', ageMin: 2 }] }, xu: { stages: [{ id: 'x', title: '第一阶段' }] } });
+  assert.equal(model.compareStages(sample, 'b')[0].startingComparable, false);
+  assert.deepEqual(model.compareStages(sample, 'b')[0].matches, []);
+  const noBooks = { ...currentCatalog, stages: currentCatalog.stages.map(stage => ({ ...stage, materials: [] })), routes: currentCatalog.routes.map(route => ({ ...route, stages: route.stages.map(stage => ({ ...stage, materials: [] })) })) };
+  const group = model.compareStages(noBooks, 'banana-pre').find(route => route.routeId === 'xu');
+  assert.deepEqual(group.matches.map(match => match.stageId), ['xu-current-300']);
+  assert.equal(group.matches[0].sharedCount, 0);
+  assert.match(group.matches[0].basis, /不表示词汇量.*等同/);
+});
+
+test('阶段判定先于素材：香蕉后续阶段不由任何书目交集制造阶段对应', () => {
+  const snapshot = JSON.stringify(currentCatalog);
+  for (const banana of currentCatalog.routes.find(r => r.id === 'banana').stages.filter(s => s.id !== 'banana-pre')) {
+    for (const group of model.compareStages(currentCatalog, banana.id)) {
+      assert.deepEqual(group.stageReferences, [], banana.id + ' → ' + group.routeId);
+      for (const match of group.matches) {
+        assert.ok(match.evidence.length > 0, '原始素材及双方出处继续可查');
+        const reverse = model.compareStages(currentCatalog, match.stageId).find(g => g.routeId === 'banana');
+        assert.ok(!reverse.stageReferences.some(m => m.stageId === banana.id), '反向也不能把材料关联当成阶段对应');
+        assert.ok(reverse.matches.some(m => m.stageId === banana.id), '双向保留素材关联');
+      }
+    }
+  }
+  assert.ok(model.compareStages(currentCatalog, 'xu-current-800').find(g => g.routeId === 'banana').matches.some(m => m.overlapCount > 1));
+  assert.equal(JSON.stringify(currentCatalog), snapshot, '不修改原阶段、级别、编号或晋级条件');
+});
+
+test('增删或重复任意素材不改变已经按判定依据确定的阶段参考', () => {
+  const shared = currentCatalog.stages.flatMap(s => s.materials).slice(0, 12);
+  for (const materials of [[], shared, shared.concat(shared)]) {
+    const changed = { ...currentCatalog, stages: currentCatalog.stages.map(s => ({ ...s, materials })), routes: currentCatalog.routes.map(r => ({ ...r, stages: r.stages.map(s => ({ ...s, materials })) })) };
+    for (const id of ['xu-current-300', 'xu-current-800', 'xu-current-2000', 'qing-s1', 'qing-s3', 'banana-pre', 'banana-1', 'banana-4']) {
+      const ids = c => model.compareStages(c, id).map(g => [g.routeId, g.stageReferences.map(m => m.stageId).sort()]);
+      assert.deepEqual(ids(changed), ids(currentCatalog), id);
+    }
+  }
+});
+
+test('听力词数与阅读词数不混用，起点参考独立于能力阶段对应', () => {
+  const changed = { ...currentCatalog, routes: currentCatalog.routes.map(r => r.id === 'qing' ? { ...r, stages: r.stages.map(s => ({ ...s, domain: 'reading' })) } : r) };
+  const reading = model.compareStages(changed, 'xu-current-800').find(g => g.routeId === 'qing');
+  assert.equal(reading.vocabularyComparable, false);
+  assert.deepEqual(reading.stageReferences, []);
+  const start = model.compareStages(currentCatalog, 'banana-pre').find(g => g.routeId === 'xu');
+  assert.deepEqual(start.stageReferences.map(m => m.stageId), ['xu-current-300']);
+  assert.ok(start.stageReferences[0].startingAlignment);
+  assert.equal(start.stageReferences[0].vocabularyAlignment, null);
+});
+
+
+test('三路线同排共用素材在各用途组内前置，第三条路线的共用不遗漏也不借用后续阶段', () => {
+  const ids = ['xu-current-300', 'qing-s1', 'banana-pre'];
+  const peers = ids.map(id => currentCatalog.stages.find(stage => stage.id === id));
+  const original = JSON.stringify(currentCatalog);
+  const qing = model.getStageMaterials(currentCatalog, peers[1], peers);
+  assert.deepEqual(qing.slice(0, 6).map(item => item.resource.title), ['培生启明星', 'Buddy Reader', '古力小超人', 'QPlay奇问妙想国', '培生词汇妙趣屋', '巴塔木口语书']);
+  const banana = model.getStageMaterials(currentCatalog, peers[2], peers);
+  assert.deepEqual(banana.slice(0, 6).map(item => item.resource.title), ['RAZ', '红火箭', '海尼曼', 'Buddy Reader', '培生启明星', '古力小超人']);
+  const pearson = banana.find(item => item.resource.title === '培生启明星');
+  assert.deepEqual(pearson.levelSegments.filter(part => part.shared).map(part => part.text), ['1']);
+  const xu = model.getStageMaterials(currentCatalog, peers[0], peers);
+  assert.deepEqual(xu.slice(0, 2).map(item => item.resource.title), ['培生词汇妙趣屋', '大猫分级']);
+  assert.equal(xu[1].overlap, false, '预备级不能因别条路线1级而加粗');
+  const onlyFocus = model.getStageMaterials(currentCatalog, peers[2], [peers[0]]);
+  assert.equal(onlyFocus.find(item => item.resource.title === '培生启明星').shared, false, '关系严格来自传入的同排阶段');
+  const later = model.getStageMaterials(currentCatalog, peers[2], [peers[0], currentCatalog.stages.find(stage => stage.id === 'qing-s2')]);
+  assert.deepEqual(later.find(item => item.resource.title === '培生启明星').levelSegments.filter(part => part.shared).map(part => part.text), ['2']);
+  assert.equal(JSON.stringify(currentCatalog), original, '排序不改变原文、用途或级别');
+});
+
+
+test('每位作者一条路线，领域节点与补充执行表分开，不把原表方案当成额外路线', () => {
+  const routePlan = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'route-plan.json'), 'utf8'));
+  const unified = model.normalize({ ...raw, xuSupplements, xuCurrent, routePlan });
+  assert.equal(unified.routes.length, 3);
+  const original = JSON.stringify(unified);
+  const listening = model.getRoutePlan(unified, 'xu', 'listening');
+  assert.deepEqual(listening.stages.map(s => s.id), [300,500,800,1000,2000].map(n=>'xu-current-'+n));
+  assert.deepEqual(listening.supportingStages.map(s=>s.id), ['xu-thousand-1']);
+  for (const domain of routePlan.domains) for (const route of unified.routes) {
+    const plan = model.getRoutePlan(unified, route.id, domain.id);
+    assert.equal(plan.stages.length, plan.stageIds.length);
+    assert.equal(plan.supportingStages.length, plan.supportingStageIds.length);
+    assert.ok(plan.stages.concat(plan.supportingStages).every(s=>s.routeId===route.id));
+    assert.ok(unified.sources.some(source=>source.id===plan.sourceId));
+  }
+  const reading = model.getRoutePlan(unified, 'xu', 'reading');
+  assert.ok(reading.stages.every(stage=>stage.domain==='reading'));
+  assert.deepEqual(reading.supportingStages.map(s=>s.id), ['xu-thousand-2','xu-thousand-3','xu-thousand-4']);
+  const speaking = model.getRoutePlan(unified,'xu','speaking');
+  assert.deepEqual(speaking.supportingStages.map(s=>s.id),['xu-thousand-2','xu-thousand-3','xu-thousand-4']);
+  assert.ok(speaking.supportingStages.every(s=>s.activities.some(a=>/跟读|朗读/.test(a.method||''))),'跟读执行安排从口语入口可达');
+  const writing = model.getRoutePlan(unified,'xu','writing');
+  assert.deepEqual(writing.supportingStages.map(s=>s.id),['xu-thousand-1','xu-thousand-2','xu-thousand-3']);
+  assert.ok(writing.supportingStages.every(s=>s.activities.some(a=>/写字母|写单词|写200词|笔头/.test(a.title+' '+a.method))),'书写入口关联真实笔头任务，不把第四阶段自读当成书写');
+  assert.equal(model.getRoutePlan(unified,'banana','speaking').stages.length,0,'年龄输出安排不伪装成独立口语阶段');
+  assert.ok(model.getRoutePlan(unified,'banana','speaking').supportingStages.every(s=>s.schedules.some(sc=>/跟读/.test(sc.output||''))));
+  assert.ok(['speaking','reading','writing'].every(domain=>model.getRoutePlan(unified,'qing',domain).stages.length===0));
+  assert.equal(JSON.stringify(unified), original);
+  assert.deepEqual(model.recommend({birthDate:'2024-11-24',asOf:'2026-10-29',listeningWords:70},unified),model.recommend({birthDate:'2024-11-24',asOf:'2026-10-29',listeningWords:70},currentCatalog));
+});
+
+test('领域对照不借用其他能力的阶段，原表与所有旧节点仍可追溯', () => {
+  const routePlan = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'route-plan.json'), 'utf8'));
+  const unified = model.normalize({ ...raw, xuSupplements, xuCurrent, routePlan });
+  for (const domain of ['speaking','reading','writing']) {
+    const viewing = {...unified,routes:unified.routes.map(route=>({...route,stages:model.getRoutePlan(unified,route.id,domain).stages}))};
+    const xu = viewing.routes.find(r=>r.id==='xu');
+    for (const stage of xu.stages) assert.ok(model.compareStages(viewing,stage.id).every(group=>!group.matches.length));
+  }
+  for (const old of currentCatalog.stages) assert.deepEqual(unified.stages.find(stage=>stage.id===old.id),old);
+  assert.equal(model.getRoutePlan(unified,'xu','unknown'),null);
+});
+
+
+test('年龄方案按当前生日和整月龄选择，边界切换但不自动推进能力阶段', () => {
+  const profile = {birthDate:'2024-11-24', vocabulary:70};
+  const ids = [["2026-10-29", 'age-2-3', 'below'], ["2026-11-24", 'age-2-3', 'matched'], ["2028-11-23", 'age-2-3', 'matched'], ["2028-11-24", 'age-4-5', 'matched'], ["2030-11-24", 'age-6-7', 'matched'], ["2032-11-24", null, 'outside']];
+  for (const [asOf,id,status] of ids) {
+    const p = {...profile,asOf}, context = model.getRouteAgeCase(currentCatalog, 'banana', p);
+    assert.equal(context.ageCase?.id || null,id,asOf);
+    assert.equal(context.status,status,asOf);
+    const schedules = model.getStageSchedules(currentCatalog,'banana-4',p).schedules;
+    assert.ok(schedules.every(sc=>sc.ageCaseId===id));
+    assert.equal(schedules.length,id?1:0);
+    assert.equal(model.recommend(p,currentCatalog).routeStages.banana,'banana-pre','年龄选择不能作为晋级依据');
+  }
+  assert.equal(model.getRouteAgeCase(currentCatalog,'qing',{...profile,asOf:'2026-10-29'}).status,'below');
+  assert.equal(model.getRouteAgeCase(currentCatalog,'xu',profile).status,'general');
+  assert.equal(model.getRouteAgeCase(currentCatalog,'banana',{}).status,'unknown');
+  assert.deepEqual(model.getStageSchedules(currentCatalog,'banana-pre',{}).schedules,[]);
+});
+
+test('按当前年龄读取输出与自拼安排，不混用其他年龄case，来源原文不变', () => {
+  const routePlan = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','route-plan.json'),'utf8'));
+  const c = model.normalize({...raw,xuSupplements,xuCurrent,routePlan}), snapshot = JSON.stringify(c);
+  const young={birthDate:'2024-11-24',asOf:'2027-10-29'}, older={...young,asOf:'2031-10-29'};
+  assert.deepEqual(model.getRoutePlan(c,'banana','speaking',young).supportingStages.map(s=>s.id),['banana-3','banana-4']);
+  assert.deepEqual(model.getRoutePlan(c,'banana','speaking',older).supportingStages.map(s=>s.id),['banana-2','banana-3']);
+  assert.deepEqual(model.getRoutePlan(c,'banana','reading',young).supportingStages.map(s=>s.id),['banana-chapter']);
+  assert.deepEqual(model.getRoutePlan(c,'banana','reading',older).supportingStages.map(s=>s.id),['banana-4','banana-chapter']);
+  assert.equal(model.getStageSchedules(c,'banana-pre',young).schedules[0].daily,'20分钟（可分2次）');
+  assert.equal(model.getStageSchedules(c,'banana-pre',older).schedules[0].daily,'40分钟');
+  assert.equal(c.stages.find(s=>s.id==='banana-pre').schedules.length,3,'原始三组方案保留供参考');
+  assert.equal(JSON.stringify(c),snapshot);
+});
+
+test('其他路线新增年龄case复用同一规则，不按排列顺序、过去选择或素材猜测case', () => {
+  const sample=model.normalize({xu:{ageCases:[{id:'older',ageMinMonths:48,ageMaxMonthsExclusive:72},{id:'young',ageMinMonths:24,ageMaxMonthsExclusive:48}],stages:[{id:'sample',schedules:[{ageCaseId:'older',daily:'40分钟'},{ageCaseId:'young',daily:'10分钟'}]}]}});
+  const profile={birthDate:'2024-11-24',asOf:'2027-11-24'};
+  assert.equal(model.getRouteAgeCase(sample,'xu',profile).ageCase.id,'young');
+  assert.equal(model.getStageSchedules(sample,'sample',profile).schedules[0].daily,'10分钟');
 });
