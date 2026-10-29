@@ -1,0 +1,7 @@
+{
+  "name": "xiaoya-netlify-sync-api",
+  "private": true,
+  "version": "1.0.0",
+  "engines": { "node": ">=22.13.0 <23" },
+  "dependencies": { "@netlify/blobs": "11.1.7" }
+}

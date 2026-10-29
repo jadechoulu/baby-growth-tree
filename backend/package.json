@@ -1,0 +1,7 @@
+{
+  "name": "xiaoya-sync-api",
+  "private": true,
+  "version": "1.0.0",
+  "engines": { "node": "22.x" },
+  "dependencies": { "@vercel/blob": "2.8.2" }
+}

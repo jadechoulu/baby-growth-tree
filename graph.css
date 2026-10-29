@@ -98,12 +98,14 @@
 .graph-key .legend-card-done { display: inline-grid; place-items: center; background: #f1fbf3; border-color: #21a476; color: #168a61; font-size: 10px; font-style: normal; line-height: 1; }
 .graph-key .legend-card-focus { background: #8950df; border-color: #6d35c1; }
 .graph-key p { color: #8e789c; font-size: 10px; line-height: 1.6; margin: 0; }
-.graph-tools { display: flex; align-items: center; gap: 5px; margin-left: auto; }
-.graph-tools > button { border: 1px solid #e2d1eb; border-radius: 5px; padding: 6px 8px; font-size: 10px; color: #866098; background: white; line-height: 1.5; white-space: nowrap; }
-.graph-tools > button:hover { background: #f0e5ff; border-color: #b18ad0; }
-.graph-tools > button:first-child, .graph-tools > button:nth-of-type(2) { font-size: 15px; line-height: 1; min-width: 27px; }
-.graph-tools > output { font-size: 10px; color: #a082b0; min-width: 34px; text-align: center; font-variant-numeric: tabular-nums; }
-.graph-tools .icon { width: 14px; height: 14px; }
+.graph-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-left: auto; }
+.graph-zoom-tools, .graph-view-tools { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+.graph-tools button { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; min-height: 44px; border: 1px solid #e2d1eb; border-radius: 5px; padding: 0; color: #866098; background: white; line-height: 1; }
+.graph-tools button:hover { background: #f0e5ff; border-color: #b18ad0; }
+.graph-tools button:focus-visible { outline: 2px solid #347bea; outline-offset: 2px; }
+.graph-zoom-tools > button { font-size: 20px; }
+.graph-tools output { font-size: 12px; color: #a082b0; min-width: 30px; text-align: center; font-variant-numeric: tabular-nums; }
+.graph-tools .icon { width: 18px; height: 18px; }
 .graph-viewport { height: 422px; overflow: auto; position: relative; background: #fffcff; background-image: radial-gradient(#dfd2e5 1px, transparent 1px); background-size: 18px 18px; scrollbar-width: thin; scrollbar-color: #bda1d2 #f7effb; overscroll-behavior: contain; cursor: grab; }
 .graph-viewport.is-dragging, .graph-viewport.is-dragging * { cursor: grabbing !important; user-select: none; }
 .graph-scale-space { position: relative; min-width: 100%; min-height: 100%; }
@@ -219,7 +221,6 @@
   .graph-toolbar { padding: 11px; gap: 12px; }
   .graph-legend { gap: 10px; font-size: 9px; justify-content: space-between; width: 100%; }
   .graph-tools { margin-left: 0; width: 100%; justify-content: space-between; gap: 4px; }
-  .graph-tools > button { font-size: 10px; padding: 6px; }
   .graph-viewport { height: 360px; }
   .graph-bottom-bar { padding: 9px 11px; font-size: 9px; }
   .graph-bottom-bar > span:first-child { gap: 4px; }
@@ -242,11 +243,7 @@
 .stage-lineage .lineage-title-row, .growth-mobile-fold .lineage-title-row { justify-content: flex-start; gap: 4px 10px; }
 .site-enabled .growth-content .lineage-title-row { flex-wrap: nowrap; }
 .lineage-title-row h2 { margin: 0; min-width: 0; flex: 0 1 auto; }
-.section-tools { display: inline-flex; flex-shrink: 0; align-items: center; gap: 2px; }
-.section-tools > button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; color: #75518e; }
-.section-tools > button:hover { background: #eee3f7; }
-.section-tools > button:focus-visible, .group-heading:focus-visible { outline: 2px solid #347bea; outline-offset: -2px; }
-.section-tools .icon { width: 19px; height: 19px; }
+.group-heading:focus-visible { outline: 2px solid #347bea; outline-offset: -2px; }
 .stage-lineage .section-title-row p { max-width: 650px; margin-top: 6px; line-height: 1.6; }
 .stage-lineage .domain-cards { grid-template-columns: repeat(4, minmax(76px, 1fr)); margin: 14px 0; gap: 10px; overflow-x: auto; padding: 3px 3px 7px; touch-action: auto; scrollbar-width: thin; }
 .stage-lineage .domain-card { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 3px 9px; min-width: 0; padding: 10px 12px 8px; border-top-width: 3px; border-radius: 10px; }
@@ -256,7 +253,8 @@
 .stage-lineage .domain-count { grid-column: 2; grid-row: 2; font-size: 11px; line-height: 1.2; white-space: nowrap; }
 .stage-lineage .domain-count strong { font-size: 16px; }
 .stage-lineage .domain-card-label { grid-column: 2; grid-row: 1; flex-wrap: wrap; min-width: 0; margin: 0; gap: 2px 6px; font-size: 13px; line-height: 1.3; white-space: normal; }
-.stage-lineage .domain-card-label > span { font-size: 10px; }
+.stage-lineage .domain-card-label > .domain-name { font-size: inherit; font-weight: inherit; }
+.stage-lineage .domain-card-label > .domain-percent { font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .stage-lineage .progress-track { grid-column: 1 / -1; grid-row: 3; width: 100%; height: 3px; margin: 3px 0 0; }
 .stage-lineage .graph-viewport { height: 680px; }
 .stage-lineage-focus { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; padding: 0 0 14px; font-size: 12px; color: #75518e; }
@@ -275,12 +273,21 @@
 .group-label > span { display: block; margin-top: 2px; font-size: 12px; color: var(--domain-ink); opacity: .84; }
 .group-fold-icon { width: 16px; height: 16px; flex-shrink: 0; transition: transform .15s; }
 .skill-group[open] > .group-heading .group-fold-icon { transform: rotate(90deg); }
-.milestones .skill-items { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 14px; }
-.milestones .skill-row { min-width: 0; min-height: 56px; }
-.milestones .skill-open { padding-block: 8px; gap: 2px; }
-@container milestones (min-width: 700px) {
-  .milestones .skill-items { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
-  .milestones .skill-row:nth-child(odd):nth-last-child(2) { border-bottom: 0; }
+.milestones .skill-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 144px), 1fr)); gap: 0 12px; padding: 2px 14px; }
+.milestones .skill-row { min-width: 0; min-height: 56px; gap: 6px; border-bottom: 0; }
+.milestones .skill-row > .skill-check { align-self: flex-start; margin-top: 13px; }
+.skill-label { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding-bottom: 2px; }
+.skill-name-row { display: flex; align-items: center; min-width: 0; max-width: 100%; }
+.site-enabled .milestones .skill-label .skill-open { flex: 0 1 auto; min-width: 44px; min-height: 44px; justify-content: center; padding: 0; }
+.milestones .skill-label .lineage-entry { justify-content: center; min-width: 44px; min-height: 44px; padding: 0 4px; font-size: 12px; }
+.milestones .skill-label .lineage-entry .icon { width: 16px; height: 16px; }
+.milestones .skill-title { font-size: 15px; line-height: 1.45; }
+.site-enabled .milestones .skill-label .skill-category { margin-top: -4px; font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+@container milestones (min-width: 701px) {
+  .milestones .skill-items { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+@container milestones (max-width: 700px) {
+  .milestones .skill-label .lineage-entry > span { display: none; }
 }
 @media (max-width: 900px) {
   .site-enabled .growth-content .group-label > span { display: none; }
@@ -349,11 +356,6 @@
   .graph-viewport, .stage-lineage .graph-viewport { height: clamp(420px, 65dvh, 600px); }
   .graph-workspace.is-expanded .graph-viewport { height: auto; min-height: 0; }
 }
-@media (max-width: 560px) {
-
-  .graph-tools > button { min-height: 32px; }
-}
-
 /* 下一步按脉络列出可并行探索的技能，年龄用分组与颜色共同说明。 */
 .next-results-summary { color: #806390; font-size: 12px; line-height: 1.7; margin: 14px 0; }
 .next-training-group { margin-top: 22px; }
@@ -421,7 +423,8 @@
   .site-enabled .growth-content .group-heading .domain-icon { width: 26px; height: 26px; }
   .site-enabled .growth-content .group-heading p { display: none; }
   .site-enabled .growth-content .skill-items { padding: 0 10px; }
-  .site-enabled .growth-content .skill-row { min-height: 56px; gap: 8px; }
+  .site-enabled .growth-content .skill-row { min-height: 56px; gap: 6px; }
+  .site-enabled .growth-content .skill-label .lineage-entry > span { display: none; }
   .site-enabled .growth-content .skill-open { padding: 7px 0; gap: 2px; }
   .site-enabled .growth-content .skill-category { line-height: 1.4; }
   .site-enabled .growth-content .group-footer { padding: 7px 12px; }
@@ -473,12 +476,21 @@
 /* 按卡片区实际宽度收紧；四领域始终同排，极窄时只滚动本区域。 */
 @container stage-lineage (max-width: 640px) {
   .stage-lineage .domain-cards { gap: 6px; }
-  .stage-lineage .domain-card { grid-template-columns: minmax(0, 1fr); min-height: 62px; padding: 7px 4px 5px; gap: 2px; text-align: center; }
+  .stage-lineage .domain-card { grid-template-columns: minmax(0, 1fr) auto; min-height: 62px; padding: 7px 4px 5px; gap: 2px; text-align: center; }
   .stage-lineage .domain-icon { display: none; }
-  .stage-lineage .domain-card-label { grid-column: 1; grid-row: 1; font-size: 14px; justify-content: center; white-space: nowrap; }
-  .stage-lineage .domain-card-label > span { display: none; }
-  .stage-lineage .domain-count { grid-column: 1; grid-row: 2; font-size: 12px; }
+  .stage-lineage .domain-card-label { display: contents; font-size: 14px; white-space: nowrap; }
+  .stage-lineage .domain-card-label > .domain-name { grid-column: 1 / -1; grid-row: 1; }
+  .stage-lineage .domain-card-label > .domain-percent { grid-column: 2; grid-row: 2; justify-self: end; }
+  .stage-lineage .domain-count { grid-column: 1; grid-row: 2; justify-self: start; font-size: 12px; }
+  .stage-lineage .domain-count strong { font-size: 12px; }
+}
+/* 极窄卡片将百分比另起一行，给 18 / 18 与 100% 留足阅读宽度。 */
+@container stage-lineage (max-width: 400px) {
+  .stage-lineage .domain-card { grid-template-columns: minmax(0, 1fr); row-gap: 1px; }
+  .stage-lineage .domain-count { justify-self: center; }
   .stage-lineage .domain-count strong { font-size: 14px; }
+  .stage-lineage .domain-card-label > .domain-percent { grid-column: 1; grid-row: 3; justify-self: center; }
+  .stage-lineage .progress-track { grid-row: 4; }
 }
 
 /* 下一步的领域筛选按可用宽度排布，全部选项直接可见。 */

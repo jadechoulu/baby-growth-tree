@@ -11,6 +11,7 @@ const sharedProfile=window.XiaoyaBabyProfile.createClient();
 let sharedProfileError='';let commonProfile={name:'宝宝',birthDate:''};
 try{commonProfile=await sharedProfile.init();}catch(error){sharedProfileError=error.message;}
 let profileEditBase=null;
+let siteSync=null;
 function routesDefaultVariant(){return C.routes.find(r=>r.id==='xu')?.defaultVariantId||'xu-listening';}
 const S={view:'baby',route:'all',type:'all',search:'',age:'all',favoriteOnly:false,sharedOnly:false,roadmapMode:'compare',compareRoute:'xu',compareStage:null,xuVariant:routesDefaultVariant(),relationMode:'resource',focus:null,relationPage:0,libraryLimit:18,libraryKey:'',profile:Object.assign({name:'宝宝',birthDate:'',vocabulary:0,mode:'audio'},saved.profile||{},commonProfile),favorites:saved.favorites||[],records:saved.records||{},modal:null,preview:null,songCategory:'all',songScene:'all',songSearch:''};
 const songResources=EnglishModel.getSongResources(C,SSS);
@@ -34,7 +35,7 @@ function asset(path){if(!path)return '';const item=window.ROADMAP_ASSETS?.[path]
 function sourcePage(id,page){const s=src(id);return s?.previews.find(p=>p.page===Number(page))||s?.previews[0];}
 function sourceBtn(id,page,label){return btn([icon('source'),label||((src(id)?.title||'原文')+' · 第 '+page+' 页')],'preview',{'data-source':id,'data-page':page},'text-link');}
 function stageSourceLinks(st){const refs=st.pages.map(page=>({id:st.sourceId||st.routeId,page}));for(const m of st.materials){const id=m.sourceId||st.sourceId||st.routeId,page=m.page||st.pages[0]||1;if(!refs.some(ref=>ref.id===id&&ref.page===page))refs.push({id,page});}return refs.map(ref=>sourceBtn(ref.id,ref.page));}
-function persist(){try{const {name,birthDate,...englishProfile}=S.profile;if(!sharedProfile.get().birthDate&&saved.profile){if(saved.profile.name)englishProfile.name=saved.profile.name;if(saved.profile.birthDate)englishProfile.birthDate=saved.profile.birthDate;}localStorage.setItem('little-leaf-english-v1',JSON.stringify({profile:englishProfile,favorites:S.favorites,records:S.records}));return true;}catch{toast('当前浏览器未能保存，请保持页面打开或导出备份。');return false;}}
+function persist(){try{const {name,birthDate,...englishProfile}=S.profile;if(!sharedProfile.get().birthDate&&saved.profile){if(saved.profile.name)englishProfile.name=saved.profile.name;if(saved.profile.birthDate)englishProfile.birthDate=saved.profile.birthDate;}localStorage.setItem('little-leaf-english-v1',JSON.stringify({profile:englishProfile,favorites:S.favorites,records:S.records}));void siteSync?.changed('english').catch(error=>toast('本机已保存，同步暂不可用：'+error.message));return true;}catch{toast('当前浏览器未能保存，请保持页面打开或导出备份。');return false;}}
 function toast(text){clearTimeout(toastTimer);document.getElementById('toast')?.remove();const n=h('div',{id:'toast',class:'toast',role:'status'},text);document.body.append(n);toastTimer=setTimeout(()=>n.remove(),2800);}
 function age(){return S.profile.birthDate?EnglishModel.getAge(S.profile.birthDate):null;}
 function rec(){return EnglishModel.recommend(S.profile,C);}
@@ -106,7 +107,7 @@ function navigateEnglish(id){
   if(id.startsWith('route:')){S.route=id.slice(6);S.compareRoute=S.route;S.compareStage=null;S.view='routes';render();window.scrollTo(0,0);history.replaceState(null,'','#routes');return;}
   navigate(id);
 }
-function englishActions(){return h('div',{class:'top-actions'},btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'),btn(icon('settings'),'profile',{'aria-label':'编辑宝宝资料'},'icon-button'));}
+function englishActions(){return h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'),btn(icon('settings'),'profile',{'aria-label':'编辑宝宝资料'},'icon-button'));}
 function footer(){return h('footer',{class:'page-foot'},h('span',{},'根据 '+C.sources.length+' 份本地资料整理 · '+C.stages.length+' 个阶段 / 节点 · '+C.resources.length+' 个素材系列'),h('span',{},'陪伴有节奏，成长不赶路。'));}
 function render(){const active=document.activeElement;const id=active?.id;const pos=active?.selectionStart;const x=window.scrollX,y=window.scrollY;const content=({baby:babyView,routes:routesView,library:libraryView,relations:relationsView,sources:sourcesView})[S.view]();organizePage(content);
 if(!siteShell){siteShell=window.XiaoyaSite.createShell({sectionId:'english',siteRoot:window.XIAOYA_SITE_ROOT,onNavigate:navigateEnglish});el.replaceChildren(siteShell.element);}
@@ -345,5 +346,21 @@ document.addEventListener('keydown',e=>{if(window.XiaoyaSite.navigationOpen())re
 window.addEventListener('resize',()=>{if(S.preview)renderPreview();});
 const hash=location.hash.slice(1);if(NAV.some(x=>x[0]===hash))S.view=hash;
 sharedProfile.subscribe((profile,error)=>{if(error){toast(error.message);return;}Object.assign(S.profile,profile);render();});
+siteSync=window.XiaoyaSync.createClient({siteRoot:window.XIAOYA_SITE_ROOT,profileClient:sharedProfile});
+siteSync.subscribe(area=>{
+  if(area!=='english')return;
+  try{
+    const next=JSON.parse(localStorage.getItem('little-leaf-english-v1'));
+    if(!next)return;
+    Object.assign(S.profile,next.profile,sharedProfile.get());S.favorites=next.favorites||[];S.records=next.records||{};
+    render();
+    // 正在编辑的详情保留 DOM；输入框同步时保留光标。
+    const id=S.modal?.kind==='resource'?S.modal.id:null;
+    const note=id&&document.getElementById('resource-note');
+    if(note&&document.activeElement!==note)note.value=S.records[id]?.note||'';
+    const status=id&&document.querySelector('[data-record-id]');
+    if(status&&document.activeElement!==status)status.value=S.records[id]?.status||'not-started';
+  }catch(error){toast('同步内容未能读取：'+error.message);}
+});
 window.EnglishApp={catalog:C,state:S,render,asset};render();if(sharedProfileError)toast(sharedProfileError);
 })();

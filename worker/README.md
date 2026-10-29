@@ -1,6 +1,6 @@
 # 私有云记录 Worker
 
-此目录仅保留可选云端实现，当前未启用。项目现在只保留公开源码仓库；原预建空记录仓库已停用。以后若要启用此方案，须重新准备私有数据仓库，不能使用公开源码仓库保存个人 JSON。Cloudflare 账号、GitHub OAuth App 和秘密配置尚未完成，Worker 尚未部署。Cloudflare Worker 是运行后端代码的托管服务：网页公开部署到 GitHub Pages，凭据和私有仓库读写留在 Worker。个人低频使用可优先选择 Workers Free；本实现使用 Free 支持的 SQLite Durable Object，具体额度以 Cloudflare 当期规则为准。
+此目录实现全站私人记录同步核心，前端先保存本机，再通过服务同步 GitHub 私有仓库。当前生产由 Netlify 适配运行，私有仓 `jadechoulu/baby-growth-records` 已接收本人确认的 155 项成长记录和 70 听力词汇；实际部署和网页发布状态见 [同步说明](../docs/sync.md)。公开源码仍只维护一个仓库。本目录的 Cloudflare Worker 与 SQLite Durable Object 部署适配保留兼容，尚未部署；下面的 Cloudflare 命令不是当前生产的必要步骤。后端只负责登录和私有仓库中转，不作为宝宝记录主库。
 
 ## 需要的资源
 
@@ -30,7 +30,7 @@ npx wrangler secret put GITHUB_DATA_TOKEN --config worker/wrangler.toml
 | `GITHUB_DATA_REPO` | 私有仓库 `owner/name` |
 | `GITHUB_DATA_BRANCH` | 已存在的目标分支 |
 | `GITHUB_DATA_PATH` | 固定记录文件路径，如 `records/xiaoya.json` |
-| `DEV_FRONTEND_ORIGIN` | 可选，额外允许一个 `http://localhost:端口` 或 `http://127.0.0.1:端口` 的 API 来源 |
+| `DEV_FRONTEND_ORIGINS` | 可选 JSON 数组，明确允许的本机来源；同时用于 API 和 OAuth 完成通知，禁止通配符 |
 
 ```sh
 npx wrangler deploy --config worker/wrangler.toml
@@ -40,7 +40,7 @@ npx wrangler deploy --config worker/wrangler.toml
 
 ## 登录和 API
 
-前端先用 `crypto.randomUUID()` 或 32 字节随机数生成 `request`（32–128 个字母、数字、下划线或连字符），顶层弹窗打开 `/auth/login?request=...`。十分钟一次性 OAuth state 与 `HttpOnly; Secure; SameSite=Lax` 浏览器 cookie、固定 OAuth client/callback 绑定，由 Durable Object 原子消费。只允许配置的数字身份登录。
+前端先用 `crypto.randomUUID()` 或 32 字节随机数生成 `request`（32–128 个字母、数字、下划线或连字符），顶层弹窗打开 `/auth/login?request=...&origin=...`。来源必须属于配置白名单，再与十分钟一次性 OAuth state、`HttpOnly; Secure; SameSite=Lax` cookie、固定 OAuth client/callback 绑定，由 Durable Object 原子消费。只允许配置的数字身份登录。
 
 回调页向 `FRONTEND_URL` 的固定来源发送：
 
@@ -50,7 +50,7 @@ npx wrangler deploy --config worker/wrangler.toml
 { type: 'xiaoya-auth', request, error: 'IDENTITY_NOT_ALLOWED' }
 ```
 
-前端必须检查消息 `event.origin` 为配置的 Worker 来源、`event.source` 为所开的登录弹窗，并核对随机 `request`。令牌只在内存或 `sessionStorage` 保存，不进入 URL。打开方式需保留 `window.opener`。回调不向开发来源发送登录结果；本机开发可使用已有有效会话调用 API，或用测试环境的独立固定 HTTPS 前端和 OAuth App。
+前端检查消息 `event.origin` 为配置的 Worker 来源、`event.source` 为所开的登录弹窗，并核对随机 `request`。令牌只在内存或 `sessionStorage` 保存，不进入 URL。打开方式保留 `window.opener`。回调只向 state 绑定的受信来源发送结果，包含明确配置的本机开发来源；不会接受任意回跳地址。
 
 会话有效 12 小时，服务端只保存令牌的 SHA-256；关闭标签页可清除前端会话令牌，注销会撤销服务端会话。OAuth access token 仅短暂用于服务端识别身份，不向前端返回。API 不使用 cookie 鉴权，所有请求同时需要受信 `Origin` 与 `Authorization: Bearer ...`。响应禁止缓存，CORS 只开放固定前端来源。
 
@@ -58,6 +58,8 @@ npx wrangler deploy --config worker/wrangler.toml
 | --- | --- |
 | `GET /api/session` | `{user:{id,login}}` |
 | `POST /api/logout` | `{ok:true,revoked:true}` |
+| `GET /api/data/{profile,growth,english}` | 对应固定文件的 `{snapshot,revision,savedAt}`；文件不存在三个字段均为 `null` |
+| `PUT /api/data/{profile,growth,english}` | 写入 `{snapshot,revision}`；按分类 schema 校验并确认 GitHub 新 SHA |
 | `GET /api/records` | `{snapshot,revision,savedAt}`；不存在的文件返回三个 `null`，绝不自动初始化 |
 | `PUT /api/records` | 请求 `{snapshot:{version:1,profile,records},revision}`；成功返回同上 envelope |
 

@@ -2,6 +2,40 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { AuthState, createWorker } from '../worker/index.mjs';
 
+test('三个领域固定私有文件独立读写；英语不包含姓名生日，成长保留原记录格式', async () => {
+  const app = setup(); const token = await app.login();
+  const values = {
+    profile: { version: 1, name: '测试宝宝', birthDate: '2024-11-24' },
+    growth: { version: 1, records: snapshot().records },
+    english: { version: 1, profile: { vocabulary: 70, mode: 'audio' }, favorites: ['sss'], records: { sss: { status: 'using', note: '喜欢' } } },
+  };
+  for (const [area, value] of Object.entries(values)) {
+    const path = '/api/data/' + area;
+    assert.deepEqual(await (await app.api(path, token)).json(), { snapshot: null, revision: null, savedAt: null });
+    const saved = await app.api(path, token, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: value, revision: null }) });
+    assert.equal(saved.status, 200, await saved.clone().text());
+    assert.deepEqual((await saved.json()).snapshot, value);
+    assert.deepEqual((await (await app.api(path, token)).json()).snapshot, value);
+  }
+  assert.equal((await app.api('/api/data/other', token)).status, 404);
+  assert.equal((await app.api('/api/data/english', token, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: { ...values.english, token: 'fake-NOT-A-CREDENTIAL' }, revision: SHA_A }) })).status, 400);
+  app.private(false); assert.equal((await app.api('/api/data/english', token)).status, 503);
+});
+
+test('本机 OAuth 结果只发往 state 中绑定的显式允许来源，任意来源拒绝', async () => {
+  const dev = 'http://127.0.0.1:5318';
+  const app = setup({ DEV_FRONTEND_ORIGINS: JSON.stringify([dev, 'http://127.0.0.1:5317']) });
+  assert.equal((await app.request(`/auth/login?request=${CLIENT_NONCE}&origin=https://evil.example`)).status, 400);
+  const start = await app.request(`/auth/login?request=${CLIENT_NONCE}&origin=${encodeURIComponent(dev)}`);
+  const flow = { cookie: start.headers.get('Set-Cookie').split(';')[0], state: new URL(start.headers.get('Location')).searchParams.get('state') };
+  const html = await (await app.finish(flow)).text();
+  assert.match(html, /http:\/\/127\.0\.0\.1:5318/);
+  assert.doesNotMatch(html, /evil\.example/);
+  const token = /"token":"([A-Za-z0-9_-]{43})"/.exec(html)[1];
+  assert.equal((await app.api('/api/data/growth', token, { headers: { Origin: dev } })).status, 200);
+  assert.equal((await app.api('/api/data/growth', token, { headers: { Origin: 'http://127.0.0.1:9999' } })).status, 403);
+});
+
 const ORIGIN = 'https://example.github.io';
 const WORKER = 'https://growth.example.workers.dev';
 const SHA_A = 'a'.repeat(40);
@@ -42,6 +76,7 @@ function setup(overrides = {}) {
   let identity = { id: 42, login: 'example' };
   let privateRepo = true;
   let file = null;
+  const documents = new Map();
   let conflict = null;
   let networkFailure = false;
   async function network(url, options = {}) {
@@ -59,6 +94,18 @@ function setup(overrides = {}) {
         return Response.json({ content: { sha: file.sha } }, { status: 201 });
       }
       return file ? Response.json({ sha: file.sha, encoding: 'base64', content: Buffer.from(JSON.stringify(file.raw)).toString('base64') }) : Response.json({}, { status: 404 });
+    }
+    const match = /^https:\/\/api\.github\.com\/repos\/example\/private-records\/contents\/records\/(profile|growth|english)\.json/.exec(url);
+    if (match) {
+      const area = match[1], current = documents.get(area);
+      if (options.method === 'PUT') {
+        const incoming = JSON.parse(options.body);
+        if ((incoming.sha || null) !== (current?.sha || null)) return Response.json({}, { status: 409 });
+        const saved = { sha: (current?.sha === SHA_A ? SHA_B : SHA_A), raw: JSON.parse(Buffer.from(incoming.content, 'base64').toString('utf8')) };
+        documents.set(area, saved);
+        return Response.json({ content: { sha: saved.sha } }, { status: 201 });
+      }
+      return current ? Response.json({ sha: current.sha, encoding: 'base64', content: Buffer.from(JSON.stringify(current.raw)).toString('base64') }) : Response.json({}, { status: 404 });
     }
     throw new Error(`Unexpected request: ${url}`);
   }

@@ -1,5 +1,6 @@
 import catalog from '../data/catalog.json' with { type: 'json' };
 import { validateBackup } from '../lib/model.mjs';
+import SyncModel from '../shared/sync-model.js';
 
 const VALID_IDS = new Set(catalog.map((skill) => skill.id));
 const MAX_BYTES = 1_048_576;
@@ -79,9 +80,10 @@ function configuration(env) {
     const segments = env.GITHUB_DATA_PATH.split('/');
     if (segments.some((part) => !part || part === '.' || part === '..')) throw new Error();
     const origins = new Set([frontend.origin]);
-    if (env.DEV_FRONTEND_ORIGIN) {
-      const dev = new URL(env.DEV_FRONTEND_ORIGIN);
-      if (dev.protocol !== 'http:' || !['localhost', '127.0.0.1', '[::1]'].includes(dev.hostname) || dev.origin !== env.DEV_FRONTEND_ORIGIN) throw new Error();
+    const devOrigins = [...(env.DEV_FRONTEND_ORIGIN ? [env.DEV_FRONTEND_ORIGIN] : []), ...JSON.parse(env.DEV_FRONTEND_ORIGINS || '[]')];
+    for (const value of devOrigins) {
+      const dev = new URL(value);
+      if (dev.protocol !== 'http:' || !['localhost', '127.0.0.1', '[::1]'].includes(dev.hostname) || dev.origin !== value) throw new Error();
       origins.add(dev.origin);
     }
     return { frontend, worker, origins, callback: `${worker.origin}/auth/callback`, ...env };
@@ -155,7 +157,11 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
   }
 
   function repoPath(config) { return `/repos/${config.GITHUB_DATA_REPO}`; }
-  function contentPath(config) { return `${repoPath(config)}/contents/${config.GITHUB_DATA_PATH.split('/').map(encodeURIComponent).join('/')}`; }
+  function contentPath(config, area) {
+    // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 客户端分类只能映射到固定文件，不接受任意仓库路径。
+    const file = area === 'legacy' ? config.GITHUB_DATA_PATH : { profile: 'records/profile.json', growth: 'records/growth.json', english: 'records/english.json' }[area];
+    return `${repoPath(config)}/contents/${file.split('/').map(encodeURIComponent).join('/')}`;
+  }
 
   async function privateRepo(config) {
     const response = await github(config, repoPath(config));
@@ -165,15 +171,16 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
     if (repo.private !== true) throw new HttpError(503, 'PRIVATE_REPO_REQUIRED', '记录仓库必须为私有仓库。');
   }
 
-  async function loadRecords(config) {
-    const response = await github(config, `${contentPath(config)}?ref=${encodeURIComponent(config.GITHUB_DATA_BRANCH)}`);
+  async function loadRecords(config, area) {
+    const response = await github(config, `${contentPath(config, area)}?ref=${encodeURIComponent(config.GITHUB_DATA_BRANCH)}`);
     if (response.status === 404) return { snapshot: null, revision: null, savedAt: null };
     if (!response.ok) throw new HttpError(502, 'GITHUB_UNAVAILABLE', '读取云端记录失败，请稍后重试。');
     try {
       const file = await response.json();
       if (file.encoding !== 'base64' || !SHA.test(file.sha)) throw new Error();
       const raw = JSON.parse(decodeContent(file.content));
-      const snapshot = validateBackup(raw, VALID_IDS);
+      const { savedAt: ignoredTime, ...document } = raw;
+      const snapshot = area === 'legacy' ? validateBackup(raw, VALID_IDS) : SyncModel.normalize(area, document, VALID_IDS);
       const savedAt = typeof raw.savedAt === 'string' && Number.isFinite(Date.parse(raw.savedAt)) ? raw.savedAt : null;
       return { snapshot, revision: file.sha, savedAt };
     } catch { throw new HttpError(502, 'INVALID_CLOUD_DATA', '云端记录格式异常，未覆盖任何记录，请检查仓库文件。'); }
@@ -193,10 +200,12 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
   async function login(url, config) {
     const requestNonce = url.searchParams.get('request') || '';
     if (!REQUEST_NONCE.test(requestNonce)) throw new HttpError(400, 'INVALID_LOGIN_REQUEST', '登录请求无效，请从页面重新登录。');
+    const frontendOrigin = url.searchParams.get('origin') || config.frontend.origin;
+    if (!config.origins.has(frontendOrigin)) throw new HttpError(400, 'ORIGIN_NOT_ALLOWED', '请从受信页面发起登录。');
     const state = randomNonce();
     const browser = randomNonce();
     // @CfSecAICode 遵循消费金融安全编码 GO-OAUTH-001 规范: state 与浏览器、客户端和固定回调绑定，十分钟过期且仅消费一次。
-    await stateStore(config, 'put', 'state', await digest(state), { browserHash: await digest(browser), request: requestNonce, clientId: config.GITHUB_CLIENT_ID, callback: config.callback, frontendOrigin: config.frontend.origin }, now() + STATE_TTL);
+    await stateStore(config, 'put', 'state', await digest(state), { browserHash: await digest(browser), request: requestNonce, clientId: config.GITHUB_CLIENT_ID, callback: config.callback, frontendOrigin }, now() + STATE_TTL);
     const authorize = new URL('https://github.com/login/oauth/authorize');
     authorize.search = new URLSearchParams({ client_id: config.GITHUB_CLIENT_ID, redirect_uri: config.callback, scope: 'read:user', state }).toString();
     // @CfSecAICode 遵循消费金融安全编码 FE-CSRF-001 规范: OAuth 绑定 cookie 禁止脚本读取，仅 HTTPS，回调使用 Lax 同站策略。
@@ -211,7 +220,7 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
       // @CfSecAICode 遵循消费金融安全编码 GO-OAUTH-001 规范: 在交换 code 前常量时间校验绑定，并原子消费一次性 state。
       const matches = NONCE.test(state) && NONCE.test(browser) && constantEqual(state, cookieState);
       if (NONCE.test(state)) pending = await stateStore(config, 'consume', 'state', await digest(state));
-      if (!matches || !pending || !constantEqual(pending.browserHash, await digest(browser)) || pending.clientId !== config.GITHUB_CLIENT_ID || pending.callback !== config.callback || pending.frontendOrigin !== config.frontend.origin) throw new HttpError(400, 'INVALID_OAUTH_STATE', '登录请求无效或已过期，请重新登录。');
+      if (!matches || !pending || !constantEqual(pending.browserHash, await digest(browser)) || pending.clientId !== config.GITHUB_CLIENT_ID || pending.callback !== config.callback || !config.origins.has(pending.frontendOrigin)) throw new HttpError(400, 'INVALID_OAUTH_STATE', '登录请求无效或已过期，请重新登录。');
       const code = url.searchParams.get('code');
       if (!code || code.length > 512 || url.searchParams.has('error')) throw new HttpError(400, 'OAUTH_CANCELLED', 'GitHub 登录未完成。');
       let exchange;
@@ -225,10 +234,10 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
       if (!identity.ok || !Number.isSafeInteger(user.id) || String(user.id) !== config.GITHUB_ALLOWED_USER_ID || typeof user.login !== 'string') throw new HttpError(403, 'IDENTITY_NOT_ALLOWED', '此 GitHub 账号无权访问个人记录。');
       const token = randomNonce();
       await stateStore(config, 'put', 'session', await digest(token), { user: { id: user.id, login: user.login } }, now() + SESSION_TTL);
-      return popupResponse({ type: 'xiaoya-auth', request: pending.request, token }, config.frontend.origin);
+      return popupResponse({ type: 'xiaoya-auth', request: pending.request, token }, pending.frontendOrigin);
     } catch (error) {
       const code = error instanceof HttpError ? error.code : 'OAUTH_UNAVAILABLE';
-      return popupResponse({ type: 'xiaoya-auth', ...(pending ? { request: pending.request } : {}), error: code }, config.frontend.origin);
+      return popupResponse({ type: 'xiaoya-auth', ...(pending ? { request: pending.request } : {}), error: code }, pending?.frontendOrigin || config.frontend.origin);
     }
   }
 
@@ -253,22 +262,24 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
           await stateStore(config, 'delete', 'session', current.hash);
           return responseHeaders(json({ ok: true, revoked: true }), origin);
         }
-        if (url.pathname !== '/api/records') throw new HttpError(404, 'NOT_FOUND', '接口不存在。');
+        const area = url.pathname === '/api/records' ? 'legacy' : /^\/api\/data\/(profile|growth|english)$/.exec(url.pathname)?.[1];
+        if (!area) throw new HttpError(404, 'NOT_FOUND', '接口不存在。');
         if (!['GET', 'PUT'].includes(request.method)) throw new HttpError(405, 'METHOD_NOT_ALLOWED', '请求方法不支持。');
         let incoming;
         if (request.method === 'PUT') {
           const raw = await readJson(request);
           if (!raw || typeof raw !== 'object' || !Object.hasOwn(raw, 'revision') || (raw.revision !== null && (typeof raw.revision !== 'string' || !SHA.test(raw.revision)))) throw new HttpError(400, 'INVALID_REVISION', '云端版本无效，请重新读取记录。');
-          try { incoming = { snapshot: validateBackup(raw.snapshot, VALID_IDS), revision: raw.revision }; }
+          try { incoming = { snapshot: area === 'legacy' ? validateBackup(raw.snapshot, VALID_IDS) : SyncModel.normalize(area, raw.snapshot, VALID_IDS), revision: raw.revision }; }
           catch { throw new HttpError(400, 'INVALID_SNAPSHOT', '宝宝资料或技能记录格式无效。'); }
         }
+        if (incoming?.snapshot === null) throw new HttpError(400, 'INVALID_SNAPSHOT', '不能用空文档覆盖记录。');
         await privateRepo(config);
-        if (request.method === 'GET') return responseHeaders(json(await loadRecords(config)), origin);
+        if (request.method === 'GET') return responseHeaders(json(await loadRecords(config, area)), origin);
         const savedAt = new Date(now()).toISOString();
         const file = { ...incoming.snapshot, savedAt };
-        const body = { message: '保存宝宝成长记录', branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(file, null, 2))), ...(incoming.revision ? { sha: incoming.revision } : {}) };
-        const saved = await github(config, contentPath(config), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        if (saved.status === 409 || saved.status === 422) return responseHeaders(json({ code: 'VERSION_CONFLICT', ...(await loadRecords(config)) }, 409), origin);
+        const body = { message: area === 'legacy' ? '保存宝宝成长记录' : `保存小芽${({ profile: '档案', growth: '成长', english: '英语' })[area]}记录`, branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(file, null, 2))), ...(incoming.revision ? { sha: incoming.revision } : {}) };
+        const saved = await github(config, contentPath(config, area), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (saved.status === 409 || saved.status === 422) return responseHeaders(json({ code: 'VERSION_CONFLICT', ...(await loadRecords(config, area)) }, 409), origin);
         if (!saved.ok) throw new HttpError(502, 'GITHUB_UNAVAILABLE', '保存云端记录失败，当前修改尚未同步，请稍后重试。');
         const confirmed = await saved.json();
         if (!SHA.test(confirmed.content?.sha)) throw new HttpError(502, 'SAVE_NOT_CONFIRMED', '云端保存结果未确认，请重新读取后重试。');
