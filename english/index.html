@@ -1119,13 +1119,13 @@ body.site-navigation-open{overflow:hidden}
     }
     return { update, get: key => update(key, value => value) };
   }
-  function createEngine({ journal, request, lock = (_, job) => job(), onStatus = () => {}, debounceMs = 1800, retryMs = 5000 }) {
-    const adapters = new Map(), states = new Map(), timers = new Map(), running = new Map();
+  function createEngine({ journal, request, lock = (_, job) => job(), onStatus = () => {}, debounceMs = 0, retryMs = 5000 }) {
+    const adapters = new Map(), states = new Map(), timers = new Map(), running = new Map(), rerun = new Set();
     let authenticated = false, closed = false;
     const keyFor = area => area;
     const report = (area, status) => { states.set(area, { ...states.get(area), ...status }); onStatus(area, M.copy(states.get(area))); };
     function schedule(area, delay = debounceMs) {
-      clearTimeout(timers.get(area));
+      if (timers.has(area)) clearTimeout(timers.get(area));
       if (!closed) timers.set(area, setTimeout(() => { timers.delete(area); void sync(area); }, delay));
     }
     async function local(area) {
@@ -1142,11 +1142,14 @@ body.site-navigation-open{overflow:hidden}
       report(area, { enabled: entry.enabled, pending: !M.equal(await local(area), entry.base), conflict: entry.conflict, error: null, savedAt: entry.savedAt || null });
       if (entry.enabled && authenticated) schedule(area, 0);
     }
-    async function changed(area) {
+    async function changed(area, { delay = debounceMs } = {}) {
       if (!adapters.has(area)) return;
       const entry = await journal.get(keyFor(area));
       report(area, { pending: !M.equal(await local(area), entry.base), error: null });
-      if (entry.enabled && authenticated) schedule(area);
+      if (entry.enabled && authenticated) {
+        if (delay > 0) schedule(area, delay);
+        else void sync(area);
+      }
     }
     async function preview(area) {
       const remote = await envelope(area, await request(area, 'GET'));
@@ -1224,14 +1227,19 @@ body.site-navigation-open{overflow:hidden}
       const previous = running.get(area) || Promise.resolve();
       const task = previous.catch(() => {}).then(() => lock('xiaoya-sync:' + area, job));
       running.set(area, task);
-      const cleanup = () => { if (running.get(area) === task) running.delete(area); };
+      const cleanup = () => {
+        if (running.get(area) !== task) return;
+        running.delete(area);
+        // 在途请求期间的新编辑紧接着提交，不等待下一轮定时检查，也不忙循环。
+        if (rerun.delete(area)) schedule(area, 0);
+      };
       task.then(cleanup, cleanup);
       return task;
     }
     function sync(area) {
       if (!adapters.has(area) || closed) return Promise.resolve();
-      if (running.has(area)) { schedule(area); return running.get(area).catch(error => report(area, { error: error.message, pending: true })); }
-      clearTimeout(timers.get(area)); timers.delete(area);
+      if (running.has(area)) { rerun.add(area); return running.get(area).catch(error => report(area, { error: error.message, pending: true })); }
+      if (timers.has(area)) clearTimeout(timers.get(area)); timers.delete(area);
       return run(area, () => perform(area)).catch(error => report(area, { error: error.message, pending: true }));
     }
     function resolve(area, choices, reviewed = states.get(area)?.conflict) {
@@ -1253,8 +1261,9 @@ body.site-navigation-open{overflow:hidden}
     return {
       register, changed, preview, enable, sync, resolve,
       states: () => Object.fromEntries([...states].map(([key, value]) => [key, M.copy(value)])),
-      authenticate(value) { authenticated = value; if (value) for (const area of adapters.keys()) schedule(area, 0); },
-      async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); clearTimeout(timers.get(area)); report(area, { enabled: false }); },
+      // 打开或刷新后，身份确认即直接读服务端；15 秒定时器仅用于页面留在前台时。
+      authenticate(value) { authenticated = value; return value ? Promise.all([...adapters.keys()].map(sync)) : Promise.resolve(); },
+      async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); if (timers.has(area)) clearTimeout(timers.get(area)); report(area, { enabled: false }); },
       destroy() { closed = true; for (const timer of timers.values()) clearTimeout(timer); },
     };
   }
@@ -1367,7 +1376,8 @@ body.site-navigation-open{overflow:hidden}
   function createClient({ siteRoot = './', profileClient }) {
     if (singleton) return singleton;
     let apiBase = '', token = '', user = null, configurationError = '', dialog, popup, nonce, authTimer, engine, sessionKey;
-    let initialized = false, applying = 0;
+    let initialized = false;
+    const applying = new Set();
     const buttons = new Set(), listeners = new Set();
     const renderedConflicts = new WeakMap();
     const channel = typeof BroadcastChannel === 'function' ? new BroadcastChannel('xiaoya-data-changed') : null;
@@ -1461,7 +1471,7 @@ body.site-navigation-open{overflow:hidden}
         });
         for (const [area, adapter] of Object.entries(adapters)) await engine.register(area, {
           read: adapter.read,
-          async apply(next, base) { applying++; try { return await adapter.apply(next, base); } finally { applying--; } },
+          async apply(next, base) { applying.add(area); try { return await adapter.apply(next, base); } finally { applying.delete(area); } },
         });
         sessionKey = 'xiaoya-cloud-session-v2:' + apiBase;
         try { token = sessionStorage.getItem(sessionKey) || ''; } catch { /* 会话存储不可用时保留内存会话。 */ }
@@ -1588,9 +1598,9 @@ body.site-navigation-open{overflow:hidden}
       dialog.showModal();
       updateButtons();
     }
-    async function changed(area) {
+    async function changed(area, options) {
       await ready;
-      if (!applying) await engine?.changed(area);
+      await engine?.changed(area, options);
       channel?.postMessage({ area });
       updateButtons();
     }
@@ -1601,7 +1611,7 @@ body.site-navigation-open{overflow:hidden}
     setInterval(() => { if (!document.hidden) resume(); }, 15000);
     if (channel) channel.onmessage = event => { if (names[event.data?.area]) { emit(event.data.area); void engine?.changed(event.data.area); } };
     root.addEventListener('storage', event => { if (event.key === 'little-leaf-english-v1') { emit('english'); void engine?.changed('english'); } });
-    profileClient.subscribe((profile, error) => { if (!error && !applying) void changed('profile').catch(showError); });
+    profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
       ready, open, changed, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
@@ -2684,7 +2694,7 @@ function asset(path){if(!path)return '';const item=window.ROADMAP_ASSETS?.[path]
 function sourcePage(id,page){const s=src(id);return s?.previews.find(p=>p.page===Number(page))||s?.previews[0];}
 function sourceBtn(id,page,label){return btn([icon('source'),label||((src(id)?.title||'原文')+' · 第 '+page+' 页')],'preview',{'data-source':id,'data-page':page},'text-link');}
 function stageSourceLinks(st){const refs=st.pages.map(page=>({id:st.sourceId||st.routeId,page}));for(const m of st.materials){const id=m.sourceId||st.sourceId||st.routeId,page=m.page||st.pages[0]||1;if(!refs.some(ref=>ref.id===id&&ref.page===page))refs.push({id,page});}return refs.map(ref=>sourceBtn(ref.id,ref.page));}
-function persist(){try{const {name,birthDate,...englishProfile}=S.profile;if(!sharedProfile.get().birthDate&&saved.profile){if(saved.profile.name)englishProfile.name=saved.profile.name;if(saved.profile.birthDate)englishProfile.birthDate=saved.profile.birthDate;}localStorage.setItem('little-leaf-english-v1',JSON.stringify({profile:englishProfile,favorites:S.favorites,records:S.records}));void siteSync?.changed('english').catch(error=>toast('本机已保存，同步暂不可用：'+error.message));return true;}catch{toast('当前浏览器未能保存，请保持页面打开或导出备份。');return false;}}
+function persist({delay=0}={}){try{const {name,birthDate,...englishProfile}=S.profile;if(!sharedProfile.get().birthDate&&saved.profile){if(saved.profile.name)englishProfile.name=saved.profile.name;if(saved.profile.birthDate)englishProfile.birthDate=saved.profile.birthDate;}localStorage.setItem('little-leaf-english-v1',JSON.stringify({profile:englishProfile,favorites:S.favorites,records:S.records}));void siteSync?.changed('english',{delay}).catch(error=>toast('本机已保存，同步暂不可用：'+error.message));return true;}catch{toast('当前浏览器未能保存，请保持页面打开或导出备份。');return false;}}
 function toast(text){clearTimeout(toastTimer);document.getElementById('toast')?.remove();const n=h('div',{id:'toast',class:'toast',role:'status'},text);document.body.append(n);toastTimer=setTimeout(()=>n.remove(),2800);}
 function age(){return S.profile.birthDate?EnglishModel.getAge(S.profile.birthDate):null;}
 function rec(){return EnglishModel.recommend(S.profile,C);}
@@ -2966,7 +2976,7 @@ function songRouteLinks(){
 }
 function songLibrary(){const context=S.modal.stageId?stages.get(S.modal.stageId):null;return h('div',{class:'song-library'},context?h('div',{class:'song-context'},h('span',{},'来自：'+routes.get(context.routeId).name+' · '+stageName(context)),btn('回到这个阶段','stage',{'data-id':context.id},'text-link')):null,songRouteLinks(),h('div',{class:'song-heading'},h('div',{class:'eyebrow'},'SING, PLAY & REPEAT'),h('h2',{},'跟着歌单，把儿歌唱进生活'),h('p',{},'按你提供的图片整理，分类可以交叉；同一首歌只收录一次。')),h('div',{class:'song-filters'},h('div',{class:'song-tabs',role:'group','aria-label':'歌单分类'},[{id:'all',label:'全部',songIds:SSS.songs},...SSS.categories].map(c=>btn(['essential','recommended'].includes(c.id)?c.label:c.label+' · '+c.songIds.length+'首','song-category',{'data-category':c.id,'aria-pressed':S.songCategory===c.id},S.songCategory===c.id?'button primary':'button'))),h('div',{class:'song-filter-row'},h('label',{class:'search-field'},icon('search'),h('input',{id:'song-search',type:'search',value:S.songSearch,placeholder:'搜索英文歌名或生活场景','aria-label':'搜索 SSS 歌曲',oninput:e=>{S.songSearch=e.target.value;refreshSongResults();}})),h('label',{class:'song-scene-select'},'生活场景',h('select',{'aria-label':'按生活场景筛选歌曲',onchange:e=>{S.songScene=e.target.value;refreshSongResults();}},['all',...SSS.scenes].map(scene=>h('option',{value:scene,selected:S.songScene===scene},scene==='all'?'全部场景':scene)))),btn('清除筛选','song-clear',{},'text-link')),h('p',{class:'small-note'},'“一天”按起床到摇篮曲排列；“大童”沿用图片分类，不作年龄或路线阶段门槛。')),songResults(),h('details',{class:'song-source'},h('summary',{},'歌单出处 · 查看6张原图'),h('p',{class:'small-note'},SSS.attribution),h('div',{class:'source-thumbs'},SSS.source.previews.map(p=>btn([h('img',{src:asset(p.path),alt:'SSS 歌单截图 '+p.page,loading:'lazy'}),h('span',{},'截图 '+p.page)],'preview',{'data-source':SSS.source.id,'data-page':p.page},'')))),h('p',{class:'small-note'},'资源入口来自 Super Simple 官方网站与视频；打开后可查看视频、歌词及配套活动，需要联网。'));
 }
-function resourceDetail(r){if(!r)return h('p',{},'未找到这个素材。');const rel=C.relationships.filter(e=>e.from===r.id||e.to===r.id);const related=Array.from(new Set(rel.map(e=>e.from===r.id?e.to:e.from))).filter(id=>byId.has(id)&&id!==r.id);const record=S.records[r.id]||{};return h('div',{},h('div',{class:'chips'},h('span',{class:'chip'},TYPES[r.type]||'其他'),...Array.from(new Set(r.appearances.map(a=>a.routeId))).map(routeChip)),h('h2',{style:{marginTop:'14px'}},r.title),r.aliases?.length?readingFold('aliases-'+r.id,'其他名称与写法',h('p',{},r.aliases.join(' / '))):null,songResourceIds.has(r.id)?songLibraryEntry(r.id):null,seriesProgression(r),r.cover?readingFold('cover-'+r.id,'封面与图片出处',h('div',{},h('img',{class:'detail-preview',src:asset(r.cover),alt:r.title+'，'+coverLabel(r)}),r.coverSource?h('p',{class:'small-note cover-attribution'},h('a',{href:r.coverSource.sourceUrl,target:'_blank',rel:'noopener noreferrer'},'图片出处 ↗'),' · '+(r.coverSource.kind==='series-example'?'套系示例封面；各阶段使用级别见上表。':r.coverSource.kind==='program'?'节目宣传图。':'素材参考图；具体版本以手头资料为准。')):null)):null,h('div',{class:'toolbar',style:{marginTop:'18px'}},btn([icon('heart'),S.favorites.includes(r.id)?'已收藏':'收藏素材'],'favorite',{'data-id':r.id},S.favorites.includes(r.id)?'button soft':'button'),btn([icon('network'),'查看关联地图'],'resource-graph',{'data-id':r.id},'button primary')),h('section',{class:'detail-section'},h('h3',{},'详细套系与级别'),r.levels.some(levelText)?h('div',{class:'chips'},r.levels.map(levelText).filter(Boolean).map(x=>h('span',{class:'chip'},x))):null,detailRows(r).map((x,i)=>h('details',{class:'series-block',open:i===0},h('summary',{},h('strong',{},x.title)),h('p',{},x.text),x.routeId?sourceBtn(x.routeId,x.page,'核对该版本原页'):null)),h('div',{class:'detail-section'},(r.details||[]).filter(d=>['同套系版本关系','关联边界','补充图建议年龄','原文难度参考','来源说明','资料备注'].includes(d.label)).map(d=>h('div',{class:'series-block'},h('h4',{},d.label),h('p',{},d.text),(d.sourceId||d.routeId)&&src(d.sourceId||d.routeId)?sourceBtn(d.sourceId||d.routeId,d.page||1,'核对来源'):null))),h('p',{class:'small-note'},songResourceIds.has(r.id)?'SSS 单曲的预览图、官方视频与配套资源见上方分类歌单。':'仅展示原资料明确提供的级别、数量与分册；素材媒体和购买渠道不包含在这几份资料中。')),h('section',{class:'detail-section'},h('h3',{},'原文引用与用途（全部）'),!r.appearances.length?h('p',{class:'small-note'},'这份素材仅见于独立补充图，三条原作者路线中未见明确引用。'):null,C.routes.map(route=>{const ap=r.appearances.filter(a=>a.routeId===route.id);return ap.length?h('div',{class:'detail-section'},routeChip(route.id),ap.map(a=>h('div',{class:'series-block'},btn([h('span',{},h('strong',{},stageLocation(stages.get(a.stageId))||a.stageId),h('small',{},[levelText(a.level),roleLabel(a.role)].filter(Boolean).join(' · '))),icon('chevron')],'stage',{'data-id':a.stageId},'detail-resource-row'),a.original?h('p',{},'原文：'+a.original):null,sourceBtn(a.sourceId||route.id,a.page||1,'第 '+(a.page||1)+' 页 · '+(a.variantLabel||route.name)+'原页')))):null;})),related.length?h('section',{class:'detail-section'},h('h3',{},'相关素材 · '+related.length),h('p',{class:'small-note'},'来自原文同阶段组合或上下阶段衔接，不是逐本与逐集配对。'),related.map(id=>btn([h('span',{},h('strong',{},byId.get(id).title),h('small',{},rel.find(e=>e.from===id||e.to===id)?.label||'原文同阶段组合')),icon('chevron')],'resource',{'data-id':id},'detail-resource-row'))):null,h('section',{class:'detail-section'},h('h3',{},'这份素材的小记录'),h('label',{class:'form-row'},h('small',{},'套系状态（每个级别的进度可记在下方）'),h('select',{'aria-label':'素材使用状态','data-record-id':r.id,onchange:e=>{S.records[r.id]=Object.assign({},S.records[r.id],{status:e.target.value});persist();}},[['not-started','还没开始'],['using','正在使用'],['done','已体验 / 已完成']].map(([id,label])=>h('option',{value:id,selected:(record.status||'not-started')===id},label)))),h('div',{class:'form-row'},h('label',{for:'resource-note'},'兴趣、已经用到的级别、下次想看的内容'),h('textarea',{id:'resource-note',maxlength:4000,placeholder:'例如：喜欢动物主题，今天读了……',oninput:e=>{S.records[r.id]=Object.assign({},S.records[r.id],{note:e.target.value});persist();}},record.note||'')),h('p',{class:'small-note'},'自动保存在当前浏览器；单文件版与本地预览的记录分别保存。可在宝宝资料中导出备份。')));}
+function resourceDetail(r){if(!r)return h('p',{},'未找到这个素材。');const rel=C.relationships.filter(e=>e.from===r.id||e.to===r.id);const related=Array.from(new Set(rel.map(e=>e.from===r.id?e.to:e.from))).filter(id=>byId.has(id)&&id!==r.id);const record=S.records[r.id]||{};return h('div',{},h('div',{class:'chips'},h('span',{class:'chip'},TYPES[r.type]||'其他'),...Array.from(new Set(r.appearances.map(a=>a.routeId))).map(routeChip)),h('h2',{style:{marginTop:'14px'}},r.title),r.aliases?.length?readingFold('aliases-'+r.id,'其他名称与写法',h('p',{},r.aliases.join(' / '))):null,songResourceIds.has(r.id)?songLibraryEntry(r.id):null,seriesProgression(r),r.cover?readingFold('cover-'+r.id,'封面与图片出处',h('div',{},h('img',{class:'detail-preview',src:asset(r.cover),alt:r.title+'，'+coverLabel(r)}),r.coverSource?h('p',{class:'small-note cover-attribution'},h('a',{href:r.coverSource.sourceUrl,target:'_blank',rel:'noopener noreferrer'},'图片出处 ↗'),' · '+(r.coverSource.kind==='series-example'?'套系示例封面；各阶段使用级别见上表。':r.coverSource.kind==='program'?'节目宣传图。':'素材参考图；具体版本以手头资料为准。')):null)):null,h('div',{class:'toolbar',style:{marginTop:'18px'}},btn([icon('heart'),S.favorites.includes(r.id)?'已收藏':'收藏素材'],'favorite',{'data-id':r.id},S.favorites.includes(r.id)?'button soft':'button'),btn([icon('network'),'查看关联地图'],'resource-graph',{'data-id':r.id},'button primary')),h('section',{class:'detail-section'},h('h3',{},'详细套系与级别'),r.levels.some(levelText)?h('div',{class:'chips'},r.levels.map(levelText).filter(Boolean).map(x=>h('span',{class:'chip'},x))):null,detailRows(r).map((x,i)=>h('details',{class:'series-block',open:i===0},h('summary',{},h('strong',{},x.title)),h('p',{},x.text),x.routeId?sourceBtn(x.routeId,x.page,'核对该版本原页'):null)),h('div',{class:'detail-section'},(r.details||[]).filter(d=>['同套系版本关系','关联边界','补充图建议年龄','原文难度参考','来源说明','资料备注'].includes(d.label)).map(d=>h('div',{class:'series-block'},h('h4',{},d.label),h('p',{},d.text),(d.sourceId||d.routeId)&&src(d.sourceId||d.routeId)?sourceBtn(d.sourceId||d.routeId,d.page||1,'核对来源'):null))),h('p',{class:'small-note'},songResourceIds.has(r.id)?'SSS 单曲的预览图、官方视频与配套资源见上方分类歌单。':'仅展示原资料明确提供的级别、数量与分册；素材媒体和购买渠道不包含在这几份资料中。')),h('section',{class:'detail-section'},h('h3',{},'原文引用与用途（全部）'),!r.appearances.length?h('p',{class:'small-note'},'这份素材仅见于独立补充图，三条原作者路线中未见明确引用。'):null,C.routes.map(route=>{const ap=r.appearances.filter(a=>a.routeId===route.id);return ap.length?h('div',{class:'detail-section'},routeChip(route.id),ap.map(a=>h('div',{class:'series-block'},btn([h('span',{},h('strong',{},stageLocation(stages.get(a.stageId))||a.stageId),h('small',{},[levelText(a.level),roleLabel(a.role)].filter(Boolean).join(' · '))),icon('chevron')],'stage',{'data-id':a.stageId},'detail-resource-row'),a.original?h('p',{},'原文：'+a.original):null,sourceBtn(a.sourceId||route.id,a.page||1,'第 '+(a.page||1)+' 页 · '+(a.variantLabel||route.name)+'原页')))):null;})),related.length?h('section',{class:'detail-section'},h('h3',{},'相关素材 · '+related.length),h('p',{class:'small-note'},'来自原文同阶段组合或上下阶段衔接，不是逐本与逐集配对。'),related.map(id=>btn([h('span',{},h('strong',{},byId.get(id).title),h('small',{},rel.find(e=>e.from===id||e.to===id)?.label||'原文同阶段组合')),icon('chevron')],'resource',{'data-id':id},'detail-resource-row'))):null,h('section',{class:'detail-section'},h('h3',{},'这份素材的小记录'),h('label',{class:'form-row'},h('small',{},'套系状态（每个级别的进度可记在下方）'),h('select',{'aria-label':'素材使用状态','data-record-id':r.id,onchange:e=>{S.records[r.id]=Object.assign({},S.records[r.id],{status:e.target.value});persist();}},[['not-started','还没开始'],['using','正在使用'],['done','已体验 / 已完成']].map(([id,label])=>h('option',{value:id,selected:(record.status||'not-started')===id},label)))),h('div',{class:'form-row'},h('label',{for:'resource-note'},'兴趣、已经用到的级别、下次想看的内容'),h('textarea',{id:'resource-note',maxlength:4000,placeholder:'例如：喜欢动物主题，今天读了……',oninput:e=>{S.records[r.id]=Object.assign({},S.records[r.id],{note:e.target.value});persist({delay:800});}},record.note||'')),h('p',{class:'small-note'},'自动保存在当前浏览器；单文件版与本地预览的记录分别保存。可在宝宝资料中导出备份。')));}
 function activityDetail(index){const item=defaultChain()[index];const names=item.materialNames||[];return h('div',{},h('div',{class:'chips'},h('span',{class:'chip edited'},'整理建议'),h('span',{class:'chip'},String(item.minutes)+(typeof item.minutes==='number'?' 分钟':''))),h('h2',{style:{marginTop:'14px'}},item.title.replace(/^\d+\s*·\s*/,'')),h('p',{},item.description),names.some(name=>songResourceIds.has(findResource([name])?.id))?btn([icon('music'),'选择 SSS 儿歌 →'],'sss-songs',{'data-stage':item.stageId},'button soft'):null,h('section',{class:'detail-section'},h('h3',{},'可以这样做'),h('ul',{},(item.actionTips||[]).map(x=>h('li',{},x)))),h('section',{class:'detail-section'},h('h3',{},'对应素材'),names.map(name=>{const r=findResource([name]);return r?btn([h('span',{},h('strong',{},name),h('small',{},'查看套系、级别、原文和所有关联')),icon('chevron')],'resource',{'data-id':r.id},'detail-resource-row'):h('p',{class:'small-note'},name+' · 在阶段节点核对原文');})),h('section',{class:'detail-section'},h('h3',{},'回到原路线节点'),btn([h('span',{},h('strong',{},routes.get(item.routeId)?.name+' · '+stages.get(item.stageId)?.title),h('small',{},index===2?'此处是提前少量试读，不表示整个阶段已经适合。':'原文材料入口与完整同阶段组合')),icon('chevron')],'stage',{'data-id':item.stageId},'detail-resource-row')),h('p',{class:'small-note'},'这条示例链共约12分钟，可分散到生活中；时长来自整理建议。宝宝状态和兴趣优先。'));}
 function resourceRouteDetail(id,routeId){const r=byId.get(id),route=routes.get(routeId);return h('div',{},h('div',{class:'chips'},routeChip(routeId)),h('h2',{style:{marginTop:'14px'}},r.title),h('p',{},'这份素材在'+route.name+'中的全部引用'),r.appearances.filter(a=>a.routeId===routeId).map(a=>h('div',{class:'series-block'},btn([h('span',{},h('strong',{},stageLocation(stages.get(a.stageId))||a.stageId),h('small',{},[levelText(a.level),roleLabel(a.role)].filter(Boolean).join(' · '))),icon('chevron')],'stage',{'data-id':a.stageId},'detail-resource-row'),sourceBtn(a.sourceId||routeId,a.page||1))));}
 function profileModal(){profileEditBase=sharedProfile.get();return h('div',{class:'modal-backdrop center-backdrop','data-action':'backdrop'},h('section',{class:'detail profile-modal',role:'dialog','aria-modal':'true','aria-labelledby':'profile-title'},h('form',{class:'profile-form',id:'profile-form'},h('div',{class:'profile-site-head'},siteShell.createSectionSwitch(),btn(icon('close'),'close',{'aria-label':'关闭资料'},'icon-button')),h('h2',{id:'profile-title'},'宝宝资料 · 全站共用'),h('p',{},'全站共用宝宝资料；听力词汇仅用于英语启蒙。'),h('div',{class:'form-row'},h('label',{for:'baby-name'},'怎么称呼宝宝'),h('input',{id:'baby-name',name:'name',value:namePart(),maxlength:30,required:true})),h('input',{name:'birthDate',type:'hidden',value:S.profile.birthDate}),h('div',{class:'form-row'},h('label',{for:'vocabulary'},'听力词汇（约）'),h('input',{id:'vocabulary',name:'vocabulary',type:'number',min:0,max:20000,step:1,value:S.profile.vocabulary,required:true}),h('small',{},'用于浏览候选材料；不据此自动判断 Phase 或认定晋级。')),h('div',{id:'profile-error',class:'form-error',role:'alert'}),h('div',{class:'form-actions'},btn([icon('download'),'备份'],'backup'),btn('关闭','close'),h('button',{type:'submit',class:'button primary'},'保存档案')))));}

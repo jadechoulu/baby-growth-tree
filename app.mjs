@@ -480,7 +480,12 @@ function plant() {
 
 function hero() {
   const overall = getStats(catalog, state.records);
-  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮 · ${overall.percent}%</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+}
+
+function overallProgress() {
+  const stats = getStats(catalog, state.records);
+  return html`<div class="growth-overall-progress" aria-label="整体成长进度"><span>${icon('sprout')} 累计点亮 <strong>${stats.completed} / ${stats.total}</strong></span><span class="overall-progress-track" aria-hidden="true"><i style="width:${stats.percent}%"></i></span><strong>${stats.percent}%</strong></div>`;
 }
 
 function stageCompleteBadge(stageId) {
@@ -503,7 +508,7 @@ function stageNavigator() {
   const preview = state.view === 'baby' && Boolean(current) && current.id !== stage.id;
   return html`<section class="stage-picker" aria-label="切换成长阶段">
     <div class="stage-picker-heading"><span class="section-kicker">跟着宝宝的节奏</span><span class="swipe-hint">左右滑动，看看前后阶段 ${icon('arrow')}</span></div>
-    <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><label class="stage-select-label"><span>当前阶段</span><select id="growth-stage-select" aria-label="选择成长阶段">${STAGES.map(item => html`<option value="${item.id}" selected="${item.id === stage.id}">${item.label}${item.id === current?.id ? ' · 宝宝当前阶段' : ''}</option>`)}</select></label><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}${getStats(getStageSkills(catalog, item.id), state.records).remaining === 0 ? icon('check', 'stage-pill-check') : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button></div>
+    <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><label class="stage-select-label"><span>当前阶段</span><select id="growth-stage-select" aria-label="选择成长阶段">${STAGES.map(item => html`<option value="${item.id}" selected="${item.id === stage.id}">${item.label}${item.id === current?.id ? ' · 当前' : ''}</option>`)}</select></label><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}${getStats(getStageSkills(catalog, item.id), state.records).remaining === 0 ? icon('check', 'stage-pill-check') : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button></div>
     ${preview ? html`<div class="preview-caption">正在预览 ${stage.label}<button class="text-button" data-action="current-stage">回到宝宝当前阶段 ${icon('arrow')}</button></div>` : !current && state.view === 'baby' ? html`<div class="preview-caption">${babyAge() ? '宝宝已超出图谱年龄范围，可以继续回顾每个阶段。' : state.profile.birthDate ? '宝宝还未出生，可以先预览各阶段。' : state.localMode ? '导入记录或建立宝宝资料后自动定位。' : '先浏览各个阶段，登录并建立宝宝资料后自动定位。'}</div>` : ''}
   </section>`;
 }
@@ -516,17 +521,17 @@ function domainCards() {
   })}</section>`;
 }
 
-function skillRow(skill, tree = false) {
+function skillRow(skill, tree = false, timing = '') {
   const record = state.records[skill.id];
   const done = isDone(skill.id);
-  return html`<article class="skill-row ${done ? 'completed' : ''} ${tree ? 'tree-node' : ''}" data-node="${tree ? skill.id : ''}" data-skill-id="${skill.id}">
+  return html`<article class="skill-row ${done ? 'completed' : ''} ${tree ? 'tree-node' : ''} ${timing ? `next-skill-card timing-${timing}` : ''}" data-next-skill="${timing ? skill.id : ''}" data-node="${tree ? skill.id : ''}" data-skill-id="${skill.id}">
     <button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button>
     <div class="skill-label">
       <div class="skill-name-row">
         <button class="skill-open" data-detail="${skill.id}" title="点击查看通俗解释、陪玩方法与手记"><span class="skill-title">${skill.title}</span></button>
         <button class="lineage-entry" data-lineage="${skill.id}" title="查看${skill.title}完整脉络" aria-label="查看${skill.title}完整脉络">${icon('tree')}<span>脉络</span></button>
       </div>
-      <span class="skill-category">${skill.category}${record?.note ? html`<span class="has-note">${icon('note')} 有手记</span>` : ''}</span>
+      <span class="skill-category">${skill.category}${timing ? html`<span class="next-skill-age">${skillStageLabel(skill)}<span class="next-skill-timing"> · ${{ current: '当前阶段', earlier: '此前阶段', next: '下一月龄', later: '更后阶段', unknown: '可探索' }[timing]}</span></span>` : ''}${record?.note ? html`<span class="has-note">${icon('note')} 有手记</span>` : ''}</span>
     </div>
   </article>`;
 }
@@ -569,23 +574,11 @@ function milestoneList() {
     ${skills.length ? html`<div class="skill-groups">${DOMAINS.filter(domain => skills.some(skill => skill.domain === domain.id)).map(domain => {
       const items = skills.filter(skill => skill.domain === domain.id);
       const domainStats = getStats(allStageSkills.filter(skill => skill.domain === domain.id), state.records);
-      return html`<details class="skill-group domain-${domain.id}" open><summary class="group-heading" title="展开或收起技能清单"><span class="domain-icon">${icon(domain.id)}</span><span class="group-label"><strong>${domain.label}</strong><span>${domain.description}</span></span><span class="group-count">${domainStats.completed} / ${domainStats.total}</span>${icon('chevron', 'group-fold-icon')}</summary><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></details>`;
+      return html`<details class="skill-group domain-${domain.id}"><summary class="group-heading" title="展开或收起技能清单"><span class="domain-icon">${icon(domain.id)}</span><span class="group-label"><strong>${domain.label}</strong><span>${domain.description}</span></span><span class="group-count">${domainStats.completed} / ${domainStats.total}</span>${icon('chevron', 'group-fold-icon')}</summary><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></details>`;
     })}</div>` : html`<div class="empty-state">${icon(state.status === 'done' ? 'sprout' : 'search')}<h3>${state.search ? '还没找到这个技能' : state.status === 'done' ? '第一颗小芽，等你来点亮' : '这里的小技能都探索过啦'}</h3><p>${state.search ? '换个词试试，或清除筛选看看。' : state.status === 'done' ? '点一下技能旁的圆圈，记下宝宝的成长。' : '可以回顾已完成的技能，或看看下一阶段。'}</p><button class="secondary-button" data-action="clear-filters">清除筛选</button></div>`}
     ${resourceSection(resources[stage.id])}
     <div class="list-footnote">${icon('info')} 点圆圈记录完成，再点一次即可回退；点技能名称看解释、陪玩方法或写手记。</div>
   </section>`;
-}
-
-function nextTrainingCard(skill, timing) {
-  const guide = skillGuides.skills[skill.id];
-  const parents = catalog.filter(item => skill.parents.includes(item.id));
-  return html`<article class="next-skill-card timing-${timing}" data-next-skill="${skill.id}">
-    <div class="next-skill-meta"><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>
-    <h3>${skill.title}</h3>${guide?.meaning ? html`<p class="next-skill-meaning">${guide.meaning}</p>` : ''}
-    <p class="next-prerequisites">${parents.length ? `接着练：${parents.map(item => item.title).join('、')} → ${skill.title}` : '本分支的起点 · 原图未列前置技能'}</p>
-    ${guide?.observe || guide?.play ? html`<details class="next-practice"><summary>怎么观察、怎么陪玩 ${icon('chevron')}</summary><div class="next-skill-tips">${guide.observe ? html`<div><h4>怎么观察</h4><p>${guide.observe}</p></div>` : ''}${guide.play ? html`<div><h4>可以这样陪玩</h4><p>${guide.play}</p></div>` : ''}</div></details>` : ''}
-    <div class="next-skill-actions"><button class="primary-button" data-toggle="${skill.id}" aria-label="标记完成：${skill.title}">${icon('check')} 标记完成</button><button class="secondary-button" data-detail="${skill.id}" aria-label="查看${skill.title}解释与手记">${icon('book')} 解释与手记</button><button class="text-button" data-lineage="${skill.id}" aria-label="查看${skill.title}完整脉络">${icon('tree')} 完整脉络</button></div>
-  </article>`;
 }
 
 function nextStepView() {
@@ -603,18 +596,18 @@ function nextStepView() {
   const undo = state.lastUndo;
   const canUndo = undo?.id && !undo.previous?.completedAt && isDone(undo.id);
   return html`<section class="next-step-view domain-${domain.id}" aria-label="下一步待完成技能">
-    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p><span class="next-current-age">${current ? `当前 ${current.label}` : '训练建议'}<button class="text-button" data-action="profile">编辑资料</button></span></header>
+    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p></header>
     <div class="lineage-domains next-domains" role="group" aria-label="下一步技能领域">${DOMAINS.map(item => {
       const count = getNextSkills(catalog, state.records, item.id, current?.id).length;
       return html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>可探索 ${count}</span></button>`;
     })}</div>
-    <div class="next-age-legend" aria-label="月龄颜色图例"><span class="timing-current">蓝 · 当前阶段</span><span class="timing-next">橙 · 下一月龄</span><span class="timing-later">紫 · 更后阶段</span><span class="timing-earlier">灰 · 此前阶段</span><small>月龄仅作参考，可按宝宝的兴趣选择；同一技能只列一次。</small></div>
+    <div class="next-age-legend" aria-label="月龄颜色图例"><span class="timing-current">当前 ${current?.label || '阶段'}</span><span class="timing-next">橙 · 下一月龄</span><span class="timing-later">紫 · 更后阶段</span><span class="timing-earlier">灰 · 此前阶段</span><small>月龄仅作参考，可按宝宝的兴趣选择；同一技能只列一次。</small></div>
     ${canUndo ? html`<div class="next-undo"><span>刚刚完成：${catalog.find(item => item.id === undo.id)?.title}</span><button class="text-button" data-action="undo">撤销上次完成</button></div>` : ''}
     <div class="next-results-summary" role="status">${domain.label} · ${skills.length} 项可探索${pending.length > skills.length ? ` · 另有 ${pending.length - skills.length} 项等待前置完成或进入相应月龄` : ''}</div>
-    ${skills.length ? groups.map(group => {
+    ${skills.length ? html`<div class="next-training-groups">${groups.map(group => {
       const items = skills.filter(skill => getSkillAgeStatus(skill, current?.id) === group.id);
-      return items.length ? html`<section class="next-training-group timing-${group.id}" aria-label="${group.label}"><h2><span class="next-timing-label">${group.label}</span><small>${items.length} 项</small></h2><div class="next-training-grid">${items.map(skill => nextTrainingCard(skill, group.id))}</div></section>` : '';
-    }) : html`<div class="next-complete"><span>${icon(pending.length ? 'sprout' : 'check')}</span><h2>${pending.length ? '当前没有前置已完成的技能' : `${domain.label}的技能已全部点亮`}</h2><p>${pending.length ? '可以在其他领域补充前置技能，或在宝宝视角核对完成记录；新的独立分支会在相应月龄出现。' : '可以切换其他领域，或在技能全景回顾、回退完成状态。'}</p></div>`}
+      return items.length ? html`<section class="next-training-group timing-${group.id}" aria-label="${group.label}"><h2><span class="next-timing-label">${group.label}</span><small>${items.length} 项</small></h2><div class="next-training-grid">${items.map(skill => skillRow(skill, false, group.id))}</div></section>` : '';
+    })}</div>` : html`<div class="next-complete"><span>${icon(pending.length ? 'sprout' : 'check')}</span><h2>${pending.length ? '当前没有前置已完成的技能' : `${domain.label}的技能已全部点亮`}</h2><p>${pending.length ? '可以在其他领域补充前置技能，或在宝宝视角核对完成记录；新的独立分支会在相应月龄出现。' : '可以切换其他领域，或在技能全景回顾、回退完成状态。'}</p></div>`}
     <p class="next-step-rule">有多项前置时，全部标注完成后才列出后续技能；路径中的分叉可同时展示。这里与宝宝视角、技能全景共用完成记录，回退后也会重新计算。</p>
   </section>`;
 }
@@ -652,7 +645,7 @@ function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
   return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools" role="group" aria-label="图谱工具栏">
       <div class="graph-zoom-tools" role="group" aria-label="图谱缩放"><button data-action="graph-zoom-out" aria-label="缩小技能树" title="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树" title="放大技能树">＋</button></div>
-      <div class="graph-view-tools" role="group" aria-label="图谱视图"><button data-action="graph-fit" aria-label="一屏看全" title="一屏看全">${icon('fit')}</button><button data-action="graph-locate" aria-label="定位当前技能" title="定位当前技能">${icon('locate')}</button>${state.view === 'tree' ? html`<button type="button" data-action="graph-current-age" aria-label="回到宝宝当前月龄" title="回到宝宝当前月龄${currentStage() ? `：${currentStage().label}` : ''}">${icon('calendar')}</button>` : ''}<button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}" title="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div>
+      <div class="graph-view-tools" role="group" aria-label="图谱视图"><button data-action="graph-fit" aria-label="一屏看全" title="一屏看全">${icon('fit')}</button><button data-action="graph-locate" aria-label="定位当前技能" title="定位当前技能">${icon('locate')}</button>${state.view === 'tree' ? html`<button type="button" data-action="graph-current-age" aria-label="回到宝宝当前月龄" title="回到宝宝当前月龄${currentStage() ? `：${currentStage().label}` : ''}">${icon('calendar')}</button>` : ''}<button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}" title="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button><button class="graph-legend-button" data-action="graph-legend" aria-label="查看图例" title="图例：连线与颜色" aria-haspopup="dialog">${icon('info')}</button></div>
     </div></div>
       <div class="graph-legend-panel"><details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
       <div class="graph-key" role="group" aria-label="技能卡片颜色图例">
@@ -702,7 +695,7 @@ function stageTreeView() {
     ${domainCards()}
     <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span></div>
     ${graphWorkspace(graph, layout, relations, categories)}
-    <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。下方清单的筛选不会隐藏这里的依赖关系。</p>
+    <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。技能清单的筛选不会隐藏这里的依赖关系。</p>
   </section>`;
 }
 
@@ -766,9 +759,10 @@ const growthReadingState = new Map();
 function organizeGrowthReading() {
   const narrow = window.matchMedia('(max-width:900px)').matches;
   siteShell.content.querySelectorAll('details.skill-group').forEach(fold => {
-    fold.open = growthReadingState.get('skill-list') ?? true;
+    const key = `skill-list:${state.stage}:${state.domain}`;
+    fold.open = growthReadingState.get(key) ?? false;
     fold.addEventListener('toggle', () => {
-      if (fold.isConnected) growthReadingState.set('skill-list', fold.open);
+      if (fold.isConnected) growthReadingState.set(key, fold.open);
     });
   });
   const wrap = (key, label, nodes) => {
@@ -777,7 +771,7 @@ function organizeGrowthReading() {
     const fold = document.createElement('details');
     fold.className = 'growth-mobile-fold';
     fold.dataset.readingKey = key;
-    fold.open = !narrow || (growthReadingState.get(key) ?? key === 'stage-graph');
+    fold.open = !narrow || (growthReadingState.get(key) ?? false);
     const summary = document.createElement('summary'); summary.textContent = label;
     items[0].before(fold); fold.append(summary, ...items);
     fold.addEventListener('toggle', () => {
@@ -787,7 +781,14 @@ function organizeGrowthReading() {
   };
   if (state.view === 'baby') {
     const lineage = siteShell.content.querySelector('.stage-lineage');
-    if (lineage) wrap('stage-graph', '阶段图谱与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.lineage-footnote')));
+    if (lineage?.querySelector('.graph-workspace')) {
+      const panel = document.createElement('section');
+      panel.className = 'growth-stage-graph';
+      panel.setAttribute('aria-label', '阶段图谱与完整脉络');
+      const graph = lineage.querySelector('.graph-workspace');
+      graph.before(panel);
+      panel.append(...[graph, lineage.querySelector('.lineage-footnote')].filter(Boolean));
+    }
     const resource = siteShell.content.querySelector('.milestones>.resource-section');
     if (resource) wrap('stage-resources', '本阶段的陪伴与启蒙参考', [resource]);
     layoutGrowthStageReading();
@@ -796,14 +797,14 @@ function organizeGrowthReading() {
 function layoutGrowthStageReading() {
   const content = siteShell?.content;
   const lineage = content?.querySelector('.stage-lineage');
-  const fold = content?.querySelector('[data-reading-key="stage-graph"]');
+  const fold = content?.querySelector('.growth-stage-graph');
   if (!lineage || !fold) return;
   const heading = content.querySelector('.stage-lineage>.section-title-row') || fold.querySelector('.section-title-row');
   const focus = content.querySelector('.stage-lineage-focus');
   const milestones = content.querySelector('.milestones');
   if (window.matchMedia('(max-width:900px)').matches) {
-    // 先阶段、领域、技能；完整图谱放在技能清单之后，展开时仍使用原节点。
-    fold.querySelector('summary').after(...[heading, focus].filter(Boolean));
+    // 窄屏先读技能清单，完整图谱直接展示，不再增加外层折叠标题。
+    fold.prepend(...[heading, focus].filter(Boolean));
     milestones?.after(fold);
   } else {
     if (heading) lineage.prepend(heading);
@@ -812,7 +813,7 @@ function layoutGrowthStageReading() {
 }
 window.matchMedia('(max-width:900px)').addEventListener('change', event => {
   layoutGrowthStageReading();
-  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? fold.dataset.readingKey === 'stage-graph'); });
+  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? false); });
 });
 
 function render() {
@@ -829,7 +830,7 @@ function render() {
   const viewLabel = state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景';
   siteShell.update({ navigation: growthNavigation(), activeId: state.view, title: viewLabel });
   siteShell.actions.replaceChildren(html`<div class="topbar-actions">${siteSync?.createButton()}<button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
-  siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
+  siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${overallProgress()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
 
   organizeGrowthReading();
   if (state.graphExpanded) document.querySelector('.graph-toolbar')?.append(siteShell.createSectionSwitch());
@@ -975,6 +976,13 @@ function showDialog(content, kind = '') {
   return dialog;
 }
 function dialogHeader(kicker, title) { return html`<header class="dialog-header"><div><span class="section-kicker">${kicker}</span><h2 id="dialog-title">${title}</h2></div>${siteShell.createSectionSwitch()}<button class="circle-button" data-action="close-dialog" aria-label="关闭">${icon('close')}</button></header>`; }
+
+function openGraphLegend() {
+  const key = document.querySelector('.graph-legend-panel .graph-key');
+  if (!key) return;
+  const dialog = showDialog(html`${dialogHeader('', '图例 · 连线与颜色')}${key.cloneNode(true)}`, 'graph-legend-dialog');
+  dialog.addEventListener('close', () => document.querySelector('[data-action="graph-legend"]')?.focus({ preventScroll: true }));
+}
 
 function openDetail(id) {
   const skill = catalog.find(item => item.id === id);
@@ -1156,6 +1164,7 @@ document.addEventListener('click', async event => {
       case 'graph-zoom-in': setGraphZoom(state.graphZoom + .15); break;
       case 'graph-zoom-out': setGraphZoom(state.graphZoom - .15); break;
       case 'graph-fit': fitGraph(); break;
+      case 'graph-legend': openGraphLegend(); break;
       case 'graph-locate': locateGraphFocus(); break;
       case 'graph-current-age': locateCurrentAgeStage(); break;
       case 'graph-expand': state.graphExpanded = !state.graphExpanded; graphViewportAction = 'focus'; render(); break;

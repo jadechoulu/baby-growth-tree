@@ -31,13 +31,13 @@
     }
     return { update, get: key => update(key, value => value) };
   }
-  function createEngine({ journal, request, lock = (_, job) => job(), onStatus = () => {}, debounceMs = 1800, retryMs = 5000 }) {
-    const adapters = new Map(), states = new Map(), timers = new Map(), running = new Map();
+  function createEngine({ journal, request, lock = (_, job) => job(), onStatus = () => {}, debounceMs = 0, retryMs = 5000 }) {
+    const adapters = new Map(), states = new Map(), timers = new Map(), running = new Map(), rerun = new Set();
     let authenticated = false, closed = false;
     const keyFor = area => area;
     const report = (area, status) => { states.set(area, { ...states.get(area), ...status }); onStatus(area, M.copy(states.get(area))); };
     function schedule(area, delay = debounceMs) {
-      clearTimeout(timers.get(area));
+      if (timers.has(area)) clearTimeout(timers.get(area));
       if (!closed) timers.set(area, setTimeout(() => { timers.delete(area); void sync(area); }, delay));
     }
     async function local(area) {
@@ -54,11 +54,14 @@
       report(area, { enabled: entry.enabled, pending: !M.equal(await local(area), entry.base), conflict: entry.conflict, error: null, savedAt: entry.savedAt || null });
       if (entry.enabled && authenticated) schedule(area, 0);
     }
-    async function changed(area) {
+    async function changed(area, { delay = debounceMs } = {}) {
       if (!adapters.has(area)) return;
       const entry = await journal.get(keyFor(area));
       report(area, { pending: !M.equal(await local(area), entry.base), error: null });
-      if (entry.enabled && authenticated) schedule(area);
+      if (entry.enabled && authenticated) {
+        if (delay > 0) schedule(area, delay);
+        else void sync(area);
+      }
     }
     async function preview(area) {
       const remote = await envelope(area, await request(area, 'GET'));
@@ -136,14 +139,19 @@
       const previous = running.get(area) || Promise.resolve();
       const task = previous.catch(() => {}).then(() => lock('xiaoya-sync:' + area, job));
       running.set(area, task);
-      const cleanup = () => { if (running.get(area) === task) running.delete(area); };
+      const cleanup = () => {
+        if (running.get(area) !== task) return;
+        running.delete(area);
+        // 在途请求期间的新编辑紧接着提交，不等待下一轮定时检查，也不忙循环。
+        if (rerun.delete(area)) schedule(area, 0);
+      };
       task.then(cleanup, cleanup);
       return task;
     }
     function sync(area) {
       if (!adapters.has(area) || closed) return Promise.resolve();
-      if (running.has(area)) { schedule(area); return running.get(area).catch(error => report(area, { error: error.message, pending: true })); }
-      clearTimeout(timers.get(area)); timers.delete(area);
+      if (running.has(area)) { rerun.add(area); return running.get(area).catch(error => report(area, { error: error.message, pending: true })); }
+      if (timers.has(area)) clearTimeout(timers.get(area)); timers.delete(area);
       return run(area, () => perform(area)).catch(error => report(area, { error: error.message, pending: true }));
     }
     function resolve(area, choices, reviewed = states.get(area)?.conflict) {
@@ -165,8 +173,9 @@
     return {
       register, changed, preview, enable, sync, resolve,
       states: () => Object.fromEntries([...states].map(([key, value]) => [key, M.copy(value)])),
-      authenticate(value) { authenticated = value; if (value) for (const area of adapters.keys()) schedule(area, 0); },
-      async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); clearTimeout(timers.get(area)); report(area, { enabled: false }); },
+      // 打开或刷新后，身份确认即直接读服务端；15 秒定时器仅用于页面留在前台时。
+      authenticate(value) { authenticated = value; return value ? Promise.all([...adapters.keys()].map(sync)) : Promise.resolve(); },
+      async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); if (timers.has(area)) clearTimeout(timers.get(area)); report(area, { enabled: false }); },
       destroy() { closed = true; for (const timer of timers.values()) clearTimeout(timer); },
     };
   }

@@ -35,8 +35,8 @@ function harness(initial, cloud = null, area = 'growth') {
     remote = copy(body.snapshot); rev++;
     return envelope();
   };
-  const make = async () => {
-    const engine = createEngine({ journal, request, debounceMs: 60000, retryMs: 60000 });
+  const make = async (options = {}) => {
+    const engine = createEngine({ journal, request, debounceMs: 60000, retryMs: 60000, ...options });
     await engine.register(area, adapter); return engine;
   };
   return {
@@ -50,6 +50,48 @@ function harness(initial, cloud = null, area = 'growth') {
 async function connect(h, engine) {
   engine.authenticate(true); await engine.enable(h.area, await engine.preview(h.area));
 }
+
+test('已连接设备重新打开，身份确认即读取云端，不依赖轮询计时器', async t => {
+  const h = harness(growth({})); let e = await h.make(); await connect(h, e); e.destroy();
+  h.remoteEdit(growth({ a: { completedAt: '2026-10-29' } }));
+  e = await h.make(); t.after(() => e.destroy());
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  await e.authenticate(true);
+  assert.deepEqual(h.disk(), h.remote());
+  assert.equal(e.states().growth.pending, false);
+});
+
+test('完成状态落库后直接上传；英语手记可单独防抖，不等待15秒', async t => {
+  const h = harness(growth({})); const e = await h.make({ debounceMs: 0 });
+  t.after(() => e.destroy()); await connect(h, e);
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  h.edit(growth({ a: { completedAt: '2026-10-29' } }));
+  await e.changed('growth'); await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(h.remote(), h.disk());
+  h.edit(growth({ a: { completedAt: '2026-10-29', note: '输入中' } }));
+  await e.changed('growth', { delay: 800 });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(h.remote().records.a.note, undefined);
+  t.mock.timers.tick(800); await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(h.remote(), h.disk());
+});
+
+test('首次读取尚未返回时发生编辑，读完立即续传，不在请求期间忙循环', async t => {
+  const h = harness(growth({})); const e = await h.make({ debounceMs: 0 });
+  t.after(() => e.destroy()); await connect(h, e);
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  let release, entered;
+  const started = new Promise(resolve => { entered = resolve; });
+  h.onGet(async () => { entered(); await new Promise(resolve => { release = resolve; }); });
+  const pulling = e.sync('growth'); await started;
+  h.edit(growth({ a: { completedAt: '2026-10-29' } }));
+  await e.changed('growth');
+  t.mock.timers.tick(15000); await new Promise(resolve => setImmediate(resolve));
+  h.onGet(async () => {}); release(); await pulling;
+  t.mock.timers.tick(0); await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(h.remote(), h.disk());
+  assert.equal(e.states().growth.pending, false);
+});
 
 test('三方合并分离完成日期、手记与删除，不丢掉另一端新增字段', () => {
   const base = growth({ a: { completedAt: '2026-10-28', note: '原文' } });
