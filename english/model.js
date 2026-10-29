@@ -179,13 +179,13 @@
       array(data.stages).forEach(function (original, index) {
         var stage = { id: original.id || variantId + '-' + (index + 1), routeId: routeId, order: index + 1,
           sourceId: sourceId, variantId: variantId, variantLabel: label,
-          title: original.title || original.name || original.label || '阶段 ' + (index + 1),
+          title: original.displayTitle || original.title || original.name || original.label || '阶段 ' + (index + 1),
           shortTitle: original.shortTitle || '', group: original.group || '', domain: original.domain || '', duration: text(original.duration),
           goal: text(original.goal || original.objective || original.target || original.vocabulary),
           entry: text(original.entry || original.entryCriteria || original.prerequisite),
           exit: text(original.exit || original.exitCriteria || original.advanceCriteria),
           hours: hourLabel(original),
-          ageLabel: original.ageLabel || text(original.ageRange) || (original.ageMin != null ? original.ageMin + (original.ageMax !== original.ageMin ? '–' + original.ageMax : '') + ' 岁（原文整条路线适用年龄）' : original.schedules ? unique(original.schedules.map(function (s) { return s.ageGroup; })).join(' / ') : '原文未按年龄划段'),
+          ageLabel: original.ageLabel || text(original.ageRange) || (original.ageMin != null ? original.ageMin + (original.ageMax !== original.ageMin ? '–' + original.ageMax : '') + ' 岁（原文整条路线适用年龄）' : original.schedules ? unique(original.schedules.map(function (s) { return s.ageGroup; })).join(' / ') : ''),
           pages: pagesOf(original), preview: previewOf(original), materials: [], notes: notes(original.notes),
           schedules: array(original.schedules || original.schedule || original.dailyPlan),
           activities: array(original.activities).map(function (activity) {
@@ -240,7 +240,12 @@
       if (!data) return;
       var route = { id: routeId, name: ROUTES[routeId].name, color: ROUTES[routeId].color,
         summary: data.description || data.summary || data.scope || data.title || '',
+        ageCases: array(data.ageCases),
         notes: notes(data.notes).concat(notes(data.uncertainties)), stages: [] };
+      if (!route.ageCases.length && data.ageRange && data.ageRange.unit === '岁') {
+        route.ageCases = [{ id: routeId + '-age', label: data.ageRange.min + '–' + data.ageRange.max + '岁原文方案',
+          ageMinMonths: data.ageRange.min * 12, ageMaxMonthsExclusive: (data.ageRange.max + 1) * 12, sourcePage: 1 }];
+      }
       var mainVariant = addVersion(route, data, routeId === 'xu' ? 'xu-listening' : routeId, routeId,
         routeId === 'xu' ? '六阶段组合表' : ROUTES[routeId].name + '路线');
       route.stages = mainVariant.stages;
@@ -410,28 +415,39 @@
   // 只在同一规范套系内比较级别；保留季、分册、GK/G1 等标尺及选材限定。
   function levelParts(value, resource) {
     var original = text(value).trim();
-    var normalized = original.normalize('NFKC').toUpperCase().replace(/[–—−~～至到]/g, '-')
-      .replace(/[零一二两三四五六七八九十]+/g, chineseNumber).replace(/\s+/g, '');
+    var normalized = original.normalize('NFKC').replace(/[–—−~～至到]/g, '-')
+      .replace(/[零一二两三四五六七八九十]+/g, chineseNumber).trim();
     if (!normalized || /未标|未注明|未知|不详|待核|未确定|未说明/.test(normalized)) return null;
-    var qualifiers = [];
+    var qualifiers = [], quantities = [];
     // 仅此已确认平台按明确的 L2 / 二级别 / 第三级别动画前缀取级别；选片数量和片名保留为限定。
     if (resource && resource.title === '小狐狸动画') {
-      var foxLevel = normalized.match(/^(?:L(\d+)|第?(\d+)级(?:别)?)(?:动画)?(?=$|[·:：（(])/);
+      var foxLevel = normalized.match(/^(?:L(\d+)|第?(\d+)级(?:别)?)(?:动画)?\s*(?=$|[·:：（(])/);
       if (foxLevel) {
-        var foxSelection = normalized.slice(foxLevel[0].length).replace(/^[·:：]/, '');
+        var foxSelection = normalized.slice(foxLevel[0].length).replace(/^[·:：]\s*/, '');
         if (foxSelection) qualifiers.push(foxSelection);
         normalized = foxLevel[1] || foxLevel[2];
       }
     }
     normalized = normalized.replace(/[（(]([^）)]*)[）)]/g, function (_, label) { qualifiers.push(label); return ''; });
-    var hierarchy = normalized.match(/^第?(\d+)级(?:别)?(.+)$/);
+    // 先保留“AA90、A90、B92册”等完整明细，不能抽走数字后打散级别与数量的对应。
+    normalized = normalized.replace(/[：:](.*)$/, function (_, note) { qualifiers.push(note); return ''; });
+    // 第几册是分册编号；“24本”“1级22+22册”中的数量不能参与级别比较。
+    normalized = normalized.replace(/第\s*(\d+(?:[-、&/]\d+)*)\s*(?:册|本)/g, 'VOLUME$1')
+      .replace(/(\d+(?:\+\d+)*)\s*(?:册|本)/g, function (_, count) { quantities.push(count + '册'); return ''; });
+    normalized = normalized.replace(/\s+/g, '');
+    var hierarchy = normalized.match(/^第?(\d+)级(?:别)?(?:·VOLUME)?(\d+(?:[-&/、,]\d+)*)$/);
     var inheritedScale = '';
     if (hierarchy && /^[\d&/、,-]/.test(hierarchy[2])) {
       inheritedScale = 'TIER' + hierarchy[1] + '-VOLUME';
       normalized = hierarchy[2];
     }
-    normalized = normalized.replace(/第/g, '').replace(/级别|级/g, '').replace(/^LEVEL(?=[\dA-Z])/, '')
-      .replace(/LEVEL(?=\d)/g, '').replace(/[、,，;；和及]/g, '&').replace(/\//g, '&');
+    normalized = normalized.replace(/^(.+版)(?=L\d)/i, function (_, version) { qualifiers.push(version); return ''; }).toUpperCase()
+      .replace(/第/g, '').replace(/级别|级/g, '').replace(/^LEVEL(?=[\dA-Z])/, '')
+      .replace(/LEVEL(?=\d)/g, '').replace(/[、,，;；·和及]/g, '&').replace(/\//g, '&')
+      // 两个编号之间的 + 表示并列，编号末尾的 +（如牛津树1+）仍是独立级别。
+      .replace(/([\dA-Z])\+(?=(?:L|S|SET|PART|PHASE)?[\dA-Z])/g, '$1&')
+      .replace(/(\d+(?:[-&]\d+)*)季/g, 'S$1').replace(/(\d+(?:[-&]\d+)*)集/g, 'EPISODE$1');
+    if (resource && resource.title === '红火箭') normalized = normalized.replace(/\+(?=流畅|[紫粉玫红黄蓝绿大])/g, '&');
     var tokens = [], inheritedPrefix = inheritedScale;
     function addToken(scale, grade, plus) {
       tokens.push({ scale: scale, grade: grade, plus: !!plus, id: scale + ':' + grade + (plus ? '+' : '') });
@@ -441,14 +457,17 @@
       if (match) return { scale: match[1], grade: match[2], plus: !!match[3], alphabet: true };
       match = part.match(/^(G\d)-(\d+)([+]?)$/);
       if (match) return { scale: match[1], grade: Number(match[2]), plus: !!match[3], alphabet: false };
-      match = part.match(/^(GK|G\d|S|L|SET|PART|PHASE)?(\d+)([+]?)$/);
+      match = part.match(/^(GK|G\d|S|L|SET|PART|PHASE|COLLECTION|VOLUME|EPISODE|流畅)?(\d+)([+]?)$/);
       if (match) return { scale: match[1] === 'L' ? '' : match[1] || inheritedPrefix, grade: Number(match[2]), plus: !!match[3], alphabet: false };
-      match = part.match(/^([A-Z]{1,2})([+]?)$/);
-      if (match) return { scale: inheritedPrefix || (resource && /GK70/i.test(resource.title) ? 'GK70' : ''), grade: match[1], plus: !!match[2], alphabet: true };
+      match = part.match(/^(SET)?([A-Z]{1,2})([+]?)$/);
+      if (match) return { scale: match[1] || inheritedPrefix || (resource && /GK70/i.test(resource.title) ? 'GK70' : ''), grade: match[2], plus: !!match[3], alphabet: true };
       return null;
     }
     normalized.split('&').filter(Boolean).forEach(function (part) {
-      var named = part.match(/^(预备|基础|进阶)$/);
+      if (resource && resource.title === '红火箭' && /^(?:紫|粉|玫红|玫粉|红|黄|蓝|绿|大红)色?$/.test(part)) {
+        addToken('COLOR', part.replace(/色$/, ''), false); return;
+      }
+      var named = part.match(/^(预备|基础|进阶|提高)$/);
       if (named) { addToken('NAMED', named[1], false); return; }
       // G1-2 是 G1 分套的第 2 级，不能当作普通的 1–2。
       var whole = /^G\d-\d+[+]?$/.test(part) ? atom(part) : null;
@@ -480,43 +499,252 @@
     });
     var qualifier = qualifiers.join('；');
     return { tokens: tokens.filter(function (token, index, list) { return list.findIndex(function (other) { return other.id === token.id; }) === index; }),
-      qualifier: qualifier, normalized: normalized, fiction: /非虚构/.test(qualifier) ? 'nonfiction' : /虚构/.test(qualifier) ? 'fiction' : '' };
+      qualifier: qualifier, quantities: quantities, normalized: normalized, fiction: /非虚构/.test(qualifier) ? 'nonfiction' : /虚构/.test(qualifier) ? 'fiction' : '' };
+  }
+
+  function formatLevelTokens(tokens) {
+    var groups = [];
+    tokens.forEach(function (token) {
+      var group = groups.find(function (item) { return item.scale === token.scale; });
+      if (!group) { group = { scale: token.scale, tokens: [] }; groups.push(group); }
+      group.tokens.push(token);
+    });
+    return groups.map(function (group) {
+      var values = group.tokens, labels = [];
+      for (var i = 0; i < values.length; i++) {
+        var end = i;
+        while (end + 1 < values.length && !values[end].plus && !values[end + 1].plus &&
+          (typeof values[end].grade === 'number' && values[end + 1].grade === values[end].grade + 1 ||
+           typeof values[end].grade === 'string' && values[end].grade.length === 1 && typeof values[end + 1].grade === 'string' && values[end + 1].grade.length === 1 && values[end + 1].grade.charCodeAt(0) === values[end].grade.charCodeAt(0) + 1)) end++;
+        if (end - i >= 2) { labels.push(values[i].grade + '–' + values[end].grade); i = end; }
+        else labels.push(values[i].grade + (values[i].plus ? '+' : ''));
+      }
+      var label = labels.join('、'), scale = group.scale;
+      if (scale === 'NAMED') return labels.map(function (name) { return name + '级'; }).join('、');
+      if (scale === 'COLOR') return labels.map(function (name) { return name + '色'; }).join('、');
+      if (scale === '流畅') return '流畅' + label;
+      if (scale === 'S') return '第' + label + '季';
+      if (scale === 'EPISODE') return '第' + label + '集';
+      if (scale === 'VOLUME') return '第' + label + '册';
+      if (/^TIER\d+-VOLUME$/.test(scale)) return scale.match(/\d+/)[0] + '级 · 第' + label + '册';
+      if (/^(SET|PART|PHASE|COLLECTION)$/.test(scale)) return { SET: 'Set', PART: 'Part', PHASE: 'Phase', COLLECTION: 'Collection' }[scale] + ' ' + label;
+      if (/^G\d$/.test(scale)) return labels.map(function (part) { return scale + '-' + part; }).join('、');
+      return scale ? scale + ' ' + label : label;
+    }).join('；');
+  }
+
+  // 展示统一写法，来源原文、稳定 ID 与个人记录不改写。
+  function formatLevel(value, resource) {
+    var parts = levelParts(value, resource);
+    if (!parts) return '';
+    if (!parts.tokens.length) return text(value).replace(/[零一二两三四五六七八九十]+(?=\s*(?:册|本|词))/g, chineseNumber).replace(/(\d+)\s*本/g, '$1册').replace(/[&／/]/g, '、').trim();
+    return [formatLevelTokens(parts.tokens), parts.quantities.join('；'), parts.qualifier.replace(/(\d+)本/g, '$1册')].filter(Boolean).join(' · ');
+  }
+
+  function materialTitle(resource, level) {
+    var label = formatLevel(level, resource);
+    // 套系名称已包含标尺时不重复展示，如“海尼曼 GK70 · A”。
+    var scale = resource.title.match(/\b(GK70|GK|G\d)\s*$/i);
+    if (scale) label = label.replace(new RegExp('^' + scale[1] + '\\s+'), '');
+    return resource.title + (label ? ' · ' + label : '');
+  }
+
+  // 按实际级别拆分展示；不把同套系或其他阶段的用法当作当前交集。
+  function levelSegments(level, peers, resource) {
+    var own = levelParts(level, resource), common = new Set();
+    array(peers).forEach(function (peer) {
+      var relation = compareLevels({ level: level }, peer, resource), other = levelParts(peer.level, resource);
+      if (['exact', 'overlap'].indexOf(relation.kind) === -1 || !own || !other) return;
+      own.tokens.forEach(function (token) {
+        if (other.tokens.some(function (candidate) { return candidate.id === token.id; })) common.add(token.id);
+      });
+    });
+    return levelSegmentsFromParts(own, common, level, resource);
+  }
+
+  function levelSegmentsFromParts(own, common, level, resource) {
+    if (!own || !own.tokens.length) return formatLevel(level, resource) ? [{ text: formatLevel(level, resource), shared: false }] : [];
+    var groups = [];
+    own.tokens.forEach(function (token) {
+      var shared = common.has(token.id), last = groups[groups.length - 1];
+      if (!last || last.shared !== shared || last.scale !== token.scale) groups.push({ tokens: [token], shared: shared, scale: token.scale });
+      else last.tokens.push(token);
+    });
+    var parts = [];
+    groups.forEach(function (group, index) {
+      if (index) parts.push({ text: groups[index - 1].scale === group.scale ? '、' : '；', shared: false });
+      parts.push({ text: formatLevelTokens(group.tokens), shared: group.shared });
+    });
+    var suffix = [own.quantities.join('；'), own.qualifier.replace(/(\d+)本/g, '$1册')].filter(Boolean).join(' · ');
+    if (suffix) parts.push({ text: ' · ' + suffix, shared: false });
+    return parts;
+  }
+
+  function materialRole(stage, material, resource) {
+    var role = material.role || '', kind = 'auxiliary', basis = '依据原文用途归入辅线';
+    if (role === 'recommended' || /特色|重点推荐|特别推荐/.test(role)) {
+      kind = 'featured'; basis = '原文明确推荐';
+    } else if (/^(main|core)$/.test(role) || /主线|主节点/.test(role)) {
+      kind = 'main'; basis = '原文主线或核心素材';
+    } else if (stage.routeId === 'banana' && role === '素材') {
+      var summary = (stage.raw || {}).summary || '';
+      if (summary.indexOf(resource.title) !== -1 || stage.id === 'banana-chapter' && ['book', 'reader'].indexOf(resource.type) !== -1) kind = 'main';
+      basis = kind === 'main' ? '按原文阶段摘要或初章书单整理为主线' : '按原文补充书单整理为辅线；可按兴趣替代共读';
+    } else if (stage.routeId === 'xu' && (/^(闪卡|闪卡式绘本|桥梁书|初章书|中章书|高章书|自然拼读|高频词|解码书|低级别分级反复跟读|中高级别分级阅读)$/.test(role) || /^(教材学习|语法学习)/.test(role))) {
+      kind = 'main'; basis = '按原图该领域的核心活动分支整理为主线；可并行择用';
+    }
+    return { kind: kind, label: kind === 'main' ? '主线' : kind === 'featured' ? '特色推荐' : '辅线', basis: basis };
+  }
+
+  function getStageMaterials(catalog, stageId, comparisonStages) {
+    var stage = typeof stageId === 'string' ? array(catalog.stages).find(function (item) { return item.id === stageId; }) : stageId;
+    if (!stage) return [];
+    var resources = {};
+    array(catalog.resources).forEach(function (resource) { resources[resource.id] = resource; });
+    var groups = [];
+    array(stage.materials).forEach(function (material, index) {
+      var resource = resources[material.resourceId], role = materialRole(stage, material, resource);
+      var parts = levelParts(material.level, resource);
+      // 只合并同用途、同标尺且限定一致的级别；数量保留在原引用，避免丢失逐级册数。
+      var mergeable = parts && parts.tokens.length && !parts.quantities.length;
+      var scales = mergeable ? unique(parts.tokens.map(function (token) { return token.scale; })).sort().join('|') : '';
+      var group = mergeable && groups.find(function (item) {
+        return item.mergeable && item.resource.id === resource.id && item.material.role === material.role &&
+          item.role.kind === role.kind && item.parts.qualifier === parts.qualifier && item.scales === scales;
+      });
+      if (group) {
+        group.materials.push(material);
+        parts.tokens.forEach(function (token) { if (!group.parts.tokens.some(function (other) { return other.id === token.id; })) group.parts.tokens.push(token); });
+      } else groups.push({ material: material, materials: [material], resource: resource, role: role, originalIndex: index,
+        parts: parts, mergeable: mergeable, scales: scales });
+    });
+    return groups.map(function (group) {
+      var resource = group.resource;
+      var other = comparisonStages ? array(comparisonStages).filter(function (peer) { return peer.routeId !== stage.routeId; }).flatMap(function (peer) {
+        return array(peer.materials).filter(function (item) { return item.resourceId === resource.id; });
+      }) : array(resource.appearances).filter(function (appearance) { return appearance.routeId !== stage.routeId; });
+      var common = new Set(), overlap = false;
+      group.materials.forEach(function (material) {
+        other.forEach(function (appearance) {
+          if (['exact', 'overlap'].indexOf(compareLevels(material, appearance, resource).kind) === -1) return;
+          overlap = true;
+          var parts = levelParts(appearance.level, resource);
+          if (parts) parts.tokens.forEach(function (token) { common.add(token.id); });
+        });
+      });
+      return { material: group.material, materials: group.materials, resource: resource, role: group.role, shared: other.length > 0, overlap: overlap,
+        levelSegments: levelSegmentsFromParts(group.parts, common, group.material.level, resource), originalIndex: group.originalIndex };
+    }).sort(function (a, b) {
+      var ranks = { main: 0, featured: 1, auxiliary: 2 };
+      return ranks[a.role.kind] - ranks[b.role.kind] || Number(b.overlap) - Number(a.overlap) || Number(b.shared) - Number(a.shared) || a.originalIndex - b.originalIndex;
+    });
   }
 
   function compareLevels(focus, target, resource) {
     var left = levelParts(focus.level, resource), right = levelParts(target.level, resource);
     if (!left || !right) return { kind: 'unspecified', label: '同套系，' + (!left && !right ? '双方' : !left ? '当前路线' : '对照路线') + '原文未标级，不能确认阶段对应' };
+    if ((!left.tokens.length && left.quantities.length) || (!right.tokens.length && right.quantities.length)) return { kind: 'unspecified', label: '同套系，册数不作为级别对应依据' };
     if (left.fiction && right.fiction && left.fiction !== right.fiction) return { kind: 'different', label: '同套系，虚构与非虚构选材不同，不能确认内容重叠' };
     var common = left.tokens.filter(function (token) { return right.tokens.some(function (other) { return token.id === other.id; }); });
     var plusDifference = left.tokens.some(function (token) { return right.tokens.some(function (other) { return token.scale === other.scale && token.grade === other.grade && token.plus !== other.plus; }); });
     var selectionNote = resource && resource.title === '小狐狸动画' ? '；未确认指定片单相同' : '';
     var sameTokens = left.tokens.length && left.tokens.length === right.tokens.length && left.tokens.every(function (token) { return right.tokens.some(function (other) { return other.id === token.id; }); });
-    if ((sameTokens || !left.tokens.length && !right.tokens.length && left.normalized === right.normalized) && left.qualifier === right.qualifier) {
-      return { kind: 'exact', label: '同套系，原文级别相同' + selectionNote };
+    var commonLevels = formatLevelTokens(common);
+    var quantityDifference = left.quantities.length && right.quantities.length && left.quantities.join() !== right.quantities.join();
+    if ((sameTokens || !left.tokens.length && !right.tokens.length && left.normalized === right.normalized) && left.qualifier === right.qualifier && !quantityDifference) {
+      return { kind: 'exact', commonLevels: commonLevels, label: '同套系，级别相同' + (commonLevels ? '；共用：' + commonLevels : '') + selectionNote };
     }
     if (common.length) {
-      return { kind: 'overlap', label: '同套系，部分级别重叠' + (plusDifference ? '；带 + 与不带 + 的级别不计入交集' : '') +
-        (left.qualifier !== right.qualifier ? '；原文选材或版本限定不同' : '') + selectionNote };
+      return { kind: 'overlap', commonLevels: commonLevels, label: '同套系，共用：' + commonLevels + (plusDifference ? '；带 + 与不带 + 的级别不计入交集' : '') +
+        (left.qualifier !== right.qualifier ? '；原文选材或版本限定不同' : '') + (quantityDifference ? '；原文册数不同' : '') + selectionNote };
     }
     if (plusDifference) return { kind: 'different', label: '同套系，带 + 与不带 + 的级别不同，未确认重叠' };
     return { kind: 'different', label: '同套系，原文级别或标尺不同，未确认重叠' };
   }
 
+  // 仅用于跨路线目标参考；不作为准入、晋级或素材级别的判断依据。
+  function listeningComparisonBand(stage, catalog) {
+    var raw = stage.raw || {};
+    if (stage.domain && stage.domain !== 'listening') return null;
+    if (stage.routeId === 'qing' && raw.vocabularyMin != null && raw.vocabularyMax != null) {
+      return { min: raw.vocabularyMin, max: raw.vocabularyMax, label: raw.vocabularyMin + '–' + raw.vocabularyMax + '词' };
+    }
+    if (stage.routeId !== 'xu' || stage.domain !== 'listening' || raw.listeningTargetWords == null) return null;
+    var target = raw.listeningTargetWords, previous = 0;
+    array(catalog.stages).forEach(function (other) {
+      var words = (other.raw || {}).listeningTargetWords;
+      if (other.variantId === stage.variantId && other.domain === 'listening' && words < target && words > previous) previous = words;
+    });
+    return { min: previous, max: target, label: previous + '–' + target + '词（节点间参考）' };
+  }
+
+  // 年龄只选择执行方案，不参与能力阶段判定。低于原表范围时明确为低龄参考。
+  function getRouteAgeCase(catalog, routeId, profile) {
+    var route = array(catalog.routes).find(function (item) { return item.id === routeId; });
+    var cases = array(route && route.ageCases).slice().sort(function (a,b) { return a.ageMinMonths - b.ageMinMonths; });
+    if (!cases.length) return { status: 'general', ageCase: null, cases: cases };
+    var birth = profile && (profile.birthDate || profile.birthday || profile.dob);
+    if (!birth) return { status: 'unknown', ageCase: null, cases: cases };
+    var months = getAge(birth, profile.asOf).totalMonths;
+    var matching = cases.filter(function (item) { return months >= item.ageMinMonths && (item.ageMaxMonthsExclusive == null || months < item.ageMaxMonthsExclusive); });
+    if (matching.length === 1) return { status: 'matched', ageCase: matching[0], cases: cases };
+    if (!matching.length && months < cases[0].ageMinMonths) return { status: 'below', ageCase: cases[0], cases: cases };
+    return { status: 'outside', ageCase: null, cases: cases };
+  }
+
+  function getStageSchedules(catalog, stageId, profile) {
+    var stage = typeof stageId === 'string' ? array(catalog.stages).find(function (item) { return item.id === stageId; }) : stageId;
+    var context = getRouteAgeCase(catalog, stage && stage.routeId, profile);
+    return Object.assign({}, context, { schedules: array(stage && stage.schedules).filter(function (schedule) {
+      return context.status === 'general' ? !schedule.ageCaseId : !!context.ageCase && schedule.ageCaseId === context.ageCase.id;
+    }) });
+  }
+
+  // 同一作者只有一条路线；领域组织是本站导航，原资料阶段与来源独立保留。
+  function getRoutePlan(catalog, routeId, domainId, profile) {
+    var config = ((catalog.raw || {}).routePlan || {}), domain = array(config.domains).find(function (item) { return item.id === domainId; });
+    var plan = ((config.routes || {})[routeId] || {})[domainId];
+    if (!domain || !plan) return null;
+    var stageMap = {}; array(catalog.stages).forEach(function (stage) { stageMap[stage.id] = stage; });
+    var supporting = array(plan.supportingStageIds).map(function (id) { return stageMap[id]; }).filter(Boolean);
+    var context = profile ? getRouteAgeCase(catalog, routeId, profile) : null;
+    if (context && context.status !== 'general') supporting = supporting.filter(function (stage) {
+      return !stage.schedules.length || getStageSchedules(catalog, stage, profile).schedules.some(function (schedule) {
+        return domainId === 'speaking' ? /跟读/.test(schedule.output || '') : domainId === 'reading' ? /自拼|自主阅读/.test(schedule.output || '') : true;
+      });
+    });
+    var ageSummary = context && context.ageCase && (context.ageCase.domainSummaries || {})[domainId];
+    if (ageSummary && context.status === 'below') ageSummary = ageSummary.replace(/^当前年龄方案：/, '原表低龄参考：');
+    return Object.assign({}, plan, { domain: domain, summary: ageSummary || plan.summary,
+      page: ageSummary ? context.ageCase.sourcePage : plan.page, ageCase: context,
+      stages: array(plan.stageIds).map(function (id) { return stageMap[id]; }).filter(Boolean), supportingStages: supporting });
+  }
+
   function compareStages(catalog, focusStageId) {
     var focus = array(catalog.stages).find(function (stage) { return stage.id === focusStageId; });
     if (!focus) return [];
-    var resourceMap = {};
+    var resourceMap = {}, focusBand = listeningComparisonBand(focus, catalog);
     array(catalog.resources).forEach(function (resource) { resourceMap[resource.id] = resource; });
     return array(catalog.routes).filter(function (route) { return route.id !== focus.routeId; }).map(function (route) {
+      var vocabularyComparable = !!focusBand && array(route.stages).some(function (target) { return !!listeningComparisonBand(target, catalog); });
+      var focusStart = (focus.raw || {}).startingReference;
+      var startingComparable = !vocabularyComparable && focusStart && focusStart.kind === 'route-start' && array(route.stages).some(function (target) {
+        return ((target.raw || {}).startingReference || {}).kind === 'route-start';
+      });
       var matches = array(route.stages).map(function (target) {
-        var evidence = [];
+        var evidence = [], targetBand = listeningComparisonBand(target, catalog);
+        var targetStart = (target.raw || {}).startingReference;
+        var startingAlignment = startingComparable && targetStart && targetStart.kind === 'route-start' ?
+          { focus: focusStart.basis, target: targetStart.basis, basis: '各自路线的起步方式参考；不表示词汇量、素材难度或整阶段等同。' } : null;
+        var vocabularyAlignment = focusBand && targetBand && Math.max(focusBand.min, targetBand.min) < Math.min(focusBand.max, targetBand.max) ?
+          { focus: focusBand, target: targetBand, basis: '按听力词汇目标区间粗略对照；许密杉相邻节点之间的范围为本站整理，不代表两阶段执行要求相同。' } : null;
         array(focus.materials).forEach(function (left) {
           array(target.materials).filter(function (right) { return right.resourceId === left.resourceId; }).forEach(function (right) {
             var resource = resourceMap[left.resourceId];
             if (!resource) return;
             var relation = compareLevels(left, right, resource);
             evidence.push({ resourceId: resource.id, title: resource.title, focusLevel: left.level, targetLevel: right.level,
-              focusRole: left.role, targetRole: right.role, kind: relation.kind, label: relation.label,
+              focusRole: left.role, targetRole: right.role, kind: relation.kind, label: relation.label, commonLevels: relation.commonLevels || '',
               focusPage: left.page, targetPage: right.page,
               focusSourceId: left.sourceId || focus.sourceId || focus.routeId, targetSourceId: right.sourceId || target.sourceId || target.routeId,
               focusVariantId: focus.variantId, targetVariantId: target.variantId });
@@ -525,12 +753,14 @@
         function count(kinds) { return unique(evidence.filter(function (entry) { return !kinds || kinds.indexOf(entry.kind) !== -1; }).map(function (entry) { return entry.resourceId; })).length; }
         var overlapCount = count(['exact', 'overlap']), exactCount = count(['exact']), unspecifiedCount = count(['unspecified']);
         return { stageId: target.id, sourceId: target.sourceId || target.routeId, variantId: target.variantId, sharedCount: count(), overlapCount: overlapCount, exactCount: exactCount, unspecifiedCount: unspecifiedCount,
-          evidence: evidence, basis: overlapCount ? '依据共同套系的原文级别交集；仅表示素材交集，不能据此判定两个阶段等价。' :
+          vocabularyAlignment: vocabularyAlignment, startingAlignment: startingAlignment, evidence: evidence, basis: vocabularyAlignment ? vocabularyAlignment.basis : startingAlignment ? startingAlignment.basis : overlapCount ? '依据共同套系的原文级别交集；仅表示素材交集，不能据此判定两个阶段等价。' :
             unspecifiedCount ? '仅确认共同套系，存在原文未标级资料，不能确认两个阶段的级别对应。' : '仅确认共同套系，原文级别不同或标尺不同，未确认级别交集。' };
-      }).filter(function (match) { return match.sharedCount > 0; });
-      matches.sort(function (a, b) { return b.overlapCount - a.overlapCount || b.exactCount - a.exactCount || b.sharedCount - a.sharedCount ||
+      }).filter(function (match) { return match.sharedCount > 0 || match.vocabularyAlignment || match.startingAlignment; });
+      matches.sort(function (a, b) { return Number(!!b.vocabularyAlignment) - Number(!!a.vocabularyAlignment) || Number(!!b.startingAlignment) - Number(!!a.startingAlignment) || b.overlapCount - a.overlapCount || b.exactCount - a.exactCount || b.sharedCount - a.sharedCount ||
         route.stages.findIndex(function (stage) { return stage.id === a.stageId; }) - route.stages.findIndex(function (stage) { return stage.id === b.stageId; }); });
-      return { routeId: route.id, matches: matches };
+      // 主对照只由阶段判定依据产生，素材证据和数量不能参与选择。起步方式单独标注为参考。
+      var stageReferences = matches.filter(function (match) { return match.vocabularyAlignment || match.startingAlignment; });
+      return { routeId: route.id, vocabularyComparable: vocabularyComparable, startingComparable: !!startingComparable, stageReferences: stageReferences, matches: matches };
     });
   }
 
@@ -577,7 +807,7 @@
     });
   }
 
-  var api = { normalize: normalize, getAge: getAge, recommend: recommend, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
+  var api = { normalize: normalize, getRoutePlan: getRoutePlan, getRouteAgeCase: getRouteAgeCase, getStageSchedules: getStageSchedules, getAge: getAge, recommend: recommend, formatLevel: formatLevel, materialTitle: materialTitle, levelSegments: levelSegments, getStageMaterials: getStageMaterials, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -31,6 +31,7 @@
       "id": "xu-1",
       "order": 1,
       "title": "第一阶段 · 闪卡",
+      "displayTitle": "第一阶段 · 积累核心200词",
       "originalStage": "第一阶段",
       "method": "闪卡",
       "goal": "积累核心 200 名词 + 动词词组",
@@ -94,12 +95,17 @@
         "xu-abubabu-verbs",
         "xu-sss",
         "xu-yakka-dee"
-      ]
+      ],
+      "startingReference": {
+        "kind": "route-start",
+        "basis": "六阶段原表的首个节点为闪卡；保留原表编号，不等同于并行方案的全部起步活动。"
+      }
     },
     {
       "id": "xu-2",
       "order": 2,
       "title": "第二阶段 · 闪卡式绘本",
+      "displayTitle": "第二阶段 · 积累300听力词",
       "originalStage": "第二阶段",
       "method": "闪卡式绘本",
       "goal": "积累短句；5 个单词以下的句子；300 听力词汇",
@@ -239,6 +245,7 @@
       "id": "xu-3",
       "order": 3,
       "title": "第三阶段 · 海尼曼 GK70 A",
+      "displayTitle": "第三阶段 · 积累300–500听力词",
       "originalStage": "第三阶段",
       "method": "海尼曼 GK70 主线 + 平行拓展",
       "goal": "5 个单词左右的句子；300-500 听力词汇",
@@ -401,6 +408,7 @@
       "id": "xu-4",
       "order": 4,
       "title": "第四阶段 · 海尼曼 GK70 B",
+      "displayTitle": "第四阶段 · 积累约500听力词",
       "originalStage": "第四阶段",
       "method": "海尼曼 GK70 主线 + 平行拓展",
       "goal": "7 个单词左右的句子；500 左右听力词汇",
@@ -560,6 +568,7 @@
       "id": "xu-5",
       "order": 5,
       "title": "第五阶段 · 海尼曼 GK70 C",
+      "displayTitle": "第五阶段 · 积累约500–800听力词",
       "originalStage": "第五阶段",
       "method": "海尼曼 GK70 主线 + 平行拓展",
       "goal": "10 个单词左右的句子；500-800 左右听力词汇",
@@ -713,6 +722,7 @@
       "id": "xu-6",
       "order": 6,
       "title": "第六阶段 · 牛津树主线，完成 1000 词",
+      "displayTitle": "第六阶段 · 完成1000听力词",
       "originalStage": "第六阶段 1000 词",
       "method": "牛津树主线 + 平行拓展",
       "goal": "10 个单词以上，甚至含有从句的长句；1000 听力词汇完成",

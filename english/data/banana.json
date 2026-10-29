@@ -56,7 +56,11 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；熏听喜欢的故事、儿歌和动画音频。",
           "output": "原表未安排说读写。",
           "sourcePage": 1,
-          "preview": "assets/previews/banana-01.jpg"
+          "preview": "assets/previews/banana-01.jpg",
+          "ageCaseId": "age-2-3",
+          "caseText": {
+            "weekPlan": "周一至周六：分级新书5本×2遍，或故事新书2本×2遍；加前一天旧书1遍。周日重复喜欢的书。每月最后一周可作缓冲周复习和调整状态。"
+          }
         },
         {
           "ageGroup": "4岁/5岁零基础起点",
@@ -73,7 +77,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；听最近读过书；不喜欢分级/故事音频可用近期喜欢的动画音频。",
           "output": "原表未安排说读写。",
           "sourcePage": 2,
-          "preview": "assets/previews/banana-02.jpg"
+          "preview": "assets/previews/banana-02.jpg",
+          "ageCaseId": "age-4-5"
         },
         {
           "ageGroup": "6岁/7岁零基础起点",
@@ -90,7 +95,11 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "原表未安排说读写。",
           "sourcePage": 3,
-          "preview": "assets/previews/banana-03.jpg"
+          "preview": "assets/previews/banana-03.jpg",
+          "ageCaseId": "age-6-7",
+          "caseText": {
+            "weekPlan": "周一至周六：分级新书10本×2遍；加前一天旧书1遍。周日重复本周读过的书。"
+          }
         }
       ],
       "resourceIds": [
@@ -111,7 +120,11 @@
         "banana-qplay",
         "banana-wplay"
       ],
-      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括"
+      "sourceStatus": "原文列出阶段和书单；能力目标为忠实概括",
+      "startingReference": {
+        "kind": "route-start",
+        "basis": "原计划第1–3页从零基础进入Pre，第5页为Pre书单。"
+      }
     },
     {
       "id": "banana-1",
@@ -144,7 +157,11 @@
           "output": "原表未安排说读写。",
           "sourcePage": 1,
           "preview": "assets/previews/banana-01.jpg",
-          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。"
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。",
+          "ageCaseId": "age-2-3",
+          "caseText": {
+            "weekPlan": "周一至周六：分级新书3本×2遍，或故事新书2本×2遍；加前一天旧书1遍。周日重复喜欢的书。每月最后一周可作缓冲周复习和调整状态。"
+          }
         },
         {
           "ageGroup": "4岁/5岁零基础起点",
@@ -161,7 +178,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；听最近读过书；不喜欢分级/故事音频可用近期喜欢的动画音频。",
           "output": "原表未安排说读写。",
           "sourcePage": 2,
-          "preview": "assets/previews/banana-02.jpg"
+          "preview": "assets/previews/banana-02.jpg",
+          "ageCaseId": "age-4-5"
         },
         {
           "ageGroup": "6岁/7岁零基础起点",
@@ -178,7 +196,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "原表未安排说读写。",
           "sourcePage": 3,
-          "preview": "assets/previews/banana-03.jpg"
+          "preview": "assets/previews/banana-03.jpg",
+          "ageCaseId": "age-6-7"
         }
       ],
       "resourceIds": [
@@ -239,7 +258,8 @@
           "output": "原表未安排说读写。",
           "sourcePage": 1,
           "preview": "assets/previews/banana-01.jpg",
-          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。"
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。",
+          "ageCaseId": "age-2-3"
         },
         {
           "ageGroup": "4岁/5岁零基础起点",
@@ -256,7 +276,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；听最近读过书；不喜欢分级/故事音频可用近期喜欢的动画音频。",
           "output": "原表未安排说读写。",
           "sourcePage": 2,
-          "preview": "assets/previews/banana-02.jpg"
+          "preview": "assets/previews/banana-02.jpg",
+          "ageCaseId": "age-4-5"
         },
         {
           "ageGroup": "6岁/7岁零基础起点",
@@ -273,7 +294,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "跟读Pre 5本/天 → 一段3本/天。",
           "sourcePage": 3,
-          "preview": "assets/previews/banana-03.jpg"
+          "preview": "assets/previews/banana-03.jpg",
+          "ageCaseId": "age-6-7"
         }
       ],
       "resourceIds": [
@@ -334,7 +356,8 @@
           "output": "跟读Pre分级3本/天 → 一段分级2本/天。",
           "sourcePage": 1,
           "preview": "assets/previews/banana-01.jpg",
-          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。"
+          "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。",
+          "ageCaseId": "age-2-3"
         },
         {
           "ageGroup": "4岁/5岁零基础起点",
@@ -351,7 +374,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "跟读Pre分级3本/天 → 一段分级2本/天。",
           "sourcePage": 2,
-          "preview": "assets/previews/banana-02.jpg"
+          "preview": "assets/previews/banana-02.jpg",
+          "ageCaseId": "age-4-5"
         },
         {
           "ageGroup": "6岁/7岁零基础起点",
@@ -368,7 +392,8 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "跟读二段2本/天。",
           "sourcePage": 3,
-          "preview": "assets/previews/banana-03.jpg"
+          "preview": "assets/previews/banana-03.jpg",
+          "ageCaseId": "age-6-7"
         }
       ],
       "resourceIds": [
@@ -430,7 +455,8 @@
           "sourcePage": 1,
           "preview": "assets/previews/banana-01.jpg",
           "nonfictionFlexibility": "非虚构可滞后一个阶段，本阶段可读/复习前阶段非虚构。",
-          "parallel": "穿插重复孩子喜欢的三段书籍。"
+          "parallel": "穿插重复孩子喜欢的三段书籍。",
+          "ageCaseId": "age-2-3"
         },
         {
           "ageGroup": "4岁/5岁零基础起点",
@@ -448,7 +474,8 @@
           "output": "跟读二段1-2本/天 → 微观磨耳朵。 自拼可在四段开始（听力桥梁中），最晚听力入章后开始；尽量与小学一年级上学期拼音错开；可能延后听力入章。",
           "sourcePage": 2,
           "preview": "assets/previews/banana-02.jpg",
-          "parallel": "穿插重复孩子喜欢的三段书籍。"
+          "parallel": "穿插重复孩子喜欢的三段书籍。",
+          "ageCaseId": "age-4-5"
         },
         {
           "ageGroup": "6岁/7岁零基础起点",
@@ -466,7 +493,8 @@
           "output": "原表未安排说读写。 开始自拼：学校即将或已开英语课可在四段开始时加入；不急认字可到听力入章后；会占用听力输入时间。",
           "sourcePage": 3,
           "preview": "assets/previews/banana-03.jpg",
-          "parallel": "穿插重复孩子喜欢的三段书籍。"
+          "parallel": "穿插重复孩子喜欢的三段书籍。",
+          "ageCaseId": "age-6-7"
         }
       ],
       "resourceIds": [
@@ -542,7 +570,11 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "开始自拼。完成基础自拼且自主阅读达到牛3以上，可加入体系课。",
           "sourcePage": 1,
-          "preview": "assets/previews/banana-01.jpg"
+          "preview": "assets/previews/banana-01.jpg",
+          "ageCaseId": "age-2-3",
+          "caseText": {
+            "weekPlan": "听力入章；继续四段非虚构。完成自拼单元音、单辅音、常见辅音组合和基础二合元音，自主阅读能力达到牛3以上，可加入体系课。"
+          }
         },
         {
           "ageGroup": "4岁/5岁零基础起点",
@@ -559,7 +591,11 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "原表未安排说读写。 自拼可在四段开始（听力桥梁中），最晚听力入章后开始；尽量与小学一年级上学期拼音错开；可能延后听力入章。",
           "sourcePage": 2,
-          "preview": "assets/previews/banana-02.jpg"
+          "preview": "assets/previews/banana-02.jpg",
+          "ageCaseId": "age-4-5",
+          "caseText": {
+            "weekPlan": "听力入章。完成自拼单元音、单辅音、常见辅音组合和基础二合元音，自主阅读能力达到牛3以上，可加入体系课。"
+          }
         },
         {
           "ageGroup": "6岁/7岁零基础起点",
@@ -576,7 +612,11 @@
           "audio": "每天尽量保证30分钟熏听，利用早起、路上和睡前；碎片时间熏听近期看过的书（虚构和故事为主）。",
           "output": "原表未安排说读写。 开始自拼：学校即将或已开英语课可在四段开始时加入；不急认字可到听力入章后；会占用听力输入时间。",
           "sourcePage": 3,
-          "preview": "assets/previews/banana-03.jpg"
+          "preview": "assets/previews/banana-03.jpg",
+          "ageCaseId": "age-6-7",
+          "caseText": {
+            "weekPlan": "听力入章。完成自拼单元音、单辅音、常见辅音组合和基础二合元音，自主阅读能力达到牛3以上，可加入体系课。"
+          }
         }
       ],
       "resourceIds": [
@@ -4326,7 +4366,7 @@
   ],
   "notes": [
     "这是亲子共读为主、提升英语听力的计划；动画不作为主线。可在合理用眼时间内看喜欢的英文动画，并用动画音频磨耳朵。",
-    "三个年龄起点共享阶段，但阅读量、速度、输出和自拼时机不同；非零基础按当前听力水平切入。年龄与时间不是硬性晋级条件。",
+    "本站按宝宝当前年龄选用对应方案的阅读量、节奏、输出和自拼安排，其他年龄方案收作参考；原表阶段共享，非零基础仍按实际听力水平切入，年龄和经过时间不作为硬性晋级条件。",
     "原文没有提供各阶段听力词汇量，不能直接将70词对应到确定年级。",
     "每天尽量保证30分钟熏听；看书听时长与熏听时长应分别理解。",
     "新书建议：第一遍亲子共读、帮助理解 → 第二遍边听原声边看书 → 熏听。",
@@ -4657,5 +4697,40 @@
       "书单可见封面是所给PDF缩图，内容原本分辨率有限。",
       "补充年龄图细字以原图为准。"
     ]
-  }
+  },
+  "ageCases": [
+    {
+      "id": "age-2-3",
+      "label": "2岁/3岁零基础起点",
+      "ageMinMonths": 24,
+      "ageMaxMonthsExclusive": 48,
+      "sourcePage": 1,
+      "domainSummaries": {
+        "speaking": "当前年龄方案：三阶段跟读Pre分级3本/天，再到一阶段分级2本/天；四阶段跟读二阶段1–2本/天。均为原表安排，随实际理解调整。",
+        "reading": "当前年龄方案：听力入章后开始自然拼读；完成基础自拼且自主阅读达到牛津树3以上，可加入体系课。"
+      }
+    },
+    {
+      "id": "age-4-5",
+      "label": "4岁/5岁零基础起点",
+      "ageMinMonths": 48,
+      "ageMaxMonthsExclusive": 72,
+      "sourcePage": 2,
+      "domainSummaries": {
+        "speaking": "当前年龄方案：三阶段跟读Pre分级3本/天，再到一阶段分级2本/天；四阶段跟读二阶段1–2本/天。均为原表安排，随实际理解调整。",
+        "reading": "当前年龄方案：自然拼读可在四阶段开始，最晚听力入章后开始；尽量与小学一年级上学期拼音错开。"
+      }
+    },
+    {
+      "id": "age-6-7",
+      "label": "6岁/7岁零基础起点",
+      "ageMinMonths": 72,
+      "ageMaxMonthsExclusive": 96,
+      "sourcePage": 3,
+      "domainSummaries": {
+        "speaking": "当前年龄方案：二阶段跟读Pre分级5本/天，再到一阶段3本/天；三阶段跟读二阶段2本/天。均为原表安排，随实际理解调整。",
+        "reading": "当前年龄方案：学校即将或已经开英语课，可在四阶段开始时加入自拼；不急认字可到听力入章后。"
+      }
+    }
+  ]
 }

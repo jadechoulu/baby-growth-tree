@@ -27,7 +27,7 @@
 
 - 根目录：成长树源码、数据、测试和可选 Worker；英语源码在 `english/`，详细内容见 [英语说明](english/README.md)。
 - `node scripts/build-site.mjs`：复用两个去个人资料的构建，统一输出 `dist/site`（根成长树 + `english/` + `home.html`）。`scripts/build-pages.mjs` 与 `english/build.py --pages` 只生成中间组件包，不单独部署到站点根。
-- 英语与成长各用独立会话和 worktree，任务分支分别为 `codex/english/<任务>`、`codex/growth/<任务>`。完成修改和验收后推送分支，GitHub 自动创建 main PR，verify 通过且基线最新后自动 squash 合并。协作规范见 [AGENTS.md](AGENTS.md)。
+- 英语与成长各用独立会话和 worktree，任务分支分别为 `codex/english/<任务>`、`codex/growth/<任务>`。日常完成修改和验收后保留本地未提交改动，等用户明确要求“提交合并”时统一提交、推送；随后 GitHub 自动创建 main PR，verify 通过且基线最新后自动 squash 合并。协作规范见 [AGENTS.md](AGENTS.md)。
 - GitHub Actions“小芽验证与发布”只发布合并后的 main；开发会话不再分别操作发布副本。旧 `scripts/publish-site.mjs` 保留历史兼容，不作为日常发布入口。工作流与恢复方法见 [发布说明](deploy/README.md)。
 - 只保留公开 [baby-growth-tree](https://github.com/jadechoulu/baby-growth-tree)，无需额外源码仓或个人 Token。按本人自用要求，共享服务固定生日为 `2024-11-24`；成长记录、收藏和手记仍存浏览器或独立 JSON 备份，不提交到公开仓库。
 

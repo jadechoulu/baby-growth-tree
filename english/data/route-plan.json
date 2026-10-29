@@ -1,0 +1,166 @@
+{
+  "domains": [
+    {
+      "id": "listening",
+      "label": "听力",
+      "description": "听懂词句、故事和音频；词汇目标只用于听力阶段参考。"
+    },
+    {
+      "id": "speaking",
+      "label": "口语",
+      "description": "发音、跟读和表达，按原资料的先备能力及年龄安排。"
+    },
+    {
+      "id": "reading",
+      "label": "阅读",
+      "description": "区分亲子共读、识字解码与自主阅读，不把听过的书直接算作能读。"
+    },
+    {
+      "id": "writing",
+      "label": "写作",
+      "description": "笔头练习与作文分别核对来源，不由听力词数自动安排。"
+    }
+  ],
+  "routes": {
+    "xu": {
+      "listening": {
+        "summary": "闪卡与闪卡式绘本并行起步，沿300、500、800、1000、2000听力词节点查看素材。执行表是同一路线的操作补充，原表500词目标不改写为300词。",
+        "stageIds": [
+          "xu-current-300",
+          "xu-current-500",
+          "xu-current-800",
+          "xu-current-1000",
+          "xu-current-2000"
+        ],
+        "supportingStageIds": [
+          "xu-thousand-1"
+        ],
+        "sourceId": "xu-panorama",
+        "page": 1
+      },
+      "speaking": {
+        "summary": "全景图把发音和表达列为口语分支：国际音标、主题背诵、外教课、动画台词扮演；与听力并行发展，不按听力阶段编号晋级。",
+        "stageIds": [
+          "xu-panorama-speaking"
+        ],
+        "supportingStageIds": [
+          "xu-thousand-2",
+          "xu-thousand-3",
+          "xu-thousand-4"
+        ],
+        "sourceId": "xu-panorama",
+        "page": 1
+      },
+      "reading": {
+        "summary": "按识字、泛读、精读三个分支查阅；自然拼读与解码、泛读词数、语法及教材分别保留。四阶段执行表补充具体方法与频率，不与听力词数强行等同。",
+        "stageIds": [
+          "xu-panorama-reading-literacy",
+          "xu-panorama-reading-extensive",
+          "xu-panorama-reading-intensive"
+        ],
+        "supportingStageIds": [
+          "xu-thousand-2",
+          "xu-thousand-3",
+          "xu-thousand-4"
+        ],
+        "sourceId": "xu-panorama",
+        "page": 1
+      },
+      "writing": {
+        "summary": "全景图的写作分支包含作文；执行表另有字母书写、写单词和笔头练习。两者分别查看，均不作为当前低龄宝宝的自动任务。",
+        "stageIds": [
+          "xu-panorama-writing"
+        ],
+        "supportingStageIds": [
+          "xu-thousand-1",
+          "xu-thousand-2",
+          "xu-thousand-3"
+        ],
+        "sourceId": "xu-panorama",
+        "page": 1
+      }
+    },
+    "qing": {
+      "listening": {
+        "summary": "当前资料为3–4岁听力常规路径，常规1至6、准桥梁依次积累；共读、动画和音频服务于听力理解。",
+        "stageIds": [
+          "qing-s1",
+          "qing-s2",
+          "qing-s3",
+          "qing-s4",
+          "qing-s5",
+          "qing-s6",
+          "qing-s7"
+        ],
+        "supportingStageIds": [],
+        "sourceId": "qing",
+        "page": 1
+      },
+      "speaking": {
+        "summary": "这份听力专项表不要求跟读、复述或回答考察问题；专注看图听英文即可。它没有展开独立的口语阶段，不能把听力书单改成强制输出任务。",
+        "stageIds": [],
+        "supportingStageIds": [],
+        "sourceId": "qing",
+        "page": 2
+      },
+      "reading": {
+        "summary": "原文中的亲子共读由家长读或点读，孩子看图理解；已认字时还建议遮文字。因此共读素材属于听力输入，并非一份自主阅读进阶表。",
+        "stageIds": [],
+        "supportingStageIds": [],
+        "sourceId": "qing",
+        "page": 2
+      },
+      "writing": {
+        "summary": "当前提供的是听力专项资料，没有展开写作阶段；保留原文覆盖范围，不从词汇阶段推导书写安排。",
+        "stageIds": [],
+        "supportingStageIds": [],
+        "sourceId": "qing",
+        "page": 1
+      }
+    },
+    "banana": {
+      "listening": {
+        "summary": "以亲子共读提升听力，从Pre到初章；先共读帮助理解，再听原声看书和熏听，用量与节奏按宝宝当前年龄方案查看。",
+        "stageIds": [
+          "banana-pre",
+          "banana-1",
+          "banana-2",
+          "banana-3",
+          "banana-4",
+          "banana-chapter"
+        ],
+        "supportingStageIds": [],
+        "sourceId": "banana",
+        "page": 4
+      },
+      "speaking": {
+        "summary": "按宝宝当前年龄方案查看原表跟读安排；阶段由实际理解判断，不把输入书单全数视为必读输出。",
+        "stageIds": [],
+        "supportingStageIds": [
+          "banana-2",
+          "banana-3",
+          "banana-4"
+        ],
+        "sourceId": "banana",
+        "page": 1
+      },
+      "reading": {
+        "summary": "共读与自主阅读分开；自然拼读时机按宝宝当前年龄方案查看，不把输入阶段直接当作自读级别。",
+        "stageIds": [],
+        "supportingStageIds": [
+          "banana-4",
+          "banana-chapter"
+        ],
+        "sourceId": "banana",
+        "page": 2
+      },
+      "writing": {
+        "summary": "现有规划没有展开独立书写或作文路线。说读写栏中已有的跟读、自拼安排分别归入口语和阅读，不据此补出写作阶段。",
+        "stageIds": [],
+        "supportingStageIds": [],
+        "sourceId": "banana",
+        "page": 1
+      }
+    }
+  }
+}

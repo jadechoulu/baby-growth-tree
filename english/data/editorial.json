@@ -185,5 +185,26 @@
       "status": "需核套系版本",
       "note": "不能把所有带书虫的书自动视为同一系列，尤其不能与其他经典书虫套系混同。"
     }
-  ]
+  ],
+  "stageComparisonResearch": {
+    "checkedAt": "2026-10-29",
+    "conclusion": "不同尺度可以通过有来源的规则建立参考关系；需先确认能力领域、测量口径和适用范围，再比较阶段。当前确认了阅读分级的官方桥接方式，尚未核实香蕉妈妈阶段与听力词数之间的换算规则。",
+    "findings": [
+      {
+        "status": "已核验正文",
+        "title": "Oxford Level ↔ Book Bands",
+        "sourceTitle": "Oxford Owl · Reading schemes, Levels, and Stages",
+        "url": "https://home.oxfordowl.co.uk/reading/reading-schemes-oxford-levels/",
+        "result": "牛津大学出版社说明，Book Bands用于组织不同出版社的阅读分级，牛津书同时标注Oxford Level和Book Band；官方对照仅作阅读参考。可用于核对文本难度，未给出孩子听力词汇量的转换。"
+      },
+      {
+        "status": "待核验原视频",
+        "title": "香蕉妈妈 · 一本书听到什么程度才算过",
+        "sourceTitle": "香蕉妈妈 · 2025-10-01 原视频检索线索",
+        "url": "https://www.douyin.com/video/7555433087639768347",
+        "result": "标题与当前问题相关，搜索结果可定位原视频；本次未取得可核验的完整正文或字幕，暂不提取阶段门槛或换算值。"
+      }
+    ],
+    "nextStep": "跨尺度规则确认后，先在模型中加入有来源的判定，再同步用于主对照、速览和素材交集。现阶段不凭书单重叠填入阶段对应；各年龄方案继续按宝宝当前实际年龄选取。"
+  }
 }
