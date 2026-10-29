@@ -13,7 +13,8 @@
   function createClient({ siteRoot = './', profileClient }) {
     if (singleton) return singleton;
     let apiBase = '', token = '', user = null, configurationError = '', dialog, popup, nonce, authTimer, engine, sessionKey;
-    let initialized = false, applying = 0;
+    let initialized = false;
+    const applying = new Set();
     const buttons = new Set(), listeners = new Set();
     const renderedConflicts = new WeakMap();
     const channel = typeof BroadcastChannel === 'function' ? new BroadcastChannel('xiaoya-data-changed') : null;
@@ -107,7 +108,7 @@
         });
         for (const [area, adapter] of Object.entries(adapters)) await engine.register(area, {
           read: adapter.read,
-          async apply(next, base) { applying++; try { return await adapter.apply(next, base); } finally { applying--; } },
+          async apply(next, base) { applying.add(area); try { return await adapter.apply(next, base); } finally { applying.delete(area); } },
         });
         sessionKey = 'xiaoya-cloud-session-v2:' + apiBase;
         try { token = sessionStorage.getItem(sessionKey) || ''; } catch { /* 会话存储不可用时保留内存会话。 */ }
@@ -234,9 +235,9 @@
       dialog.showModal();
       updateButtons();
     }
-    async function changed(area) {
+    async function changed(area, options) {
       await ready;
-      if (!applying) await engine?.changed(area);
+      await engine?.changed(area, options);
       channel?.postMessage({ area });
       updateButtons();
     }
@@ -247,7 +248,7 @@
     setInterval(() => { if (!document.hidden) resume(); }, 15000);
     if (channel) channel.onmessage = event => { if (names[event.data?.area]) { emit(event.data.area); void engine?.changed(event.data.area); } };
     root.addEventListener('storage', event => { if (event.key === 'little-leaf-english-v1') { emit('english'); void engine?.changed('english'); } });
-    profileClient.subscribe((profile, error) => { if (!error && !applying) void changed('profile').catch(showError); });
+    profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
       ready, open, changed, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
