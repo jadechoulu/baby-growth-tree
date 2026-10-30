@@ -315,6 +315,7 @@
       if (found.length > 1) found.forEach(function (r) { r.details.push({ label: '关联边界', text: pair.join(' / ') + (pair[0] === '牛津自然拼读' ? ' 在两份来源中仅有中文名称或简称，未注明英文名与版本，尚无法确认同一套教材；保留独立条目。' : ' 在来源中名称或套系不同，保留独立条目，不自动判为同一素材。'), routeId: '', page: null, sourceId: '', variantId: '' }); });
     });
     resources.forEach(function (resource) {
+      resource.referencePrices = array(raw.resourcePrices && raw.resourcePrices.quotes).filter(function (quote) { return quote.resourceId === resource.id; });
       var image = raw.resourceCovers && raw.resourceCovers[resource.id];
       if (!resource.cover && image) {
         resource.cover = image.path;
@@ -324,6 +325,7 @@
     });
     relationships = relationships.filter(function (entry, i, list) { return list.findIndex(function (other) { return other.from === entry.from && other.to === entry.to && other.label === entry.label && other.routeId === entry.routeId && other.sourceId === entry.sourceId && other.variantId === entry.variantId; }) === i; });
     if (raw.sssSongs && raw.sssSongs.source) sources.push(raw.sssSongs.source);
+    if (raw.resourcePrices && raw.resourcePrices.source) addSource(raw.resourcePrices.source, raw.resourcePrices.source.id, '历史好价参考');
     return { routes: routes, stages: stages, resources: resources, sources: sources, relationships: relationships,
       ageComparison: ageComparison, readingComparison: readingComparison, rawToCanonical: rawToCanonical, legacyResourceIds: legacyResourceIds, raw: raw };
   }

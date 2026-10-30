@@ -12,6 +12,61 @@ const xuCurrent = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 const currentCatalog = model.normalize({ ...raw, xuSupplements, xuCurrent });
 const sssSongs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'sss-songs.json'), 'utf8'));
 
+test('历史好价按套系保留版本、组合与计价单位，不产生新素材或改变阶段依据', () => {
+  const prices = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'resource-prices.json'), 'utf8'));
+  const priced = model.normalize({...raw, xuSupplements, xuCurrent, resourcePrices: prices});
+  assert.deepEqual(priced.stages, currentCatalog.stages);
+  assert.deepEqual(priced.relationships, currentCatalog.relationships);
+  assert.deepEqual(priced.resources.map(r => r.id), currentCatalog.resources.map(r => r.id));
+  for (const quote of prices.quotes) {
+    const resource = priced.resources.find(r => r.id === quote.resourceId);
+    assert.ok(resource, quote.id+' 应关联现有套系');
+    assert.ok(resource.referencePrices.some(p => p.id === quote.id));
+    assert.ok(quote.min > 0 && quote.max >= quote.min);
+    assert.ok(prices.source.previews.some(p => p.page === quote.sourcePage));
+  }
+  const oxford = priced.resources.find(r => r.title === '牛津树');
+  assert.equal(oxford.referencePrices.filter(q => q.min === 150).every(q => q.label === '3–5组合'), true);
+  const stars = priced.resources.find(r => r.title === '培生启明星');
+  assert.equal(stars.referencePrices.find(q => q.sourcePage === 6).label, '5');
+  const pete = priced.resources.find(r => r.title === '皮特猫');
+  assert.equal(pete.referencePrices.length, 2);
+  assert.notEqual(pete.referencePrices[0].edition, pete.referencePrices[1].edition);
+  assert.equal(prices.unmatched.every(q => !q.resourceId), true);
+  for (const stage of priced.stages) {
+    // 对照仅由阶段规则产生；报价删除后也必须保持原结果。
+    assert.deepEqual(model.compareStages(priced,stage.id),model.compareStages(currentCatalog,stage.id));
+  }
+});
+
+test('庆爸第三方笔记只补充来源，笔误和个人用量不改写路线标准、素材及阶段对应', () => {
+  const withoutNote = structuredClone(raw);
+  delete withoutNote.qing.relatedSources;
+  withoutNote.qing.stages.forEach(stage => {
+    delete stage.referenceSources;
+    stage.notes = stage.notes.filter(note => !note.startsWith('补充图核对'));
+  });
+  const baseline = model.normalize({...withoutNote,xuSupplements,xuCurrent});
+  assert.deepEqual(currentCatalog.resources, baseline.resources);
+  for (const stage of currentCatalog.stages) {
+    const original = baseline.stages.find(item => item.id === stage.id);
+    assert.deepEqual(stage.materials, original.materials);
+    assert.equal(stage.entry, original.entry);
+    assert.equal(stage.exit, original.exit);
+    assert.equal(stage.title, original.title);
+    assert.deepEqual(model.compareStages(currentCatalog,stage.id),model.compareStages(baseline,stage.id));
+  }
+  const source = currentCatalog.sources.find(item => item.id === 'qing-xhs-20261030');
+  assert.equal(source.raw.kind, 'community-note');
+  assert.equal(source.previews.length, 9);
+  for (const stage of raw.qing.stages) {
+    for (const ref of stage.referenceSources) assert.ok(source.previews.some(page => page.page === ref.page));
+  }
+  assert.equal(raw.qing.stages[1].entry, '小小优趣测试新版 Phase 5');
+  assert.equal(raw.qing.stages[2].vocabularyMin, 500);
+  assert.equal(raw.qing.stages[2].vocabularyMax, 800);
+});
+
 test('听力词汇目标双向对照覆盖庆爸全部阶段，边界不把常规1放到500词节点', () => {
   const expected = [[300, ['qing-s1']], [500, ['qing-s2']], [800, ['qing-s3']], [1000, ['qing-s4']], [2000, ['qing-s5', 'qing-s6', 'qing-s7']]];
   const xu = currentCatalog.routes.find(route => route.id === 'xu');
@@ -234,7 +289,7 @@ test('全部原始素材和所有阶段引用均可追溯到有效规范实体',
     }
   }
   assert.equal(catalog.routes.find(r => r.id === 'banana').stages[0].raw.order, 0);
-  assert.deepEqual(catalog.sources.map(s => s.id), ['banana', 'xu', 'qing', 'age', 'reading']);
+  assert.deepEqual(catalog.sources.map(s => s.id), ['banana', 'xu', 'qing', 'qing-xhs-20261030', 'age', 'reading']);
   assert.ok(catalog.sources.every(s => s.file && s.previews.length));
   for (const edge of catalog.relationships) {
     assert.ok(ids.has(edge.from)); assert.ok(ids.has(edge.to));

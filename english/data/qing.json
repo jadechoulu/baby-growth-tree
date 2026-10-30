@@ -63,7 +63,19 @@
       "startingReference": {
         "kind": "route-start",
         "basis": "常规路线原表从零基础进入常规1，词数为积累目标。"
-      }
+      },
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 3,
+          "label": "小红书补充图 · 第3张"
+        },
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 8,
+          "label": "小红书补充图 · 第8张"
+        }
+      ]
     },
     {
       "id": "qing-s2",
@@ -89,7 +101,8 @@
       "notes": [
         "动画接续常规1；SVIP成长计划Phase 5–7与本阶段匹配。",
         "喜欢古力系列可继续WPlay：原文称古力最高难度一套，含动画、绘本、音频及3本可点读主题词典。",
-        "可加入牛津树1–2；原文推荐搭配培生启明星2；前阶段用了培生词汇妙趣屋1–2可接3。"
+        "可加入牛津树1–2；原文推荐搭配培生启明星2；前阶段用了培生词汇妙趣屋1–2可接3。",
+        "补充图核对（2026-10-30）：小红书第4图把主线绘本概写为“古力小超人”，第8图与原PDF仍列WPlay词汇妙趣国。第8图的Phase8准入是笔误；本阶段保留PDF的Phase5准入、Phase8晋级。"
       ],
       "resources": [
         "qing-r018",
@@ -108,6 +121,18 @@
         "qing-r031",
         "qing-r032",
         "qing-r033"
+      ],
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 4,
+          "label": "小红书补充图 · 第4张"
+        },
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 8,
+          "label": "小红书补充图 · 第8张"
+        }
       ]
     },
     {
@@ -135,7 +160,8 @@
       "notes": [
         "2.0版把小鼠波波、蓝色小考拉调整为辅线，原版语速略快，可选择观看。",
         "Little Fox L1选较简单的绿森林和The Blobs为主线；3S动画儿歌可再次利用。",
-        "原文认为本阶段亲子共读效率最高，其次看动画；音频主要培养习惯，孩子未必愿听或能听懂，勿强迫。"
+        "原文认为本阶段亲子共读效率最高，其次看动画；音频主要培养习惯，孩子未必愿听或能听懂，勿强迫。",
+        "补充图核对（2026-10-30）：小红书第5图标题误写300–500词；同篇第8图和原PDF均为500–800词，继续采用500–800词。蓝色小考拉、小鼠波波、小羊提米按PDF保留辅线。"
       ],
       "resources": [
         "qing-r034",
@@ -158,6 +184,18 @@
         "qing-r051",
         "qing-r052",
         "qing-r053"
+      ],
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 5,
+          "label": "小红书补充图 · 第5张"
+        },
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 8,
+          "label": "小红书补充图 · 第8张"
+        }
       ]
     },
     {
@@ -202,6 +240,13 @@
         "qing-r070",
         "qing-r071",
         "qing-r072"
+      ],
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 8,
+          "label": "小红书补充图 · 第8张"
+        }
       ]
     },
     {
@@ -246,6 +291,13 @@
         "qing-r088",
         "qing-r089",
         "qing-r090"
+      ],
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 9,
+          "label": "小红书补充图 · 第9张"
+        }
       ]
     },
     {
@@ -293,6 +345,13 @@
         "qing-r107",
         "qing-r108",
         "qing-r109"
+      ],
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 9,
+          "label": "小红书补充图 · 第9张"
+        }
       ]
     },
     {
@@ -345,6 +404,13 @@
         "qing-r130",
         "qing-r131",
         "qing-r132"
+      ],
+      "referenceSources": [
+        {
+          "sourceId": "qing-xhs-20261030",
+          "page": 9,
+          "label": "小红书补充图 · 第9张"
+        }
       ]
     }
   ],
@@ -3472,6 +3538,148 @@
     {
       "sourceId": "reading-map",
       "text": "补充阅读难度图作者不明；未归给庆爸。"
+    }
+  ],
+  "relatedSources": [
+    {
+      "id": "qing-xhs-20261030",
+      "title": "英语启蒙，庆爸常规2.0完整版吐血整理 · 9张配图",
+      "kind": "community-note",
+      "file": "https://xhslink.cn/o/8GSQa99cIIr",
+      "note": "果冻橙橙橙的小红书整理笔记（2026-10-30发布），含封面、个人随手记、阶段图及网盘截图。作为第三方补充参考；阶段规则以现有庆爸3–4岁2.0版PDF为主，已标注图中两处笔误。",
+      "author": "果冻橙橙橙",
+      "publishedAt": "2026-10-30T16:23:33+08:00",
+      "checkedAt": "2026-10-30",
+      "url": "https://xhslink.cn/o/8GSQa99cIIr",
+      "noteId": "6ae45405000000000f02447f",
+      "description": "两个月龟速爬到30h[笑哭R]\n对零基础很友好\n动画➕分级➕书单已整理好，可抄作业✌🏻",
+      "previews": [
+        {
+          "page": 1,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-01.jpg",
+          "note": "笔记封面；“完整版”为笔记标题用语，不代表作者修订版或全部原稿。"
+        },
+        {
+          "page": 2,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-02.jpg",
+          "note": "发布者个人常规1执行随手记：共读18h、动画15h、设备及书单数字；不是庆爸阶段要求、价格或册数规范。"
+        },
+        {
+          "page": 3,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-03.jpg",
+          "note": "常规1图示：200–300词，60–80h。绘本名称写作“古力小超人”“古力与朋友们”；原PDF列古力小超人1、2。"
+        },
+        {
+          "page": 4,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-04.jpg",
+          "note": "常规2图示：300–500词，60–80h。主线绘本图片标作“古力小超人”，原PDF及本笔记第8图列WPlay词汇妙趣国；Muzzy橙盒在本图列辅线绘本，PDF列辅线动画，分别保留。"
+        },
+        {
+          "page": 5,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-05.jpg",
+          "note": "常规3图示。标题误写“300–500词”，本笔记第8图及原PDF第1、4、5页均为500–800词；蓝色小考拉、小鼠波波、小羊提米在原PDF归辅线动画。"
+        },
+        {
+          "page": 6,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-06.jpg",
+          "note": "网盘七阶段文件夹截图；未提供分享链接或可验证文件内容，不作为新增书目或资源下载入口。"
+        },
+        {
+          "page": 7,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-07.jpg",
+          "note": "网盘局部目录拼图；集数、册数及年龄仅为文件夹名称，不能当作完整出版信息、路线年龄case或新的阶段标准。"
+        },
+        {
+          "page": 8,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-08.jpg",
+          "note": "常规1–4表格截图。常规2准入误写phase8；原PDF第1页为phase5、晋级phase8。常规3在本表为500–800词；右侧有裁切。"
+        },
+        {
+          "page": 9,
+          "path": "assets/sources/qing-xhs-20261030/qing-xhs-09.jpg",
+          "note": "常规5、6及准桥梁表格截图；阶段目标、时数、晋级要求和所见书目与现有PDF基本一致，底部有裁切。"
+        }
+      ],
+      "review": {
+        "primarySourceId": "qing",
+        "findings": [
+          {
+            "title": "七阶段与书单覆盖",
+            "text": "现有七阶段目标、投入时数及主要书单已覆盖本笔记可见内容，没有可确认的新增阶段或必补套系。第8、9图表格与PDF主体一致；截图有裁切，不能替代完整PDF。",
+            "pages": [
+              8,
+              9
+            ],
+            "primaryPages": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "title": "第三阶段词汇标题笔误",
+            "text": "第5图写“300–500词”；同篇第8图和PDF均为500–800词，路线保留500–800词。",
+            "pages": [
+              5,
+              8
+            ],
+            "primaryPages": [
+              1,
+              4,
+              5
+            ]
+          },
+          {
+            "title": "常规2准入笔误",
+            "text": "第8图写phase8准入且phase8晋级；PDF第1页为phase5准入、phase8晋级，路线沿用PDF。成长计划Phase5–7与测试Phase分开。",
+            "pages": [
+              8
+            ],
+            "primaryPages": [
+              1,
+              4
+            ]
+          },
+          {
+            "title": "古力系列的名称和所选套系",
+            "text": "第3图标“古力与朋友们”，PDF列古力小超人2；先保留图片名称，不仅凭封面创建新素材或改写规范名。第4图主线写“古力小超人”，但第7图目录、第8图表格及PDF都指向WPlay词汇妙趣国，常规2继续保留WPlay。",
+            "pages": [
+              3,
+              4,
+              7,
+              8
+            ],
+            "primaryPages": [
+              3,
+              4
+            ]
+          },
+          {
+            "title": "主辅线与媒介需分别核对",
+            "text": "第5图把小羊提米、小鼠波波、蓝色小考拉一起列在动画区；PDF明确为辅线。第4图把Muzzy橙盒列辅线绘本，PDF列辅线动画；网站暂保留PDF分类，不因转载图扩大媒介等价或新增一套书。",
+            "pages": [
+              4,
+              5
+            ],
+            "primaryPages": [
+              4,
+              5
+            ]
+          },
+          {
+            "title": "个人经验与网盘目录",
+            "text": "第2图18h共读、15h动画及价格/数量未明的数字属于发布者个人记录；第6、7图只是目录截图，未提供可核验分享入口。均保留原图，不作为阶段晋级条件、全套册数或下载资源。",
+            "pages": [
+              2,
+              6,
+              7
+            ],
+            "primaryPages": []
+          }
+        ]
+      }
     }
   ]
 }
