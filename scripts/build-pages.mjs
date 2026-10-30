@@ -8,6 +8,14 @@ const PROJECT_ROOT = fileURLToPath(new URL('../', import.meta.url));
 // 仅发布运行所需文件；个人记录、截图及工作目录不会随新文件自动进入发布包。
 export const PUBLIC_FILES = Object.freeze([
   'index.html',
+  'health.html',
+  'health.mjs',
+  'health.css',
+  'lib/health-model.mjs',
+  'data/health-standard.json',
+  'assets/wst580-2017.pdf',
+  'shared/growth-versions.js',
+  'shared/growth-references.js',
   'home.html',
   'site.css',
   'shared/site-config.js',

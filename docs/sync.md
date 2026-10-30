@@ -1,8 +1,10 @@
 # 全站私人记录同步
 
-更新：2026-10-29。
+更新：2026-10-30。
 
 ## 实现与上线状态
+
+2026-10-30 用户授权发布卫健委版本，已先更新 Netlify 生产后端，部署 `6ae451e76b7257575e039df8` 为 ready，新增观察领域 `health`。沿用本人 OAuth、首次预览连接、三方合并、持久回执及离线重试；新记录独立保存在 `xiaoya-health`，私有仓文件为 `records/health.json`。现有 `growth` 文件只存毛老师版。网页由本批 PR 通过 verify 后合入 main，再由统一 Pages 工作流发布；最终网页部署结果以 Actions 为准。上线检查核对健康接口及未登录/非受信来源保护，未代用户初始化、迁入或修改 health 文件；新版真实登录后的跨设备观察读写仍需单独验收。
 
 - 公开源码与网页仍只有 `jadechoulu/baby-growth-tree`。
 - 私有数据仓 `jadechoulu/baby-growth-records` 已接收本人确认的档案、155 项已完成成长记录，以及听力词汇量为 70 的英语记录。
@@ -10,7 +12,7 @@
 - 当前后端使用 Netlify，GitHub OAuth App 与最小私有仓令牌已配置。本人已实际登录，并从原 5317 入口预览确认后迁入记录；已通过 GitHub API 独立核对三个私有文件。`cloud-config.json` 已填真实公开 API 来源。
 - 本批已获得用户“提交合并”授权，按统一 PR、必需检查和 main Pages 工作流发布；后续日常改动仍等待单独的提交授权。
 
-当前生产部署为 `6ae2e7a9df9759ea7f15c0f1`，Free 团队 `lu-chou` 下的 `xiaoya-jadechoulu-sync`，实际来源为 `https://xiaoya-jadechoulu-sync.netlify.app`。线上健康接口返回 `provider: netlify, ready: true`。本人实际 OAuth 登录与私有记录读写已完成；健康检查本身不作为凭据有效的证据。平台 SSO 拦截已关闭，应用继续以 GitHub 本人鉴权保护数据。未登录的受信来源读写返回 401，其他来源返回 403。
+当前生产部署为 `6ae451e76b7257575e039df8`，Free 团队 `lu-chou` 下的 `xiaoya-jadechoulu-sync`，实际来源为 `https://xiaoya-jadechoulu-sync.netlify.app`。线上健康接口返回 `provider: netlify, ready: true`。本人实际 OAuth 登录与私有记录读写已完成；健康检查本身不作为凭据有效的证据。平台 SSO 拦截已关闭，应用继续以 GitHub 本人鉴权保护数据。未登录的受信来源读写返回 401，其他来源返回 403。
 
 本批首次正式发布已获用户授权，GitHub 仓库变量 `XIAOYA_API_BASE` 已配置为上述公开地址，由 main 的统一工作流发布；实际部署结果以 GitHub Actions 和正式入口的配置、运行脚本为准。发布前的正式站地址为空，旧页面的完成操作仅存于所在设备；刷新到新页面后仍保留同一来源的本机记录，首次连接时预览合入，不能要求清空浏览器数据。新设备首次登录并逐类连接后自动同步；断网先保存本机，恢复连接后重试，12 小时会话过期时重新登录，不要求每台设备录入私有仓令牌。同一浏览器的另一来源恢复已由本人确认：原为空的 5318 现已显示 155 项完成记录。真实多设备并发仍需单独验收。
 
@@ -23,10 +25,11 @@ GitHub Pages 放公开网页；私有 GitHub 仓库放个人 JSON 与版本历�
 | 分类 | 远端固定文件 | 数据 |
 | --- | --- | --- |
 | 档案 | `records/profile.json` | 全站昵称、固定生日 |
-| 成长 | `records/growth.json` | 技能完成日期与手记 |
+| 毛老师成长 | `records/growth.json` | 技能完成日期与手记 |
+| 卫健委观察 | `records/health.json` | 家庭观察状态、日期与手记 |
 | 英语 | `records/english.json` | 词汇、呈现偏好、收藏、素材状态与笔记 |
 
-API 分别为 `/api/data/profile`、`/api/data/growth`、`/api/data/english`，使用 `GET` / `PUT`。写入携带最近 GitHub 文件 SHA；冲突重新读取并做字段级三方合并。旧 `/api/records` 保留兼容原成长快照。
+API 分别为 `/api/data/profile`、`/api/data/growth`、`/api/data/health`、`/api/data/english`，使用 `GET` / `PUT`。写入携带最近 GitHub 文件 SHA；冲突重新读取并做字段级三方合并。旧 `/api/records` 保留兼容原成长快照。
 
 ## 本机与同步日志
 

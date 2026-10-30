@@ -50,6 +50,13 @@
 .graph-mode-tabs button.active { color: #6d3cb1; background: white; font-weight: 600; box-shadow: 0 2px 4px #5736710c; }
 .lineage-picker { margin-left: auto; display: flex; gap: 8px; align-items: center; font-size: 11px; color: #96799f; }
 .lineage-picker select { max-width: 242px; min-width: 140px; padding: 10px 27px 10px 10px; border: 1px solid #e0cfe5; border-radius: 6px; color: #674a78; background: #fffdfa; font-size: 12px; }
+.lineage-picker > label { flex-shrink: 0; }
+.lineage-focus-input { display: flex; align-items: center; flex: 1; min-width: 0; gap: 4px; }
+.lineage-picker .lineage-focus-input select { flex: 1; min-width: 0; width: 100%; font-size: 16px; }
+.lineage-clear { display: inline-grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 10px; border: 1px solid #e0cfe5; border-radius: 6px; color: #674a78; background: #fffdfa; }
+.lineage-clear .icon { width: 16px; height: 16px; }
+.lineage-clear:disabled { opacity: .4; cursor: default; }
+.lineage-clear:focus-visible { outline: 2px solid #8950df; outline-offset: 2px; }
 .branch-picker { margin-left: 0; }
 .branch-picker select { max-width: 160px; min-width: 110px; }
 .focus-strip { display: flex; align-items: center; gap: 12px; margin: 18px 0 13px; }
@@ -467,7 +474,12 @@
 }
 
 /* 窄屏图谱直接展示；图例并入唯一工具栏，避免在画布前堆叠操作行。 */
-.growth-overall-progress { display: none; }
+.growth-overall-progress { display: none; align-items: center; gap: 8px; min-width: 0; margin: 0 0 8px; color: #75518e; font-size: 12px; font-variant-numeric: tabular-nums; }
+.graph-main > .growth-overall-progress { display: flex; }
+.growth-overall-progress > span:first-child { display: inline-flex; align-items: center; gap: 5px; min-width: 0; }
+.growth-overall-progress .icon { width: 15px; height: 15px; }
+.overall-progress-track { width: 48px; height: 3px; border-radius: 3px; background: #e8ddf4; overflow: hidden; }
+.overall-progress-track i { display: block; height: 100%; background: #8950df; }
 .graph-tools .graph-legend-button { display: none; }
 .graph-legend-dialog .graph-key { padding: 0; border: 0; background: transparent; gap: 18px; }
 .graph-legend-dialog .graph-legend { width: 100%; justify-content: flex-start; font-size: 15px; gap: 10px 16px; }
@@ -476,11 +488,7 @@
 .graph-legend-dialog .graph-legend i { flex-shrink: 0; }
 .graph-legend-dialog .graph-key p { font-size: 13px; }
 @media (max-width: 900px) {
-  .growth-overall-progress { display: flex; align-items: center; gap: 8px; min-width: 0; margin: 0 0 8px; color: #75518e; font-size: 12px; font-variant-numeric: tabular-nums; }
-  .growth-overall-progress > span:first-child { display: inline-flex; align-items: center; gap: 5px; min-width: 0; }
-  .growth-overall-progress .icon { width: 15px; height: 15px; }
-  .overall-progress-track { width: 48px; height: 3px; border-radius: 3px; background: #e8ddf4; overflow: hidden; }
-  .overall-progress-track i { display: block; height: 100%; background: #8950df; }
+  .growth-overall-progress { display: flex; }
   .site-enabled .growth-content .stage-picker { margin-top: 0; }
   .site-enabled .stage-select-label { position: relative; }
   .site-enabled .stage-select-label select { appearance: none; padding-right: 34px; }

@@ -70,6 +70,18 @@ class LocalBackupTests(unittest.TestCase):
         self.assertEqual((self.backups / self.filename).read_text(), self.content)
         self.assertEqual(Path(result['path']).read_text(), updated)
 
+    def test_health_backup_has_own_standard_and_preserves_history(self):
+        filename = '小芽卫健委观察_2026-10-30.json'
+        content = json.dumps({'version': 1, 'standard': 'WS/T 580—2017', 'records': {'wst580-138': {'status': 'observed'}}}, ensure_ascii=False)
+        status, first, _ = self.request(filename=filename, content=content)
+        self.assertEqual(status, 201)
+        status, second, _ = self.request(filename=filename, content=content)
+        self.assertEqual(status, 201)
+        self.assertNotEqual(first['path'], second['path'])
+        self.assertEqual(Path(first['path']).read_text(), content)
+        self.assertEqual(self.request(filename=filename)[0], 400)
+        self.assertEqual(self.request(content=content)[0], 400)
+
     def test_accepts_each_export_name_and_browser_suffix(self):
         for filename in ['小芽旧本机记录_2026-10-28.json', '小芽英语-启蒙记录备份.json', '小芽英语-启蒙记录备份 (2).json']:
             with self.subTest(filename=filename):
