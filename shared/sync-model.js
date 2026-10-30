@@ -24,6 +24,28 @@
       if (!name || value.birthDate !== '2024-11-24') throw new Error('宝宝档案格式无效。');
       return { version: 1, name, birthDate: value.birthDate };
     }
+    if (area === 'health') {
+      fields(value, ['version', 'standard', 'records']);
+      if (value.standard !== 'WS/T 580—2017' || !object(value.records)) throw new Error('卫健委观察记录格式无效。');
+      const records = Object.fromEntries(Object.entries(value.records).map(([key, record]) => {
+        // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 新领域只接受标准内固定项目标识与明确记录字段。
+        if (!/^wst580-\d{3}$/.test(key) || Number(key.slice(7)) < 1 || Number(key.slice(7)) > 261) throw new Error('记录包含未知评估项目。');
+        fields(record, ['status', 'observedAt', 'note']);
+        const next = {};
+        if (Object.hasOwn(record, 'status')) {
+          if (!['observed', 'not-yet'].includes(record.status)) throw new Error('观察状态无效。');
+          next.status = record.status;
+        }
+        if (Object.hasOwn(record, 'observedAt')) {
+          const date = text(record.observedAt, 10);
+          if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date.startsWith('0000') || !Number.isFinite(Date.parse(date + 'T00:00:00Z')) || new Date(date + 'T00:00:00Z').toISOString().slice(0, 10) !== date) throw new Error('观察日期无效。');
+          next.observedAt = date;
+        }
+        if (Object.hasOwn(record, 'note')) next.note = text(record.note, 2000);
+        return [key, next];
+      }));
+      return { version: 1, standard: value.standard, records };
+    }
     if (!['growth', 'english'].includes(area)) throw new Error('未知记录分类。');
     fields(value, area === 'growth' ? ['version', 'records'] : ['version', 'profile', 'favorites', 'records']);
     if (!object(value.records)) throw new Error('记录列表格式无效。');

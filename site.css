@@ -275,3 +275,19 @@ body.site-navigation-open{overflow:hidden}
 .site-sync-bulk { display:flex; flex-wrap:wrap; gap:6px; }
 .site-sync-bulk .site-sync-action { margin:0; flex:1; }
 @media (max-width:600px) { .site-sync-button span { display:none; } .site-sync-button { padding:6px; } .site-sync-dialog { width:calc(100% - 16px); } }
+/* 同一成长分类内的版本切换，正文和详情使用同一入口。 */
+.growth-versions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:0 0 12px;padding:3px;width:fit-content;border:1px solid #dedcec;border-radius:10px;background:#f3f1fa;font-size:14px}
+.growth-versions a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:6px 13px;border-radius:7px;text-decoration:none;line-height:1.4}
+.growth-versions a[aria-current=page]{background:#fff;color:#5235a3;font-weight:650;box-shadow:0 1px 3px #332a4115}
+.growth-references{display:flex;align-items:flex-start;gap:6px;margin:0 0 12px;padding:8px 10px;border:1px solid #dedcec;border-radius:10px;background:#f8f7fb;min-width:0}
+.growth-references details{flex:1;min-width:0}
+.growth-references summary{cursor:pointer;line-height:1.8;font-size:15px;overflow-wrap:anywhere}
+.growth-reference-kind{display:inline-block;margin:2px 0 2px 6px;padding:1px 6px;border-radius:5px;background:#e9e4f6;color:#523980;font-size:12px;line-height:1.6;vertical-align:middle}
+.growth-reference-kind.partial{background:#f6ead4;color:#765020}
+.growth-references ul{list-style:none;padding:0;margin:8px 0 0}
+.growth-references li{padding:8px 0;border-top:1px solid #dedcec;overflow-wrap:anywhere}
+.growth-references li a{display:inline-block;max-width:100%;padding:5px 0;font-size:15px;font-weight:600;line-height:1.5;color:#523980;text-decoration:underline;text-underline-offset:3px}
+.growth-reference-note,.growth-references li p{margin:4px 0;font-size:12px;line-height:1.7;color:#625773}
+.growth-references a:focus-visible,.growth-references summary:focus-visible{outline:3px solid #7699df;outline-offset:3px;border-radius:3px}
+.growth-version-help{display:inline-grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:1px solid #9c91b0;border-radius:50%;background:transparent;color:#625773;font:650 15px/1 var(--site-font);margin:0 5px 0 0;cursor:pointer}
+.growth-version-help:focus-visible{outline:3px solid #7699df;outline-offset:3px}

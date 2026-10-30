@@ -9,6 +9,34 @@
   }
   function createAdapters({ indexedDB, localStorage, profileClient, notify = () => {} }) {
     let opening;
+    let healthOpening;
+    function healthDatabase() {
+      if (!healthOpening) healthOpening = new Promise((resolve, reject) => {
+        const request = indexedDB.open('xiaoya-health', 1);
+        request.onupgradeneeded = () => request.result.createObjectStore('documents');
+        request.onblocked = () => reject(new Error('卫健委观察记录被旧页面占用。'));
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => { const db = request.result; db.onversionchange = () => { db.close(); healthOpening = null; }; resolve(db); };
+      }).catch(error => { healthOpening = null; throw error; });
+      return healthOpening;
+    }
+    async function healthTransaction(write, next, base) {
+      const db = await healthDatabase();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('documents', write ? 'readwrite' : 'readonly');
+        const store = tx.objectStore('documents'), request = store.get('default');
+        let result, error;
+        request.onsuccess = () => {
+          try {
+            const current = M.normalize('health', request.result ?? null);
+            result = write ? M.normalize('health', conflict(M.merge(base, current, next))) : current;
+            if (write && result) store.put(result, 'default');
+          } catch (failure) { error = failure; tx.abort(); }
+        };
+        tx.oncomplete = () => { if (write) notify('health'); resolve(result); };
+        tx.onabort = tx.onerror = () => reject(error || tx.error || new Error('卫健委观察记录保存失败。'));
+      });
+    }
     function growthDatabase() {
       if (!opening) opening = new Promise((resolve, reject) => {
         const request = indexedDB.open('xiaoya-growth', 1);
@@ -69,6 +97,7 @@
         },
       },
       growth: { read: () => growthTransaction(false), apply: (next, base) => growthTransaction(true, next, base) },
+      health: { read: () => healthTransaction(false), apply: (next, base) => healthTransaction(true, next, base) },
       english: {
         read: async () => readEnglish(),
         async apply(next, base) {

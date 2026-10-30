@@ -14,7 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BACKUP_DIRECTORY = Path('/Users/zhoulu/Documents/生活/育儿/codex')
 BACKUP_ENDPOINT = '/__local-backup'
 BACKUP_NAME = re.compile(
-    r'(?P<stem>小芽(?:成长记录|旧本机记录)_[0-9]{4}-[0-9]{2}-[0-9]{2}'
+    r'(?P<stem>小芽(?:成长记录|旧本机记录|卫健委观察)_[0-9]{4}-[0-9]{2}-[0-9]{2}'
     r'|小芽英语-启蒙记录备份)(?: \([0-9]+\))?\.json'
 )
 
@@ -34,7 +34,7 @@ def loopback_address(value):
 def save_backup(filename, content, destination=BACKUP_DIRECTORY):
     name_match = BACKUP_NAME.fullmatch(filename) if isinstance(filename, str) else None
     if not name_match or not isinstance(content, str):
-        raise ValueError('仅接受小芽成长记录、旧本机记录或英语启蒙记录的 JSON 备份文件名')
+        raise ValueError('仅接受小芽成长记录、卫健委观察、旧本机记录或英语启蒙记录的 JSON 备份文件名')
     # 旧本机记录支持原文导出供修复；仅此已通过完整文件名校验的类别允许损坏 JSON 或旧结构。
     if not name_match['stem'].startswith('小芽旧本机记录_'):
         try:
@@ -45,10 +45,14 @@ def save_backup(filename, content, destination=BACKUP_DIRECTORY):
             not isinstance(data, dict)
             or type(data.get('version')) is not int
             or data['version'] != 1
-            or not isinstance(data.get('profile'), dict)
             or not isinstance(data.get('records'), dict)
         ):
-            raise ValueError('备份须包含 version: 1、profile 和 records 对象')
+            raise ValueError('备份须包含 version: 1 和 records 对象')
+        if name_match['stem'].startswith('小芽卫健委观察_'):
+            if data.get('standard') != 'WS/T 580—2017':
+                raise ValueError('卫健委观察备份的标准标识无效')
+        elif not isinstance(data.get('profile'), dict):
+            raise ValueError('成长和英语备份须包含 profile 对象')
 
     encoded = content.encode('utf-8')
     destination = Path(destination)

@@ -1,6 +1,6 @@
 # Netlify 私人同步接口
 
-更新：2026-10-29。本人 CLI 授权已完成，免费团队 `lu-chou` 下已部署 `xiaoya-jadechoulu-sync`。GitHub 应用与最小私有仓凭据已配置，线上健康接口返回 `provider: netlify, ready: true`。本人已实际登录、预览确认并上传原 5317 的 155 项成长记录；GitHub API 独立核对保存结果通过。本批网页已获提交合并授权，按 main 工作流发布，以正式入口与 Actions 核对部署结果；真实跨设备验收仍待完成。
+更新：2026-10-30。本人 CLI 授权已完成，免费团队 `lu-chou` 下已部署 `xiaoya-jadechoulu-sync`。GitHub 应用与最小私有仓凭据已配置，线上健康接口返回 `provider: netlify, ready: true`。本人已实际登录、预览确认并上传原 5317 的 155 项成长记录；GitHub API 独立核对保存结果通过。本批网页已获提交合并授权，按 main 工作流发布，以正式入口与 Actions 核对部署结果；真实跨设备验收仍待完成。
 
 接口地址：<https://xiaoya-jadechoulu-sync.netlify.app>。网页继续由 GitHub Pages 发布，记录仍在私有仓 `jadechoulu/baby-growth-records`。Netlify Blobs 仅存短期登录状态，不保存宝宝记录。真实状态库已验证并发仅一次消费、重放拒绝和注销即时生效，测试状态已删除。
 
@@ -46,3 +46,7 @@ npm exec --yes --package=node@22.22.0 --package=netlify-cli@27.15.0 -- netlify d
 ## 完成标准
 
 真实本人登录、私有 GitHub JSON 保存、原 5317 逐类预览迁入，以及原为空的 5318 恢复 155 项完成记录均已完成（页面恢复结果由本人确认）；仍须核对真实多设备并发及登录失效恢复。不要把健康检查通过或本地可用描述成正式站已上线。网页须按用户要求，在明确“提交合并”后由 main 发布；发布前设置仓库变量 `XIAOYA_API_BASE` 为接口公开来源，值不含任何秘密。
+
+## 卫健委观察接口发布（2026-10-30）
+
+用户授权发布后已用白名单包更新生产，部署 `6ae451e76b7257575e039df8` 为 ready。`/api/data/health` 对应固定私有文件 `records/health.json`，与原成长记录分开；未改动原有配置、凭据或认证状态库。网页继续由 main 的统一工作流发布。新观察记录首次连接仍须本人登录、预览并确认；部署核验不向个人记录仓写入测试项目。

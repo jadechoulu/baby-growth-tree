@@ -284,7 +284,7 @@
     };
   }
 
-  const api = { createShell, resolveEntry, validateSections, navigationOpen: () => Boolean(activeDialog), NARROW };
+  const api = { createShell, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.XiaoyaSite = api;
 })(typeof window !== 'undefined' ? window : globalThis);
