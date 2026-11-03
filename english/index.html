@@ -1068,6 +1068,8 @@ body.site-enabled{margin:0;background:var(--site-bg);color:var(--site-text)}
 .site-location{font-size:14px;color:var(--site-muted);white-space:nowrap}
 .site-location:not(:empty)::before{content:'/';padding-right:10px;color:var(--site-muted)}
 .site-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex:1;min-width:0}
+.site-global-actions{--site-accent:#385c39;--site-accent-soft:#e6edd9;--site-surface:#fff8e7;--site-text:#394c40;--site-muted:#6e795e;--site-border:#e8dfcb;display:flex;align-items:center;gap:6px;flex:none}
+.site-global-actions:empty{display:none}
 .site-directory-button{display:none;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 10px;border:1px solid var(--site-border);border-radius:10px;background:var(--site-surface);font-size:14px;color:var(--site-text)}
 .site-body{display:grid;grid-template-columns:var(--site-sidebar) minmax(0,1fr);align-items:start;max-width:1800px;margin:auto}
 .site-sidebar{position:sticky;top:calc(var(--site-bar-height) + var(--site-page-bar-height));height:calc(100dvh - var(--site-bar-height) - var(--site-page-bar-height));overflow:auto;padding:22px 14px;border-right:1px solid var(--site-border);background:var(--site-surface);overscroll-behavior:contain}
@@ -1122,6 +1124,7 @@ body.site-navigation-open{overflow:hidden}
 .site-enabled .profile-site-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .site-enabled .detail-head,.site-enabled .dialog-header,.site-enabled .preview-top{background:var(--site-surface)}
 .site-enabled .app-dialog .dialog-header{position:sticky;top:-26px;z-index:2;padding:12px 0;border-bottom:1px solid var(--site-border)}
+.site-enabled .app-dialog .dialog-header>.circle-button{width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;align-self:start;justify-self:end}
 .site-enabled .graph-is-expanded .site-bar{z-index:45}
 @media(max-width:1100px){.site-bar,.site-page-bar{gap:12px}:root{--site-sidebar:205px;--site-space:24px}}
 @media(max-width:900px){
@@ -1200,6 +1203,7 @@ body.site-navigation-open{overflow:hidden}
  .site-actions .save-status [data-save-label]{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 }
 @media(max-width:375px){.site-brand>.site-icon{display:none}.site-bar{padding-left:12px;padding-right:12px;gap:6px}.site-brand{font-size:19px;gap:4px}.site-category-link{padding:8px 10px}.site-section-switch{padding:8px;font-size:12px}.site-directory-button{padding:8px;font-size:13px}.site-directory-button>.site-icon{display:none}:root{--site-space:14px}.site-actions .source-link span{display:none}.site-navigation-scroll{padding-left:12px;padding-right:12px}}
+@media(max-width:375px){.site-bar:has(>.site-global-actions:not(:empty)){gap:4px;padding-left:8px;padding-right:8px}.site-bar:has(>.site-global-actions:not(:empty)) .site-categories{flex-shrink:0}.site-bar:has(>.site-global-actions:not(:empty)) .site-category-link{padding-left:6px;padding-right:6px}}
 @media print{.site-bar,.site-page-bar,.site-sidebar,.site-shortcuts,.site-skip,.site-navigation-dialog,.site-section-switch{display:none!important}.site-body{display:block}.site-main{padding:0}}
 /* 成长内容的阅读接入；图谱节点保持紧凑，正文保持可读。 */
 .site-enabled .growth-content :is(p,.hero-copy>p,.guide-meaning,.guide-example p,.guide-practice p,.resource-section){font-size:15px;line-height:1.85;color:#655b70}
@@ -1241,7 +1245,7 @@ body.site-navigation-open{overflow:hidden}
  .site-enabled .growth-content .status-tabs button{font-size:13px;min-height:44px;padding:8px 10px}
  .site-enabled .growth-content .search-box{width:100%;min-height:46px}
  .site-enabled .growth-content .list-toolbar{display:flex;flex-wrap:wrap}
- .site-enabled .growth-content .list-toolbar .status-tabs{width:100%;display:flex;justify-content:space-between}
+ .site-enabled .growth-content .list-toolbar .status-tabs{width:100%;display:flex;justify-content:flex-start}
  .site-enabled .growth-content .detail-arrow{display:none}
  .site-enabled .growth-content .lineage-entry{min-width:44px;min-height:44px;font-size:12px}
  .site-enabled .growth-content .skill-row{gap:10px}
@@ -1314,8 +1318,11 @@ body.site-navigation-open{overflow:hidden}
 @media (max-width:600px) { .site-sync-button span { display:none; } .site-sync-button { padding:6px; } .site-sync-dialog { width:calc(100% - 16px); } }
 /* 同一成长分类内的版本切换，正文和详情使用同一入口。 */
 .growth-versions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:0 0 12px;padding:3px;width:fit-content;border:1px solid #dedcec;border-radius:10px;background:#f3f1fa;font-size:14px}
+.growth-version-tab{display:inline-flex;align-items:center;flex:none;border-radius:7px}
+.growth-version-tab:has(>a[aria-current=page]){background:#fff;box-shadow:0 1px 3px #332a4115}
 .growth-versions a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:6px 13px;border-radius:7px;text-decoration:none;line-height:1.4}
-.growth-versions a[aria-current=page]{background:#fff;color:#5235a3;font-weight:650;box-shadow:0 1px 3px #332a4115}
+.growth-versions a[aria-current=page]{color:#5235a3;font-weight:650}
+.growth-version-tab:has(>.growth-version-help)>a{padding-right:5px}
 .growth-references{display:flex;align-items:flex-start;gap:6px;margin:0 0 12px;padding:8px 10px;border:1px solid #dedcec;border-radius:10px;background:#f8f7fb;min-width:0}
 .growth-references details{flex:1;min-width:0}
 .growth-references summary{cursor:pointer;line-height:1.8;font-size:15px;overflow-wrap:anywhere}
@@ -1326,8 +1333,47 @@ body.site-navigation-open{overflow:hidden}
 .growth-references li a{display:inline-block;max-width:100%;padding:5px 0;font-size:15px;font-weight:600;line-height:1.5;color:#523980;text-decoration:underline;text-underline-offset:3px}
 .growth-reference-note,.growth-references li p{margin:4px 0;font-size:12px;line-height:1.7;color:#625773}
 .growth-references a:focus-visible,.growth-references summary:focus-visible{outline:3px solid #7699df;outline-offset:3px;border-radius:3px}
-.growth-version-help{display:inline-grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:1px solid #9c91b0;border-radius:50%;background:transparent;color:#625773;font:650 15px/1 var(--site-font);margin:0 5px 0 0;cursor:pointer}
+.growth-version-help{display:inline-grid;place-items:center;flex:0 0 16px;width:16px;height:16px;padding:0;border:1px solid #aaa2b9;border-radius:50%;background:transparent;color:#81768f;font:500 11px/1 var(--site-font);margin:0 8px 0 0;cursor:pointer}
 .growth-version-help:focus-visible{outline:3px solid #7699df;outline-offset:3px}
+
+/* 成长两版本共用分类工具栏的位置，正文不再重复版本页签。 */
+.growth-version-short{display:none}
+.site-action-menu{flex:none}
+.site-more-button{display:inline-grid;place-items:center;width:44px;height:44px;padding:10px;border:1px solid var(--site-border);border-radius:10px;background:var(--site-surface);color:var(--site-text);cursor:pointer}
+.site-more-button .site-icon{stroke-width:1.7}
+.site-more-button[aria-expanded=true]{background:var(--site-accent-soft);border-color:var(--site-accent)}
+.site-more-button:focus-visible{outline:3px solid var(--site-accent);outline-offset:2px}
+.site-action-popover{position:fixed;inset:auto;margin:0;padding:6px;width:232px;max-width:calc(100vw - 16px);max-height:calc(100dvh - 120px);overflow:auto;border:1px solid var(--site-border);border-radius:12px;background:var(--site-surface);color:var(--site-text);box-shadow:0 8px 28px #24345224;box-sizing:border-box}
+:is(.site-actions,.site-global-actions) .site-action-popover>:is(.topbar-actions,.top-actions){display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.topbar-actions,.top-actions)>:is(button,a){display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;height:auto;min-height:44px;margin:0;padding:10px 12px;border:0;border-radius:7px;font:inherit;font-size:14px;line-height:1.5;text-decoration:none;white-space:normal;color:inherit;background:transparent;text-align:left}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.topbar-actions,.top-actions)>:is(button,a):hover{background:var(--site-accent-soft)}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.topbar-actions,.top-actions)>:is(button,a):focus-visible{outline:2px solid var(--site-accent);outline-offset:-2px}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.icon-button,.site-sync-button,.top-search)>span{display:inline}
+:is(.site-actions,.site-global-actions) .site-action-popover .save-status [data-save-label]{position:static;width:auto;height:auto;padding:0;overflow:visible;clip-path:none;white-space:normal}
+:is(.site-actions,.site-global-actions) .site-action-popover .save-status.has-error{color:#a43131}
+.site-actions>.growth-versions{margin:0 auto 0 0;flex-wrap:nowrap;flex-shrink:0}
+.site-actions:has(>.growth-versions)>.topbar-actions{flex:0 0 auto}
+@media(max-width:900px){
+ .site-page-bar:has(.site-actions>.growth-versions){gap:8px}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-page-heading{display:none}
+ .site-actions:has(>.growth-versions){gap:8px}
+ .site-actions>.growth-versions{font-size:12px;gap:2px;padding:2px}
+ .site-actions>.growth-versions a{min-height:40px;padding:5px 6px;white-space:nowrap}
+ .site-actions:has(>.growth-versions)>.topbar-actions{width:auto;gap:6px}
+}
+@media(max-width:420px){
+ .site-page-bar:has(.site-actions>.growth-versions){gap:4px;padding-left:8px;padding-right:8px}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-directory-button{width:44px;flex:0 0 44px;padding:8px}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-directory-button>span{display:none}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-directory-button>.site-icon{display:inline-block}
+ .site-actions:has(>.growth-versions){gap:4px}
+ .site-actions>.growth-versions .growth-version-full{display:none}
+ .site-actions>.growth-versions .growth-version-short{display:inline}
+ .site-actions>.growth-versions a{padding-left:4px;padding-right:4px}
+ .site-actions:has(>.growth-versions)>.topbar-actions{gap:2px}
+ .site-actions:has(>.growth-versions)>.topbar-actions :is(.site-sync-button,.icon-button,.health-icon){width:36px;min-width:36px;flex:0 0 36px;padding:7px}
+ .site-actions:has(>.growth-versions) .save-status{padding:4px}
+}
 </style>
 </head>
 <body>
@@ -2171,6 +2217,23 @@ body.site-navigation-open{overflow:hidden}
   'use strict';
   const NARROW = '(max-width: 900px)';
   let activeDialog = null;
+  let skillListsObserver;
+  function balanceSkillLists(elements) {
+    const update = list => {
+      const style = root.getComputedStyle(list), count = list.children.length;
+      const width = list.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      if (!count || width <= 0) return;
+      const gap = parseFloat(style.columnGap) || 0, minimum = parseFloat(style.getPropertyValue('--skill-min-width'));
+      const capacity = Math.max(1, Math.floor((width + gap) / (minimum + gap)));
+      // 保持最少行数，再按项目数量收紧列数，避免4项排成3＋1或保留空列。
+      const columns = Math.ceil(count / Math.ceil(count / capacity));
+      const value = `repeat(${columns}, minmax(0, 1fr))`;
+      if (list.style.gridTemplateColumns !== value) list.style.gridTemplateColumns = value;
+    };
+    if (!skillListsObserver && root.ResizeObserver) skillListsObserver = new root.ResizeObserver(entries => entries.forEach(entry => update(entry.target)));
+    skillListsObserver?.disconnect();
+    for (const list of elements) { update(list); skillListsObserver?.observe(list); }
+  }
   const paths = {
     sprout: 'M12 21V11M12 16C5 17 2 12 3 7c6-1 10 3 9 9ZM12 12c-1-7 3-10 9-9 1 6-3 10-9 9Z',
     book: 'M12 6v15M12 6C8 3 4 3 2 4v15c3-1 6-1 10 2 4-3 7-3 10-2V4c-3-1-6-1-10 2Z',
@@ -2181,7 +2244,9 @@ body.site-navigation-open{overflow:hidden}
     network: 'M12 8V4M8 16l-3 3M16 16l3 3M12 8l-4 8h8l-4-8ZM9 1h6v4H9ZM1 19h7v4H1ZM16 19h7v4h-7Z',
     source: 'M14 3H4v18h16V9ZM14 3v6h6M8 13h8M8 17h5',
     settings: 'M4 7h16M4 17h16M8 4v6M16 14v6',
+    gear: 'M10 2h4l.5 2.8 1.3.5 2.3-1.6 2.8 2.8-1.6 2.3.5 1.3L22 10v4l-2.8.5-.5 1.3 1.6 2.3-2.8 2.8-2.3-1.6-1.3.5L14 22h-4l-.5-2.8-1.3-.5-2.3 1.6-2.8-2.8 1.6-2.3-.5-1.3L2 14v-4l2.8-.5.5-1.3-1.6-2.3 2.8-2.8 2.3 1.6 1.3-.5L10 2ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
     menu: 'M4 6h16M4 12h16M4 18h16',
+    more: 'M5 12h.01M12 12h.01M19 12h.01',
     close: 'm6 6 12 12M6 18 18 6',
     down: 'm6 9 6 6 6-6',
     home: 'm3 11 9-8 9 8M5 9v12h14V9M10 21v-7h4v7'
@@ -2216,6 +2281,46 @@ body.site-navigation-open{overflow:hidden}
     path.setAttribute('d', paths[name] || paths.book);
     svg.append(path);
     return svg;
+  }
+
+  function createActionMenu(actions) {
+    const wrap = node('div', 'site-action-menu');
+    const trigger = node('button', 'site-more-button');
+    trigger.type = 'button'; trigger.title = '设置';
+    trigger.setAttribute('aria-label', '设置'); trigger.setAttribute('aria-expanded', 'false');
+    trigger.append(icon('gear'));
+    const panel = node('div', 'site-action-popover');
+    panel.popover = 'auto'; panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', '设置');
+    panel.append(actions);
+    trigger.popoverTargetElement = panel;
+    actions.querySelector('button,a[href]')?.setAttribute('autofocus', '');
+    let choosingAction = false, outsideFocusTarget = null;
+    const rememberOutsideTarget = event => {
+      if (!wrap.contains(event.target)) outsideFocusTarget = event.target.closest('button,a[href],input,select,textarea,summary,[tabindex],[contenteditable="true"]');
+    };
+    panel.addEventListener('beforetoggle', event => {
+      trigger.setAttribute('aria-expanded', String(event.newState === 'open'));
+      if (event.newState === 'open') {
+        choosingAction = false; outsideFocusTarget = null;
+        document.addEventListener('pointerdown', rememberOutsideTarget, true);
+        const box = trigger.getBoundingClientRect();
+        panel.style.top = box.bottom + 6 + 'px';
+        panel.style.right = Math.max(8, root.innerWidth - box.right) + 'px';
+      } else document.removeEventListener('pointerdown', rememberOutsideTarget, true);
+    });
+    panel.addEventListener('toggle', event => {
+      if (event.newState !== 'closed' || choosingAction || outsideFocusTarget || !trigger.isConnected) return;
+      const focused = document.activeElement;
+      // 菜单项打开的弹层或外部控件已有焦点时，保留其焦点。
+      if (focused && focused !== document.body && !panel.contains(focused) && focused !== trigger) return;
+      trigger.focus({ preventScroll: true });
+    });
+    // 先收起菜单，再运行原按钮逻辑，避免遮住随后打开的同步或备份弹层。
+    panel.addEventListener('click', event => {
+      if (event.target.closest('button,a[href]')) { choosingAction = true; panel.hidePopover(); }
+    }, true);
+    wrap.append(trigger, panel);
+    return wrap;
   }
 
   function createShell(options) {
@@ -2261,6 +2366,7 @@ body.site-navigation-open{overflow:hidden}
     menu.addEventListener('click', () => openNavigation('directory', menu));
     const title = node('span', 'site-location');
     const actions = node('div', 'site-actions');
+    const globalActions = node('div', 'site-global-actions');
     const body = node('div', 'site-body');
     const sidebar = node('aside', 'site-sidebar');
     const content = node('main', 'site-main');
@@ -2288,7 +2394,7 @@ body.site-navigation-open{overflow:hidden}
     profileClient?.init().then(updateBabyAge).catch(() => { if (!destroyed) baby.hidden = true; });
     root.addEventListener('focus', updateBabyAge);
     document.addEventListener('visibilitychange', updateBabyAge);
-    top.append(homeLink, baby, categories);
+    top.append(homeLink, baby, categories, globalActions);
     pageHeading.append(title);
     pageBar.append(pageHeading, menu, actions);
     body.append(sidebar, content);
@@ -2426,7 +2532,7 @@ body.site-navigation-open{overflow:hidden}
     root.visualViewport?.addEventListener('resize', onViewport);
     update(snapshot);
     return {
-      element, content, actions, update, createSectionSwitch,
+      element, content, actions, globalActions, update, createSectionSwitch,
       openDirectory: () => openNavigation('directory', menu), closeNavigation,
       createSectionCards() {
         const cards = node('section', 'site-cards');
@@ -2453,7 +2559,7 @@ body.site-navigation-open{overflow:hidden}
     };
   }
 
-  const api = { createShell, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
+  const api = { createShell, createActionMenu, balanceSkillLists, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.XiaoyaSite = api;
 })(typeof window !== 'undefined' ? window : globalThis);
@@ -3479,12 +3585,13 @@ function navigateEnglish(id){
   if(id.startsWith('route:')){S.route=id.slice(6);mobileRouteTab=S.route;S.compareRoute=S.route;S.compareStage=null;S.view='routes';render();window.scrollTo(0,0);history.replaceState(null,'','#routes');return;}
   navigate(id);
 }
-function englishActions(){return h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'),btn(icon('settings'),'profile',{'aria-label':'编辑宝宝资料'},'icon-button'));}
+function englishActions(){return h('div',{class:'top-actions'},btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'));}
+function englishGlobalActions(){return window.XiaoyaSite.createActionMenu(h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('settings'),h('span',{},'宝宝资料')],'profile',{'aria-label':'编辑宝宝资料'},'icon-button'),btn([icon('download'),h('span',{},'备份')],'backup',{'aria-label':'备份英语启蒙记录'},'icon-button')));}
 function footer(){return h('footer',{class:'page-foot'},h('span',{},'根据 '+C.sources.length+' 份本地资料整理 · '+C.stages.length+' 个阶段 / 节点 · '+C.resources.length+' 个素材系列'),h('span',{},'陪伴有节奏，成长不赶路。'));}
 function render(){const active=document.activeElement;const id=active?.id;const pos=active?.selectionStart;const x=window.scrollX,y=window.scrollY;const content=({baby:babyView,'qing-progress':()=>practiceView('qing'),'xu-progress':()=>practiceView('xu'),routes:routesView,library:libraryView,relations:relationsView,sources:sourcesView})[S.view]();organizePage(content);
 if(!siteShell){siteShell=window.XiaoyaSite.createShell({sectionId:'english',siteRoot:window.XIAOYA_SITE_ROOT,onNavigate:navigateEnglish});el.replaceChildren(siteShell.element);}
 siteShell.update({navigation:englishNavigation(),activeId:S.view,title:NAV.find(x=>x[0]===S.view)?.[1]||''});
-siteShell.actions.replaceChildren(englishActions());siteShell.content.replaceChildren(h('div',{class:'content'},content,footer()));syncRouteTabs();
+siteShell.globalActions.replaceChildren(englishGlobalActions());siteShell.actions.replaceChildren(englishActions());siteShell.content.replaceChildren(h('div',{class:'content'},content,footer()));syncRouteTabs();
 if(id){const target=document.getElementById(id);if(target){target.focus({preventScroll:true});if(typeof pos==='number'&&target.setSelectionRange)try{target.setSelectionRange(pos,pos);}catch{}}}window.scrollTo(x,y);}
 
 function leafArt(){const w=h('div',{class:'hero-art','aria-hidden':'true'});w.innerHTML='<svg viewBox="0 0 270 180" fill="none"><circle cx="201" cy="48" r="28" fill="#dce5ba"/><path d="M12 154C65 135 89 169 141 141c43-23 77-7 121-15" stroke="#b6c8a3" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M38 142h43v-23h43V96h43V72h43" stroke="#a3bb91" stroke-width="2" stroke-linecap="round"/><rect x="49" y="91" width="27" height="28" rx="3" transform="rotate(-9 49 91)" fill="#e0c28a"/><path d="M62 94l3 19M54 98l5-1M67 96l5-1" stroke="#b29966"/><rect x="125" y="69" width="29" height="25" rx="4" transform="rotate(7 125 69)" fill="#b6c5d4"/><path d="M139 73l-2 16m-9-13 6 1m8 0 6 1" stroke="#7b95aa"/><path d="M200 71V39m0 22c-20 0-24-13-20-22 14-1 23 7 20 22Zm0-15c-1-19 8-29 23-27 3 18-7 30-23 27Z" fill="#8fac7c"/><path d="M200 72v-29m0 16-13-12m13-5 14-15" stroke="#6a8c60" stroke-width="1.5"/><ellipse cx="200" cy="75" rx="22" ry="3" fill="#d6e2c9"/><path d="m231 96 2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1 2-5Z" fill="#cfb36f"/><circle cx="91" cy="67" r="2" fill="#b5c89d"/><path d="M27 67v8m-4-4h8M165 31v7m-3-3h6" stroke="#b7c7a5" stroke-width="1.5"/></svg>';w.append(h('span',{class:'hero-art-label'},'ONE LITTLE STEP AT A TIME'));return w;}

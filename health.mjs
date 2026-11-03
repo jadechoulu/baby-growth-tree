@@ -47,7 +47,7 @@ function pdfLink(label, page = 1) {
 function saveView() {
   const params = new URLSearchParams({ view: state.view, month: state.month, domain: state.domain, status: state.status });
   if (state.search) params.set('q', state.search);
-  if (state.focus) params.set('focus', state.focus);
+  if (state.focus !== null) params.set('focus', state.focus);
   if (state.graphMode === 'overview') params.set('mode', 'overview');
   const item = new URLSearchParams(location.hash.slice(1)).get('item');
   if (item) params.set('item', item);
@@ -220,8 +220,9 @@ function render() {
   const actions = node('div', 'topbar-actions');
   const saved = btn('', openBackup, 'save-status'); saved.id = 'health-save-status';
   const savedLabel = node('span'); savedLabel.dataset.saveLabel = ''; saved.append(node('span', 'save-status-dot'), savedLabel);
-  const original = pdfLink(''); original.classList.add('icon-button'); original.setAttribute('aria-label', '查看原始标准 PDF'); original.append(window.XiaoyaSite.icon('book'), node('span', '', '原始标准'));
-  actions.append(sync.createButton(), saved, original, iconButton('source', '本版记录与备份', openBackup)); shell.actions.replaceChildren(versions(), window.XiaoyaSite.createActionMenu(actions)); updateSaveStatus();
+  const original = pdfLink(''); original.classList.add('icon-button', 'source-link'); original.setAttribute('aria-label', '卫健委版：查看原始标准 PDF'); original.title = '卫健委版原始标准'; original.append(window.XiaoyaSite.icon('book'), node('span', '', '原始标准'));
+  const editProfile = iconButton('settings', '编辑宝宝资料', openProfile); editProfile.append(node('span', '', '宝宝资料'));
+  actions.append(sync.createButton(), editProfile, saved, iconButton('source', '本版记录与备份', openBackup)); shell.actions.replaceChildren(versions(), original); shell.globalActions.replaceChildren(window.XiaoyaSite.createActionMenu(actions)); updateSaveStatus();
   const main = node('div', `health-content health-view-${state.view}`);
   main.append(summaryStrip());
   const head = node('header', 'health-heading');
@@ -280,6 +281,7 @@ function renderResults(previousScroll) {
   const statusPool = state.view === 'next' ? nextHealthItems(source.items, records(), stage) : searchAll || state.view === 'overview' ? source.items : stageHealthItems(source.items, stage);
   for (const button of document.querySelectorAll('.health-status-tabs [data-status]')) button.querySelector('small').textContent = filterHealth(statusPool, records(), { domain: state.domain, status: button.dataset.status, search: state.search }).length;
   target.replaceChildren();
+  window.XiaoyaSite.balanceSkillLists([]);
   if (state.view === 'overview' && !searchAll) { target.append(toolbar); renderLineage(target, oldScroll); restoreSearchFocus(); return; }
   const pool = state.view === 'next' ? nextHealthItems(source.items, records(), stage)
     : state.view === 'month' && !searchAll ? stageHealthItems(source.items, stage) : source.items;
@@ -328,10 +330,10 @@ function renderResults(previousScroll) {
     listSection.append(list);
   }
   if (state.view === 'month' && !searchAll) {
-    listSection.append(node('p', 'health-list-footnote', '点圆圈记录完成，再点一次即可回退；点技能名称看方法、要求或写手记。'));
     if (!graphFirst) renderLineage(target, oldScroll);
   }
   if (state.view === 'next') listSection.append(node('p', 'health-next-hint', '保留当前及此前未观察项目，各能区从最新观察月龄继续下一组；同组其余项目也会保留。月龄顺序不是能力前置条件。'));
+  window.XiaoyaSite.balanceSkillLists(target.querySelectorAll('.health-groups .health-items'));
   restoreSearchFocus();
 }
 function renderNext(target, items, stage) {
@@ -381,13 +383,15 @@ function graphItem(item, position, graph, focused) {
 function renderLineage(target, oldScroll) {
   const domain = HEALTH_DOMAINS.find(d => d.id === state.domain) || HEALTH_DOMAINS[0], stage = selectedStage();
   let focused = source.items.find(item => item.id === state.focus && item.domain === domain.id);
-  if (state.view === 'month' && !focused) focused = stageHealthItems(source.items, stage).find(item => item.domain === domain.id);
+  if (state.view === 'month' && !focused && state.focus !== '') focused = stageHealthItems(source.items, stage).find(item => item.domain === domain.id);
   const graph = healthGraph(source.items, { domain: domain.id, stage: state.view === 'month' ? stage : null, focus: focused?.id, mode: state.graphMode });
   const layout = layoutGraph(graph.nodes, graph.edges, HEALTH_STAGES);
-  const section = node('section', 'health-lineage'); section.dataset.domain = domain.id; section.setAttribute('aria-label', domain.label + '能力脉络');
-  const header = node('div', 'health-lineage-heading');
-  header.append(node('h2', '', state.view === 'month' ? stage.label + '的成长脉络' : domain.label + ' · 能力脉络'));
-  if (state.expanded) header.append(shell.createSectionSwitch()); section.append(header);
+  const section = node('section', 'health-lineage' + (state.view === 'month' && !state.expanded ? ' stage-lineage growth-stage-graph' : '')); section.dataset.domain = domain.id; section.setAttribute('aria-label', domain.label + '能力脉络');
+  if (state.view === 'month' || state.expanded) {
+    const header = node('div', 'health-lineage-heading' + (state.view === 'month' ? ' section-title-row lineage-title-row' : ''));
+    header.append(node('h2', '', state.view === 'month' ? stage.label + '的成长脉络' : domain.label + ' · 能力脉络'));
+    if (state.expanded) header.append(shell.createSectionSwitch()); section.append(header);
+  }
   if (state.view === 'overview') {
     const controls = node('div', 'health-focus-controls'), modes = node('div', 'graph-mode-tabs'); modes.setAttribute('role', 'group'); modes.setAttribute('aria-label', '脉络查看范围');
     for (const [mode, label] of [['lineage', '这项技能的完整脉络'], ['overview', '整个领域全景']]) {
@@ -407,10 +411,24 @@ function renderLineage(target, oldScroll) {
     const clear = iconButton('close', '清除技能定位，查看整个领域', () => { state.focus = null; state.graphMode = 'overview'; render(); document.getElementById('health-focus')?.focus(); }); clear.disabled = !focused;
     picker.append(label, select, clear); controls.append(modes, picker); section.append(controls);
   }
-  const strip = node('div', 'health-focus-strip'), copy = node('div');
-  copy.append(node('small', '', focused ? `正在追踪 · ${healthStage(focused.month).label}` : '整个领域全景'), node('strong', '', focused?.title || domain.label));
+  const strip = node('div', state.view === 'month' ? 'stage-lineage-focus' : 'health-focus-strip' + (focused ? '' : ' is-overview'));
+  if (focused) {
+    const copy = node(state.view === 'month' ? 'span' : 'div');
+    if (state.view === 'month') {
+      const clear = iconButton('close', '清除当前技能追踪', () => {
+        state.focus = ''; render();
+        document.querySelector('.health-lineage-viewport')?.focus({ preventScroll: true });
+      });
+      clear.classList.add('stage-lineage-clear');
+      const name = node('span', 'stage-lineage-name'); name.append(node('strong', '', focused.title), clear);
+      copy.append(window.XiaoyaSite.icon('tree'), node('span', '', '正在追踪：'), name, node('small', '', healthStage(focused.month).label));
+    }
+    else copy.append(node('small', '', `正在追踪 · ${healthStage(focused.month).label}`), node('strong', '', focused.title));
+    strip.append(copy);
+  }
   const stats = observationStats(graph.nodes, records());
-  strip.append(copy, node('span', '', `${focused ? `${graph.relation.ancestors.length} 项上游 · ${graph.relation.descendants.length} 项后续 · ` : ''}${stats.observed}/${stats.total} 已完成`)); section.append(strip);
+  strip.append(node('span', state.view === 'month' ? 'stage-lineage-counts' : '', `${focused ? `${graph.relation.ancestors.length} 项上游 · ${graph.relation.descendants.length} 项后续 · ` : ''}${stats.observed}/${stats.total} 已完成`));
+  if (state.view !== 'month') section.append(strip);
   const workspace = node('div', 'graph-workspace'), toolbar = node('div', 'graph-toolbar'), tools = node('div', 'graph-tools'); tools.setAttribute('role', 'group'); tools.setAttribute('aria-label', '图谱工具栏');
   const zoomTools = node('div', 'graph-zoom-tools'), viewTools = node('div', 'graph-view-tools');
   const zoomLabel = node('output', '', `${Math.round(state.zoom * 100)}%`); zoomLabel.setAttribute('aria-label', '画布缩放比例');
@@ -433,7 +451,9 @@ function renderLineage(target, oldScroll) {
   if (state.view === 'overview') viewTools.append(iconButton('baby', '回到宝宝当前月龄', () => { state.month = referenceMonth(profile.get().birthDate); state.focus = null; state.graphMode = 'overview'; render(); }));
   viewTools.append(iconButton(state.expanded ? 'close' : 'expand', state.expanded ? '退出放大画布' : '放大画布', () => expandGraph(!state.expanded)));
   const legendButton = iconButton('info', '查看图例', openLegend); legendButton.classList.add('graph-legend-button'); viewTools.append(legendButton);
-  tools.append(zoomTools, viewTools); toolbar.append(tools); workspace.append(toolbar);
+  tools.append(zoomTools, viewTools);
+  if (state.view === 'month') toolbar.append(strip);
+  toolbar.append(tools); workspace.append(toolbar);
   const panel = node('div', 'graph-legend-panel'), disclosure = node('details', 'graph-legend-disclosure'); disclosure.open = graphLegendOpen;
   const summary = node('summary'); summary.append(node('span', '', '图例 · 连线与颜色'), node('span', 'legend-disclosure-hint', '点击展开／收起')); disclosure.append(summary, legendContent());
   disclosure.addEventListener('toggle', () => { if (disclosure.isConnected) graphLegendOpen = disclosure.open; }); panel.append(disclosure); workspace.append(panel);
@@ -463,7 +483,7 @@ function renderLineage(target, oldScroll) {
   board.append(svg, ...layout.nodes.map(position => graphItem(graph.catalog.find(item => item.id === position.id), position, graph, focused)));
   space.append(board); viewport.append(space); workspace.append(viewport);
   const foot = node('div', 'graph-bottom-bar'); foot.append(node('span', '', '箭头指向下一项技能 · 拖动画布或横向滚动'), node('span', '', `${graph.nodes.length} 个技能 · ${graph.edges.length} 条关系`)); workspace.append(foot); section.append(workspace);
-  section.append(node('p', 'health-graph-footnote', '连线按原文动作与要求整理，仅作发展参考；无明确依据的项目不连箭头。前序未标记，也可以记录后续技能。'));
+  section.append(node('p', 'health-graph-footnote lineage-footnote', '连线按原文动作与要求整理，仅作发展参考；无明确依据的项目不连箭头。前序未标记，也可以记录后续技能。'));
   if (state.expanded) {
     const dialog = node('dialog', 'health-graph-dialog'); dialog.setAttribute('aria-label', domain.label + '完整技能脉络'); dialog.append(section); target.append(dialog);
     dialog.addEventListener('cancel', event => { event.preventDefault(); expandGraph(false); });
@@ -754,7 +774,7 @@ async function start() {
     state.graphMode = params.get('mode') === 'overview' ? 'overview' : 'lineage';
     state.search = params.get('q') || '';
     if (state.view === 'next') state.status = 'all';
-    state.focus = source.items.some(item => item.id === params.get('focus')) ? params.get('focus') : null;
+    state.focus = params.has('focus') && params.get('focus') === '' ? '' : source.items.some(item => item.id === params.get('focus')) ? params.get('focus') : null;
     if (state.view !== 'month' && state.domain === 'all') state.domain = 'gross';
     store = window.XiaoyaSyncAdapters.createAdapters({ indexedDB, localStorage, profileClient: profile }).health;
     snapshot = await store.read();
