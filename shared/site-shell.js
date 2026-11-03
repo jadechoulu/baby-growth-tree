@@ -13,6 +13,7 @@
     source: 'M14 3H4v18h16V9ZM14 3v6h6M8 13h8M8 17h5',
     settings: 'M4 7h16M4 17h16M8 4v6M16 14v6',
     menu: 'M4 6h16M4 12h16M4 18h16',
+    more: 'M5 12h.01M12 12h.01M19 12h.01',
     close: 'm6 6 12 12M6 18 18 6',
     down: 'm6 9 6 6 6-6',
     home: 'm3 11 9-8 9 8M5 9v12h14V9M10 21v-7h4v7'
@@ -47,6 +48,33 @@
     path.setAttribute('d', paths[name] || paths.book);
     svg.append(path);
     return svg;
+  }
+
+  function createActionMenu(actions) {
+    const wrap = node('div', 'site-action-menu');
+    const trigger = node('button', 'site-more-button');
+    trigger.type = 'button'; trigger.title = '更多功能';
+    trigger.setAttribute('aria-label', '更多功能'); trigger.setAttribute('aria-expanded', 'false');
+    trigger.append(icon('more'));
+    const panel = node('div', 'site-action-popover');
+    panel.popover = 'auto'; panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', '更多功能');
+    panel.append(actions);
+    trigger.popoverTargetElement = panel;
+    actions.querySelector('button,a[href]')?.setAttribute('autofocus', '');
+    panel.addEventListener('beforetoggle', event => {
+      trigger.setAttribute('aria-expanded', String(event.newState === 'open'));
+      if (event.newState === 'open') {
+        const box = trigger.getBoundingClientRect();
+        panel.style.top = box.bottom + 6 + 'px';
+        panel.style.right = Math.max(8, root.innerWidth - box.right) + 'px';
+      }
+    });
+    // 先收起菜单，再运行原按钮逻辑，避免遮住随后打开的同步或备份弹层。
+    panel.addEventListener('click', event => {
+      if (event.target.closest('button,a[href]')) panel.hidePopover();
+    }, true);
+    wrap.append(trigger, panel);
+    return wrap;
   }
 
   function createShell(options) {
@@ -284,7 +312,7 @@
     };
   }
 
-  const api = { createShell, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
+  const api = { createShell, createActionMenu, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.XiaoyaSite = api;
 })(typeof window !== 'undefined' ? window : globalThis);

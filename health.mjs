@@ -1,10 +1,12 @@
 import { localDateString } from './lib/model.mjs';
-import { HEALTH_DOMAINS, HEALTH_MONTHS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, nextHealthItems, OBSERVATION_LABELS, emptyHealth, referenceMonth, filterHealth, observationStats, validateHealthBackup } from './lib/health-model.mjs';
+import { HEALTH_DOMAINS, HEALTH_MONTHS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, undoHealthChange, nextHealthItems, OBSERVATION_LABELS, emptyHealth, referenceMonth, filterHealth, observationStats, validateHealthBackup } from './lib/health-model.mjs?v=20261103-status';
 
 const M = window.XiaoyaSyncModel;
 const profile = window.XiaoyaBabyProfile.createClient();
-const state = { view: 'month', month: 1, domain: 'all', status: 'all', search: '', limit: 8, focus: null };
-let source, shell, sync, store, snapshot = null, writing = false, notice = '', detail;
+const state = { view: 'month', month: 1, domain: 'gross', status: 'all', search: '', limit: 8, focus: null, zoom: .85, expanded: false };
+let source, shell, sync, store, snapshot = null, writing = false, notice = '', detail, lastUndo = null;
+let saveError = false;
+let storageProblem = '';
 const node = (tag, cls, text) => {
   const element = document.createElement(tag);
   if (cls) element.className = cls;
@@ -23,7 +25,16 @@ const btn = (label, action, cls = 'health-button') => {
 };
 function iconButton(icon, label, action) {
   const button = btn('', action, 'health-icon');
-  button.append(window.XiaoyaSite.icon(icon)); button.title = label; button.setAttribute('aria-label', label);
+  const paths = {
+    minus: 'M5 12h14', plus: 'M5 12h14M12 5v14',
+    fit: 'M9 3H3v6M15 3h6v6M3 15v6h6M21 15v6h-6',
+    locate: 'M12 2v4M12 18v4M2 12h4M18 12h4M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z',
+    expand: 'M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5M3 3l6 6M21 3l-6 6M3 21l6-6M21 21l-6-6',
+    info: 'M12 11v6M12 7h.01M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',
+  };
+  const svg = window.XiaoyaSite.icon(icon);
+  if (paths[icon]) svg.querySelector('path').setAttribute('d', paths[icon]);
+  button.append(svg); button.title = label; button.setAttribute('aria-label', label);
   return button;
 }
 function pdfLink(label, page = 1) {
@@ -44,29 +55,41 @@ function navigate(id) {
   if (id === 'source') { openSource(); return; }
   if (id === 'backup') { openBackup(); return; }
   if (id === 'profile') { openProfile(); return; }
+  if (id.startsWith('stage:')) { state.view = 'month'; changeStage(HEALTH_STAGES.find(stage => stage.id === id.slice(6))); window.scrollTo(0, 0); return; }
   state.view = id; state.limit = 8;
-  if (id === 'next') { state.status = 'all'; state.search = ''; }
-  if (id === 'overview' && state.domain === 'all') state.domain = 'gross';
+  state.search = ''; state.expanded = false; state.status = 'all';
+  if (id === 'month') { state.month = referenceMonth(profile.get().birthDate); state.focus = null; }
+  if (id !== 'month' && state.domain === 'all') state.domain = 'gross';
   render(); window.scrollTo(0, 0);
 }
 function navigation() {
   return [
-    { title: '卫健委版 · 成长观察', items: [
+    { title: '内容版本', items: [{ id: 'mao', label: '毛老师版 · 成长技能树', icon: 'source' }] },
+    { title: '一起慢慢长大', items: [
       { id: 'month', label: '宝宝视角', icon: 'baby', shortcut: true },
       { id: 'overview', label: '能力脉络', icon: 'tree', shortcut: true },
       { id: 'next', label: '下一步', icon: 'arrow', shortcut: true },
     ] },
+    { title: '成长的每一站 · 标准月龄', items: HEALTH_STAGES.map(stage => {
+      const stats = observationStats(stageHealthItems(source.items, stage), records());
+      return { id: 'stage:' + stage.id, label: stage.label, icon: 'sprout', description: stage.id === currentStage().id ? '当前月龄' : `${stats.observed}/${stats.total}` };
+    }) },
     { title: '我的成长花园', items: [
-      { id: 'mao', label: '切换毛老师版', icon: 'sprout' },
       { id: 'profile', label: '宝宝资料', icon: 'settings' },
       { id: 'backup', label: '本版记录与备份', icon: 'source' },
     ] },
   ];
 }
 function message(text, error = false) {
-  notice = text;
+  notice = text; saveError = error;
   const target = document.querySelector('#health-notice');
   if (target) { target.textContent = text; target.dataset.error = error; target.hidden = !text; }
+}
+function updateSaveStatus() {
+  const button = document.getElementById('health-save-status'); if (!button) return;
+  const label = storageProblem ? '本机保存失败' : writing ? '正在保存' : '已保存到本机';
+  button.setAttribute('aria-label', '保存状态：' + label); button.title = storageProblem || '观察状态、日期和手记保存在本机；云端确认请查看同步按钮';
+  button.querySelector('[data-save-label]').textContent = label; button.classList.toggle('has-error', Boolean(storageProblem));
 }
 function optionsSelect(label, values, value, action) {
   const select = node('select'); select.setAttribute('aria-label', label);
@@ -77,32 +100,50 @@ function optionsSelect(label, values, value, action) {
 function summaryStrip() {
   const strip = node('div', 'health-summary');
   const stats = observationStats(source.items, records());
-  strip.append(node('span', '', '全量项目'), node('strong', '', `${stats.observed} / ${stats.total}`), node('span', '', '已观察到'), node('small', '', `${stats.notYet} 项暂未观察到`));
+  strip.setAttribute('aria-label', '本版累计观察进度');
+  const percent = Math.round(stats.observed / stats.total * 100);
+  const track = node('span', 'health-overall-track'), fill = node('i'); fill.style.width = percent + '%'; track.setAttribute('aria-hidden', 'true'); track.append(fill);
+  strip.append(window.XiaoyaSite.icon('sprout'), node('span', '', '累计观察'), node('strong', '', `${stats.observed} / ${stats.total}`), track, node('span', 'health-summary-percent', `${percent}%`));
   return strip;
 }
 function domainPicker() {
-  const section = node('section', 'health-domains'); section.setAttribute('aria-label', '五能区筛选与观察数量');
+  const section = node('section', 'health-domains' + (state.view === 'month' ? '' : ' health-domain-tabs')); section.setAttribute('aria-label', '五能区筛选与观察数量');
   for (const domain of HEALTH_DOMAINS) {
     const pool = state.view === 'next' ? nextHealthItems(source.items, records(), currentStage()) : state.view === 'overview' ? source.items : stageHealthItems(source.items, selectedStage());
     const items = pool.filter(item => item.domain === domain.id);
     const stats = observationStats(items, records());
-    const button = btn('', () => { state.domain = state.domain === domain.id ? 'all' : domain.id; render(); }, 'health-domain');
+    const button = btn('', () => { state.domain = domain.id; state.focus = null; render(); }, 'health-domain');
     button.dataset.domain = domain.id; button.setAttribute('aria-pressed', state.domain === domain.id);
-    const fraction = node('span', 'health-domain-count', state.view === 'next' ? `${stats.total} 项` : `${stats.observed} / ${stats.total}`);
-    button.append(node('strong', '', domain.label), fraction, node('small', '', state.view === 'next' ? '待探索' : '已观察到'));
+    const fraction = node('span', 'health-domain-count', state.view === 'next' ? `可探索 ${stats.total}` : state.view === 'overview' ? `${stats.total} 个项目` : `${stats.observed} / ${stats.total}`);
+    const percent = stats.total ? Math.round(stats.observed / stats.total * 100) : 0;
+    button.append(node('strong', '', domain.label), fraction);
+    if (state.view === 'month') { button.append(node('small', 'health-domain-percent', `${percent}%`)); const track = node('span', 'health-progress-track'), fill = node('span'); fill.style.width = percent + '%'; track.append(fill); button.append(track); }
     section.append(button);
   }
   return section;
 }
+function changeStage(stage) {
+  state.month = HEALTH_MONTHS.find(month => month >= stage.min); state.focus = null; state.search = ''; state.limit = 8; state.expanded = false; render();
+}
 function monthPicker() {
   const row = node('div', 'health-month-picker');
   const stage = selectedStage(), index = HEALTH_STAGES.indexOf(stage);
-  const change = next => { state.month = HEALTH_MONTHS.find(month => month >= next.min); state.focus = null; state.limit = 8; render(); };
+  const change = changeStage;
   const prev = iconButton('arrow', '上一个成长阶段', () => change(HEALTH_STAGES[index - 1])); prev.classList.add('health-prev'); prev.disabled = index === 0;
   const next = iconButton('arrow', '下一个成长阶段', () => change(HEALTH_STAGES[index + 1])); next.disabled = index === HEALTH_STAGES.length - 1;
-  const select = optionsSelect('选择成长阶段', HEALTH_STAGES.map(stage => [stage.id, stage.label]), stage.id, id => change(HEALTH_STAGES.find(stage => stage.id === id)));
-  const current = iconButton('baby', '回到宝宝当前阶段', () => { state.month = referenceMonth(profile.get().birthDate); state.focus = null; render(); });
-  row.append(prev, select, next, current);
+  const select = optionsSelect('选择成长阶段', HEALTH_STAGES.map(stage => [stage.id, stage.label + (stage.id === currentStage().id ? ' · 当前' : '')]), stage.id, id => change(HEALTH_STAGES.find(stage => stage.id === id)));
+  select.id = 'health-stage-select';
+  const track = node('div', 'health-stage-track'); track.setAttribute('role', 'group'); track.setAttribute('aria-label', '成长阶段');
+  for (const step of HEALTH_STAGES) {
+    const pill = btn(step.label.replace('个月', '月'), () => change(step), 'health-stage-pill'); pill.setAttribute('aria-pressed', step.id === stage.id); pill.setAttribute('aria-label', step.label + (step.id === currentStage().id ? ' · 当前' : ''));
+    if (step.id === currentStage().id) { const dot = node('i'); dot.title = '宝宝当前阶段'; pill.append(dot); }
+    const items = stageHealthItems(source.items, step); if (items.length && observationStats(items, records()).observed === items.length) pill.append(node('span', '', ' ✓'));
+    track.append(pill);
+  }
+  row.append(prev, select, track, next, stageCompleteButton(stage));
+  if (stage.id !== currentStage().id) {
+    const preview = node('div', 'health-stage-preview'); preview.append(node('span', '', '正在预览 ' + stage.label), btn('回到宝宝当前阶段', () => change(currentStage()))); row.append(preview);
+  }
   return row;
 }
 function stageCompleteButton(stage, domain = null) {
@@ -114,10 +155,9 @@ function stageCompleteButton(stage, domain = null) {
     if (writing) return;
     button.disabled = true;
     const base = structuredClone(snapshot);
-    if (await persist(completeHealthStage(base, source.items, stage, localDateString(), domain?.id), base)) {
-      message(`${stage.label}${scope}全部标记为已观察到，新增 ${remaining} 项；云端确认状态见同步按钮。`);
-    } else button.disabled = false;
+    if (!await persist(completeHealthStage(base, source.items, stage, localDateString(), domain?.id), base, { label: `${stage.label}${scope}新增 ${remaining} 项观察` })) button.disabled = false;
   }, domain ? 'health-button health-domain-complete' : 'health-button health-stage-complete');
+  if (!domain) { button.replaceChildren(window.XiaoyaSite.icon('check'), node('span', '', remaining ? '全部完成' : '全部已完成')); button.querySelector('path').setAttribute('d', 'm5 12 4 4L19 6'); }
   if (domain) { button.dataset.completeDomain = domain.id; button.dataset.groupStage = stage.id; }
   else button.dataset.completeStage = stage.id;
   button.disabled = writing || !remaining;
@@ -125,9 +165,9 @@ function stageCompleteButton(stage, domain = null) {
   button.title = `将${stage.label}${scope}全部 ${items.length} 项标记为已观察到，不受${domain ? '状态' : '能区和状态'}筛选影响；保留已有观察日期和手记`;
   return button;
 }
-function itemRow(item, { showStage = false, trail = true, timing = false } = {}) {
+function itemRow(item, { showStage = false, trail = true, timing = false, graph = false } = {}) {
   const record = records()[item.id] || {};
-  const row = node('article', 'health-item'); row.dataset.item = item.id; row.dataset.observed = record.status === 'observed';
+  const row = node('article', 'health-item'); row.dataset.item = item.id; row.dataset.domain = item.domain; row.dataset.observed = record.status === 'observed';
   row.classList.toggle('is-focus', state.focus === item.id);
   const toggle = btn(record.status === 'observed' ? '✓' : '', async () => {
     if (writing) return;
@@ -136,11 +176,17 @@ function itemRow(item, { showStage = false, trail = true, timing = false } = {})
     if (value.status === 'observed') { delete value.status; delete value.observedAt; }
     else { value.status = 'observed'; value.observedAt = localDateString(); }
     if (Object.keys(value).length) next.records[item.id] = value; else delete next.records[item.id];
-    await persist(next, snapshot === null ? null : base);
+    await persist(next, snapshot === null ? null : base, { label: `${value.status === 'observed' ? '已观察到' : '撤回观察'}：${item.title}` });
   }, 'health-check');
   toggle.setAttribute('aria-label', (record.status === 'observed' ? '撤回已观察到：' : '标记已观察到：') + item.title);
   toggle.setAttribute('aria-pressed', record.status === 'observed'); toggle.disabled = writing;
-  const open = btn('', () => openItem(item.id), 'health-item-open');
+  const label = node('div', 'health-item-label'), nameRow = node('div', 'health-item-name');
+  const open = btn('', () => {
+    if (graph) {
+      state.focus = item.id; render();
+      document.querySelector(`.health-lineage [data-item="${item.id}"] .health-item-open`)?.focus({ preventScroll: true });
+    } else openItem(item.id);
+  }, 'health-item-open'); open.title = graph ? '定位并高亮这个项目' : '查看方法、要求与观察手记';
   const title = node('span', 'health-item-title', item.title);
   const flags = node('span', 'health-flags');
   if (item.parentReport) flags.append(node('abbr', '', 'R'));
@@ -150,15 +196,24 @@ function itemRow(item, { showStage = false, trail = true, timing = false } = {})
   const stage = healthStage(item.month), actual = currentStage();
   const ageLabel = stage.id === actual.id ? '当前阶段' : stage.max < actual.min ? '此前阶段' : HEALTH_STAGES.indexOf(stage) === HEALTH_STAGES.indexOf(actual) + 1 ? '下一阶段' : '更后阶段';
   const meta = node('span', 'health-item-meta', `${timing ? ageLabel + ' · ' : ''}${showStage ? stage.label + ' · ' : ''}标准 ${item.month} 月龄${record.status ? ' · ' + OBSERVATION_LABELS[record.status] : ''}${record.note ? ' · 有手记' : ''}`);
-  open.append(title, meta); row.append(toggle, open);
-  if (trail) row.append(iconButton('tree', `查看${item.title}的能力脉络`, () => {
-    state.focus = item.id; state.month = item.month; state.domain = item.domain; state.view = 'overview'; state.search = ''; render();
-    document.querySelector('.health-lineage')?.scrollIntoView({ block: 'start' });
-  }));
+  open.append(title); nameRow.append(open);
+  if (trail) nameRow.append(iconButton('tree', `查看${item.title}的能力脉络`, () => showLineage(item)));
+  if (graph) {
+    row.classList.add('health-graph-item'); label.append(nameRow);
+    const bottom = node('div', 'health-graph-item-bottom'); bottom.append(meta, btn('解释', () => openItem(item.id), 'health-explain'), toggle); row.append(label, bottom);
+  } else { label.append(nameRow, meta); row.append(toggle, label); }
+  if (timing) row.dataset.timing = stage.id === actual.id ? 'current' : stage.max < actual.min ? 'earlier' : HEALTH_STAGES.indexOf(stage) === HEALTH_STAGES.indexOf(actual) + 1 ? 'next' : 'later';
   return row;
+}
+function showLineage(item) {
+  if (detail?.open && !detail.requestClose()) return;
+  state.focus = item.id; state.month = item.month; state.domain = item.domain; state.view = 'overview'; state.search = ''; render();
+  document.querySelector('.health-lineage')?.scrollIntoView({ block: 'start' });
 }
 function render() {
   if (!source) return;
+  if (state.search.trim() || state.view === 'next') state.expanded = false;
+  document.body.classList.toggle('health-graph-open', state.expanded);
   const oldViewport = document.querySelector('.health-lineage-viewport');
   const oldScroll = oldViewport && { left: oldViewport.scrollLeft, top: oldViewport.scrollTop, key: oldViewport.dataset.key };
   if (!shell) {
@@ -167,27 +222,50 @@ function render() {
   }
   saveView();
   shell.update({ navigation: navigation(), activeId: state.view, title: '卫健委版 · ' + viewLabels[state.view] });
-  shell.actions.replaceChildren(sync.createButton(), iconButton('settings', '本版记录与备份', openBackup));
-  const main = node('div', 'health-content'); main.append(versions());
+  const actions = node('div', 'topbar-actions');
+  const saved = btn('', openBackup, 'save-status'); saved.id = 'health-save-status';
+  const savedLabel = node('span'); savedLabel.dataset.saveLabel = ''; saved.append(node('span', 'save-status-dot'), savedLabel);
+  const original = pdfLink(''); original.classList.add('icon-button'); original.setAttribute('aria-label', '查看原始标准 PDF'); original.append(window.XiaoyaSite.icon('book'), node('span', '', '原始标准'));
+  actions.append(sync.createButton(), saved, original, iconButton('source', '本版记录与备份', openBackup)); shell.actions.replaceChildren(versions(), window.XiaoyaSite.createActionMenu(actions)); updateSaveStatus();
+  const main = node('div', `health-content health-view-${state.view}`);
+  main.append(summaryStrip());
   const head = node('header', 'health-heading');
-  const copy = node('div'); copy.append(node('h1', '', viewLabels[state.view]), node('p', '', 'WS/T 580—2017 · 五能区家庭观察'));
-  head.append(copy, summaryStrip()); main.append(head);
-  const noticeNode = node('p', 'health-notice', notice); noticeNode.id = 'health-notice'; noticeNode.setAttribute('role', 'status'); noticeNode.hidden = !notice;
+  const copy = node('div'); copy.append(node('h1', '', state.view === 'next' ? '现在可以练这些。' : state.view === 'overview' ? '成长的来龙去脉，一眼看懂。' : '小小的进步，慢慢长成大大的世界。'), node('p', '', state.view === 'next' ? '按实际当前阶段和已观察记录，接着探索同能区的下一组项目。' : state.view === 'overview' ? '点一个项目，查看同能区的月龄脉络、原文方法和观察手记。' : '陪宝宝探索，收藏每一个「我会啦」的瞬间。'));
+  head.append(copy); main.append(head);
+  const noticeNode = node('p', 'health-notice', notice); noticeNode.id = 'health-notice'; noticeNode.dataset.error = saveError; noticeNode.setAttribute('role', 'status'); noticeNode.hidden = !notice;
   main.append(noticeNode);
-  const mode = node('nav', 'health-modes'); mode.setAttribute('aria-label', '观察查看方式');
-  for (const [id, label] of Object.entries(viewLabels)) {
-    const button = btn(label, () => navigate(id)); button.setAttribute('aria-pressed', state.view === id); mode.append(button);
+  if (lastUndo) {
+    const undo = node('div', 'health-undo'); undo.setAttribute('role', 'status');
+    undo.append(node('span', '', lastUndo.label), btn('撤销', undoLastChange), iconButton('close', '收起操作提示', () => { lastUndo = null; undo.remove(); })); main.append(undo);
   }
   const stageControls = node('div', 'health-stage-controls');
-  stageControls.append(state.view === 'next' ? node('p', 'health-next-context', `当前阶段 ${currentStage().label} · 按观察记录继续探索`) : monthPicker());
-  main.append(mode, stageControls, domainPicker());
-  const toolbar = node('div', 'health-toolbar');
-  const statusOptions = state.view === 'next' ? [['all', '全部待探索'], ['unrecorded', '未记录'], ['not-yet', '暂未观察到']] : [['all', '全部状态'], ...Object.entries(OBSERVATION_LABELS)];
-  const status = optionsSelect('按观察状态筛选', statusOptions, state.status, value => { state.status = value; render(); });
-  toolbar.append(status);
-  const search = node('input', 'health-search'); search.type = 'search'; search.placeholder = '搜索项目、方法或编号'; search.setAttribute('aria-label', state.view === 'next' ? '搜索下一步待探索项目' : '搜索本版本全部月龄项目'); search.value = state.search;
+  if (state.view === 'month') stageControls.append(monthPicker());
+  main.append(stageControls, domainPicker());
+  if (state.view === 'next') {
+    const legend = node('div', 'health-age-legend'); legend.setAttribute('aria-label', '月龄颜色图例');
+    for (const [timing, text] of [['current', `当前 ${currentStage().label}`], ['next', '下一阶段'], ['later', '更后阶段'], ['earlier', '此前阶段']]) {
+      const item = node('span', '', text); item.dataset.timing = timing; legend.append(item);
+    }
+    main.append(legend);
+    const undo = main.querySelector('.health-undo'); if (undo) main.append(undo);
+  }
+  const toolbar = node('div', 'health-toolbar' + (state.view === 'next' ? ' health-next-search' : ''));
+  const statuses = node('div', 'health-status-tabs'); statuses.setAttribute('role', 'group'); statuses.setAttribute('aria-label', '观察状态筛选');
+  const pool = state.view === 'next' ? nextHealthItems(source.items, records(), currentStage()) : state.search.trim() || state.view === 'overview' ? source.items : stageHealthItems(source.items, selectedStage());
+  const domainItems = pool.filter(item => state.domain === 'all' || state.domain === item.domain);
+  const statusOptions = [['all', '全部'], ['exploring', '探索中'], ['observed', '已完成']];
+  for (const [id, label] of statusOptions) {
+    const button = btn('', () => { state.status = id; render(); }); button.setAttribute('aria-pressed', state.status === id);
+    button.dataset.status = id;
+    button.append(node('span', '', label), node('small', '', filterHealth(domainItems, records(), { status: id }).length)); statuses.append(button);
+  }
+  if (state.view !== 'next') toolbar.append(statuses);
+  const search = node('input', 'health-search'); search.type = 'search'; search.placeholder = '搜索技能'; search.title = '搜索项目、方法或编号'; search.setAttribute('aria-label', state.view === 'next' ? '搜索下一步待探索项目' : '搜索本版本全部月龄项目'); search.value = state.search;
+  search.id = 'health-search';
   search.addEventListener('input', () => { state.search = search.value; state.limit = 8; renderResults(); saveView(); });
-  toolbar.append(search); main.append(toolbar);
+  const searchBox = node('div', 'health-search-box');
+  const clear = iconButton('close', '清除搜索和状态筛选', () => { state.search = ''; state.status = 'all'; render(); document.getElementById('health-search')?.focus(); }); clear.id = 'health-clear-filters';
+  searchBox.append(search, clear); toolbar.append(searchBox); main.append(toolbar);
   main.append(node('div', 'health-results'));
   const footer = node('footer', 'health-footer');
   footer.append(node('p', '', 'R 可询问家长 · * 原文注明未通过需引起注意。'), node('p', '', '家庭观察记录 · 原始月龄与测查条件见项目详情。'));
@@ -196,45 +274,52 @@ function render() {
 function renderResults(previousScroll) {
   const target = document.querySelector('.health-results');
   if (!target) return;
+  const search = document.getElementById('health-search'), keepSearchFocus = document.activeElement === search;
+  const restoreSearchFocus = () => { if (keepSearchFocus) search.focus({ preventScroll: true }); };
   const oldViewport = target.querySelector('.health-lineage-viewport');
   const oldScroll = previousScroll || oldViewport && { left: oldViewport.scrollLeft, top: oldViewport.scrollTop, key: oldViewport.dataset.key };
   const searchAll = Boolean(state.search.trim()), stage = state.view === 'next' ? currentStage() : selectedStage();
+  const toolbar = document.querySelector('.health-toolbar');
+  const complete = document.querySelector('.health-stage-controls .health-stage-complete'); if (complete) complete.hidden = searchAll;
+  document.getElementById('health-clear-filters').disabled = !searchAll && state.status === 'all';
+  const statusPool = state.view === 'next' ? nextHealthItems(source.items, records(), stage) : searchAll || state.view === 'overview' ? source.items : stageHealthItems(source.items, stage);
+  for (const button of document.querySelectorAll('.health-status-tabs [data-status]')) button.querySelector('small').textContent = filterHealth(statusPool, records(), { domain: state.domain, status: button.dataset.status, search: state.search }).length;
   target.replaceChildren();
-  if (state.view === 'overview' && !searchAll) { renderLineage(target, oldScroll); return; }
+  if (state.view === 'overview' && !searchAll) { target.append(toolbar); renderLineage(target, oldScroll); restoreSearchFocus(); return; }
   const pool = state.view === 'next' ? nextHealthItems(source.items, records(), stage)
     : state.view === 'month' && !searchAll ? stageHealthItems(source.items, stage) : source.items;
   const items = filterHealth(pool, records(), { ...state, month: undefined });
-  const info = node('div', 'health-results-heading');
-  const all = btn('全部能区', () => { state.domain = 'all'; render(); }); all.setAttribute('aria-pressed', state.domain === 'all');
-  const heading = node('h2', '', state.view === 'next' ? '接着探索' : searchAll ? `全月龄搜索 · ${items.length} 项` : stage.label);
-  if (!searchAll && state.view !== 'next') heading.append(node('span', 'health-results-label', ' · 观察清单'));
-  info.append(heading, node('small', '', `${items.length} 项`), all);
-  if (state.view === 'month' && !searchAll) info.append(stageCompleteButton(stage));
-  target.append(info);
-  if (state.view === 'next') target.append(node('p', 'health-next-hint', '保留当前及此前未观察项目，各能区从最新观察月龄继续下一组；同组其余项目也会保留。月龄顺序不是能力前置条件。'));
-  if (!items.length) target.append(node('p', 'health-empty', '没有符合条件的项目。可以切换阶段、能区或观察状态。'));
-  else {
+  const listSection = node('section', 'health-list-section'); listSection.setAttribute('aria-label', state.view === 'next' ? '下一步待探索项目' : stage.label + '技能清单');
+  if (state.view === 'next') {
+    const summary = node('div', 'health-next-summary'); summary.append(node('span', '', `${HEALTH_DOMAINS.find(domain => domain.id === state.domain)?.label || '全部能区'} · ${items.length} 项可探索`), toolbar); listSection.append(summary);
+  } else listSection.append(toolbar);
+  if (searchAll && state.view !== 'next') listSection.append(node('h2', 'health-search-heading', `全月龄搜索 · ${items.length} 项`));
+  // 宽屏与毛老师版相同：先图谱再清单；窄屏先读清单，完整图谱在后。
+  const graphFirst = state.view === 'month' && !searchAll && !window.matchMedia('(max-width:900px)').matches;
+  if (graphFirst) renderLineage(target, oldScroll);
+  target.append(listSection);
+  if (!items.length) {
+    const empty = node('div', 'health-empty'); empty.append(node('h3', '', state.view === 'next' ? '当前没有待探索项目' : state.status === 'observed' ? '第一颗小芽，等你来点亮' : '没有符合条件的项目'), node('p', '', state.view === 'next' ? '可以切换能区，或回到宝宝视角回顾观察记录。' : '可以切换阶段、能区或观察状态。'), btn('清除筛选', () => { state.search = ''; state.status = 'all'; render(); })); listSection.append(empty);
+  } else if (state.view === 'next') {
+    renderNext(listSection, items, stage);
+  } else {
     const list = node('div', 'health-groups');
-    if (!searchAll || state.view === 'next') {
+    if (!searchAll) {
       for (const domain of HEALTH_DOMAINS) {
         const groupItems = items.filter(item => item.domain === domain.id); if (!groupItems.length) continue;
-        const group = node(state.view === 'next' ? 'section' : 'details', 'health-group'); group.dataset.domain = domain.id;
-        if (state.view !== 'next') {
-          const key = `${state.view}:${stage.id}:${domain.id}`;
-          group.open = expandedGroups.get(key) ?? false;
-          group.addEventListener('toggle', () => expandedGroups.set(key, group.open));
-        }
-        const title = node(state.view === 'next' ? 'header' : 'summary', 'health-group-heading');
-        title.append(node('strong', '', domain.label), node('span', '', state.view === 'next' ? `待探索 ${groupItems.length}` : `${observationStats(groupItems, records()).observed} / ${groupItems.length}`)); group.append(title);
+        const group = node('details', 'health-group'); group.dataset.domain = domain.id;
+        const key = `${state.view}:${stage.id}:${domain.id}`;
+        group.open = expandedGroups.get(key) ?? false;
+        group.addEventListener('toggle', () => { if (group.isConnected) expandedGroups.set(key, group.open); });
+        const title = node('summary', 'health-group-heading');
+        const fullGroup = stageHealthItems(source.items, stage).filter(item => item.domain === domain.id);
+        title.append(node('strong', '', domain.label), node('span', '', `${observationStats(fullGroup, records()).observed} / ${fullGroup.length}`)); title.title = '展开或收起技能清单'; group.append(title);
         if (state.view === 'month' && !searchAll) {
           title.classList.add('health-group-with-actions');
           title.append(stageCompleteButton(stage, domain));
         }
         const rows = node('div', 'health-items');
-        // 优先当前阶段及已推进的后续项目，此前记录也直接完整显示。
-        const priority = item => healthStage(item.month).id === stage.id ? 0 : item.month > stage.max ? 1 : 2;
-        const ordered = state.view === 'next' ? [...groupItems].sort((a, b) => priority(a) - priority(b) || a.month - b.month || a.number - b.number) : groupItems;
-        rows.append(...ordered.map(item => itemRow(item, { showStage: state.view === 'next', timing: state.view === 'next' }))); group.append(rows);
+        rows.append(...groupItems.map(item => itemRow(item))); group.append(rows);
         list.append(group);
       }
     } else {
@@ -245,17 +330,42 @@ function renderResults(previousScroll) {
       }
       if (stages.length > state.limit) list.append(btn(`继续查看 · 还有 ${stages.length - state.limit} 个阶段`, () => { state.limit += 8; renderResults(); }, 'health-button health-more'));
     }
-    target.append(list);
+    listSection.append(list);
   }
-  if (state.view === 'month' && !searchAll) renderLineage(target, oldScroll);
+  if (state.view === 'month' && !searchAll) {
+    listSection.append(node('p', 'health-list-footnote', '点圆圈记录完成，再点一次即可回退；点技能名称看方法、要求或写手记。'));
+    if (!graphFirst) renderLineage(target, oldScroll);
+  }
+  if (state.view === 'next') listSection.append(node('p', 'health-next-hint', '保留当前及此前未观察项目，各能区从最新观察月龄继续下一组；同组其余项目也会保留。月龄顺序不是能力前置条件。'));
+  restoreSearchFocus();
+}
+function renderNext(target, items, stage) {
+  const groups = [['current', '当前阶段 · 可以开始'], ['earlier', '此前阶段 · 补充观察'], ['next', '下一月龄阶段 · 顺着脉络继续'], ['later', '更后阶段 · 已走到这一步']];
+  const list = node('div', 'health-next-groups');
+  for (const [timing, title] of groups) {
+    const matches = items.filter(item => {
+      const own = healthStage(item.month);
+      return (own.id === stage.id ? 'current' : own.max < stage.min ? 'earlier' : HEALTH_STAGES.indexOf(own) === HEALTH_STAGES.indexOf(stage) + 1 ? 'next' : 'later') === timing;
+    });
+    if (!matches.length) continue;
+    const section = node('section', 'health-next-group'); section.dataset.timing = timing; section.setAttribute('aria-label', title);
+    const heading = node('h3'); heading.append(node('span', '', title), node('small', '', `${matches.length} 项`));
+    const rows = node('div', 'health-items');
+    for (const item of matches) {
+      const row = itemRow(item, { showStage: true, timing: true });
+      row.querySelector('.health-item-meta').prepend(HEALTH_DOMAINS.find(domain => domain.id === item.domain).label + ' · '); rows.append(row);
+    }
+    section.append(heading, rows); list.append(section);
+  }
+  target.append(list);
 }
 function renderLineage(target, oldScroll) {
   const domain = HEALTH_DOMAINS.find(d => d.id === state.domain) || HEALTH_DOMAINS[0];
   const stage = selectedStage();
   const focused = source.items.find(item => item.id === state.focus && item.domain === domain.id);
-  const section = node('section', 'health-lineage'); section.setAttribute('aria-label', domain.label + '能力脉络');
+  const section = node('section', 'health-lineage'); section.dataset.domain = domain.id; section.setAttribute('aria-label', domain.label + '能力脉络');
   const header = node('div', 'health-lineage-heading');
-  header.append(node('h2', '', domain.label + ' · 能力脉络'));
+  header.append(node('h2', '', state.view === 'month' ? stage.label + '的成长脉络' : domain.label + ' · 能力脉络'));
   const locate = () => {
     const current = section.querySelector(focused ? `[data-item="${focused.id}"]` : `[data-stage="${stage.id}"]`);
     const viewport = section.querySelector('.health-lineage-viewport');
@@ -265,42 +375,133 @@ function renderLineage(target, oldScroll) {
     if (focused) viewport.scrollTop += a.top - b.top - (viewport.clientHeight - a.height) / 2;
     else viewport.scrollTop = 0;
   };
-  const locateButton = iconButton('baby', focused ? '定位当前项目' : '定位所选阶段', locate);
-  if (state.view === 'overview') header.append(stageCompleteButton(stage));
-  header.append(locateButton); section.append(header);
-  section.append(node('p', 'health-lineage-note', focused ? `正在看：${focused.title} · 按月龄排列，可左右滑动` : '按标准月龄排列，可左右滑动；相邻项目不代表前置要求。'));
+  const locateButton = iconButton('locate', focused ? '定位当前项目' : '定位所选阶段', locate);
+  if (state.expanded) header.append(shell.createSectionSwitch());
+  section.append(header);
+  const pickerRow = node('div', 'health-focus-picker'), pickerLabel = node('label', '', '定位项目'); pickerLabel.htmlFor = 'health-focus';
+  const select = node('select'); select.id = 'health-focus'; select.setAttribute('aria-label', '定位项目');
+  const allOption = node('option', '', '全部项目'); allOption.value = ''; select.append(allOption);
+  for (const step of HEALTH_STAGES) {
+    const group = node('optgroup'); group.label = step.label;
+    for (const item of stageHealthItems(source.items, step).filter(item => item.domain === domain.id)) { const option = node('option', '', item.title); option.value = item.id; group.append(option); }
+    select.append(group);
+  }
+  select.value = focused?.id || '';
+  select.addEventListener('change', () => { const item = source.items.find(item => item.id === select.value); state.focus = item?.id || null; if (item) state.month = item.month; state.status = 'all'; render(); document.getElementById('health-focus')?.focus(); });
+  const clear = iconButton('close', '清除项目定位，查看整个能区', () => { state.focus = null; render(); document.getElementById('health-focus')?.focus(); }); clear.disabled = !focused;
+  pickerRow.append(pickerLabel, select, clear);
+  if (state.view === 'overview') section.append(pickerRow);
+  const focusStrip = node('div', 'health-focus-strip');
+  const focusCopy = node('div'); focusCopy.append(node('small', '', focused ? `正在追踪 · ${healthStage(focused.month).label} · 标准 ${focused.month} 月龄` : '整个能区全景'), node('strong', '', focused?.title || domain.label));
+  const domainItems = source.items.filter(item => item.domain === domain.id), domainStats = observationStats(domainItems, records());
+  focusStrip.append(focusCopy, node('span', '', `${domainStats.observed} / ${domainStats.total} 已完成`));
+  if (state.view === 'overview' || focused) section.append(focusStrip);
+  const tools = node('div', 'health-graph-tools'); tools.setAttribute('role', 'group'); tools.setAttribute('aria-label', '脉络画布工具栏');
+  const zoomTools = node('div', 'health-tool-group'), viewTools = node('div', 'health-tool-group');
+  const zoomLabel = node('output', 'health-zoom', `${Math.round(state.zoom * 100)}%`); zoomLabel.setAttribute('aria-label', '画布缩放比例');
+  const updateZoom = (zoom, keepCenter = true) => {
+    const previous = state.zoom, x = (viewport.scrollLeft + viewport.clientWidth / 2) / previous, y = (viewport.scrollTop + viewport.clientHeight / 2) / previous;
+    state.zoom = Math.max(.05, Math.min(2, zoom));
+    board.style.transform = `scale(${state.zoom})`;
+    space.style.width = board.offsetWidth * state.zoom + 'px'; space.style.height = board.offsetHeight * state.zoom + 'px';
+    zoomLabel.textContent = `${Math.round(state.zoom * 100)}%`;
+    if (keepCenter) { viewport.scrollLeft = x * state.zoom - viewport.clientWidth / 2; viewport.scrollTop = y * state.zoom - viewport.clientHeight / 2; }
+  };
+  zoomTools.append(iconButton('minus', '缩小脉络', () => updateZoom(state.zoom - .15)), zoomLabel, iconButton('plus', '放大脉络', () => updateZoom(state.zoom + .15)));
+  viewTools.append(iconButton('fit', '一屏看全', () => { updateZoom(Math.min((viewport.clientWidth - 12) / board.offsetWidth, (viewport.clientHeight - 12) / board.offsetHeight, 1), false); viewport.scrollLeft = 0; viewport.scrollTop = 0; }), locateButton,
+    iconButton('baby', '定位宝宝当前阶段', () => { state.month = referenceMonth(profile.get().birthDate); state.focus = null; render(); }),
+    iconButton(state.expanded ? 'close' : 'expand', state.expanded ? '退出放大画布' : '放大画布', () => expandGraph(!state.expanded)),
+    iconButton('info', '查看脉络图例', openLegend));
+  tools.append(zoomTools, viewTools); section.append(tools);
+  const legend = legendContent(); legend.classList.add('health-inline-legend'); section.append(legend);
   const viewport = node('div', 'health-lineage-viewport'); viewport.tabIndex = 0; viewport.setAttribute('aria-label', domain.label + '月龄脉络，可左右滚动');
   viewport.dataset.key = `${domain.id}:${stage.id}:${focused?.id || ''}`;
+  const space = node('div', 'health-lineage-space');
   const board = node('div', 'health-lineage-board');
   for (const step of HEALTH_STAGES) {
     const column = node('section', 'health-lineage-stage'); column.dataset.stage = step.id;
     column.classList.toggle('is-current', stage.id === step.id);
-    const heading = btn(step.label, () => { state.month = HEALTH_MONTHS.find(month => month >= step.min); state.focus = null; state.view = 'month'; render(); }, 'health-lineage-stage-title');
+    const heading = btn(step.label, () => { state.month = HEALTH_MONTHS.find(month => month >= step.min); state.focus = null; state.view = 'month'; state.expanded = false; render(); }, 'health-lineage-stage-title');
     if (stage.id === step.id) heading.setAttribute('aria-current', 'step');
-    column.append(heading);
-    const items = stageHealthItems(source.items, step).filter(item => item.domain === domain.id);
-    column.append(...items.map(item => itemRow(item, { trail: false }))); board.append(column);
+    const stageHeading = node('div', 'health-lineage-stage-heading'); stageHeading.append(heading);
+    if (state.view === 'overview' && stage.id === step.id) stageHeading.append(stageCompleteButton(step));
+    column.append(stageHeading);
+    if (step.id === currentStage().id) column.append(node('span', 'health-current-label', '宝宝在这里'));
+    const items = filterHealth(stageHealthItems(source.items, step), records(), { domain: domain.id, status: state.view === 'overview' ? state.status : 'all' });
+    column.append(...items.map(item => itemRow(item, { trail: false, graph: true }))); board.append(column);
   }
-  viewport.append(board); section.append(viewport); target.append(section);
+  space.append(board); viewport.append(space); section.append(viewport);
+  section.append(node('p', 'health-graph-footnote', '左右滑动或拖动画布 · 点名称高亮，点“解释”看详情，点圆圈记录观察。相邻月龄不代表技能依赖。'));
+  if (state.expanded) {
+    const dialog = node('dialog', 'health-graph-dialog'); dialog.setAttribute('aria-label', domain.label + '完整月龄脉络'); dialog.append(section); target.append(dialog);
+    dialog.addEventListener('cancel', event => { event.preventDefault(); expandGraph(false); });
+    dialog.addEventListener('click', event => { if (event.target === dialog) { const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) expandGraph(false); } });
+    dialog.showModal();
+  } else target.append(section);
+  document.body.classList.toggle('health-graph-open', state.expanded);
+  viewport.addEventListener('keydown', event => {
+    if (event.target !== viewport || !['+', '=', '-'].includes(event.key)) return;
+    event.preventDefault(); updateZoom(state.zoom + (event.key === '-' ? -.15 : .15));
+  });
+  viewport.addEventListener('wheel', event => { if (event.ctrlKey) { event.preventDefault(); updateZoom(state.zoom + (event.deltaY < 0 ? .1 : -.1)); } }, { passive: false });
+  let drag;
+  viewport.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'mouse' || event.button !== 0 || event.target.closest('button,select')) return;
+    drag = { x: event.clientX, y: event.clientY, left: viewport.scrollLeft, top: viewport.scrollTop };
+    viewport.setPointerCapture(event.pointerId); viewport.classList.add('is-dragging');
+  });
+  viewport.addEventListener('pointermove', event => { if (drag) { viewport.scrollLeft = drag.left - event.clientX + drag.x; viewport.scrollTop = drag.top - event.clientY + drag.y; } });
+  for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) viewport.addEventListener(name, () => { drag = null; viewport.classList.remove('is-dragging'); });
   requestAnimationFrame(() => {
     if (!viewport.isConnected) return;
     const column = board.querySelector(`[data-stage="${focused ? healthStage(focused.month).id : stage.id}"]`);
-    viewport.style.height = `${Math.min(570, column.offsetHeight + 26)}px`;
+    viewport.style.height = state.expanded ? '' : `${Math.min(570, Math.max(220, column.offsetHeight + 26))}px`;
+    updateZoom(state.zoom, false);
     if (oldScroll?.key === viewport.dataset.key) { viewport.scrollLeft = oldScroll.left; viewport.scrollTop = oldScroll.top; }
     else locate();
   });
 }
-async function persist(next, base) {
-  writing = true; message('正在保存本机观察记录…');
+function legendContent() {
+  const legend = node('div', 'health-graph-legend');
+  for (const [style, label] of [['plain', '待探索'], ['observed', '已观察到'], ['focus', '正在追踪'], ['stage', '所选阅读阶段']]) {
+    const item = node('span'), swatch = node('i', 'health-key-' + style); swatch.setAttribute('aria-hidden', 'true'); item.append(swatch, document.createTextNode(label)); legend.append(item);
+  }
+  legend.append(node('small', '', 'R 可询问家长 · * 原文注明未通过需注意；此处仅为家庭观察。'));
+  return legend;
+}
+function openLegend() {
+  const opened = modal('脉络图例', { stack: true }); if (!opened) return;
+  opened.dialog.dataset.domain = HEALTH_DOMAINS.find(domain => domain.id === state.domain)?.id || HEALTH_DOMAINS[0].id;
+  opened.body.append(legendContent(), node('p', 'health-help', '项目按同能区的标准月龄排列；相邻项目不代表前置要求。'));
+}
+function expandGraph(expanded) {
+  state.expanded = expanded; render();
+  document.querySelector(`[aria-label="${expanded ? '退出放大画布' : '放大画布'}"]`)?.focus({ preventScroll: true });
+}
+async function undoLastChange() {
+  if (writing || !lastUndo) return;
+  writing = true;
+  try {
+    const change = lastUndo, base = await store.read();
+    const result = undoHealthChange(base, change.before, change.after);
+    if (!result.restored) { writing = false; lastUndo = null; render(); message('这些字段已有后续修改，未覆盖新记录。'); return; }
+    if (await persist(result.snapshot, base, { remember: false })) { lastUndo = null; render(); message('已撤销上次操作，后续手记与其他观察保留。'); }
+  } catch (error) { message('未能撤销：' + error.message, true); }
+  finally { writing = false; }
+}
+async function persist(next, base, { label = '刚刚保存的观察', remember = true } = {}) {
+  writing = true; storageProblem = ''; updateSaveStatus(); message('正在保存本机观察记录…');
   try {
     snapshot = await store.apply(M.normalize('health', next), base);
-    writing = false; notice = '已保存本机；云端确认状态见右上同步按钮。'; render();
+    if (remember) lastUndo = { before: structuredClone(base), after: structuredClone(next), label };
+    writing = false; notice = ''; saveError = false; render();
     void sync.changed('health').catch(error => message('本机已保存，同步待重试：' + error.message, true));
     return true;
   } catch (error) {
+    storageProblem = error.message;
     message(error.code === 'MERGE_CONFLICT' ? '另一页面修改了同一项，尚未覆盖。请关闭详情后重新打开核对，再保存。' : error.message, true);
     return false;
-  } finally { writing = false; }
+  } finally { writing = false; updateSaveStatus(); }
 }
 function modal(title, { stack = false } = {}) {
   const previous = detail;
@@ -310,20 +511,29 @@ function modal(title, { stack = false } = {}) {
   const header = node('header', 'health-dialog-head');
   dialog.requestClose = () => {
     if (dialog.isDirty?.() && !window.confirm('观察内容尚未保存，确认放弃这次编辑吗？')) return false;
-    dialog.close(); return true;
+    dialog.finishClose(); return true;
   };
   header.append(node('h2', '', title), shell.createSectionSwitch(), iconButton('close', '关闭详情', () => dialog.requestClose()));
   const body = node('div', 'health-dialog-body');
   dialog.append(header, body); document.body.append(dialog);
   dialog.addEventListener('click', e => { const b = dialog.getBoundingClientRect(); if (e.target === dialog && (e.clientX < b.left || e.clientX > b.right || e.clientY < b.top || e.clientY > b.bottom)) dialog.requestClose(); });
   dialog.addEventListener('cancel', e => { e.preventDefault(); dialog.requestClose(); });
-  dialog.addEventListener('close', () => {
+  let disposed = false;
+  const cleanup = () => {
+    if (disposed) return; disposed = true;
     const wasCurrent = detail === dialog;
+    dialog.cleanupForm?.();
     dialog.remove(); if (wasCurrent) detail = stack && previous?.isConnected ? previous : null;
     document.body.classList.toggle('health-modal-open', Boolean(document.querySelector('.health-dialog[open]')));
     const params = new URLSearchParams(location.hash.slice(1)); if (!stack && wasCurrent && params.has('item')) { params.delete('item'); history.replaceState(null, '', '#' + params); }
-    if (focus?.isConnected) focus.focus({ preventScroll: true }); else shell.content.focus({ preventScroll: true });
-  });
+    if (focus?.isConnected) focus.focus({ preventScroll: true });
+    else if (dialog.dataset.item) document.querySelector(`.health-item[data-item="${dialog.dataset.item}"] .health-item-open`)?.focus({ preventScroll: true });
+    else shell.content.focus({ preventScroll: true });
+    if (!detail?.open) void refresh();
+  };
+  // 后台页的原生 close 事件可能延迟到下一帧；主动关闭须同步清理深链接和弹层引用。
+  dialog.finishClose = () => { dialog.close(); cleanup(); };
+  dialog.addEventListener('close', cleanup, { once: true });
   detail = dialog;
   document.body.classList.add('health-modal-open');
   dialog.showModal(); return { dialog, body };
@@ -334,18 +544,20 @@ function protectForm(form, dialog) {
   dialog.isDirty = () => JSON.stringify(value()) !== initial;
   const beforeUnload = event => { if (dialog.open && dialog.isDirty()) { event.preventDefault(); event.returnValue = ''; } };
   window.addEventListener('beforeunload', beforeUnload);
-  dialog.addEventListener('close', () => window.removeEventListener('beforeunload', beforeUnload), { once: true });
+  dialog.cleanupForm = () => window.removeEventListener('beforeunload', beforeUnload);
 }
 function openItem(id) {
   const item = source.items.find(item => item.id === id); if (!item) return;
   const opened = modal(item.title); if (!opened) return;
   const { dialog, body } = opened;
+  dialog.dataset.item = id; dialog.dataset.domain = item.domain;
   state.focus = id;
   document.querySelectorAll('.health-lineage .health-item').forEach(row => row.classList.toggle('is-focus', row.dataset.item === id));
   const params = new URLSearchParams(location.hash.slice(1)); params.set('item', id); params.set('focus', id); history.replaceState(null, '', '#' + params);
   const base = structuredClone(snapshot), value = records()[id] || {};
   body.append(versions(item.id));
   body.append(node('p', 'health-detail-meta', `${healthStage(item.month).label} · 原标准 ${item.month} 月龄 · ${HEALTH_DOMAINS.find(d => d.id === item.domain).label} · #${item.number}`));
+  body.append(btn('查看这项的完整脉络', () => showLineage(item), 'health-button health-detail-lineage'));
   if (item.parentReport || item.attention) body.append(node('p', 'health-flag-note', [item.parentReport ? 'R：本项表现可询问家长。' : '', item.attention ? '*：原文注明未通过需引起注意，建议向专业人员咨询。' : ''].filter(Boolean).join(' ')));
   body.append(node('h3', '', '操作方法 · 原文'), node('p', 'health-original', item.method), node('h3', '', '测查通过要求 · 原文'), node('p', 'health-original', item.requirement));
   if (item.methodTitle.replace(/[R*]/g, '') !== item.title) body.append(node('small', '', '附录 B 项目原名：' + item.methodTitle));
@@ -357,20 +569,38 @@ function openItem(id) {
   form.append(node('h3', '', '我的家庭观察'), node('p', 'health-help', '家庭观察与正式测查通过／不通过分开，不计算发育商。'));
   const label = node('label', '', '观察状态');
   const status = optionsSelect('观察状态', Object.entries(OBSERVATION_LABELS), value.status || 'unrecorded', () => {}); label.append(status);
-  const dateLabel = node('label', '', '观察日期'); const date = node('input'); date.type = 'date'; date.value = value.observedAt || localDateString(); date.setAttribute('aria-label', '观察日期'); dateLabel.append(date);
+  const dateLabel = node('label', '', '观察日期'); const date = node('input'); date.type = 'date'; date.max = localDateString(); date.value = value.observedAt || localDateString(); date.setAttribute('aria-label', '观察日期'); dateLabel.append(date);
   const noteLabel = node('label', '', '观察手记'); const note = node('textarea'); note.maxLength = 2000; note.rows = 3; note.value = value.note || ''; note.setAttribute('aria-label', '观察手记'); noteLabel.append(note);
   const error = node('p', 'health-form-error'); error.setAttribute('role', 'alert');
   const save = node('button', 'health-primary', '保存观察'); save.type = 'submit';
-  form.append(label, dateLabel, noteLabel, error, save);
-  form.addEventListener('submit', async event => {
-    event.preventDefault(); if (writing) return;
+  const quickStatus = node('div', 'health-detail-status');
+  const statusText = node('strong'), toggle = btn('', () => {
+    status.value = status.value === 'observed' ? 'unrecorded' : 'observed';
+    if (status.value === 'observed' && !date.value) date.value = localDateString();
+    updateStatus(); void saveObservation(false);
+  }, 'health-primary'); toggle.id = 'health-detail-toggle';
+  quickStatus.append(statusText, toggle);
+  const extra = node('details', 'health-observation-options'); extra.append(node('summary', '', '更多观察状态'), label);
+  const updateStatus = () => {
+    statusText.textContent = status.value === 'observed' ? '这颗成长小芽，已观察到' : '正在慢慢探索';
+    toggle.textContent = status.value === 'observed' ? '回退为探索中' : '标记已完成';
+    toggle.setAttribute('aria-pressed', status.value === 'observed'); dateLabel.hidden = status.value === 'unrecorded';
+  };
+  status.addEventListener('change', updateStatus); updateStatus();
+  const formActions = node('div', 'health-form-actions'); formActions.append(node('small', '', '观察状态、日期和手记保存在本机；登录连接后自动同步。'), save);
+  form.append(quickStatus, dateLabel, noteLabel, extra, error, formActions);
+  async function saveObservation(close = true) {
+    if (writing || !form.reportValidity()) return;
     const next = structuredClone(base || emptyHealth()), record = {};
     if (status.value !== 'unrecorded') { record.status = status.value; record.observedAt = date.value; }
     if (note.value) record.note = note.value;
     if (Object.keys(record).length) next.records[id] = record; else delete next.records[id];
-    save.disabled = true;
-    if (await persist(next, base)) dialog.close(); else { error.textContent = notice; save.disabled = false; }
-  });
+    save.disabled = toggle.disabled = true;
+    if (await persist(next, base, { label: `已保存观察：${item.title}` })) {
+      dialog.finishClose(); if (!close) { openItem(id); document.getElementById('health-detail-toggle')?.focus({ preventScroll: true }); }
+    } else { error.textContent = notice; save.disabled = toggle.disabled = false; }
+  }
+  form.addEventListener('submit', event => { event.preventDefault(); void saveObservation(); });
   body.append(form);
   protectForm(form, dialog);
   const adjacent = source.items.filter(other => other.domain === item.domain);
@@ -413,6 +643,9 @@ async function download(status) {
 function openBackup() {
   const opened = modal('卫健委版记录与备份'); if (!opened) return;
   const { body } = opened;
+  const stats = observationStats(source.items, records()), notes = Object.values(records()).filter(record => record.note).length;
+  const summary = node('div', 'health-backup-summary'); summary.append(node('strong', '', `${stats.observed} 个已完成项目 · ${notes} 篇观察手记`), node('span', '', storageProblem ? '本机保存失败，请重试或导出备份。' : '已保存到本机；云端确认请查看同步面板。'));
+  body.append(summary, btn('全站记录同步', () => { detail?.finishClose(); void sync.open(); }));
   const exportStatus = node('p', 'health-help'); exportStatus.setAttribute('role', 'status');
   body.append(node('p', '', '仅导出本版观察状态、日期与手记；不包含毛老师版记录、宝宝档案或登录身份。'), btn('导出本版 JSON', () => download(exportStatus)), exportStatus);
   const label = node('label', 'health-import-label', '导入本版 JSON（先预览，不直接覆盖）');
@@ -446,7 +679,7 @@ function openBackup() {
         const result = M.merge(null, current, incoming, choices);
         if (result.conflicts.length) { error.textContent = '请先选择所有差异。'; return; }
         submit.disabled = true;
-        if (await persist(result.snapshot, base)) detail?.close(); else { error.textContent = notice; submit.disabled = false; }
+        if (await persist(result.snapshot, base)) detail?.finishClose(); else { error.textContent = notice; submit.disabled = false; }
       });
       preview.append(form, error);
     } catch (error) { preview.append(node('p', 'health-form-error', error.message)); }
@@ -459,13 +692,13 @@ function openProfile() {
   const save = node('button', 'health-primary', '保存资料'); save.type = 'submit';
   const error = node('p', 'health-form-error'); error.setAttribute('role', 'alert');
   form.append(label, node('p', '', '资料由全站共用；生日为 ' + base.birthDate), error, save);
-  form.addEventListener('submit', async e => { e.preventDefault(); try { await profile.save({ ...base, name: input.value }, base); dialog.close(); } catch (failure) { error.textContent = failure.message; } });
+  form.addEventListener('submit', async e => { e.preventDefault(); try { await profile.save({ ...base, name: input.value }, base); dialog.finishClose(); } catch (failure) { error.textContent = failure.message; } });
   body.append(form);
   protectForm(form, dialog);
 }
 async function refresh() {
-  if (!store || writing) return;
-  try { const latest = await store.read(); if (!M.equal(latest, snapshot)) { snapshot = latest; render(); } } catch (error) { message(error.message, true); }
+  if (!store || writing || detail?.open) return;
+  try { const latest = await store.read(); if (!writing && !detail?.open && !M.equal(latest, snapshot)) { snapshot = latest; render(); } } catch (error) { message(error.message, true); }
 }
 async function start() {
   try {
@@ -475,10 +708,12 @@ async function start() {
     state.month = HEALTH_MONTHS.includes(Number(params.get('month'))) ? Number(params.get('month')) : referenceMonth(profile.get().birthDate);
     if (['month', 'overview', 'next'].includes(params.get('view'))) state.view = params.get('view');
     if (HEALTH_DOMAINS.some(d => d.id === params.get('domain'))) state.domain = params.get('domain');
-    if (Object.hasOwn(OBSERVATION_LABELS, params.get('status'))) state.status = params.get('status');
-    if (state.view === 'next' && state.status === 'observed') state.status = 'all';
+    if (['all', 'exploring', 'observed'].includes(params.get('status'))) state.status = params.get('status');
+    else if (['unrecorded', 'not-yet'].includes(params.get('status'))) state.status = 'exploring';
     state.search = params.get('q') || '';
+    if (state.view === 'next') state.status = 'all';
     state.focus = source.items.some(item => item.id === params.get('focus')) ? params.get('focus') : null;
+    if (state.view !== 'month' && state.domain === 'all') state.domain = 'gross';
     store = window.XiaoyaSyncAdapters.createAdapters({ indexedDB, localStorage, profileClient: profile }).health;
     snapshot = await store.read();
     sync = window.XiaoyaSync.createClient({ siteRoot: './', profileClient: profile });
@@ -487,6 +722,7 @@ async function start() {
     render(); if (params.get('item')) openItem(params.get('item'));
     window.addEventListener('focus', refresh);
     document.addEventListener('visibilitychange', () => { if (!document.hidden) void refresh(); });
+    window.matchMedia('(max-width:900px)').addEventListener('change', () => { if (!detail?.open) render(); });
   } catch (error) {
     const box = node('main', 'health-loading'); box.append(node('h1', '', '卫健委版暂未加载'), node('p', '', error.message), btn('重新加载', () => location.reload())); document.querySelector('#app').replaceChildren(box);
   }

@@ -85,6 +85,7 @@ body.site-navigation-open{overflow:hidden}
 .site-enabled .profile-site-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .site-enabled .detail-head,.site-enabled .dialog-header,.site-enabled .preview-top{background:var(--site-surface)}
 .site-enabled .app-dialog .dialog-header{position:sticky;top:-26px;z-index:2;padding:12px 0;border-bottom:1px solid var(--site-border)}
+.site-enabled .app-dialog .dialog-header>.circle-button{width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;align-self:start;justify-self:end}
 .site-enabled .graph-is-expanded .site-bar{z-index:45}
 @media(max-width:1100px){.site-bar,.site-page-bar{gap:12px}:root{--site-sidebar:205px;--site-space:24px}}
 @media(max-width:900px){
@@ -204,7 +205,7 @@ body.site-navigation-open{overflow:hidden}
  .site-enabled .growth-content .status-tabs button{font-size:13px;min-height:44px;padding:8px 10px}
  .site-enabled .growth-content .search-box{width:100%;min-height:46px}
  .site-enabled .growth-content .list-toolbar{display:flex;flex-wrap:wrap}
- .site-enabled .growth-content .list-toolbar .status-tabs{width:100%;display:flex;justify-content:space-between}
+ .site-enabled .growth-content .list-toolbar .status-tabs{width:100%;display:flex;justify-content:flex-start}
  .site-enabled .growth-content .detail-arrow{display:none}
  .site-enabled .growth-content .lineage-entry{min-width:44px;min-height:44px;font-size:12px}
  .site-enabled .growth-content .skill-row{gap:10px}
@@ -291,3 +292,43 @@ body.site-navigation-open{overflow:hidden}
 .growth-references a:focus-visible,.growth-references summary:focus-visible{outline:3px solid #7699df;outline-offset:3px;border-radius:3px}
 .growth-version-help{display:inline-grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:1px solid #9c91b0;border-radius:50%;background:transparent;color:#625773;font:650 15px/1 var(--site-font);margin:0 5px 0 0;cursor:pointer}
 .growth-version-help:focus-visible{outline:3px solid #7699df;outline-offset:3px}
+
+/* 成长两版本共用分类工具栏的位置，正文不再重复版本页签。 */
+.growth-version-short{display:none}
+.site-action-menu{flex:none}
+.site-more-button{display:inline-grid;place-items:center;width:44px;height:44px;padding:10px;border:1px solid var(--site-border);border-radius:10px;background:var(--site-surface);color:var(--site-text);cursor:pointer}
+.site-more-button .site-icon{stroke-width:3}
+.site-more-button[aria-expanded=true]{background:var(--site-accent-soft);border-color:var(--site-accent)}
+.site-more-button:focus-visible{outline:3px solid var(--site-accent);outline-offset:2px}
+.site-action-popover{position:fixed;inset:auto;margin:0;padding:6px;width:232px;max-width:calc(100vw - 16px);max-height:calc(100dvh - 120px);overflow:auto;border:1px solid var(--site-border);border-radius:12px;background:var(--site-surface);color:var(--site-text);box-shadow:0 8px 28px #24345224;box-sizing:border-box}
+.site-actions .site-action-popover>.topbar-actions{display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%}
+.site-actions .site-action-popover .topbar-actions>:is(button,a){display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;min-height:44px;margin:0;padding:10px 12px;border:0;border-radius:7px;font:inherit;font-size:14px;line-height:1.5;text-decoration:none;white-space:normal;color:inherit;background:transparent;text-align:left}
+.site-actions .site-action-popover .topbar-actions>:is(button,a):hover{background:var(--site-accent-soft)}
+.site-actions .site-action-popover .topbar-actions>:is(button,a):focus-visible{outline:2px solid var(--site-accent);outline-offset:-2px}
+.site-actions .site-action-popover :is(.icon-button,.site-sync-button)>span{display:inline}
+.site-actions .site-action-popover .save-status [data-save-label]{position:static;width:auto;height:auto;padding:0;overflow:visible;clip-path:none;white-space:normal}
+.site-actions .site-action-popover .save-status.has-error{color:#a43131}
+.site-actions>.growth-versions{margin:0 auto 0 0;flex-wrap:nowrap;flex-shrink:0}
+.site-actions:has(>.growth-versions)>.topbar-actions{flex:0 0 auto}
+@media(max-width:900px){
+ .site-page-bar:has(.site-actions>.growth-versions){gap:8px}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-page-heading{display:none}
+ .site-actions:has(>.growth-versions){gap:8px}
+ .site-actions>.growth-versions{font-size:12px;gap:2px;padding:2px}
+ .site-actions>.growth-versions a{min-height:40px;padding:5px 6px;white-space:nowrap}
+ .site-actions>.growth-versions .growth-version-help{width:28px;height:28px;margin:0 2px}
+ .site-actions:has(>.growth-versions)>.topbar-actions{width:auto;gap:6px}
+}
+@media(max-width:420px){
+ .site-page-bar:has(.site-actions>.growth-versions){gap:4px;padding-left:8px;padding-right:8px}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-directory-button{width:44px;flex:0 0 44px;padding:8px}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-directory-button>span{display:none}
+ .site-page-bar:has(.site-actions>.growth-versions)>.site-directory-button>.site-icon{display:inline-block}
+ .site-actions:has(>.growth-versions){gap:4px}
+ .site-actions>.growth-versions .growth-version-full{display:none}
+ .site-actions>.growth-versions .growth-version-short{display:inline}
+ .site-actions>.growth-versions a{padding-left:4px;padding-right:4px}
+ .site-actions:has(>.growth-versions)>.topbar-actions{gap:2px}
+ .site-actions:has(>.growth-versions)>.topbar-actions :is(.site-sync-button,.icon-button,.health-icon){width:36px;min-width:36px;flex:0 0 36px;padding:7px}
+ .site-actions:has(>.growth-versions) .save-status{padding:4px}
+}

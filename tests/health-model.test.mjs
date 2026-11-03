@@ -3,9 +3,46 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import M from '../shared/sync-model.js';
-import { HEALTH_MONTHS, HEALTH_DOMAINS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, nextHealthItems, referenceMonth, filterHealth, observationStats, emptyHealth, validateHealthBackup } from '../lib/health-model.mjs';
+import { HEALTH_MONTHS, HEALTH_DOMAINS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, undoHealthChange, nextHealthItems, referenceMonth, filterHealth, observationStats, emptyHealth, validateHealthBackup } from '../lib/health-model.mjs';
 
 const source = JSON.parse(await readFile(new URL('../data/health-standard.json', import.meta.url), 'utf8'));
+
+test('探索中包含未填结果、仅有手记和暂未观察到，保留各自记录并按已观察到判完成', () => {
+  const items = source.items.slice(0, 4);
+  const records = {
+    [items[1].id]: { note: '只写过手记' },
+    [items[2].id]: { status: 'not-yet', note: '继续观察' },
+    [items[3].id]: { status: 'observed', observedAt: '2026-11-03' },
+  };
+  const before = structuredClone(records);
+  assert.deepEqual(filterHealth(items, records, { status: 'exploring' }), items.slice(0, 3));
+  assert.deepEqual(filterHealth(items, records, { status: 'observed' }), items.slice(3));
+  assert.equal(filterHealth(items, records, { status: 'all' }).length, 4);
+  assert.equal(filterHealth(items, records, { status: 'exploring', search: items[2].title }).length, 1);
+  assert.deepEqual(records, before);
+});
+
+test('撤销单项和批量观察恢复原状态日期，保留后续手记及其他端的新记录', () => {
+  const before = { ...emptyHealth(), records: {
+    'wst580-128': { status: 'not-yet', observedAt: '2026-10-01', note: '原手记' },
+  } };
+  const after = completeHealthStage(before, source.items, healthStage(21), '2026-11-03');
+  const current = structuredClone(after);
+  current.records['wst580-128'].note = '后续手记';
+  current.records['wst580-129'].observedAt = '2026-11-04';
+  current.records['wst580-146'] = { status: 'observed', observedAt: '2026-11-04' };
+  const original = structuredClone(current), result = undoHealthChange(current, before, after);
+  assert.ok(result.restored > 1);
+  assert.deepEqual(result.snapshot.records['wst580-128'], { ...before.records['wst580-128'], note: '后续手记' });
+  assert.deepEqual(result.snapshot.records['wst580-129'], current.records['wst580-129']);
+  assert.deepEqual(result.snapshot.records['wst580-146'], current.records['wst580-146']);
+  assert.equal(result.snapshot.records['wst580-138'], undefined);
+  assert.deepEqual(current, original);
+  assert.deepEqual(undoHealthChange(after, before, after).snapshot, before);
+  assert.deepEqual(undoHealthChange(before, before, after), { snapshot: before, restored: 0 });
+  const single = { ...emptyHealth(), records: { 'wst580-138': { status: 'observed', observedAt: '2026-11-03', note: '首次手记' } } };
+  assert.deepEqual(undoHealthChange(single, null, single).snapshot, emptyHealth());
+});
 
 test('阶段全部完成覆盖五能区，保留已有日期手记，不修改其他阶段或输入', () => {
   const before = { ...emptyHealth(), records: {
