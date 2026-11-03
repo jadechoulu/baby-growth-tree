@@ -65,13 +65,15 @@
       nav.className = 'growth-versions';
       nav.setAttribute('aria-label', '成长内容版本');
       for (const [id, label, entry] of [['mao', '毛老师版', './index.html'], ['health', '卫健委版', './health.html']]) {
+        const tab = document.createElement('span'); tab.className = 'growth-version-tab';
         const link = document.createElement('a'); link.href = entry; link.setAttribute('aria-label', label);
         const full = document.createElement('span'); full.className = 'growth-version-full'; full.textContent = label;
         const short = document.createElement('span'); short.className = 'growth-version-short'; short.textContent = label.slice(0, -1); short.setAttribute('aria-hidden', 'true');
         link.append(full, short);
         if (current === id) link.setAttribute('aria-current', 'page');
-        nav.append(link);
-        if (id === 'health' && onHelp) nav.append(helpButton(onHelp));
+        tab.append(link);
+        if (id === 'health' && onHelp) tab.append(helpButton(onHelp));
+        nav.append(tab);
       }
       return nav;
     },
