@@ -647,11 +647,11 @@ test('素材统一名称和级别，既不重复套系标尺，也不丢失级�
   assert.equal(model.materialTitle(pearson, '1+'), '培生启明星 · 1+');
 });
 
-test('阶段素材按主线、明确推荐、共用辅线排序，同作者多版本不冒充跨路线共用', () => {
+test('阶段素材按原文主线、共用辅线、未定用途排序，同作者多版本不冒充跨路线共用', () => {
   const sample = model.normalize({
     xu: {
       resources: ['普通', '同套系异级', '同级共用', '主线', '特色', '同作者共用'].map((title, i) => ({ id: 'x' + i, title, type: 'reader' })),
-      stages: [{ id: 'origin', materials: [
+      stages: [{ id: 'xu-3', materials: [
         { resourceId: 'x0', role: 'parallel', level: '1' },
         { resourceId: 'x1', role: 'parallel', level: '1' },
         { resourceId: 'x2', role: 'parallel', level: '1', page: 3 },
@@ -667,28 +667,28 @@ test('阶段素材按主线、明确推荐、共用辅线排序，同作者多�
     xuSupplements: [{ id: 'xu-extra', label: '补充', resources: [{ id: 'extra', title: '同作者共用', type: 'reader' }], stages: [{ id: 'same-author', materials: [{ resourceId: 'extra', level: '1' }] }] }]
   });
   const original = JSON.stringify(sample);
-  const items = model.getStageMaterials(sample, 'origin');
-  assert.deepEqual(items.map(item => item.resource.title), ['主线', '特色', '同级共用', '同套系异级', '普通', '同作者共用']);
-  assert.deepEqual(items.map(item => item.role.kind), ['main', 'featured', 'auxiliary', 'auxiliary', 'auxiliary', 'auxiliary']);
-  assert.equal(items[2].overlap, true);
-  assert.equal(items[3].overlap, false);
-  assert.equal(items[3].shared, true);
-  assert.equal(items[5].shared, false);
-  assert.equal(items[2].material.page, 3);
+  const items = model.getStageMaterials(sample, 'xu-3');
+  assert.deepEqual(items.map(item => item.resource.title), ['主线', '同级共用', '同套系异级', '普通', '同作者共用', '特色']);
+  assert.deepEqual(items.map(item => item.role.kind), ['main', 'auxiliary', 'auxiliary', 'auxiliary', 'auxiliary', 'reference']);
+  assert.equal(items[1].overlap, true);
+  assert.equal(items[2].overlap, false);
+  assert.equal(items[2].shared, true);
+  assert.equal(items[4].shared, false);
+  assert.equal(items[1].material.page, 3);
   assert.equal(JSON.stringify(sample), original, '展示排序不能改写原素材、用途和出处');
   assert.deepEqual(model.getStageMaterials(sample, '不存在'), []);
 });
 
-test('真实路线保留阶段用途：第一阶段双主线、庆爸主辅及香蕉原文摘要', () => {
+test('真实路线保留原文用途：许密杉并行选读、庆爸主辅、香蕉不推断主辅', () => {
   const first = model.getStageMaterials(currentCatalog, 'xu-current-300');
-  assert.ok(first.filter(item => /闪卡/.test(item.material.role)).every(item => item.role.kind === 'main'));
-  assert.ok(first.some(item => item.resource.title === '培生词汇妙趣屋' && item.role.kind === 'main'));
+  assert.ok(first.filter(item => /闪卡/.test(item.material.role)).every(item => item.role.kind === 'reference'));
+  assert.ok(first.some(item => item.resource.title === '培生词汇妙趣屋' && item.role.kind === 'reference' && item.role.label === '并行选读'));
   const qing = model.getStageMaterials(currentCatalog, 'qing-s2');
   assert.equal(qing.find(item => item.resource.title === '培生启明星').role.kind, 'main');
   assert.equal(qing.find(item => item.resource.title === '大猫分级').role.kind, 'auxiliary');
   const banana = model.getStageMaterials(currentCatalog, 'banana-pre');
-  assert.equal(banana.find(item => item.resource.title === 'RAZ').role.kind, 'main');
-  assert.equal(banana.find(item => item.resource.title === '培生启明星').role.kind, 'auxiliary');
+  assert.equal(banana.find(item => item.resource.title === 'RAZ').role.kind, 'reference');
+  assert.equal(banana.find(item => item.resource.title === '培生启明星').role.kind, 'reference');
   for (const stage of currentCatalog.stages) {
     const items = model.getStageMaterials(currentCatalog, stage);
     assert.equal(items.flatMap(item => item.materials).length, stage.materials.length);
@@ -836,7 +836,7 @@ test('三路线同排共用素材在各用途组内前置，第三条路线的�
   const qing = model.getStageMaterials(currentCatalog, peers[1], peers);
   assert.deepEqual(qing.slice(0, 6).map(item => item.resource.title), ['培生启明星', 'Buddy Reader', '古力小超人', 'QPlay奇问妙想国', '培生词汇妙趣屋', '巴塔木口语书']);
   const banana = model.getStageMaterials(currentCatalog, peers[2], peers);
-  assert.deepEqual(banana.slice(0, 6).map(item => item.resource.title), ['RAZ', '红火箭', '海尼曼', 'Buddy Reader', '培生启明星', '古力小超人']);
+  assert.deepEqual(banana.slice(0, 6).map(item => item.resource.title), ['Buddy Reader', '培生启明星', 'RAZ', '古力小超人', 'QPlay奇问妙想国', '学乐小读者']);
   const pearson = banana.find(item => item.resource.title === '培生启明星');
   assert.deepEqual(pearson.levelSegments.filter(part => part.shared).map(part => part.text), ['1']);
   const xu = model.getStageMaterials(currentCatalog, peers[0], peers);
@@ -931,4 +931,48 @@ test('其他路线新增年龄case复用同一规则，不按排列顺序、过�
   const profile={birthDate:'2024-11-24',asOf:'2027-11-24'};
   assert.equal(model.getRouteAgeCase(sample,'xu',profile).ageCase.id,'young');
   assert.equal(model.getStageSchedules(sample,'sample',profile).schedules[0].daily,'10分钟');
+});
+
+test('套系级别汇总先拆范围再去重，范围不是独立级别且保留标尺及限定', () => {
+  const resource = { title: '培生启明星' };
+  assert.deepEqual(model.getLevelSummary(['1–3', '4&5', '1', '2', '3', '4', '1、2', '第三级'], resource), ['1、2、3、4、5']);
+  assert.deepEqual(model.getLevelSummary(['A–C', 'A&B', 'B', 'C'], resource), ['A、B、C']);
+  assert.deepEqual(model.getLevelSummary(['1', '1+', '一级', '第1–2册', '24本', '1（虚构）', '1（非虚构）'], resource), ['1、1+', '第1、2册', '1 · 虚构', '1 · 非虚构', '24册']);
+  assert.deepEqual(model.getLevelSummary(['', null], resource), []);
+  assert.deepEqual(model.getMaterialLevels({resource, materials:[{level:'1–3'}]}), ['1','2','3'].map(n=>({id:':'+n,label:n})));
+});
+
+test('详情展开范围与紧凑标签使用同一交集，仅匹配到的单级加粗', () => {
+  const resource = { title: '培生启明星' };
+  assert.deepEqual(model.levelSegments('1–3', [{level:'1&2&3'}], resource, {expandRanges:true}), [{text:'1、2、3',shared:true}]);
+  assert.deepEqual(model.levelSegments('1–3', [{level:'2'}], resource, {expandRanges:true}), [
+    {text:'1',shared:false}, {text:'、',shared:false}, {text:'2',shared:true}, {text:'、',shared:false}, {text:'3',shared:false}
+  ]);
+  assert.deepEqual(model.levelSegments('1–3', [{level:'1&2&3'}], resource), [{text:'1–3',shared:true}]);
+  assert.deepEqual(model.levelSegments('A–C', [{level:'B'}], resource, {expandRanges:true}), [
+    {text:'A',shared:false}, {text:'、',shared:false}, {text:'B',shared:true}, {text:'、',shared:false}, {text:'C',shared:false}
+  ]);
+});
+
+test('全部真实素材的级别范围逐级双向匹配，选片数量不成为级别', () => {
+  let checked = 0;
+  const snapshot = JSON.stringify(currentCatalog);
+  for (const resource of currentCatalog.resources) for (const appearance of resource.appearances.concat(resource.levels.map(level=>({level})))) {
+    if (!/[-–—~～至到]/.test(appearance.level || '')) continue;
+    const atoms = model.getMaterialLevels({resource, materials:[appearance]});
+    if (atoms.length < 2) continue;
+    checked++;
+    for (const atom of atoms) {
+      const reverse = model.levelSegments(atom.label, [{level:appearance.level}], resource, {expandRanges:true});
+      assert.ok(reverse.some(part=>part.shared), resource.title+'：'+appearance.level+' 应匹配 '+atom.label);
+      const forward = model.levelSegments(appearance.level, [{level:atom.label}], resource, {expandRanges:true});
+      assert.ok(forward.some(part=>part.shared), resource.title+'：'+atom.label+' 应反向匹配 '+appearance.level);
+    }
+  }
+  assert.ok(checked >= 174, '覆盖路线引用及完整套系资料中的数字、字母、季及分册范围');
+  assert.equal(JSON.stringify(currentCatalog), snapshot, '不改原始级别、来源或素材稳定ID');
+  assert.ok(model.levelSegments('7-8级21册', [{level:'7'}], {title:'大猫分级'}).some(part=>part.shared&&part.text==='7'));
+  assert.ok(model.levelSegments('M-Z2-', [{level:'M'}], {title:'RAZ'}).every(part=>!part.shared), '原图含义未明的标注不猜测展开');
+  const fox = {title:'小狐狸动画'};
+  assert.deepEqual(model.getMaterialLevels({resource:fox,materials:[{level:'L1 · 选2–3部（Bat、DinoTire）'}]}).map(item=>item.id), [':1']);
 });

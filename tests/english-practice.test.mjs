@@ -11,6 +11,63 @@ const catalog=M.normalize({...raw,xuCurrent:raw['xu-current'],xuSupplements:[raw
 const entry=(changes={})=>({version:1,routeId:'qing',stageId:'qing-s1',date:'2026-10-29',kind:'reading',minutes:30,factor:1,qualified:true,unitKey:'',unitLabel:'',content:'',...changes});
 const wrap=records=>({version:1,profile:{vocabulary:70,mode:'audio'},favorites:[],records});
 const key=id=>P.SESSION+'qing:'+id;
+const songLibrary=JSON.parse(fs.readFileSync(new URL('../english/data/sss-songs.json',import.meta.url)));
+
+test('素材搜索支持简称、别名、全角和多关键词，空输入恢复全部',()=>{
+  const names=['培生词汇妙趣屋 · 1辑','培生幼儿基础词汇 · 上','Pearson Vocabulary'];
+  for(const query of ['培生 1','培妙屋','幼儿 上','ＰＥＡＲＳＯＮ','vocab','  '])assert.equal(P.matchesMaterialSearch(names,query),true,query);
+  for(const query of ['大猫','培生 2','下册'])assert.equal(P.matchesMaterialSearch(names,query),false,query);
+  assert.equal(P.matchesMaterialSearch(['培生词汇妙趣屋 · 2辑'],'培妙屋 1',['培生词汇妙趣屋1–3']),false);
+  assert.equal(P.matchesMaterialSearch(['培生词汇妙趣屋 · 1辑'],'幼儿基础 1',['培生幼儿基础词汇']),true);
+  assert.equal(P.matchesMaterialSearch(['大猫 · 12级'],'大猫 1'),false);
+});
+
+test('SSS必备歌单按独立勾选汇总，完成与撤回即时改变数量、百分比及状态',()=>{
+  const ids=songLibrary.categories.find(category=>category.id==='essential').songIds;
+  const records={};
+  assert.equal(ids.length,10);
+  assert.deepEqual(P.songPlaylistProgress(records,songLibrary),{total:10,done:0,percent:0,status:'not-started'});
+  records[P.SONG+ids[0]]={status:'done',note:''};
+  assert.deepEqual(P.songPlaylistProgress(records,songLibrary),{total:10,done:1,percent:10,status:'using'});
+  for(const id of ids)records[P.SONG+id]={status:'done',note:''};
+  assert.deepEqual(P.songPlaylistProgress(records,songLibrary),{total:10,done:10,percent:100,status:'done'});
+  records[P.SONG+ids[0]]={status:'not-started',note:'保留撤回记录'};
+  assert.deepEqual(P.songPlaylistProgress(records,songLibrary),{total:10,done:9,percent:90,status:'using'});
+});
+
+test('SSS歌单分母只计去重后的真实歌曲，其他歌单和未知歌曲不扩大当前进度',()=>{
+  const ids=songLibrary.categories.find(category=>category.id==='essential').songIds;
+  const other=songLibrary.songs.find(song=>!ids.includes(song.id)).id;
+  const records={[P.SONG+other]:{status:'done',note:''},[P.SONG+'unknown']:{status:'done',note:''}};
+  assert.deepEqual(P.songPlaylistProgress(records,songLibrary),{total:10,done:0,percent:0,status:'not-started'});
+  const library=structuredClone(songLibrary);
+  library.categories.find(category=>category.id==='essential').songIds.push(ids[0],ids[0],'unknown');
+  records[P.SONG+ids[0]]={status:'done',note:''};
+  assert.deepEqual(P.songPlaylistProgress(records,library),{total:10,done:1,percent:10,status:'using'});
+  assert.equal(P.songPlaylistProgress(records,library,'recommended').done,2);
+  assert.deepEqual(P.songPlaylistProgress(records,library,'missing'),{total:0,done:0,percent:0,status:'not-started'});
+  assert.deepEqual(P.songPlaylistProgress(records,{categories:[{id:'essential',songIds:[]}],songs:[]}),{total:0,done:0,percent:0,status:'not-started'});
+});
+
+test('SSS派生进度不改素材旧百分比、备注及未知键，单曲记录经备份同步往返后仍可汇总',()=>{
+  const id=songLibrary.categories.find(category=>category.id==='essential').songIds[0];
+  const records={
+    [P.SONG+id]:{status:'done',note:'歌曲备注'},
+    [P.MATERIAL+'xu:sss']:P.unitProgressUpdate(100,{status:'using',note:'旧素材备注'},'2026-10-29'),
+    [P.MATERIAL+'qing:sss']:P.unitProgressUpdate(35,{status:'using',note:'庆爸独立进度'},'2026-10-29'),
+    [songLibrary.resourceId]:{status:'done',note:'整套状态'},
+    'future.record':{status:'using',note:'未知字段'}
+  };
+  const before=structuredClone(records),expected={total:10,done:1,percent:10,status:'using'};
+  assert.deepEqual(P.songPlaylistProgress(records,songLibrary),expected);
+  assert.deepEqual(records,before);
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records))));
+  assert.deepEqual(restored.records,before);
+  assert.deepEqual(P.songPlaylistProgress(restored.records,songLibrary),expected);
+  delete restored.records[P.SONG+id];
+  assert.deepEqual(P.songPlaylistProgress(restored.records,songLibrary),{total:10,done:0,percent:0,status:'not-started'});
+  assert.deepEqual(records,before);
+});
 
 test('SSS单曲独立同步与备份，跨歌单使用同一ID，撤回不影响其他歌和套系',()=>{
   const songs=JSON.parse(fs.readFileSync(new URL('../english/data/sss-songs.json',import.meta.url))).songs;
@@ -213,4 +270,236 @@ test('编辑、删除与撤销后图表重算，历史与日常不混淆，未�
   records[key('future')]={status:'done',note:JSON.stringify(entry({date:'2999-01-01'}))};
   records[key('broken')]={status:'done',note:'broken'};
   assert.equal(P.statistics(records).minutes,30);
+});
+
+
+const volumes=JSON.parse(fs.readFileSync(new URL('../english/data/resource-volumes.json',import.meta.url)));
+const scopeFor=(resourceId,levels)=>P.bookScopes(resourceId,levels,volumes);
+test('出版册数只匹配本套系本级别的范围，分辑不自动成为作者要求',()=>{
+  const pearson=scopeFor('resource-1nuqi5t',['']);
+  assert.deepEqual(pearson.map(s=>s.total),[32,32,32,64,96,48,48,96]);
+  assert.ok(pearson.every(s=>!s.default));
+  assert.equal(scopeFor('resource-g7xvo5',['预备级'])[0].total,18);
+  assert.equal(scopeFor('resource-g7xvo5',['1–3'])[0].total,86);
+  assert.equal(scopeFor('resource-g7xvo5',['4、5'])[0].total,46);
+  assert.equal(scopeFor('resource-1mx6gx6',['1–3'])[0].total,127);
+  assert.equal(scopeFor('resource-1mx6gx6',['1、2'])[0].total,85);
+  assert.equal(scopeFor('resource-1mx6gx6',['4、5'])[0].total,60);
+  assert.equal(scopeFor('resource-141vfh7',['进阶级'])[0].total,28);
+  for(const [id,levels] of [['resource-1mx6gx6',['4']],['resource-g7xvo5',['1–3 · 24册']],['resource-9fvmjt',['GK']],['resource-1mx6gx6',['1+']],['resource-1mx6gx6',['1–3','4、5']]])assert.deepEqual(scopeFor(id,levels),[]);
+});
+
+test('基础词汇改版归入原套系且保留新旧分装边界与进度隔离',()=>{
+  const scopes=scopeFor('resource-1nuqi5t',['']),old=scopes.find(s=>s.id==='pearson-vocab-1'),upper=scopes.find(s=>s.id==='pearson-basic-vocab-upper');
+  assert.notEqual(old.edition,upper.edition);
+  const existing=P.unitBookProgressUpdate(16,old,P.unitUpdate('using','保留备注','2026-09-15'));
+  const changed=P.unitBookScopeUpdate(upper,existing);
+  assert.equal(P.unitBooks(changed).completed,null);
+  assert.deepEqual(P.unitRecord({a:changed},'a'),P.unitRecord({a:existing},'a'));
+  const updated=P.unitBookProgressUpdate(24,upper,changed);
+  assert.equal(P.unitBooks(updated).total,48);
+  assert.equal(P.unitRecord({a:updated},'a').percent,50);
+  assert.equal(P.unitBooks(P.unitBookScopeUpdate(old,updated)).completed,null);
+  // 旧版原文限定1、2或3，不借新版上下辑核算。
+  assert.deepEqual(scopeFor('resource-1nuqi5t',['1、2']),[]);
+  assert.deepEqual(scopeFor('resource-1nuqi5t',['3']),[]);
+  const normalized=M.normalize({...raw,xuCurrent:raw['xu-current'],xuSupplements:[raw['xu-panorama'],raw['xu-thousand']],routePlan:raw['route-plan'],resourceVolumes:volumes});
+  const resource=normalized.resources.find(r=>r.id==='resource-1nuqi5t');
+  assert.ok(resource.aliases.includes('培生幼儿基础词汇'));
+  const names=['培生词汇妙趣屋',...volumes.series[0].aliases,'培生幼儿英语基础级'];
+  const identities=M.normalize({banana:{stages:[{id:'b'}],resources:names.map((title,i)=>({id:'book-'+i,title,category:'绘本',stageIds:['b']}))}});
+  for(let i=1;i<names.length-1;i++)assert.equal(identities.rawToCanonical['book-'+i],identities.rawToCanonical['book-0']);
+  assert.notEqual(identities.rawToCanonical['book-'+(names.length-1)],identities.rawToCanonical['book-0']);
+  const st=normalized.stages.find(s=>s.id==='xu-current-300'),before=catalog.stages.find(s=>s.id===st.id);
+  const item=M.getStageMaterials(normalized,st).find(i=>i.resource.id===resource.id),previous=M.getStageMaterials(catalog,before).find(i=>i.resource.id===resource.id);
+  assert.equal(P.unitKey(st,item),P.unitKey(before,previous));
+});
+
+test('填写本数后自动计算百分比，保留日期备注未知字段，沿原同步契约往返',()=>{
+  const scope=scopeFor('resource-g7xvo5',['预备级'])[0],id=P.MATERIAL+'xu:books';
+  const old={status:'using',note:JSON.stringify({version:1,text:'喜欢动物',date:'2026-09-15',percent:30,futureField:{x:1}})};
+  const selected=P.unitBookScopeUpdate(scope,old);
+  assert.equal(P.unitBooks(selected).completed,null);
+  assert.equal(P.unitRecord({[id]:selected},id).percent,30);
+  for(const [n,percent,status] of [[0,0,'not-started'],[9,50,'using'],[18,100,'done'],[17,94,'using']]){
+    const value=P.unitBookProgressUpdate(n,scope,old),meta=JSON.parse(value.note);
+    assert.deepEqual(P.unitRecord({[id]:value},id),{status,percent,text:'喜欢动物',date:'2026-09-15'});
+    assert.deepEqual(meta.futureField,{x:1});assert.equal(meta.books.completed,n);
+    assert.deepEqual(Sync.normalize('english',JSON.parse(JSON.stringify(wrap({[id]:value})))).records[id],value);
+    assert.equal(P.unitBooks(P.unitDateUpdate('2026-10-01',value)).completed,n);
+  }
+  for(const invalid of [-1,19,1.5,'2',null,NaN])assert.throws(()=>P.unitBookProgressUpdate(invalid,scope,old));
+  const large={id:'personal',label:'自选1000本',total:1000,edition:'本人选用范围',origin:'personal'};
+  const value=P.unitBookProgressUpdate(999,large,old);
+  assert.equal(value.status,'using');assert.equal(P.unitRecord({[id]:value},id).percent,99);
+  assert.equal(P.unitBookProgressUpdate(1,{...large,total:10000},old).status,'using');
+});
+
+test('改选范围不沿用旧本数，不由旧百分比推测数量，切回百分比不留活动本数',()=>{
+  const one=scopeFor('resource-1nuqi5t',[''])[0],two=scopeFor('resource-1nuqi5t',[''])[1];
+  const old=P.unitBookProgressUpdate(16,one,P.unitUpdate('using','原备注','2026-09-15'));
+  assert.equal(P.unitBooks(P.unitBookScopeUpdate(one,old)).completed,16);
+  for(const next of [two,{...one,label:'不同选材同32本'},{...one,edition:'另一版'}]){
+    const changed=P.unitBookScopeUpdate(next,old);
+    assert.equal(P.unitBooks(changed).completed,null);
+    assert.equal(P.unitRecord({a:changed},'a').percent,50);
+  }
+  const percent=P.unitProgressUpdate(70,old);
+  assert.equal(P.unitBooks(percent).mode,'percent');
+  assert.equal(P.unitBooks(P.unitBookScopeUpdate(one,percent)).completed,null);
+  for(const status of ['using','done']){
+    const previous=P.unitUpdate(status,'旧记录','2026-09-15'),chosen=P.unitBookScopeUpdate(one,previous);
+    assert.equal(P.unitBooks(chosen).completed,null);
+    assert.deepEqual(P.unitRecord({a:chosen},'a'),P.unitRecord({a:previous},'a'));
+  }
+  assert.equal(P.unitBooks(P.unitBookScopeUpdate(null,old)).mode,'percent');
+});
+
+test('补充出版册数及个人选用范围不改变原素材键，不传播到其他路线或套系',()=>{
+  const st=catalog.stages.find(s=>s.id==='xu-current-300'),item=M.getStageMaterials(catalog,st).find(i=>i.resource.title==='培生词汇妙趣屋');
+  const before=P.unitKey(st,item),withBooks={...item,bookScopes:scopeFor(item.resource.id,['']),label:item.resource.title+' · 1辑'};
+  assert.equal(P.unitKey(st,withBooks),before);
+  assert.equal(item.materials[0].level,'');
+  const one=scopeFor(item.resource.id,[''])[0],records={[before]:P.unitBookProgressUpdate(32,one),[item.resource.id]:{status:'using',note:'套系记录'}};
+  assert.equal(P.unitRecord(records,P.unitKey({...st,routeId:'qing'},item)).status,'not-started');
+  assert.equal(records[item.resource.id].status,'using');
+});
+
+const flatUnits=(stageId,records={})=>{
+  const st=catalog.stages.find(s=>s.id===stageId);
+  return M.getStageMaterials(catalog,st).flatMap(item=>{
+    const unit={item,key:P.unitKey(st,item),label:item.resource.title,resourceId:item.resource.id,stageId};
+    unit.bookScopes=P.bookScopes(unit.resourceId,item.materials.map(m=>M.formatLevel(m.level,item.resource)),volumes);
+    if(!unit.bookScopes.length)unit.bookScopes=P.bookScopes(unit.resourceId,[item.levelSegments.map(s=>s.text).join('')],volumes);
+    return ['book','reader'].includes(item.resource.type)?P.expandBookUnits(unit,M.getMaterialLevels(item),volumes,records[unit.key]):[unit];
+  });
+};
+test('进度按阶段所列级别和出版分辑平铺，旧版三辑与新版两辑分别独立',()=>{
+  const defaults=flatUnits('xu-current-300').filter(u=>u.resourceId==='resource-1nuqi5t');
+  assert.deepEqual(defaults.map(u=>[u.editionId,u.partScope.label,u.partScope.total]),[['pearson-vocab-basic','上辑',48],['pearson-vocab-basic','下辑',48]]);
+  const old=flatUnits('xu-current-300',{[defaults[0].parentKey]:P.unitEditionUpdate('pearson-vocab-original')}).filter(u=>u.resourceId==='resource-1nuqi5t');
+  assert.deepEqual(old.map(u=>u.partScope.label),['1辑','2辑','3辑']);
+  assert.deepEqual(old.map(u=>u.partScope.total),[32,32,32]);
+  const record=P.unitEditionUpdate('pearson-vocab-basic');
+  const revised=flatUnits('xu-current-300',{[old[0].parentKey]:record}).filter(u=>u.resourceId===old[0].resourceId);
+  assert.deepEqual(revised.map(u=>u.partScope.label),['上辑','下辑']);
+  assert.deepEqual(revised.map(u=>u.partScope.total),[48,48]);
+  assert.ok(revised.every(u=>!old.some(v=>v.key===u.key)));
+  const after=flatUnits('xu-current-500');
+  const cat=after.filter(u=>u.resourceId==='resource-g7xvo5');
+  assert.deepEqual(cat.map(u=>u.partScope.total),[30,31,25]);
+  const stars=after.filter(u=>u.resourceId==='resource-1mx6gx6');
+  assert.deepEqual(stars.map(u=>u.partScope.total),[44,41,42]);
+  for(const st of catalog.stages){const units=flatUnits(st.id);assert.equal(new Set(units.map(u=>u.key)).size,units.length);assert.ok(units.every(u=>u.key.length<=160));}
+});
+test('分辑记录精确沿用可归属单辑的旧本数，合并及百分比记录不摊派',()=>{
+  const parent=flatUnits('xu-current-300').find(u=>u.resourceId==='resource-1nuqi5t').parentKey;
+  const units=flatUnits('xu-current-300',{[parent]:P.unitEditionUpdate('pearson-vocab-original')}).filter(u=>u.resourceId==='resource-1nuqi5t'),one=units[0],two=units[1];
+  const legacy=P.unitBookProgressUpdate(16,scopeFor(one.resourceId,[''])[0],P.unitUpdate('using','旧备注','2026-09-15'));
+  const records={[one.parentKey]:legacy};
+  assert.deepEqual(flatUnits('xu-current-300',records).filter(u=>u.resourceId===one.resourceId).map(u=>u.editionId),Array(3).fill('pearson-vocab-original'));
+  assert.equal(P.materialRecord(records,one),legacy);
+  assert.equal(P.materialRecord(records,two),undefined);
+  const next=P.unitBookProgressUpdate(32,one.partScope,P.materialRecord(records,one));
+  records[one.key]=next;
+  assert.equal(P.materialRecord(records,one).status,'done');
+  assert.equal(JSON.parse(next.note).text,'旧备注');
+  assert.equal(JSON.parse(next.note).date,'2026-09-15');
+  assert.equal(records[one.parentKey],legacy);
+  const merged=P.unitBookProgressUpdate(32,scopeFor(one.resourceId,['']).find(s=>s.total===64));
+  assert.ok(units.every(u=>!P.materialRecord({[one.parentKey]:merged},u)));
+  const percent=P.unitProgressUpdate(100);
+  assert.ok(units.every(u=>!P.materialRecord({[one.parentKey]:percent},u)));
+  records[one.key]=P.unitBookProgressUpdate(0,one.partScope,next);
+  assert.equal(P.materialRecord(records,one).status,'not-started');
+  const newEdition=P.unitEditionUpdate('pearson-vocab-basic',legacy);
+  assert.equal(P.unitBooks(newEdition).completed,16);
+  assert.equal(JSON.parse(newEdition.note).text,'旧备注');
+  assert.deepEqual(Sync.normalize('english',wrap(records)).records,records);
+});
+test('列表切换版次后按各版分辑本数回显，来回切换与备份同步保留独立完成量',()=>{
+  const parent=flatUnits('xu-current-300').find(u=>u.resourceId==='resource-1nuqi5t').parentKey;
+  const old=flatUnits('xu-current-300',{[parent]:P.unitEditionUpdate('pearson-vocab-original')}).filter(u=>u.resourceId==='resource-1nuqi5t');
+  const records={unknown:{status:'using',note:'其他记录'},[parent]:{status:'not-started',note:JSON.stringify({version:1,text:'保留选读备注',futureField:7})}};
+  records[old[0].key]=P.unitBookProgressUpdate(16,old[0].partScope);
+  records[parent]=P.unitEditionUpdate('pearson-vocab-basic',records[parent]);
+  const revised=flatUnits('xu-current-300',records).filter(u=>u.resourceId===old[0].resourceId);
+  assert.deepEqual(revised.map(u=>[u.partScope.label,u.partScope.total]),[['上辑',48],['下辑',48]]);
+  assert.ok(revised.every(u=>!P.materialRecord(records,u)));
+  records[revised[0].key]=P.unitBookProgressUpdate(24,revised[0].partScope);
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records)))).records;
+  restored[parent]=P.unitEditionUpdate('pearson-vocab-original',restored[parent]);
+  const original=flatUnits('xu-current-300',restored).filter(u=>u.resourceId===old[0].resourceId);
+  assert.deepEqual(original.map(u=>[u.partScope.label,u.partScope.total]),[['1辑',32],['2辑',32],['3辑',32]]);
+  assert.equal(P.unitBooks(P.materialRecord(restored,original[0])).completed,16);
+  assert.equal(P.materialRecord(restored,original[1]),undefined);
+  restored[parent]=P.unitEditionUpdate('pearson-vocab-basic',restored[parent]);
+  assert.equal(P.unitBooks(P.materialRecord(restored,revised[0])).completed,24);
+  assert.equal(P.unitRecord(restored,revised[0].key).percent,50);
+  assert.equal(JSON.parse(restored[parent].note).text,'保留选读备注');
+  assert.equal(JSON.parse(restored[parent].note).futureField,7);
+  assert.deepEqual(restored.unknown,records.unknown);
+});
+test('原文组合级别拆开但保留标尺限定，不把数量或跨版本当成单级',()=>{
+  const item=level=>({resource:{title:'牛津树'},materials:[{level}]});
+  assert.deepEqual(M.getMaterialLevels(item('1–3')).map(p=>p.label),['1','2','3']);
+  assert.deepEqual(M.getMaterialLevels(item('A&B')).map(p=>p.label),['A','B']);
+  assert.deepEqual(M.getMaterialLevels(item('1+、2')).map(p=>p.label),['1+','2']);
+  assert.deepEqual(M.getMaterialLevels(item('1–2（虚构部分）')).map(p=>p.label),['1 · 虚构部分','2 · 虚构部分']);
+  assert.deepEqual(M.getMaterialLevels(item('1–2 · 24册')),[]);
+});
+
+test('歌单未完成在前、已完成在后，同状态保留原顺序且不修改原歌单或记录',()=>{
+  const songs=[{id:'a'},{id:'b'},{id:'c'},{id:'d'}];
+  const records={
+    [P.SONG+'a']:{status:'done',note:'保留备注'},
+    [P.SONG+'b']:{status:'using',note:''},
+    [P.SONG+'c']:{status:'done',note:''},
+    unrelated:{status:'done',note:''}
+  };
+  const before=structuredClone({songs,records});
+  assert.deepEqual(P.sortSongsByCompletion(songs,records).map(s=>s.id),['b','d','a','c']);
+  assert.deepEqual(P.sortSongsByCompletion([songs[2],songs[0],songs[3]],records).map(s=>s.id),['d','c','a']);
+  assert.deepEqual(P.sortSongsByCompletion(songs,{}),songs);
+  assert.deepEqual(P.sortSongsByCompletion([],records),[]);
+  assert.deepEqual({songs,records},before);
+  records[P.SONG+'a']={status:'not-started',note:'保留备注'};
+  assert.deepEqual(P.sortSongsByCompletion(songs,records).map(s=>s.id),['a','b','d','c']);
+  records[P.SONG+'b']={status:'done',note:''};
+  assert.deepEqual(P.sortSongsByCompletion(songs,records).map(s=>s.id),['a','d','b','c']);
+});
+
+test('大猫粉色44本只在明确的预备级引用提供选版，不改后续阶段分母或原文级别',()=>{
+  const pink=flatUnits('xu-current-300').filter(u=>u.resourceId==='resource-g7xvo5');
+  assert.deepEqual(pink.map(u=>[u.editionId,u.partScope.label,u.partScope.total]),[['big-cat-pink-44','Pink 1A',22],['big-cat-pink-44','Pink 1B',22]]);
+  assert.ok(pink.every(u=>u.item.materials.every(m=>m.level==='预备级')));
+  const parent=pink[0].parentKey;
+  const old=flatUnits('xu-current-300',{[parent]:P.unitEditionUpdate('big-cat-fltrp-pre-2023')}).filter(u=>u.resourceId==='resource-g7xvo5');
+  assert.deepEqual(old.map(u=>[u.partScope.label,u.partScope.total]),[['预备级1',9],['预备级2',9]]);
+  const previousVolumes=structuredClone(volumes),previousEntry=previousVolumes.series.find(s=>s.resourceId==='resource-g7xvo5');
+  delete previousEntry.recordingLevels;delete previousEntry.recordingEditions;
+  const base={...old[0],key:parent,bookScopes:P.bookScopes(old[0].resourceId,['预备级'],previousVolumes)};
+  const legacyUnits=P.expandBookUnits(base,M.getMaterialLevels(base.item),previousVolumes);
+  assert.deepEqual(old.map(u=>u.key),legacyUnits.map(u=>u.key));
+  const later=flatUnits('xu-current-500',{[parent]:P.unitEditionUpdate('big-cat-pink-44')}).filter(u=>u.resourceId==='resource-g7xvo5');
+  assert.deepEqual(later.map(u=>u.partScope.total),[30,31,25]);
+  assert.ok(later.every(u=>!u.editionOptions.length));
+});
+
+test('大猫英版与外研社记录隔离，切换刷新及备份往返保留各版独立本数',()=>{
+  const pink=flatUnits('xu-current-300').filter(u=>u.resourceId==='resource-g7xvo5'),parent=pink[0].parentKey;
+  const original=flatUnits('xu-current-300',{[parent]:P.unitEditionUpdate('big-cat-fltrp-pre-2023')}).filter(u=>u.resourceId==='resource-g7xvo5');
+  const legacy=P.unitBookProgressUpdate(9,original[0].partScope,P.unitUpdate('using','保留旧版备注','2026-10-30'));
+  const records={unknown:{status:'using',note:'保留未知键'},[original[0].key]:legacy,[parent]:P.unitEditionUpdate('big-cat-pink-44')};
+  assert.ok(pink.every(u=>P.materialRecord(records,u)===undefined));
+  records[pink[0].key]=P.unitBookProgressUpdate(11,pink[0].partScope);
+  assert.equal(P.unitRecord(records,pink[0].key).percent,50);
+  assert.equal(P.unitRecord(records,pink[1].key).percent,0);
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records)))).records;
+  restored[parent]=P.unitEditionUpdate('big-cat-fltrp-pre-2023',restored[parent]);
+  const old=flatUnits('xu-current-300',restored).filter(u=>u.resourceId==='resource-g7xvo5');
+  assert.deepEqual(P.materialRecord(restored,old[0]),legacy);
+  restored[parent]=P.unitEditionUpdate('big-cat-pink-44',restored[parent]);
+  assert.equal(P.unitBooks(P.materialRecord(restored,pink[0])).completed,11);
+  assert.deepEqual(restored.unknown,records.unknown);
 });

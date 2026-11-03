@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-04",
+  "unit": "本读物",
+  "policy": "出版书目用于核算选用范围，不补造作者阶段要求；不含家长指导、光盘与卡片。个人改选范围不改变原始素材引用及记录键。",
+  "series": [
+    {
+      "resourceId": "resource-1nuqi5t",
+      "edition": "培生词汇妙趣屋（NEW），三辑各32本",
+      "note": "按手头版本选择实际分辑；原路线未限定分辑时，不默认全套必读。新版上下辑与旧版三辑不逐辑等同。",
+      "sources": [
+        {
+          "title": "心喜阅官方：第一辑",
+          "url": "https://piyopen.lovereadingbooks.com/content/307",
+          "evidence": "官方确认第一辑身份与句型安排。"
+        },
+        {
+          "title": "豆瓣图书：第一辑出版简介",
+          "url": "https://m.douban.com/book/subject/30554187/",
+          "evidence": "共三辑，每辑32本。"
+        },
+        {
+          "title": "海豚传媒官方：基础词汇上辑48册",
+          "url": "https://dolphinmedia.cn/show-948.html",
+          "evidence": "确认培生幼儿英语·基础词汇上辑全48册，长江少年儿童出版社。"
+        },
+        {
+          "title": "豆瓣出版简介：新版与旧版关系",
+          "url": "https://m.douban.com/book/subject/35219142/",
+          "evidence": "由培生词汇妙趣屋升级改版而成；分上、下两辑，各48册。未提供逐本新旧目录对应。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "pearson-vocab-1",
+          "label": "1辑",
+          "level": "",
+          "parts": [
+            {
+              "label": "1辑",
+              "count": 32
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-vocab-2",
+          "label": "2辑",
+          "level": "",
+          "parts": [
+            {
+              "label": "2辑",
+              "count": 32
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-vocab-3",
+          "label": "3辑",
+          "level": "",
+          "parts": [
+            {
+              "label": "3辑",
+              "count": 32
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-vocab-1-2",
+          "label": "1、2辑",
+          "level": "",
+          "parts": [
+            {
+              "label": "1辑",
+              "count": 32
+            },
+            {
+              "label": "2辑",
+              "count": 32
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-vocab-1-3",
+          "label": "1–3辑",
+          "level": "",
+          "parts": [
+            {
+              "label": "1辑",
+              "count": 32
+            },
+            {
+              "label": "2辑",
+              "count": 32
+            },
+            {
+              "label": "3辑",
+              "count": 32
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-basic-vocab-upper",
+          "title": "培生幼儿英语·基础词汇",
+          "label": "上辑",
+          "edition": "培生幼儿英语·基础词汇（点读版），上、下两辑各48本",
+          "level": "",
+          "parts": [
+            {
+              "label": "上辑",
+              "count": 48
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-basic-vocab-lower",
+          "title": "培生幼儿英语·基础词汇",
+          "label": "下辑",
+          "edition": "培生幼儿英语·基础词汇（点读版），上、下两辑各48本",
+          "level": "",
+          "parts": [
+            {
+              "label": "下辑",
+              "count": 48
+            }
+          ],
+          "default": false
+        },
+        {
+          "id": "pearson-basic-vocab-all",
+          "title": "培生幼儿英语·基础词汇",
+          "label": "上、下辑",
+          "edition": "培生幼儿英语·基础词汇（点读版），上、下两辑各48本",
+          "level": "",
+          "parts": [
+            {
+              "label": "上辑",
+              "count": 48
+            },
+            {
+              "label": "下辑",
+              "count": 48
+            }
+          ],
+          "default": false
+        }
+      ],
+      "aliases": [
+        "培生幼儿英语·基础词汇",
+        "培生幼儿英语基础词汇",
+        "培生幼儿基础词汇"
+      ],
+      "versionNote": "《培生幼儿英语·基础词汇（点读版）》由《培生词汇妙趣屋》升级改版而来。词汇妙趣屋三辑各32本；基础词汇上、下两辑各48本，均合计96本。两版按同一套系关联；尚未逐本核对，不将旧版1／2／3辑换算为新版上／下辑。不同于培生幼儿英语基础级42册、预备级35册。",
+      "recordingEditions": [
+        {
+          "id": "pearson-vocab-original",
+          "label": "词汇妙趣屋 · 旧版三辑",
+          "shortLabel": "词汇妙趣屋",
+          "scopeId": "pearson-vocab-1-3"
+        },
+        {
+          "id": "pearson-vocab-basic",
+          "default": true,
+          "label": "幼儿英语基础词汇 · 新版上下辑",
+          "shortLabel": "基础词汇",
+          "scopeId": "pearson-basic-vocab-all"
+        }
+      ],
+      "recordingNote": "许密杉300词原图列出本套系，未限定分辑，也未写必须读完三辑。列表按出版分辑展开供选读记录，不作为一阶段完成条件。两版可按手头版本选用，但没有已核实的逐辑对应：旧版1辑32本不能直接换算成新版上辑48本。庆爸常规1使用旧版1、2，常规2使用3，不借用为许密杉的范围。",
+      "recordingHint": "分辑选读，无需全部读完"
+    },
+    {
+      "resourceId": "resource-g7xvo5",
+      "edition": "外研社大猫点读版，2023大众图书目录",
+      "note": "仅计读物，排除家庭阅读指导；不同版本或只选部分辑请改用自选范围。",
+      "sources": [
+        {
+          "title": "外研社2023目录：印刷页134",
+          "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page135.html",
+          "evidence": "预备级1、2各9本；一级1为8本。"
+        },
+        {
+          "title": "外研社2023目录：印刷页135",
+          "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page136.html",
+          "evidence": "一级8+8+7+7；二级8+8+8+7；三级9+9+7；四级10+10+7；五级6+7+6。"
+        },
+        {
+          "title": "小花生／小新：2019年英版大猫套装介绍",
+          "url": "https://zhuanlan.zhihu.com/p/57782726",
+          "evidence": "第三方套装介绍：粉色1级Readers共44册，Pink A、Pink B各22册；另售粉色自然拼读16册。红色2级也有44册套装，不能只凭44册确定级别。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "big-cat-pre-2023",
+          "label": "预备级",
+          "level": "预备级",
+          "parts": [
+            {
+              "label": "预备级1",
+              "count": 9
+            },
+            {
+              "label": "预备级2",
+              "count": 9
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "big-cat-1-3-2023",
+          "label": "1–3",
+          "level": "1–3",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 30
+            },
+            {
+              "label": "2级",
+              "count": 31
+            },
+            {
+              "label": "3级",
+              "count": 25
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "big-cat-4-5-2023",
+          "label": "4、5",
+          "level": "4、5",
+          "parts": [
+            {
+              "label": "4级",
+              "count": 27
+            },
+            {
+              "label": "5级",
+              "count": 19
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "big-cat-pink-44",
+          "label": "Pink 1A、1B",
+          "level": "Pink 1A、1B",
+          "edition": "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）",
+          "parts": [
+            {
+              "label": "Pink 1A",
+              "count": 22
+            },
+            {
+              "label": "Pink 1B",
+              "count": 22
+            }
+          ]
+        }
+      ],
+      "versionNote": "外研社引进版与柯林斯英版使用不同的分级和选书范围。英版粉色44本套装按Pink 1A、1B各22本记录；不表示外研社预备级1、2与Pink 1A、1B逐项等价。",
+      "recordingNote": "这里切换个人选读版本，不修改路线原图“大猫预备级”的范围。粉色44本册数来自2019年英版套装介绍，不包含另售自然拼读读本，也不代表现行全部粉色书目。",
+      "recordingLevels": [
+        "预备级"
+      ],
+      "recordingEditions": [
+        {
+          "id": "big-cat-pink-44",
+          "default": true,
+          "label": "柯林斯英版 · 粉色44本（Pink 1A＋1B）",
+          "shortLabel": "英版粉色44本",
+          "scopeId": "big-cat-pink-44"
+        },
+        {
+          "id": "big-cat-fltrp-pre-2023",
+          "label": "外研社引进版 · 预备级1、2（各9本）",
+          "shortLabel": "外研社预备级",
+          "scopeId": "big-cat-pre-2023"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "edition": "培生启明星，海豚出版社2025版",
+      "note": "按该版整级核算；不与培生儿童英语或其他培生产品混用。",
+      "sources": [
+        {
+          "title": "心喜阅官方：1级44册",
+          "url": "https://piyopen.lovereadingbooks.com/content/1115",
+          "evidence": "1级共44册。"
+        },
+        {
+          "title": "心喜阅官方：4级31册",
+          "url": "https://piyopen.lovereadingbooks.com/content/1116",
+          "evidence": "4级共31册。"
+        },
+        {
+          "title": "豆瓣各级出版书目",
+          "url": "https://book.douban.com/series/77830",
+          "evidence": "1级44、2级41、3级42、4级31、5级29；仅采用套装书目，不采用该页营销能力描述。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "pearson-star-1-3-2025",
+          "label": "1–3",
+          "level": "1–3",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 44
+            },
+            {
+              "label": "2级",
+              "count": 41
+            },
+            {
+              "label": "3级",
+              "count": 42
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-4-5-2025",
+          "label": "4、5",
+          "level": "4、5",
+          "parts": [
+            {
+              "label": "4级",
+              "count": 31
+            },
+            {
+              "label": "5级",
+              "count": 29
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-1-2-2025",
+          "label": "1、2",
+          "level": "1、2",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 44
+            },
+            {
+              "label": "2级",
+              "count": 41
+            }
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-141vfh7",
+      "edition": "培生亲子故事屋，基础级／进阶级28册版",
+      "note": "每级各28本，不把两级合计56本作为单级分母。",
+      "sources": [
+        {
+          "title": "心喜阅官方：基础级",
+          "url": "https://piyopen.lovereadingbooks.com/content/310",
+          "evidence": "基础级共28册。"
+        },
+        {
+          "title": "海豚传媒官方：进阶级",
+          "url": "https://dolphinmedia.cn/show-890.html",
+          "evidence": "进阶级全28册，长江少年儿童出版社。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "pearson-story-basic",
+          "label": "基础级",
+          "level": "基础级",
+          "parts": [
+            {
+              "label": "基础级",
+              "count": 28
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-story-advanced",
+          "label": "进阶级",
+          "level": "进阶级",
+          "parts": [
+            {
+              "label": "进阶级",
+              "count": 28
+            }
+          ],
+          "default": true
+        }
+      ]
+    }
+  ]
+}

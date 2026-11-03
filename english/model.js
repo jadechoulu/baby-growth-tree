@@ -19,7 +19,7 @@
     ['牛津树', '牛津树拓展阅读', '牛津阅读树', 'Oxford Reading Tree'],
     ['大猫分级', '大猫', 'Collins Big Cat'],
     ['培生启明星', '培生启明星分级', '启明星'],
-    ['培生词汇妙趣屋', '词汇妙趣屋'],
+    ['培生词汇妙趣屋', '词汇妙趣屋', '培生幼儿英语·基础词汇', '培生幼儿英语基础词汇', '培生幼儿基础词汇'],
     ['培生儿童英语', '培生儿童英语分级阅读'],
     ['培生亲子故事屋', '培生亲子故事屋分级'],
     ['Yakka Dee', 'Yakka dee'],
@@ -315,6 +315,8 @@
       if (found.length > 1) found.forEach(function (r) { r.details.push({ label: '关联边界', text: pair.join(' / ') + (pair[0] === '牛津自然拼读' ? ' 在两份来源中仅有中文名称或简称，未注明英文名与版本，尚无法确认同一套教材；保留独立条目。' : ' 在来源中名称或套系不同，保留独立条目，不自动判为同一素材。'), routeId: '', page: null, sourceId: '', variantId: '' }); });
     });
     resources.forEach(function (resource) {
+      var publication = array(raw.resourceVolumes && raw.resourceVolumes.series).find(function (entry) { return entry.resourceId === resource.id; });
+      if (publication) resource.aliases = unique(resource.aliases.concat(array(publication.aliases)));
       resource.referencePrices = array(raw.resourcePrices && raw.resourcePrices.quotes).filter(function (quote) { return quote.resourceId === resource.id; });
       var image = raw.resourceCovers && raw.resourceCovers[resource.id];
       if (!resource.cover && image) {
@@ -398,7 +400,7 @@
       return priority[resourceMap[a].type] - priority[resourceMap[b].type];
     });
     return { routeStages: routeStages, reason: start
-      ? '目前约 ' + words + ' 个听力词汇，先浏览名词、动作与生活短句的起点：香蕉妈妈起步段、许密杉第一阶段、庆爸常规 1。各路线词数属于积累目标，不能当作入门门槛。'
+      ? '目前约 ' + words + ' 个听力词汇，先浏览名词、动作与生活短句的起点：香蕉妈妈起步段、许密杉0–300词起步节点、庆爸常规 1。各路线词数属于积累目标，不能当作入门门槛。'
       : '按约 ' + words + ' 个听力词汇提供浏览候选；词数属于阶段目标，不能据此判断已晋级，仍需核验实际理解、兴趣与原文准入条件。',
       underThree: underThree, level: start ? 'start' : 'browse', suggested: suggested.slice(0, 10),
       next: (hasCurrent && start ? '闪卡与闪卡式绘本属于同一阶段，可并行使用；300词是起步积累目标。' : '') + (underThree ? '庆爸原文面向 3–4 岁，当前仅供对照。' : '') + '先选孩子能理解且愿意重复的同级材料；升档前核验实际理解。庆爸还需核验投入时间与测试 Phase，成长计划 Phase 不能替代测试。',
@@ -504,7 +506,7 @@
       qualifier: qualifier, quantities: quantities, normalized: normalized, fiction: /非虚构/.test(qualifier) ? 'nonfiction' : /虚构/.test(qualifier) ? 'fiction' : '' };
   }
 
-  function formatLevelTokens(tokens) {
+  function formatLevelTokens(tokens, expandRanges) {
     var groups = [];
     tokens.forEach(function (token) {
       var group = groups.find(function (item) { return item.scale === token.scale; });
@@ -518,7 +520,7 @@
         while (end + 1 < values.length && !values[end].plus && !values[end + 1].plus &&
           (typeof values[end].grade === 'number' && values[end + 1].grade === values[end].grade + 1 ||
            typeof values[end].grade === 'string' && values[end].grade.length === 1 && typeof values[end + 1].grade === 'string' && values[end + 1].grade.length === 1 && values[end + 1].grade.charCodeAt(0) === values[end].grade.charCodeAt(0) + 1)) end++;
-        if (end - i >= 2) { labels.push(values[i].grade + '–' + values[end].grade); i = end; }
+        if (!expandRanges && end - i >= 2) { labels.push(values[i].grade + '–' + values[end].grade); i = end; }
         else labels.push(values[i].grade + (values[i].plus ? '+' : ''));
       }
       var label = labels.join('、'), scale = group.scale;
@@ -543,6 +545,29 @@
     return [formatLevelTokens(parts.tokens), parts.quantities.join('；'), parts.qualifier.replace(/(\d+)本/g, '$1册')].filter(Boolean).join(' · ');
   }
 
+  // 汇总先展开成单级再去重，范围和单级不能作为两份互相独立的级别。
+  function getLevelSummary(levels, resource) {
+    var groups = [], separate = [];
+    array(levels).forEach(function (level) {
+      var parts = levelParts(level, resource);
+      if (!parts || !parts.tokens.length || parts.quantities.length) {
+        var label = formatLevel(level, resource);
+        if (label && separate.indexOf(label) === -1) separate.push(label);
+        return;
+      }
+      parts.tokens.forEach(function (token) {
+        var group = groups.find(function (candidate) { return candidate.scale === token.scale && candidate.qualifier === parts.qualifier; });
+        if (!group) { group = { scale: token.scale, qualifier: parts.qualifier, tokens: [] }; groups.push(group); }
+        if (!group.tokens.some(function (candidate) { return candidate.id === token.id; })) group.tokens.push(token);
+      });
+    });
+    return groups.map(function (group) {
+      // 数字级别自然排序；未确认顺序的命名及多字母标尺保留来源顺序。
+      if (group.tokens.every(function (token) { return typeof token.grade === 'number'; })) group.tokens.sort(function (a, b) { return a.grade - b.grade || Number(a.plus) - Number(b.plus); });
+      return [formatLevelTokens(group.tokens, true), group.qualifier].filter(Boolean).join(' · ');
+    }).concat(separate);
+  }
+
   function materialTitle(resource, level) {
     var label = formatLevel(level, resource);
     // 套系名称已包含标尺时不重复展示，如“海尼曼 GK70 · A”。
@@ -551,8 +576,20 @@
     return resource.title + (label ? ' · ' + label : '');
   }
 
+  // 进度按原文级别独立记录；路线阅读标签仍合并，复用同一标尺解析。
+  function getMaterialLevels(item) {
+    var tokens = [], qualifier = null, supported = true;
+    array(item.materials).forEach(function (material) {
+      var parts = levelParts(material.level, item.resource);
+      if (!parts || parts.quantities.length || qualifier !== null && qualifier !== parts.qualifier) { supported = false; return; }
+      qualifier = parts.qualifier;
+      parts.tokens.forEach(function (token) { if (!tokens.some(function (other) { return other.id === token.id; })) tokens.push(token); });
+    });
+    return supported ? tokens.map(function (token) { return { id: token.id, label: [formatLevelTokens([token]), qualifier].filter(Boolean).join(' · ') }; }) : [];
+  }
+
   // 按实际级别拆分展示；不把同套系或其他阶段的用法当作当前交集。
-  function levelSegments(level, peers, resource) {
+  function levelSegments(level, peers, resource, options) {
     var own = levelParts(level, resource), common = new Set();
     array(peers).forEach(function (peer) {
       var relation = compareLevels({ level: level }, peer, resource), other = levelParts(peer.level, resource);
@@ -561,10 +598,10 @@
         if (other.tokens.some(function (candidate) { return candidate.id === token.id; })) common.add(token.id);
       });
     });
-    return levelSegmentsFromParts(own, common, level, resource);
+    return levelSegmentsFromParts(own, common, level, resource, options && options.expandRanges);
   }
 
-  function levelSegmentsFromParts(own, common, level, resource) {
+  function levelSegmentsFromParts(own, common, level, resource, expandRanges) {
     if (!own || !own.tokens.length) return formatLevel(level, resource) ? [{ text: formatLevel(level, resource), shared: false }] : [];
     var groups = [];
     own.tokens.forEach(function (token) {
@@ -575,7 +612,7 @@
     var parts = [];
     groups.forEach(function (group, index) {
       if (index) parts.push({ text: groups[index - 1].scale === group.scale ? '、' : '；', shared: false });
-      parts.push({ text: formatLevelTokens(group.tokens), shared: group.shared });
+      parts.push({ text: formatLevelTokens(group.tokens, expandRanges), shared: group.shared });
     });
     var suffix = [own.quantities.join('；'), own.qualifier.replace(/(\d+)本/g, '$1册')].filter(Boolean).join(' · ');
     if (suffix) parts.push({ text: ' · ' + suffix, shared: false });
@@ -583,19 +620,38 @@
   }
 
   function materialRole(stage, material, resource) {
-    var role = material.role || '', kind = 'auxiliary', basis = '依据原文用途归入辅线';
-    if (role === 'recommended' || /特色|重点推荐|特别推荐/.test(role)) {
-      kind = 'featured'; basis = '原文明确推荐';
-    } else if (/^(main|core)$/.test(role) || /主线|主节点/.test(role)) {
-      kind = 'main'; basis = '原文主线或核心素材';
-    } else if (stage.routeId === 'banana' && role === '素材') {
-      var summary = (stage.raw || {}).summary || '';
-      if (summary.indexOf(resource.title) !== -1 || stage.id === 'banana-chapter' && ['book', 'reader'].indexOf(resource.type) !== -1) kind = 'main';
-      basis = kind === 'main' ? '按原文阶段摘要或初章书单整理为主线' : '按原文补充书单整理为辅线；可按兴趣替代共读';
-    } else if (stage.routeId === 'xu' && (/^(闪卡|闪卡式绘本|桥梁书|初章书|中章书|高章书|自然拼读|高频词|解码书|低级别分级反复跟读|中高级别分级阅读)$/.test(role) || /^(教材学习|语法学习)/.test(role))) {
-      kind = 'main'; basis = '按原图该领域的核心活动分支整理为主线；可并行择用';
+    // 角色属于本路线、本版本、本阶段的这次引用；套系归并只共享身份。
+    // 保留 material.role，个人进度键仍使用原始用途，不因展示纠正换键。
+    var role = material.role || '', kind = 'reference', label = role || '阶段选读';
+    var basis = '按本阶段原文用途展示，不据活动分支推定主辅线';
+    var labels = { core: '阶段材料', main: '阶段材料', parallel: '并行选读',
+      'animation-companion': '配套动画／儿歌', companion: '配套材料', optional: '可选材料',
+      review: '复习材料', recommended: '推荐材料', '素材': '阶段选读' };
+    label = labels[role] || label;
+    if (stage.routeId === 'qing') {
+      if (/^主线/.test(role)) { kind = 'main'; label = '主线'; basis = '本阶段原文明确列为' + role; }
+      else if (role === '辅线') { kind = 'auxiliary'; label = '辅线'; basis = '本阶段原文明确列为辅线'; }
+      else basis = '沿用本阶段原文“' + role + '”分组，不替换为主辅线';
+    } else if (stage.routeId === 'xu') {
+      // 旧六阶段表只有后四阶段明确主线和平行拓展；其余版本的同名字段是整理标签。
+      if (stage.variantId === 'xu-listening' && ['xu-3', 'xu-4', 'xu-5', 'xu-6'].indexOf(stage.id) !== -1) {
+        if (role === 'main') { kind = 'main'; label = '主线'; basis = '本阶段六阶段原表明确标注主线'; }
+        else if (role === 'parallel') { kind = 'auxiliary'; label = '辅线'; basis = '本阶段六阶段原表标注平行拓展'; }
+      }
+      if (role === '闪卡式绘本') label = '并行选读';
+      else if (/主节点$/.test(role)) label = '分级选读';
+      else if (/配套分支$/.test(role)) label = '配套选读';
+      if (stage.variantId === 'xu-thousand' && role === 'recommended') {
+        kind = 'featured'; label = '特色推荐'; basis = '本阶段执行表原文明确推荐';
+      }
+    } else if (stage.routeId === 'banana') {
+      label = '阶段选读'; basis = '本阶段原书单未划分主辅线，分级与故事按原方案选读';
+    } else if (/^主线/.test(role)) {
+      kind = 'main'; label = '主线'; basis = '本阶段原文明确标注主线';
+    } else if (/^辅线/.test(role)) {
+      kind = 'auxiliary'; label = '辅线'; basis = '本阶段原文明确标注辅线';
     }
-    return { kind: kind, label: kind === 'main' ? '主线' : kind === 'featured' ? '特色推荐' : '辅线', basis: basis };
+    return { kind: kind, label: label, basis: basis };
   }
 
   function getStageMaterials(catalog, stageId, comparisonStages) {
@@ -637,7 +693,7 @@
       return { material: group.material, materials: group.materials, resource: resource, role: group.role, shared: other.length > 0, overlap: overlap,
         levelSegments: levelSegmentsFromParts(group.parts, common, group.material.level, resource), originalIndex: group.originalIndex };
     }).sort(function (a, b) {
-      var ranks = { main: 0, featured: 1, auxiliary: 2 };
+      var ranks = { main: 0, featured: 1, auxiliary: 2, reference: 3 };
       return ranks[a.role.kind] - ranks[b.role.kind] || Number(b.overlap) - Number(a.overlap) || Number(b.shared) - Number(a.shared) || a.originalIndex - b.originalIndex;
     });
   }
@@ -720,6 +776,39 @@
     return Object.assign({}, plan, { domain: domain, summary: ageSummary || plan.summary,
       page: ageSummary ? context.ageCase.sourcePage : plan.page, ageCase: context,
       stages: array(plan.stageIds).map(function (id) { return stageMap[id]; }).filter(Boolean), supportingStages: supporting });
+  }
+
+  // 执行关系只读取本阶段活动、所选年龄方案和显式来源说明，不从词数推导其他能力准入。
+  function getStageFlow(catalog, stageId, profile) {
+    var stage = typeof stageId === 'string' ? array(catalog.stages).find(function (item) { return item.id === stageId; }) : stageId;
+    if (!stage) return null;
+    var plan = getRoutePlan(catalog, stage.routeId, 'listening', profile);
+    if (!plan || !plan.stageIds.includes(stage.id)) return null;
+    var config = plan.flow || {}, context = getStageSchedules(catalog, stage, profile);
+    var parallel = array(config.parallel).map(function (item) { return Object.assign({ sourceId: plan.sourceId, page: plan.page }, item); });
+    if (stage.activities.length > 1) parallel = parallel.concat(stage.activities.map(function (activity) {
+      return { text: activity.title, resourceIds: activity.resourceIds, sourceId: activity.sourceId, page: stage.pages[0] || 1 };
+    }));
+    var later = [], index = plan.stages.findIndex(function (item) { return item.id === stage.id; });
+    context.schedules.forEach(function (schedule) {
+      ['audio', 'parallel'].forEach(function (key) {
+        if (schedule[key]) parallel.push({ text: schedule[key], sourceId: plan.sourceId, page: schedule.sourcePage });
+      });
+      if (/跟读|自拼|自主阅读/.test(schedule.output || '')) parallel.push({ text: schedule.output, sourceId: plan.sourceId, page: schedule.sourcePage });
+    });
+    // 后续输出仅展示当前年龄case中第一次加入的安排，不把浏览阶段变成当前任务。
+    ['跟读', '自拼|自主阅读'].forEach(function (pattern) {
+      var first = plan.stages.find(function (candidate) {
+        return getStageSchedules(catalog, candidate, profile).schedules.some(function (schedule) { return new RegExp(pattern).test(schedule.output || ''); });
+      });
+      if (first && plan.stages.indexOf(first) > index) {
+        var schedule = getStageSchedules(catalog, first, profile).schedules.find(function (item) { return new RegExp(pattern).test(item.output || ''); });
+        if (!later.some(function (item) { return item.stageId === first.id; })) later.push({ stageId: first.id, text: schedule.output, sourceId: plan.sourceId, page: schedule.sourcePage });
+      }
+    });
+    return { parallel: parallel, later: later, laterNote: config.laterNote || '', laterLabel: config.laterLabel || '后续能力何时加入', domains: array(config.domains),
+      advance: stage.exit, advanceNote: config.advanceNote || '', nextStageId: plan.stages[index + 1] && plan.stages[index + 1].id,
+      referenceOnly: context.status !== 'general' && context.status !== 'matched', sourceId: plan.sourceId, page: plan.page };
   }
 
   function compareStages(catalog, focusStageId) {
@@ -809,7 +898,7 @@
     });
   }
 
-  var api = { normalize: normalize, getRoutePlan: getRoutePlan, getRouteAgeCase: getRouteAgeCase, getStageSchedules: getStageSchedules, getAge: getAge, recommend: recommend, formatLevel: formatLevel, materialTitle: materialTitle, levelSegments: levelSegments, getStageMaterials: getStageMaterials, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
+  var api = { normalize: normalize, getRoutePlan: getRoutePlan, getStageFlow: getStageFlow, getRouteAgeCase: getRouteAgeCase, getStageSchedules: getStageSchedules, getAge: getAge, recommend: recommend, formatLevel: formatLevel, getLevelSummary: getLevelSummary, materialTitle: materialTitle, levelSegments: levelSegments, getStageMaterials: getStageMaterials, getMaterialLevels: getMaterialLevels, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

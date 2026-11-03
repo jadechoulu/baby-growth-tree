@@ -27,7 +27,8 @@
     if (anniversary(totalMonths) > today) totalMonths -= 1;
     const years = Math.floor(totalMonths / 12), months = totalMonths % 12;
     const days = Math.round((today - anniversary(totalMonths)) / 86400000);
-    return `${years ? years + '岁' : ''}${months ? months + '个月' : ''}${days ? days + '天' : ''}` || '0天';
+    const calendarAge = `${years ? years + '岁' : ''}${months ? months + '个月' : ''}${days ? days + '天' : ''}` || '0天';
+    return `${calendarAge} · ${totalMonths}个月`;
   }
   function conflict() { return Object.assign(new Error('其他页面已更新宝宝资料，请关闭档案后重新打开，再确认修改。'), { code: 'PROFILE_CONFLICT' }); }
   function createStore(indexedDB) {
