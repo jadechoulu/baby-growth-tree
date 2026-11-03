@@ -19,7 +19,7 @@ body.site-enabled{margin:0;background:var(--site-bg);color:var(--site-text)}
 .site-baby{display:flex;align-items:baseline;gap:8px;min-width:0;color:#53694b;font-size:13px}
 .site-baby[hidden]{display:none}
 .site-baby-name{max-width:10em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.site-baby-age{white-space:nowrap;font-weight:650}
+.site-baby-age{white-space:normal;word-break:keep-all;font-weight:650;line-height:1.3}
 .site-category-link:hover,.site-category-link[aria-current=page]{background:#e6edd9;color:#385c39}
 .site-category-link[aria-current=page]{font-weight:700}
 .site-page-bar{position:sticky;top:var(--site-bar-height);z-index:44;display:flex;align-items:center;gap:20px;min-height:var(--site-page-bar-height);padding:10px var(--site-space);border-bottom:1px solid var(--site-border);background:var(--site-accent-soft)}
@@ -154,7 +154,7 @@ body.site-navigation-open{overflow:hidden}
  .site-brand>small,.site-baby-name,.site-category-full{display:none}
  .site-category-short{display:inline}
  .site-bar{gap:10px}
- .site-baby{font-size:12px;flex-shrink:0}
+ .site-baby{font-size:12px;flex-shrink:1}
  .site-categories{gap:2px}
  .site-category-link{padding:8px 10px}
  .site-page-bar{padding-left:12px;padding-right:12px;gap:8px}

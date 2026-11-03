@@ -129,11 +129,11 @@ test('保存昵称或导入旧资料时，调用方不能更换固定生日', as
 
 test('全站年龄按真实日历计算，跨月底与闰年不提前增长', () => {
   const at = value => new Date(value + 'T12:00:00');
-  assert.equal(ageLabel(BIRTH_DATE, at('2026-10-28')), '1岁11个月4天');
-  assert.equal(ageLabel(BIRTH_DATE, at('2024-11-24')), '0天');
-  assert.equal(ageLabel('2024-01-31', at('2024-02-28')), '28天');
-  assert.equal(ageLabel('2024-01-31', at('2024-02-29')), '1个月');
-  assert.equal(ageLabel('2024-02-29', at('2025-02-28')), '1岁');
+  assert.equal(ageLabel(BIRTH_DATE, at('2026-10-28')), '1岁11个月4天 · 23个月');
+  assert.equal(ageLabel(BIRTH_DATE, at('2024-11-24')), '0天 · 0个月');
+  assert.equal(ageLabel('2024-01-31', at('2024-02-28')), '28天 · 0个月');
+  assert.equal(ageLabel('2024-01-31', at('2024-02-29')), '1个月 · 1个月');
+  assert.equal(ageLabel('2024-02-29', at('2025-02-28')), '1岁 · 12个月');
   assert.equal(ageLabel(BIRTH_DATE, at('2024-11-23')), '');
   assert.equal(ageLabel('2024-02-30', at('2026-10-28')), '');
   assert.equal(ageLabel('', at('2026-10-28')), '');

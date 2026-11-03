@@ -6,6 +6,18 @@ const KINDS={reading:'亲子共读',animation:'动画',audio:'音频',app:'融�
 const SESSION='practice.session.v1:';
 const MATERIAL='practice.material.v1:';
 const SONG='practice.song.v1:';
+function matchesMaterialSearch(values,query,aliases=[]){
+  const normalize=value=>String(value).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
+  // 别名属于整个套系，其中历史级别不能让当前分辑误命中。
+  const numbers=values.join(' ').normalize('NFKC').match(/\d+/g)||[];
+  if((String(query).normalize('NFKC').match(/\d+/g)||[]).some(number=>!numbers.includes(number)))return false;
+  const text=[...values,...aliases.map(alias=>alias.replace(/\p{N}/gu,''))].map(normalize).join(' ');
+  return String(query).trim().split(/\s+/u).every(token=>{
+    const needle=normalize(token);let index=0;
+    for(const char of text)if(char===needle[index])index++;
+    return index===needle.length;
+  });
+}
 function today(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai'}).format(new Date());}
 function validDate(value){return typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&!value.startsWith('0000')&&Number.isFinite(Date.parse(value+'T00:00:00Z'))&&new Date(value+'T00:00:00Z').toISOString().slice(0,10)===value;}
 function json(note){try{return JSON.parse(note);}catch{return null;}}
@@ -17,6 +29,17 @@ function unitKey(stage,item){
   return MATERIAL+stage.routeId+':'+stage.id+':'+item.resource.id+':'+(a>>>0).toString(36)+(b>>>0).toString(36);
 }
 function unitRecord(records,key){const r=records[key],meta=json(r?.note),status=Object.hasOwn(STATUS,r?.status)?r.status:'not-started';const percent=meta?.version===1&&Number.isInteger(meta.percent)&&meta.percent>=0&&meta.percent<=100?meta.percent:status==='done'?100:status==='using'?null:0;return {status,percent,text:meta?.version===1&&typeof meta.text==='string'?meta.text:'',date:validDate(meta?.date)?meta.date:''};}
+function sortSongsByCompletion(songs,records){
+  return songs.slice().sort((a,b)=>Number(records[SONG+a.id]?.status==='done')-Number(records[SONG+b.id]?.status==='done'));
+}
+function songPlaylistProgress(records,library,categoryId='essential'){
+  // 只读取该歌单已有歌曲的独立记录，不把套系或旧素材百分比转为单曲完成。
+  const songs=new Set((library?.songs||[]).map(song=>song.id));
+  const ids=[...new Set(library?.categories?.find(category=>category.id===categoryId)?.songIds||[])].filter(id=>songs.has(id));
+  const total=ids.length,done=ids.filter(id=>records[SONG+id]?.status==='done').length;
+  const complete=total>0&&done===total,percent=total?(complete?100:Math.min(99,Math.round(done/total*100))):0;
+  return {total,done,percent,status:complete?'done':done>0?'using':'not-started'};
+}
 function unitUpdate(status,text,date=today()){
   if(!Object.hasOwn(STATUS,status)||typeof text!=='string'||text.length>2000||!validDate(date))throw new Error('请检查素材状态和备注。');
   return {status,note:JSON.stringify({version:1,text,date})};
@@ -25,7 +48,53 @@ function unitProgressUpdate(percent,record,date){
   const meta=json(record?.note),previous=meta?.version===1?meta:{text:record?.note||''};
   date??=validDate(previous.date)?previous.date:today();
   if(!Number.isInteger(percent)||percent<0||percent>100||!validDate(date))throw new Error('请输入0–100的整数百分比。');
-  return {...record,status:percent===100?'done':percent>0?'using':'not-started',note:JSON.stringify({...previous,version:1,percent,date})};
+  return {...record,status:percent===100?'done':percent>0?'using':'not-started',note:JSON.stringify({...previous,version:1,percent,date,...(previous.books?{books:{version:1,mode:'percent'}}:{})})};
+}
+// 出版范围与路线原始级别分开，不能为补册数修改素材签名或跨版本借用分母。
+function bookScopes(resourceId,levels,catalog){
+  const entry=catalog?.series?.find(s=>s.resourceId===resourceId);
+  if(!entry)return [];
+  const selected=[...new Set(levels.filter(Boolean))];
+  return entry.scopes.filter(s=>!selected.length||selected.length===1&&s.level===selected[0]).map(s=>({...s,total:s.parts.reduce((n,p)=>n+p.count,0),edition:s.edition||entry.edition,sources:entry.sources,checkedAt:catalog.checkedAt}));
+}
+function unitBooks(record){const meta=json(record?.note);return meta?.version===1&&meta.books?.version===1?meta.books:null;}
+function partKey(key,identity){let hash=2166136261;for(const c of identity)hash=Math.imul(hash^c.charCodeAt(0),16777619);return key+':p'+(hash>>>0).toString(36);}
+function expandBookUnits(unit,levels,catalog,record){
+  const entry=catalog?.series?.find(s=>s.resourceId===unit.resourceId),meta=json(record?.note),old=unitBooks(record);
+  const sourceLevels=unit.item.materials.map(m=>m.level).filter(Boolean);
+  const canChooseEdition=entry?.recordingLevels?sourceLevels.length>0&&sourceLevels.every(level=>entry.recordingLevels.includes(level)):!sourceLevels.length;
+  const editions=canChooseEdition?entry?.recordingEditions:[];
+  const edition=editions?.find(e=>e.id===meta?.recordingEdition)||(old?.edition&&editions?.find(e=>{const scope=entry.scopes.find(s=>s.id===e.scopeId);return scope&&(scope.edition||entry.edition)===old.edition;}))||editions?.find(e=>e.default)||editions?.[0];
+  const scope=edition?bookScopes(unit.resourceId,[],catalog).find(s=>s.id===edition.scopeId):unit.bookScopes.find(s=>s.default);
+  if(scope&&(scope.parts.length>1||edition))return scope.parts.map(part=>{
+    const title=scope.title||unit.item.resource.title,identity=JSON.stringify([scope.edition,part.label]);
+    const partScope={id:partKey('part',identity),label:part.label,total:part.count,edition:scope.edition,origin:'catalog'};
+    return {...unit,key:partKey(unit.key,identity),parentKey:unit.key,label:title+' · '+part.label,partTitle:title,partScope,editionId:edition?.id,editionOptions:editions||[],recordingNote:edition?entry.recordingNote:'',bookScopes:[]};
+  });
+  if(levels.length>1)return levels.map(level=>({...unit,key:partKey(unit.key,level.id),parentKey:unit.key,label:unit.item.resource.title+' · '+level.label,partLevel:level,bookScopes:[]}));
+  return [unit];
+}
+function materialRecord(records,unit){
+  if(Object.hasOwn(records,unit.key))return records[unit.key];
+  if(!unit.parentKey||!unit.partScope)return undefined;
+  const previous=records[unit.parentKey],books=unitBooks(previous),scope=unit.partScope;
+  // 只沿用能精确归属单辑的旧记录，不拆分合并百分比或跨版本本数。
+  return books?.mode==='count'&&books.label===scope.label&&books.total===scope.total&&books.edition===scope.edition?previous:undefined;
+}
+function unitEditionUpdate(editionId,record){const meta=json(record?.note);return {...record,status:record?.status||'not-started',note:JSON.stringify({...((meta?.version===1)?meta:{text:record?.note||''}),version:1,recordingEdition:editionId})};}
+function validBookScope(scope){return scope&&typeof scope.id==='string'&&scope.id.length<=160&&typeof scope.label==='string'&&scope.label.length<=100&&Number.isInteger(scope.total)&&scope.total>0&&scope.total<=10000;}
+function unitBookScopeUpdate(scope,record){
+  if(scope!==null&&!validBookScope(scope))throw new Error('请填写选用范围和1–10000本的总数。');
+  const meta=json(record?.note),previous=meta?.version===1?meta:{text:record?.note||''},old=unitBooks(record);
+  const books=scope?{version:1,mode:'count',scopeId:scope.id,label:scope.label,total:scope.total,edition:scope.edition||'',origin:scope.origin||'catalog',completed:old?.mode==='count'&&old.scopeId===scope.id&&old.total===scope.total&&old.label===scope.label&&old.edition===(scope.edition||'')?old.completed:null}:{version:1,mode:'percent'};
+  // 换范围不反推已读本数、不改变原百分比；用户填写本数后才开始按新分母计算。
+  return {...record,status:record?.status||'not-started',note:JSON.stringify({...previous,version:1,books})};
+}
+function unitBookProgressUpdate(completed,scope,record){
+  if(!validBookScope(scope)||!Number.isInteger(completed)||completed<0||completed>scope.total)throw new Error('请输入0–'+(scope?.total||0)+'之间的整数本数。');
+  const updated=unitBookScopeUpdate(scope,record),previous=json(updated.note);
+  const percent=completed===scope.total?100:Math.min(99,Math.round(completed/scope.total*100));
+  return {...updated,status:completed===scope.total?'done':completed>0?'using':'not-started',note:JSON.stringify({...previous,percent,date:validDate(previous.date)?previous.date:today(),books:{...previous.books,completed}})};
 }
 function unitDateUpdate(date,record){
   if(!validDate(date))throw new Error('请选择有效的记录日期。');
@@ -92,6 +161,6 @@ function trendBuckets(entries,{grain='day',anchor=today(),metric='effective',cou
   return out;
 }
 function calendarDays(month){if(!/^\d{4}-\d{2}$/.test(month)||!validDate(month+'-01'))throw new Error('月份无效。');const first=month+'-01',last=periodRange('month',first).to;return Array.from({length:Number(last.slice(8))},(_,i)=>shiftDate(first,i));}
-const api={STATUS,KINDS,SESSION,MATERIAL,SONG,today,validDate,unitKey,unitRecord,unitUpdate,unitProgressUpdate,unitDateUpdate,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
+const api={STATUS,KINDS,SESSION,MATERIAL,SONG,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,unitEditionUpdate,unitBooks,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
 root.EnglishPractice=api;if(typeof module==='object'&&module.exports)module.exports=api;
 })(typeof window==='object'?window:globalThis);

@@ -36,7 +36,17 @@
           "xu-thousand-1"
         ],
         "sourceId": "xu-panorama",
-        "page": 1
+        "page": 1,
+        "flow": {
+          "laterNote": "口语可与听力并行发展；识字、自读和写作分别查阅原文安排。全景图没有把这些能力的启动绑定到某个听力词数节点。",
+          "domains": [
+            "speaking",
+            "reading",
+            "writing"
+          ],
+          "advanceNote": "相邻词数是听力节点的浏览顺序，原图未给统一晋级测评；不据此自动启动自读或书写。",
+          "laterLabel": "口语可并行，读写按条件加入"
+        }
       },
       "speaking": {
         "summary": "全景图把发音和表达列为口语分支：国际音标、主题背诵、外教课、动画台词扮演；与听力并行发展，不按听力阶段编号晋级。",
@@ -94,7 +104,16 @@
         ],
         "supportingStageIds": [],
         "sourceId": "qing",
-        "page": 1
+        "page": 1,
+        "flow": {
+          "parallel": [
+            {
+              "text": "亲子共读、动画和音频在同阶段配合积累听力；不要求跟读、复述或回答考察问题。",
+              "page": 2
+            }
+          ],
+          "advanceNote": "按原文时数与测试、理解条件核对，不只看词数。"
+        }
       },
       "speaking": {
         "summary": "这份听力专项表不要求跟读、复述或回答考察问题；专注看图听英文即可。它没有展开独立的口语阶段，不能把听力书单改成强制输出任务。",
@@ -131,7 +150,10 @@
         ],
         "supportingStageIds": [],
         "sourceId": "banana",
-        "page": 4
+        "page": 4,
+        "flow": {
+          "advanceNote": "按理解和实际读书状态调整；原表年龄与计划月份不作为自动晋级条件。"
+        }
       },
       "speaking": {
         "summary": "按宝宝当前年龄方案查看原表跟读安排；阶段由实际理解判断，不把输入书单全数视为必读输出。",
