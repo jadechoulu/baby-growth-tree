@@ -4,6 +4,7 @@ import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, c
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
 import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
 import { combineLocalImports, mergeImportedGrowth } from './lib/import.mjs';
+import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-popover';
 
 const app = document.querySelector('#app');
 const sharedProfile = window.XiaoyaBabyProfile.createClient();
@@ -13,6 +14,7 @@ let resources = {};
 let skillGuides = { sources: {}, categories: {}, skills: {} };
 let toastTimer;
 let pendingImport;
+let skillSearchControl;
 const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'cognition', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, stageFocus: null, graphZoom: .85, graphExpanded: false, storageError: '', lastUndo: null };
 state.savedAt = null;
 state.viewStorageError = '';
@@ -504,7 +506,7 @@ function stageCompleteButton(stageId) {
   return html`<button class="stage-complete-button" data-complete-stage="${stageId}" aria-label="${stage.label}全部完成" title="将${stage.label}四个领域的全部 ${stats.total} 项技能标记完成；已有完成日期和手记保留" disabled="${!stats.remaining}">${icon('check')}<span>${stats.remaining ? '全部完成' : '全部已完成'}</span></button>`;
 }
 function graphStageHeading(stage) {
-  return html`<div class="graph-stage-heading"><div class="graph-stage-title"><strong>${stage.label}</strong>${stageCompleteButton(stage.id)}</div><div class="graph-stage-badges">${currentStage()?.id === stage.id ? html`<small class="stage-current-badge">宝宝在这里</small>` : ''}${stageCompleteBadge(stage.id)}</div></div>`;
+  return html`<div class="graph-stage-heading"><div class="graph-stage-title"><span class="graph-stage-label"><strong>${stage.label}</strong>${currentStage()?.id === stage.id ? html`<small class="stage-current-badge">宝宝在这里</small>` : ''}</span>${stageCompleteButton(stage.id)}</div><div class="graph-stage-badges">${stageCompleteBadge(stage.id)}</div></div>`;
 }
 
 function stageNavigator() {
@@ -699,7 +701,8 @@ function stageTreeView() {
   return html`<section class="stage-lineage domain-${domain.id}" aria-label="本阶段技能脉络">
     <div class="section-title-row lineage-title-row"><h2>${stage.label}<span>的成长脉络</span></h2></div>
     ${domainCards()}
-    <div class="stage-lineage-focus"><span>${icon('tree')}${hasFocus ? html`<span>正在追踪：</span><span class="stage-lineage-name"><strong>${skill.title}</strong><button type="button" class="stage-lineage-clear" data-action="clear-stage-focus" aria-label="清除当前技能追踪" title="清除当前技能追踪">${icon('close')}</button></span><small>${skillStageLabel(skill)}</small>` : ' 本阶段技能脉络'}</span></div>
+    <div class="stage-lineage-focus"><span>${hasFocus ? html`${icon('tree')}<span class="stage-lineage-name"><strong>${skill.title}</strong><button type="button" class="stage-lineage-clear" data-action="clear-stage-focus" aria-label="清除当前技能追踪" title="清除当前技能追踪">${icon('close')}</button></span>` : ''}</span></div>
+    <span class="stage-lineage-counts">${getStats(graph.nodes, state.records).completed}/${graph.nodes.length} 已完成</span>
     ${graphWorkspace(graph, layout, relations, categories)}
     <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。技能清单的筛选不会隐藏这里的依赖关系。</p>
   </section>`;
@@ -810,7 +813,9 @@ function layoutGrowthStageReading() {
   const heading = content.querySelector('.stage-lineage>.section-title-row') || fold.querySelector('.section-title-row');
   const focus = content.querySelector('.stage-lineage-focus');
   const milestones = content.querySelector('.milestones');
-  if (focus) fold.querySelector('.graph-toolbar')?.prepend(focus);
+  if (focus && heading) heading.append(focus);
+  const counts = lineage.querySelector(':scope > .stage-lineage-counts');
+  if (counts) fold.querySelector('.graph-toolbar')?.prepend(counts);
   if (window.matchMedia('(max-width:900px)').matches) {
     // 窄屏先读技能清单，完整图谱直接展示，不再增加外层折叠标题。
     fold.prepend(...[heading].filter(Boolean));
@@ -827,6 +832,8 @@ window.matchMedia('(max-width:900px)').addEventListener('change', event => {
 
 function render() {
   const active = document.activeElement;
+  const searchOpen = skillSearchControl?.isOpen();
+  skillSearchControl?.destroy(); skillSearchControl = null;
   const settings = siteShell?.globalActions;
   const settingsOpen = settings?.querySelector('.site-action-popover')?.matches(':popover-open');
   const settingsFocus = settings?.contains(active) ? [...settings.querySelectorAll('button,a[href]')].indexOf(active) : -1;
@@ -847,6 +854,8 @@ function render() {
   siteShell.globalActions.append(window.XiaoyaSite.createActionMenu(siteShell.globalActions.querySelector('.topbar-actions')));
 
   organizeGrowthReading();
+  const searchInput = document.getElementById('skill-search');
+  if (searchInput) skillSearchControl = mountGrowthSearch(searchInput.closest('.list-toolbar'), { box: searchInput.closest('.search-box'), input: searchInput, filters: document.querySelector('.list-toolbar .status-tabs'), open: searchOpen });
   window.XiaoyaSite.balanceSkillLists(document.querySelectorAll('.milestones .skill-items'));
   if (state.graphExpanded) document.querySelector('.graph-toolbar')?.append(siteShell.createSectionSwitch());
   syncGraphLegend();
