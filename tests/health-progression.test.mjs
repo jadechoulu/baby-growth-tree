@@ -107,3 +107,19 @@ test('卫健委各能区与每项聚焦图均用共享布局，保留阅读阶�
     }
   }
 });
+
+test('宝宝视角的独立技能仍能浏览同能区前后月龄，不凭月龄补连线', () => {
+  const stage = healthStage(21);
+  const independent = items.find(item => item.title === '回答简单问题');
+  for (const focus of [independent.id, undefined]) {
+    const graph = healthGraph(items, { domain: 'language', stage, focus });
+    assert.deepEqual(graph.nodes.map(item => item.id), items.filter(item => item.domain === 'language').map(item => item.id));
+    assert.deepEqual(graph.stageIds, items.filter(item => item.domain === 'language' && healthStage(item.month).id === stage.id).map(item => item.id));
+    assert.ok(graph.nodes.some(item => item.month < 19));
+    assert.ok(graph.nodes.some(item => item.month > 24));
+    assert.equal(graph.edges.some(edge => edge.from === independent.id || edge.to === independent.id), false);
+    assert.deepEqual(new Set(graph.edges.map(edge => `${edge.from}:${edge.to}`)), new Set(HEALTH_PROGRESSION.filter(edge => byId.get(edge.from).domain === 'language').map(edge => `${edge.from}:${edge.to}`)));
+    const layout = layoutGraph(graph.nodes, graph.edges, HEALTH_STAGES);
+    assert.ok(layout.stages.length > 1);
+  }
+});

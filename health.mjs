@@ -1,5 +1,6 @@
 import { localDateString } from './lib/model.mjs';
-import { HEALTH_PROGRESSION, healthGraph } from './lib/health-progression.mjs?v=20261103-cross-age';
+import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-popover';
+import { HEALTH_PROGRESSION, healthGraph } from './lib/health-progression.mjs?v=20261104-browse-stages';
 import { layoutGraph } from './lib/graph.mjs?v=20261103-health-stages';
 import { HEALTH_DOMAINS, HEALTH_MONTHS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, undoHealthChange, nextHealthItems, OBSERVATION_LABELS, emptyHealth, referenceMonth, filterHealth, observationStats, validateHealthBackup } from './lib/health-model.mjs?v=20261103-status';
 
@@ -9,6 +10,7 @@ const state = { view: 'month', month: 1, domain: 'gross', status: 'all', search:
 let source, shell, sync, store, snapshot = null, writing = false, notice = '', detail, lastUndo = null;
 let saveError = false, graphLegendOpen = false;
 let storageProblem = '';
+let skillSearchControl;
 const node = (tag, cls, text) => {
   const element = document.createElement(tag);
   if (cls) element.className = cls;
@@ -207,6 +209,8 @@ function showLineage(item) {
 }
 function render() {
   if (!source) return;
+  const searchOpen = skillSearchControl?.isOpen();
+  skillSearchControl?.destroy(); skillSearchControl = null;
   if (state.search.trim() || state.view === 'next') state.expanded = false;
   document.body.classList.toggle('health-graph-open', state.expanded);
   const oldViewport = document.querySelector('.health-lineage-viewport');
@@ -266,12 +270,14 @@ function render() {
   const footer = node('footer', 'health-footer');
   footer.append(node('p', '', 'R 可询问家长 · * 原文注明未通过需引起注意。'), node('p', '', '家庭观察记录 · 原始月龄与测查条件见项目详情。'));
   main.append(footer); shell.content.replaceChildren(main); renderResults(oldScroll);
+  if (state.view !== 'next') skillSearchControl = mountGrowthSearch(toolbar, { box: searchBox, input: search, filters: statuses, open: searchOpen });
 }
 function renderResults(previousScroll) {
   const target = document.querySelector('.health-results');
   if (!target) return;
   const search = document.getElementById('health-search'), keepSearchFocus = document.activeElement === search;
-  const restoreSearchFocus = () => { if (keepSearchFocus) search.focus({ preventScroll: true }); };
+  const searchOpen = skillSearchControl?.isOpen();
+  const restoreSearchFocus = () => { if (keepSearchFocus) { if (searchOpen) skillSearchControl.show(); else search.focus({ preventScroll: true }); } };
   const oldViewport = target.querySelector('.health-lineage-viewport');
   const oldScroll = previousScroll || oldViewport && { left: oldViewport.scrollLeft, top: oldViewport.scrollTop, key: oldViewport.dataset.key, width: Number(oldViewport.dataset.layoutWidth) };
   const searchAll = Boolean(state.search.trim()), stage = state.view === 'next' ? currentStage() : selectedStage();
@@ -421,13 +427,15 @@ function renderLineage(target, oldScroll) {
       });
       clear.classList.add('stage-lineage-clear');
       const name = node('span', 'stage-lineage-name'); name.append(node('strong', '', focused.title), clear);
-      copy.append(window.XiaoyaSite.icon('tree'), node('span', '', '正在追踪：'), name, node('small', '', healthStage(focused.month).label));
+      copy.append(window.XiaoyaSite.icon('tree'), name);
     }
     else copy.append(node('small', '', `正在追踪 · ${healthStage(focused.month).label}`), node('strong', '', focused.title));
     strip.append(copy);
   }
   const stats = observationStats(graph.nodes, records());
-  strip.append(node('span', state.view === 'month' ? 'stage-lineage-counts' : '', `${focused ? `${graph.relation.ancestors.length} 项上游 · ${graph.relation.descendants.length} 项后续 · ` : ''}${stats.observed}/${stats.total} 已完成`));
+  const counts = node('span', state.view === 'month' ? 'stage-lineage-counts' : '', `${state.view !== 'month' && focused ? `${graph.relation.ancestors.length} 项上游 · ${graph.relation.descendants.length} 项后续 · ` : ''}${stats.observed}/${stats.total} 已完成`);
+  if (state.view === 'month') section.querySelector('.lineage-title-row')?.append(strip);
+  else strip.append(counts);
   if (state.view !== 'month') section.append(strip);
   const workspace = node('div', 'graph-workspace'), toolbar = node('div', 'graph-toolbar'), tools = node('div', 'graph-tools'); tools.setAttribute('role', 'group'); tools.setAttribute('aria-label', '图谱工具栏');
   const zoomTools = node('div', 'graph-zoom-tools'), viewTools = node('div', 'graph-view-tools');
@@ -452,7 +460,7 @@ function renderLineage(target, oldScroll) {
   viewTools.append(iconButton(state.expanded ? 'close' : 'expand', state.expanded ? '退出放大画布' : '放大画布', () => expandGraph(!state.expanded)));
   const legendButton = iconButton('info', '查看图例', openLegend); legendButton.classList.add('graph-legend-button'); viewTools.append(legendButton);
   tools.append(zoomTools, viewTools);
-  if (state.view === 'month') toolbar.append(strip);
+  if (state.view === 'month') toolbar.append(counts);
   toolbar.append(tools); workspace.append(toolbar);
   const panel = node('div', 'graph-legend-panel'), disclosure = node('details', 'graph-legend-disclosure'); disclosure.open = graphLegendOpen;
   const summary = node('summary'); summary.append(node('span', '', '图例 · 连线与颜色'), node('span', 'legend-disclosure-hint', '点击展开／收起')); disclosure.append(summary, legendContent());
@@ -463,8 +471,9 @@ function renderLineage(target, oldScroll) {
   for (const step of layout.stages) {
     const band = node('div', 'graph-age-band' + (step.id === stage.id ? ' selected-age-band' : '')); band.dataset.stage = step.id;
     Object.assign(band.style, { left: step.x + 'px', width: step.width + 'px', height: layout.height + 'px' });
-    const heading = node('div', 'graph-stage-heading'), title = node('div', 'graph-stage-title'); title.append(node('strong', '', step.label)); heading.append(title);
-    if (step.id === currentStage().id) heading.append(node('small', '', '宝宝在这里')); band.append(heading); board.append(band);
+    const heading = node('div', 'graph-stage-heading'), title = node('div', 'graph-stage-title'), label = node('span', 'graph-stage-label'); label.append(node('strong', '', step.label));
+    if (step.id === currentStage().id) label.append(node('small', 'stage-current-badge', '宝宝在这里'));
+    title.append(label); heading.append(title); band.append(heading); board.append(band);
   }
   const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg'); svg.id = 'graph-edges'; svg.setAttribute('width', layout.width); svg.setAttribute('height', layout.height); svg.setAttribute('aria-hidden', 'true');
   const colors = { ancestor: '#347bea', descendant: '#eb4b95', supporting: '#bf941d', neutral: '#cbbdd6' }, defs = document.createElementNS(ns, 'defs');

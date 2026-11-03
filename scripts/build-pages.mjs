@@ -33,6 +33,7 @@ export const PUBLIC_FILES = Object.freeze([
   'graph.css',
   'lib/model.mjs',
   'lib/graph.mjs',
+  'lib/growth-search.mjs',
   'lib/storage.mjs',
   'lib/import.mjs',
   'lib/cloud.mjs',

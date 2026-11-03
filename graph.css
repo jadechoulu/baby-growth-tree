@@ -221,8 +221,11 @@
 
 .graph-stage-heading { position:absolute; top:14px; left:14px; right:14px; pointer-events:none; }
 .graph-stage-title { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-.graph-stage-title > strong { color:#80628f; font-size:14px; font-weight:600; white-space:nowrap; }
+.graph-stage-label { display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+.graph-stage-label > strong { color:#80628f; font-size:14px; font-weight:600; white-space:nowrap; }
 .graph-stage-title .stage-complete-button { pointer-events:auto; }
+.graph-stage-title:has(.stage-current-badge) > .stage-complete-button { width:32px; height:32px; min-width:32px; min-height:32px; padding:0; flex:none; }
+.graph-stage-title:has(.stage-current-badge) > .stage-complete-button > span { display:none; }
 .graph-stage-badges { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-top:7px; }
 .graph-stage-badges .stage-complete-badge { background:#dff7e9; color:#14754d; font-weight:600; }
 
@@ -527,9 +530,31 @@
   .site-enabled .growth-content .growth-stage-graph > .lineage-footnote { font-size: 12px; line-height: 1.6; }
 }
 .stage-picker-controls>.stage-complete-button { flex-shrink: 0; min-height: 44px; font-size: 12px; }
-/* 阶段追踪摘要与操作共用一条工具栏，按实际正文宽度换行。 */
-.graph-toolbar:has(> .stage-lineage-focus) { justify-content: space-between; gap: 4px 12px; }
-.graph-toolbar:has(> .stage-lineage-focus) > .graph-tools { flex: 0 1 auto; width: auto; max-width: 100%; margin-left: auto; }
+/* 阶段标题与追踪技能同排；完成数与画布操作共用下一行。 */
+.lineage-title-row:has(> .stage-lineage-focus) { align-items: center; gap: 6px 12px; }
+.lineage-title-row:has(.stage-lineage-name) h2 { flex: 0 1 auto; min-width: 0; max-width: 45%; }
+.lineage-title-row > .stage-lineage-focus { flex: 1 1 0; min-width: 0; padding: 0; }
+.lineage-title-row > .stage-lineage-focus:not(:has(.stage-lineage-name)) { display: none; }
+.lineage-title-row .stage-lineage-focus > span:first-child { display: flex; flex-wrap: nowrap; gap: 4px; min-width: 0; }
+.lineage-title-row .stage-lineage-focus strong { font-size: 14px; }
+.lineage-title-row .stage-lineage-name { flex-basis: 0; }
+.graph-toolbar:has(> .stage-lineage-counts) { justify-content: space-between; gap: 2px 8px; }
+.graph-toolbar > .stage-lineage-counts { flex: none; font-size: 12px; color: var(--stage-graph-ink, #75518e); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.graph-toolbar:has(> .stage-lineage-counts) > .graph-tools { flex: 0 1 auto; width: auto; max-width: 100%; margin-left: auto; }
+/* 依据工具栏实际剩余宽度收拢搜索，两版共用同一个输入框与原生气泡。 */
+.growth-search, .growth-search-panel { min-width:0; }
+.growth-search-trigger { display:none; }
+.site-enabled :is(.growth-content,.health-content) .growth-search-toolbar { display:grid; grid-template-columns:max-content minmax(0,320px); justify-content:space-between; align-items:center; gap:8px; }
+.site-enabled :is(.growth-content,.health-content) .growth-search-toolbar.is-compact-search { display:grid; grid-template-columns:max-content 44px; justify-content:space-between; align-items:center; gap:8px; }
+.is-compact-search .growth-search-trigger { display:grid; place-items:center; width:44px; height:44px; padding:10px; border:1px solid var(--site-border); border-radius:8px; background:var(--site-surface); color:var(--site-accent); }
+.growth-search-trigger .site-icon { width:20px; height:20px; }
+.growth-search-trigger.has-query { background:var(--site-accent-soft); box-shadow:inset 0 -3px var(--site-accent); }
+.growth-search-panel[popover] { position:fixed; inset:auto; margin:0; box-sizing:border-box; padding:8px; max-width:calc(100vw - 16px); border:1px solid var(--site-border); border-radius:10px; background:var(--site-surface); color:var(--site-text); box-shadow:0 6px 24px #24345224; }
+.growth-search-panel[popover]:not(:popover-open) { display:none; }
+.growth-search-panel[popover]:popover-open { display:block; }
+.site-enabled .growth-search-panel .search-box { width:100%; min-height:44px; margin:0; }
+.site-enabled .growth-search-panel input { font-size:16px; }
+.growth-search-trigger:focus-visible { outline:2px solid var(--site-accent); outline-offset:2px; }
 @media(max-width:420px) {
   .site-enabled .stage-picker-controls { gap: 3px; }
   .site-enabled .stage-select-label select { padding-left: 6px; padding-right: 20px; }
