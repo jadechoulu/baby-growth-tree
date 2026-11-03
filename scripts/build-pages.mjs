@@ -12,6 +12,7 @@ export const PUBLIC_FILES = Object.freeze([
   'health.mjs',
   'health.css',
   'lib/health-model.mjs',
+  'lib/health-progression.mjs',
   'data/health-standard.json',
   'assets/wst580-2017.pdf',
   'shared/growth-versions.js',
