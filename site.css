@@ -31,6 +31,8 @@ body.site-enabled{margin:0;background:var(--site-bg);color:var(--site-text)}
 .site-location{font-size:14px;color:var(--site-muted);white-space:nowrap}
 .site-location:not(:empty)::before{content:'/';padding-right:10px;color:var(--site-muted)}
 .site-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex:1;min-width:0}
+.site-global-actions{--site-accent:#385c39;--site-accent-soft:#e6edd9;--site-surface:#fff8e7;--site-text:#394c40;--site-muted:#6e795e;--site-border:#e8dfcb;display:flex;align-items:center;gap:6px;flex:none}
+.site-global-actions:empty{display:none}
 .site-directory-button{display:none;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 10px;border:1px solid var(--site-border);border-radius:10px;background:var(--site-surface);font-size:14px;color:var(--site-text)}
 .site-body{display:grid;grid-template-columns:var(--site-sidebar) minmax(0,1fr);align-items:start;max-width:1800px;margin:auto}
 .site-sidebar{position:sticky;top:calc(var(--site-bar-height) + var(--site-page-bar-height));height:calc(100dvh - var(--site-bar-height) - var(--site-page-bar-height));overflow:auto;padding:22px 14px;border-right:1px solid var(--site-border);background:var(--site-surface);overscroll-behavior:contain}
@@ -164,6 +166,7 @@ body.site-navigation-open{overflow:hidden}
  .site-actions .save-status [data-save-label]{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 }
 @media(max-width:375px){.site-brand>.site-icon{display:none}.site-bar{padding-left:12px;padding-right:12px;gap:6px}.site-brand{font-size:19px;gap:4px}.site-category-link{padding:8px 10px}.site-section-switch{padding:8px;font-size:12px}.site-directory-button{padding:8px;font-size:13px}.site-directory-button>.site-icon{display:none}:root{--site-space:14px}.site-actions .source-link span{display:none}.site-navigation-scroll{padding-left:12px;padding-right:12px}}
+@media(max-width:375px){.site-bar:has(>.site-global-actions:not(:empty)){gap:4px;padding-left:8px;padding-right:8px}.site-bar:has(>.site-global-actions:not(:empty)) .site-categories{flex-shrink:0}.site-bar:has(>.site-global-actions:not(:empty)) .site-category-link{padding-left:6px;padding-right:6px}}
 @media print{.site-bar,.site-page-bar,.site-sidebar,.site-shortcuts,.site-skip,.site-navigation-dialog,.site-section-switch{display:none!important}.site-body{display:block}.site-main{padding:0}}
 /* 成长内容的阅读接入；图谱节点保持紧凑，正文保持可读。 */
 .site-enabled .growth-content :is(p,.hero-copy>p,.guide-meaning,.guide-example p,.guide-practice p,.resource-section){font-size:15px;line-height:1.85;color:#655b70}
@@ -300,17 +303,17 @@ body.site-navigation-open{overflow:hidden}
 .growth-version-short{display:none}
 .site-action-menu{flex:none}
 .site-more-button{display:inline-grid;place-items:center;width:44px;height:44px;padding:10px;border:1px solid var(--site-border);border-radius:10px;background:var(--site-surface);color:var(--site-text);cursor:pointer}
-.site-more-button .site-icon{stroke-width:3}
+.site-more-button .site-icon{stroke-width:1.7}
 .site-more-button[aria-expanded=true]{background:var(--site-accent-soft);border-color:var(--site-accent)}
 .site-more-button:focus-visible{outline:3px solid var(--site-accent);outline-offset:2px}
 .site-action-popover{position:fixed;inset:auto;margin:0;padding:6px;width:232px;max-width:calc(100vw - 16px);max-height:calc(100dvh - 120px);overflow:auto;border:1px solid var(--site-border);border-radius:12px;background:var(--site-surface);color:var(--site-text);box-shadow:0 8px 28px #24345224;box-sizing:border-box}
-.site-actions .site-action-popover>.topbar-actions{display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%}
-.site-actions .site-action-popover .topbar-actions>:is(button,a){display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;min-height:44px;margin:0;padding:10px 12px;border:0;border-radius:7px;font:inherit;font-size:14px;line-height:1.5;text-decoration:none;white-space:normal;color:inherit;background:transparent;text-align:left}
-.site-actions .site-action-popover .topbar-actions>:is(button,a):hover{background:var(--site-accent-soft)}
-.site-actions .site-action-popover .topbar-actions>:is(button,a):focus-visible{outline:2px solid var(--site-accent);outline-offset:-2px}
-.site-actions .site-action-popover :is(.icon-button,.site-sync-button)>span{display:inline}
-.site-actions .site-action-popover .save-status [data-save-label]{position:static;width:auto;height:auto;padding:0;overflow:visible;clip-path:none;white-space:normal}
-.site-actions .site-action-popover .save-status.has-error{color:#a43131}
+:is(.site-actions,.site-global-actions) .site-action-popover>:is(.topbar-actions,.top-actions){display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.topbar-actions,.top-actions)>:is(button,a){display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;height:auto;min-height:44px;margin:0;padding:10px 12px;border:0;border-radius:7px;font:inherit;font-size:14px;line-height:1.5;text-decoration:none;white-space:normal;color:inherit;background:transparent;text-align:left}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.topbar-actions,.top-actions)>:is(button,a):hover{background:var(--site-accent-soft)}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.topbar-actions,.top-actions)>:is(button,a):focus-visible{outline:2px solid var(--site-accent);outline-offset:-2px}
+:is(.site-actions,.site-global-actions) .site-action-popover :is(.icon-button,.site-sync-button,.top-search)>span{display:inline}
+:is(.site-actions,.site-global-actions) .site-action-popover .save-status [data-save-label]{position:static;width:auto;height:auto;padding:0;overflow:visible;clip-path:none;white-space:normal}
+:is(.site-actions,.site-global-actions) .site-action-popover .save-status.has-error{color:#a43131}
 .site-actions>.growth-versions{margin:0 auto 0 0;flex-wrap:nowrap;flex-shrink:0}
 .site-actions:has(>.growth-versions)>.topbar-actions{flex:0 0 auto}
 @media(max-width:900px){

@@ -2,6 +2,23 @@
   'use strict';
   const NARROW = '(max-width: 900px)';
   let activeDialog = null;
+  let skillListsObserver;
+  function balanceSkillLists(elements) {
+    const update = list => {
+      const style = root.getComputedStyle(list), count = list.children.length;
+      const width = list.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      if (!count || width <= 0) return;
+      const gap = parseFloat(style.columnGap) || 0, minimum = parseFloat(style.getPropertyValue('--skill-min-width'));
+      const capacity = Math.max(1, Math.floor((width + gap) / (minimum + gap)));
+      // 保持最少行数，再按项目数量收紧列数，避免4项排成3＋1或保留空列。
+      const columns = Math.ceil(count / Math.ceil(count / capacity));
+      const value = `repeat(${columns}, minmax(0, 1fr))`;
+      if (list.style.gridTemplateColumns !== value) list.style.gridTemplateColumns = value;
+    };
+    if (!skillListsObserver && root.ResizeObserver) skillListsObserver = new root.ResizeObserver(entries => entries.forEach(entry => update(entry.target)));
+    skillListsObserver?.disconnect();
+    for (const list of elements) { update(list); skillListsObserver?.observe(list); }
+  }
   const paths = {
     sprout: 'M12 21V11M12 16C5 17 2 12 3 7c6-1 10 3 9 9ZM12 12c-1-7 3-10 9-9 1 6-3 10-9 9Z',
     book: 'M12 6v15M12 6C8 3 4 3 2 4v15c3-1 6-1 10 2 4-3 7-3 10-2V4c-3-1-6-1-10 2Z',
@@ -12,6 +29,7 @@
     network: 'M12 8V4M8 16l-3 3M16 16l3 3M12 8l-4 8h8l-4-8ZM9 1h6v4H9ZM1 19h7v4H1ZM16 19h7v4h-7Z',
     source: 'M14 3H4v18h16V9ZM14 3v6h6M8 13h8M8 17h5',
     settings: 'M4 7h16M4 17h16M8 4v6M16 14v6',
+    gear: 'M10 2h4l.5 2.8 1.3.5 2.3-1.6 2.8 2.8-1.6 2.3.5 1.3L22 10v4l-2.8.5-.5 1.3 1.6 2.3-2.8 2.8-2.3-1.6-1.3.5L14 22h-4l-.5-2.8-1.3-.5-2.3 1.6-2.8-2.8 1.6-2.3-.5-1.3L2 14v-4l2.8-.5.5-1.3-1.6-2.3 2.8-2.8 2.3 1.6 1.3-.5L10 2ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
     menu: 'M4 6h16M4 12h16M4 18h16',
     more: 'M5 12h.01M12 12h.01M19 12h.01',
     close: 'm6 6 12 12M6 18 18 6',
@@ -53,25 +71,38 @@
   function createActionMenu(actions) {
     const wrap = node('div', 'site-action-menu');
     const trigger = node('button', 'site-more-button');
-    trigger.type = 'button'; trigger.title = '更多功能';
-    trigger.setAttribute('aria-label', '更多功能'); trigger.setAttribute('aria-expanded', 'false');
-    trigger.append(icon('more'));
+    trigger.type = 'button'; trigger.title = '设置';
+    trigger.setAttribute('aria-label', '设置'); trigger.setAttribute('aria-expanded', 'false');
+    trigger.append(icon('gear'));
     const panel = node('div', 'site-action-popover');
-    panel.popover = 'auto'; panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', '更多功能');
+    panel.popover = 'auto'; panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', '设置');
     panel.append(actions);
     trigger.popoverTargetElement = panel;
     actions.querySelector('button,a[href]')?.setAttribute('autofocus', '');
+    let choosingAction = false, outsideFocusTarget = null;
+    const rememberOutsideTarget = event => {
+      if (!wrap.contains(event.target)) outsideFocusTarget = event.target.closest('button,a[href],input,select,textarea,summary,[tabindex],[contenteditable="true"]');
+    };
     panel.addEventListener('beforetoggle', event => {
       trigger.setAttribute('aria-expanded', String(event.newState === 'open'));
       if (event.newState === 'open') {
+        choosingAction = false; outsideFocusTarget = null;
+        document.addEventListener('pointerdown', rememberOutsideTarget, true);
         const box = trigger.getBoundingClientRect();
         panel.style.top = box.bottom + 6 + 'px';
         panel.style.right = Math.max(8, root.innerWidth - box.right) + 'px';
-      }
+      } else document.removeEventListener('pointerdown', rememberOutsideTarget, true);
+    });
+    panel.addEventListener('toggle', event => {
+      if (event.newState !== 'closed' || choosingAction || outsideFocusTarget || !trigger.isConnected) return;
+      const focused = document.activeElement;
+      // 菜单项打开的弹层或外部控件已有焦点时，保留其焦点。
+      if (focused && focused !== document.body && !panel.contains(focused) && focused !== trigger) return;
+      trigger.focus({ preventScroll: true });
     });
     // 先收起菜单，再运行原按钮逻辑，避免遮住随后打开的同步或备份弹层。
     panel.addEventListener('click', event => {
-      if (event.target.closest('button,a[href]')) panel.hidePopover();
+      if (event.target.closest('button,a[href]')) { choosingAction = true; panel.hidePopover(); }
     }, true);
     wrap.append(trigger, panel);
     return wrap;
@@ -120,6 +151,7 @@
     menu.addEventListener('click', () => openNavigation('directory', menu));
     const title = node('span', 'site-location');
     const actions = node('div', 'site-actions');
+    const globalActions = node('div', 'site-global-actions');
     const body = node('div', 'site-body');
     const sidebar = node('aside', 'site-sidebar');
     const content = node('main', 'site-main');
@@ -147,7 +179,7 @@
     profileClient?.init().then(updateBabyAge).catch(() => { if (!destroyed) baby.hidden = true; });
     root.addEventListener('focus', updateBabyAge);
     document.addEventListener('visibilitychange', updateBabyAge);
-    top.append(homeLink, baby, categories);
+    top.append(homeLink, baby, categories, globalActions);
     pageHeading.append(title);
     pageBar.append(pageHeading, menu, actions);
     body.append(sidebar, content);
@@ -285,7 +317,7 @@
     root.visualViewport?.addEventListener('resize', onViewport);
     update(snapshot);
     return {
-      element, content, actions, update, createSectionSwitch,
+      element, content, actions, globalActions, update, createSectionSwitch,
       openDirectory: () => openNavigation('directory', menu), closeNavigation,
       createSectionCards() {
         const cards = node('section', 'site-cards');
@@ -312,7 +344,7 @@
     };
   }
 
-  const api = { createShell, createActionMenu, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
+  const api = { createShell, createActionMenu, balanceSkillLists, resolveEntry, validateSections, icon, navigationOpen: () => Boolean(activeDialog), NARROW };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.XiaoyaSite = api;
 })(typeof window !== 'undefined' ? window : globalThis);
