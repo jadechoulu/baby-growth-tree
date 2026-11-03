@@ -1,0 +1,3148 @@
+{
+  "date": "2026-11-03",
+  "basis": "WS/T 580—2017 附录B；毛老师版仅辅助，不转移记录或照搬依赖",
+  "edges": 69,
+  "review": [
+    {
+      "id": "wst580-001",
+      "title": "抬肩坐起头竖直片刻",
+      "domain": "gross",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-011"
+      ],
+      "reason": "从扶双肩拉坐后头竖直2秒，到拉双腕坐起后头竖直5秒，减少近端支持并延长控头。"
+    },
+    {
+      "id": "wst580-002",
+      "title": "俯卧头部翘动",
+      "domain": "gross",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-012"
+      ],
+      "reason": "从头部翘动到自行抬离床面并保持2秒。"
+    },
+    {
+      "id": "wst580-003",
+      "title": "触碰手掌紧握拳",
+      "domain": "fine",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "观察握拳反射或手的自然张力；不能据此推成自主抓握任务的前置。"
+    },
+    {
+      "id": "wst580-004",
+      "title": "手的自然状态",
+      "domain": "fine",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "观察握拳反射或手的自然张力；不能据此推成自主抓握任务的前置。"
+    },
+    {
+      "id": "wst580-005",
+      "title": "看黑白靶",
+      "domain": "adaptive",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "注视目标、摆放位置和注意条件不同；不能仅从目标大小或月龄推定上下级。"
+    },
+    {
+      "id": "wst580-006",
+      "title": "眼跟红球过中线",
+      "domain": "adaptive",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-026"
+      ],
+      "reason": "同一红球追视任务，由转过中线增加到眼和头跟随转动180°。"
+    },
+    {
+      "id": "wst580-007",
+      "title": "自发细小喉音",
+      "domain": "language",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "喉音、元音、叫声及咿呀/音节的采样情境不同；标准未给逐项递进规则，暂不据月龄串联。"
+    },
+    {
+      "id": "wst580-008",
+      "title": "听声音有反应",
+      "domain": "language",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-018"
+      ],
+      "reason": "相同铜铃、位置及双侧操作，由任一种听声反应增加到表情和肢体动作的变化。"
+    },
+    {
+      "id": "wst580-009",
+      "title": "对发声的人有注视",
+      "domain": "social",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "对脸/移动的人/环境的注意方式不同，未找到逐项支持减少或要求递增的证据。"
+    },
+    {
+      "id": "wst580-010",
+      "title": "眼跟踪走动的人",
+      "domain": "social",
+      "month": 1,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "对脸/移动的人/环境的注意方式不同，未找到逐项支持减少或要求递增的证据。"
+    },
+    {
+      "id": "wst580-011",
+      "title": "拉腕坐起头竖直短时",
+      "domain": "gross",
+      "month": 2,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [
+        "wst580-001"
+      ],
+      "children": [
+        "wst580-040"
+      ],
+      "reason": "从扶双肩拉坐后头竖直2秒，到拉双腕坐起后头竖直5秒，减少近端支持并延长控头。 同为拉腕坐起，由坐起后保持头竖直，进阶到主动用力、整个拉坐过程中无头后滞。"
+    },
+    {
+      "id": "wst580-012",
+      "title": "俯卧头抬离床面",
+      "domain": "gross",
+      "month": 2,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [
+        "wst580-002"
+      ],
+      "children": [
+        "wst580-022"
+      ],
+      "reason": "从头部翘动到自行抬离床面并保持2秒。 从抬离床面到抬头45°并保持5秒。"
+    },
+    {
+      "id": "wst580-013",
+      "title": "花铃棒留握片刻",
+      "domain": "fine",
+      "month": 2,
+      "methodPage": 12,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-023"
+      ],
+      "reason": "留握由2秒提高到30秒，后者同时要求不借助床面支持。"
+    },
+    {
+      "id": "wst580-014",
+      "title": "拇指轻叩可分开",
+      "domain": "fine",
+      "month": 2,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "观察握拳反射或手的自然张力；不能据此推成自主抓握任务的前置。"
+    },
+    {
+      "id": "wst580-015",
+      "title": "即刻注意大玩具",
+      "domain": "adaptive",
+      "month": 2,
+      "methodPage": 12,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "注视目标、摆放位置和注意条件不同；不能仅从目标大小或月龄推定上下级。"
+    },
+    {
+      "id": "wst580-016",
+      "title": "眼跟红球上下移动",
+      "domain": "adaptive",
+      "month": 2,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "上下追视与水平过中线、180°追视方向不同，未确认单向包含关系。"
+    },
+    {
+      "id": "wst580-017",
+      "title": "发a、o、e等母音",
+      "domain": "language",
+      "month": 2,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "喉音、元音、叫声及咿呀/音节的采样情境不同；标准未给逐项递进规则，暂不据月龄串联。"
+    },
+    {
+      "id": "wst580-018",
+      "title": "听声音有复杂反应",
+      "domain": "language",
+      "month": 2,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [
+        "wst580-008"
+      ],
+      "children": [],
+      "reason": "相同铜铃、位置及双侧操作，由任一种听声反应增加到表情和肢体动作的变化。"
+    },
+    {
+      "id": "wst580-019",
+      "title": "自发微笑",
+      "domain": "social",
+      "month": 2,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "自发微笑、逗引后任一种反应及见人微笑口径不同，不把所有逗引反应当成微笑的前级。"
+    },
+    {
+      "id": "wst580-020",
+      "title": "逗引时有反应",
+      "domain": "social",
+      "month": 2,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "自发微笑、逗引后任一种反应及见人微笑口径不同，不把所有逗引反应当成微笑的前级。"
+    },
+    {
+      "id": "wst580-021",
+      "title": "抱直头稳",
+      "domain": "gross",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "竖抱控头与拉坐控头、俯卧抬头姿势不同；毛老师虽有关联，不能直接搬为本标准关系。"
+    },
+    {
+      "id": "wst580-022",
+      "title": "俯卧抬头45°",
+      "domain": "gross",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [
+        "wst580-012"
+      ],
+      "children": [
+        "wst580-031"
+      ],
+      "reason": "从抬离床面到抬头45°并保持5秒。 俯卧抬头角度从45°增加到90°，均要求保持5秒。"
+    },
+    {
+      "id": "wst580-023",
+      "title": "花铃棒留握30s",
+      "domain": "fine",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [
+        "wst580-013"
+      ],
+      "children": [
+        "wst580-032"
+      ],
+      "reason": "留握由2秒提高到30秒，后者同时要求不借助床面支持。 同为手持花铃棒，由持续留握增加到在抱坐位注视并主动摇动；保留姿势和动作条件差异。"
+    },
+    {
+      "id": "wst580-024",
+      "title": "两手搭在一起",
+      "domain": "fine",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "被摆到一起后保持双手与自发玩手的通过动作不同，未确认有向包含。"
+    },
+    {
+      "id": "wst580-025",
+      "title": "即刻注意胸前玩具",
+      "domain": "adaptive",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "注视目标、摆放位置和注意条件不同；不能仅从目标大小或月龄推定上下级。"
+    },
+    {
+      "id": "wst580-026",
+      "title": "眼跟红球180°",
+      "domain": "adaptive",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [
+        "wst580-006"
+      ],
+      "children": [],
+      "reason": "同一红球追视任务，由转过中线增加到眼和头跟随转动180°。"
+    },
+    {
+      "id": "wst580-027",
+      "title": "笑出声",
+      "domain": "language",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "笑出声与无声微笑、咿呀发声分别观察，不按发声月份串联。"
+    },
+    {
+      "id": "wst580-028",
+      "title": "见人会笑",
+      "domain": "social",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "自发微笑、逗引后任一种反应及见人微笑口径不同，不把所有逗引反应当成微笑的前级。"
+    },
+    {
+      "id": "wst580-029",
+      "title": "灵敏模样",
+      "domain": "social",
+      "month": 3,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "对脸/移动的人/环境的注意方式不同，未找到逐项支持减少或要求递增的证据。"
+    },
+    {
+      "id": "wst580-030",
+      "title": "扶腋可站片刻",
+      "domain": "gross",
+      "month": 4,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "扶腋承重与悬垂落地反应、扶栏站立的支持/诱发方式不同，暂不连线。"
+    },
+    {
+      "id": "wst580-031",
+      "title": "俯卧抬头90°",
+      "domain": "gross",
+      "month": 4,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [
+        "wst580-022"
+      ],
+      "children": [],
+      "reason": "俯卧抬头角度从45°增加到90°，均要求保持5秒。"
+    },
+    {
+      "id": "wst580-032",
+      "title": "摇动并注视花铃棒",
+      "domain": "fine",
+      "month": 4,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [
+        "wst580-023"
+      ],
+      "children": [],
+      "reason": "同为手持花铃棒，由持续留握增加到在抱坐位注视并主动摇动；保留姿势和动作条件差异。"
+    },
+    {
+      "id": "wst580-033",
+      "title": "试图抓物",
+      "domain": "fine",
+      "month": 4,
+      "methodPage": 13,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-042"
+      ],
+      "reason": "从抬臂或尝试抓取，到实际用一手或双手抓住近处玩具。"
+    },
+    {
+      "id": "wst580-034",
+      "title": "目光对视",
+      "domain": "adaptive",
+      "month": 4,
+      "methodPage": 13,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "注视目标、摆放位置和注意条件不同；不能仅从目标大小或月龄推定上下级。"
+    },
+    {
+      "id": "wst580-035",
+      "title": "高声叫",
+      "domain": "adaptive",
+      "month": 4,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "喉音、元音、叫声及咿呀/音节的采样情境不同；标准未给逐项递进规则，暂不据月龄串联。"
+    },
+    {
+      "id": "wst580-036",
+      "title": "伊语作声",
+      "domain": "language",
+      "month": 4,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "喉音、元音、叫声及咿呀/音节的采样情境不同；标准未给逐项递进规则，暂不据月龄串联。"
+    },
+    {
+      "id": "wst580-037",
+      "title": "找到声源",
+      "domain": "language",
+      "month": 4,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "铜铃定向与理解本人名字不是同一刺激；毛老师声源追踪到唤名可辅助，但不足以证明本标准的前置方向。"
+    },
+    {
+      "id": "wst580-038",
+      "title": "注视镜中人像",
+      "domain": "social",
+      "month": 4,
+      "methodPage": 14,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-047"
+      ],
+      "reason": "由注视镜中人像，发展到对镜像出现表情或肢体游戏反应。"
+    },
+    {
+      "id": "wst580-039",
+      "title": "认亲人",
+      "domain": "social",
+      "month": 4,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认亲、认生、理解训斥赞许各有独立社会反应，不能仅按社会认识由早到晚串联。"
+    },
+    {
+      "id": "wst580-040",
+      "title": "轻拉腕部即坐起",
+      "domain": "gross",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "linked",
+      "parents": [
+        "wst580-011"
+      ],
+      "children": [],
+      "reason": "同为拉腕坐起，由坐起后保持头竖直，进阶到主动用力、整个拉坐过程中无头后滞。"
+    },
+    {
+      "id": "wst580-041",
+      "title": "独坐头身前倾",
+      "domain": "gross",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-060"
+      ],
+      "reason": "从头身前倾独坐5秒，到背直、无手支撑独坐1分钟。"
+    },
+    {
+      "id": "wst580-042",
+      "title": "抓住近处玩具",
+      "domain": "fine",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "linked",
+      "parents": [
+        "wst580-033"
+      ],
+      "children": [],
+      "reason": "从抬臂或尝试抓取，到实际用一手或双手抓住近处玩具。"
+    },
+    {
+      "id": "wst580-043",
+      "title": "玩手",
+      "domain": "fine",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "被摆到一起后保持双手与自发玩手的通过动作不同，未确认有向包含。"
+    },
+    {
+      "id": "wst580-044",
+      "title": "注意小丸",
+      "domain": "adaptive",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "注视目标、摆放位置和注意条件不同；不能仅从目标大小或月龄推定上下级。"
+    },
+    {
+      "id": "wst580-045",
+      "title": "拿住一积木注视另一积木",
+      "domain": "adaptive",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "握住一块而注视另一块评估注意，不能用后来双手抓两块或对敲的动作反推前置。"
+    },
+    {
+      "id": "wst580-046",
+      "title": "对人及物发声",
+      "domain": "language",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "喉音、元音、叫声及咿呀/音节的采样情境不同；标准未给逐项递进规则，暂不据月龄串联。"
+    },
+    {
+      "id": "wst580-047",
+      "title": "对镜有游戏反应",
+      "domain": "social",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "linked",
+      "parents": [
+        "wst580-038"
+      ],
+      "children": [],
+      "reason": "由注视镜中人像，发展到对镜像出现表情或肢体游戏反应。"
+    },
+    {
+      "id": "wst580-048",
+      "title": "见食物兴奋",
+      "domain": "social",
+      "month": 5,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "食物引发兴奋单独观察，不与抓食、喂食或语言需要建立推定关系。"
+    },
+    {
+      "id": "wst580-049",
+      "title": "仰卧翻身",
+      "domain": "gross",
+      "month": 6,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "本表仅列仰卧翻到俯卧；没有可核对的另一方向/阶段翻身条目，不借毛版分级补边。"
+    },
+    {
+      "id": "wst580-050",
+      "title": "会拍桌子",
+      "domain": "gross",
+      "month": 6,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "拍响桌面是独立模仿动作，不以反射握拳、积木对敲或欢迎手势为同一任务。"
+    },
+    {
+      "id": "wst580-051",
+      "title": "会撕揉纸张",
+      "domain": "fine",
+      "month": 6,
+      "methodPage": 14,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "揉搓或撕破纸两种通过路径并存，不能当作剪刀、折纸的必经动作。"
+    },
+    {
+      "id": "wst580-052",
+      "title": "耙弄到桌上一积木",
+      "domain": "fine",
+      "month": 6,
+      "methodPage": 14,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-062",
+        "wst580-061"
+      ],
+      "reason": "由主动取一块积木，到一手保留第一块、另一手再取第二块。 同为抱坐桌前主动抓取，由伸手抓到积木发展到把较小的小丸耙入掌中；后项仍是所有手指弯曲后全掌抓到，不改写成四指捏或指尖捏。"
+    },
+    {
+      "id": "wst580-053",
+      "title": "两手拿住积木",
+      "domain": "adaptive",
+      "month": 6,
+      "methodPage": 15,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-081"
+      ],
+      "reason": "由一手一块保留两块积木，到将双手合到中线互敲，增加双手协调动作；不要求必须先独立取得积木。"
+    },
+    {
+      "id": "wst580-054",
+      "title": "寻找失落的玩具",
+      "domain": "adaptive",
+      "month": 6,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "失落追寻、揭杯、空盒寻物、展开包巾的遮挡条件不同；毛版遮挡分级未逐项等同这些标准任务，暂不定方向。"
+    },
+    {
+      "id": "wst580-055",
+      "title": "叫名字转头",
+      "domain": "language",
+      "month": 6,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "铜铃定向与理解本人名字不是同一刺激；毛老师声源追踪到唤名可辅助，但不足以证明本标准的前置方向。"
+    },
+    {
+      "id": "wst580-056",
+      "title": "理解手势",
+      "domain": "language",
+      "month": 6,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "理解伸手抱、主动表达、欢迎/再见/拒绝分别取样，不把手势出现的月龄当依赖。"
+    },
+    {
+      "id": "wst580-057",
+      "title": "自喂食物",
+      "domain": "social",
+      "month": 6,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "用手吃、成人持杯喝水与自行用匙的工具和协助不同，暂无能逐边证明的单向递进。"
+    },
+    {
+      "id": "wst580-058",
+      "title": "会躲猫猫",
+      "domain": "social",
+      "month": 6,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "重复露脸后的预期位置是独立社会游戏，不据同名躲猫猫或遮挡概念跨项推断。"
+    },
+    {
+      "id": "wst580-059",
+      "title": "悬垂落地姿势",
+      "domain": "gross",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "扶腋承重与悬垂落地反应、扶栏站立的支持/诱发方式不同，暂不连线。"
+    },
+    {
+      "id": "wst580-060",
+      "title": "独坐直",
+      "domain": "gross",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "linked",
+      "parents": [
+        "wst580-041"
+      ],
+      "children": [
+        "wst580-069"
+      ],
+      "reason": "从头身前倾独坐5秒，到背直、无手支撑独坐1分钟。 在无需手支撑独坐的基础上，增加转身取物及侧推后回正。"
+    },
+    {
+      "id": "wst580-061",
+      "title": "耙弄到小丸",
+      "domain": "fine",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "linked",
+      "parents": [
+        "wst580-052"
+      ],
+      "children": [
+        "wst580-070"
+      ],
+      "reason": "同为抱坐桌前主动抓取，由伸手抓到积木发展到把较小的小丸耙入掌中；后项仍是所有手指弯曲后全掌抓到，不改写成四指捏或指尖捏。 由全掌耙抓到拇指与其他手指捏取。"
+    },
+    {
+      "id": "wst580-062",
+      "title": "自取一积木，再取另一块",
+      "domain": "fine",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "linked",
+      "parents": [
+        "wst580-052"
+      ],
+      "children": [
+        "wst580-071"
+      ],
+      "reason": "由主动取一块积木，到一手保留第一块、另一手再取第二块。 保持已取到的两块积木，再增加尝试取第三块的意图；后项不要求实际取到第三块。"
+    },
+    {
+      "id": "wst580-063",
+      "title": "积木换手",
+      "domain": "adaptive",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "同手再次出示积木时换手解决任务，与保留两块或尝试第三块有不同策略，不必先后完成。"
+    },
+    {
+      "id": "wst580-064",
+      "title": "伸手够远处玩具",
+      "domain": "adaptive",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "够远处物与追逐移动物要求不同，且后者不要求拿到；不因看似更难推方向。"
+    },
+    {
+      "id": "wst580-065",
+      "title": "发da-da、ma-ma等无所指",
+      "domain": "language",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "喉音、元音、叫声及咿呀/音节的采样情境不同；标准未给逐项递进规则，暂不据月龄串联。"
+    },
+    {
+      "id": "wst580-066",
+      "title": "抱脚玩",
+      "domain": "social",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "抱脚玩可以在协助放脚入手后通过，不等同理解身体名称；不能照搬毛版认识手脚到认识肢体的关系。"
+    },
+    {
+      "id": "wst580-067",
+      "title": "能认生人",
+      "domain": "social",
+      "month": 7,
+      "methodPage": 15,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认亲、认生、理解训斥赞许各有独立社会反应，不能仅按社会认识由早到晚串联。"
+    },
+    {
+      "id": "wst580-068",
+      "title": "双手扶物可站立",
+      "domain": "gross",
+      "month": 8,
+      "methodPage": 15,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-094"
+      ],
+      "reason": "从双手扶物支撑，到不扶物独站2秒。"
+    },
+    {
+      "id": "wst580-069",
+      "title": "独坐自如",
+      "domain": "gross",
+      "month": 8,
+      "methodPage": 15,
+      "decision": "linked",
+      "parents": [
+        "wst580-060"
+      ],
+      "children": [],
+      "reason": "在无需手支撑独坐的基础上，增加转身取物及侧推后回正。"
+    },
+    {
+      "id": "wst580-070",
+      "title": "拇他指捏小丸",
+      "domain": "fine",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "linked",
+      "parents": [
+        "wst580-061"
+      ],
+      "children": [
+        "wst580-079"
+      ],
+      "reason": "由全掌耙抓到拇指与其他手指捏取。 由拇指与其他手指捏取，到拇指、食指对捏。"
+    },
+    {
+      "id": "wst580-071",
+      "title": "试图取第三块积木",
+      "domain": "fine",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "linked",
+      "parents": [
+        "wst580-062"
+      ],
+      "children": [],
+      "reason": "保持已取到的两块积木，再增加尝试取第三块的意图；后项不要求实际取到第三块。"
+    },
+    {
+      "id": "wst580-072",
+      "title": "有意识地摇铃",
+      "domain": "adaptive",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "有意识摇铃强调模仿后的主动使用，与花铃棒留握/注视并摇动的对象和评估重点不同，未确认可单向归并。"
+    },
+    {
+      "id": "wst580-073",
+      "title": "持续用手追逐玩具",
+      "domain": "adaptive",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "够远处物与追逐移动物要求不同，且后者不要求拿到；不因看似更难推方向。"
+    },
+    {
+      "id": "wst580-074",
+      "title": "模仿声音",
+      "domain": "language",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "模仿咳嗽/弄舌与模仿语音的发声内容不同，未确认单向覆盖。"
+    },
+    {
+      "id": "wst580-075",
+      "title": "可用动作手势表达（2/3）",
+      "domain": "language",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "理解伸手抱、主动表达、欢迎/再见/拒绝分别取样，不把手势出现的月龄当依赖。"
+    },
+    {
+      "id": "wst580-076",
+      "title": "懂得成人面部表情",
+      "domain": "social",
+      "month": 8,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认亲、认生、理解训斥赞许各有独立社会反应，不能仅按社会认识由早到晚串联。"
+    },
+    {
+      "id": "wst580-077",
+      "title": "拉双手会走",
+      "domain": "gross",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-104"
+      ],
+      "reason": "由拉双手行走到只牵一手行走，减少外部支持。"
+    },
+    {
+      "id": "wst580-078",
+      "title": "会爬",
+      "domain": "gross",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "膝手爬、诱发保护支撑、从俯卧坐起分别观察；不以常见运动顺序当标准条目的前置。"
+    },
+    {
+      "id": "wst580-079",
+      "title": "拇食指捏小丸",
+      "domain": "fine",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "linked",
+      "parents": [
+        "wst580-070"
+      ],
+      "children": [
+        "wst580-088"
+      ],
+      "reason": "由拇指与其他手指捏取，到拇指、食指对捏。 在拇食指对捏基础上，增加指端协调、熟练且迅速的要求。"
+    },
+    {
+      "id": "wst580-080",
+      "title": "从杯中取出积木",
+      "domain": "fine",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "取出/放入、杯/瓶、积木/小丸的任务组合不同，尝试投瓶又不要求成功，暂不互连。"
+    },
+    {
+      "id": "wst580-081",
+      "title": "积木对敲",
+      "domain": "adaptive",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "linked",
+      "parents": [
+        "wst580-053"
+      ],
+      "children": [],
+      "reason": "由一手一块保留两块积木，到将双手合到中线互敲，增加双手协调动作；不要求必须先独立取得积木。"
+    },
+    {
+      "id": "wst580-082",
+      "title": "拨弄铃舌",
+      "domain": "adaptive",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "寻找拨弄铃舌与摇铃使用的动作目标不同，不因共用铃具连箭头。"
+    },
+    {
+      "id": "wst580-083",
+      "title": "会欢迎",
+      "domain": "language",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "理解伸手抱、主动表达、欢迎/再见/拒绝分别取样，不把手势出现的月龄当依赖。"
+    },
+    {
+      "id": "wst580-084",
+      "title": "会再见",
+      "domain": "language",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "理解伸手抱、主动表达、欢迎/再见/拒绝分别取样，不把手势出现的月龄当依赖。"
+    },
+    {
+      "id": "wst580-085",
+      "title": "表示不要",
+      "domain": "social",
+      "month": 9,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "理解伸手抱、主动表达、欢迎/再见/拒绝分别取样，不把手势出现的月龄当依赖。"
+    },
+    {
+      "id": "wst580-086",
+      "title": "保护性支撑",
+      "domain": "gross",
+      "month": 10,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "膝手爬、诱发保护支撑、从俯卧坐起分别观察；不以常见运动顺序当标准条目的前置。"
+    },
+    {
+      "id": "wst580-087",
+      "title": "自己坐起",
+      "domain": "gross",
+      "month": 10,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "膝手爬、诱发保护支撑、从俯卧坐起分别观察；不以常见运动顺序当标准条目的前置。"
+    },
+    {
+      "id": "wst580-088",
+      "title": "拇食指动作熟练",
+      "domain": "fine",
+      "month": 10,
+      "methodPage": 16,
+      "decision": "linked",
+      "parents": [
+        "wst580-079"
+      ],
+      "children": [],
+      "reason": "在拇食指对捏基础上，增加指端协调、熟练且迅速的要求。"
+    },
+    {
+      "id": "wst580-089",
+      "title": "拿掉扣积木杯玩积木",
+      "domain": "adaptive",
+      "month": 10,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "失落追寻、揭杯、空盒寻物、展开包巾的遮挡条件不同；毛版遮挡分级未逐项等同这些标准任务，暂不定方向。"
+    },
+    {
+      "id": "wst580-090",
+      "title": "寻找盒内东西",
+      "domain": "adaptive",
+      "month": 10,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "失落追寻、揭杯、空盒寻物、展开包巾的遮挡条件不同；毛版遮挡分级未逐项等同这些标准任务，暂不定方向。"
+    },
+    {
+      "id": "wst580-091",
+      "title": "模仿发语声",
+      "domain": "language",
+      "month": 10,
+      "methodPage": 16,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "模仿咳嗽/弄舌与模仿语音的发声内容不同，未确认单向覆盖。"
+    },
+    {
+      "id": "wst580-092",
+      "title": "懂得常见物及人名称",
+      "domain": "social",
+      "month": 10,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "眼看/指出物名与按指令抓取物品的取样和成功条件不同，暂不从词义理解推动作依赖。"
+    },
+    {
+      "id": "wst580-093",
+      "title": "按指令取东西",
+      "domain": "social",
+      "month": 10,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "眼看/指出物名与按指令抓取物品的取样和成功条件不同，暂不从词义理解推动作依赖。"
+    },
+    {
+      "id": "wst580-094",
+      "title": "独站片刻",
+      "domain": "gross",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "linked",
+      "parents": [
+        "wst580-068"
+      ],
+      "children": [
+        "wst580-103"
+      ],
+      "reason": "从双手扶物支撑，到不扶物独站2秒。 独站保持时间由2秒增加到10秒。"
+    },
+    {
+      "id": "wst580-095",
+      "title": "扶物下蹲取物",
+      "domain": "gross",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "扶栏下蹲取物需要扶持，与独站/上楼各自支持条件不同，不把独站当作先决。"
+    },
+    {
+      "id": "wst580-096",
+      "title": "积木放入杯中",
+      "domain": "fine",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "取出/放入、杯/瓶、积木/小丸的任务组合不同，尝试投瓶又不要求成功，暂不互连。"
+    },
+    {
+      "id": "wst580-097",
+      "title": "打开包积木的方巾",
+      "domain": "adaptive",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "失落追寻、揭杯、空盒寻物、展开包巾的遮挡条件不同；毛版遮挡分级未逐项等同这些标准任务，暂不定方向。"
+    },
+    {
+      "id": "wst580-098",
+      "title": "模仿拍娃娃",
+      "domain": "adaptive",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "拍娃娃可仅为模仿；想象游戏可选择喂食、盖被等不同活动，不确定必须由拍娃娃发展。"
+    },
+    {
+      "id": "wst580-099",
+      "title": "有意识地发一个字音",
+      "domain": "language",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-118"
+      ],
+      "reason": "由有意识、正确发出一个字音，到说3～5个字；后项不计爸妈，保留此口径差异。"
+    },
+    {
+      "id": "wst580-100",
+      "title": "懂得“不”",
+      "domain": "language",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "听到否定停止拿物是独立理解任务，不与其他指令按月份串联。"
+    },
+    {
+      "id": "wst580-101",
+      "title": "会从杯中喝水",
+      "domain": "social",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "用手吃、成人持杯喝水与自行用匙的工具和协助不同，暂无能逐边证明的单向递进。"
+    },
+    {
+      "id": "wst580-102",
+      "title": "会摘帽子",
+      "domain": "social",
+      "month": 11,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "帽、袜、上衣/裤、鞋的穿脱动作和物件不同，不把脱帽到脱袜/衣再到穿鞋串成单链。"
+    },
+    {
+      "id": "wst580-103",
+      "title": "独站稳",
+      "domain": "gross",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "linked",
+      "parents": [
+        "wst580-094"
+      ],
+      "children": [
+        "wst580-156"
+      ],
+      "reason": "独站保持时间由2秒增加到10秒。 同为不扶物保持站立平衡，由双足支撑发展到单足支撑；双足10秒与单足2秒不能直接按时长比较，也不把中间月龄的行走或下蹲规定为必经任务。"
+    },
+    {
+      "id": "wst580-104",
+      "title": "牵一手可走",
+      "domain": "gross",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "linked",
+      "parents": [
+        "wst580-077"
+      ],
+      "children": [
+        "wst580-112"
+      ],
+      "reason": "由拉双手行走到只牵一手行走，减少外部支持。 由牵一手行走到独立控制步速、平稳行走。"
+    },
+    {
+      "id": "wst580-105",
+      "title": "全掌握笔留笔道",
+      "domain": "fine",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-113"
+      ],
+      "reason": "由示范后留下笔道，到拿到纸笔后自行乱画。"
+    },
+    {
+      "id": "wst580-106",
+      "title": "试把小丸投小瓶",
+      "domain": "fine",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "取出/放入、杯/瓶、积木/小丸的任务组合不同，尝试投瓶又不要求成功，暂不互连。"
+    },
+    {
+      "id": "wst580-107",
+      "title": "盖瓶盖",
+      "domain": "adaptive",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "盖瓶要求先翻正，盖圆盒要求盖严，工具不同，没有确认一项单向包含另一项。"
+    },
+    {
+      "id": "wst580-108",
+      "title": "叫爸爸妈妈有所指",
+      "domain": "language",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "叫爸爸妈妈有所指是特定称呼；不能当作不计爸妈的词汇数量门槛。"
+    },
+    {
+      "id": "wst580-109",
+      "title": "向他/她要东西知道给",
+      "domain": "language",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "递给物品、三投向、举手抬脚、执行三件事的指令和记忆口径不同，暂不跨能区串联。"
+    },
+    {
+      "id": "wst580-110",
+      "title": "穿衣知配合",
+      "domain": "social",
+      "month": 12,
+      "methodPage": 17,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-191"
+      ],
+      "reason": "由穿衣时伸手伸腿配合，到无需帮助穿上衣并扣好扣子或拉好拉锁。"
+    },
+    {
+      "id": "wst580-111",
+      "title": "共同注意",
+      "domain": "social",
+      "month": 12,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "共同注意是共享场景过程，不能以注视单物、指物或物名理解代替。"
+    },
+    {
+      "id": "wst580-112",
+      "title": "独走自如",
+      "domain": "gross",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [
+        "wst580-104"
+      ],
+      "children": [
+        "wst580-129"
+      ],
+      "reason": "由牵一手行走到独立控制步速、平稳行走。 由平地独走发展到扶扶手上三阶以上楼梯，增加高度变化及逐阶重心转移；毛老师版独走到双脚上下楼仅作辅助，本表这里只连接上楼，不包含下楼或并步要求。"
+    },
+    {
+      "id": "wst580-113",
+      "title": "自发乱画",
+      "domain": "fine",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [
+        "wst580-105"
+      ],
+      "children": [
+        "wst580-121"
+      ],
+      "reason": "由示范后留下笔道，到拿到纸笔后自行乱画。 由自行乱画，到按示范画道并能控制起止，方向仍不限。"
+    },
+    {
+      "id": "wst580-114",
+      "title": "从瓶中拿到小丸",
+      "domain": "fine",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "取出/放入、杯/瓶、积木/小丸的任务组合不同，尝试投瓶又不要求成功，暂不互连。"
+    },
+    {
+      "id": "wst580-115",
+      "title": "翻书两次",
+      "domain": "adaptive",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-140"
+      ],
+      "reason": "由翻书两次，到每次捻一页、连续三页以上。"
+    },
+    {
+      "id": "wst580-116",
+      "title": "盖上圆盒",
+      "domain": "adaptive",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "盖瓶要求先翻正，盖圆盒要求盖严，工具不同，没有确认一项单向包含另一项。"
+    },
+    {
+      "id": "wst580-117",
+      "title": "会指眼耳鼻口手",
+      "domain": "language",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "标准仅有一次指认身体部位；毛版抱脚玩对应并不等于认识手脚，拒绝据此补前置。"
+    },
+    {
+      "id": "wst580-118",
+      "title": "说3～5个字",
+      "domain": "language",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [
+        "wst580-099"
+      ],
+      "children": [
+        "wst580-125"
+      ],
+      "reason": "由有意识、正确发出一个字音，到说3～5个字；后项不计爸妈，保留此口径差异。 同不计爸妈，有意义字词数量由3～5个提高到10个以上。"
+    },
+    {
+      "id": "wst580-119",
+      "title": "会脱袜子",
+      "domain": "social",
+      "month": 15,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "帽、袜、上衣/裤、鞋的穿脱动作和物件不同，不把脱帽到脱袜/衣再到穿鞋串成单链。"
+    },
+    {
+      "id": "wst580-120",
+      "title": "扔球无方向",
+      "domain": "gross",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "扔球与接球动作方向不同；不与拍球、踢带绳球按球类统串。"
+    },
+    {
+      "id": "wst580-121",
+      "title": "模仿画道道",
+      "domain": "fine",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [
+        "wst580-113"
+      ],
+      "children": [
+        "wst580-148",
+        "wst580-175",
+        "wst580-166"
+      ],
+      "reason": "由自行乱画，到按示范画道并能控制起止，方向仍不限。 在模仿画道并能控制起止的基础上，增加竖直方向、长度和角度的要求。 由模仿单条笔道并控制起止，发展到模仿两条较连续的直线相交成角；不把要求特定方向及角度的模仿竖线排作必经中间项。 由模仿开放笔道，到模仿首尾相交且无明显角的闭合圆；毛老师版画线、弧线到闭合圆的关系仅作辅助参考。"
+    },
+    {
+      "id": "wst580-122",
+      "title": "积木搭高四块",
+      "domain": "adaptive",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-132"
+      ],
+      "reason": "同为积木搭高、三试一成，数量由4块提高到7～8块。"
+    },
+    {
+      "id": "wst580-123",
+      "title": "正放圆积木入型板",
+      "domain": "adaptive",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-141",
+        "wst580-151"
+      ],
+      "reason": "同为圆积木一次放入圆孔，后者增加型板倒转后的方位变化。 同为不示范、正放型板的找家任务，由单一圆块扩大到包含圆、方和三角的三块；后项三角方向预先对齐且允许提示，不把倒放圆块规定为中间必经任务。"
+    },
+    {
+      "id": "wst580-124",
+      "title": "懂得三个投向",
+      "domain": "language",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "递给物品、三投向、举手抬脚、执行三件事的指令和记忆口径不同，暂不跨能区串联。"
+    },
+    {
+      "id": "wst580-125",
+      "title": "说十个字词",
+      "domain": "language",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [
+        "wst580-118"
+      ],
+      "children": [],
+      "reason": "同不计爸妈，有意义字词数量由3～5个提高到10个以上。"
+    },
+    {
+      "id": "wst580-126",
+      "title": "白天能控制大小便",
+      "domain": "social",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "控制排便单独观察，不由年龄或其他自理能力推定关系。"
+    },
+    {
+      "id": "wst580-127",
+      "title": "会用匙",
+      "domain": "social",
+      "month": 18,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "用手吃、成人持杯喝水与自行用匙的工具和协助不同，暂无能逐边证明的单向递进。"
+    },
+    {
+      "id": "wst580-128",
+      "title": "脚尖走",
+      "domain": "gross",
+      "month": 21,
+      "methodPage": 18,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "脚尖走、足尖对跟向前/后走的姿势或方向不同，未核实有向包含；撤回向前到向后的旧边。"
+    },
+    {
+      "id": "wst580-129",
+      "title": "扶楼梯上楼",
+      "domain": "gross",
+      "month": 21,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [
+        "wst580-112"
+      ],
+      "children": [
+        "wst580-146"
+      ],
+      "reason": "由平地独走发展到扶扶手上三阶以上楼梯，增加高度变化及逐阶重心转移；毛老师版独走到双脚上下楼仅作辅助，本表这里只连接上楼，不包含下楼或并步要求。 同为上三阶以上台阶，由扶扶手改为不扶扶手、稳定上楼。"
+    },
+    {
+      "id": "wst580-130",
+      "title": "水晶线穿扣眼",
+      "domain": "fine",
+      "month": 21,
+      "methodPage": 18,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-139"
+      ],
+      "reason": "由线穿过扣眼0.5厘米，增加穿过后把线拉出的步骤。"
+    },
+    {
+      "id": "wst580-131",
+      "title": "模仿拉拉锁",
+      "domain": "fine",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "成人固定两端后移动锁头，不等于自行插锁头；后项仅要求有拉的意识，并不包含本项拉过一半，撤回旧边。"
+    },
+    {
+      "id": "wst580-132",
+      "title": "积木搭高7~8块",
+      "domain": "adaptive",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [
+        "wst580-122"
+      ],
+      "children": [
+        "wst580-168"
+      ],
+      "reason": "同为积木搭高、三试一成，数量由4块提高到7～8块。 同为积木搭高、三试一成，数量由7～8块提高到10块。"
+    },
+    {
+      "id": "wst580-133",
+      "title": "知道红色",
+      "domain": "adaptive",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "指出红色与命名两种/四种颜色的回答方式不同，撤回指认到命名的旧边。"
+    },
+    {
+      "id": "wst580-134",
+      "title": "回答简单问题",
+      "domain": "language",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "回答问题、自发主谓句、表示需要、背儿歌、主动提问和发音清楚分别取样，不以句长/年龄代替关系。"
+    },
+    {
+      "id": "wst580-135",
+      "title": "说3～5个字的句子",
+      "domain": "language",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "回答问题、自发主谓句、表示需要、背儿歌、主动提问和发音清楚分别取样，不以句长/年龄代替关系。"
+    },
+    {
+      "id": "wst580-136",
+      "title": "能表示个人需要",
+      "domain": "social",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "回答问题、自发主谓句、表示需要、背儿歌、主动提问和发音清楚分别取样，不以句长/年龄代替关系。"
+    },
+    {
+      "id": "wst580-137",
+      "title": "想象性游戏",
+      "domain": "social",
+      "month": 21,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "拍娃娃可仅为模仿；想象游戏可选择喂食、盖被等不同活动，不确定必须由拍娃娃发展。"
+    },
+    {
+      "id": "wst580-138",
+      "title": "双足跳离地面",
+      "domain": "gross",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-165",
+        "wst580-184"
+      ],
+      "reason": "从双足原地同时跳起、落地，增加向前跃过纸张且不踩纸的要求。 由双足同时离地、同时落地，发展到从楼梯末级并足跳下，增加落差及落地两脚间距小于10厘米的控制；毛老师版原地跳到跳下仅作辅助，不要求先通过立定跳远。"
+    },
+    {
+      "id": "wst580-139",
+      "title": "穿过扣眼后拉线",
+      "domain": "fine",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [
+        "wst580-130"
+      ],
+      "children": [
+        "wst580-157"
+      ],
+      "reason": "由线穿过扣眼0.5厘米，增加穿过后把线拉出的步骤。 由穿过一个扣眼并拉线，到较熟练连续穿扣并拉线3个以上。"
+    },
+    {
+      "id": "wst580-140",
+      "title": "一页页翻书",
+      "domain": "adaptive",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [
+        "wst580-115"
+      ],
+      "children": [],
+      "reason": "由翻书两次，到每次捻一页、连续三页以上。"
+    },
+    {
+      "id": "wst580-141",
+      "title": "倒放圆积木入型板",
+      "domain": "adaptive",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [
+        "wst580-123"
+      ],
+      "children": [],
+      "reason": "同为圆积木一次放入圆孔，后者增加型板倒转后的方位变化。"
+    },
+    {
+      "id": "wst580-142",
+      "title": "说两句以上诗或儿歌",
+      "domain": "language",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "回答问题、自发主谓句、表示需要、背儿歌、主动提问和发音清楚分别取样，不以句长/年龄代替关系。"
+    },
+    {
+      "id": "wst580-143",
+      "title": "说常见物用途（碗笔凳球）",
+      "domain": "language",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "物品用途词项不同，问三项全对不天然高于四项答三；面粉列举也非原任务包含，暂不连。"
+    },
+    {
+      "id": "wst580-144",
+      "title": "会打招呼",
+      "domain": "social",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "问好可自发也可模仿；与欢迎/再见的无手势提示要求不同，不做跨表达形式推断。"
+    },
+    {
+      "id": "wst580-145",
+      "title": "问“这是什么？”",
+      "domain": "social",
+      "month": 24,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "回答问题、自发主谓句、表示需要、背儿歌、主动提问和发音清楚分别取样，不以句长/年龄代替关系。"
+    },
+    {
+      "id": "wst580-146",
+      "title": "独自上楼",
+      "domain": "gross",
+      "month": 27,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [
+        "wst580-129"
+      ],
+      "children": [
+        "wst580-183"
+      ],
+      "reason": "同为上三阶以上台阶，由扶扶手改为不扶扶手、稳定上楼。 在不扶扶手上楼的基础上，增加双足交替、一步一台阶的要求。"
+    },
+    {
+      "id": "wst580-147",
+      "title": "独自下楼",
+      "domain": "gross",
+      "month": 27,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "本表未列较早的扶扶手下楼任务；上楼和下楼方向不同，不以毛版合并上下楼的项目反推此边。"
+    },
+    {
+      "id": "wst580-148",
+      "title": "模仿画竖道",
+      "domain": "fine",
+      "month": 27,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [
+        "wst580-121"
+      ],
+      "children": [],
+      "reason": "在模仿画道并能控制起止的基础上，增加竖直方向、长度和角度的要求。"
+    },
+    {
+      "id": "wst580-149",
+      "title": "对拉锁",
+      "domain": "fine",
+      "month": 27,
+      "methodPage": 19,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-167"
+      ],
+      "reason": "由锁头部分或全部插入锁孔，到全部插入并有拉动意识。"
+    },
+    {
+      "id": "wst580-150",
+      "title": "认识大小",
+      "domain": "adaptive",
+      "month": 27,
+      "methodPage": 19,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "大小辨别、1与许多各自观察；1与许多混合指认/口答，不与准确报3或5机械串联。"
+    },
+    {
+      "id": "wst580-151",
+      "title": "正放型板",
+      "domain": "adaptive",
+      "month": 27,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-123"
+      ],
+      "children": [
+        "wst580-160"
+      ],
+      "reason": "同为不示范、正放型板的找家任务，由单一圆块扩大到包含圆、方和三角的三块；后项三角方向预先对齐且允许提示，不把倒放圆块规定为中间必经任务。 同为多形状积木一次放入相应孔内，后者增加型板翻转条件。"
+    },
+    {
+      "id": "wst580-152",
+      "title": "说7~10个字的句子",
+      "domain": "language",
+      "month": 27,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-199"
+      ],
+      "reason": "由复述7字以上句子，增加复合句的结构要求；不把字数直接等同语法能力。"
+    },
+    {
+      "id": "wst580-153",
+      "title": "理解指令",
+      "domain": "language",
+      "month": 27,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "递给物品、三投向、举手抬脚、执行三件事的指令和记忆口径不同，暂不跨能区串联。"
+    },
+    {
+      "id": "wst580-154",
+      "title": "脱单衣或裤",
+      "domain": "social",
+      "month": 27,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "帽、袜、上衣/裤、鞋的穿脱动作和物件不同，不把脱帽到脱袜/衣再到穿鞋串成单链。"
+    },
+    {
+      "id": "wst580-155",
+      "title": "开始有是非观念",
+      "domain": "social",
+      "month": 27,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "是非问答与垃圾去向图画有不同情境和提示，不能推为一般道德判断的单线。"
+    },
+    {
+      "id": "wst580-156",
+      "title": "独脚站2s",
+      "domain": "gross",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-103"
+      ],
+      "children": [
+        "wst580-193"
+      ],
+      "reason": "同为不扶物保持站立平衡，由双足支撑发展到单足支撑；双足10秒与单足2秒不能直接按时长比较，也不把中间月龄的行走或下蹲规定为必经任务。 不扶物单脚站立由2秒提高到5秒，并要求身体稳定。"
+    },
+    {
+      "id": "wst580-157",
+      "title": "穿扣子3～5个",
+      "domain": "fine",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-139"
+      ],
+      "children": [],
+      "reason": "由穿过一个扣眼并拉线，到较熟练连续穿扣并拉线3个以上。"
+    },
+    {
+      "id": "wst580-158",
+      "title": "模仿搭桥",
+      "domain": "fine",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "搭桥要求留孔，与纵向搭高是不同空间构造，不以积木数量或同工具串联。"
+    },
+    {
+      "id": "wst580-159",
+      "title": "知道1与许多",
+      "domain": "adaptive",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "大小辨别、1与许多各自观察；1与许多混合指认/口答，不与准确报3或5机械串联。"
+    },
+    {
+      "id": "wst580-160",
+      "title": "倒放型板",
+      "domain": "adaptive",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-151"
+      ],
+      "children": [],
+      "reason": "同为多形状积木一次放入相应孔内，后者增加型板翻转条件。"
+    },
+    {
+      "id": "wst580-161",
+      "title": "说出图片10样",
+      "domain": "language",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-179"
+      ],
+      "reason": "使用同一图片命名清单，正确数量由10样提高到14样。"
+    },
+    {
+      "id": "wst580-162",
+      "title": "说自己名字",
+      "domain": "language",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "姓名、性别、姓氏、属相是不同个人知识，不互作前置。"
+    },
+    {
+      "id": "wst580-163",
+      "title": "来回倒水不洒",
+      "domain": "social",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "倒水是杯间动作控制，喝水可以由成人持杯，不用喝水或穿线替它补前置。"
+    },
+    {
+      "id": "wst580-164",
+      "title": "女孩扔果皮",
+      "domain": "social",
+      "month": 30,
+      "methodPage": 20,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "是非问答与垃圾去向图画有不同情境和提示，不能推为一般道德判断的单线。"
+    },
+    {
+      "id": "wst580-165",
+      "title": "立定跳远",
+      "domain": "gross",
+      "month": 33,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-138"
+      ],
+      "children": [],
+      "reason": "从双足原地同时跳起、落地，增加向前跃过纸张且不踩纸的要求。"
+    },
+    {
+      "id": "wst580-166",
+      "title": "模仿画圆",
+      "domain": "fine",
+      "month": 33,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-121"
+      ],
+      "children": [
+        "wst580-235"
+      ],
+      "reason": "由模仿开放笔道，到模仿首尾相交且无明显角的闭合圆；毛老师版画线、弧线到闭合圆的关系仅作辅助参考。 后项组合图明确包含圆形，将模仿单一闭合圆扩展到看图临摹圆形与方形的组合；不是正式施测门槛。"
+    },
+    {
+      "id": "wst580-167",
+      "title": "拉拉锁",
+      "domain": "fine",
+      "month": 33,
+      "methodPage": 20,
+      "decision": "linked",
+      "parents": [
+        "wst580-149"
+      ],
+      "children": [],
+      "reason": "由锁头部分或全部插入锁孔，到全部插入并有拉动意识。"
+    },
+    {
+      "id": "wst580-168",
+      "title": "积木搭高10块",
+      "domain": "adaptive",
+      "month": 33,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [
+        "wst580-132"
+      ],
+      "children": [],
+      "reason": "同为积木搭高、三试一成，数量由7～8块提高到10块。"
+    },
+    {
+      "id": "wst580-169",
+      "title": "连续执行三个命令",
+      "domain": "adaptive",
+      "month": 33,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "递给物品、三投向、举手抬脚、执行三件事的指令和记忆口径不同，暂不跨能区串联。"
+    },
+    {
+      "id": "wst580-170",
+      "title": "说出性别",
+      "domain": "language",
+      "month": 33,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "姓名、性别、姓氏、属相是不同个人知识，不互作前置。"
+    },
+    {
+      "id": "wst580-171",
+      "title": "分清“里”“外”",
+      "domain": "language",
+      "month": 33,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "里外与左右是不同空间概念；动作指令条件亦不同，暂无明确有向包含。"
+    },
+    {
+      "id": "wst580-172",
+      "title": "会穿鞋",
+      "domain": "social",
+      "month": 33,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "帽、袜、上衣/裤、鞋的穿脱动作和物件不同，不把脱帽到脱袜/衣再到穿鞋串成单链。"
+    },
+    {
+      "id": "wst580-173",
+      "title": "解扣子",
+      "domain": "social",
+      "month": 33,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "解扣与扣扣方向不同；穿上衣可用拉锁通过，所以不把扣扣子作为穿衣前序，撤回旧边。"
+    },
+    {
+      "id": "wst580-174",
+      "title": "双脚交替跳",
+      "domain": "gross",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "交替高抬腿跳与并足跳、单脚连续跳的动作组织不同，不按后续月份硬连。"
+    },
+    {
+      "id": "wst580-175",
+      "title": "模仿画交叉线",
+      "domain": "fine",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [
+        "wst580-121"
+      ],
+      "children": [],
+      "reason": "由模仿单条笔道并控制起止，发展到模仿两条较连续的直线相交成角；不把要求特定方向及角度的模仿竖线排作必经中间项。"
+    },
+    {
+      "id": "wst580-176",
+      "title": "会拧螺丝",
+      "domain": "fine",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-196"
+      ],
+      "reason": "由螺丝与螺母组装，增加看图、平垫及按顺序组装的要求。"
+    },
+    {
+      "id": "wst580-177",
+      "title": "懂得“3”",
+      "domain": "adaptive",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-187"
+      ],
+      "reason": "同为回答眼前积木的准确数量，由3块增加到5块。"
+    },
+    {
+      "id": "wst580-178",
+      "title": "认识两种颜色",
+      "domain": "adaptive",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-188"
+      ],
+      "reason": "同为四种颜色卡的口头命名，答对数量由至少两种提高到四种。"
+    },
+    {
+      "id": "wst580-179",
+      "title": "说出图片14样",
+      "domain": "language",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [
+        "wst580-161"
+      ],
+      "children": [],
+      "reason": "使用同一图片命名清单，正确数量由10样提高到14样。"
+    },
+    {
+      "id": "wst580-180",
+      "title": "发音基本清楚",
+      "domain": "language",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "回答问题、自发主谓句、表示需要、背儿歌、主动提问和发音清楚分别取样，不以句长/年龄代替关系。"
+    },
+    {
+      "id": "wst580-181",
+      "title": "懂得“饿了、冷了、累了”",
+      "domain": "social",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "饥冷疲劳应对、洗手、交通安全、预防接种的常识内容不同，不串成通用因果问答能力等级。"
+    },
+    {
+      "id": "wst580-182",
+      "title": "扣扣子",
+      "domain": "social",
+      "month": 36,
+      "methodPage": 21,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "解扣与扣扣方向不同；穿上衣可用拉锁通过，所以不把扣扣子作为穿衣前序，撤回旧边。"
+    },
+    {
+      "id": "wst580-183",
+      "title": "交替上楼",
+      "domain": "gross",
+      "month": 42,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [
+        "wst580-146"
+      ],
+      "children": [],
+      "reason": "在不扶扶手上楼的基础上，增加双足交替、一步一台阶的要求。"
+    },
+    {
+      "id": "wst580-184",
+      "title": "并足从楼梯末级跳下",
+      "domain": "gross",
+      "month": 42,
+      "methodPage": 21,
+      "decision": "linked",
+      "parents": [
+        "wst580-138"
+      ],
+      "children": [
+        "wst580-194"
+      ],
+      "reason": "由双足同时离地、同时落地，发展到从楼梯末级并足跳下，增加落差及落地两脚间距小于10厘米的控制；毛老师版原地跳到跳下仅作辅助，不要求先通过立定跳远。 同为并足从楼梯末级跳下，落地两脚间距由小于10厘米收紧到5厘米，并要求站稳。"
+    },
+    {
+      "id": "wst580-185",
+      "title": "拼圆形、正方形",
+      "domain": "fine",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "拼圆/方、照图拼椭圆、三角拼长方形的材料、提示和构成不同，不能用片数大小排上下级。"
+    },
+    {
+      "id": "wst580-186",
+      "title": "会用剪刀",
+      "domain": "fine",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-216"
+      ],
+      "reason": "由剪直线过渡到剪大致圆形，增加沿曲线控制剪刀的练习。"
+    },
+    {
+      "id": "wst580-187",
+      "title": "懂得“5”",
+      "domain": "adaptive",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-177"
+      ],
+      "children": [],
+      "reason": "同为回答眼前积木的准确数量，由3块增加到5块。"
+    },
+    {
+      "id": "wst580-188",
+      "title": "认识四种颜色",
+      "domain": "adaptive",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-178"
+      ],
+      "children": [],
+      "reason": "同为四种颜色卡的口头命名，答对数量由至少两种提高到四种。"
+    },
+    {
+      "id": "wst580-189",
+      "title": "会说反义词",
+      "domain": "language",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "反义词、图形命名、列举圆物和衣物共同点要求不同，未核实可组合的方向证据。"
+    },
+    {
+      "id": "wst580-190",
+      "title": "说出图形（△○□）",
+      "domain": "language",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "反义词、图形命名、列举圆物和衣物共同点要求不同，未核实可组合的方向证据。"
+    },
+    {
+      "id": "wst580-191",
+      "title": "会穿上衣",
+      "domain": "social",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-110"
+      ],
+      "children": [],
+      "reason": "由穿衣时伸手伸腿配合，到无需帮助穿上衣并扣好扣子或拉好拉锁。"
+    },
+    {
+      "id": "wst580-192",
+      "title": "吃饭之前为什么要洗手？",
+      "domain": "social",
+      "month": 42,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "饥冷疲劳应对、洗手、交通安全、预防接种的常识内容不同，不串成通用因果问答能力等级。"
+    },
+    {
+      "id": "wst580-193",
+      "title": "独脚站5s",
+      "domain": "gross",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-156"
+      ],
+      "children": [
+        "wst580-203"
+      ],
+      "reason": "不扶物单脚站立由2秒提高到5秒，并要求身体稳定。 稳定单脚站立时间由5秒提高到10秒。"
+    },
+    {
+      "id": "wst580-194",
+      "title": "并足从楼梯末级跳下稳",
+      "domain": "gross",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-184"
+      ],
+      "children": [],
+      "reason": "同为并足从楼梯末级跳下，落地两脚间距由小于10厘米收紧到5厘米，并要求站稳。"
+    },
+    {
+      "id": "wst580-195",
+      "title": "模仿画方形",
+      "domain": "fine",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-235"
+      ],
+      "reason": "后项组合图明确包含正方形，将模仿单一方形扩展到看图临摹方形与圆形的组合；不是两项必须先勾选的门槛。"
+    },
+    {
+      "id": "wst580-196",
+      "title": "照图组装螺丝",
+      "domain": "fine",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-176"
+      ],
+      "children": [],
+      "reason": "由螺丝与螺母组装，增加看图、平垫及按顺序组装的要求。"
+    },
+    {
+      "id": "wst580-197",
+      "title": "找不同（3个）",
+      "domain": "adaptive",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-217"
+      ],
+      "reason": "同一类找不同任务，命中数由3处提高到5处。"
+    },
+    {
+      "id": "wst580-198",
+      "title": "图画补缺（3/6）",
+      "domain": "adaptive",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-208"
+      ],
+      "reason": "同为六幅图，正确补缺由3幅提高到4幅。"
+    },
+    {
+      "id": "wst580-199",
+      "title": "模仿说复合句",
+      "domain": "language",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "linked",
+      "parents": [
+        "wst580-152"
+      ],
+      "children": [],
+      "reason": "由复述7字以上句子，增加复合句的结构要求；不把字数直接等同语法能力。"
+    },
+    {
+      "id": "wst580-200",
+      "title": "锅、手机、眼睛的用途",
+      "domain": "language",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "物品用途词项不同，问三项全对不天然高于四项答三；面粉列举也非原任务包含，暂不连。"
+    },
+    {
+      "id": "wst580-201",
+      "title": "会做集体游戏",
+      "domain": "social",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "集体游戏含主动参与和规则，不由独自想象游戏或一般模仿推导前置。"
+    },
+    {
+      "id": "wst580-202",
+      "title": "分辨男女厕所",
+      "domain": "social",
+      "month": 48,
+      "methodPage": 22,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "男女厕所识别与危险标识解释目的不同；不以都是图标建立依赖。"
+    },
+    {
+      "id": "wst580-203",
+      "title": "独脚站10s",
+      "domain": "gross",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [
+        "wst580-193"
+      ],
+      "children": [],
+      "reason": "稳定单脚站立时间由5秒提高到10秒。"
+    },
+    {
+      "id": "wst580-204",
+      "title": "足尖对足跟向前走2m",
+      "domain": "gross",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "脚尖走、足尖对跟向前/后走的姿势或方向不同，未核实有向包含；撤回向前到向后的旧边。"
+    },
+    {
+      "id": "wst580-205",
+      "title": "折纸边角整齐",
+      "domain": "fine",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "折纸、筷夹、写名字、临摹六边形和翻绳各有专项动作；不把一般精细程度或月龄当方向。"
+    },
+    {
+      "id": "wst580-206",
+      "title": "筷子夹花生米",
+      "domain": "fine",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "折纸、筷夹、写名字、临摹六边形和翻绳各有专项动作；不把一般精细程度或月龄当方向。"
+    },
+    {
+      "id": "wst580-207",
+      "title": "类同",
+      "domain": "adaptive",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "类同、图形类比和数字类比的题型/材料不同，标准未给可核验跨题型难度标尺。"
+    },
+    {
+      "id": "wst580-208",
+      "title": "图画补缺（4/6）",
+      "domain": "adaptive",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [
+        "wst580-198"
+      ],
+      "children": [
+        "wst580-218"
+      ],
+      "reason": "同为六幅图，正确补缺由3幅提高到4幅。 同为六幅图，正确补缺由4幅提高到5幅。"
+    },
+    {
+      "id": "wst580-209",
+      "title": "会漱口",
+      "domain": "language",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "漱口的口腔动作独立；原标准置于语言能区，也不能由词汇/句长建立前置。"
+    },
+    {
+      "id": "wst580-210",
+      "title": "会认识数字",
+      "domain": "language",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认数字、数手指、树间人数、十字切分、倒数的表征和计算口径不同，不能仅按数值大小串联。"
+    },
+    {
+      "id": "wst580-211",
+      "title": "懂得上午、下午",
+      "domain": "social",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "日内时段、四季、读钟、星期相对顺序为不同时间知识，未核实统一进阶尺度。"
+    },
+    {
+      "id": "wst580-212",
+      "title": "数手指",
+      "domain": "social",
+      "month": 54,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认数字、数手指、树间人数、十字切分、倒数的表征和计算口径不同，不能仅按数值大小串联。"
+    },
+    {
+      "id": "wst580-213",
+      "title": "单脚跳",
+      "domain": "gross",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-232"
+      ],
+      "reason": "同为单脚连续跳3次，后者增加抱肘、基本原地跳动的要求。"
+    },
+    {
+      "id": "wst580-214",
+      "title": "踩踏板",
+      "domain": "gross",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-253"
+      ],
+      "reason": "由同一只脚完成3组，改为两脚交替完成3组。"
+    },
+    {
+      "id": "wst580-215",
+      "title": "照图拼椭圆形",
+      "domain": "fine",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "拼圆/方、照图拼椭圆、三角拼长方形的材料、提示和构成不同，不能用片数大小排上下级。"
+    },
+    {
+      "id": "wst580-216",
+      "title": "试剪圆形",
+      "domain": "fine",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [
+        "wst580-186"
+      ],
+      "children": [
+        "wst580-225"
+      ],
+      "reason": "由剪直线过渡到剪大致圆形，增加沿曲线控制剪刀的练习。 由允许出角的大致圆形，收紧为无成角、无毛边的平滑圆形。"
+    },
+    {
+      "id": "wst580-217",
+      "title": "找不同（5个）",
+      "domain": "adaptive",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [
+        "wst580-197"
+      ],
+      "children": [
+        "wst580-236"
+      ],
+      "reason": "同一类找不同任务，命中数由3处提高到5处。 同一类找不同任务，命中数由5处提高到7处。"
+    },
+    {
+      "id": "wst580-218",
+      "title": "图画补缺（5/6）",
+      "domain": "adaptive",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "linked",
+      "parents": [
+        "wst580-208"
+      ],
+      "children": [],
+      "reason": "同为六幅图，正确补缺由4幅提高到5幅。"
+    },
+    {
+      "id": "wst580-219",
+      "title": "你姓什么？",
+      "domain": "language",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "姓名、性别、姓氏、属相是不同个人知识，不互作前置。"
+    },
+    {
+      "id": "wst580-220",
+      "title": "说出两种圆形的东西",
+      "domain": "language",
+      "month": 60,
+      "methodPage": 23,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "反义词、图形命名、列举圆物和衣物共同点要求不同，未核实可组合的方向证据。"
+    },
+    {
+      "id": "wst580-221",
+      "title": "你家住哪里？",
+      "domain": "social",
+      "month": 60,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "住址和紧急电话是不同生活信息，不能以语言长短或月龄定前后级。"
+    },
+    {
+      "id": "wst580-222",
+      "title": "接球",
+      "domain": "gross",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "扔球与接球动作方向不同；不与拍球、踢带绳球按球类统串。"
+    },
+    {
+      "id": "wst580-223",
+      "title": "足尖对足跟向后走2m",
+      "domain": "gross",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "脚尖走、足尖对跟向前/后走的姿势或方向不同，未核实有向包含；撤回向前到向后的旧边。"
+    },
+    {
+      "id": "wst580-224",
+      "title": "会写自己的名字",
+      "domain": "fine",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "折纸、筷夹、写名字、临摹六边形和翻绳各有专项动作；不把一般精细程度或月龄当方向。"
+    },
+    {
+      "id": "wst580-225",
+      "title": "剪平滑圆形",
+      "domain": "fine",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "linked",
+      "parents": [
+        "wst580-216"
+      ],
+      "children": [],
+      "reason": "由允许出角的大致圆形，收紧为无成角、无毛边的平滑圆形。"
+    },
+    {
+      "id": "wst580-226",
+      "title": "树间站人",
+      "domain": "adaptive",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认数字、数手指、树间人数、十字切分、倒数的表征和计算口径不同，不能仅按数值大小串联。"
+    },
+    {
+      "id": "wst580-227",
+      "title": "十字切苹果",
+      "domain": "adaptive",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认数字、数手指、树间人数、十字切分、倒数的表征和计算口径不同，不能仅按数值大小串联。"
+    },
+    {
+      "id": "wst580-228",
+      "title": "知道自己属相",
+      "domain": "language",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "姓名、性别、姓氏、属相是不同个人知识，不互作前置。"
+    },
+    {
+      "id": "wst580-229",
+      "title": "倒数数字",
+      "domain": "language",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "认数字、数手指、树间人数、十字切分、倒数的表征和计算口径不同，不能仅按数值大小串联。"
+    },
+    {
+      "id": "wst580-230",
+      "title": "为什么要走人行横道？",
+      "domain": "social",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "饥冷疲劳应对、洗手、交通安全、预防接种的常识内容不同，不串成通用因果问答能力等级。"
+    },
+    {
+      "id": "wst580-231",
+      "title": "鸡在水中游",
+      "domain": "social",
+      "month": 66,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "图画纠错分别依赖禽类活动、雨天常识、昼夜习性；不以同类问法当逐级加难。"
+    },
+    {
+      "id": "wst580-232",
+      "title": "抱肘连续跳",
+      "domain": "gross",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "linked",
+      "parents": [
+        "wst580-213"
+      ],
+      "children": [],
+      "reason": "同为单脚连续跳3次，后者增加抱肘、基本原地跳动的要求。"
+    },
+    {
+      "id": "wst580-233",
+      "title": "拍球（2个）",
+      "domain": "gross",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-243"
+      ],
+      "reason": "连续拍球数量由2个提高到5个。"
+    },
+    {
+      "id": "wst580-234",
+      "title": "拼长方形",
+      "domain": "fine",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "拼圆/方、照图拼椭圆、三角拼长方形的材料、提示和构成不同，不能用片数大小排上下级。"
+    },
+    {
+      "id": "wst580-235",
+      "title": "临摹组合图形",
+      "domain": "fine",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "linked",
+      "parents": [
+        "wst580-166",
+        "wst580-195"
+      ],
+      "children": [],
+      "reason": "后项组合图明确包含圆形，将模仿单一闭合圆扩展到看图临摹圆形与方形的组合；不是正式施测门槛。 后项组合图明确包含正方形，将模仿单一方形扩展到看图临摹方形与圆形的组合；不是两项必须先勾选的门槛。"
+    },
+    {
+      "id": "wst580-236",
+      "title": "找不同（7个）",
+      "domain": "adaptive",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "linked",
+      "parents": [
+        "wst580-217"
+      ],
+      "children": [],
+      "reason": "同一类找不同任务，命中数由5处提高到7处。"
+    },
+    {
+      "id": "wst580-237",
+      "title": "知道左右",
+      "domain": "adaptive",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "里外与左右是不同空间概念；动作指令条件亦不同，暂无明确有向包含。"
+    },
+    {
+      "id": "wst580-238",
+      "title": "描述图画内容",
+      "domain": "language",
+      "month": 72,
+      "methodPage": 24,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-248"
+      ],
+      "reason": "由分别描述各张图画的基本内容，增加理解并归纳故事主题的要求。"
+    },
+    {
+      "id": "wst580-239",
+      "title": "上班、窗、苹果、香蕉（2/3）",
+      "domain": "language",
+      "month": 72,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "工作/窗用途与水果共同点为混合题，动物无脚为类别列举，暂不归并同一能力链。"
+    },
+    {
+      "id": "wst580-240",
+      "title": "一年有哪四个季节？",
+      "domain": "social",
+      "month": 72,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "日内时段、四季、读钟、星期相对顺序为不同时间知识，未核实统一进阶尺度。"
+    },
+    {
+      "id": "wst580-241",
+      "title": "认识标识",
+      "domain": "social",
+      "month": 72,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "男女厕所识别与危险标识解释目的不同；不以都是图标建立依赖。"
+    },
+    {
+      "id": "wst580-242",
+      "title": "踢带绳的球",
+      "domain": "gross",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-252"
+      ],
+      "reason": "同用足内踝踢带绳的球，由连续2个提高到3个，并规定踢一下落地一下。"
+    },
+    {
+      "id": "wst580-243",
+      "title": "拍球（5个）",
+      "domain": "gross",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "linked",
+      "parents": [
+        "wst580-233"
+      ],
+      "children": [],
+      "reason": "连续拍球数量由2个提高到5个。"
+    },
+    {
+      "id": "wst580-244",
+      "title": "临摹六边形",
+      "domain": "fine",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "折纸、筷夹、写名字、临摹六边形和翻绳各有专项动作；不把一般精细程度或月龄当方向。"
+    },
+    {
+      "id": "wst580-245",
+      "title": "试打活结",
+      "domain": "fine",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "linked",
+      "parents": [],
+      "children": [
+        "wst580-255"
+      ],
+      "reason": "同为用活结捆筷子，由示范后完成改为无需示范完成。"
+    },
+    {
+      "id": "wst580-246",
+      "title": "图形类比",
+      "domain": "adaptive",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "类同、图形类比和数字类比的题型/材料不同，标准未给可核验跨题型难度标尺。"
+    },
+    {
+      "id": "wst580-247",
+      "title": "面粉的用途",
+      "domain": "adaptive",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "物品用途词项不同，问三项全对不天然高于四项答三；面粉列举也非原任务包含，暂不连。"
+    },
+    {
+      "id": "wst580-248",
+      "title": "归纳图画主题",
+      "domain": "language",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "linked",
+      "parents": [
+        "wst580-238"
+      ],
+      "children": [],
+      "reason": "由分别描述各张图画的基本内容，增加理解并归纳故事主题的要求。"
+    },
+    {
+      "id": "wst580-249",
+      "title": "认识钟表",
+      "domain": "language",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "日内时段、四季、读钟、星期相对顺序为不同时间知识，未核实统一进阶尺度。"
+    },
+    {
+      "id": "wst580-250",
+      "title": "懂得星期几",
+      "domain": "social",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "日内时段、四季、读钟、星期相对顺序为不同时间知识，未核实统一进阶尺度。"
+    },
+    {
+      "id": "wst580-251",
+      "title": "雨中看书",
+      "domain": "social",
+      "month": 78,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "图画纠错分别依赖禽类活动、雨天常识、昼夜习性；不以同类问法当逐级加难。"
+    },
+    {
+      "id": "wst580-252",
+      "title": "连续踢带绳的球",
+      "domain": "gross",
+      "month": 84,
+      "methodPage": 25,
+      "decision": "linked",
+      "parents": [
+        "wst580-242"
+      ],
+      "children": [],
+      "reason": "同用足内踝踢带绳的球，由连续2个提高到3个，并规定踢一下落地一下。"
+    },
+    {
+      "id": "wst580-253",
+      "title": "交替踩踏板",
+      "domain": "gross",
+      "month": 84,
+      "methodPage": 25,
+      "decision": "linked",
+      "parents": [
+        "wst580-214"
+      ],
+      "children": [],
+      "reason": "由同一只脚完成3组，改为两脚交替完成3组。"
+    },
+    {
+      "id": "wst580-254",
+      "title": "学翻绳",
+      "domain": "fine",
+      "month": 84,
+      "methodPage": 25,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "折纸、筷夹、写名字、临摹六边形和翻绳各有专项动作；不把一般精细程度或月龄当方向。"
+    },
+    {
+      "id": "wst580-255",
+      "title": "打活结",
+      "domain": "fine",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "linked",
+      "parents": [
+        "wst580-245"
+      ],
+      "children": [],
+      "reason": "同为用活结捆筷子，由示范后完成改为无需示范完成。"
+    },
+    {
+      "id": "wst580-256",
+      "title": "数字类比",
+      "domain": "adaptive",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "类同、图形类比和数字类比的题型/材料不同，标准未给可核验跨题型难度标尺。"
+    },
+    {
+      "id": "wst580-257",
+      "title": "什么动物没有脚？",
+      "domain": "adaptive",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "工作/窗用途与水果共同点为混合题，动物无脚为类别列举，暂不归并同一能力链。"
+    },
+    {
+      "id": "wst580-258",
+      "title": "为什么要进行预防接种？",
+      "domain": "language",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "饥冷疲劳应对、洗手、交通安全、预防接种的常识内容不同，不串成通用因果问答能力等级。"
+    },
+    {
+      "id": "wst580-259",
+      "title": "毛衣、裤、鞋共同点",
+      "domain": "language",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "反义词、图形命名、列举圆物和衣物共同点要求不同，未核实可组合的方向证据。"
+    },
+    {
+      "id": "wst580-260",
+      "title": "紧急电话",
+      "domain": "social",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "住址和紧急电话是不同生活信息，不能以语言长短或月龄定前后级。"
+    },
+    {
+      "id": "wst580-261",
+      "title": "猫头鹰抓老鼠",
+      "domain": "social",
+      "month": 84,
+      "methodPage": 26,
+      "decision": "no-arrow",
+      "parents": [],
+      "children": [],
+      "reason": "图画纠错分别依赖禽类活动、雨天常识、昼夜习性；不以同类问法当逐级加难。"
+    }
+  ]
+}

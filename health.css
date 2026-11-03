@@ -135,39 +135,43 @@ summary.health-group-heading::after{content:'⌄';font-size:18px;line-height:1}
 .health-focus-picker .health-icon{border:0;background:transparent}
 .health-focus-strip{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0;color:var(--health-blue)}
 .health-focus-strip>div{min-width:0;display:flex;flex-direction:column}.health-focus-strip small{font-size:12px;color:var(--site-muted)}.health-focus-strip strong{font-size:18px;line-height:1.6;overflow-wrap:anywhere}.health-focus-strip>span{font-size:12px;flex-shrink:0}
-.health-graph-tools{display:flex;align-items:center;justify-content:space-between;gap:2px 10px;flex-wrap:wrap;margin:4px 0}
-.health-tool-group{display:flex;align-items:center;gap:2px;min-width:0}
-.health-tool-group .health-icon{border:0;background:transparent;border-radius:6px}
-.health-tool-group .health-icon:hover{background:var(--site-accent-soft)}
-.health-graph-tools [aria-label="查看脉络图例"]{display:none}
-.health-zoom{font-size:13px;min-width:40px;text-align:center;font-variant-numeric:tabular-nums}
-.health-graph-legend{display:flex;align-items:center;flex-wrap:wrap;gap:5px 14px;font-size:12px;color:var(--site-muted);padding:4px 0 8px}
-.health-graph-legend>span{display:inline-flex;align-items:center;gap:5px}
-.health-graph-legend i{display:inline-block;width:13px;height:13px;border:1px solid #b8c4d6;border-radius:3px;background:white}
-.health-graph-legend i.health-key-observed{background:var(--health-soft)}.health-graph-legend i.health-key-focus{background:var(--health-soft);border-color:var(--health-blue)}.health-graph-legend i.health-key-stage{border:2px solid var(--health-blue)}
-.health-graph-legend small{font-size:12px}
-.health-lineage-viewport{max-width:100%;max-height:570px;overflow:auto;overscroll-behavior:contain;border:1px solid var(--site-border);border-radius:10px;background:#f5f8ff;scrollbar-width:thin;cursor:grab}
-.health-lineage-viewport.is-dragging{cursor:grabbing;user-select:none}
-.health-lineage-space{position:relative}
-.health-lineage-board{display:grid;grid-template-columns:repeat(12,230px);align-items:start;gap:14px;width:max-content;padding:12px;transform-origin:top left}
-.health-lineage-stage{min-width:0;padding:0 10px 8px;background:var(--site-surface);border:1px solid var(--site-border);border-radius:9px;position:relative}
-.health-lineage-stage.is-current{border-color:var(--health-blue);box-shadow:0 0 0 1px var(--health-blue)}
 .health-lineage-heading h2{color:var(--health-blue)}
-.health-lineage-stage-title{display:block;width:100%;min-height:44px;border:0;border-bottom:1px solid var(--health-edge);background:var(--site-surface);color:var(--health-blue);font:650 15px/1.5 var(--site-font);text-align:left;padding:8px 0}
-.health-lineage-stage-heading{display:flex;align-items:center;gap:4px;min-width:0}
-.health-lineage-stage-heading .health-lineage-stage-title{flex:1;min-width:0}
-.health-lineage-stage-heading .health-stage-complete{width:32px;min-height:36px;padding:5px;border:0;background:transparent}
-.health-lineage-stage-heading .health-stage-complete span{display:none}
-.health-current-label{display:block;font-size:12px;color:var(--health-blue);padding:2px 0}
-.health-lineage .health-item{border-radius:5px;padding:0 4px;margin:0 -4px}
+.health-focus-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0}
+.health-focus-controls .health-focus-picker{flex:1;margin:0}
+.health-lineage .graph-mode-tabs{background:var(--health-soft)}
+.health-lineage .graph-mode-tabs button{border:0;background:transparent;color:var(--health-blue);font:inherit;font-size:12px}
+.health-lineage .graph-mode-tabs button.active{background:white;color:var(--health-blue)}
+.health-lineage .graph-workspace{border-color:var(--health-edge);box-shadow:0 4px 0 var(--health-soft)}
+.health-lineage .graph-toolbar,.health-lineage .graph-bottom-bar,.health-lineage .graph-legend-disclosure,.health-lineage .graph-key{background:var(--site-surface);border-color:var(--health-edge)}
+.health-lineage :is(.graph-tools button,.graph-tools output,.graph-legend-disclosure>summary,.graph-stage-title>strong,.graph-key p,.graph-legend>strong){color:var(--health-blue)}
+.health-lineage .graph-tools button{border-color:var(--health-edge)}
+.health-lineage .graph-tools button:hover{background:var(--health-soft)}
+.health-lineage-viewport{max-width:100%;max-height:570px;background-color:#f8fbff;background-image:radial-gradient(#cbd9eb 1px,transparent 1px);scrollbar-color:var(--health-edge) #f2f6fc}
+.health-lineage .graph-age-band{background:#edf3fb66;border-color:var(--health-edge)}
+.health-lineage .graph-age-band.selected-age-band{background:var(--health-soft);border:2px solid var(--health-edge)}
+.health-lineage .graph-node{--branch-color:var(--health-blue);box-sizing:border-box;border-color:var(--health-edge);border-left-color:var(--health-blue);box-shadow:0 3px 0 var(--health-soft)}
+.health-lineage .graph-select{border:0;border-radius:0;background:transparent;box-sizing:border-box;font:inherit;cursor:pointer}
+.health-lineage .graph-node-title{color:var(--health-blue)}
+.health-lineage .graph-node.role-focus{background:var(--health-blue);border-color:var(--health-blue);box-shadow:0 0 0 3px var(--health-edge)}
+.health-lineage .graph-node.node-completed:not(.role-focus){background:var(--health-soft)}
+.health-lineage .role-focus .graph-node-title{color:#fff}
+.health-lineage .graph-node-bottom{box-sizing:border-box}
+.health-lineage .health-check{flex:0 0 18px;width:18px;height:18px;min-width:18px;min-height:18px;box-sizing:border-box;border-radius:50%;padding:0;margin-left:auto;line-height:1;font-size:12px;border-color:var(--health-edge);background:white;color:var(--health-blue)}
+.health-lineage .health-check[aria-pressed=true]{background:var(--health-blue);border-color:var(--health-blue);color:white}
+.health-lineage .role-focus .health-check{border-color:white}
+.health-lineage .graph-explain{font-family:inherit;min-height:0;cursor:pointer}
+.health-lineage .graph-select:focus-visible,.health-lineage .graph-explain:focus-visible{outline:2px solid var(--health-blue);outline-offset:-2px}
+.health-lineage .graph-bottom-bar{color:var(--site-muted)}
+.health-lineage .legend-card-done,.health-dialog .legend-card-done{background:var(--health-soft);border-color:var(--health-edge)}
+.health-lineage .legend-card-focus,.health-dialog .legend-card-focus{background:var(--health-blue);border-color:var(--health-blue)}
+.health-graph-dialog .graph-workspace{display:flex;flex-direction:column;flex:1;min-height:0}
+.health-direct-relations{border-top:1px solid var(--site-border);margin-top:16px;padding-top:10px}
+.health-direct-relations>div{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0}
+.health-direct-relations h3{font-size:15px;margin:0 4px 0 0}
+.health-relation-source{margin-top:12px}.health-relation-source>summary{cursor:pointer;color:var(--health-blue)}
+.health-progression-source{padding:8px 0;border-bottom:1px solid var(--site-border)}
+.health-progression-source strong{display:block;font-size:14px;margin-top:10px}
 .health-item.is-focus{background:var(--health-soft);box-shadow:inset 3px 0 var(--health-blue)}
-.health-lineage .health-item[data-observed=true]:not(.is-focus){background:var(--health-soft)}
-.health-lineage .health-graph-item{display:block;padding:8px!important;margin:8px 0!important;border:1px solid var(--health-edge);border-radius:9px;background:var(--site-surface);box-shadow:0 3px 0 #1421380c}
-.health-graph-item .health-item-label{padding:0}.health-graph-item .health-item-open{min-height:44px;width:100%;font-weight:600}
-.health-graph-item-bottom{display:flex;align-items:center;gap:6px;margin-top:4px}.health-graph-item-bottom .health-item-meta{flex:1;min-width:0}
-.health-explain{padding:3px 6px;min-height:30px;border:1px solid var(--health-edge);border-radius:5px;background:var(--health-soft);color:var(--health-blue);font-size:12px}
-.health-lineage .health-graph-item.is-focus{background:var(--health-blue);box-shadow:0 0 0 3px var(--health-edge)}
-.health-graph-item.is-focus :is(.health-item-open,.health-item-meta,.health-flags){color:white}.health-graph-item.is-focus .health-check{border-color:white}
 .health-graph-dialog{width:calc(100% - 24px);max-width:none;height:calc(100dvh - 24px);max-height:none;margin:auto;padding:16px;border:1px solid var(--site-border);border-radius:12px;background:var(--site-bg);color:var(--site-text);overflow:auto;container-type:inline-size}
 .health-graph-dialog::backdrop,.health-dialog::backdrop{background:#14213870}
 .health-graph-dialog>.health-lineage{display:flex;flex-direction:column;height:100%;margin:0}
@@ -222,9 +226,9 @@ body.health-modal-open,body.health-graph-open{overflow:hidden}
  .health-search-box .health-icon{position:absolute;right:0;top:0;width:28px;min-height:44px;padding:6px}.health-search-box .health-icon:disabled{visibility:hidden}
  .health-results-label,.health-next-hint{display:none}
  .health-groups{gap:8px}.health-items{grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr));gap:0 10px}
- .health-lineage{margin-top:12px}.health-lineage-board{grid-template-columns:repeat(12,215px);gap:12px;padding:9px}
- .health-inline-legend{display:none}.health-graph-tools{justify-content:flex-start;gap:0 6px}
- .health-tool-group{gap:0}.health-lineage-heading h2{font-size:17px}
+ .health-lineage{margin-top:12px}
+
+ .health-lineage-heading h2{font-size:17px}
  .health-focus-picker{gap:4px}.health-stage-complete{padding:5px 8px}
 }
 @media(max-width:900px){
@@ -232,7 +236,7 @@ body.health-modal-open,body.health-graph-open{overflow:hidden}
  .health-month-picker select{display:block}.health-stage-track{display:none}
  .health-stage-controls{margin:4px 0 14px}
  .health-groups{grid-template-columns:minmax(0,1fr)}
- .health-inline-legend{display:none}.health-graph-tools [aria-label="查看脉络图例"]{display:inline-flex}
+ .health-lineage .graph-tools .graph-legend-button{display:grid}.health-lineage .graph-tools button{border-color:transparent;background:transparent}.health-lineage .graph-toolbar{padding:2px 4px}
  .health-undo{bottom:calc(82px + env(safe-area-inset-bottom))}
 }
 @media(max-width:420px){.health-month-picker>.health-stage-complete{width:44px;padding:8px}.health-month-picker>.health-stage-complete span{display:none}.health-detail-status{flex-wrap:wrap}.health-form-actions{flex-wrap:wrap}}
@@ -245,3 +249,5 @@ body.health-modal-open,body.health-graph-open{overflow:hidden}
  .health-dialog-head .site-section-switch{max-width:110px}.health-observation-form{grid-template-columns:1fr}
  .health-graph-dialog{width:calc(100% - 12px);height:calc(100dvh - 12px);padding:8px}
 }
+
+@media(max-width:600px){.health-focus-strip{align-items:flex-start;flex-wrap:wrap;gap:3px}.health-focus-strip>span{font-size:12px}.health-focus-controls .graph-mode-tabs{width:100%}.health-focus-controls .graph-mode-tabs button{white-space:normal;flex:1}.health-focus-controls .health-focus-picker{flex-basis:100%}}
