@@ -1,0 +1,4406 @@
+{
+  "schemaVersion": 1,
+  "title": "Highlights Hello 杂志资源图谱",
+  "checkedAt": "2026-11-04",
+  "attribution": "场景与曲调建议来源：Erin是松果妈妈；本站按汇总原件整理。",
+  "tuneNote": "曲调表示整理者建议可套用的旋律，包含拓展儿歌，不代表杂志官方配乐或唯一唱法。",
+  "editionNote": "1–24号书与2017–2020年月刊分别索引，尚无逐册对应依据，不互换编号。",
+  "sources": [
+    {
+      "id": "scenes",
+      "title": "Hello杂志全套场景汇总",
+      "file": "assets/hello/scenes.pdf",
+      "url": "https://t3.znas.cn/urz19N4PL78",
+      "expiresAfterDays": 180
+    },
+    {
+      "id": "rhymes",
+      "title": "Hello杂志带读课 · 童谣拓展汇总",
+      "file": "assets/hello/rhymes.pdf"
+    }
+  ],
+  "books": [
+    {
+      "id": "hello-01",
+      "number": 1,
+      "title": "1号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 2,
+          "scene": "肢体动作",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 3,
+          "scene": "家里的房间",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 4,
+          "scene": "理发",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 5,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 1
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/JN2x5pzVsEh",
+          "sourceFile": "1号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/tZGPIm6lmwb",
+          "sourceFile": "1.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-01-asset-1ad09abf3f89ad06",
+          "kind": "audio",
+          "label": "1 Can you.mp3",
+          "file": "assets/hello/files/1ad09abf3f89ad06.mp3",
+          "bytes": 478371,
+          "sha256": "1ad09abf3f89ad06e86750b9e463c6de8fddaf50942ee41b62ca4d8bc16ebb9f",
+          "originalNames": [
+            "1 Can you.mp3"
+          ],
+          "duration": 29.86,
+          "rhymeIds": [
+            "hello-rhyme-02"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-01-asset-084d55e137fd61cc",
+          "kind": "pdf",
+          "label": "1号书.pdf",
+          "file": "assets/hello/files/084d55e137fd61cc.pdf",
+          "bytes": 2655388,
+          "sha256": "084d55e137fd61cc2aac719d8592f5a3e819fd69c89c4e5321fe62224c044543",
+          "originalNames": [
+            "1号书.pdf"
+          ],
+          "pages": 7
+        },
+        {
+          "id": "hello-01-asset-704c9da9b3bb5549",
+          "kind": "pdf",
+          "label": "Activity sheet.pdf",
+          "file": "assets/hello/files/704c9da9b3bb5549.pdf",
+          "bytes": 301504,
+          "sha256": "704c9da9b3bb5549430eb05abb81f4ff220497020d4965089cf030722a89da5b",
+          "originalNames": [
+            "Activity sheet.pdf"
+          ],
+          "pages": 1
+        },
+        {
+          "id": "hello-01-asset-93f30c784e632e03",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-01.pdf",
+          "bytes": 1227909,
+          "sha256": "93f30c784e632e03a0f7e5ed6f2b46110b28c30af8663f548f7fef233004d15c",
+          "originalNames": [
+            "Hello1号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-02",
+      "number": 2,
+      "title": "2号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "颜色",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 2,
+          "scene": "肢体动作",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 3,
+          "scene": "宠物",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 4,
+          "scene": "照镜子",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 5,
+          "scene": "室内游戏",
+          "note": "玩小火车",
+          "sourcePage": 1
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/YdLnuc48OPb",
+          "sourceFile": "2号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/EASlwDqVpOk",
+          "sourceFile": "2.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-02-asset-918d5daf95406198",
+          "kind": "audio",
+          "label": "2 Rockin' Baby.mp3",
+          "file": "assets/hello/files/918d5daf95406198.mp3",
+          "bytes": 310774,
+          "sha256": "918d5daf95406198e8f183abc6bfcdd8c0ceb630e85ef7fa66cd68baff43e568",
+          "originalNames": [
+            "2 Rockin' Baby.mp3"
+          ],
+          "duration": 19.38,
+          "rhymeIds": [
+            "hello-rhyme-03"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-02-asset-6e69b9e0653000f5",
+          "kind": "audio",
+          "label": "2 Watch it go.mp3",
+          "file": "assets/hello/files/6e69b9e0653000f5.mp3",
+          "bytes": 286114,
+          "sha256": "6e69b9e0653000f5bce5e4a6c03182b51bb33899214310d8dcd938f604cfa841",
+          "originalNames": [
+            "2 Watch it go.mp3"
+          ],
+          "duration": 17.84,
+          "rhymeIds": [
+            "hello-rhyme-04"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-02-asset-050f51627da1d3f9",
+          "kind": "pdf",
+          "label": "2号书.pdf",
+          "file": "assets/hello/files/050f51627da1d3f9.pdf",
+          "bytes": 9856012,
+          "sha256": "050f51627da1d3f96067d988977bb7a8ba8a97681ccefbc81d26d8f43b11c1cc",
+          "originalNames": [
+            "2号书.pdf"
+          ],
+          "pages": 9
+        },
+        {
+          "id": "hello-02-asset-721d2ef17ce0a352",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-02.pdf",
+          "bytes": 1246149,
+          "sha256": "721d2ef17ce0a3520b86e87181faf2137b23518905a97ab5179fccaa7e039291",
+          "originalNames": [
+            "Hello2号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-03",
+      "number": 3,
+      "title": "3号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "捉迷藏",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 2,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 3,
+          "scene": "玩具",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 4,
+          "scene": "出行",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 5,
+          "scene": "洗澡",
+          "note": "",
+          "sourcePage": 1
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/2JBRIIW5FVc",
+          "sourceFile": "3号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/mVlW1ab4LU6",
+          "sourceFile": "3.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-03-asset-0453260c02807a50",
+          "kind": "audio",
+          "label": "3 A very long car ride(1).mp3",
+          "file": "assets/hello/files/0453260c02807a50.mp3",
+          "bytes": 383089,
+          "sha256": "0453260c02807a50aa99f7d3936ef53a9d5e0c37b9df80d44ee7046753a0e65c",
+          "originalNames": [
+            "3 A very long car ride(1).mp3",
+            "3 A very long car ride(1)(1).mp3",
+            "3 A very long car ride.mp3"
+          ],
+          "duration": 23.9,
+          "rhymeIds": [
+            "hello-rhyme-06"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-03-asset-7ff99a88154cc350",
+          "kind": "audio",
+          "label": "3 Bubble Bath.mp3",
+          "file": "assets/hello/files/7ff99a88154cc350.mp3",
+          "bytes": 340030,
+          "sha256": "7ff99a88154cc3501df5a3327fde0538fca6def23f8e6618a6a3134fa06d36f4",
+          "originalNames": [
+            "3 Bubble Bath.mp3",
+            "3 Bubble Bath(1).mp3"
+          ],
+          "duration": 21.21,
+          "rhymeIds": [
+            "hello-rhyme-07"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-03-asset-4faeb2deee59aaa8",
+          "kind": "audio",
+          "label": "3 Giggle Kisses.mp3",
+          "file": "assets/hello/files/4faeb2deee59aaa8.mp3",
+          "bytes": 364692,
+          "sha256": "4faeb2deee59aaa8882ac44422dfb61177bca4ee9857c781fca1d1c92e336e68",
+          "originalNames": [
+            "3 Giggle Kisses.mp3",
+            "3 Giggle Kisses(1).mp3"
+          ],
+          "duration": 22.75,
+          "rhymeIds": [
+            "hello-rhyme-05"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-03-asset-2e1b3026ab144ba5",
+          "kind": "pdf",
+          "label": "3号书.pdf",
+          "file": "assets/hello/files/2e1b3026ab144ba5.pdf",
+          "bytes": 11576710,
+          "sha256": "2e1b3026ab144ba5278e24637d1c56574717cda24a02ef870b91ec0598b0fde0",
+          "originalNames": [
+            "3号书.pdf",
+            "3号书(1).pdf"
+          ],
+          "pages": 8
+        },
+        {
+          "id": "hello-03-asset-e370f553b785d439",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-03.pdf",
+          "bytes": 1227887,
+          "sha256": "e370f553b785d439a7a181301305b8bfd04e373c2673b6761c46089d5e41ab91",
+          "originalNames": [
+            "3号书笔记汇总.pdf",
+            "3号书笔记汇总(1).pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-03-asset-ae2a35d368f8e1d1",
+          "kind": "audio",
+          "label": "We_re-going-on-a-car-ride.mp3",
+          "file": "assets/hello/files/ae2a35d368f8e1d1.mp3",
+          "bytes": 361251,
+          "sha256": "ae2a35d368f8e1d110afcf7fe8e134c100d7b323889c64f429940d2b6cde3478",
+          "originalNames": [
+            "We_re-going-on-a-car-ride.mp3",
+            "We_re-going-on-a-car-ride(1).mp3"
+          ],
+          "duration": 23.64,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-04",
+      "number": 4,
+      "title": "4号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "动物",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 2,
+          "scene": "影子",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 3,
+          "scene": "购物",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 4,
+          "scene": "玩具",
+          "note": "workbench",
+          "sourcePage": 1
+        },
+        {
+          "part": 5,
+          "scene": "玩具",
+          "note": "",
+          "sourcePage": 1
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/5kQ3zngHCD1",
+          "sourceFile": "4号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/9dZehE5UEz3",
+          "sourceFile": "4.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-04-asset-9ed43d7b2f76dece",
+          "kind": "audio",
+          "label": "4 Little Bird.mp3",
+          "file": "assets/hello/files/9ed43d7b2f76dece.mp3",
+          "bytes": 404814,
+          "sha256": "9ed43d7b2f76dece405f4a106d370340f231d447589e961d475c27de56cad493",
+          "originalNames": [
+            "4 Little Bird.mp3"
+          ],
+          "duration": 25.26,
+          "rhymeIds": [
+            "hello-rhyme-08"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-04-asset-78cadbbe70e5e5f4",
+          "kind": "audio",
+          "label": "4 Where toys Can sleep.mp3",
+          "file": "assets/hello/files/78cadbbe70e5e5f4.mp3",
+          "bytes": 302005,
+          "sha256": "78cadbbe70e5e5f4d2e22995ff7cc1a2c0933ba16ff2bd6966c9f9c9022eaf36",
+          "originalNames": [
+            "4 Where toys Can sleep.mp3"
+          ],
+          "duration": 18.83,
+          "rhymeIds": [
+            "hello-rhyme-09"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-04-asset-81709058b2fe924a",
+          "kind": "pdf",
+          "label": "4号书-.pdf",
+          "file": "assets/hello/files/81709058b2fe924a.pdf",
+          "bytes": 2852420,
+          "sha256": "81709058b2fe924a9098d706a3d387d49342f263702bf26574b3f49fd898a502",
+          "originalNames": [
+            "4号书-.pdf"
+          ],
+          "pages": 8
+        },
+        {
+          "id": "hello-04-asset-dcc92ca9eea2dd69",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-04.pdf",
+          "bytes": 411871,
+          "sha256": "dcc92ca9eea2dd6985e6d2dbf7ec685735b446f71e2ee9917425d061cc2d6d6a",
+          "originalNames": [
+            "Hello4号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-05",
+      "number": 5,
+      "title": "5号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "马路",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 2,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 3,
+          "scene": "植物",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 4,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 5,
+          "scene": "喝水",
+          "note": "",
+          "sourcePage": 1
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/Yn4OWcITaya",
+          "sourceFile": "5号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/Ltygo5R8iX2",
+          "sourceFile": "5.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-05-asset-f915db8cedda9586",
+          "kind": "audio",
+          "label": "5 I'm your little sippy cup.mp3",
+          "file": "assets/hello/files/f915db8cedda9586.mp3",
+          "bytes": 384348,
+          "sha256": "f915db8cedda95862dd961da301d7aad94f78d5aadd104130d9f6dbe4ee550aa",
+          "originalNames": [
+            "5 I'm your little sippy cup.mp3"
+          ],
+          "duration": 23.98,
+          "rhymeIds": [
+            "hello-rhyme-11"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-05-asset-6b49dac64d71f4a7",
+          "kind": "pdf",
+          "label": "5号书.pdf",
+          "file": "assets/hello/files/6b49dac64d71f4a7.pdf",
+          "bytes": 2870368,
+          "sha256": "6b49dac64d71f4a784e24c3e6c360ef64ee0120c5feaab73727b4a51a2aa2f33",
+          "originalNames": [
+            "5号书.pdf"
+          ],
+          "pages": 8
+        },
+        {
+          "id": "hello-05-asset-40bc0374127a5ddc",
+          "kind": "audio",
+          "label": "Barefoot.Books.Singalongs.07.Creep.Crawly.Calypso.mp3",
+          "file": "assets/hello/files/40bc0374127a5ddc.mp3",
+          "bytes": 2246049,
+          "sha256": "40bc0374127a5ddc257005f34f6121e5eddf85ab8bc3ee80ca2f6811815b82fd",
+          "originalNames": [
+            "Barefoot.Books.Singalongs.07.Creep.Crawly.Calypso.mp3"
+          ],
+          "duration": 140.38,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-05-asset-28de1da185390c03",
+          "kind": "audio",
+          "label": "City and Country.mp3",
+          "file": "assets/hello/files/28de1da185390c03.mp3",
+          "bytes": 251013,
+          "sha256": "28de1da185390c036962317d47b85ba008d32dce9ee28dc0a5fdc6edbb84c2ea",
+          "originalNames": [
+            "City and Country.mp3"
+          ],
+          "duration": 15.65,
+          "rhymeIds": [
+            "hello-rhyme-10"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-05-asset-a3243d668700d427",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-05.pdf",
+          "bytes": 1395915,
+          "sha256": "a3243d668700d4278a43450d153301373d2383499f27548986a2063393fed701",
+          "originalNames": [
+            "Hello5号书笔记汇总.pdf"
+          ],
+          "pages": 6
+        },
+        {
+          "id": "hello-05-asset-b5d34a864bf7f71b",
+          "kind": "audio",
+          "label": "I'm a little teapot.mp3",
+          "file": "assets/hello/files/b5d34a864bf7f71b.mp3",
+          "bytes": 1935542,
+          "sha256": "b5d34a864bf7f71be048a7a66b7b903f24cdab051d9e99f64315b6a2216e56a9",
+          "originalNames": [
+            "I'm a little teapot.mp3"
+          ],
+          "duration": 48.36,
+          "rhymeIds": [],
+          "tunes": [
+            "I’m a Little Teapot"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-06",
+      "number": 6,
+      "title": "6号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "双胞胎",
+          "note": "",
+          "sourcePage": 1
+        },
+        {
+          "part": 2,
+          "scene": "户外游戏",
+          "note": "pool",
+          "sourcePage": 1
+        },
+        {
+          "part": 3,
+          "scene": "室内游戏",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "室内游戏",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "户外游戏",
+          "note": "浇水",
+          "sourcePage": 2
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/MqCbc5Qn3O1",
+          "sourceFile": "6号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/dt7NHx1j0F6",
+          "sourceFile": "6.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-06-asset-ce8dc51ece73667c",
+          "kind": "audio",
+          "label": "6 Baby Bunny's in her pool.mp3",
+          "file": "assets/hello/files/ce8dc51ece73667c.mp3",
+          "bytes": 278185,
+          "sha256": "ce8dc51ece73667cc465d66f2822446e9e1a84bbaac079bcb16e48b9efdc40e9",
+          "originalNames": [
+            "6 Baby Bunny's in her pool.mp3"
+          ],
+          "duration": 17.35,
+          "rhymeIds": [
+            "hello-rhyme-12"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-06-asset-24923d398b3ebce3",
+          "kind": "audio",
+          "label": "6 Bouncy.mp3",
+          "file": "assets/hello/files/24923d398b3ebce3.mp3",
+          "bytes": 475026,
+          "sha256": "24923d398b3ebce34eaf589359138e734f987d6923d6d0d7f8505c61e9d65c69",
+          "originalNames": [
+            "6 Bouncy.mp3"
+          ],
+          "duration": 29.65,
+          "rhymeIds": [
+            "hello-rhyme-13"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-06-asset-fc5bc7b8e765c2c4",
+          "kind": "audio",
+          "label": "6 Watering the Garden.mp3",
+          "file": "assets/hello/files/fc5bc7b8e765c2c4.mp3",
+          "bytes": 505968,
+          "sha256": "fc5bc7b8e765c2c4c8fe4e753c8837647780f87fa1a03c32d185abec82bd5774",
+          "originalNames": [
+            "6 Watering the Garden.mp3"
+          ],
+          "duration": 31.58,
+          "rhymeIds": [
+            "hello-rhyme-14"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-06-asset-578e3e139ece229a",
+          "kind": "pdf",
+          "label": "6号书.pdf",
+          "file": "assets/hello/files/578e3e139ece229a.pdf",
+          "bytes": 34565306,
+          "sha256": "578e3e139ece229afcaf190dd2476e8636f731df339c644b8465bace9d2b3274",
+          "originalNames": [
+            "6号书.pdf"
+          ],
+          "pages": 9
+        },
+        {
+          "id": "hello-06-asset-1b894a87b6153e8f",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-06.pdf",
+          "bytes": 1327351,
+          "sha256": "1b894a87b6153e8f4ae3275dddb0e0b7e2ea1d291a839aa507a74042b12dcf82",
+          "originalNames": [
+            "Hello6号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-06-asset-0ac10913f9277dd0",
+          "kind": "pdf",
+          "label": "HighlightsHello-2018年10月.pdf",
+          "file": "assets/hello/files/0ac10913f9277dd0.pdf",
+          "bytes": 1085929,
+          "sha256": "0ac10913f9277dd099f9842c83a725224534da15198a355964d20a3e36d654c9",
+          "originalNames": [
+            "HighlightsHello-2018年10月.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-06-asset-b5d34a864bf7f71b",
+          "kind": "audio",
+          "label": "I'm a little teapot.mp3",
+          "file": "assets/hello/files/b5d34a864bf7f71b.mp3",
+          "bytes": 1935542,
+          "sha256": "b5d34a864bf7f71be048a7a66b7b903f24cdab051d9e99f64315b6a2216e56a9",
+          "originalNames": [
+            "I'm a little teapot.mp3"
+          ],
+          "duration": 48.36,
+          "rhymeIds": [],
+          "tunes": [
+            "I’m a Little Teapot"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-07",
+      "number": 7,
+      "title": "7号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "户外游戏",
+          "note": "玩球",
+          "sourcePage": 2
+        },
+        {
+          "part": 2,
+          "scene": "宠物",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 3,
+          "scene": "户外游戏",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "身体部位",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "肢体动作",
+          "note": "",
+          "sourcePage": 2
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/HzKiIJWipE",
+          "sourceFile": "7号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/s84KOjLeehe",
+          "sourceFile": "7.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-07-asset-6c867fcd2f44801d",
+          "kind": "audio",
+          "label": "7 Clap clap clap.mp3",
+          "file": "assets/hello/files/6c867fcd2f44801d.mp3",
+          "bytes": 237633,
+          "sha256": "6c867fcd2f44801d4b6a7e828335127e3b1ed455009e78981ddf16f691883b0d",
+          "originalNames": [
+            "7 Clap clap clap.mp3"
+          ],
+          "duration": 14.81,
+          "rhymeIds": [
+            "hello-rhyme-16"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-07-asset-f950565c0806cd3b",
+          "kind": "audio",
+          "label": "7 Go Go go.mp3",
+          "file": "assets/hello/files/f950565c0806cd3b.mp3",
+          "bytes": 294052,
+          "sha256": "f950565c0806cd3b3b465278efc0b24ca7cd56e0fd34167cf8aaccb77ae39015",
+          "originalNames": [
+            "7 Go Go go.mp3"
+          ],
+          "duration": 18.34,
+          "rhymeIds": [
+            "hello-rhyme-15"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-07-asset-027ac25b599e3c5f",
+          "kind": "pdf",
+          "label": "7号书.pdf",
+          "file": "assets/hello/files/027ac25b599e3c5f.pdf",
+          "bytes": 36361560,
+          "sha256": "027ac25b599e3c5f9f254d21a16837514952ec14b0cda94987da665e50e0cbba",
+          "originalNames": [
+            "7号书.pdf"
+          ],
+          "pages": 9
+        },
+        {
+          "id": "hello-07-asset-5beaca34b3294c98",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-07.pdf",
+          "bytes": 1306404,
+          "sha256": "5beaca34b3294c982af2a4bfc4b17b7d41061618c693dd383af945a6e00e91d2",
+          "originalNames": [
+            "Hello7号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-07-asset-0a934f1aa6965346",
+          "kind": "audio",
+          "label": "this little piggy 3 times.mp3",
+          "file": "assets/hello/files/0a934f1aa6965346.mp3",
+          "bytes": 2816671,
+          "sha256": "0a934f1aa696534685355e4d92dd801b3e56d24d398b1b7675485acab54dfcb2",
+          "originalNames": [
+            "this little piggy 3 times.mp3"
+          ],
+          "duration": 352.08,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-07-asset-70f8037060efce89",
+          "kind": "audio",
+          "label": "Where Is Thumbkin.mp3",
+          "file": "assets/hello/files/70f8037060efce89.mp3",
+          "bytes": 1929436,
+          "sha256": "70f8037060efce8958ffc300da8a7138c38b200efd6bfa57c63afb1c45c7361c",
+          "originalNames": [
+            "Where Is Thumbkin.mp3"
+          ],
+          "duration": 120.56,
+          "rhymeIds": [],
+          "tunes": [
+            "Where Is Thumbkin?"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-08",
+      "number": 8,
+      "title": "8号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "海边",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 2,
+          "scene": "喝水",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 3,
+          "scene": "海边",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "玩具",
+          "note": "收玩具",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "户外游戏",
+          "note": "吹泡泡",
+          "sourcePage": 2
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/ZUgpvlrYLR9",
+          "sourceFile": "8号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/8AhyWvqbgl5",
+          "sourceFile": "8.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-08-asset-b6e4861f809c7f48",
+          "kind": "audio",
+          "label": "8 Beach Baby.mp3",
+          "file": "assets/hello/files/b6e4861f809c7f48.mp3",
+          "bytes": 456640,
+          "sha256": "b6e4861f809c7f48dfe2af400fe5c02886578d879bbcff1a73010add1ac20f6c",
+          "originalNames": [
+            "8 Beach Baby.mp3"
+          ],
+          "duration": 28.5,
+          "rhymeIds": [
+            "hello-rhyme-17"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-08-asset-a272369ea9ddc67d",
+          "kind": "audio",
+          "label": "8 It's time to put your toys away.mp3",
+          "file": "assets/hello/files/a272369ea9ddc67d.mp3",
+          "bytes": 664805,
+          "sha256": "a272369ea9ddc67decbe40735d07617edabba2aa4af300b074e792f144e8789b",
+          "originalNames": [
+            "8 It's time to put your toys away.mp3"
+          ],
+          "duration": 41.51,
+          "rhymeIds": [
+            "hello-rhyme-18"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-08-asset-1dba5651a0db0690",
+          "kind": "pdf",
+          "label": "8号书.pdf",
+          "file": "assets/hello/files/1dba5651a0db0690.pdf",
+          "bytes": 34292269,
+          "sha256": "1dba5651a0db06908289c5fced4fafa8229e511c720c122892481fdbee217f73",
+          "originalNames": [
+            "8号书.pdf"
+          ],
+          "pages": 9
+        },
+        {
+          "id": "hello-08-asset-01191e747ce80b75",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-08.pdf",
+          "bytes": 1627673,
+          "sha256": "01191e747ce80b75dd1ae40d82bfd8a4786cdb3f569e800dfbe0d51750175f9c",
+          "originalNames": [
+            "Hello8号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-08-asset-3f5c565dfdeeb0c4",
+          "kind": "audio",
+          "label": "london bridge is falling down.mp3",
+          "file": "assets/hello/files/3f5c565dfdeeb0c4.mp3",
+          "bytes": 1666529,
+          "sha256": "3f5c565dfdeeb0c49eb9ba22a5dcf41291246f2db23f807759a7c8844e2ab799",
+          "originalNames": [
+            "london bridge is falling down.mp3"
+          ],
+          "duration": 104.15,
+          "rhymeIds": [],
+          "tunes": [
+            "London Bridge Is Falling Down"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-09",
+      "number": 9,
+      "title": "9号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "天气",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 2,
+          "scene": "室内游戏",
+          "note": "玩小汽车",
+          "sourcePage": 2
+        },
+        {
+          "part": 3,
+          "scene": "游乐场",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "洗澡",
+          "note": "",
+          "sourcePage": 2
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/a71uo6b9B47",
+          "sourceFile": "9号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/ouKnXsVLr3",
+          "sourceFile": "9.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-09-asset-75a63fd3e4604ba9",
+          "kind": "audio",
+          "label": "9 Do they sink.mp3",
+          "file": "assets/hello/files/75a63fd3e4604ba9.mp3",
+          "bytes": 308266,
+          "sha256": "75a63fd3e4604ba9b70f0e297ca7e24f331a1c7ff8c5c14605228be84254541a",
+          "originalNames": [
+            "9 Do they sink.mp3"
+          ],
+          "duration": 19.23,
+          "rhymeIds": [
+            "hello-rhyme-21"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-09-asset-9e6155d4d3374815",
+          "kind": "audio",
+          "label": "9 Here I am.mp3",
+          "file": "assets/hello/files/9e6155d4d3374815.mp3",
+          "bytes": 754363,
+          "sha256": "9e6155d4d3374815218f75de490352013cb7ce02aca5f92665a8c5256b0eb207",
+          "originalNames": [
+            "9 Here I am.mp3"
+          ],
+          "duration": 47.1,
+          "rhymeIds": [
+            "hello-rhyme-20"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-09-asset-edc70323de1176c1",
+          "kind": "audio",
+          "label": "9 My Racing Cars.mp3",
+          "file": "assets/hello/files/edc70323de1176c1.mp3",
+          "bytes": 284027,
+          "sha256": "edc70323de1176c1d2f7cad5f3bae2624ebb31be16eda72fa287b51002344b96",
+          "originalNames": [
+            "9 My Racing Cars.mp3"
+          ],
+          "duration": 17.71,
+          "rhymeIds": [
+            "hello-rhyme-19"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-09-asset-35e78cf2a2e013e7",
+          "kind": "pdf",
+          "label": "9号书.pdf",
+          "file": "assets/hello/files/35e78cf2a2e013e7.pdf",
+          "bytes": 3182709,
+          "sha256": "35e78cf2a2e013e779133a0ce9cc2c907285249a26ccb5121b149a01a21cfb8b",
+          "originalNames": [
+            "9号书.pdf"
+          ],
+          "pages": 7
+        },
+        {
+          "id": "hello-09-asset-de080b6ad376df6d",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-09.pdf",
+          "bytes": 1119091,
+          "sha256": "de080b6ad376df6d04261c8ccc5e8d5c00c95d42df49fdc94414fe4a94aa4755",
+          "originalNames": [
+            "9号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-09-asset-3f5c565dfdeeb0c4",
+          "kind": "audio",
+          "label": "london bridge is falling down.mp3",
+          "file": "assets/hello/files/3f5c565dfdeeb0c4.mp3",
+          "bytes": 1666529,
+          "sha256": "3f5c565dfdeeb0c49eb9ba22a5dcf41291246f2db23f807759a7c8844e2ab799",
+          "originalNames": [
+            "london bridge is falling down.mp3"
+          ],
+          "duration": 104.15,
+          "rhymeIds": [],
+          "tunes": [
+            "London Bridge Is Falling Down"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-10",
+      "number": 10,
+      "title": "10号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "捉迷藏",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 2,
+          "scene": "肢体动作",
+          "note": "patty cake",
+          "sourcePage": 2
+        },
+        {
+          "part": 3,
+          "scene": "户外游戏",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "动物",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "生日",
+          "note": "",
+          "sourcePage": 2
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/RBAKCMK5LZ5",
+          "sourceFile": "10号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/o8wHu5HPfc",
+          "sourceFile": "10.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-10-asset-72466c328a0056ca",
+          "kind": "audio",
+          "label": "10 Patty cake clap.mp3",
+          "file": "assets/hello/files/72466c328a0056ca.mp3",
+          "bytes": 443689,
+          "sha256": "72466c328a0056ca5e03a7371322dca1350863e0b94071a1aafd9b241e4fe61e",
+          "originalNames": [
+            "10 Patty cake clap.mp3"
+          ],
+          "duration": 27.69,
+          "rhymeIds": [
+            "hello-rhyme-22"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-10-asset-0d5903887d9f591f",
+          "kind": "pdf",
+          "label": "10号书.pdf",
+          "file": "assets/hello/files/0d5903887d9f591f.pdf",
+          "bytes": 6533046,
+          "sha256": "0d5903887d9f591f0728f324d656a5c2dabe74a7531724ee7227d2ca529f2f66",
+          "originalNames": [
+            "10号书.pdf"
+          ],
+          "pages": 9
+        },
+        {
+          "id": "hello-10-asset-c7589dd897027a45",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-10.pdf",
+          "bytes": 1093575,
+          "sha256": "c7589dd897027a45b853db420c1b0b22deae4d03eb0d694fcc8f606c36dc7b3d",
+          "originalNames": [
+            "10号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-10-asset-1a8d9a1c05384765",
+          "kind": "audio",
+          "label": "polar bear儿歌.mp3",
+          "file": "assets/hello/files/1a8d9a1c05384765.mp3",
+          "bytes": 2740495,
+          "sha256": "1a8d9a1c05384765718cafcee98f779b09e2cbb809b985d3e83f6b7880c370ab",
+          "originalNames": [
+            "polar bear儿歌.mp3"
+          ],
+          "duration": 228.34,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-11",
+      "number": 11,
+      "title": "11号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "吃饭",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 2,
+          "scene": "日托",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 3,
+          "scene": "户外游戏",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "家里的房间",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 2
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/5ObsNbEOtZ7",
+          "sourceFile": "11号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/t0hAXoVaEZe",
+          "sourceFile": "11.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-11-asset-4501d399b670dbe4",
+          "kind": "audio",
+          "label": "11 Little Wagon.mp3",
+          "file": "assets/hello/files/4501d399b670dbe4.mp3",
+          "bytes": 407742,
+          "sha256": "4501d399b670dbe493c909f61e7a69c99927295d30f1a1c5bec97bef2421712d",
+          "originalNames": [
+            "11 Little Wagon.mp3"
+          ],
+          "duration": 25.44,
+          "rhymeIds": [
+            "hello-rhyme-24"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-11-asset-de1cf7cd874dfc3c",
+          "kind": "audio",
+          "label": "11 Rock-a-bye Darling.mp3",
+          "file": "assets/hello/files/de1cf7cd874dfc3c.mp3",
+          "bytes": 447454,
+          "sha256": "de1cf7cd874dfc3ce28d82a6c5f21f5b45a9b428d068f2f4e11261415e03161e",
+          "originalNames": [
+            "11 Rock-a-bye Darling.mp3"
+          ],
+          "duration": 27.92,
+          "rhymeIds": [
+            "hello-rhyme-25"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-11-asset-9728cc7837d9af8f",
+          "kind": "audio",
+          "label": "11 Toaster atreats.mp3",
+          "file": "assets/hello/files/9728cc7837d9af8f.mp3",
+          "bytes": 365531,
+          "sha256": "9728cc7837d9af8f1cb0afee505e29ae5f49c5a500649195f3febf9d2998681f",
+          "originalNames": [
+            "11 Toaster atreats.mp3"
+          ],
+          "duration": 22.8,
+          "rhymeIds": [
+            "hello-rhyme-23"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-11-asset-707c6b2943e67112",
+          "kind": "pdf",
+          "label": "11号书.pdf",
+          "file": "assets/hello/files/707c6b2943e67112.pdf",
+          "bytes": 2836939,
+          "sha256": "707c6b2943e67112a2696f3edd6ec2c7161f9cf4b0dfcc4370465fc369e9367a",
+          "originalNames": [
+            "11号书.pdf"
+          ],
+          "pages": 9
+        },
+        {
+          "id": "hello-11-asset-0bb7415fe2b9ebf3",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-11.pdf",
+          "bytes": 4133309,
+          "sha256": "0bb7415fe2b9ebf30dad2f0cae632b92e0b01a29f562b518f984cc6f0dd09aab",
+          "originalNames": [
+            "Hello11号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-12",
+      "number": 12,
+      "title": "12号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "白天晚上",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 2,
+          "scene": "洗澡",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 3,
+          "scene": "玩具",
+          "note": "叠叠乐、积木",
+          "sourcePage": 2
+        },
+        {
+          "part": 4,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 2
+        },
+        {
+          "part": 5,
+          "scene": "玩具",
+          "note": "曼哈顿玩具",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/fAyUS8MeXGi",
+          "sourceFile": "12号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/G23XIsNvOfb",
+          "sourceFile": "12.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-12-asset-0cd647dbb3f653c0",
+          "kind": "audio",
+          "label": "12 Graham's New Toy.mp3",
+          "file": "assets/hello/files/0cd647dbb3f653c0.mp3",
+          "bytes": 456229,
+          "sha256": "0cd647dbb3f653c08cfe2cf660c2165609e680d4565c9291e4967e607d42026f",
+          "originalNames": [
+            "12 Graham's New Toy.mp3"
+          ],
+          "duration": 28.47,
+          "rhymeIds": [
+            "hello-rhyme-27"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-12-asset-d55b120445825788",
+          "kind": "audio",
+          "label": "12 Make a splash.mp3",
+          "file": "assets/hello/files/d55b120445825788.mp3",
+          "bytes": 311194,
+          "sha256": "d55b12044582578836421b349da73ad36917bfbabf45211b5cbd793d0de2bc8b",
+          "originalNames": [
+            "12 Make a splash.mp3"
+          ],
+          "duration": 19.41,
+          "rhymeIds": [
+            "hello-rhyme-26"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-12-asset-c778324b61f96d6a",
+          "kind": "pdf",
+          "label": "12号书.pdf",
+          "file": "assets/hello/files/c778324b61f96d6a.pdf",
+          "bytes": 16943615,
+          "sha256": "c778324b61f96d6ad76568e12726246ceac4eef00b18c41a63295f216cab65ac",
+          "originalNames": [
+            "12号书.pdf"
+          ],
+          "pages": 8
+        },
+        {
+          "id": "hello-12-asset-973f0a5697dae188",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-12.pdf",
+          "bytes": 1337385,
+          "sha256": "973f0a5697dae18831e341af9bcedf8cc1c0723cac99d9b39ac79393e42a2ac6",
+          "originalNames": [
+            "12号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-13",
+      "number": 13,
+      "title": "13号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "洗澡",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "农场",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 3,
+          "scene": "农场",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 4,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 5,
+          "scene": "捉迷藏",
+          "note": "",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/M5ovKlyj2bl",
+          "sourceFile": "13号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/VtjaHV8N9A1",
+          "sourceFile": "13.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-13-asset-46c389fb9bf3d406",
+          "kind": "audio",
+          "label": "13 hickety Pickety.mp3",
+          "file": "assets/hello/files/46c389fb9bf3d406.mp3",
+          "bytes": 286119,
+          "sha256": "46c389fb9bf3d406907fdb9940378a280c7e235ec9ba7d0d19894b490ef1839e",
+          "originalNames": [
+            "13 hickety Pickety.mp3"
+          ],
+          "duration": 17.84,
+          "rhymeIds": [
+            "hello-rhyme-28"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-13-asset-d6921167aef00fae",
+          "kind": "pdf",
+          "label": "13号书.pdf",
+          "file": "assets/hello/files/d6921167aef00fae.pdf",
+          "bytes": 2528624,
+          "sha256": "d6921167aef00fae0079545e29d59b47c56b0b844b14e969ae4e968aff94fc0c",
+          "originalNames": [
+            "13号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-13-asset-1f28a4e694353deb",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-13.pdf",
+          "bytes": 1444236,
+          "sha256": "1f28a4e694353deb2a9e76a6541ebf7f398e18e11eb851604f88e1747bae8f0d",
+          "originalNames": [
+            "Hello13号书笔记汇总.pdf"
+          ],
+          "pages": 7
+        },
+        {
+          "id": "hello-13-asset-3f304570d4ac5aa0",
+          "kind": "audio",
+          "label": "hickety pickety.mp3",
+          "file": "assets/hello/files/3f304570d4ac5aa0.mp3",
+          "bytes": 2047691,
+          "sha256": "3f304570d4ac5aa0ab2b399b67b99c0eff821b05583bf9d8964d72153cf10437",
+          "originalNames": [
+            "hickety pickety.mp3"
+          ],
+          "duration": 43.26,
+          "rhymeIds": [
+            "hello-rhyme-28"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-14",
+      "number": 14,
+      "title": "14号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "宝宝的一天",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "冬天",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 3,
+          "scene": "冬天",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 4,
+          "scene": "学走路",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 5,
+          "scene": "捉迷藏",
+          "note": "",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/xDNmC8G61Ia",
+          "sourceFile": "14号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/Wi5Ap2upYqj",
+          "sourceFile": "14.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-14-asset-904939835d405eb2",
+          "kind": "audio",
+          "label": "14 Babies Everywhere.mp3",
+          "file": "assets/hello/files/904939835d405eb2.mp3",
+          "bytes": 381415,
+          "sha256": "904939835d405eb2611abc042488b55026f179abc2c20585541f6c8e1501ed1b",
+          "originalNames": [
+            "14 Babies Everywhere.mp3"
+          ],
+          "duration": 23.8,
+          "rhymeIds": [
+            "hello-rhyme-29"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-14-asset-bc3916a0726e2d2e",
+          "kind": "audio",
+          "label": "14 First Steps.mp3",
+          "file": "assets/hello/files/bc3916a0726e2d2e.mp3",
+          "bytes": 324567,
+          "sha256": "bc3916a0726e2d2e326d74617a9d0a7b41187bc6fe2364f197fd9079f1804f17",
+          "originalNames": [
+            "14 First Steps.mp3"
+          ],
+          "duration": 20.24,
+          "rhymeIds": [
+            "hello-rhyme-30"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-14-asset-e6d18872ff4a9052",
+          "kind": "audio",
+          "label": "14 Where's My baby.mp3",
+          "file": "assets/hello/files/e6d18872ff4a9052.mp3",
+          "bytes": 324571,
+          "sha256": "e6d18872ff4a9052e75b845c67b4d3c9bcf17bcfdcc6398f72215fded5ddd7fe",
+          "originalNames": [
+            "14 Where's My baby.mp3"
+          ],
+          "duration": 20.24,
+          "rhymeIds": [
+            "hello-rhyme-31"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-14-asset-4b8660b11462d380",
+          "kind": "pdf",
+          "label": "14号书.pdf",
+          "file": "assets/hello/files/4b8660b11462d380.pdf",
+          "bytes": 2319011,
+          "sha256": "4b8660b11462d38021b058db4539c20c361fe55233fa4b24b0d60cbca87c6fbc",
+          "originalNames": [
+            "14号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-14-asset-2010bc8114f97d9e",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-14.pdf",
+          "bytes": 1016647,
+          "sha256": "2010bc8114f97d9e52bfd21e4c5aa769ad9ded83c1e8db2e94a572c729794cee",
+          "originalNames": [
+            "14号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-14-asset-02e34f255062d833",
+          "kind": "audio",
+          "label": "Frosty the Snowman.mp3",
+          "file": "assets/hello/files/02e34f255062d833.mp3",
+          "bytes": 3467800,
+          "sha256": "02e34f255062d833d7a15eac497b8ff247eacb534410ff5f0a91bdcaae4a120f",
+          "originalNames": [
+            "Frosty the Snowman.mp3"
+          ],
+          "duration": 151.85,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-15",
+      "number": 15,
+      "title": "15号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "室内游戏",
+          "note": "玩球",
+          "sourcePage": 3
+        },
+        {
+          "part": 3,
+          "scene": "家里的房间",
+          "note": "厨房",
+          "sourcePage": 3
+        },
+        {
+          "part": 4,
+          "scene": "亲子互动",
+          "note": "举高高",
+          "sourcePage": 3
+        },
+        {
+          "part": 5,
+          "scene": "宠物",
+          "note": "",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/h7hc76ba3B7",
+          "sourceFile": "15号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/oIqDU57QwOj",
+          "sourceFile": "15.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-15-asset-61e414d669f0eab9",
+          "kind": "audio",
+          "label": "01 Cows in the Kitchen-Sing.mp3",
+          "file": "assets/hello/files/61e414d669f0eab9.mp3",
+          "bytes": 3346043,
+          "sha256": "61e414d669f0eab9128a6ca6c137708bbb6111bf0656567a22522bb9419db48a",
+          "originalNames": [
+            "01 Cows in the Kitchen-Sing.mp3"
+          ],
+          "duration": 139.36,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-15-asset-f4428daf6fae35c9",
+          "kind": "audio",
+          "label": "1. We're going to the moon Song I 童谣歌曲.mp3",
+          "file": "assets/hello/files/f4428daf6fae35c9.mp3",
+          "bytes": 2124412,
+          "sha256": "f4428daf6fae35c9b3a90aff773cc27b77ce2aefce82846b83177e2d7cfe25b0",
+          "originalNames": [
+            "1. We're going to the moon Song I 童谣歌曲.mp3"
+          ],
+          "duration": 88.25,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-15-asset-73f4f51c139903e6",
+          "kind": "audio",
+          "label": "15 Flying High.mp3",
+          "file": "assets/hello/files/73f4f51c139903e6.mp3",
+          "bytes": 350480,
+          "sha256": "73f4f51c139903e6bbed1698e66a25198f0860e82e7974c46ce5922d68669a4d",
+          "originalNames": [
+            "15 Flying High.mp3"
+          ],
+          "duration": 21.86,
+          "rhymeIds": [
+            "hello-rhyme-34"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-15-asset-1b8ce86d16a0a5f1",
+          "kind": "audio",
+          "label": "15 My Puppy.mp3",
+          "file": "assets/hello/files/1b8ce86d16a0a5f1.mp3",
+          "bytes": 240554,
+          "sha256": "1b8ce86d16a0a5f1b96322ab6d992a03968d76d4648e0f23e8e7b9d9c30d2428",
+          "originalNames": [
+            "15 My Puppy.mp3"
+          ],
+          "duration": 14.99,
+          "rhymeIds": [
+            "hello-rhyme-35"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-15-asset-48dde6cf7edcd142",
+          "kind": "audio",
+          "label": "15 Playing Ball.mp3",
+          "file": "assets/hello/files/48dde6cf7edcd142.mp3",
+          "bytes": 243484,
+          "sha256": "48dde6cf7edcd142623131c2032be8f969a9ae0e93d858be7f3a611fc19c984f",
+          "originalNames": [
+            "15 Playing Ball.mp3"
+          ],
+          "duration": 15.18,
+          "rhymeIds": [
+            "hello-rhyme-33"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-15-asset-4ed0e0e64714e53d",
+          "kind": "audio",
+          "label": "15 What I like.mp3",
+          "file": "assets/hello/files/4ed0e0e64714e53d.mp3",
+          "bytes": 304087,
+          "sha256": "4ed0e0e64714e53d6cfda1f54fc9b14026ffec823f346af90e514f8b60c1e6b1",
+          "originalNames": [
+            "15 What I like.mp3"
+          ],
+          "duration": 18.96,
+          "rhymeIds": [
+            "hello-rhyme-32"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-15-asset-9eb634a2bf7bbb80",
+          "kind": "pdf",
+          "label": "15号书.pdf",
+          "file": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+          "bytes": 3098732,
+          "sha256": "9eb634a2bf7bbb80dd3b6ee05fce85698f704d74b7b2e821bc089ee8dda3caaa",
+          "originalNames": [
+            "15号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-15-asset-01c0da8e1c65d80a",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-15.pdf",
+          "bytes": 1413418,
+          "sha256": "01c0da8e1c65d80a7994456c717fd05076fd699527c46f0f4f183eb00489afa4",
+          "originalNames": [
+            "Hello杂志15号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-16",
+      "number": 16,
+      "title": "16号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "动物",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "天气",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 3,
+          "scene": "马路",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 4,
+          "scene": "宝宝的一天",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 5,
+          "scene": "衣服",
+          "note": "",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/QCknIIlXnw1",
+          "sourceFile": "16号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/7p9DRMDGEK1",
+          "sourceFile": "16.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-16-asset-948db88c48733be2",
+          "kind": "audio",
+          "label": "16 This Old man.mp3",
+          "file": "assets/hello/files/948db88c48733be2.mp3",
+          "bytes": 362184,
+          "sha256": "948db88c48733be2d5107eb5701a4dc06235cc93a5252af2d501fd2f0176f4ff",
+          "originalNames": [
+            "16 This Old man.mp3"
+          ],
+          "duration": 22.6,
+          "rhymeIds": [],
+          "tunes": [
+            "This Old Man"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-16-asset-e59b8e7b2b9f78fc",
+          "kind": "audio",
+          "label": "16 who is.mp3",
+          "file": "assets/hello/files/e59b8e7b2b9f78fc.mp3",
+          "bytes": 664781,
+          "sha256": "e59b8e7b2b9f78fc06b23aaa84076dd93d75210575a956d61e26d3a8ede517ec",
+          "originalNames": [
+            "16 who is.mp3"
+          ],
+          "duration": 41.51,
+          "rhymeIds": [
+            "hello-rhyme-37"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-16-asset-6c35ac5a22d55243",
+          "kind": "pdf",
+          "label": "16号书.pdf",
+          "file": "assets/hello/files/6c35ac5a22d55243.pdf",
+          "bytes": 2480142,
+          "sha256": "6c35ac5a22d55243b9966614138223c4913b33bef0a951b4c34c1387ad7ab901",
+          "originalNames": [
+            "16号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-16-asset-bd765985e6a9210b",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-16.pdf",
+          "bytes": 1049165,
+          "sha256": "bd765985e6a9210b7a29ea77aaf215de4744eabbcf42b3e0f1a096961b05d015",
+          "originalNames": [
+            "Hello杂志16号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-16-asset-0ac10913f9277dd0",
+          "kind": "pdf",
+          "label": "HighlightsHello-2018年10月.pdf",
+          "file": "assets/hello/files/0ac10913f9277dd0.pdf",
+          "bytes": 1085929,
+          "sha256": "0ac10913f9277dd099f9842c83a725224534da15198a355964d20a3e36d654c9",
+          "originalNames": [
+            "HighlightsHello-2018年10月.pdf"
+          ],
+          "pages": 16
+        }
+      ]
+    },
+    {
+      "id": "hello-17",
+      "number": 17,
+      "title": "17号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "宠物",
+          "note": "鱼",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 3,
+          "scene": "户外游戏",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 4,
+          "scene": "马路",
+          "note": "气球",
+          "sourcePage": 3
+        },
+        {
+          "part": 5,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/HLQLFb0ll19",
+          "sourceFile": "17号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/uJINfEzrgH",
+          "sourceFile": "17.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-17-asset-86b39b5f2928e0ab",
+          "kind": "audio",
+          "label": "17 Mama's Monkey.mp3",
+          "file": "assets/hello/files/86b39b5f2928e0ab.mp3",
+          "bytes": 324987,
+          "sha256": "86b39b5f2928e0ab06dcf2a559402bfe6bb86ad6414e03e29d054626b5f6a129",
+          "originalNames": [
+            "17 Mama's Monkey.mp3"
+          ],
+          "duration": 20.27,
+          "rhymeIds": [
+            "hello-rhyme-38"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-17-asset-6ab09783f44de82c",
+          "kind": "audio",
+          "label": "17 Rock amd Sing.mp3",
+          "file": "assets/hello/files/6ab09783f44de82c.mp3",
+          "bytes": 411086,
+          "sha256": "6ab09783f44de82ca3f35c7c91b69c12c751312fe16f070ba82fd78e247029f6",
+          "originalNames": [
+            "17 Rock amd Sing.mp3"
+          ],
+          "duration": 25.65,
+          "rhymeIds": [
+            "hello-rhyme-39"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-17-asset-90962276af3b39df",
+          "kind": "pdf",
+          "label": "17号书.pdf",
+          "file": "assets/hello/files/90962276af3b39df.pdf",
+          "bytes": 2303896,
+          "sha256": "90962276af3b39dff442c45ba886627e6f377ce66f6593f6a8d6e1fb98b9b2de",
+          "originalNames": [
+            "17号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-17-asset-c314ea3cdee52552",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-17.pdf",
+          "bytes": 1106935,
+          "sha256": "c314ea3cdee52552db685bd42e4f14143658a794e2c584fe7b9cbd202b44cddb",
+          "originalNames": [
+            "17号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-18",
+      "number": 18,
+      "title": "18号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "室内游戏",
+          "note": "玩小火车、纸箱游戏",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "刷牙",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 3,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 4,
+          "scene": "马路",
+          "note": "反义",
+          "sourcePage": 3
+        },
+        {
+          "part": 5,
+          "scene": "白天晚上",
+          "note": "表达爱意",
+          "sourcePage": 3
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/IfRgg4loPQ8",
+          "sourceFile": "18号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/SLlV6XqrxUb",
+          "sourceFile": "18.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-18-asset-226fe31a478c4347",
+          "kind": "audio",
+          "label": "3_I love you【Erin演唱版】.mp3",
+          "file": "assets/hello/files/226fe31a478c4347.mp3",
+          "bytes": 963653,
+          "sha256": "226fe31a478c4347bacc230a283d4cc9a9509d5d1da951a853da7d9f8418f5d6",
+          "originalNames": [
+            "3_I love you【Erin演唱版】.mp3"
+          ],
+          "duration": 60.19,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-18-asset-08f3e5a645f11d82",
+          "kind": "audio",
+          "label": "18 Baby Bunny's Train.mp3",
+          "file": "assets/hello/files/08f3e5a645f11d82.mp3",
+          "bytes": 406494,
+          "sha256": "08f3e5a645f11d82aa189d431b9682b4f66d42e459055ed7ff4d60a86ffcf77d",
+          "originalNames": [
+            "18 Baby Bunny's Train.mp3"
+          ],
+          "duration": 25.36,
+          "rhymeIds": [
+            "hello-rhyme-40"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-18-asset-c1669e5a8e834375",
+          "kind": "audio",
+          "label": "18 My Toothbrush.mp3",
+          "file": "assets/hello/files/c1669e5a8e834375.mp3",
+          "bytes": 304925,
+          "sha256": "c1669e5a8e8343750f7896aea3663e4c2d96e40588b7957dca1512b67e50e521",
+          "originalNames": [
+            "18 My Toothbrush.mp3"
+          ],
+          "duration": 19.02,
+          "rhymeIds": [
+            "hello-rhyme-41"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-18-asset-26182117f8444a91",
+          "kind": "audio",
+          "label": "18 One star one moon.mp3",
+          "file": "assets/hello/files/26182117f8444a91.mp3",
+          "bytes": 541494,
+          "sha256": "26182117f8444a912bd7bf7a64d4cfcffa558252200a95c27ef68f4b9d84a34d",
+          "originalNames": [
+            "18 One star one moon.mp3"
+          ],
+          "duration": 33.8,
+          "rhymeIds": [
+            "hello-rhyme-43"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-18-asset-67b3399e8cc76f5b",
+          "kind": "audio",
+          "label": "18 Pickups.mp3",
+          "file": "assets/hello/files/67b3399e8cc76f5b.mp3",
+          "bytes": 353402,
+          "sha256": "67b3399e8cc76f5bf2cbbc2c049790f839b787e9bccdd27a800502dcaa36b55a",
+          "originalNames": [
+            "18 Pickups.mp3"
+          ],
+          "duration": 22.05,
+          "rhymeIds": [
+            "hello-rhyme-42"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-18-asset-364c646d6fd149f1",
+          "kind": "pdf",
+          "label": "18号书.pdf",
+          "file": "assets/hello/files/364c646d6fd149f1.pdf",
+          "bytes": 2813671,
+          "sha256": "364c646d6fd149f1702bb8fbd675d4a8cd08d7178d8cc2e0abc4990e617d2d19",
+          "originalNames": [
+            "18号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-18-asset-9a52f7e19178eac3",
+          "kind": "audio",
+          "label": "five little moneys.mp3",
+          "file": "assets/hello/files/9a52f7e19178eac3.mp3",
+          "bytes": 2085964,
+          "sha256": "9a52f7e19178eac3f378f04c58ac734f020f666ce3d16e9b372fa63f0a32c5bc",
+          "originalNames": [
+            "five little moneys.mp3"
+          ],
+          "duration": 125.94,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-18-asset-90cfcc4b9ada8315",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-18.pdf",
+          "bytes": 1192819,
+          "sha256": "90cfcc4b9ada83155914b08b982a9a7f13a740ca0370b6ef23899ec04639cc26",
+          "originalNames": [
+            "Hello18号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-18-asset-3a01aaf3b565214b",
+          "kind": "audio",
+          "label": "i love you.mp3",
+          "file": "assets/hello/files/3a01aaf3b565214b.mp3",
+          "bytes": 4268296,
+          "sha256": "3a01aaf3b565214bf195a1b289ce67f9fb6ee56bb977efdeb692e34ee17bd0a7",
+          "originalNames": [
+            "i love you.mp3"
+          ],
+          "duration": 133.36,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-19",
+      "number": 19,
+      "title": "19号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "洗澡",
+          "note": "",
+          "sourcePage": 3
+        },
+        {
+          "part": 2,
+          "scene": "室内游戏",
+          "note": "纸箱",
+          "sourcePage": 4
+        },
+        {
+          "part": 3,
+          "scene": "动物",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 4,
+          "scene": "宝宝的一天",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 5,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 4
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/1GdTmKYo0F8",
+          "sourceFile": "19号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/7cBx5OVNgh5",
+          "sourceFile": "19.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-19-asset-08d17a6a07044604",
+          "kind": "audio",
+          "label": "19 Let's Pretend.mp3",
+          "file": "assets/hello/files/08d17a6a07044604.mp3",
+          "bytes": 269398,
+          "sha256": "08d17a6a07044604ea0bedd6ffd65a480ae1ed09877aa2ef91d2fcac471852d6",
+          "originalNames": [
+            "19 Let's Pretend.mp3"
+          ],
+          "duration": 16.8,
+          "rhymeIds": [
+            "hello-rhyme-44"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-19-asset-14bcc06b904e3b5c",
+          "kind": "audio",
+          "label": "19 Move to the beat.mp3",
+          "file": "assets/hello/files/14bcc06b904e3b5c.mp3",
+          "bytes": 403566,
+          "sha256": "14bcc06b904e3b5cdef1c7186d2f83ccacde49ed25996a9523fc72bcb599ce7a",
+          "originalNames": [
+            "19 Move to the beat.mp3"
+          ],
+          "duration": 25.18,
+          "rhymeIds": [
+            "hello-rhyme-46"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-19-asset-523ddfeb9ea55bf2",
+          "kind": "audio",
+          "label": "19 Nana and Me.mp3",
+          "file": "assets/hello/files/523ddfeb9ea55bf2.mp3",
+          "bytes": 519754,
+          "sha256": "523ddfeb9ea55bf26058e13d35ad00482326a55bbcd8303630213d393759ca48",
+          "originalNames": [
+            "19 Nana and Me.mp3"
+          ],
+          "duration": 32.44,
+          "rhymeIds": [
+            "hello-rhyme-45"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-19-asset-083567236ece20f6",
+          "kind": "pdf",
+          "label": "19号书.pdf",
+          "file": "assets/hello/files/083567236ece20f6.pdf",
+          "bytes": 2220017,
+          "sha256": "083567236ece20f6c0cc2a089665592c88ae8f98f8161fddd50e5d53eda1bffd",
+          "originalNames": [
+            "19号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-19-asset-748e5ec5f63fc228",
+          "kind": "audio",
+          "label": "David Weinstone,Music for Aardvarks and Other Mammals-Splashing In the Tub.mp3",
+          "file": "assets/hello/files/748e5ec5f63fc228.mp3",
+          "bytes": 2083856,
+          "sha256": "748e5ec5f63fc2286159f1c5f90b6ab0d7eca57cbf9d8ee6082c7cb6d0e6f709",
+          "originalNames": [
+            "David Weinstone,Music for Aardvarks and Other Mammals-Splashing In the Tub.mp3"
+          ],
+          "duration": 130.19,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-19-asset-ffed27b64f47c741",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-19.pdf",
+          "bytes": 1134927,
+          "sha256": "ffed27b64f47c7413d5872ec78fece93a918be5740ef8dde8f24d2c446c9aab5",
+          "originalNames": [
+            "Hello19号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-19-asset-7d1c9057306de2df",
+          "kind": "audio",
+          "label": "Humpty Dumpty.mp3",
+          "file": "assets/hello/files/7d1c9057306de2df.mp3",
+          "bytes": 1261537,
+          "sha256": "7d1c9057306de2df07cd4467ba4e9c286902b2547eaf9d3333c4def51187f68e",
+          "originalNames": [
+            "Humpty Dumpty.mp3"
+          ],
+          "duration": 78.81,
+          "rhymeIds": [],
+          "tunes": [
+            "Humpty Dumpty"
+          ],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-20",
+      "number": 20,
+      "title": "20号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "肢体动作",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 2,
+          "scene": "生日",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 3,
+          "scene": "户外游戏",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 4,
+          "scene": "海边",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 5,
+          "scene": "吃饭",
+          "note": "厨房场景",
+          "sourcePage": 4
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/RiO1SHxjI0h",
+          "sourceFile": "20号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/T9BmxMq5Gvd",
+          "sourceFile": "20.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-20-asset-e10d8f33bd17eecb",
+          "kind": "audio",
+          "label": "20 Jelly Baby.mp3",
+          "file": "assets/hello/files/e10d8f33bd17eecb.mp3",
+          "bytes": 351733,
+          "sha256": "e10d8f33bd17eecbc41ff9d08159b9c6da187d15d7e9abca55faa2b174a57e97",
+          "originalNames": [
+            "20 Jelly Baby.mp3"
+          ],
+          "duration": 21.94,
+          "rhymeIds": [
+            "hello-rhyme-47"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-20-asset-91a3b6b6d452c267",
+          "kind": "pdf",
+          "label": "From Head To Toe排版.pdf",
+          "file": "assets/hello/files/91a3b6b6d452c267.pdf",
+          "bytes": 5013795,
+          "sha256": "91a3b6b6d452c267d4b94fde7a71f46b41a78fd54ec0e5404aefc9762d52886d",
+          "originalNames": [
+            "From Head To Toe排版.pdf"
+          ],
+          "pages": 1
+        },
+        {
+          "id": "hello-20-asset-511a796c4aadafae",
+          "kind": "pdf",
+          "label": "Hello杂志20号书.pdf",
+          "file": "assets/hello/files/511a796c4aadafae.pdf",
+          "bytes": 2254813,
+          "sha256": "511a796c4aadafae538396b4094ec49e6caee40fe9eb9683657b50a87e8e26ae",
+          "originalNames": [
+            "Hello杂志20号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-20-asset-4f3ce461d5560460",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-20.pdf",
+          "bytes": 1232121,
+          "sha256": "4f3ce461d5560460d1087273e2cd48b9889ae2bbc8286331668c85a5782ff0ab",
+          "originalNames": [
+            "Hello杂志20号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-21",
+      "number": 21,
+      "title": "21号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "捉迷藏",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 2,
+          "scene": "室内游戏",
+          "note": "纸箱",
+          "sourcePage": 4
+        },
+        {
+          "part": 3,
+          "scene": "衣服",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 4,
+          "scene": "家里的房间",
+          "note": "表达爱意",
+          "sourcePage": 4
+        },
+        {
+          "part": 5,
+          "scene": "喝水",
+          "note": "",
+          "sourcePage": 4
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/IwxxU4na6pa",
+          "sourceFile": "21号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/5Lj3iAPz98c",
+          "sourceFile": "21.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-21-asset-15db322e8dc60b82",
+          "kind": "audio",
+          "label": "21 All Grown Up.mp3",
+          "file": "assets/hello/files/15db322e8dc60b82.mp3",
+          "bytes": 394785,
+          "sha256": "15db322e8dc60b826a3cb6668ffe2daca49446cce5384f34ce00b0f2bc0c3eaf",
+          "originalNames": [
+            "21 All Grown Up.mp3"
+          ],
+          "duration": 24.63,
+          "rhymeIds": [
+            "hello-rhyme-50"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-21-asset-b52027317e53a12b",
+          "kind": "audio",
+          "label": "21 Daddy's Home.mp3",
+          "file": "assets/hello/files/b52027317e53a12b.mp3",
+          "bytes": 498857,
+          "sha256": "b52027317e53a12b870a191e19b7fa499ba9ac0f836be76ffa265ff921a09341",
+          "originalNames": [
+            "21 Daddy's Home.mp3"
+          ],
+          "duration": 31.14,
+          "rhymeIds": [
+            "hello-rhyme-49"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-21-asset-8fe7d13087edab24",
+          "kind": "audio",
+          "label": "21 Where's Bear.mp3",
+          "file": "assets/hello/files/8fe7d13087edab24.mp3",
+          "bytes": 637201,
+          "sha256": "8fe7d13087edab24dda13197b2877d70ccf02f8f36a07bbf718ef08fa19303da",
+          "originalNames": [
+            "21 Where's Bear.mp3"
+          ],
+          "duration": 39.78,
+          "rhymeIds": [
+            "hello-rhyme-48"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-21-asset-a514fdb78b61447b",
+          "kind": "pdf",
+          "label": "21号书.pdf",
+          "file": "assets/hello/files/a514fdb78b61447b.pdf",
+          "bytes": 2367562,
+          "sha256": "a514fdb78b61447b67ea379a7cadcb8c12fa533ce3e6ba72723f4e6c780d3276",
+          "originalNames": [
+            "21号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-21-asset-04946d8d3d5aeb58",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-21.pdf",
+          "bytes": 1391811,
+          "sha256": "04946d8d3d5aeb58d4be0b7b4f893db681abcfbb98df2289b58347c21a291809",
+          "originalNames": [
+            "Hello21号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-22",
+      "number": 22,
+      "title": "22号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "动物",
+          "note": "动物长大",
+          "sourcePage": 4
+        },
+        {
+          "part": 2,
+          "scene": "捉迷藏",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 3,
+          "scene": "万圣节",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 4,
+          "scene": "秋天",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 5,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 4
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/5RSzH3DW9I8",
+          "sourceFile": "22号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/073bTSnkbf",
+          "sourceFile": "22.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-22-asset-c36f11195847343b",
+          "kind": "audio",
+          "label": "22 Baby's Lullaby.mp3",
+          "file": "assets/hello/files/c36f11195847343b.mp3",
+          "bytes": 331675,
+          "sha256": "c36f11195847343b91633c856b1986f2f723bb0313055dfc23469aab88507dcd",
+          "originalNames": [
+            "22 Baby's Lullaby.mp3"
+          ],
+          "duration": 20.69,
+          "rhymeIds": [
+            "hello-rhyme-54"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-22-asset-584575dd11c09330",
+          "kind": "audio",
+          "label": "22 Find It Halloween.mp3",
+          "file": "assets/hello/files/584575dd11c09330.mp3",
+          "bytes": 1210646,
+          "sha256": "584575dd11c09330387079124513e01807e8e1c634adec1360bab1d488786552",
+          "originalNames": [
+            "22 Find It Halloween.mp3"
+          ],
+          "duration": 75.62,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-22-asset-eb423a74a8bbc6b3",
+          "kind": "audio",
+          "label": "22 Find Me.mp3",
+          "file": "assets/hello/files/eb423a74a8bbc6b3.mp3",
+          "bytes": 318711,
+          "sha256": "eb423a74a8bbc6b33237cfba65c309c5a0be32939774b504a70a6a6c34bb3e59",
+          "originalNames": [
+            "22 Find Me.mp3"
+          ],
+          "duration": 19.88,
+          "rhymeIds": [
+            "hello-rhyme-51"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-22-asset-e2f1b7c2d0fc7b19",
+          "kind": "audio",
+          "label": "22 October Fun.mp3",
+          "file": "assets/hello/files/e2f1b7c2d0fc7b19.mp3",
+          "bytes": 428639,
+          "sha256": "e2f1b7c2d0fc7b19efda5bdc0a9e6ce9dd8ceb1d7833f7bc03862f4c4015ed00",
+          "originalNames": [
+            "22 October Fun.mp3"
+          ],
+          "duration": 26.75,
+          "rhymeIds": [
+            "hello-rhyme-53"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-22-asset-c2dd41c5298c7a20",
+          "kind": "pdf",
+          "label": "22号书.pdf",
+          "file": "assets/hello/files/c2dd41c5298c7a20.pdf",
+          "bytes": 2660436,
+          "sha256": "c2dd41c5298c7a208cbecf50c604fb926ba0c158422335176daeb58daec58518",
+          "originalNames": [
+            "22号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-22-asset-b4d52ab7c3473d85",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-22.pdf",
+          "bytes": 1410408,
+          "sha256": "b4d52ab7c3473d85c5ace40ef9f6d5b2158ac9cc02c389e856e446384a977fd0",
+          "originalNames": [
+            "Hello22号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        }
+      ]
+    },
+    {
+      "id": "hello-23",
+      "number": 23,
+      "title": "23号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "动物",
+          "note": "小兔子",
+          "sourcePage": 4
+        },
+        {
+          "part": 2,
+          "scene": "亲子互动",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 3,
+          "scene": "家里的房间",
+          "note": "厨房、感恩节",
+          "sourcePage": 4
+        },
+        {
+          "part": 4,
+          "scene": "宝宝的一天",
+          "note": "表达爱意",
+          "sourcePage": 4
+        },
+        {
+          "part": 5,
+          "scene": "身体部位",
+          "note": "肚脐眼",
+          "sourcePage": 4
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/NRt3FM19DM6",
+          "sourceFile": "23号书_20260418092115.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/cEx6E9ocXJ9",
+          "sourceFile": "23.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-23-asset-ec8455f596adb155",
+          "kind": "audio",
+          "label": "23 Bunny Hop.mp3",
+          "file": "assets/hello/files/ec8455f596adb155.mp3",
+          "bytes": 412336,
+          "sha256": "ec8455f596adb155c16b2c4ea14da4acacb1fa89baa4e9fb99b681ac2c39f278",
+          "originalNames": [
+            "23 Bunny Hop.mp3"
+          ],
+          "duration": 25.73,
+          "rhymeIds": [
+            "hello-rhyme-55"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-23-asset-fdb0d9e07e0d143b",
+          "kind": "audio",
+          "label": "23 Papa's Little Patty-cakes.mp3",
+          "file": "assets/hello/files/fdb0d9e07e0d143b.mp3",
+          "bytes": 238200,
+          "sha256": "fdb0d9e07e0d143be3d3067f460e6258556439198828480cc7e16fb994b3cb41",
+          "originalNames": [
+            "23 Papa's Little Patty-cakes.mp3"
+          ],
+          "duration": 14.84,
+          "rhymeIds": [
+            "hello-rhyme-56"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-23-asset-98abf5388964c57a",
+          "kind": "pdf",
+          "label": "23号书.pdf",
+          "file": "assets/hello/files/98abf5388964c57a.pdf",
+          "bytes": 2662961,
+          "sha256": "98abf5388964c57a85edbd5b74fa0f33c69b88f6f103a5f5610e7bebb15cd6e5",
+          "originalNames": [
+            "23号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-23-asset-e2849a5a3a75ef0d",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-23.pdf",
+          "bytes": 1394534,
+          "sha256": "e2849a5a3a75ef0dff5ec4045b084eb69561212d24a8decacddb28dceb323486",
+          "originalNames": [
+            "Hello杂志23号书笔记汇总.pdf"
+          ],
+          "pages": 5
+        },
+        {
+          "id": "hello-23-asset-aa1fc2ecbd74378c",
+          "kind": "audio",
+          "label": "Sleeping bunnies Song I 歌曲.mp3",
+          "file": "assets/hello/files/aa1fc2ecbd74378c.mp3",
+          "bytes": 2731504,
+          "sha256": "aa1fc2ecbd74378cef51352bad1503e4f9618e559557a3641a66acb2dcd917f6",
+          "originalNames": [
+            "Sleeping bunnies Song I 歌曲.mp3"
+          ],
+          "duration": 113.54,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    },
+    {
+      "id": "hello-24",
+      "number": 24,
+      "title": "24号书",
+      "edition": "numbered",
+      "parts": [
+        {
+          "part": 1,
+          "scene": "穿衣服",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 2,
+          "scene": "肢体动作",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 3,
+          "scene": "车库",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 4,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 4
+        },
+        {
+          "part": 5,
+          "scene": "睡觉",
+          "note": "",
+          "sourcePage": 4
+        }
+      ],
+      "resources": [
+        {
+          "kind": "erin",
+          "label": "松果妈妈带读",
+          "url": "https://t3.znas.cn/OZ67g2jb2F3",
+          "sourceFile": "24号书.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "kind": "official",
+          "label": "官方带读",
+          "url": "https://t3.znas.cn/yiUhtGmCCFa",
+          "sourceFile": "24.mp4",
+          "createdAt": "2026-11-04",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "mappingBasis": "来源目录中的同号文件"
+        },
+        {
+          "id": "hello-24-asset-c2a1e4a479af29f9",
+          "kind": "audio",
+          "label": "24 Counting Sheep.mp3",
+          "file": "assets/hello/files/c2a1e4a479af29f9.mp3",
+          "bytes": 343933,
+          "sha256": "c2a1e4a479af29f9f599b714cc9e9c308dd4b5f90540906c950bfffb205279e4",
+          "originalNames": [
+            "24 Counting Sheep.mp3"
+          ],
+          "duration": 21.45,
+          "rhymeIds": [
+            "hello-rhyme-57"
+          ],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-24-asset-a3275b2846f4afc1",
+          "kind": "pdf",
+          "label": "24号书.pdf",
+          "file": "assets/hello/files/a3275b2846f4afc1.pdf",
+          "bytes": 2337413,
+          "sha256": "a3275b2846f4afc11465bd4280ee6f7b3e0c6f279038b5fc62374b616e948057",
+          "originalNames": [
+            "24号书.pdf"
+          ],
+          "pages": 16
+        },
+        {
+          "id": "hello-24-asset-e88a40f7ac3ba463",
+          "kind": "notes",
+          "label": "笔记汇总 PDF",
+          "file": "assets/hello/notes/book-24.pdf",
+          "bytes": 1383135,
+          "sha256": "e88a40f7ac3ba4633ae5761c7cfe5d381b64e138b44a740d6461cb3070f6aaca",
+          "originalNames": [
+            "24号书笔记汇总.pdf"
+          ],
+          "pages": 7
+        },
+        {
+          "id": "hello-24-asset-71e016befe784919",
+          "kind": "audio",
+          "label": "brown bear歌曲.mp3",
+          "file": "assets/hello/files/71e016befe784919.mp3",
+          "bytes": 3723389,
+          "sha256": "71e016befe784919f7443404b83411aadb99fda660cdcfb648ebe1426baa92bb",
+          "originalNames": [
+            "brown bear歌曲.mp3"
+          ],
+          "duration": 155.14,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-24-asset-4d50dcb77024e9f7",
+          "kind": "audio",
+          "label": "three little monkeys.mp3",
+          "file": "assets/hello/files/4d50dcb77024e9f7.mp3",
+          "bytes": 5401121,
+          "sha256": "4d50dcb77024e9f7f3e9e75be516ad029093dffe1cd0acfc09da03758c2a7ad0",
+          "originalNames": [
+            "three little monkeys.mp3"
+          ],
+          "duration": 135.0,
+          "rhymeIds": [],
+          "tunes": [],
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        }
+      ]
+    }
+  ],
+  "rhymes": [
+    {
+      "id": "hello-rhyme-02",
+      "bookId": "hello-01",
+      "title": "Can You?",
+      "tunes": [
+        "London Bridge Is Falling Down"
+      ],
+      "extensions": [],
+      "sourcePage": 2,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-03",
+      "bookId": "hello-02",
+      "title": "Rockin’ Baby",
+      "tunes": [
+        "This Old Man",
+        "London Bridge Is Falling Down",
+        "Rain Rain Go Away"
+      ],
+      "extensions": [],
+      "sourcePage": 3,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-04",
+      "bookId": "hello-02",
+      "title": "Watch It Go!",
+      "tunes": [
+        "Five Little Monkeys"
+      ],
+      "extensions": [],
+      "sourcePage": 4,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-05",
+      "bookId": "hello-03",
+      "title": "Giggle Kisses",
+      "tunes": [
+        "Down by the Station"
+      ],
+      "extensions": [],
+      "sourcePage": 5,
+      "note": "也可打着节拍朗读。"
+    },
+    {
+      "id": "hello-rhyme-06",
+      "bookId": "hello-03",
+      "title": "A Very Long Car Ride",
+      "tunes": [
+        "We’re Going on a Bear Hunt"
+      ],
+      "extensions": [],
+      "sourcePage": 6,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-07",
+      "bookId": "hello-03",
+      "title": "Bubble Bath",
+      "tunes": [
+        "The Wheels on the Bus"
+      ],
+      "extensions": [],
+      "sourcePage": 7,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-08",
+      "bookId": "hello-04",
+      "title": "Little Bird",
+      "tunes": [
+        "Rain Rain Go Away",
+        "Apple Red Apple Round",
+        "London Bridge Is Falling Down"
+      ],
+      "extensions": [],
+      "sourcePage": 8,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-09",
+      "bookId": "hello-04",
+      "title": "Where Toys Can Sleep",
+      "tunes": [
+        "我有一头小毛驴"
+      ],
+      "extensions": [],
+      "sourcePage": 9,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-10",
+      "bookId": "hello-05",
+      "title": "City and Country",
+      "tunes": [
+        "Cows in the Kitchen"
+      ],
+      "extensions": [],
+      "sourcePage": 10,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-11",
+      "bookId": "hello-05",
+      "title": "I’m Your Little Sippy Cup",
+      "tunes": [
+        "I’m a Little Teapot"
+      ],
+      "extensions": [],
+      "sourcePage": 11,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-12",
+      "bookId": "hello-06",
+      "title": "Baby Bunny’s in Her Pool",
+      "tunes": [
+        "Rain Rain Go Away"
+      ],
+      "extensions": [],
+      "sourcePage": 12,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-13",
+      "bookId": "hello-06",
+      "title": "Bouncy",
+      "tunes": [
+        "Twinkle Twinkle Little Star"
+      ],
+      "extensions": [],
+      "sourcePage": 13,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-14",
+      "bookId": "hello-06",
+      "title": "Watering the Garden",
+      "tunes": [
+        "Old MacDonald Had a Farm"
+      ],
+      "extensions": [],
+      "sourcePage": 14,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-15",
+      "bookId": "hello-07",
+      "title": "Go, Go, Go!",
+      "tunes": [
+        "我有一头小毛驴"
+      ],
+      "extensions": [],
+      "sourcePage": 15,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-16",
+      "bookId": "hello-07",
+      "title": "Clap, Clap, Clap",
+      "tunes": [
+        "Row Row Row Your Boat"
+      ],
+      "extensions": [],
+      "sourcePage": 16,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-17",
+      "bookId": "hello-08",
+      "title": "Beach Baby",
+      "tunes": [
+        "Once I Caught a Fish Alive"
+      ],
+      "extensions": [],
+      "sourcePage": 17,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-18",
+      "bookId": "hello-08",
+      "title": "It’s Time to Put Your Toys Away",
+      "tunes": [
+        "London Bridge Is Falling Down"
+      ],
+      "extensions": [
+        {
+          "title": "Clean Up",
+          "tune": "Clean Up",
+          "version": "Super Simple Songs"
+        }
+      ],
+      "sourcePage": 18,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-19",
+      "bookId": "hello-09",
+      "title": "My Racing Cars",
+      "tunes": [
+        "London Bridge Is Falling Down"
+      ],
+      "extensions": [],
+      "sourcePage": 19,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-20",
+      "bookId": "hello-09",
+      "title": "Here I Am",
+      "tunes": [
+        "Edelweiss（雪绒花）"
+      ],
+      "extensions": [],
+      "sourcePage": 20,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-21",
+      "bookId": "hello-09",
+      "title": "Do They Sink?",
+      "tunes": [
+        "This Old Man"
+      ],
+      "extensions": [],
+      "sourcePage": 21,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-22",
+      "bookId": "hello-10",
+      "title": "Patty-Cake Clap",
+      "tunes": [
+        "Patty Cake"
+      ],
+      "extensions": [],
+      "sourcePage": 22,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-23",
+      "bookId": "hello-11",
+      "title": "Toaster Treats",
+      "tunes": [
+        "Down by the Station"
+      ],
+      "extensions": [],
+      "sourcePage": 23,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-24",
+      "bookId": "hello-11",
+      "title": "Little Wagon",
+      "tunes": [
+        "Seven Steps"
+      ],
+      "extensions": [],
+      "sourcePage": 24,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-25",
+      "bookId": "hello-11",
+      "title": "Rock-a-Bye, Darling",
+      "tunes": [
+        "Rock-a-Bye Baby"
+      ],
+      "extensions": [],
+      "sourcePage": 25,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-26",
+      "bookId": "hello-12",
+      "title": "Make a Splash!",
+      "tunes": [
+        "Five Little Monkeys"
+      ],
+      "extensions": [],
+      "sourcePage": 26,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-27",
+      "bookId": "hello-12",
+      "title": "Graham’s New Toy",
+      "tunes": [
+        "Mary Had a Little Lamb",
+        "Yankee Doodle"
+      ],
+      "extensions": [],
+      "sourcePage": 27,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-28",
+      "bookId": "hello-13",
+      "title": "Hickety Pickety",
+      "tunes": [
+        "Hickety Pickety My Black Hen",
+        "Five Little Monkeys"
+      ],
+      "extensions": [],
+      "sourcePage": 28,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-29",
+      "bookId": "hello-14",
+      "title": "Babies Everywhere!",
+      "tunes": [
+        "Down by the Station"
+      ],
+      "extensions": [],
+      "sourcePage": 29,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-30",
+      "bookId": "hello-14",
+      "title": "First Steps",
+      "tunes": [
+        "Five Little Monkeys",
+        "Five Little Ducks"
+      ],
+      "extensions": [],
+      "sourcePage": 30,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-31",
+      "bookId": "hello-14",
+      "title": "Where’s My Baby?",
+      "tunes": [
+        "Are You Sleeping?"
+      ],
+      "extensions": [],
+      "sourcePage": 31,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-32",
+      "bookId": "hello-15",
+      "title": "What I Like",
+      "tunes": [
+        "My Teddy Bear"
+      ],
+      "extensions": [],
+      "sourcePage": 32,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-33",
+      "bookId": "hello-15",
+      "title": "Playing Ball",
+      "tunes": [
+        "Row Row Row Your Boat"
+      ],
+      "extensions": [],
+      "sourcePage": 33,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-34",
+      "bookId": "hello-15",
+      "title": "Flying High",
+      "tunes": [
+        "Zoom Zoom Zoom We’re Going to the Moon"
+      ],
+      "extensions": [],
+      "sourcePage": 34,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-35",
+      "bookId": "hello-15",
+      "title": "My Puppy",
+      "tunes": [
+        "Cows in the Kitchen"
+      ],
+      "extensions": [],
+      "sourcePage": 35,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-36",
+      "bookId": "hello-16",
+      "title": "Rain and Sun",
+      "tunes": [
+        "This Old Man"
+      ],
+      "extensions": [
+        {
+          "title": "窗外天气改编儿歌",
+          "tune": "Open Shut Them"
+        }
+      ],
+      "sourcePage": 36,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-37",
+      "bookId": "hello-16",
+      "title": "Who Is…",
+      "tunes": [
+        "Twinkle Twinkle Little Star"
+      ],
+      "extensions": [],
+      "sourcePage": 37,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-38",
+      "bookId": "hello-17",
+      "title": "Mama’s Monkey",
+      "tunes": [],
+      "extensions": [],
+      "sourcePage": 38,
+      "note": "建议直接打着节拍读，无指定曲调。"
+    },
+    {
+      "id": "hello-rhyme-39",
+      "bookId": "hello-17",
+      "title": "Rock and Sing",
+      "tunes": [
+        "Row Row Row Your Boat"
+      ],
+      "extensions": [],
+      "sourcePage": 39,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-40",
+      "bookId": "hello-18",
+      "title": "Baby Bunny’s Train",
+      "tunes": [
+        "Five Little Monkeys"
+      ],
+      "extensions": [],
+      "sourcePage": 40,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-41",
+      "bookId": "hello-18",
+      "title": "My Toothbrush",
+      "tunes": [
+        "London Bridge Is Falling Down"
+      ],
+      "extensions": [
+        {
+          "title": "刷牙改编儿歌",
+          "tune": "The Farmer in the Dell"
+        }
+      ],
+      "sourcePage": 41,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-42",
+      "bookId": "hello-18",
+      "title": "Pickups",
+      "tunes": [
+        "This Little Piggie"
+      ],
+      "extensions": [],
+      "sourcePage": 42,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-43",
+      "bookId": "hello-18",
+      "title": "One Star, One Moon",
+      "tunes": [
+        "I Love You Through and Through",
+        "勃拉姆斯摇篮曲"
+      ],
+      "extensions": [],
+      "sourcePage": 43,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-44",
+      "bookId": "hello-19",
+      "title": "Let’s Pretend",
+      "tunes": [
+        "I’m a Little Teapot"
+      ],
+      "extensions": [],
+      "sourcePage": 44,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-45",
+      "bookId": "hello-19",
+      "title": "Nana and Me",
+      "tunes": [
+        "Humpty Dumpty"
+      ],
+      "extensions": [],
+      "sourcePage": 45,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-46",
+      "bookId": "hello-19",
+      "title": "Move to the Beat",
+      "tunes": [
+        "Row Row Row Your Boat"
+      ],
+      "extensions": [],
+      "sourcePage": 46,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-47",
+      "bookId": "hello-20",
+      "title": "Jelly Baby",
+      "tunes": [
+        "Down by the Station",
+        "Jelly on a Plate",
+        "Row Row Row Your Boat"
+      ],
+      "extensions": [],
+      "sourcePage": 47,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-48",
+      "bookId": "hello-21",
+      "title": "Where’s Bear?",
+      "tunes": [
+        "The Farmer in the Dell"
+      ],
+      "extensions": [],
+      "sourcePage": 48,
+      "note": "跳过第一句，从“He’s not on the table”开始唱。"
+    },
+    {
+      "id": "hello-rhyme-49",
+      "bookId": "hello-21",
+      "title": "Daddy’s Home",
+      "tunes": [
+        "听妈妈的话",
+        "Five Little Monkeys"
+      ],
+      "extensions": [],
+      "sourcePage": 49,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-50",
+      "bookId": "hello-21",
+      "title": "All Grown Up",
+      "tunes": [
+        "Row Row Row Your Boat"
+      ],
+      "extensions": [],
+      "sourcePage": 50,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-51",
+      "bookId": "hello-22",
+      "title": "Find Me!",
+      "tunes": [
+        "Where Is Thumbkin?"
+      ],
+      "extensions": [],
+      "sourcePage": 51,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-52",
+      "bookId": "hello-22",
+      "title": "Pumpkin Moon",
+      "tunes": [
+        "Walking Walking on Halloween"
+      ],
+      "extensions": [],
+      "sourcePage": 52,
+      "note": "原页栏目为 Find It；汇总标注 Pumpkin Moon。"
+    },
+    {
+      "id": "hello-rhyme-53",
+      "bookId": "hello-22",
+      "title": "October Fun",
+      "tunes": [
+        "Down by the Station"
+      ],
+      "extensions": [],
+      "sourcePage": 53,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-54",
+      "bookId": "hello-22",
+      "title": "Baby’s Lullaby",
+      "tunes": [
+        "London Bridge Is Falling Down",
+        "Apple Red Apple Round",
+        "Rain Rain Go Away"
+      ],
+      "extensions": [],
+      "sourcePage": 54,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-55",
+      "bookId": "hello-23",
+      "title": "Bunny Hop",
+      "tunes": [
+        "Sleeping Bunnies",
+        "I’m a Little Teapot"
+      ],
+      "extensions": [],
+      "sourcePage": 55,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-56",
+      "bookId": "hello-23",
+      "title": "Papa’s Little Patty-Cakes",
+      "tunes": [
+        "Patty Cake"
+      ],
+      "extensions": [],
+      "sourcePage": 56,
+      "note": ""
+    },
+    {
+      "id": "hello-rhyme-57",
+      "bookId": "hello-24",
+      "title": "Counting Sheep",
+      "tunes": [
+        "Five Little Monkeys",
+        "Five Little Ducks"
+      ],
+      "extensions": [],
+      "sourcePage": 57,
+      "note": ""
+    }
+  ],
+  "issues": [
+    {
+      "id": "hello-2017-05",
+      "title": "2017年5月",
+      "edition": "dated",
+      "scene": "声音",
+      "english": "sounds",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-06",
+      "title": "2017年6月",
+      "edition": "dated",
+      "scene": "农场动物",
+      "english": "farm animals",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-07",
+      "title": "2017年7月",
+      "edition": "dated",
+      "scene": "颜色",
+      "english": "colors",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-08",
+      "title": "2017年8月",
+      "edition": "dated",
+      "scene": "玩水",
+      "english": "water play",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-09",
+      "title": "2017年9月",
+      "edition": "dated",
+      "scene": "食物",
+      "english": "food",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-10",
+      "title": "2017年10月",
+      "edition": "dated",
+      "scene": "衣服",
+      "english": "clothes",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-11",
+      "title": "2017年11月",
+      "edition": "dated",
+      "scene": "交通工具",
+      "english": "vehicles",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-12",
+      "title": "2017年12月",
+      "edition": "dated",
+      "scene": "室内游戏",
+      "english": "play time",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-01",
+      "title": "2018年1月",
+      "edition": "dated",
+      "scene": "大小",
+      "english": "sizes",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-02",
+      "title": "2018年2月",
+      "edition": "dated",
+      "scene": "宠物",
+      "english": "pets",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-03",
+      "title": "2018年3月",
+      "edition": "dated",
+      "scene": "时间",
+      "english": "time",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-04",
+      "title": "2018年4月",
+      "edition": "dated",
+      "scene": "鸟",
+      "english": "birds",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-05",
+      "title": "2018年5月",
+      "edition": "dated",
+      "scene": "身体部位",
+      "english": "body parts",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-06",
+      "title": "2018年6月",
+      "edition": "dated",
+      "scene": "出行",
+      "english": "",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-07",
+      "title": "2018年7月",
+      "edition": "dated",
+      "scene": "虫",
+      "english": "tiny friends",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-08",
+      "title": "2018年8月",
+      "edition": "dated",
+      "scene": "户外游戏",
+      "english": "outdoor fun",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-09",
+      "title": "2018年9月",
+      "edition": "dated",
+      "scene": "（空缺）",
+      "english": "",
+      "sourcePage": 5,
+      "available": false
+    },
+    {
+      "id": "hello-2018-10",
+      "title": "2018年10月",
+      "edition": "dated",
+      "scene": "天气",
+      "english": "weather",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-11",
+      "title": "2018年11月",
+      "edition": "dated",
+      "scene": "形状",
+      "english": "shapes",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-12",
+      "title": "2018年12月",
+      "edition": "dated",
+      "scene": "天空",
+      "english": "looking up",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-01",
+      "title": "2019年1月",
+      "edition": "dated",
+      "scene": "宝宝的一天",
+      "english": "dawn to dusk",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-02",
+      "title": "2019年2月",
+      "edition": "dated",
+      "scene": "动物",
+      "english": "animal families",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-03",
+      "title": "2019年3月",
+      "edition": "dated",
+      "scene": "音乐",
+      "english": "tra-la-la",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-04",
+      "title": "2019年4月",
+      "edition": "dated",
+      "scene": "飞起来的东西",
+      "english": "things that fly",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-05",
+      "title": "2019年5月",
+      "edition": "dated",
+      "scene": "植物",
+      "english": "plants",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-06",
+      "title": "2019年6月",
+      "edition": "dated",
+      "scene": "双胞胎",
+      "english": "sisters and brothers",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-07",
+      "title": "2019年7月",
+      "edition": "dated",
+      "scene": "大海",
+      "english": "the ocean",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-08",
+      "title": "2019年8月",
+      "edition": "dated",
+      "scene": "户外游戏",
+      "english": "outdoor play",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-09",
+      "title": "2019年9月",
+      "edition": "dated",
+      "scene": "做家务",
+      "english": "helping",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2019-10",
+      "title": "2019年10月",
+      "edition": "dated",
+      "scene": "五感",
+      "english": "senses",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2019-11",
+      "title": "2019年11月",
+      "edition": "dated",
+      "scene": "食物",
+      "english": "good things to eat",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2019-12",
+      "title": "2019年12月",
+      "edition": "dated",
+      "scene": "城市",
+      "english": "the city",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2020-01",
+      "title": "2020年1月",
+      "edition": "dated",
+      "scene": "玩具",
+      "english": "toys",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2020-02",
+      "title": "2020年2月",
+      "edition": "dated",
+      "scene": "颜色",
+      "english": "colors",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2020-03",
+      "title": "2020年3月",
+      "edition": "dated",
+      "scene": "动物",
+      "english": "wild animals",
+      "sourcePage": 6,
+      "available": true
+    }
+  ],
+  "supplements": [
+    {
+      "kind": "official-intro",
+      "label": "官方引言",
+      "url": "https://t3.znas.cn/Cy8Mo7IbU88",
+      "expiresAfterDays": 180,
+      "createdAt": "2026-11-04"
+    }
+  ],
+  "assetInventory": {
+    "sourceFiles": 136,
+    "downloadedFiles": 136,
+    "sourceBytes": 322505628,
+    "uniqueFiles": 126,
+    "uniqueBytes": 303180880,
+    "pdfFiles": 54,
+    "audioFiles": 82,
+    "deduplication": "SHA-256完全相同时共用文件，原始文件名按册保留",
+    "mappingNote": "额外PDF和MP3按来源资料包归册；同名音频关联童谣或建议曲调，不推断具体Part或官方录音身份"
+  }
+}
