@@ -6,7 +6,7 @@ import { HEALTH_DOMAINS, HEALTH_MONTHS, HEALTH_STAGES, healthStage, stageHealthI
 
 const M = window.XiaoyaSyncModel;
 const profile = window.XiaoyaBabyProfile.createClient();
-const state = { view: 'month', month: 1, domain: 'gross', status: 'all', search: '', limit: 8, focus: null, graphMode: 'lineage', zoom: .85, expanded: false };
+const state = { view: 'month', month: 1, domain: 'gross', status: 'all', search: '', limit: 8, focus: null, graphMode: 'lineage', zoom: window.matchMedia('(max-width:900px)').matches ? .7 : .85, expanded: false };
 let source, shell, sync, store, snapshot = null, writing = false, notice = '', detail, lastUndo = null;
 let saveError = false, graphLegendOpen = false;
 let storageProblem = '';
@@ -399,9 +399,13 @@ function renderLineage(target, oldScroll) {
     if (state.expanded) header.append(shell.createSectionSwitch()); section.append(header);
   }
   if (state.view === 'overview') {
-    const controls = node('div', 'health-focus-controls'), modes = node('div', 'graph-mode-tabs'); modes.setAttribute('role', 'group'); modes.setAttribute('aria-label', '脉络查看范围');
+    const controls = node('div', 'health-focus-controls graph-reading-controls'), modes = node('div', 'graph-mode-tabs'); modes.setAttribute('role', 'group'); modes.setAttribute('aria-label', '脉络查看范围');
     for (const [mode, label] of [['lineage', '这项技能的完整脉络'], ['overview', '整个领域全景']]) {
       const button = btn(label, () => { state.graphMode = mode; render(); document.querySelector(`[data-graph-mode="${mode}"]`)?.focus(); }, state.graphMode === mode ? 'active' : '');
+      const modeIcon = window.XiaoyaSite.icon('tree');
+      if (mode === 'overview') modeIcon.querySelector('path').setAttribute('d', 'M9 3H3v6M15 3h6v6M3 15v6h6M21 15v6h-6');
+      button.replaceChildren(modeIcon, node('span', '', mode === 'lineage' ? '单项脉络' : '领域全景'));
+      button.setAttribute('aria-label', label); button.title = label;
       button.dataset.graphMode = mode; button.setAttribute('aria-pressed', state.graphMode === mode); modes.append(button);
     }
     const picker = node('div', 'health-focus-picker'), label = node('label', '', '定位技能'); label.htmlFor = 'health-focus';
@@ -418,6 +422,7 @@ function renderLineage(target, oldScroll) {
     picker.append(label, select, clear); controls.append(modes, picker); section.append(controls);
   }
   const strip = node('div', state.view === 'month' ? 'stage-lineage-focus' : 'health-focus-strip' + (focused ? '' : ' is-overview'));
+  let clearStageFocus;
   if (focused) {
     const copy = node(state.view === 'month' ? 'span' : 'div');
     if (state.view === 'month') {
@@ -426,16 +431,14 @@ function renderLineage(target, oldScroll) {
         document.querySelector('.health-lineage-viewport')?.focus({ preventScroll: true });
       });
       clear.classList.add('stage-lineage-clear');
-      const name = node('span', 'stage-lineage-name'); name.append(node('strong', '', focused.title), clear);
-      copy.append(window.XiaoyaSite.icon('tree'), name);
+      clearStageFocus = clear;
     }
     else copy.append(node('small', '', `正在追踪 · ${healthStage(focused.month).label}`), node('strong', '', focused.title));
     strip.append(copy);
   }
   const stats = observationStats(graph.nodes, records());
   const counts = node('span', state.view === 'month' ? 'stage-lineage-counts' : '', `${state.view !== 'month' && focused ? `${graph.relation.ancestors.length} 项上游 · ${graph.relation.descendants.length} 项后续 · ` : ''}${stats.observed}/${stats.total} 已完成`);
-  if (state.view === 'month') section.querySelector('.lineage-title-row')?.append(strip);
-  else strip.append(counts);
+  if (state.view !== 'month') strip.append(counts);
   if (state.view !== 'month') section.append(strip);
   const workspace = node('div', 'graph-workspace'), toolbar = node('div', 'graph-toolbar'), tools = node('div', 'graph-tools'); tools.setAttribute('role', 'group'); tools.setAttribute('aria-label', '图谱工具栏');
   const zoomTools = node('div', 'graph-zoom-tools'), viewTools = node('div', 'graph-view-tools');
@@ -459,8 +462,12 @@ function renderLineage(target, oldScroll) {
   if (state.view === 'overview') viewTools.append(iconButton('baby', '回到宝宝当前月龄', () => { state.month = referenceMonth(profile.get().birthDate); state.focus = null; state.graphMode = 'overview'; render(); }));
   viewTools.append(iconButton(state.expanded ? 'close' : 'expand', state.expanded ? '退出放大画布' : '放大画布', () => expandGraph(!state.expanded)));
   const legendButton = iconButton('info', '查看图例', openLegend); legendButton.classList.add('graph-legend-button'); viewTools.append(legendButton);
+  if (clearStageFocus) viewTools.append(clearStageFocus);
   tools.append(zoomTools, viewTools);
-  if (state.view === 'month') toolbar.append(counts);
+  if (state.view === 'month') {
+    counts.title = '当前图中全部技能的完成进度（含其他月龄）';
+    section.querySelector('.lineage-title-row')?.append(counts);
+  }
   toolbar.append(tools); workspace.append(toolbar);
   const panel = node('div', 'graph-legend-panel'), disclosure = node('details', 'graph-legend-disclosure'); disclosure.open = graphLegendOpen;
   const summary = node('summary'); summary.append(node('span', '', '图例 · 连线与颜色'), node('span', 'legend-disclosure-hint', '点击展开／收起')); disclosure.append(summary, legendContent());
