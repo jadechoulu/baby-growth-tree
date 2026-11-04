@@ -1209,7 +1209,7 @@
 .vocabulary-count{font-size:12px;color:#60715f;margin:6px 0}.vocabulary-list{list-style:none;padding:0;margin:0}
 .vocabulary-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(85px,150px) auto;align-items:center;gap:6px;border-bottom:1px solid #e7e9e0;min-width:0;padding:2px 0}
 .vocabulary-name{border:0;background:transparent;text-align:left;color:inherit;padding:5px 0;min-height:38px;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 7px;overflow-wrap:anywhere}
-.vocabulary-name strong{font-size:15px;font-weight:500}.vocabulary-name small{font-size:12px;color:#71806b}
+.vocabulary-name .vocabulary-text{font-size:15px;font-weight:400}.vocabulary-name small{font-size:12px;color:#71806b}
 .vocabulary-notes{margin:12px 0 0}.vocabulary-notes>summary{font-size:12px;color:#65725e;cursor:pointer}.vocabulary-notes .profile-mode{margin:10px 0;flex-wrap:wrap}
 .vocabulary-category-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px solid #e4e8dd}.vocabulary-category-row label{min-width:0}.vocabulary-category-row small{font-size:12px;overflow-wrap:anywhere;max-width:80px}.vocabulary-category-row .button{padding:6px 9px;min-height:40px}.vocabulary-category-row .form-error{grid-column:1/-1;margin:0}.vocabulary-category-row .form-error:empty{display:none}
 .vocabulary-import-preview:not(:empty){background:#f1f5e9;border-radius:8px;padding:10px;margin-top:12px}.vocabulary-import-preview p{overflow-wrap:anywhere}
@@ -1417,15 +1417,21 @@
 .vocabulary-fold[open]>summary::before{content:'−'}
 .vocabulary-fold>summary small{font-size:12px;font-weight:400;color:var(--muted)}
 .vocabulary-category-groups{padding-left:12px}
-.vocabulary-category-fold>summary{color:var(--muted)}
+.vocabulary-category-fold>summary{color:var(--ink)}
+.vocabulary-category-fold>summary strong{font-weight:700}
+.vocabulary-pos-label{display:inline-block;padding:1px 7px;border-radius:4px;font-size:14px;line-height:1.5;font-weight:400;color:#46515d;background:#e9edf0}
+.vocabulary-pos-noun{color:#30583c;background:#e3eddf}
+.vocabulary-pos-verb{color:#874617;background:#fae9d6}
+.vocabulary-pos-adjective{color:#285d87;background:#e0edf9}
+.vocabulary-pos-adverb{color:#674487;background:#eee4f5}
 .vocabulary-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));column-gap:12px}
 .vocabulary-word-list{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 12px}
 .vocabulary-panel .vocabulary-row{display:block;padding:0;min-width:0}
 .vocabulary-row .vocabulary-name{display:flex;width:100%;min-height:30px;padding:3px 0;line-height:1.5;min-width:0}
 .vocabulary-word-list>.vocabulary-row{flex:0 1 auto;max-width:100%;border-bottom:0}
 .vocabulary-word-list .vocabulary-name{min-height:26px;padding:1px 0;gap:0 5px}
-.vocabulary-word-list .vocabulary-name strong,.vocabulary-word-list .vocabulary-name small{min-width:0;max-width:100%;overflow-wrap:anywhere}
-.vocabulary-word-list .vocabulary-name:hover strong{text-decoration:underline;text-underline-offset:3px}
+.vocabulary-word-list .vocabulary-name .vocabulary-text,.vocabulary-word-list .vocabulary-name small{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.vocabulary-word-list .vocabulary-name:hover .vocabulary-text{text-decoration:underline;text-underline-offset:3px}
 .vocabulary-category-row input{width:100%;min-width:0;font-size:16px;padding:6px 8px;border:1px solid var(--line);border-radius:5px}
 @media(max-width:375px){.vocabulary-toolbar{gap:2px}.vocabulary-toolbar .vocabulary-type-tabs button{padding:3px 4px;gap:2px}.vocabulary-toolbar-actions{gap:2px}.vocabulary-add-toggle{padding:3px 4px}}
 
@@ -1443,6 +1449,8 @@
 .practice-form .vocabulary-entry-input-row input{width:100%;min-width:0;min-height:36px;padding:5px 8px;font-size:16px}
 .practice-form .vocabulary-entry-input-row .icon-button{width:30px;height:30px;min-width:30px;min-height:30px;padding:0;font-size:20px;color:var(--green);border:1px solid var(--line)}
 .vocabulary-entry-input-row .icon-button:disabled{opacity:.35;cursor:default}
+.practice-form .vocabulary-entry-input-row .vocabulary-entry-feedback{grid-column:1/-1;color:var(--green);font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.vocabulary-entry-feedback:empty{display:none}
 
 /* 庆爸与许密杉共用数量行；庆爸额外提供父子汇总与计时。 */
 .practice-label-shell{display:flex;align-items:center;gap:4px;min-width:0}
