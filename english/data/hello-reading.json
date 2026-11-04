@@ -4,7 +4,7 @@
   "checkedAt": "2026-11-04",
   "attribution": "场景与曲调建议来源：Erin是松果妈妈；本站按汇总原件整理。",
   "tuneNote": "曲调表示整理者建议可套用的旋律，包含拓展儿歌，不代表杂志官方配乐或唯一唱法。",
-  "editionNote": "1–24号书与2017–2020年月刊分别索引，尚无逐册对应依据，不互换编号。",
+  "editionNote": "当前仅索引已有原书及配套素材的1–24号书；未能关联现有书册的2017–2020年月主题索引已移除，原始场景汇总PDF保留。",
   "sources": [
     {
       "id": "scenes",
@@ -30,31 +30,66 @@
           "part": 1,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Beds",
+          "titleSource": {
+            "file": "assets/hello/notes/book-01.pdf",
+            "page": 1,
+            "heading": "1号书 Part1 — Beds",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "肢体动作",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Can You?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-01.pdf",
+            "page": 2,
+            "heading": "1号书 Part2 — Can You?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "家里的房间",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-01.pdf",
+            "page": 3,
+            "heading": "1号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "理发",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "First Haircut",
+          "titleSource": {
+            "file": "assets/hello/notes/book-01.pdf",
+            "page": 4,
+            "heading": "1号书 Part4 — First Haircut",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Sweet Little One",
+          "titleSource": {
+            "file": "assets/hello/notes/book-01.pdf",
+            "page": 5,
+            "heading": "1号书 Part5 — Sweet Little One",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -124,7 +159,7 @@
         {
           "id": "hello-01-asset-93f30c784e632e03",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-01.pdf",
           "bytes": 1227909,
           "sha256": "93f30c784e632e03a0f7e5ed6f2b46110b28c30af8663f548f7fef233004d15c",
@@ -133,7 +168,22 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-01.jpg",
+      "coverSource": {
+        "type": "video-frame",
+        "url": "https://t3.znas.cn/tZGPIm6lmwb",
+        "videoTimeSeconds": 1.5,
+        "cropPixels": [
+          593,
+          124,
+          689,
+          251
+        ],
+        "label": "官方1号书带读视频起始画面中的本册封面",
+        "note": "原书PDF未含封皮，从对应官方带读资源画面裁取；保留画面已有标记。",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-02",
@@ -145,31 +195,66 @@
           "part": 1,
           "scene": "颜色",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Baby Bunny Takes a Walk",
+          "titleSource": {
+            "file": "assets/hello/notes/book-02.pdf",
+            "page": 1,
+            "heading": "2号书 Part1 — Baby Bunny Takes a Walk",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "肢体动作",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Rockin’ Baby",
+          "titleSource": {
+            "file": "assets/hello/notes/book-02.pdf",
+            "page": 2,
+            "heading": "2号书 Part2 — Rockin’ Baby",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "宠物",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-02.pdf",
+            "page": 3,
+            "heading": "2号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "照镜子",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Mirror Baby",
+          "titleSource": {
+            "file": "assets/hello/notes/book-02.pdf",
+            "page": 4,
+            "heading": "2号书 Part4 — Mirror Baby",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "室内游戏",
           "note": "玩小火车",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Watch It Go!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-02.pdf",
+            "page": 5,
+            "heading": "2号书 Part5 — Watch It Go!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -244,7 +329,7 @@
         {
           "id": "hello-02-asset-721d2ef17ce0a352",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-02.pdf",
           "bytes": 1246149,
           "sha256": "721d2ef17ce0a3520b86e87181faf2137b23518905a97ab5179fccaa7e039291",
@@ -253,7 +338,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-02.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/050f51627da1d3f9.pdf",
+        "page": 1,
+        "label": "2号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-03",
@@ -265,31 +358,66 @@
           "part": 1,
           "scene": "捉迷藏",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Guess Where I’m Hiding",
+          "titleSource": {
+            "file": "assets/hello/notes/book-03.pdf",
+            "page": 1,
+            "heading": "3号书 Part1 — Guess Where I’m Hiding",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Giggle Kisses",
+          "titleSource": {
+            "file": "assets/hello/notes/book-03.pdf",
+            "page": 2,
+            "heading": "3号书 Part2 — Giggle Kisses",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "玩具",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-03.pdf",
+            "page": 3,
+            "heading": "3号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "出行",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "A Very Long Car Ride",
+          "titleSource": {
+            "file": "assets/hello/notes/book-03.pdf",
+            "page": 4,
+            "heading": "3号书 Part4 — A Very Long Car Ride",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "洗澡",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Bubble Bath",
+          "titleSource": {
+            "file": "assets/hello/notes/book-03.pdf",
+            "page": 5,
+            "heading": "3号书 Part5 — Bubble Bath",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -386,7 +514,7 @@
         {
           "id": "hello-03-asset-e370f553b785d439",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-03.pdf",
           "bytes": 1227887,
           "sha256": "e370f553b785d439a7a181301305b8bfd04e373c2673b6761c46089d5e41ab91",
@@ -412,7 +540,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-03.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/2e1b3026ab144ba5.pdf",
+        "page": 1,
+        "label": "3号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-04",
@@ -424,31 +560,66 @@
           "part": 1,
           "scene": "动物",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Little Bird",
+          "titleSource": {
+            "file": "assets/hello/notes/book-04.pdf",
+            "page": 1,
+            "heading": "4号书 Part1 — Little Bird",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "影子",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Mikayla’s Shadow",
+          "titleSource": {
+            "file": "assets/hello/notes/book-04.pdf",
+            "page": 2,
+            "heading": "4号书 Part2 — Mikayla’s Shadow",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "购物",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-04.pdf",
+            "page": 3,
+            "heading": "4号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "玩具",
           "note": "workbench",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "My Workbench",
+          "titleSource": {
+            "file": "assets/hello/notes/book-04.pdf",
+            "page": 4,
+            "heading": "4号书 Part4 — My Workbench",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "玩具",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Where Toys Can Sleep",
+          "titleSource": {
+            "file": "assets/hello/notes/book-04.pdf",
+            "page": 5,
+            "heading": "4号书 Part5 — Where Toys Can Sleep",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -523,7 +694,7 @@
         {
           "id": "hello-04-asset-dcc92ca9eea2dd69",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-04.pdf",
           "bytes": 411871,
           "sha256": "dcc92ca9eea2dd6985e6d2dbf7ec685735b446f71e2ee9917425d061cc2d6d6a",
@@ -532,7 +703,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-04.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/81709058b2fe924a.pdf",
+        "page": 1,
+        "label": "4号书-.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-05",
@@ -544,31 +723,66 @@
           "part": 1,
           "scene": "马路",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "City and Country",
+          "titleSource": {
+            "file": "assets/hello/notes/book-05.pdf",
+            "page": 1,
+            "heading": "5号书 Part1 — City and Country",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "One, Two, Three",
+          "titleSource": {
+            "file": "assets/hello/notes/book-05.pdf",
+            "page": 3,
+            "heading": "5号书 Part2 — One, Two, Three",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "植物",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-05.pdf",
+            "page": 4,
+            "heading": "5号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Blankie Time",
+          "titleSource": {
+            "file": "assets/hello/notes/book-05.pdf",
+            "page": 5,
+            "heading": "5号书 Part4 — Blankie Time",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "喝水",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "I’m Your Little Sippy Cup",
+          "titleSource": {
+            "file": "assets/hello/notes/book-05.pdf",
+            "page": 6,
+            "heading": "5号书 Part5 — I’m Your Little Sippy Cup",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -658,7 +872,7 @@
         {
           "id": "hello-05-asset-a3243d668700d427",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-05.pdf",
           "bytes": 1395915,
           "sha256": "a3243d668700d4278a43450d153301373d2383499f27548986a2063393fed701",
@@ -684,7 +898,15 @@
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-05.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/6b49dac64d71f4a7.pdf",
+        "page": 1,
+        "label": "5号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-06",
@@ -696,31 +918,66 @@
           "part": 1,
           "scene": "双胞胎",
           "note": "",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Twice as Nice",
+          "titleSource": {
+            "file": "assets/hello/notes/book-06.pdf",
+            "page": 1,
+            "heading": "6号书 Part1 — Twice as Nice",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "户外游戏",
           "note": "pool",
-          "sourcePage": 1
+          "sourcePage": 1,
+          "title": "Baby Bunny’s in Her Pool",
+          "titleSource": {
+            "file": "assets/hello/notes/book-06.pdf",
+            "page": 2,
+            "heading": "6号书 Part2 — Baby Bunny’s in Her Pool",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "室内游戏",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-06.pdf",
+            "page": 3,
+            "heading": "6号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "室内游戏",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Bouncy",
+          "titleSource": {
+            "file": "assets/hello/notes/book-06.pdf",
+            "page": 4,
+            "heading": "6号书 Part4 — Bouncy",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "户外游戏",
           "note": "浇水",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Watering the Garden",
+          "titleSource": {
+            "file": "assets/hello/notes/book-06.pdf",
+            "page": 5,
+            "heading": "6号书 Part5 — Watering the Garden",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -812,7 +1069,7 @@
         {
           "id": "hello-06-asset-1b894a87b6153e8f",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-06.pdf",
           "bytes": 1327351,
           "sha256": "1b894a87b6153e8f4ae3275dddb0e0b7e2ea1d291a839aa507a74042b12dcf82",
@@ -850,7 +1107,15 @@
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-06.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/578e3e139ece229a.pdf",
+        "page": 1,
+        "label": "6号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-07",
@@ -862,31 +1127,66 @@
           "part": 1,
           "scene": "户外游戏",
           "note": "玩球",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Go, Go, Go!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-07.pdf",
+            "page": 1,
+            "heading": "7号书 Part1 — Go, Go, Go!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "宠物",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Count the Kittens",
+          "titleSource": {
+            "file": "assets/hello/notes/book-07.pdf",
+            "page": 2,
+            "heading": "7号书 Part2 — Count the Kittens",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "户外游戏",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-07.pdf",
+            "page": 3,
+            "heading": "7号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "身体部位",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Your Wonderful Body",
+          "titleSource": {
+            "file": "assets/hello/notes/book-07.pdf",
+            "page": 4,
+            "heading": "7号书 Part4 — Your Wonderful Body",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "肢体动作",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Clap, Clap, Clap",
+          "titleSource": {
+            "file": "assets/hello/notes/book-07.pdf",
+            "page": 5,
+            "heading": "7号书 Part5 — Clap, Clap, Clap",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -961,7 +1261,7 @@
         {
           "id": "hello-07-asset-5beaca34b3294c98",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-07.pdf",
           "bytes": 1306404,
           "sha256": "5beaca34b3294c982af2a4bfc4b17b7d41061618c693dd383af945a6e00e91d2",
@@ -1002,7 +1302,15 @@
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-07.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/027ac25b599e3c5f.pdf",
+        "page": 1,
+        "label": "7号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-08",
@@ -1014,31 +1322,66 @@
           "part": 1,
           "scene": "海边",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Beach Baby",
+          "titleSource": {
+            "file": "assets/hello/notes/book-08.pdf",
+            "page": 1,
+            "heading": "8号书 Part1 — Beach Baby",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "喝水",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "All Gone",
+          "titleSource": {
+            "file": "assets/hello/notes/book-08.pdf",
+            "page": 2,
+            "heading": "8号书 Part2 — All Gone",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "海边",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-08.pdf",
+            "page": 3,
+            "heading": "8号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "玩具",
           "note": "收玩具",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "It’s Time to Put Your Toys Away",
+          "titleSource": {
+            "file": "assets/hello/notes/book-08.pdf",
+            "page": 4,
+            "heading": "8号书 Part4 — It’s Time to Put Your Toys Away",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "户外游戏",
           "note": "吹泡泡",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Bubble Time",
+          "titleSource": {
+            "file": "assets/hello/notes/book-08.pdf",
+            "page": 5,
+            "heading": "8号书 Part5 — Bubble Time",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1113,7 +1456,7 @@
         {
           "id": "hello-08-asset-01191e747ce80b75",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-08.pdf",
           "bytes": 1627673,
           "sha256": "01191e747ce80b75dd1ae40d82bfd8a4786cdb3f569e800dfbe0d51750175f9c",
@@ -1139,7 +1482,15 @@
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-08.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/1dba5651a0db0690.pdf",
+        "page": 1,
+        "label": "8号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-09",
@@ -1151,31 +1502,66 @@
           "part": 1,
           "scene": "天气",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Stormy Day",
+          "titleSource": {
+            "file": "assets/hello/notes/book-09.pdf",
+            "page": 1,
+            "heading": "9号书 Part1 — Stormy Day",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "室内游戏",
           "note": "玩小汽车",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "My Racing Cars",
+          "titleSource": {
+            "file": "assets/hello/notes/book-09.pdf",
+            "page": 2,
+            "heading": "9号书 Part2 — My Racing Cars",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "游乐场",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-09.pdf",
+            "page": 3,
+            "heading": "9号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Here I Am",
+          "titleSource": {
+            "file": "assets/hello/notes/book-09.pdf",
+            "page": 4,
+            "heading": "9号书 Part4 — Here I Am",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "洗澡",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Do They Sink?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-09.pdf",
+            "page": 5,
+            "heading": "9号书 Part5 — Do They Sink?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1267,7 +1653,7 @@
         {
           "id": "hello-09-asset-de080b6ad376df6d",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-09.pdf",
           "bytes": 1119091,
           "sha256": "de080b6ad376df6d04261c8ccc5e8d5c00c95d42df49fdc94414fe4a94aa4755",
@@ -1293,7 +1679,22 @@
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-09.jpg",
+      "coverSource": {
+        "type": "video-frame",
+        "url": "https://t3.znas.cn/ouKnXsVLr3",
+        "videoTimeSeconds": 0.5,
+        "cropPixels": [
+          196,
+          665,
+          414,
+          960
+        ],
+        "label": "官方9号书带读视频起始画面中的本册封面",
+        "note": "原书PDF未含封皮；从视频中9号书页面的同册视频封面裁取，已与页面上方编号9的封皮核对。",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-10",
@@ -1305,31 +1706,66 @@
           "part": 1,
           "scene": "捉迷藏",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Where Is Baby Bunny?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-10.pdf",
+            "page": 1,
+            "heading": "10号书 Part1 — Where Is Baby Bunny?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "肢体动作",
           "note": "patty cake",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Patty-Cake Clap",
+          "titleSource": {
+            "file": "assets/hello/notes/book-10.pdf",
+            "page": 2,
+            "heading": "10号书 Part2 — Patty-Cake Clap",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "户外游戏",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-10.pdf",
+            "page": 3,
+            "heading": "10号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "动物",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Noisy Zoo",
+          "titleSource": {
+            "file": "assets/hello/notes/book-10.pdf",
+            "page": 4,
+            "heading": "10号书 Part4 — Noisy Zoo",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "生日",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Look Who’s Two",
+          "titleSource": {
+            "file": "assets/hello/notes/book-10.pdf",
+            "page": 5,
+            "heading": "10号书 Part5 — Look Who’s Two",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1387,7 +1823,7 @@
         {
           "id": "hello-10-asset-c7589dd897027a45",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-10.pdf",
           "bytes": 1093575,
           "sha256": "c7589dd897027a45b853db420c1b0b22deae4d03eb0d694fcc8f606c36dc7b3d",
@@ -1411,7 +1847,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-10.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/0d5903887d9f591f.pdf",
+        "page": 1,
+        "label": "10号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-11",
@@ -1423,31 +1867,66 @@
           "part": 1,
           "scene": "吃饭",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Toaster Treats",
+          "titleSource": {
+            "file": "assets/hello/notes/book-11.pdf",
+            "page": 1,
+            "heading": "11号书 Part1 — Toaster Treats",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "日托",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Jackson Goes to Child Care",
+          "titleSource": {
+            "file": "assets/hello/notes/book-11.pdf",
+            "page": 2,
+            "heading": "11号书 Part2 — Jackson Goes to Child Care",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "户外游戏",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-11.pdf",
+            "page": 3,
+            "heading": "11号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "家里的房间",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Little Wagon",
+          "titleSource": {
+            "file": "assets/hello/notes/book-11.pdf",
+            "page": 4,
+            "heading": "11号书 Part4 — Little Wagon",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Rock-a-Bye, Darling",
+          "titleSource": {
+            "file": "assets/hello/notes/book-11.pdf",
+            "page": 5,
+            "heading": "11号书 Part5 — Rock-a-Bye, Darling",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1539,7 +2018,7 @@
         {
           "id": "hello-11-asset-0bb7415fe2b9ebf3",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-11.pdf",
           "bytes": 4133309,
           "sha256": "0bb7415fe2b9ebf30dad2f0cae632b92e0b01a29f562b518f984cc6f0dd09aab",
@@ -1548,7 +2027,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-11.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/707c6b2943e67112.pdf",
+        "page": 1,
+        "label": "11号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-12",
@@ -1560,31 +2047,73 @@
           "part": 1,
           "scene": "白天晚上",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Day and Night",
+          "titleSource": {
+            "file": "assets/hello/notes/book-12.pdf",
+            "page": 1,
+            "heading": "12号书 Part1 — Day and Night",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
-          "scene": "洗澡",
+          "scene": "雨天玩水",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Make a Splash!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-12.pdf",
+            "page": 2,
+            "heading": "12号书 Part2 — Make a Splash!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          },
+          "originalScene": "洗澡",
+          "sceneSource": {
+            "file": "assets/hello/notes/book-12.pdf",
+            "page": 2,
+            "heading": "12号书 Part2 — Make a Splash!",
+            "basis": "原场景汇总标“洗澡”；12号笔记Part2明确场景“下雨天”，正文为穿雨靴、踩水坑。按笔记及Make a Splash原文更正，保留originalScene。"
+          }
         },
         {
           "part": 3,
           "scene": "玩具",
           "note": "叠叠乐、积木",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-12.pdf",
+            "page": 3,
+            "heading": "12号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 2
+          "sourcePage": 2,
+          "title": "Time to Sleep",
+          "titleSource": {
+            "file": "assets/hello/notes/book-12.pdf",
+            "page": 4,
+            "heading": "12号书 Part4 — Time to Sleep",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "玩具",
           "note": "曼哈顿玩具",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Graham’s New Toy",
+          "titleSource": {
+            "file": "assets/hello/notes/book-12.pdf",
+            "page": 5,
+            "heading": "12号书 Part5 — Graham’s New Toy",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1659,7 +2188,7 @@
         {
           "id": "hello-12-asset-973f0a5697dae188",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-12.pdf",
           "bytes": 1337385,
           "sha256": "973f0a5697dae18831e341af9bcedf8cc1c0723cac99d9b39ac79393e42a2ac6",
@@ -1668,7 +2197,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-12.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/c778324b61f96d6a.pdf",
+        "page": 1,
+        "label": "12号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-13",
@@ -1680,31 +2217,66 @@
           "part": 1,
           "scene": "洗澡",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Bath Time for Baby Bunny",
+          "titleSource": {
+            "file": "assets/hello/notes/book-13.pdf",
+            "page": 1,
+            "heading": "13号书 Part1 — Bath Time for Baby Bunny",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "农场",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Hickety Pickety",
+          "titleSource": {
+            "file": "assets/hello/notes/book-13.pdf",
+            "page": 4,
+            "heading": "13号书 Part2 — Hickety Pickety",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "农场",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-13.pdf",
+            "page": 5,
+            "heading": "13号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Where Do You Nap?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-13.pdf",
+            "page": 6,
+            "heading": "13号书 Part4 — Where Do You Nap?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "捉迷藏",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Where’s Teddy?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-13.pdf",
+            "page": 7,
+            "heading": "13号书 Part5 — Where’s Teddy?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1762,7 +2334,7 @@
         {
           "id": "hello-13-asset-1f28a4e694353deb",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-13.pdf",
           "bytes": 1444236,
           "sha256": "1f28a4e694353deb2a9e76a6541ebf7f398e18e11eb851604f88e1747bae8f0d",
@@ -1788,7 +2360,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-13.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/d6921167aef00fae.pdf",
+        "page": 1,
+        "label": "13号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-14",
@@ -1800,31 +2380,66 @@
           "part": 1,
           "scene": "宝宝的一天",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Babies Everywhere!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-14.pdf",
+            "page": 1,
+            "heading": "14号书 Part1 — Babies Everywhere!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "冬天",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "What Is It?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-14.pdf",
+            "page": 2,
+            "heading": "14号书 Part2 — What Is It?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "冬天",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "What Is It?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-14.pdf",
+            "page": 3,
+            "heading": "14号书 Part3 — What Is It?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "学走路",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "First Steps",
+          "titleSource": {
+            "file": "assets/hello/notes/book-14.pdf",
+            "page": 4,
+            "heading": "14号书 Part4 — First Steps",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "捉迷藏",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Where’s My Baby?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-14.pdf",
+            "page": 5,
+            "heading": "14号书 Part5 — Where’s My Baby?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -1916,7 +2531,7 @@
         {
           "id": "hello-14-asset-2010bc8114f97d9e",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-14.pdf",
           "bytes": 1016647,
           "sha256": "2010bc8114f97d9e52bfd21e4c5aa769ad9ded83c1e8db2e94a572c729794cee",
@@ -1940,7 +2555,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-14.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/4b8660b11462d380.pdf",
+        "page": 1,
+        "label": "14号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-15",
@@ -1952,31 +2575,66 @@
           "part": 1,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "What I Like",
+          "titleSource": {
+            "file": "assets/hello/notes/book-15.pdf",
+            "page": 1,
+            "heading": "15号书 Part1 — What I Like",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "室内游戏",
           "note": "玩球",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Playing Ball",
+          "titleSource": {
+            "file": "assets/hello/notes/book-15.pdf",
+            "page": 2,
+            "heading": "15号书 Part2 — Playing Ball",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "家里的房间",
           "note": "厨房",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-15.pdf",
+            "page": 3,
+            "heading": "15号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "亲子互动",
           "note": "举高高",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Flying High",
+          "titleSource": {
+            "file": "assets/hello/notes/book-15.pdf",
+            "page": 4,
+            "heading": "15号书 Part4 — Flying High",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "宠物",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "My Puppy",
+          "titleSource": {
+            "file": "assets/hello/notes/book-15.pdf",
+            "page": 5,
+            "heading": "15号书 Part5 — My Puppy",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2115,7 +2773,7 @@
         {
           "id": "hello-15-asset-01c0da8e1c65d80a",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-15.pdf",
           "bytes": 1413418,
           "sha256": "01c0da8e1c65d80a7994456c717fd05076fd699527c46f0f4f183eb00489afa4",
@@ -2124,7 +2782,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-15.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+        "page": 1,
+        "label": "15号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-16",
@@ -2136,31 +2802,66 @@
           "part": 1,
           "scene": "动物",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Houses",
+          "titleSource": {
+            "file": "assets/hello/notes/book-16.pdf",
+            "page": 1,
+            "heading": "16号书 Part1 — Houses",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "天气",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Rain and Sun",
+          "titleSource": {
+            "file": "assets/hello/notes/book-16.pdf",
+            "page": 2,
+            "heading": "16号书 Part2 — Rain and Sun",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "马路",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-16.pdf",
+            "page": 3,
+            "heading": "16号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "宝宝的一天",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Who Is…",
+          "titleSource": {
+            "file": "assets/hello/notes/book-16.pdf",
+            "page": 4,
+            "heading": "16号书 Part4 — Who Is…",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "衣服",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Baby Bunny’s New Outfit",
+          "titleSource": {
+            "file": "assets/hello/notes/book-16.pdf",
+            "page": 5,
+            "heading": "16号书 Part5 — Baby Bunny’s New Outfit",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2197,11 +2898,18 @@
             "16 This Old man.mp3"
           ],
           "duration": 22.6,
-          "rhymeIds": [],
-          "tunes": [
-            "This Old Man"
+          "rhymeIds": [
+            "hello-rhyme-36"
           ],
-          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+          "tunes": [],
+          "mappingBasis": "极空间Hello童谣 Erin演唱版本/16 Rain and Sun.mp3与本文件SHA-256完全一致（948db88c48733be2d5107eb5701a4dc06235cc93a5252af2d501fd2f0176f4ff），据明确来源名归入16号Part2 Rain and Sun演唱；不再将文件名This Old man当成经典原曲。未逐句ASR核对。",
+          "additionalSources": [
+            {
+              "provider": "极空间",
+              "fileName": "16 Rain and Sun.mp3",
+              "sha256": "948db88c48733be2d5107eb5701a4dc06235cc93a5252af2d501fd2f0176f4ff"
+            }
+          ]
         },
         {
           "id": "hello-16-asset-e59b8e7b2b9f78fc",
@@ -2235,7 +2943,7 @@
         {
           "id": "hello-16-asset-bd765985e6a9210b",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-16.pdf",
           "bytes": 1049165,
           "sha256": "bd765985e6a9210b7a29ea77aaf215de4744eabbcf42b3e0f1a096961b05d015",
@@ -2256,7 +2964,15 @@
           ],
           "pages": 16
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-16.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/6c35ac5a22d55243.pdf",
+        "page": 1,
+        "label": "16号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-17",
@@ -2268,31 +2984,66 @@
           "part": 1,
           "scene": "宠物",
           "note": "鱼",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Fish!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-17.pdf",
+            "page": 1,
+            "heading": "17号书 Part1 — Fish!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Mama’s Monkey",
+          "titleSource": {
+            "file": "assets/hello/notes/book-17.pdf",
+            "page": 2,
+            "heading": "17号书 Part2 — Mama’s Monkey",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "户外游戏",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-17.pdf",
+            "page": 3,
+            "heading": "17号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "马路",
           "note": "气球",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Uh-Oh!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-17.pdf",
+            "page": 4,
+            "heading": "17号书 Part4 — Uh-Oh!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Rock and Sing",
+          "titleSource": {
+            "file": "assets/hello/notes/book-17.pdf",
+            "page": 5,
+            "heading": "17号书 Part5 — Rock and Sing",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2367,7 +3118,7 @@
         {
           "id": "hello-17-asset-c314ea3cdee52552",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-17.pdf",
           "bytes": 1106935,
           "sha256": "c314ea3cdee52552db685bd42e4f14143658a794e2c584fe7b9cbd202b44cddb",
@@ -2376,7 +3127,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-17.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/90962276af3b39df.pdf",
+        "page": 1,
+        "label": "17号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-18",
@@ -2388,31 +3147,66 @@
           "part": 1,
           "scene": "室内游戏",
           "note": "玩小火车、纸箱游戏",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Baby Bunny’s Train",
+          "titleSource": {
+            "file": "assets/hello/notes/book-18.pdf",
+            "page": 1,
+            "heading": "18号书 Part1 — Baby Bunny’s Train",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "刷牙",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "My Toothbrush",
+          "titleSource": {
+            "file": "assets/hello/notes/book-18.pdf",
+            "page": 2,
+            "heading": "18号书 Part2 — My Toothbrush",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-18.pdf",
+            "page": 3,
+            "heading": "18号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "马路",
           "note": "反义",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Pickups",
+          "titleSource": {
+            "file": "assets/hello/notes/book-18.pdf",
+            "page": 4,
+            "heading": "18号书 Part4 — Pickups",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "白天晚上",
           "note": "表达爱意",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "One Star, One Moon",
+          "titleSource": {
+            "file": "assets/hello/notes/book-18.pdf",
+            "page": 5,
+            "heading": "18号书 Part5 — One Star, One Moon",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2551,7 +3345,7 @@
         {
           "id": "hello-18-asset-90cfcc4b9ada8315",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-18.pdf",
           "bytes": 1192819,
           "sha256": "90cfcc4b9ada83155914b08b982a9a7f13a740ca0370b6ef23899ec04639cc26",
@@ -2575,7 +3369,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-18.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/364c646d6fd149f1.pdf",
+        "page": 1,
+        "label": "18号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-19",
@@ -2587,31 +3389,66 @@
           "part": 1,
           "scene": "洗澡",
           "note": "",
-          "sourcePage": 3
+          "sourcePage": 3,
+          "title": "Bath Time",
+          "titleSource": {
+            "file": "assets/hello/notes/book-19.pdf",
+            "page": 1,
+            "heading": "19号书 Part1 — Bath Time",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "室内游戏",
           "note": "纸箱",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Let’s Pretend",
+          "titleSource": {
+            "file": "assets/hello/notes/book-19.pdf",
+            "page": 2,
+            "heading": "19号书 Part2 — Let’s Pretend",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "动物",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-19.pdf",
+            "page": 3,
+            "heading": "19号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "宝宝的一天",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Nana and Me",
+          "titleSource": {
+            "file": "assets/hello/notes/book-19.pdf",
+            "page": 4,
+            "heading": "19号书 Part4 — Nana and Me",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Move to the Beat",
+          "titleSource": {
+            "file": "assets/hello/notes/book-19.pdf",
+            "page": 5,
+            "heading": "19号书 Part5 — Move to the Beat",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2718,7 +3555,7 @@
         {
           "id": "hello-19-asset-ffed27b64f47c741",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-19.pdf",
           "bytes": 1134927,
           "sha256": "ffed27b64f47c7413d5872ec78fece93a918be5740ef8dde8f24d2c446c9aab5",
@@ -2744,7 +3581,15 @@
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-19.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/083567236ece20f6.pdf",
+        "page": 1,
+        "label": "19号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-20",
@@ -2756,31 +3601,66 @@
           "part": 1,
           "scene": "肢体动作",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "We Love To",
+          "titleSource": {
+            "file": "assets/hello/notes/book-20.pdf",
+            "page": 1,
+            "heading": "20号书 Part1 — We Love To",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "生日",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Celebrating You",
+          "titleSource": {
+            "file": "assets/hello/notes/book-20.pdf",
+            "page": 2,
+            "heading": "20号书 Part2 — Celebrating You",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "户外游戏",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-20.pdf",
+            "page": 3,
+            "heading": "20号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "海边",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Dad and Me",
+          "titleSource": {
+            "file": "assets/hello/notes/book-20.pdf",
+            "page": 4,
+            "heading": "20号书 Part4 — Dad and Me",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "吃饭",
           "note": "厨房场景",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Jelly Baby",
+          "titleSource": {
+            "file": "assets/hello/notes/book-20.pdf",
+            "page": 5,
+            "heading": "20号书 Part5 — Jelly Baby",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2850,7 +3730,7 @@
         {
           "id": "hello-20-asset-4f3ce461d5560460",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-20.pdf",
           "bytes": 1232121,
           "sha256": "4f3ce461d5560460d1087273e2cd48b9889ae2bbc8286331668c85a5782ff0ab",
@@ -2859,7 +3739,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-20.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/511a796c4aadafae.pdf",
+        "page": 1,
+        "label": "Hello杂志20号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-21",
@@ -2871,31 +3759,66 @@
           "part": 1,
           "scene": "捉迷藏",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Where’s Bear?",
+          "titleSource": {
+            "file": "assets/hello/notes/book-21.pdf",
+            "page": 1,
+            "heading": "21号书 Part1 — Where’s Bear?",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "室内游戏",
           "note": "纸箱",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "My Box",
+          "titleSource": {
+            "file": "assets/hello/notes/book-21.pdf",
+            "page": 2,
+            "heading": "21号书 Part2 — My Box",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "衣服",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-21.pdf",
+            "page": 3,
+            "heading": "21号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "家里的房间",
           "note": "表达爱意",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Daddy’s Home",
+          "titleSource": {
+            "file": "assets/hello/notes/book-21.pdf",
+            "page": 4,
+            "heading": "21号书 Part4 — Daddy’s Home",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "喝水",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "All Grown Up",
+          "titleSource": {
+            "file": "assets/hello/notes/book-21.pdf",
+            "page": 5,
+            "heading": "21号书 Part5 — All Grown Up",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -2987,7 +3910,7 @@
         {
           "id": "hello-21-asset-04946d8d3d5aeb58",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-21.pdf",
           "bytes": 1391811,
           "sha256": "04946d8d3d5aeb58d4be0b7b4f893db681abcfbb98df2289b58347c21a291809",
@@ -2996,7 +3919,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-21.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/a514fdb78b61447b.pdf",
+        "page": 1,
+        "label": "21号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-22",
@@ -3008,31 +3939,66 @@
           "part": 1,
           "scene": "动物",
           "note": "动物长大",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "When They Grow Up",
+          "titleSource": {
+            "file": "assets/hello/notes/book-22.pdf",
+            "page": 1,
+            "heading": "22号书 Part1 — When They Grow Up",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "捉迷藏",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find Me!",
+          "titleSource": {
+            "file": "assets/hello/notes/book-22.pdf",
+            "page": 2,
+            "heading": "22号书 Part2 — Find Me!",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "万圣节",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-22.pdf",
+            "page": 3,
+            "heading": "22号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "秋天",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "October Fun",
+          "titleSource": {
+            "file": "assets/hello/notes/book-22.pdf",
+            "page": 4,
+            "heading": "22号书 Part4 — October Fun",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Baby’s Lullaby",
+          "titleSource": {
+            "file": "assets/hello/notes/book-22.pdf",
+            "page": 5,
+            "heading": "22号书 Part5 — Baby’s Lullaby",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -3086,9 +4052,11 @@
             "22 Find It Halloween.mp3"
           ],
           "duration": 75.62,
-          "rhymeIds": [],
+          "rhymeIds": [
+            "hello-rhyme-52"
+          ],
           "tunes": [],
-          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+          "mappingBasis": "原书22号Part3 Find It活动、NAS演唱文件22 Find It Halloween.mp3及童谣汇总同一找图原图对应；NAS原件与本文件SHA-256完全一致（584575dd11c09330387079124513e01807e8e1c634adec1360bab1d488786552）。归为Find It万圣节带读改编（entryKind=adapted-activity），不声称是Pumpkin Moon独立原诗；未逐句ASR核对。"
         },
         {
           "id": "hello-22-asset-eb423a74a8bbc6b3",
@@ -3139,7 +4107,7 @@
         {
           "id": "hello-22-asset-b4d52ab7c3473d85",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-22.pdf",
           "bytes": 1410408,
           "sha256": "b4d52ab7c3473d85c5ace40ef9f6d5b2158ac9cc02c389e856e446384a977fd0",
@@ -3148,7 +4116,15 @@
           ],
           "pages": 5
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-22.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/c2dd41c5298c7a20.pdf",
+        "page": 1,
+        "label": "22号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-23",
@@ -3160,31 +4136,66 @@
           "part": 1,
           "scene": "动物",
           "note": "小兔子",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Bunny Hop",
+          "titleSource": {
+            "file": "assets/hello/notes/book-23.pdf",
+            "page": 1,
+            "heading": "23号书 Part1 — Bunny Hop",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "亲子互动",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Papa’s Little Patty-Cakes",
+          "titleSource": {
+            "file": "assets/hello/notes/book-23.pdf",
+            "page": 2,
+            "heading": "23号书 Part2 — Papa’s Little Patty-Cakes",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "家里的房间",
           "note": "厨房、感恩节",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-23.pdf",
+            "page": 3,
+            "heading": "23号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "宝宝的一天",
           "note": "表达爱意",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "My Best Day",
+          "titleSource": {
+            "file": "assets/hello/notes/book-23.pdf",
+            "page": 4,
+            "heading": "23号书 Part4 — My Best Day",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "身体部位",
           "note": "肚脐眼",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Look What Mommy Found",
+          "titleSource": {
+            "file": "assets/hello/notes/book-23.pdf",
+            "page": 5,
+            "heading": "23号书 Part5 — Look What Mommy Found",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -3259,7 +4270,7 @@
         {
           "id": "hello-23-asset-e2849a5a3a75ef0d",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-23.pdf",
           "bytes": 1394534,
           "sha256": "e2849a5a3a75ef0dff5ec4045b084eb69561212d24a8decacddb28dceb323486",
@@ -3283,7 +4294,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-23.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/98abf5388964c57a.pdf",
+        "page": 1,
+        "label": "23号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     },
     {
       "id": "hello-24",
@@ -3295,31 +4314,66 @@
           "part": 1,
           "scene": "穿衣服",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Hello Hat",
+          "titleSource": {
+            "file": "assets/hello/notes/book-24.pdf",
+            "page": 1,
+            "heading": "24号书 Part1 — Hello Hat",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 2,
           "scene": "肢体动作",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Pat, Pat, Pat",
+          "titleSource": {
+            "file": "assets/hello/notes/book-24.pdf",
+            "page": 2,
+            "heading": "24号书 Part2 — Pat, Pat, Pat",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 3,
           "scene": "车库",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Find It",
+          "titleSource": {
+            "file": "assets/hello/notes/book-24.pdf",
+            "page": 3,
+            "heading": "24号书 Part3 — Find It",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 4,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Counting Sheep",
+          "titleSource": {
+            "file": "assets/hello/notes/book-24.pdf",
+            "page": 4,
+            "heading": "24号书 Part4 — Counting Sheep",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         },
         {
           "part": 5,
           "scene": "睡觉",
           "note": "",
-          "sourcePage": 4
+          "sourcePage": 4,
+          "title": "Blue Bunny",
+          "titleSource": {
+            "file": "assets/hello/notes/book-24.pdf",
+            "page": 5,
+            "heading": "24号书 Part5 — Blue Bunny",
+            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+          }
         }
       ],
       "resources": [
@@ -3377,7 +4431,7 @@
         {
           "id": "hello-24-asset-e88a40f7ac3ba463",
           "kind": "notes",
-          "label": "笔记汇总 PDF",
+          "label": "阅读指引 PDF",
           "file": "assets/hello/notes/book-24.pdf",
           "bytes": 1383135,
           "sha256": "e88a40f7ac3ba4633ae5761c7cfe5d381b64e138b44a740d6461cb3070f6aaca",
@@ -3416,7 +4470,15 @@
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
         }
-      ]
+      ],
+      "cover": "assets/hello/covers/hello-24.jpg",
+      "coverSource": {
+        "type": "pdf",
+        "file": "assets/hello/files/a3275b2846f4afc1.pdf",
+        "page": 1,
+        "label": "24号书.pdf · 封面",
+        "checkedAt": "2026-11-04"
+      }
     }
   ],
   "rhymes": [
@@ -3429,7 +4491,16 @@
       ],
       "extensions": [],
       "sourcePage": 2,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-01-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-01.pdf",
+        "page": 2,
+        "heading": "1号书 Part2 — Can You?",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-03",
@@ -3442,7 +4513,16 @@
       ],
       "extensions": [],
       "sourcePage": 3,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-02-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-02.pdf",
+        "page": 2,
+        "heading": "2号书 Part2 — Rockin’ Baby",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-04",
@@ -3453,7 +4533,16 @@
       ],
       "extensions": [],
       "sourcePage": 4,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-02-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-02.pdf",
+        "page": 5,
+        "heading": "2号书 Part5 — Watch It Go!",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-05",
@@ -3464,7 +4553,16 @@
       ],
       "extensions": [],
       "sourcePage": 5,
-      "note": "也可打着节拍朗读。"
+      "note": "也可打着节拍朗读。",
+      "partIds": [
+        "hello-03-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-03.pdf",
+        "page": 2,
+        "heading": "3号书 Part2 — Giggle Kisses",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-06",
@@ -3475,7 +4573,16 @@
       ],
       "extensions": [],
       "sourcePage": 6,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-03-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-03.pdf",
+        "page": 4,
+        "heading": "3号书 Part4 — A Very Long Car Ride",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-07",
@@ -3486,7 +4593,16 @@
       ],
       "extensions": [],
       "sourcePage": 7,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-03-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-03.pdf",
+        "page": 5,
+        "heading": "3号书 Part5 — Bubble Bath",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-08",
@@ -3499,7 +4615,16 @@
       ],
       "extensions": [],
       "sourcePage": 8,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-04-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-04.pdf",
+        "page": 1,
+        "heading": "4号书 Part1 — Little Bird",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-09",
@@ -3510,7 +4635,16 @@
       ],
       "extensions": [],
       "sourcePage": 9,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-04-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-04.pdf",
+        "page": 5,
+        "heading": "4号书 Part5 — Where Toys Can Sleep",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-10",
@@ -3521,7 +4655,16 @@
       ],
       "extensions": [],
       "sourcePage": 10,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-05-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-05.pdf",
+        "page": 1,
+        "heading": "5号书 Part1 — City and Country",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-11",
@@ -3532,7 +4675,16 @@
       ],
       "extensions": [],
       "sourcePage": 11,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-05-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-05.pdf",
+        "page": 6,
+        "heading": "5号书 Part5 — I’m Your Little Sippy Cup",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-12",
@@ -3543,7 +4695,16 @@
       ],
       "extensions": [],
       "sourcePage": 12,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-06-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-06.pdf",
+        "page": 2,
+        "heading": "6号书 Part2 — Baby Bunny’s in Her Pool",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-13",
@@ -3554,7 +4715,16 @@
       ],
       "extensions": [],
       "sourcePage": 13,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-06-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-06.pdf",
+        "page": 4,
+        "heading": "6号书 Part4 — Bouncy",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-14",
@@ -3565,7 +4735,16 @@
       ],
       "extensions": [],
       "sourcePage": 14,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-06-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-06.pdf",
+        "page": 5,
+        "heading": "6号书 Part5 — Watering the Garden",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-15",
@@ -3576,7 +4755,16 @@
       ],
       "extensions": [],
       "sourcePage": 15,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-07-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-07.pdf",
+        "page": 1,
+        "heading": "7号书 Part1 — Go, Go, Go!",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-16",
@@ -3587,7 +4775,16 @@
       ],
       "extensions": [],
       "sourcePage": 16,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-07-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-07.pdf",
+        "page": 5,
+        "heading": "7号书 Part5 — Clap, Clap, Clap",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-17",
@@ -3598,7 +4795,16 @@
       ],
       "extensions": [],
       "sourcePage": 17,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-08-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-08.pdf",
+        "page": 1,
+        "heading": "8号书 Part1 — Beach Baby",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-18",
@@ -3615,7 +4821,16 @@
         }
       ],
       "sourcePage": 18,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-08-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-08.pdf",
+        "page": 4,
+        "heading": "8号书 Part4 — It’s Time to Put Your Toys Away",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-19",
@@ -3626,7 +4841,16 @@
       ],
       "extensions": [],
       "sourcePage": 19,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-09-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-09.pdf",
+        "page": 2,
+        "heading": "9号书 Part2 — My Racing Cars",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-20",
@@ -3637,7 +4861,16 @@
       ],
       "extensions": [],
       "sourcePage": 20,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-09-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-09.pdf",
+        "page": 4,
+        "heading": "9号书 Part4 — Here I Am",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-21",
@@ -3648,7 +4881,16 @@
       ],
       "extensions": [],
       "sourcePage": 21,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-09-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-09.pdf",
+        "page": 5,
+        "heading": "9号书 Part5 — Do They Sink?",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-22",
@@ -3659,7 +4901,16 @@
       ],
       "extensions": [],
       "sourcePage": 22,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-10-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-10.pdf",
+        "page": 2,
+        "heading": "10号书 Part2 — Patty-Cake Clap",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-23",
@@ -3670,7 +4921,16 @@
       ],
       "extensions": [],
       "sourcePage": 23,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-11-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-11.pdf",
+        "page": 1,
+        "heading": "11号书 Part1 — Toaster Treats",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-24",
@@ -3681,7 +4941,16 @@
       ],
       "extensions": [],
       "sourcePage": 24,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-11-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-11.pdf",
+        "page": 4,
+        "heading": "11号书 Part4 — Little Wagon",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-25",
@@ -3692,7 +4961,16 @@
       ],
       "extensions": [],
       "sourcePage": 25,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-11-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-11.pdf",
+        "page": 5,
+        "heading": "11号书 Part5 — Rock-a-Bye, Darling",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-26",
@@ -3703,7 +4981,16 @@
       ],
       "extensions": [],
       "sourcePage": 26,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-12-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-12.pdf",
+        "page": 2,
+        "heading": "12号书 Part2 — Make a Splash!",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-27",
@@ -3715,7 +5002,16 @@
       ],
       "extensions": [],
       "sourcePage": 27,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-12-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-12.pdf",
+        "page": 5,
+        "heading": "12号书 Part5 — Graham’s New Toy",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-28",
@@ -3727,7 +5023,16 @@
       ],
       "extensions": [],
       "sourcePage": 28,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-13-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-13.pdf",
+        "page": 4,
+        "heading": "13号书 Part2 — Hickety Pickety",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-29",
@@ -3738,7 +5043,16 @@
       ],
       "extensions": [],
       "sourcePage": 29,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-14-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-14.pdf",
+        "page": 1,
+        "heading": "14号书 Part1 — Babies Everywhere!",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-30",
@@ -3750,7 +5064,16 @@
       ],
       "extensions": [],
       "sourcePage": 30,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-14-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-14.pdf",
+        "page": 4,
+        "heading": "14号书 Part4 — First Steps",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-31",
@@ -3761,7 +5084,16 @@
       ],
       "extensions": [],
       "sourcePage": 31,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-14-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-14.pdf",
+        "page": 5,
+        "heading": "14号书 Part5 — Where’s My Baby?",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-32",
@@ -3772,7 +5104,16 @@
       ],
       "extensions": [],
       "sourcePage": 32,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-15-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-15.pdf",
+        "page": 1,
+        "heading": "15号书 Part1 — What I Like",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-33",
@@ -3783,7 +5124,16 @@
       ],
       "extensions": [],
       "sourcePage": 33,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-15-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-15.pdf",
+        "page": 2,
+        "heading": "15号书 Part2 — Playing Ball",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-34",
@@ -3794,7 +5144,16 @@
       ],
       "extensions": [],
       "sourcePage": 34,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-15-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-15.pdf",
+        "page": 4,
+        "heading": "15号书 Part4 — Flying High",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-35",
@@ -3805,7 +5164,16 @@
       ],
       "extensions": [],
       "sourcePage": 35,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-15-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-15.pdf",
+        "page": 5,
+        "heading": "15号书 Part5 — My Puppy",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-36",
@@ -3821,7 +5189,16 @@
         }
       ],
       "sourcePage": 36,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-16-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-16.pdf",
+        "page": 2,
+        "heading": "16号书 Part2 — Rain and Sun",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-37",
@@ -3832,7 +5209,16 @@
       ],
       "extensions": [],
       "sourcePage": 37,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-16-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-16.pdf",
+        "page": 4,
+        "heading": "16号书 Part4 — Who Is…",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-38",
@@ -3841,7 +5227,16 @@
       "tunes": [],
       "extensions": [],
       "sourcePage": 38,
-      "note": "建议直接打着节拍读，无指定曲调。"
+      "note": "建议直接打着节拍读，无指定曲调。",
+      "partIds": [
+        "hello-17-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-17.pdf",
+        "page": 2,
+        "heading": "17号书 Part2 — Mama’s Monkey",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-39",
@@ -3852,7 +5247,16 @@
       ],
       "extensions": [],
       "sourcePage": 39,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-17-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-17.pdf",
+        "page": 5,
+        "heading": "17号书 Part5 — Rock and Sing",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-40",
@@ -3863,7 +5267,16 @@
       ],
       "extensions": [],
       "sourcePage": 40,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-18-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-18.pdf",
+        "page": 1,
+        "heading": "18号书 Part1 — Baby Bunny’s Train",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-41",
@@ -3879,7 +5292,16 @@
         }
       ],
       "sourcePage": 41,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-18-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-18.pdf",
+        "page": 2,
+        "heading": "18号书 Part2 — My Toothbrush",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-42",
@@ -3890,7 +5312,16 @@
       ],
       "extensions": [],
       "sourcePage": 42,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-18-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-18.pdf",
+        "page": 4,
+        "heading": "18号书 Part4 — Pickups",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-43",
@@ -3902,7 +5333,16 @@
       ],
       "extensions": [],
       "sourcePage": 43,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-18-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-18.pdf",
+        "page": 5,
+        "heading": "18号书 Part5 — One Star, One Moon",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-44",
@@ -3913,7 +5353,16 @@
       ],
       "extensions": [],
       "sourcePage": 44,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-19-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-19.pdf",
+        "page": 2,
+        "heading": "19号书 Part2 — Let’s Pretend",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-45",
@@ -3924,7 +5373,16 @@
       ],
       "extensions": [],
       "sourcePage": 45,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-19-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-19.pdf",
+        "page": 4,
+        "heading": "19号书 Part4 — Nana and Me",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-46",
@@ -3935,7 +5393,16 @@
       ],
       "extensions": [],
       "sourcePage": 46,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-19-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-19.pdf",
+        "page": 5,
+        "heading": "19号书 Part5 — Move to the Beat",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-47",
@@ -3948,7 +5415,16 @@
       ],
       "extensions": [],
       "sourcePage": 47,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-20-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-20.pdf",
+        "page": 5,
+        "heading": "20号书 Part5 — Jelly Baby",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-48",
@@ -3959,7 +5435,16 @@
       ],
       "extensions": [],
       "sourcePage": 48,
-      "note": "跳过第一句，从“He’s not on the table”开始唱。"
+      "note": "跳过第一句，从“He’s not on the table”开始唱。",
+      "partIds": [
+        "hello-21-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-21.pdf",
+        "page": 1,
+        "heading": "21号书 Part1 — Where’s Bear?",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-49",
@@ -3971,7 +5456,16 @@
       ],
       "extensions": [],
       "sourcePage": 49,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-21-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-21.pdf",
+        "page": 4,
+        "heading": "21号书 Part4 — Daddy’s Home",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-50",
@@ -3982,7 +5476,16 @@
       ],
       "extensions": [],
       "sourcePage": 50,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-21-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-21.pdf",
+        "page": 5,
+        "heading": "21号书 Part5 — All Grown Up",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-51",
@@ -3993,7 +5496,16 @@
       ],
       "extensions": [],
       "sourcePage": 51,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-22-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-22.pdf",
+        "page": 2,
+        "heading": "22号书 Part2 — Find Me!",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-52",
@@ -4004,7 +5516,19 @@
       ],
       "extensions": [],
       "sourcePage": 52,
-      "note": "原页栏目为 Find It；汇总标注 Pumpkin Moon。"
+      "note": "原页栏目为 Find It；汇总标注 Pumpkin Moon。",
+      "partIds": [
+        "hello-22-part-3"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-22.pdf",
+        "page": 3,
+        "heading": "22号书 Part3 — Find It",
+        "basis": "22号笔记Part3标题为Find It；原书找图物品为Pumpkin/Moon/Cat，童谣汇总第52页以该相同原图指定Walking Walking on Halloween改编唱法。此为找图活动的带读改编，并非原书独立诗歌。",
+        "rhymeSummaryFile": "assets/hello/rhymes.pdf",
+        "rhymeSummaryPage": 52
+      },
+      "entryKind": "adapted-activity"
     },
     {
       "id": "hello-rhyme-53",
@@ -4015,7 +5539,16 @@
       ],
       "extensions": [],
       "sourcePage": 53,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-22-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-22.pdf",
+        "page": 4,
+        "heading": "22号书 Part4 — October Fun",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-54",
@@ -4028,7 +5561,16 @@
       ],
       "extensions": [],
       "sourcePage": 54,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-22-part-5"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-22.pdf",
+        "page": 5,
+        "heading": "22号书 Part5 — Baby’s Lullaby",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-55",
@@ -4040,7 +5582,16 @@
       ],
       "extensions": [],
       "sourcePage": 55,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-23-part-1"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-23.pdf",
+        "page": 1,
+        "heading": "23号书 Part1 — Bunny Hop",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-56",
@@ -4051,7 +5602,16 @@
       ],
       "extensions": [],
       "sourcePage": 56,
-      "note": ""
+      "note": "",
+      "partIds": [
+        "hello-23-part-2"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-23.pdf",
+        "page": 2,
+        "heading": "23号书 Part2 — Papa’s Little Patty-Cakes",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     },
     {
       "id": "hello-rhyme-57",
@@ -4063,324 +5623,16 @@
       ],
       "extensions": [],
       "sourcePage": 57,
-      "note": ""
-    }
-  ],
-  "issues": [
-    {
-      "id": "hello-2017-05",
-      "title": "2017年5月",
-      "edition": "dated",
-      "scene": "声音",
-      "english": "sounds",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-06",
-      "title": "2017年6月",
-      "edition": "dated",
-      "scene": "农场动物",
-      "english": "farm animals",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-07",
-      "title": "2017年7月",
-      "edition": "dated",
-      "scene": "颜色",
-      "english": "colors",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-08",
-      "title": "2017年8月",
-      "edition": "dated",
-      "scene": "玩水",
-      "english": "water play",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-09",
-      "title": "2017年9月",
-      "edition": "dated",
-      "scene": "食物",
-      "english": "food",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-10",
-      "title": "2017年10月",
-      "edition": "dated",
-      "scene": "衣服",
-      "english": "clothes",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-11",
-      "title": "2017年11月",
-      "edition": "dated",
-      "scene": "交通工具",
-      "english": "vehicles",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2017-12",
-      "title": "2017年12月",
-      "edition": "dated",
-      "scene": "室内游戏",
-      "english": "play time",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-01",
-      "title": "2018年1月",
-      "edition": "dated",
-      "scene": "大小",
-      "english": "sizes",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-02",
-      "title": "2018年2月",
-      "edition": "dated",
-      "scene": "宠物",
-      "english": "pets",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-03",
-      "title": "2018年3月",
-      "edition": "dated",
-      "scene": "时间",
-      "english": "time",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-04",
-      "title": "2018年4月",
-      "edition": "dated",
-      "scene": "鸟",
-      "english": "birds",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-05",
-      "title": "2018年5月",
-      "edition": "dated",
-      "scene": "身体部位",
-      "english": "body parts",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-06",
-      "title": "2018年6月",
-      "edition": "dated",
-      "scene": "出行",
-      "english": "",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-07",
-      "title": "2018年7月",
-      "edition": "dated",
-      "scene": "虫",
-      "english": "tiny friends",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-08",
-      "title": "2018年8月",
-      "edition": "dated",
-      "scene": "户外游戏",
-      "english": "outdoor fun",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-09",
-      "title": "2018年9月",
-      "edition": "dated",
-      "scene": "（空缺）",
-      "english": "",
-      "sourcePage": 5,
-      "available": false
-    },
-    {
-      "id": "hello-2018-10",
-      "title": "2018年10月",
-      "edition": "dated",
-      "scene": "天气",
-      "english": "weather",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-11",
-      "title": "2018年11月",
-      "edition": "dated",
-      "scene": "形状",
-      "english": "shapes",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2018-12",
-      "title": "2018年12月",
-      "edition": "dated",
-      "scene": "天空",
-      "english": "looking up",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-01",
-      "title": "2019年1月",
-      "edition": "dated",
-      "scene": "宝宝的一天",
-      "english": "dawn to dusk",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-02",
-      "title": "2019年2月",
-      "edition": "dated",
-      "scene": "动物",
-      "english": "animal families",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-03",
-      "title": "2019年3月",
-      "edition": "dated",
-      "scene": "音乐",
-      "english": "tra-la-la",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-04",
-      "title": "2019年4月",
-      "edition": "dated",
-      "scene": "飞起来的东西",
-      "english": "things that fly",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-05",
-      "title": "2019年5月",
-      "edition": "dated",
-      "scene": "植物",
-      "english": "plants",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-06",
-      "title": "2019年6月",
-      "edition": "dated",
-      "scene": "双胞胎",
-      "english": "sisters and brothers",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-07",
-      "title": "2019年7月",
-      "edition": "dated",
-      "scene": "大海",
-      "english": "the ocean",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-08",
-      "title": "2019年8月",
-      "edition": "dated",
-      "scene": "户外游戏",
-      "english": "outdoor play",
-      "sourcePage": 5,
-      "available": true
-    },
-    {
-      "id": "hello-2019-09",
-      "title": "2019年9月",
-      "edition": "dated",
-      "scene": "做家务",
-      "english": "helping",
-      "sourcePage": 6,
-      "available": true
-    },
-    {
-      "id": "hello-2019-10",
-      "title": "2019年10月",
-      "edition": "dated",
-      "scene": "五感",
-      "english": "senses",
-      "sourcePage": 6,
-      "available": true
-    },
-    {
-      "id": "hello-2019-11",
-      "title": "2019年11月",
-      "edition": "dated",
-      "scene": "食物",
-      "english": "good things to eat",
-      "sourcePage": 6,
-      "available": true
-    },
-    {
-      "id": "hello-2019-12",
-      "title": "2019年12月",
-      "edition": "dated",
-      "scene": "城市",
-      "english": "the city",
-      "sourcePage": 6,
-      "available": true
-    },
-    {
-      "id": "hello-2020-01",
-      "title": "2020年1月",
-      "edition": "dated",
-      "scene": "玩具",
-      "english": "toys",
-      "sourcePage": 6,
-      "available": true
-    },
-    {
-      "id": "hello-2020-02",
-      "title": "2020年2月",
-      "edition": "dated",
-      "scene": "颜色",
-      "english": "colors",
-      "sourcePage": 6,
-      "available": true
-    },
-    {
-      "id": "hello-2020-03",
-      "title": "2020年3月",
-      "edition": "dated",
-      "scene": "动物",
-      "english": "wild animals",
-      "sourcePage": 6,
-      "available": true
+      "note": "",
+      "partIds": [
+        "hello-24-part-4"
+      ],
+      "partSource": {
+        "file": "assets/hello/notes/book-24.pdf",
+        "page": 4,
+        "heading": "24号书 Part4 — Counting Sheep",
+        "basis": "笔记明确Part标题与本条童谣标题同名；原书与独立卡歌词用于交叉核对，未按同册或相近主题推定。"
+      }
     }
   ],
   "supplements": [

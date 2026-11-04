@@ -17,12 +17,12 @@ test('曲调支持多对多和拓展曲，不把拓展写成主曲',()=>{
  assert.equal(H.filter(data,{book:'hello-17',query:'Mama’s Monkey'})[0].rhymes.find(r=>r.title==='Mama’s Monkey').tunes.length,0);
  assert.equal(H.filter(data,{scene:'刷牙',tune:'The Farmer in the Dell'})[0].parts[0].part,2);
 });
-test('年月版本与编号书隔离，缺失期保留，查询不改原始数据',()=>{
+test('未关联年月索引退出活跃数据，旧版本查询不冒充编号册',()=>{
  const before=JSON.stringify(data);
- assert.equal(H.filter(data,{edition:'dated'}).length,35);
- assert.equal(H.filter(data,{edition:'dated',book:'hello-01'}).length,0);
- assert.equal(H.filter(data,{edition:'dated',scene:'颜色'}).length,2);
- assert.equal(data.issues.find(i=>i.id==='hello-2018-09').available,false);
+ assert.equal(data.issues,undefined);
+ assert.deepEqual(H.filter(data,{edition:'dated'}),[]);
+ assert.deepEqual(H.filter(data,{book:'hello-2019-01'}),[]);
+ assert.equal(H.filter(data,{book:'hello-01'}).length,1);
  H.filter(data,{query:'one star'});assert.equal(JSON.stringify(data),before);
 });
 test('导出图谱关系有完整节点，童谣不推造Part关系',()=>{

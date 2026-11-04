@@ -8,6 +8,11 @@ RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read
 RAW['resourcePrices'] = json.loads((ROOT / 'data' / 'resource-prices.json').read_text())
 RAW['resourceVolumes'] = json.loads((ROOT / 'data' / 'resource-volumes.json').read_text())
 RAW['helloReading'] = json.loads((ROOT / 'data' / 'hello-reading.json').read_text())
+hello_rhyme_content = {item['id']: item for item in json.loads((ROOT / 'data' / 'hello-rhyme-content.json').read_text())}
+assert set(hello_rhyme_content) == {item['id'] for item in RAW['helloReading']['rhymes']}, '童谣内容与索引不一致'
+RAW['helloReading']['rhymes'] = [{**item, **hello_rhyme_content[item['id']]} for item in RAW['helloReading']['rhymes']]
+RAW['helloReading']['tuneAudio'] = json.loads((ROOT / 'data' / 'hello-tune-audio.json').read_text())
+RAW['helloReading']['materialCards'] = json.loads((ROOT / 'data' / 'hello-material-cards.json').read_text())
 RAW['resourceBooks'] = json.loads((ROOT / 'data' / 'resource-books.json').read_text())
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
 RAW['routePlan'] = json.loads((ROOT / 'data' / 'route-plan.json').read_text())
@@ -19,7 +24,7 @@ RAW['xuSupplements'][0]['relatedSources'] = [{'id':'xu-thousand-map','title':'�
 def inline_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
 
-css=(ROOT/'styles.css').read_text().replace("@import url('');\n",'')+'\n'+(ROOT.parent/'site.css').read_text()
+css=(ROOT/'styles.css').read_text().replace("@import url('');\n",'')+'\n'+(ROOT/'hello-graph.css').read_text()+'\n'+(ROOT.parent/'site.css').read_text()
 sections=json.loads((ROOT.parent/'shared/site-sections.json').read_text())
 assert len({item['id'] for item in sections}) == len(sections), '分类 ID 重复'
 for item in sections:
@@ -27,7 +32,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['model.js','practice.js','vocabulary.js','library-custom.js','library-books.js','hello-reading.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['model.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','hello-reading.js','hello-graph.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
