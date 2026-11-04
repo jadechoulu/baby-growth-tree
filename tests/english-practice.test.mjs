@@ -276,7 +276,7 @@ test('编辑、删除与撤销后图表重算，历史与日常不混淆，未�
 const volumes=JSON.parse(fs.readFileSync(new URL('../english/data/resource-volumes.json',import.meta.url)));
 const scopeFor=(resourceId,levels)=>P.bookScopes(resourceId,levels,volumes);
 test('出版册数只匹配本套系本级别的范围，分辑不自动成为作者要求',()=>{
-  const pearson=scopeFor('resource-1nuqi5t',['']);
+  const pearson=scopeFor('resource-1nuqi5t',['']).filter(scope=>!scope.level);
   assert.deepEqual(pearson.map(s=>s.total),[32,32,32,64,96,48,48,96]);
   assert.ok(pearson.every(s=>!s.default));
   assert.equal(scopeFor('resource-g7xvo5',['预备级'])[0].total,18);
@@ -286,7 +286,7 @@ test('出版册数只匹配本套系本级别的范围，分辑不自动成为�
   assert.equal(scopeFor('resource-1mx6gx6',['1、2'])[0].total,85);
   assert.equal(scopeFor('resource-1mx6gx6',['4、5'])[0].total,60);
   assert.equal(scopeFor('resource-141vfh7',['进阶级'])[0].total,28);
-  for(const [id,levels] of [['resource-1mx6gx6',['4']],['resource-g7xvo5',['1–3 · 24册']],['resource-9fvmjt',['GK']],['resource-1mx6gx6',['1+']],['resource-1mx6gx6',['1–3','4、5']]])assert.deepEqual(scopeFor(id,levels),[]);
+  for(const [id,levels] of [['resource-1mx6gx6',['6']],['resource-g7xvo5',['1–3 · 24册']],['resource-9fvmjt',['GK']],['resource-1mx6gx6',['1+']],['resource-1mx6gx6',['1–3','4、5']]])assert.deepEqual(scopeFor(id,levels),[]);
 });
 
 test('基础词汇改版归入原套系且保留新旧分装边界与进度隔离',()=>{
@@ -302,7 +302,7 @@ test('基础词汇改版归入原套系且保留新旧分装边界与进度隔�
   assert.equal(P.unitBooks(P.unitBookScopeUpdate(old,updated)).completed,null);
   // 旧版原文限定1、2或3，不借新版上下辑核算。
   assert.deepEqual(scopeFor('resource-1nuqi5t',['1、2']),[]);
-  assert.deepEqual(scopeFor('resource-1nuqi5t',['3']),[]);
+  assert.equal(scopeFor('resource-1nuqi5t',['3'])[0].total,32);
   const normalized=M.normalize({...raw,xuCurrent:raw['xu-current'],xuSupplements:[raw['xu-panorama'],raw['xu-thousand']],routePlan:raw['route-plan'],resourceVolumes:volumes});
   const resource=normalized.resources.find(r=>r.id==='resource-1nuqi5t');
   assert.ok(resource.aliases.includes('培生幼儿基础词汇'));
@@ -502,4 +502,190 @@ test('大猫英版与外研社记录隔离，切换刷新及备份往返保留�
   restored[parent]=P.unitEditionUpdate('big-cat-pink-44',restored[parent]);
   assert.equal(P.unitBooks(P.materialRecord(restored,pink[0])).completed,11);
   assert.deepEqual(restored.unknown,records.unknown);
+});
+
+test('未知总量只记数量，不从旧百分比反推数量，保留备注日期及同步未知元数据',()=>{
+  const old={status:'using',note:JSON.stringify({version:1,percent:65,text:'历史备注',date:'2026-10-30',custom:{keep:true}})};
+  assert.deepEqual(P.quantityRecord(old,null,'张'),{completed:0,total:null,unit:'张',percent:null,status:'not-started'});
+  const next=P.unitQuantityProgressUpdate(120,null,old,'张'),meta=JSON.parse(next.note);
+  assert.equal(next.status,'using');assert.equal(meta.percent,65);assert.equal(meta.text,'历史备注');assert.equal(meta.date,'2026-10-30');assert.deepEqual(meta.custom,{keep:true});
+  assert.deepEqual(P.quantityRecord(next,null,'张'),{completed:120,total:null,unit:'张',percent:null,status:'using'});
+  assert.equal(P.quantityRecord(P.unitQuantityProgressUpdate(0,null,next,'张'),null,'张').completed,0);
+  for(const value of [-1,0.5,NaN,Infinity,1000001])assert.throws(()=>P.unitQuantityProgressUpdate(value,null,next,'张'));
+  const records={[P.MATERIAL+'xu:quantity-test']:next};
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records))));
+  assert.equal(restored.records[P.MATERIAL+'xu:quantity-test'].note,next.note);
+});
+
+test('已核实总量使用相应单位自动计算，未知分母不借用旧数量或百分比',()=>{
+  const animation=scopeFor('resource-1u3sl6e',[''])[0];
+  assert.equal(animation.total,24);assert.equal(animation.unit,'集');
+  const half=P.unitQuantityProgressUpdate(12,animation,undefined,'集');
+  assert.deepEqual(P.quantityRecord(half,animation,'集'),{completed:12,total:24,unit:'集',percent:50,status:'using'});
+  assert.equal(P.quantityRecord(P.unitQuantityProgressUpdate(24,animation,half,'集'),animation,'集').status,'done');
+  assert.throws(()=>P.unitQuantityProgressUpdate(25,animation,half,'集'));
+  assert.equal(P.quantityRecord(half,null,'集').completed,0);
+  assert.equal(P.quantityRecord(P.unitQuantityProgressUpdate(12,null,half,'集'),animation,'集').completed,0);
+  assert.equal(scopeFor('resource-29ukn0',['1'])[0].total,60);
+  assert.equal(scopeFor('resource-smispi',[''])[0].total,72);
+  assert.equal(scopeFor('resource-ngqkjv',[''])[0].total,7);
+  for(const type of ['reader','book','animation','flashcard','song'])assert.ok(['本','集','张','首'].includes(P.quantityUnit(type)));
+});
+
+
+test('庆爸全部阶段复用级别展开，A/B、范围和册数标尺保持正确且稳定键不变',()=>{
+  const stages=catalog.routes.find(r=>r.id==='qing').stages,all=[];
+  for(const st of stages)for(const item of M.getStageMaterials(catalog,st)){
+    const unit={key:P.unitKey(st,item),item,resourceId:item.resource.id,bookScopes:scopeFor(item.resource.id,item.materials.map(m=>M.formatLevel(m.level,item.resource)))};
+    const parts=P.expandBookUnits(unit,M.getMaterialLevels(item),volumes);
+    for(const part of parts){assert.ok(part.key.length<=160);all.push(part.key);}
+    if(item.resource.title==='Buddy Reader')assert.deepEqual(parts.map(p=>p.partLevel.label),M.getMaterialLevels(item).map(l=>l.label));
+    if(item.materials.some(m=>m.level==='24本'))assert.equal(parts.length,1);
+    if(item.resource.id==='resource-1nuqi5t'){
+      const expected=st.id==='qing-s1'?['1','2']:['3'];
+      assert.deepEqual(M.getMaterialLevels(item).map(l=>l.label),expected);
+      for(const level of expected)assert.equal(scopeFor(item.resource.id,[level])[0].total,32);
+    }
+  }
+  assert.equal(new Set(all).size,all.length);
+});
+
+test('父项数量取max，子项更改即时重算；旧父记录不拆摊，范围及备份同步隔离',()=>{
+  const children=[{key:'a',unit:'本',completed:2,total:10},{key:'b',unit:'本',completed:3,total:10}];
+  const original={status:'using',futureField:'keep',note:JSON.stringify({version:1,text:'旧备注',date:'2026-09-15',percent:45,books:{version:1,mode:'count',label:'原合并',total:20,completed:9},unknown:{keep:true}})};
+  assert.equal(P.groupQuantity(original,children).completed,5);
+  const saved=P.groupQuantityUpdate(12,children,original);
+  assert.equal(P.groupQuantity(saved,children).completed,12);
+  assert.equal(P.groupQuantity(saved,children).percent,60);
+  assert.equal(P.groupQuantity(saved,[{...children[0],completed:10},{...children[1],completed:9}]).completed,19);
+  assert.equal(P.groupQuantity(saved,[{...children[0],completed:10},{...children[1],completed:10}]).status,'done');
+  assert.equal(P.groupQuantity(saved,[{...children[0],completed:0},{...children[1],completed:0}]).completed,12);
+  assert.equal(P.groupQuantity(P.groupQuantityUpdate(0,children,saved),children).completed,5);
+  assert.equal(P.groupQuantity(saved,[{...children[0],key:'other'},children[1]]).completed,5);
+  const unknown=children.map(c=>({...c,total:null}));assert.equal(P.groupQuantity(saved,unknown).percent,null);
+  const savedMeta=JSON.parse(saved.note),oldMeta=JSON.parse(original.note);
+  for(const name of ['text','date','percent','books','unknown'])assert.deepEqual(savedMeta[name],oldMeta[name]);
+  assert.equal(saved.futureField,'keep');
+  const id=P.MATERIAL+'qing:qing-s1:resource-test:abc';
+  const {futureField,...syncRecord}=saved;assert.deepEqual(Sync.normalize('english',wrap({[id]:syncRecord})).records[id],syncRecord);
+  for(const invalid of [-1,21,1.5,NaN])assert.throws(()=>P.groupQuantityUpdate(invalid,children,saved));
+});
+
+test('父子计时取max且投入统计不重复，编辑撤回后自动重算并保留原始活动',()=>{
+  const parent=P.MATERIAL+'qing:qing-s1:resource-test:abc',a=parent+':paaa',b=parent+':pbbb';
+  const records={};
+  const put=(id,unitKey,minutes,factor=1)=>records[key(id)]=P.sessionRecord(entry({unitKey,stageId:id==='other'?'qing-s2':'qing-s1',unitLabel:id,minutes,kind:factor===1?'reading':'audio',factor}));
+  put('parent',parent,60);put('a',a,20);put('b',b,30);
+  assert.equal(P.materialTime(records,parent,[a,b]).minutes,60);
+  assert.equal(P.summarize(records).minutes,60);assert.equal(P.statistics(records).minutes,60);
+  assert.equal(P.statistics(records,{metric:'actual'}).minutes,60);
+  assert.equal(P.sessions(records).find(e=>e.unitKey===parent).minutes,60);
+  put('b',b,50);
+  assert.equal(P.materialTime(records,parent,[a,b]).minutes,70);assert.equal(P.statistics(records).minutes,70);
+  records[key('b')].status='not-started';assert.equal(P.statistics(records).minutes,60);
+  put('b',b,100,.5);assert.equal(P.statistics(records).minutes,70);assert.equal(P.statistics(records,{metric:'actual'}).minutes,120);
+  const data=P.statistics(records),buckets=P.trendBuckets(data.entries,{anchor:'2026-10-29'});
+  assert.equal(buckets.reduce((n,d)=>n+d.minutes,0),data.minutes);
+  assert.equal(data.groups.reduce((n,g)=>n+g.minutes,0),data.minutes);
+  put('other',P.MATERIAL+'qing:qing-s2:resource-test:abc',15);assert.equal(P.statistics(records).minutes,85);
+  assert.equal(P.statistics(records,{stageId:'qing-s1'}).minutes,70);
+  const restored=Sync.normalize('english',wrap(records)).records;assert.equal(P.statistics(restored).minutes,85);
+  assert.equal(P.materialTime({},parent,[a,b]).minutes,0);
+  assert.equal(P.materialParentKey(P.MATERIAL+'qing:qing-s1:resource-test:pabc'),'');
+  assert.equal(P.materialParentKey(a),parent);
+});
+
+test('跨日期父子max先分配再筛选，趋势与日期总和一致，历史补录不进入实际口径',()=>{
+  const parent=P.MATERIAL+'qing:qing-s1:resource-test:dated',child=parent+':pchild';
+  const records={
+    [key('dated-parent')]:P.sessionRecord(entry({unitKey:parent,minutes:60,date:'2026-10-28'})),
+    [key('dated-child')]:P.sessionRecord(entry({unitKey:child,minutes:40,date:'2026-10-29'}))
+  };
+  const options={period:'custom',anchor:'2026-10-29',from:'2026-10-28',to:'2026-10-29'};
+  assert.equal(P.statistics(records,options).minutes,60);
+  assert.equal(P.statistics(records,{...options,to:'2026-10-28'}).minutes,20);
+  assert.equal(P.statistics(records,{...options,from:'2026-10-29'}).minutes,40);
+  assert.equal(P.trendBuckets(P.sessions(records),{anchor:'2026-10-29'}).reduce((n,b)=>n+b.minutes,0),60);
+  assert.equal(P.recentDays(records,'2026-10-29').reduce((n,b)=>n+b.minutes,0),60);
+  records[key('dated-parent')]=P.sessionRecord(entry({unitKey:parent,minutes:60,date:'2026-10-28',kind:'history'}));
+  assert.equal(P.statistics(records,options).minutes,60);
+  assert.equal(P.statistics(records,{...options,metric:'actual'}).minutes,40);
+  assert.equal(P.statistics(records,{...options,metric:'actual'}).historyMinutes,20);
+});
+
+test('行内计时按当前记录阶段与使用方式折算，不按书名级别推系数',()=>{
+  const accounting=raw.qing.timeAccounting;
+  for(const [stageId,factor] of [['qing-s1',0],['qing-s2',0],['qing-s3',.5],['qing-s4',.8],['qing-s5',.8],['qing-s6',.8],['qing-s7',.8]]){
+    const modes=P.timeOptions(stageId,'reader',accounting),records={};
+    assert.deepEqual(modes.map(mode=>mode.id),['reading','audio','excluded']);
+    const payload={stageId,unitKey:P.MATERIAL+'qing:'+stageId+':resource-test:abc',unitLabel:'Buddy Reader · A',minutes:20};
+    records[key('inline')]=P.inlineSessionRecord({...payload,mode:'audio'},modes,'2026-10-29');
+    assert.equal(P.summarize(records).minutes,20);assert.equal(P.summarize(records).effectiveMinutes,20*factor);
+    records[key('inline')]=P.inlineSessionRecord({...payload,mode:'reading'},modes,'2026-10-29');
+    assert.equal(P.summarize(records).effectiveMinutes,20);
+    records[key('inline')]=P.inlineSessionRecord({...payload,mode:'excluded'},modes,'2026-10-29');
+    assert.equal(P.summarize(records).minutes,20);assert.equal(P.summarize(records).effectiveMinutes,0);
+    assert.deepEqual(Sync.normalize('english',wrap(records)).records,records);
+    records[key('inline')].status='not-started';assert.equal(P.summarize(records).minutes,0);
+    for(const minutes of [0,-1,1.5,1441,NaN])assert.throws(()=>P.inlineSessionRecord({...payload,mode:'reading',minutes},modes,'2026-10-29'));
+    assert.throws(()=>P.inlineSessionRecord({...payload,mode:'animation'},modes,'2026-10-29'));
+  }
+  assert.deepEqual(P.timeOptions('qing-s1','animation',accounting).map(mode=>mode.id),['animation','audio','excluded']);
+  assert.deepEqual(P.timeOptions('qing-s1','app',accounting).map(mode=>mode.id),['app','audio','excluded']);
+  assert.ok(P.timeOptions('qing-s1','book',accounting,true).some(mode=>mode.id==='animation'));
+  assert.ok(!P.timeOptions('unknown','reader',accounting).some(mode=>mode.id==='audio'));
+  const note=raw.qing.relatedSources.find(s=>s.id===accounting.verifiedNote.sourceId);
+  assert.equal(note.author,'庆爸育儿');assert.equal(note.previews.length,11);
+  for(const rule of accounting.verifiedNote.stageAudio)assert.ok(note.previews.some(p=>p.page===rule.page));
+});
+
+test('图鉴派生状态覆盖零数量、计时、部分完成、全部完成与重复领域，不改路线记录',()=>{
+  const zero={key:'xu:a',status:'not-started',completed:0,minutes:0};
+  assert.deepEqual(P.resourceProgress([]),{status:'not-started',done:0,total:0});
+  assert.equal(P.resourceProgress([{...zero,text:'备注',scope:'选了版本'}]).status,'not-started');
+  assert.equal(P.resourceProgress([{...zero,minutes:12}]).status,'using');
+  assert.equal(P.resourceProgress([{...zero,effectiveMinutes:12}]).status,'using');
+  const rows=[{...zero,status:'done',completed:32},{...zero,key:'qing:b'}];
+  const before=structuredClone(rows);
+  assert.deepEqual(P.resourceProgress(rows),{status:'using',done:1,total:2});
+  assert.deepEqual(rows,before);
+  assert.deepEqual(P.resourceProgress([rows[0],rows[0]]),{status:'done',done:1,total:1});
+  assert.equal(P.resourceProgress([zero]).status,'not-started');
+});
+
+test('图鉴独立数量按版本回填，未知总数不伪造百分比，备份同步保留资料',()=>{
+  const a={id:'edition-a',label:'全套',total:4,edition:'A',unit:'本',default:true};
+  const b={...a,id:'edition-b',total:6,edition:'B'};
+  let record=P.libraryQuantityUpdate(undefined,a,2,'本');
+  assert.equal(P.libraryQuantity(record,[a,b],'本').percent,50);
+  assert.equal(P.libraryQuantity(record,[],'本',b).completed,0);
+  record=P.libraryQuantityUpdate(record,b,6,'本');
+  assert.equal(P.libraryQuantity(record,[],'本').status,'done');
+  assert.equal(P.libraryQuantity(record,[],'本',a).completed,2);
+  assert.deepEqual(P.libraryScopes(record,[a],'本').map(scope=>scope.id),['edition-a','edition-b']);
+  record=P.libraryQuantityUpdate(record,null,8,'本');
+  assert.equal(P.libraryQuantity(record,[],'本').percent,null);
+  assert.equal(P.libraryQuantity(record,[],'本').status,'using');
+  const snapshot=Sync.normalize('english',wrap({
+    [P.LIBRARY+'r']:record,
+    r:{status:'done',note:'原图鉴手记'},
+    'library.custom.v1:one':{status:'using',note:JSON.stringify({version:1,kind:'custom-resource',title:'个人绘本',type:'book'})}
+  }));
+  assert.equal(P.libraryQuantity(snapshot.records[P.LIBRARY+'r'],[],'本',b).completed,6);
+  assert.equal(snapshot.records.r.note,'原图鉴手记');
+  assert.match(snapshot.records['library.custom.v1:one'].note,/个人绘本/);
+  assert.throws(()=>P.libraryQuantityUpdate(record,a,5,'本'));
+  assert.throws(()=>P.libraryQuantityUpdate(record,null,-1,'本'));
+  assert.throws(()=>P.libraryQuantityUpdate(record,null,0.5,'本'));
+  record=P.libraryQuantityUpdate(record,a,0,'本');
+  assert.equal(P.libraryQuantity(record,[],'本').status,'not-started');
+});
+
+test('图鉴数量不复制公共长目录，范围身份无版次时也能稳定回填',()=>{
+  const scope={id:'plain',label:'本人全套',total:3,default:true,sources:[{evidence:'来源'.repeat(5000)}],parts:[{label:'1',count:3}]};
+  const record=P.libraryQuantityUpdate(null,scope,2,'本');
+  assert.ok(record.note.length<1000);
+  assert.equal(P.libraryQuantity(record,[],'本',scope).completed,2);
+  assert.equal(P.libraryQuantity(record,[scope],'本').completed,2);
+  assert.equal(P.libraryQuantity(record,[],'本').total,3);
 });

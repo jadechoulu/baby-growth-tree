@@ -102,11 +102,8 @@
 .comparison-focused .comparison-origin,.comparison-origin.comparison-focused{border-color:#8eaf87;background:#fbfef7}
 
 /* 共用素材：按路线呈现阶段实际使用级别。 */
-.resource-card.shared{border-color:#a8c4a7;box-shadow:0 0 0 1px #c7dbc43b}
-.resource-card.shared:hover{border-color:#79a77e;box-shadow:0 8px 25px #28463312}
 .shared-banner{display:flex;align-items:center;flex-wrap:wrap;gap:5px;min-width:0;margin-bottom:11px;padding:7px 9px;border:1px solid #d8e6d1;border-radius:6px;background:#eaf3e3;font-size:11px;font-weight:600;line-height:1.8;color:#527b4d;overflow-wrap:anywhere}
 .shared-banner .icon{width:14px;height:14px}
-.resource-card.shared .resource-body h3{font-size:14px;color:#2e6954;font-weight:650}
 .resource-usage{display:grid;gap:7px;margin-top:12px;min-width:0}
 .usage-route{min-width:0;padding:8px;border:1px solid #e2e9dc;border-radius:6px;background:#f7f9f3}
 .usage-route>strong,.usage-route>.usage-name{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;line-height:1.8;color:var(--route,var(--green))}
@@ -125,6 +122,31 @@
 /* 详情中的路线级别表与阶段对照入口。 */
 .series-progression{margin-top:22px;padding:16px 14px;border:1px solid #d7e3cf;border-radius:10px;background:#f0f5e9;min-width:0}
 .series-progression h3{margin-bottom:7px;font-size:16px;color:#426840}
+.series-usage-list{display:grid;grid-template-columns:minmax(0,1fr);gap:0;min-width:0}
+.series-route-use.reading-fold{margin:6px 0;padding:0;border:0;background:transparent}
+.series-route-use.reading-fold>.reading-fold-body{padding:0 2px 4px}
+.series-progression .series-route-use>summary{padding:4px 0;min-height:28px}
+.series-usage-row{display:grid;grid-template-columns:minmax(0,1fr) 28px;align-items:start;gap:2px 4px;min-width:0;padding:3px 0;border-top:1px solid var(--line)}
+.series-usage-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:3px 10px;min-width:0;padding:3px 7px;border-radius:4px}
+.series-usage-heading>.text-link{min-width:0;min-height:28px;padding:0;text-align:left;font-size:15px;line-height:1.5}
+.series-usage-heading[data-material-role]>.text-link{color:var(--material-ink)}
+.series-usage-heading .series-levels{font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.series-usage-heading .version-tag{font-size:12px!important;line-height:1.5!important}
+.series-usage-method{margin:4px 0;font-size:15px;line-height:1.6;overflow-wrap:anywhere}
+.series-progression .series-evidence.reading-fold{margin:0;padding:0;border:0;background:transparent;min-width:0}
+.series-progression .series-evidence[open]{grid-column:1/-1}
+.series-progression .series-evidence>summary{display:flex;align-items:center;justify-content:center;width:28px;height:34px;min-height:0;margin-left:auto;padding:0;color:var(--green);border-radius:4px}
+.series-progression .series-evidence>summary::after{display:none}
+.series-progression .series-evidence>summary .icon{width:17px;height:17px}
+.series-progression .series-evidence>summary:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+.series-evidence>.reading-fold-body{padding:3px 0}
+.series-evidence-list{list-style:none;padding:0!important;margin:0!important}
+.series-evidence-list>li{padding:4px 0;margin:0!important;border-top:1px solid var(--line)}
+.series-evidence-list p,.resource-version-row p{margin:4px 0;font-size:15px;line-height:1.6}
+.series-evidence-list .text-link,.resource-version-row .text-link{min-height:28px;padding:2px 0;text-align:left;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.resource-version-row{min-width:0;padding:6px 0;overflow-wrap:anywhere}
+.resource-version-row+.resource-version-row{border-top:1px solid var(--line)}
+.resource-version-row h4{font-size:15px;margin:0 0 4px}
 .series-progression>p{margin-bottom:13px;font-size:12px;color:#7d9073;line-height:1.8}
 .series-usage-table{width:100%;max-width:100%;border-spacing:0;border-collapse:separate;table-layout:fixed;border:1px solid #dce5d4;border-radius:7px;overflow:hidden;background:#fff;text-align:left}
 .series-usage-table th,.series-usage-table td{padding:10px 8px;border-bottom:1px solid #e8ede2;font-size:12px;line-height:1.8;vertical-align:top;overflow-wrap:anywhere;word-break:normal}
@@ -371,7 +393,6 @@
   .resource-body{padding:16px}.resource-topline{margin-left:100px;font-size:11px;gap:6px;flex-wrap:wrap}
   .resource-body>.resource-title{padding-left:100px;min-height:84px}
   .resource-body h3,.resource-card.shared .resource-body h3{font-size:16px;line-height:1.65;min-height:0;color:var(--ink)}
-  .resource-card.shared .resource-body h3{color:var(--green)}
   .resource-usage{margin-top:16px;gap:10px}.usage-route{padding:10px}
   .card-usage{margin-top:12px;border-top:1px solid var(--line)}
   .card-usage>summary{display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-height:48px;padding:10px 0;list-style:none;cursor:pointer;font-size:12px;color:var(--green)}
@@ -739,7 +760,7 @@
 .material-role-featured{--material-ink:#88570d;--material-bg:#fff4df;--material-line:#e6c88c}
 .material-role-reference{--material-ink:#5e6370;--material-bg:#f3f3f5;--material-line:#d6d8df}
 .material-role-auxiliary{--material-ink:#526653;--material-bg:#f1f5ef;--material-line:#cdd9c7}
-:is(.stage-resource-tags>button,.detail-resource-row,.usage-stage,.material-role-key,.material-use-role):is(.material-role-main,.material-role-featured,.material-role-auxiliary,.material-role-reference){color:var(--material-ink);background:var(--material-bg);border:1px solid var(--material-line)}
+:is(.stage-resource-tags>button,.detail-resource-row,.usage-stage,.series-usage-heading,.material-role-key,.material-use-role):is(.material-role-main,.material-role-featured,.material-role-auxiliary,.material-role-reference){color:var(--material-ink);background:var(--material-bg);border:1px solid var(--material-line)}
 :is(.stage-resource-tags>button,.detail-resource-row,.usage-stage)[data-material-role]:hover{color:var(--material-ink);background:var(--material-bg);border-color:var(--material-ink)}
 [data-material-role] :is(strong,small,b,span),.material-use-role{color:var(--material-ink)}
 .stage-resource-tags>button[data-material-role]{font-weight:500}
@@ -916,6 +937,8 @@
 .preview-controls output{min-width:44px;text-align:center;font-variant-numeric:tabular-nums}
 .preview-backdrop .preview-scroll{min-width:0;min-height:0;overscroll-behavior:contain;padding:16px}
 .preview-backdrop .preview-scroll img{max-width:none}
+.detail-preview-trigger{display:block;width:100%;padding:0;margin-top:18px;border:0;border-radius:9px;background:transparent;cursor:zoom-in}
+.detail-preview-trigger .detail-preview{display:block;margin:0}
 .preview-backdrop .preview-footer{font-size:12px;padding:6px 12px}
 /* 个人进度：单阶段阅读，短摘要、紧凑素材行，记录表单按可用宽度排列。 */
 .practice-page{--practice-accent:var(--qing);min-width:0}
@@ -976,11 +999,11 @@
 .practice-edition-switch button[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:600}
 .practice-edition-choice>small{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
 .practice-material-row{display:grid;grid-template-columns:minmax(0,1fr) 112px 44px;align-items:center;gap:5px 10px;border-bottom:1px solid var(--line);padding:9px 0;min-width:0}
-.practice-material-name{display:grid;gap:2px;min-width:0;padding:0;text-align:left;overflow-wrap:anywhere;line-height:1.45}
-.practice-material-name strong{font-size:15px;font-weight:500}
+.practice-material-name{display:grid;gap:2px;min-width:0;padding:0;text-align:left;overflow-wrap:anywhere;line-height:1.45;font-size:15px;font-weight:400;color:var(--material-ink)}
+.practice-material-name .material-name,.practice-material-name .material-level-part{font-weight:400;color:inherit}
+.practice-material-name .material-name.shared-material,.practice-material-name .level-overlap{font-weight:750}
 .practice-material-name small{font-size:12px;color:var(--muted)}
-.practice-material-row.material-role-main .practice-material-name strong{color:#397b93}
-.practice-material-row.material-role-featured .practice-material-name strong{color:#9a6927}
+.practice-material-meta .practice-material-role{padding:0 4px;line-height:1.5}
 .practice-row-actions .icon-button{width:44px;height:44px}
 .practice-material-note{grid-column:1/-1;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px}
 .practice-material-label{display:grid;gap:2px;min-width:0}
@@ -995,10 +1018,10 @@
 .practice-unit-progress{display:grid;gap:5px;min-width:0}
 .practice-percent-editor{display:flex;align-items:center;gap:3px;min-width:0;color:var(--muted);font-size:13px}
 .practice-percent-editor input{width:100%;min-width:0;min-height:44px;padding:7px 5px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font-size:16px;text-align:right}
-.practice-unit-progress progress{display:block;width:100%;height:6px;border:0;border-radius:4px;overflow:hidden;accent-color:#8171ae;background:var(--green-soft)}
-.practice-unit-progress progress::-webkit-progress-bar{background:var(--green-soft)}
-.practice-unit-progress progress::-webkit-progress-value{background:#8171ae;border-radius:4px}
-.practice-unit-progress progress::-moz-progress-bar{background:#8171ae;border-radius:4px}
+.practice-unit-progress progress{display:block;width:100%;height:6px;border:0;border-radius:4px;overflow:hidden;accent-color:var(--material-ink);background:var(--material-bg)}
+.practice-unit-progress progress::-webkit-progress-bar{background:var(--material-bg)}
+.practice-unit-progress progress::-webkit-progress-value{background:var(--material-ink);border-radius:4px}
+.practice-unit-progress progress::-moz-progress-bar{background:var(--material-ink);border-radius:4px}
 .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 144px}
 .practice-percent-row .practice-unit-date{width:128px}
 .practice-count-progress .practice-percent-editor>span{flex-shrink:0;white-space:nowrap;font-size:12px}
@@ -1010,22 +1033,22 @@
 .practice-book-sources p{margin:8px 0}.practice-book-sources small{display:block;color:var(--muted);font-size:12px}
 .practice-custom-books[hidden]{display:none}
 @media(max-width:375px){.practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px;column-gap:8px}}
-.practice-xu .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px;gap:3px 8px;padding:5px 0}
-.practice-xu .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 160px}
-.practice-xu .practice-unit-progress{display:flex;align-items:center;gap:6px}
-.practice-xu .practice-percent-editor{flex:0 0 auto;gap:3px}
-.practice-xu .practice-percent-editor input{width:40px;height:28px;min-height:28px;padding:2px 4px;line-height:1.25}
-.practice-xu .practice-percent-editor input::-webkit-inner-spin-button,.practice-xu .practice-percent-editor input::-webkit-outer-spin-button{appearance:none;margin:0}
-.practice-xu .practice-percent-editor input{appearance:textfield}
-.practice-xu .practice-unit-progress progress{height:3px}
-.practice-xu .practice-unit-progress>progress{flex:1;min-width:12px}
-.practice-xu .practice-count-meter{flex:1;gap:4px}
-.practice-xu .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
+.practice-page .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px;gap:3px 8px;padding:5px 0}
+.practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 160px}
+.practice-page .practice-unit-progress{display:flex;align-items:center;gap:6px}
+.practice-page .practice-percent-editor{flex:0 0 auto;gap:3px}
+.practice-page .practice-percent-editor input{width:40px;height:28px;min-height:28px;padding:2px 4px;line-height:1.25}
+.practice-page .practice-percent-editor input::-webkit-inner-spin-button,.practice-page .practice-percent-editor input::-webkit-outer-spin-button{appearance:none;margin:0}
+.practice-page .practice-percent-editor input{appearance:textfield}
+.practice-page .practice-unit-progress progress{height:3px}
+.practice-page .practice-unit-progress>progress{flex:1;min-width:12px}
+.practice-page .practice-count-meter{flex:1;gap:4px}
+.practice-page .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
 .practice-song-count{flex-shrink:0;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.practice-xu .practice-book-scope{min-height:20px;padding:0 2px}
+.practice-page .practice-book-scope{min-height:20px;padding:0 2px}
 @media(max-width:480px){
-  .practice-xu .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px;column-gap:6px}
-  .practice-xu .practice-unit-progress{gap:4px}
+  .practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px;column-gap:6px}
+  .practice-page .practice-unit-progress{gap:4px}
 }
 .practice-legacy-note{font-size:12px;color:var(--muted)}.practice-legacy-note>summary{cursor:pointer}.practice-legacy-note p{margin:4px 0;white-space:pre-wrap}
 .practice-page .small-note{font-size:12px;overflow-wrap:anywhere}
@@ -1056,6 +1079,18 @@
 .material-status{width:112px}
 .material-status.using{background:#fff6e6;color:#835719;border-color:#e7d3ac}
 .material-status.done{background:#e8f2ec;color:#2e6954;border-color:#bfd8ca}
+.material-quantity-status{display:grid;justify-items:center;line-height:1.1;gap:1px}
+.material-quantity-status>span,.material-quantity-status>small{font-size:12px;white-space:nowrap}
+.resource-progress-stage{padding:10px 0;border-bottom:1px solid var(--line);min-width:0;overflow-wrap:anywhere}
+.resource-progress-stage p{margin:5px 0}
+.resource-progress-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.resource-progress-heading .text-link{min-width:0;text-align:left;font-size:15px;line-height:1.4}
+.progress-state{font-size:12px;white-space:nowrap;color:var(--muted)}
+.progress-state.using{color:#835719}.progress-state.done{color:#2e6954}
+.resource-progress-child{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;padding:4px 0 4px 12px;font-size:15px}
+.resource-progress-child>small{width:100%;font-size:12px;color:var(--muted)}
+.library-quantity-preview{display:block;font-variant-numeric:tabular-nums;font-weight:600}
+.library-quantity-form [hidden]{display:none}
 .practice-form{min-width:0}
 .practice-form h2{font-size:22px;overflow-wrap:anywhere}
 .practice-form .form-row{display:grid;gap:5px;font-size:15px;margin:12px 0}
@@ -1070,7 +1105,7 @@
 .practice-form .form-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px}
 .practice-form .button{font-size:15px;min-height:44px;white-space:normal}
 .practice-form .practice-delete{color:#a14c3a;margin-right:auto}
-@media(min-width:1100px){.practice-material-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}.practice-time-summary{max-width:850px}}
+@media(min-width:1100px){.practice-material-list{column-count:2;column-gap:24px}.practice-material-list>*{break-inside:avoid}.practice-time-summary{max-width:850px}}
 @media(max-width:600px){.practice-page .page-heading{margin-bottom:10px}.practice-page .page-heading h1{font-size:23px}.practice-page .sub{display:none}.practice-time-summary{padding:10px;margin:8px 0 12px}.practice-stats{gap:8px}.practice-stats>div+div{padding-left:10px}.practice-stats strong{font-size:26px}.practice-material-row{grid-template-columns:minmax(0,1fr) 104px 40px;column-gap:6px;padding:7px 0}.practice-material-row .material-status{width:104px;padding-left:7px}.practice-row-actions .icon-button{width:40px}.practice-form-grid{grid-template-columns:minmax(0,1fr)}.practice-stage-picker>label{flex:1;min-width:0}.practice-stage-picker>.button{flex:0 0 auto;margin:0}.practice-stage-title{margin-top:3px}.practice-page .practice-stage-picker>label>span{display:none}.practice-section-head{margin-top:12px}.practice-filters{gap:6px}.practice-week{gap:3px}}
 @media(max-width:600px){.site-enabled .preview-backdrop .preview-top{grid-template-columns:minmax(0,1fr) 44px;gap:4px 8px;padding:6px 10px}.preview-backdrop .preview-close{grid-column:2;grid-row:1}.site-enabled .preview-backdrop .preview-top>h3{grid-column:1/-1;grid-row:2;font-size:13px}.site-enabled .preview-backdrop .preview-controls{gap:4px 8px}.preview-backdrop .preview-scroll{padding:12px}.preview-backdrop .preview-footer{font-size:12px;line-height:1.4}}
 
@@ -1179,6 +1214,7 @@
 #overlay>.modal-backdrop{align-items:center;justify-content:center;padding:24px;background:#172b247a;backdrop-filter:blur(3px)}
 #overlay>.modal-backdrop>.detail{display:flex;flex-direction:column;width:640px;max-width:100%;height:auto;max-height:84dvh;min-height:0;border:1px solid #ffffff70;border-radius:16px;overflow:hidden;box-shadow:0 20px 80px #14291d4d}
 #overlay .detail>.detail-head{position:relative;top:auto;flex:none;min-width:0;padding:8px 16px}
+#overlay .detail>.detail-head>span{position:static;width:auto;height:auto;overflow:visible;clip-path:none;font-size:12px;line-height:1.5}
 #overlay .detail>.detail-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px 20px max(20px,env(safe-area-inset-bottom))}
 #overlay>.modal-backdrop>.detail.price-modal{width:520px;max-width:100%}
 #overlay>.modal-backdrop>.detail.profile-modal{width:440px;max-width:100%}
@@ -1192,6 +1228,7 @@
 }
 #overlay [data-action="vocab-import-save"][hidden]{display:none!important}
 #overlay .profile-modal .profile-site-head{position:sticky;top:-18px;z-index:3;margin:-18px -18px 14px;padding:8px 14px;background:var(--site-surface,#fcfdf9);border-bottom:1px solid var(--line)}
+#overlay .profile-modal .profile-site-head{justify-content:flex-end}
 @media(max-width:600px){#overlay .profile-modal .profile-site-head{top:-14px;margin:-14px -14px 12px;padding:6px 10px}}
 #vocabulary-import .practice-form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 8px}
 
@@ -1206,9 +1243,12 @@
 .library-card .generated-cover{width:34px;height:48px;min-width:0;padding:4px;border-left-width:2px}
 .library-card .generated-cover b,.library-card .generated-cover small{display:none}
 .library-card-heading{flex:1;min-width:0}
-.library-card .resource-topline{margin:0 0 2px;gap:2px 8px;flex-wrap:wrap;font-size:12px;line-height:1.5}
-.library-card .resource-title{padding:0;min-height:0;align-items:center}
+.library-card .resource-topline{margin:0 0 2px;gap:2px 8px;justify-content:flex-start;flex-wrap:wrap;font-size:12px;line-height:1.5}
+.library-card .resource-title{padding:0;min-height:0;align-items:center;flex-wrap:wrap;gap:2px}
+.library-card .resource-title>.card-view-btn{flex-shrink:0;max-width:100%}
 .library-card .library-card-heading h3{min-height:0;font-size:16px;line-height:1.5}
+.library-card .library-series-name,.library-popover .library-series-name{color:var(--ink);font-weight:400}
+.library-card .library-series-name.shared-material,.library-popover .library-series-name.shared-material{color:var(--ink);font-weight:750}
 .library-card .price-info{flex-basis:28px;width:28px;height:28px;min-width:28px;min-height:28px;margin:0;padding:4px}
 .library-card-tools{display:flex;align-items:center;justify-content:flex-end;gap:4px;min-width:0}
 .library-card-tools .material-status-control{flex:0 0 auto;min-width:0;justify-content:flex-start;gap:0;margin:0}
@@ -1217,7 +1257,8 @@
 .library-card .library-card-tools>.icon-button{flex:0 0 32px;width:32px;height:32px;min-width:32px;min-height:32px;padding:0}
 .library-card-tools .library-song-link{padding:0}
 .library-card .card-usage{grid-column:1/-1;margin:0;border-top:1px solid var(--line)}
-.library-card .card-usage>summary{min-height:28px;padding:2px 0;gap:6px;font-size:12px;line-height:1.5}
+.library-card .card-usage:not([open]),.library-card .card-usage>summary{display:none}
+.library-card-usage-toggle{color:var(--green);font-size:22px;line-height:1}
 .library-card .card-usage .resource-usage{margin:4px 0;gap:6px}
 .library-card .card-usage .usage-route{padding:6px}
 .library-card .usage-route>summary{display:flex;align-items:center;gap:6px;min-width:0;min-height:26px;list-style:none;cursor:pointer}
@@ -1228,6 +1269,7 @@
 .library-usage-symbol{font-size:22px;line-height:1;font-weight:400}
 @container(max-width:380px){
   .library-card-tools{width:100px;flex-wrap:wrap;gap:2px}
+  .library-card-tools:has(.library-song-link){width:118px}
   .library-card-tools .material-status-control{flex-basis:100%;width:100%}
   .library-card .library-card-tools>.icon-button{flex-basis:28px;width:28px;height:28px;min-width:28px;min-height:28px}
 }
@@ -1238,7 +1280,7 @@
 }
 /* 图鉴筛选只有一行；完整选项与说明通过独立气泡按需访问。 */
 .library-view{container-type:inline-size}
-.library-filterbar{display:grid;grid-template-columns:minmax(64px,100px) 56px auto repeat(4,32px);align-items:center;justify-content:start;gap:4px;min-width:0;margin:0 0 6px}
+.library-filterbar{display:grid;grid-template-columns:minmax(64px,100px) 52px 52px auto repeat(4,32px);align-items:center;justify-content:start;gap:4px;min-width:0;margin:0 0 6px}
 .library-filter-control{min-width:0}
 .library-filterbar .library-filter-button{display:flex;align-items:center;justify-content:center;gap:4px;width:100%;height:32px;min-height:32px;min-width:0;padding:2px 5px;border:1px solid var(--line);border-radius:6px;background:var(--paper,#fffdf7);color:var(--ink,#435145);font-size:15px;line-height:1.3;white-space:nowrap}
 .library-filterbar>.library-filter-button{width:auto}
@@ -1262,10 +1304,45 @@
 .library-popover p{font-size:15px;margin:8px 0}
 .library-popover .text-link{min-height:32px;padding:4px 0;font-size:15px;margin-right:12px}
 @container(max-width:460px){
-  .library-filterbar{grid-template-columns:minmax(64px,1fr) 52px repeat(5,28px)}
+  .library-filterbar{grid-template-columns:minmax(60px,1fr) 40px 40px repeat(5,26px);gap:3px}
   .library-filterbar .library-filter-button{height:28px;min-height:28px;padding:2px 3px}
   .library-filter-text{display:none}
 }
+
+/* 单本目录按版本呈现；主题与阶段取交集，不重复套系卡片。 */
+.library-topic-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.library-topic-choices button{min-width:0;min-height:30px;padding:3px 6px;border:1px solid var(--line);border-radius:5px;background:transparent;color:inherit;text-align:left;font-size:15px;overflow-wrap:anywhere}
+.library-topic-choices button[aria-pressed="true"]{background:#e6efe6;border-color:#81a78a}
+.library-stage-group{display:grid;gap:4px;min-width:0;margin-top:6px}
+.library-stage-group>strong{font-size:12px;color:var(--muted)}
+.library-topic-mode{margin-top:6px}
+.book-coverage{margin:8px 0;font-size:12px}
+.book-coverage summary{cursor:pointer}
+.book-pending-list{display:flex;flex-wrap:wrap;gap:2px 8px}
+.library-popover .book-coverage p{font-size:12px}
+.book-pending-list .text-link{margin:0;min-height:24px;font-size:12px}
+.library-book-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:0 16px;min-width:0}
+.library-book-row{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:start;gap:8px;min-width:0;padding:7px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere;align-self:start}
+.library-book-body{min-width:0}
+.library-book-cover{width:48px;height:64px;min-width:0;display:grid;place-items:center;border-radius:4px;background:var(--paper,#fffdf7);overflow:hidden}
+.library-book-cover>img,.library-book-cover .resource-cover img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
+.library-book-cover .resource-cover{width:100%;height:64px;padding:2px;border-radius:4px}
+.library-book-cover .cover-caption{display:none}
+.library-book-cover .generated-cover{width:34px;height:48px;padding:4px;border-left-width:2px}
+.library-book-cover .generated-cover b,.library-book-cover .generated-cover small{display:none}
+.library-book-placeholder{display:grid;place-items:center;width:100%;height:100%;color:var(--muted)}
+.library-book-title{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;min-width:0;font-size:15px;line-height:1.5}
+.library-book-title>strong{min-width:0}
+.library-book-title .icon-button{flex:none;width:26px;height:26px!important;min-width:26px;min-height:26px!important;padding:4px}
+.library-book-context{display:flex;flex-wrap:wrap;gap:1px 8px;color:var(--muted);font-size:12px;line-height:1.5}
+.library-book-topics{display:flex;flex-wrap:wrap;gap:3px;margin:3px 0}
+.library-book-topics .chip{font-size:12px;padding:1px 5px;line-height:1.4;min-height:0}
+.library-book-stages{font-size:12px;line-height:1.5;margin-top:3px}
+.library-book-stages summary{cursor:pointer;color:var(--green)}
+.library-book-stages .text-link{display:block;text-align:left;min-height:26px;padding:2px 0;font-size:15px}
+.library-book-link{flex:0 0 auto;white-space:nowrap;min-height:24px!important;padding:2px 0!important;font-size:12px!important}
+.book-directory-sources p{overflow-wrap:anywhere}
+.book-directory-sources .small-note{display:block}
 
 /* 儿歌筛选保持两行，完整搜索与说明按需在气泡中显示。 */
 .song-compact-filters.song-filters{padding:0;margin:8px 0;border:0;border-radius:0;background:transparent}
@@ -1361,3 +1438,56 @@
 .practice-form .vocabulary-entry-input-row input{width:100%;min-width:0;min-height:36px;padding:5px 8px;font-size:16px}
 .practice-form .vocabulary-entry-input-row .icon-button{width:30px;height:30px;min-width:30px;min-height:30px;padding:0;font-size:20px;color:var(--green);border:1px solid var(--line)}
 .vocabulary-entry-input-row .icon-button:disabled{opacity:.35;cursor:default}
+
+/* 庆爸与许密杉共用数量行；庆爸额外提供父子汇总与计时。 */
+.practice-label-shell{display:flex;align-items:center;gap:4px;min-width:0}
+.practice-label-shell>.practice-material-label{flex:1;min-width:0}
+.practice-group-toggle{flex:none;width:20px;height:28px;min-height:28px;padding:0;border:0;border-radius:4px;background:transparent;color:var(--muted);font-size:18px;line-height:1}
+.practice-group-toggle:hover{background:var(--green-soft);color:var(--ink)}
+.practice-material-group{min-width:0}
+.practice-material-children{margin-left:10px;padding-left:8px;border-left:1px solid var(--line);min-width:0}
+.practice-material-children[hidden]{display:none}
+/* 行内选择方式并记录本次分钟；累计值与新增输入明确分开。 */
+.practice-qing .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 64px 194px}
+.practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px 194px}
+.practice-time-inline{min-width:0;margin:0}
+.practice-time-entry{display:flex;align-items:center;justify-content:flex-end;gap:3px;min-width:0}
+.practice-time-entry select{width:94px;min-width:0;height:28px;min-height:28px;padding:1px 0;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:16px}
+.practice-time-minutes{display:flex;align-items:center;gap:2px;min-width:0;color:var(--muted);font-size:12px;white-space:nowrap}
+.practice-time-minutes input{width:52px;height:28px;min-height:28px;min-width:0;padding:2px 3px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:16px;text-align:right;appearance:textfield}
+.practice-time-minutes input::-webkit-inner-spin-button,.practice-time-minutes input::-webkit-outer-spin-button{appearance:none;margin:0}
+.practice-time-entry button{display:grid;place-items:center;flex:none;width:24px;height:28px;min-height:28px;padding:3px;border:0;border-radius:4px;background:var(--green-soft);color:var(--green)}
+.practice-time-entry button:disabled{opacity:.4;cursor:default}
+.practice-time-entry .icon{width:16px;height:16px}
+.practice-time-hint{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:0 6px;font-size:12px;color:var(--muted);line-height:1.5;font-variant-numeric:tabular-nums}
+.practice-time-hint output{color:var(--green)}
+.practice-time-hint output:empty{display:none}
+.practice-time-source-links{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:10px}
+.practice-time-rules li{margin:6px 0}
+.practice-time-rules ul{padding-left:20px}
+.practice-material-toolbar .library-filter-button{width:28px;height:28px;min-width:28px;min-height:28px;padding:4px}
+@media(max-width:600px){.practice-qing .practice-material-row.practice-books-row{column-gap:5px}}
+@media(max-width:480px){
+  .practice-qing .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px}
+  .practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px}
+  .practice-qing .practice-time-inline{grid-column:1/-1;display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:8px}
+  .practice-time-hint{justify-content:flex-start;flex:1;min-width:0}
+  .practice-time-entry{flex:none}
+  .practice-material-children{margin-left:5px;padding-left:5px}
+}
+
+/* 个人零散素材复用图鉴摘要卡片及居中表单。 */
+.library-heading-actions{display:flex;align-items:center;gap:6px;flex:none}
+.library-heading-actions>#library-add-book{border:1px solid var(--line);font-size:22px}
+.custom-book-meta{padding:6px 0;display:grid;gap:4px;min-width:0}
+.custom-book-meta p{margin:0;overflow-wrap:anywhere}
+.custom-book-meta .text-link{text-align:left;white-space:normal;overflow-wrap:anywhere;min-height:28px}
+.custom-book-form .practice-form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 8px}
+.custom-book-form .form-row{min-width:0;margin:10px 0}
+.custom-book-form .custom-book-topics{padding:0;border:0}
+.custom-book-form .custom-book-topics legend{font-size:15px;margin-bottom:4px}
+.custom-topic-rows{display:grid;gap:5px}
+.custom-topic-row{display:flex;align-items:center;gap:5px;min-width:0}
+.custom-topic-row input{flex:1;min-width:0}
+.custom-topic-row .icon-button{width:30px;height:30px;min-width:30px;min-height:30px}
+.custom-book-stage-text{overflow-wrap:anywhere;margin:4px 0 0}

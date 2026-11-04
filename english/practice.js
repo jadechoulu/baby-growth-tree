@@ -6,6 +6,34 @@ const KINDS={reading:'亲子共读',animation:'动画',audio:'音频',app:'融�
 const SESSION='practice.session.v1:';
 const MATERIAL='practice.material.v1:';
 const SONG='practice.song.v1:';
+const LIBRARY='library.progress.v1:';
+function resourceProgress(entries){
+  const unique=[...new Map(entries.map(entry=>[entry.key,entry])).values()];
+  const done=unique.filter(entry=>entry.status==='done').length;
+  const started=unique.some(entry=>entry.status==='done'||entry.completed>0||entry.minutes>0||entry.effectiveMinutes>0);
+  return {status:unique.length&&done===unique.length?'done':started?'using':'not-started',done,total:unique.length};
+}
+function libraryQuantity(record,scopes=[],unit='个',selectedScope){
+  const meta=json(record?.note),saved=meta?.version===1?meta:{};
+  const scope=selectedScope!==undefined?selectedScope:Object.hasOwn(saved,'scope')?saved.scope:scopes.find(scope=>scope.default)||null;
+  const identity=JSON.stringify([scope?.id,scope?.label,scope?.total,scope?.edition||'',scope?.unit||unit]);
+  return {...quantityRecord(saved.quantities?.[identity],scope,unit),scope,identity};
+}
+function libraryScopes(record,scopes=[],unit='个'){
+  const meta=json(record?.note),saved=meta?.version===1?Object.values(meta.quantities||{}):[];
+  const previous=saved.flatMap(record=>{const books=unitBooks(record);return books?.mode==='count'&&books.total!==null?[{id:books.scopeId,label:books.label,total:books.total,edition:books.edition,origin:books.origin,unit}]:[];});
+  const seen=new Set();
+  return [...scopes,...previous].filter(scope=>{const id=JSON.stringify([scope.id,scope.label,scope.total,scope.edition||'',scope.unit||unit]);if(seen.has(id))return false;seen.add(id);return true;});
+}
+function libraryQuantityUpdate(record,scope,completed,unit='个'){
+  // 出版来源、目录及原文由公共目录维护；私人同步只保存选中范围的身份和数量。
+  scope=scope?{id:scope.id,label:scope.label,total:scope.total,edition:scope.edition||'',origin:scope.origin||'catalog',unit:scope.unit||unit}:null;
+  const quantity=libraryQuantity(record,[],unit,scope),meta=json(record?.note);
+  const progress=unitQuantityProgressUpdate(completed,scope,null,unit);
+  const note=JSON.stringify({...meta,version:1,scope,quantities:{...meta?.quantities,[quantity.identity]:progress}});
+  if(note.length>4000)throw new Error('这份素材的版本记录过多，请先导出备份后整理。');
+  return {status:progress.status,note};
+}
 function matchesMaterialSearch(values,query,aliases=[]){
   const normalize=value=>String(value).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
   // 别名属于整个套系，其中历史级别不能让当前分辑误命中。
@@ -55,7 +83,7 @@ function bookScopes(resourceId,levels,catalog){
   const entry=catalog?.series?.find(s=>s.resourceId===resourceId);
   if(!entry)return [];
   const selected=[...new Set(levels.filter(Boolean))];
-  return entry.scopes.filter(s=>!selected.length||selected.length===1&&s.level===selected[0]).map(s=>({...s,total:s.parts.reduce((n,p)=>n+p.count,0),edition:s.edition||entry.edition,sources:entry.sources,checkedAt:catalog.checkedAt}));
+  return entry.scopes.filter(s=>!selected.length||selected.length===1&&s.level===selected[0]).map(s=>({...s,total:s.parts.reduce((n,p)=>n+p.count,0),unit:s.unit||entry.unit||'本',edition:s.edition||entry.edition,sources:entry.sources,checkedAt:catalog.checkedAt}));
 }
 function unitBooks(record){const meta=json(record?.note);return meta?.version===1&&meta.books?.version===1?meta.books:null;}
 function partKey(key,identity){let hash=2166136261;for(const c of identity)hash=Math.imul(hash^c.charCodeAt(0),16777619);return key+':p'+(hash>>>0).toString(36);}
@@ -71,7 +99,7 @@ function expandBookUnits(unit,levels,catalog,record){
     const partScope={id:partKey('part',identity),label:part.label,total:part.count,edition:scope.edition,origin:'catalog'};
     return {...unit,key:partKey(unit.key,identity),parentKey:unit.key,label:title+' · '+part.label,partTitle:title,partScope,editionId:edition?.id,editionOptions:editions||[],recordingNote:edition?entry.recordingNote:'',bookScopes:[]};
   });
-  if(levels.length>1)return levels.map(level=>({...unit,key:partKey(unit.key,level.id),parentKey:unit.key,label:unit.item.resource.title+' · '+level.label,partLevel:level,bookScopes:[]}));
+  if(levels.length>1)return levels.map(level=>({...unit,key:partKey(unit.key,level.id),parentKey:unit.key,label:unit.item.resource.title+' · '+level.label,partLevel:level,bookScopes:bookScopes(unit.resourceId,[level.label],catalog)}));
   return [unit];
 }
 function materialRecord(records,unit){
@@ -96,10 +124,72 @@ function unitBookProgressUpdate(completed,scope,record){
   const percent=completed===scope.total?100:Math.min(99,Math.round(completed/scope.total*100));
   return {...updated,status:completed===scope.total?'done':completed>0?'using':'not-started',note:JSON.stringify({...previous,percent,date:validDate(previous.date)?previous.date:today(),books:{...previous.books,completed}})};
 }
+function quantityUnit(type){return ({animation:'集',song:'首',flashcard:'张',book:'本',reader:'本'})[type]||'个';}
+function quantityRecord(record,scope,unit='个'){
+  const books=unitBooks(record),total=scope?.total??null;
+  const matches=books?.mode==='count'&&(scope?books.total===total&&books.label===scope.label&&books.edition===(scope.edition||''):books.total===null&&books.unit===unit);
+  const completed=matches&&Number.isInteger(books.completed)?books.completed:0;
+  const percent=total===null?null:completed===total?100:Math.min(99,Math.round(completed/total*100));
+  return {completed,total,unit:scope?.unit||unit,percent,status:total!==null&&completed===total?'done':completed>0?'using':'not-started'};
+}
+function unitQuantityProgressUpdate(completed,scope,record,unit='个'){
+  if(scope)return unitBookProgressUpdate(completed,scope,record);
+  if(!Number.isSafeInteger(completed)||completed<0||completed>1000000)throw new Error('请输入0–1000000之间的整数数量。');
+  const meta=json(record?.note),previous=meta?.version===1?meta:{text:record?.note||''};
+  return {...record,status:completed>0?'using':'not-started',note:JSON.stringify({...previous,version:1,date:validDate(previous.date)?previous.date:today(),books:{version:1,mode:'count',total:null,unit,completed}})};
+}
+function groupQuantity(record,children){
+  const unit=children[0]?.unit||'个',total=children.length&&children.every(c=>c.total!==null&&c.unit===unit)?children.reduce((n,c)=>n+c.total,0):null;
+  const id=partKey('group',JSON.stringify(children.map(c=>[c.key,c.total,c.unit,c.scopeIdentity||'']))),meta=json(record?.note);
+  const childCompleted=children.reduce((n,c)=>n+c.completed,0),saved=meta?.version===1?meta.quantityRollup?.groups?.[id]?.completed:0;
+  const directCompleted=Number.isSafeInteger(saved)&&saved>=0?saved:0,completed=Math.max(directCompleted,childCompleted);
+  const percent=total===null?null:completed>=total?100:Math.min(99,Math.round(completed/total*100));
+  return {id,unit,total,completed,childCompleted,directCompleted,percent,status:total!==null&&completed>=total?'done':completed>0?'using':'not-started'};
+}
+function groupQuantityUpdate(completed,children,record){
+  const quantity=groupQuantity(record,children),maximum=quantity.total??1000000;
+  if(!Number.isSafeInteger(completed)||completed<0||completed>maximum)throw new Error('请输入0–'+maximum+'之间的整数数量。');
+  const meta=json(record?.note),previous=meta?.version===1?meta:{text:record?.note||''};
+  return {...record,status:record?.status||'not-started',note:JSON.stringify({...previous,version:1,quantityRollup:{...previous.quantityRollup,version:1,groups:{...previous.quantityRollup?.groups,[quantity.id]:{completed}}}})};
+}
+function materialParentKey(key){return key.startsWith(MATERIAL+'qing:')&&key.split(':').length===6&&/:p[0-9a-z]+$/.test(key)?key.replace(/:p[0-9a-z]+$/,''):'';}
+function accountSessionTotals(entries){
+  // 父项视作已记总量；子项合计与父项取max。只扣父项被覆盖的份额，原始明细不改。
+  const out=entries.map(e=>({...e,countedMinutes:e.kind==='history'?0:e.minutes,countedEffectiveMinutes:e.effectiveMinutes})),groups=new Map();
+  for(const e of out){const parent=materialParentKey(e.unitKey),key=e.stageId+'|'+(parent||e.unitKey);if(!e.unitKey)continue;let group=groups.get(key);if(!group)groups.set(key,group={parents:[],children:[]});group[parent?'children':'parents'].push(e);}
+  for(const {parents,children}of groups.values()){
+    for(const e of parents)e.rollupParent=children.length>0;
+    let actual=children.reduce((n,e)=>n+e.countedMinutes,0),effective=children.reduce((n,e)=>n+e.countedEffectiveMinutes,0);
+    for(const e of parents.slice().sort((a,b)=>a.date.localeCompare(b.date)||a.createdAt.localeCompare(b.createdAt)||a.id.localeCompare(b.id))){
+      const a=Math.min(actual,e.countedMinutes),f=Math.min(effective,e.countedEffectiveMinutes);e.countedMinutes-=a;e.countedEffectiveMinutes-=f;actual-=a;effective-=f;
+    }
+  }
+  return out;
+}
+function materialTime(records,key,childKeys=[],entries=sessions(records)){
+  const sum=keys=>entries.filter(e=>keys.includes(e.unitKey)).reduce((n,e)=>({minutes:n.minutes+(e.kind==='history'?0:e.minutes),effectiveMinutes:n.effectiveMinutes+e.effectiveMinutes}),{minutes:0,effectiveMinutes:0});
+  const direct=sum([key]),children=sum(childKeys);
+  return {minutes:Math.max(direct.minutes,children.minutes),effectiveMinutes:Math.max(direct.effectiveMinutes,children.effectiveMinutes),direct,children};
+}
 function unitDateUpdate(date,record){
   if(!validDate(date))throw new Error('请选择有效的记录日期。');
   const meta=json(record?.note),previous=meta?.version===1?meta:{text:record?.note||''};
   return {...record,status:record?.status||'not-started',note:JSON.stringify({...previous,version:1,date})};
+}
+function timeOptions(stageId,type,accounting,hasAnimation=false){
+  const options=[],audio=accounting?.verifiedNote?.stageAudio?.find(rule=>rule.stageId===stageId);
+  if(['book','reader','flashcard'].includes(type))options.push({id:'reading',label:'共读×1',kind:'reading',factor:1,qualified:true});
+  if(type==='animation'||type==='song'||hasAnimation)options.push({id:'animation',label:'动画×1',kind:'animation',factor:1,qualified:true});
+  if(type==='app')options.push({id:'app',label:'App×1',kind:'app',factor:1,qualified:true});
+  // 系数来自原作者明确的记录阶段；不拿书本级别、宝宝年龄或素材名称反推。
+  if(audio)options.push({id:'audio',label:'音频×'+audio.factor,kind:'audio',factor:audio.factor,qualified:true});
+  options.push({id:'excluded',label:'不计×0',kind:options[0]?.kind||'audio',factor:options[0]?.factor??0,qualified:false});
+  return options;
+}
+function inlineSessionRecord(value,options,date=today()){
+  const mode=options.find(option=>option.id===value.mode);
+  if(!mode)throw new Error('请先选择本次实际使用方式。');
+  return sessionRecord({version:1,routeId:'qing',stageId:value.stageId,date,createdAt:value.createdAt,unitKey:value.unitKey,unitLabel:value.unitLabel,content:'',kind:mode.kind,factor:mode.factor,qualified:mode.qualified,minutes:value.minutes});
 }
 function sessionRecord(value,todayValue=today()){
   if(value?.version!==1||value.routeId!=='qing'||typeof value.stageId!=='string'||!value.stageId.startsWith('qing-')||!validDate(value.date)||value.date>todayValue)throw new Error('请选择庆爸阶段和有效记录日期。');
@@ -119,17 +209,17 @@ function sessions(records,routeId='qing'){
     if(!id.startsWith(SESSION+routeId+':')||r.status!=='done')continue;
     const value=json(r.note);try{const clean=JSON.parse(sessionRecord(value,now).note);out.push({...clean,id,effectiveMinutes:clean.qualified?clean.minutes*clean.factor:0});}catch{}
   }
-  return out.sort((a,b)=>b.date.localeCompare(a.date)||b.createdAt.localeCompare(a.createdAt)||b.id.localeCompare(a.id));
+  return accountSessionTotals(out.sort((a,b)=>b.date.localeCompare(a.date)||b.createdAt.localeCompare(a.createdAt)||b.id.localeCompare(a.id)));
 }
 function summarize(records,stageId=null){
   const entries=sessions(records).filter(s=>!stageId||s.stageId===stageId),byKind={};
   for(const kind of Object.keys(KINDS))byKind[kind]={minutes:0,effectiveMinutes:0};
-  for(const e of entries){byKind[e.kind].minutes+=e.minutes;byKind[e.kind].effectiveMinutes+=e.effectiveMinutes;}
-  return {entries,minutes:entries.reduce((n,e)=>n+e.minutes,0),effectiveMinutes:entries.reduce((n,e)=>n+e.effectiveMinutes,0),byKind};
+  for(const e of entries){byKind[e.kind].minutes+=e.countedMinutes;byKind[e.kind].effectiveMinutes+=e.countedEffectiveMinutes;}
+  return {entries,minutes:entries.reduce((n,e)=>n+e.countedMinutes,0),effectiveMinutes:entries.reduce((n,e)=>n+e.countedEffectiveMinutes,0),byKind};
 }
 function recentDays(records,end=today()){
   const entries=sessions(records),out=[];
-  for(let i=6;i>=0;i--){const d=new Date(end+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-i);const date=d.toISOString().slice(0,10);out.push({date,minutes:entries.filter(e=>e.date===date).reduce((n,e)=>n+e.effectiveMinutes,0)});}
+  for(let i=6;i>=0;i--){const d=new Date(end+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-i);const date=d.toISOString().slice(0,10);out.push({date,minutes:entries.filter(e=>e.date===date).reduce((n,e)=>n+e.countedEffectiveMinutes,0)});}
   return out;
 }
 function hours(minutes){return Number((minutes/60).toFixed(2)).toLocaleString('zh-CN',{maximumFractionDigits:2});}
@@ -147,9 +237,9 @@ function groupKey(entry){return entry.kind==='history'?'history':entry.unitKey||
 function aggregate(entries,metric='effective'){
   // 历史补录只有已折算量，不能混进实际时长；零有效记录仍保留可追溯性。
   const included=entries.filter(e=>metric!=='actual'||e.kind!=='history'),groups=new Map();
-  for(const e of included){const id=groupKey(e);if(!groups.has(id))groups.set(id,{id,label:e.kind==='history'?KINDS.history:e.unitLabel||KINDS[e.kind]+' · 未指定素材',stageId:e.stageId,unitKey:e.unitKey,minutes:0,count:0});const g=groups.get(id);g.minutes+=metric==='actual'?e.minutes:e.effectiveMinutes;g.count++;}
+  for(const e of included){const id=groupKey(e);if(!groups.has(id))groups.set(id,{id,label:e.kind==='history'?KINDS.history:(e.unitLabel||KINDS[e.kind]+' · 未指定素材')+(e.rollupParent?' · 父项差额':''),stageId:e.stageId,unitKey:e.unitKey,minutes:0,count:0});const g=groups.get(id);g.minutes+=metric==='actual'?(e.countedMinutes??e.minutes):(e.countedEffectiveMinutes??e.effectiveMinutes);g.count++;}
   const minutes=[...groups.values()].reduce((n,g)=>n+g.minutes,0);
-  return {entries:included,minutes,days:new Set(included.map(e=>e.date)).size,groups:[...groups.values()].sort((a,b)=>b.minutes-a.minutes||a.id.localeCompare(b.id)).map(g=>({...g,share:minutes?g.minutes/minutes:0})),historyMinutes:entries.filter(e=>e.kind==='history').reduce((n,e)=>n+e.effectiveMinutes,0)};
+  return {entries:included,minutes,days:new Set(included.map(e=>e.date)).size,groups:[...groups.values()].sort((a,b)=>b.minutes-a.minutes||a.id.localeCompare(b.id)).map(g=>({...g,share:minutes?g.minutes/minutes:0})),historyMinutes:entries.filter(e=>e.kind==='history').reduce((n,e)=>n+(e.countedEffectiveMinutes??e.effectiveMinutes),0)};
 }
 function statistics(records,{stageId=null,period='all',anchor=today(),from='',to='',metric='effective'}={}){
   const range=periodRange(period,anchor,from,to),entries=sessions(records).filter(e=>(!stageId||e.stageId===stageId)&&(!range.from||e.date>=range.from)&&(!range.to||e.date<=range.to));
@@ -161,6 +251,6 @@ function trendBuckets(entries,{grain='day',anchor=today(),metric='effective',cou
   return out;
 }
 function calendarDays(month){if(!/^\d{4}-\d{2}$/.test(month)||!validDate(month+'-01'))throw new Error('月份无效。');const first=month+'-01',last=periodRange('month',first).to;return Array.from({length:Number(last.slice(8))},(_,i)=>shiftDate(first,i));}
-const api={STATUS,KINDS,SESSION,MATERIAL,SONG,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,unitEditionUpdate,unitBooks,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
+const api={STATUS,KINDS,SESSION,MATERIAL,SONG,LIBRARY,resourceProgress,libraryQuantity,libraryScopes,libraryQuantityUpdate,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,unitEditionUpdate,unitBooks,quantityUnit,quantityRecord,unitQuantityProgressUpdate,groupQuantity,groupQuantityUpdate,materialParentKey,materialTime,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,timeOptions,inlineSessionRecord,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
 root.EnglishPractice=api;if(typeof module==='object'&&module.exports)module.exports=api;
 })(typeof window==='object'?window:globalThis);
