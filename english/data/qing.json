@@ -2923,7 +2923,58 @@
     "pages": [
       1,
       3
-    ]
+    ],
+    "verifiedNote": {
+      "sourceId": "qing-effective-time-v2",
+      "checkedAt": "2026-11-04",
+      "stageAudio": [
+        {
+          "stageId": "qing-s1",
+          "factor": 0,
+          "page": 5
+        },
+        {
+          "stageId": "qing-s2",
+          "factor": 0,
+          "page": 6
+        },
+        {
+          "stageId": "qing-s3",
+          "factor": 0.5,
+          "page": 7
+        },
+        {
+          "stageId": "qing-s4",
+          "factor": 0.8,
+          "page": 8
+        },
+        {
+          "stageId": "qing-s5",
+          "factor": 0.8,
+          "page": 9
+        },
+        {
+          "stageId": "qing-s6",
+          "factor": 0.8,
+          "page": 10
+        },
+        {
+          "stageId": "qing-s7",
+          "factor": 0.8,
+          "page": 11
+        }
+      ],
+      "conditions": [
+        "素材难度与孩子水平匹配；不得强迫，配合度与专注度尚可。",
+        "看图与听故事同时发生才按共读；没看图只有声音，按纯音频处理。",
+        "跨难度部分和互动时间需扣除；孩子关注文字时，分级遮字、动画遮字幕。",
+        "自主点读只有完整听故事并同时看图才可计；只是点音效一般不计。",
+        "纯音频使用读过的分级或看过的动画，环境相对安静，不频繁合并其他动脑事件。",
+        "低于当前级别的素材，仅不超过当前级别所需总时间30%的部分可计入；本站不依据书名自动判断该条件。"
+      ],
+      "mediaNote": "原PDF第4页明确WPlay及古力系列可有绘本、动画、音频。其他套系的具体配套资源须按本人手头版本确认；计时选项不代表本站已核实该书附带动画或音频。",
+      "versionNote": "本人时间判定原帖的准桥梁累计440h与现有3–4岁2.0版PDF的480h有差异；本次采用活动折算说明，保留原路线门槛，不推定帖子版本先后。"
+    }
   },
   "supplement": {
     "id": "reading-map",
@@ -3680,6 +3731,75 @@
           }
         ]
       }
+    },
+    {
+      "id": "qing-effective-time-v2",
+      "title": "庆爸育儿 · 常规路径，有效时间判定2.0版",
+      "kind": "author-note",
+      "author": "庆爸育儿",
+      "file": "https://www.xiaohongshu.com/explore/69f2ef820000000022025e28",
+      "url": "https://www.xiaohongshu.com/explore/69f2ef820000000022025e28",
+      "noteId": "69f2ef820000000022025e28",
+      "checkedAt": "2026-11-04",
+      "displayedDate": "编辑于04-30（页面未显示年份）",
+      "note": "本人账号原帖，正文与全部11张配图已核对。按活动方式与当前记录阶段折算，不是每本书的固定系数；年龄投入、配比及晋级差异作为来源参考，不自动修改原路线或历史记录。",
+      "previews": [
+        {
+          "page": 1,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-01.jpg",
+          "note": "封面：有效时间判定2.0版。"
+        },
+        {
+          "page": 2,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-02.jpg",
+          "note": "Page1：有效时间前提、跨难度部分扣除、文字遮挡。"
+        },
+        {
+          "page": 3,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-03.jpg",
+          "note": "Page2：低级别素材30%上限、TPR与一般口语的不同。"
+        },
+        {
+          "page": 4,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-04.jpg",
+          "note": "Page3：没看图按音频；互动时间扣除；自主点读的有效条件。"
+        },
+        {
+          "page": 5,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-05.jpg",
+          "note": "Page4：常规1，共读／动画／TPR×1，音频不计；分年龄投入及配比。"
+        },
+        {
+          "page": 6,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-06.jpg",
+          "note": "Page5：常规2，共读／动画／TPR×1，音频不计；分年龄投入及配比。"
+        },
+        {
+          "page": 7,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-07.jpg",
+          "note": "Page6：常规3，音频×0.5；共读／动画／TPR×1。"
+        },
+        {
+          "page": 8,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-08.jpg",
+          "note": "Page7：常规4，音频×0.8；共读及动画×1。"
+        },
+        {
+          "page": 9,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-09.jpg",
+          "note": "Page8：常规5，音频×0.8；共读及动画×1。"
+        },
+        {
+          "page": 10,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-10.jpg",
+          "note": "Page9：常规6，音频×0.8；共读及动画×1。"
+        },
+        {
+          "page": 11,
+          "path": "assets/sources/qing-effective-time-v2/qing-time-11.jpg",
+          "note": "Page10：准桥梁，音频×0.8；本图累计440小时与现有PDF480小时有差异，本站原路线门槛不在本次改写。"
+        }
+      ]
     }
   ]
 }

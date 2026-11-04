@@ -289,7 +289,7 @@ test('全部原始素材和所有阶段引用均可追溯到有效规范实体',
     }
   }
   assert.equal(catalog.routes.find(r => r.id === 'banana').stages[0].raw.order, 0);
-  assert.deepEqual(catalog.sources.map(s => s.id), ['banana', 'xu', 'qing', 'qing-xhs-20261030', 'age', 'reading']);
+  assert.deepEqual(catalog.sources.map(s => s.id), ['banana', 'xu', 'qing', 'qing-xhs-20261030', 'qing-effective-time-v2', 'age', 'reading']);
   assert.ok(catalog.sources.every(s => s.file && s.previews.length));
   for (const edge of catalog.relationships) {
     assert.ok(ids.has(edge.from)); assert.ok(ids.has(edge.to));
