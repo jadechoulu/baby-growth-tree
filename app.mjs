@@ -4,7 +4,7 @@ import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, c
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
 import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
 import { combineLocalImports, mergeImportedGrowth } from './lib/import.mjs';
-import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-popover';
+import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-suggestions';
 
 const app = document.querySelector('#app');
 const sharedProfile = window.XiaoyaBabyProfile.createClient();
@@ -575,8 +575,7 @@ function milestoneList() {
   const allStageSkills = getStageSkills(catalog, stage.id);
   const domainSkills = allStageSkills.filter(skill => skill.domain === state.domain);
   const filterStats = getStats(domainSkills, state.records);
-  const needle = state.search.trim().toLocaleLowerCase();
-  const skills = domainSkills.filter(skill => (state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id))) && (!needle || `${skill.title} ${skill.category}`.toLocaleLowerCase().includes(needle)));
+  const skills = domainSkills.filter(skill => state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id)));
   return html`<section class="milestones" id="milestones" aria-label="${stage.label}技能清单">
     <div class="list-toolbar"><div class="status-tabs" role="group" aria-label="完成状态"><button data-status="all" class="${state.status === 'all' ? 'active' : ''}" aria-pressed="${state.status === 'all'}">全部 <small>${filterStats.total}</small></button><button data-status="pending" class="${state.status === 'pending' ? 'active' : ''}" aria-pressed="${state.status === 'pending'}">探索中 <small>${filterStats.remaining}</small></button><button data-status="done" class="${state.status === 'done' ? 'active' : ''}" aria-pressed="${state.status === 'done'}">已完成 <small>${filterStats.completed}</small></button></div><label class="search-box">${icon('search')}<input id="skill-search" type="search" value="${state.search}" placeholder="找一个小技能" aria-label="搜索本阶段技能" autocomplete="off" /></label></div>
     <div class="filter-caption">正在查看：${domainInfo(state.domain).label} · 在上方进度卡片切换领域</div>
@@ -584,7 +583,7 @@ function milestoneList() {
       const items = skills.filter(skill => skill.domain === domain.id);
       const domainStats = getStats(allStageSkills.filter(skill => skill.domain === domain.id), state.records);
       return html`<details class="skill-group domain-${domain.id}"><summary class="group-heading" title="展开或收起技能清单"><span class="domain-icon">${icon(domain.id)}</span><span class="group-label"><strong>${domain.label}</strong><span>${domain.description}</span></span><span class="group-count">${domainStats.completed} / ${domainStats.total}</span>${icon('chevron', 'group-fold-icon')}</summary><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></details>`;
-    })}</div>` : html`<div class="empty-state">${icon(state.status === 'done' ? 'sprout' : 'search')}<h3>${state.search ? '还没找到这个技能' : state.status === 'done' ? '第一颗小芽，等你来点亮' : '这里的小技能都探索过啦'}</h3><p>${state.search ? '换个词试试，或清除筛选看看。' : state.status === 'done' ? '点一下技能旁的圆圈，记下宝宝的成长。' : '可以回顾已完成的技能，或看看下一阶段。'}</p><button class="secondary-button" data-action="clear-filters">清除筛选</button></div>`}
+    })}</div>` : html`<div class="empty-state">${icon(state.status === 'done' ? 'sprout' : 'search')}<h3>${state.status === 'done' ? '第一颗小芽，等你来点亮' : '这里的小技能都探索过啦'}</h3><p>${state.status === 'done' ? '点一下技能旁的圆圈，记下宝宝的成长。' : '可以回顾已完成的技能，或看看下一阶段。'}</p><button class="secondary-button" data-action="clear-filters">清除筛选</button></div>`}
     ${resourceSection(resources[stage.id])}
   </section>`;
 }
@@ -859,7 +858,23 @@ function render() {
 
   organizeGrowthReading();
   const searchInput = document.getElementById('skill-search');
-  if (searchInput) skillSearchControl = mountGrowthSearch(searchInput.closest('.list-toolbar'), { box: searchInput.closest('.search-box'), input: searchInput, filters: document.querySelector('.list-toolbar .status-tabs'), open: searchOpen });
+  if (searchInput) skillSearchControl = mountGrowthSearch(searchInput.closest('.list-toolbar'), {
+    box: searchInput.closest('.search-box'), input: searchInput, filters: document.querySelector('.list-toolbar .status-tabs'), open: searchOpen,
+    onQuery(value) { state.search = value; },
+    getSuggestions(query) {
+      const needle = query.trim().toLocaleLowerCase();
+      return getStageSkills(catalog, selectedStage().id).filter(skill => skill.domain === state.domain
+        && (state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id)))
+        && `${skill.title} ${skill.category}`.toLocaleLowerCase().includes(needle)).map(skill => ({
+          id: skill.id, title: skill.title, meta: `${selectedStage().label} · ${skill.category}`,
+        }));
+    },
+    onSelect(match) {
+      state.search = ''; state.view = 'tree'; state.treeDomain = catalog.find(skill => skill.id === match.id).domain;
+      state.treeMode = 'lineage'; state.treeCategory = 'all'; selectGraphSkill(match.id);
+      document.getElementById('tree-focus')?.focus({ preventScroll: true });
+    },
+  });
   window.XiaoyaSite.balanceSkillLists(document.querySelectorAll('.milestones .skill-items'));
   if (state.graphExpanded) document.querySelector('.graph-toolbar')?.append(siteShell.createSectionSwitch());
   syncGraphLegend();
@@ -1303,7 +1318,6 @@ document.addEventListener('click', async event => {
 });
 
 document.addEventListener('input', event => {
-  if (event.target.id === 'skill-search') { state.search = event.target.value; render(); }
   if (event.target.id === 'skill-note') {
     if (!requireEditable()) return;
     const id = event.target.form.dataset.id;
