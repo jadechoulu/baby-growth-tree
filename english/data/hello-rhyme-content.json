@@ -1,0 +1,829 @@
+[
+  {
+    "id": "hello-rhyme-02",
+    "themes": [
+      "肢体动作",
+      "身体部位"
+    ],
+    "themeSource": "原卡Can You?明确弯腰碰脚趾、拍手与原地踏步。",
+    "card": {
+      "file": "assets/hello/rhymes/page-02.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 2,
+      "sourceTitle": "Can You?",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-03",
+    "themes": [
+      "肢体动作"
+    ],
+    "themeSource": "原卡Rockin’ Baby明确摇手、挪脚和随音乐跳舞。",
+    "card": {
+      "file": "assets/hello/rhymes/page-03.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 3,
+      "sourceTitle": "Rockin’ Baby",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-04",
+    "themes": [
+      "交通工具",
+      "玩具"
+    ],
+    "themeSource": "原卡Watch It Go!的tiny train绕玩具轨道行驶。",
+    "card": {
+      "file": "assets/hello/rhymes/page-04.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 4,
+      "sourceTitle": "Watch It Go!",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-05",
+    "themes": [
+      "亲子互动",
+      "身体部位"
+    ],
+    "themeSource": "原卡Giggle Kisses逐一亲吻手指、脚趾、耳垂与鼻子。",
+    "card": {
+      "file": "assets/hello/rhymes/page-05.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 5,
+      "sourceTitle": "Giggle Kisses",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-06",
+    "themes": [
+      "出行",
+      "农场"
+    ],
+    "themeSource": "原卡A Very Long Car Ride明确开车去乡间，沿途看鸭、猪与牛。",
+    "card": {
+      "file": "assets/hello/rhymes/page-06.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 6,
+      "sourceTitle": "A Very Long Car Ride",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-07",
+    "themes": [
+      "洗澡"
+    ],
+    "themeSource": "原卡Bubble Bath明确浴缸、泡沫和洗澡小黄鸭。",
+    "card": {
+      "file": "assets/hello/rhymes/page-07.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 7,
+      "sourceTitle": "Bubble Bath",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-08",
+    "themes": [
+      "动物"
+    ],
+    "themeSource": "原卡Little Bird明确树上、地上的小鸟及鸟鸣。",
+    "card": {
+      "file": "assets/hello/rhymes/page-08.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 8,
+      "sourceTitle": "Little Bird",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-09",
+    "themes": [
+      "玩具",
+      "收拾玩具"
+    ],
+    "themeSource": "原卡Where Toys Can Sleep写玩具、泰迪熊放进婴儿床堆在一起。",
+    "card": {
+      "file": "assets/hello/rhymes/page-09.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 9,
+      "sourceTitle": "Where Toys Can Sleep",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-10",
+    "themes": [
+      "交通工具",
+      "马路"
+    ],
+    "themeSource": "原卡City and Country写卡车、火车、汽车雨刷，插画为道路交通。",
+    "card": {
+      "file": "assets/hello/rhymes/page-10.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 10,
+      "sourceTitle": "City and Country",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-11",
+    "themes": [
+      "喝水"
+    ],
+    "themeSource": "原卡I’m Your Little Sippy Cup明确口渴时倾斜杯子喝果汁。",
+    "card": {
+      "file": "assets/hello/rhymes/page-11.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 11,
+      "sourceTitle": "I’m Your Little Sippy Cup",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-12",
+    "themes": [
+      "玩水"
+    ],
+    "themeSource": "原卡Baby Bunny’s in Her Pool明确在小泳池里泼水嬉戏。",
+    "card": {
+      "file": "assets/hello/rhymes/page-12.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 12,
+      "sourceTitle": "Baby Bunny’s in Her Pool",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-13",
+    "themes": [
+      "肢体动作"
+    ],
+    "themeSource": "原卡Bouncy写弹跳椅、弹球和在膝上弹跳的宝宝。",
+    "card": {
+      "file": "assets/hello/rhymes/page-13.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 13,
+      "sourceTitle": "Bouncy",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-14",
+    "themes": [
+      "植物"
+    ],
+    "themeSource": "原卡Watering the Garden明确给花、树和番茄浇水。",
+    "card": {
+      "file": "assets/hello/rhymes/page-14.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 14,
+      "sourceTitle": "Watering the Garden",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-15",
+    "themes": [
+      "玩具",
+      "肢体动作"
+    ],
+    "themeSource": "原卡Go, Go, Go!明确滚球与宝宝爬行追球。",
+    "card": {
+      "file": "assets/hello/rhymes/page-15.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 15,
+      "sourceTitle": "Go, Go, Go!",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-16",
+    "themes": [
+      "肢体动作"
+    ],
+    "themeSource": "原卡Clap, Clap, Clap明确拍手、跺脚和随节奏跳舞。",
+    "card": {
+      "file": "assets/hello/rhymes/page-16.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 16,
+      "sourceTitle": "Clap, Clap, Clap",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-17",
+    "themes": [
+      "海边"
+    ],
+    "themeSource": "原卡Beach Baby明确海水、沙滩与海边玩耍。",
+    "card": {
+      "file": "assets/hello/rhymes/page-17.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 17,
+      "sourceTitle": "Beach Baby",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-18",
+    "themes": [
+      "玩具",
+      "收拾玩具",
+      "数数"
+    ],
+    "themeSource": "原卡It’s Time to Put Your Toys Away明确把玩具收进箱子，并从一数到十。",
+    "card": {
+      "file": "assets/hello/rhymes/page-18.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 18,
+      "sourceTitle": "It’s Time to Put Your Toys Away",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-19",
+    "themes": [
+      "玩具",
+      "颜色"
+    ],
+    "themeSource": "原卡My Racing Cars明确玩赛车及红、蓝、白、黑四种颜色。",
+    "card": {
+      "file": "assets/hello/rhymes/page-19.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 19,
+      "sourceTitle": "My Racing Cars",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-20",
+    "themes": [
+      "亲子互动"
+    ],
+    "themeSource": "原卡Here I Am明确大人与宝宝脸贴脸、下巴相触并依偎相处。",
+    "card": {
+      "file": "assets/hello/rhymes/page-20.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 20,
+      "sourceTitle": "Here I Am",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-21",
+    "themes": [
+      "洗澡",
+      "玩水"
+    ],
+    "themeSource": "原卡Do They Sink?明确在浴缸里玩小桶、小船，观察沉浮。",
+    "card": {
+      "file": "assets/hello/rhymes/page-21.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 21,
+      "sourceTitle": "Do They Sink?",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-22",
+    "themes": [
+      "亲子互动",
+      "肢体动作"
+    ],
+    "themeSource": "原卡Patty-Cake Clap明确高低、快慢地拍手，插画为大人与宝宝拍手游戏。",
+    "card": {
+      "file": "assets/hello/rhymes/page-22.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 22,
+      "sourceTitle": "Patty-Cake Clap",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-23",
+    "themes": [
+      "吃饭"
+    ],
+    "themeSource": "原卡Toaster Treats明确烤面包、抹果酱、吃进嘴里。",
+    "card": {
+      "file": "assets/hello/rhymes/page-23.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 23,
+      "sourceTitle": "Toaster Treats",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-24",
+    "themes": [
+      "玩具",
+      "家里的房间"
+    ],
+    "themeSource": "原卡Little Wagon明确用小拖车经过厨房、卧室与洗衣间收物。",
+    "card": {
+      "file": "assets/hello/rhymes/page-24.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 24,
+      "sourceTitle": "Little Wagon",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-25",
+    "themes": [
+      "睡觉",
+      "白天晚上"
+    ],
+    "themeSource": "原卡Rock-a-Bye, Darling明确time to sleep、good night和月亮星星。",
+    "card": {
+      "file": "assets/hello/rhymes/page-25.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 25,
+      "sourceTitle": "Rock-a-Bye, Darling",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-26",
+    "themes": [
+      "雨天玩水",
+      "天气",
+      "玩水"
+    ],
+    "themeSource": "12号笔记Part2明确“下雨天”；Make a Splash原文为穿雨靴踩水坑。此前将splash误归“洗澡”，已按原文更正。",
+    "card": {
+      "file": "assets/hello/rhymes/page-26.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 26,
+      "sourceTitle": "Make a Splash!",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-27",
+    "themes": [
+      "玩具"
+    ],
+    "themeSource": "原卡Graham’s New Toy明确抱着、带着新的毛绒玩具。",
+    "card": {
+      "file": "assets/hello/rhymes/page-27.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 27,
+      "sourceTitle": "Graham’s New Toy",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-28",
+    "themes": [
+      "动物",
+      "农场",
+      "数数"
+    ],
+    "themeSource": "原卡Hickety Pickety明确母鸡孵蛋，孵出six little chicks。",
+    "card": {
+      "file": "assets/hello/rhymes/page-28.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 28,
+      "sourceTitle": "Hickety Pickety",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-29",
+    "themes": [
+      "宝宝的一天"
+    ],
+    "themeSource": "原卡Babies Everywhere!列出婴儿背巾、游戏围栏、秋千和椅子等日常情境。",
+    "card": {
+      "file": "assets/hello/rhymes/page-29.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 29,
+      "sourceTitle": "Babies Everywhere!",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-30",
+    "themes": [
+      "学走路"
+    ],
+    "themeSource": "原卡First Steps明确牵手站起、迈步、摇晃走路。",
+    "card": {
+      "file": "assets/hello/rhymes/page-30.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 30,
+      "sourceTitle": "First Steps",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-31",
+    "themes": [
+      "捉迷藏",
+      "亲子互动"
+    ],
+    "themeSource": "原卡Where’s My Baby?明确用小毯子藏宝宝，再peekaboo。",
+    "card": {
+      "file": "assets/hello/rhymes/page-31.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 31,
+      "sourceTitle": "Where’s My Baby?",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-32",
+    "themes": [
+      "亲子互动",
+      "颜色"
+    ],
+    "themeSource": "原卡What I Like明确black and white、faces与最喜欢看妈妈。",
+    "card": {
+      "file": "assets/hello/rhymes/page-32.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 32,
+      "sourceTitle": "What I Like",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-33",
+    "themes": [
+      "玩具",
+      "亲子互动"
+    ],
+    "themeSource": "原卡Playing Ball明确大人与宝宝相互滚球。",
+    "card": {
+      "file": "assets/hello/rhymes/page-33.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 33,
+      "sourceTitle": "Playing Ball",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-34",
+    "themes": [
+      "亲子互动",
+      "肢体动作"
+    ],
+    "themeSource": "原卡Flying High插画和歌词呈现大人举起宝宝扮飞机，再降落。",
+    "card": {
+      "file": "assets/hello/rhymes/page-34.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 34,
+      "sourceTitle": "Flying High",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-35",
+    "themes": [
+      "宠物",
+      "动物"
+    ],
+    "themeSource": "原卡My Puppy明确小狗刨坑、追人、闻虫子与拥抱。",
+    "card": {
+      "file": "assets/hello/rhymes/page-35.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 35,
+      "sourceTitle": "My Puppy",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-36",
+    "themes": [
+      "天气"
+    ],
+    "themeSource": "原卡Rain and Sun明确闪电、雷声、雨云与晴朗蓝天。",
+    "card": {
+      "file": "assets/hello/rhymes/page-36.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 36,
+      "sourceTitle": "Rain and Sun",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-37",
+    "themes": [
+      "宝宝的一天",
+      "肢体动作"
+    ],
+    "themeSource": "原卡Who Is…依次描写唱歌、爬行、拍手、走路、滚球和睡觉。",
+    "card": {
+      "file": "assets/hello/rhymes/page-37.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 37,
+      "sourceTitle": "Who Is…",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-38",
+    "themes": [
+      "亲子互动"
+    ],
+    "themeSource": "原卡Mama’s Monkey把膝上弹跳、被妈妈抱住的宝宝比作小猴子。",
+    "card": {
+      "file": "assets/hello/rhymes/page-38.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 38,
+      "sourceTitle": "Mama’s Monkey",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-39",
+    "themes": [
+      "睡觉",
+      "亲子互动"
+    ],
+    "themeSource": "原卡Rock and Sing明确边摇边唱、闭眼做梦和good night。",
+    "card": {
+      "file": "assets/hello/rhymes/page-39.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 39,
+      "sourceTitle": "Rock and Sing",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-40",
+    "themes": [
+      "玩具",
+      "交通工具"
+    ],
+    "themeSource": "原卡Baby Bunny’s Train写三只大箱子排成火车，插画为假想火车游戏。",
+    "card": {
+      "file": "assets/hello/rhymes/page-40.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 40,
+      "sourceTitle": "Baby Bunny’s Train",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-41",
+    "themes": [
+      "刷牙",
+      "照镜子"
+    ],
+    "themeSource": "原卡My Toothbrush明确照镜子、张嘴与刷牙；旁边拓展也为刷牙歌。",
+    "card": {
+      "file": "assets/hello/rhymes/page-41.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 41,
+      "sourceTitle": "My Toothbrush",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-42",
+    "themes": [
+      "交通工具",
+      "颜色"
+    ],
+    "themeSource": "原卡Pickups明确彩色皮卡车、空满和上山行驶。",
+    "card": {
+      "file": "assets/hello/rhymes/page-42.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 42,
+      "sourceTitle": "Pickups",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-43",
+    "themes": [
+      "白天晚上",
+      "睡觉",
+      "亲子互动"
+    ],
+    "themeSource": "原卡One Star, One Moon明确星月、拥抱、亲吻和good night。",
+    "card": {
+      "file": "assets/hello/rhymes/page-43.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 43,
+      "sourceTitle": "One Star, One Moon",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-44",
+    "themes": [
+      "室内游戏",
+      "玩具"
+    ],
+    "themeSource": "原卡Let’s Pretend明确扮作盒子里的Jack，摇把后弹出。",
+    "card": {
+      "file": "assets/hello/rhymes/page-44.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 44,
+      "sourceTitle": "Let’s Pretend",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-45",
+    "themes": [
+      "亲子互动"
+    ],
+    "themeSource": "原卡Nana and Me明确和奶奶抱抱、一起喝饮品和读书。",
+    "card": {
+      "file": "assets/hello/rhymes/page-45.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 45,
+      "sourceTitle": "Nana and Me",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-46",
+    "themes": [
+      "肢体动作"
+    ],
+    "themeSource": "原卡Move to the Beat明确随节奏拍手与踢脚。",
+    "card": {
+      "file": "assets/hello/rhymes/page-46.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 46,
+      "sourceTitle": "Move to the Beat",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-47",
+    "themes": [
+      "吃饭",
+      "身体部位"
+    ],
+    "themeSource": "原卡Jelly Baby明确果酱沾在脚趾、手指、鼻子、肚子和头上。",
+    "card": {
+      "file": "assets/hello/rhymes/page-47.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 47,
+      "sourceTitle": "Jelly Baby",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-48",
+    "themes": [
+      "玩具",
+      "家里的房间"
+    ],
+    "themeSource": "原卡Where’s Bear?明确在厨房、楼梯等地方寻找泰迪熊。",
+    "card": {
+      "file": "assets/hello/rhymes/page-48.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 48,
+      "sourceTitle": "Where’s Bear?",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-49",
+    "themes": [
+      "亲子互动",
+      "家里的房间"
+    ],
+    "themeSource": "原卡Daddy’s Home明确爬过厨房、客厅，等爸爸回家抱抱。",
+    "card": {
+      "file": "assets/hello/rhymes/page-49.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 49,
+      "sourceTitle": "Daddy’s Home",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-50",
+    "themes": [
+      "喝水"
+    ],
+    "themeSource": "原卡All Grown Up明确自己握着学饮杯喝水。",
+    "card": {
+      "file": "assets/hello/rhymes/page-50.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 50,
+      "sourceTitle": "All Grown Up",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-51",
+    "themes": [
+      "捉迷藏",
+      "亲子互动"
+    ],
+    "themeSource": "原卡Find Me!明确寻找藏在杂志、报纸后面的妈妈和爸爸。",
+    "card": {
+      "file": "assets/hello/rhymes/page-51.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 51,
+      "sourceTitle": "Find Me!",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-52",
+    "themes": [
+      "万圣节",
+      "白天晚上"
+    ],
+    "themeSource": "原卡Find It配Pumpkin、Cat、Moon指认与夜间南瓜灯街景，旁注Halloween曲调。",
+    "card": {
+      "file": "assets/hello/rhymes/page-52.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 52,
+      "sourceTitle": "Find It · Pumpkin Moon",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-53",
+    "themes": [
+      "秋天",
+      "户外游戏",
+      "捉迷藏"
+    ],
+    "themeSource": "原卡October Fun明确落叶、草车出游和南瓜田里捉迷藏。",
+    "card": {
+      "file": "assets/hello/rhymes/page-53.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 53,
+      "sourceTitle": "October Fun",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-54",
+    "themes": [
+      "睡觉",
+      "亲子互动"
+    ],
+    "themeSource": "原卡Baby’s Lullaby明确睡前摇篮曲、亲吻脚趾和拇指。",
+    "card": {
+      "file": "assets/hello/rhymes/page-54.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 54,
+      "sourceTitle": "Baby’s Lullaby",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-55",
+    "themes": [
+      "动物",
+      "肢体动作"
+    ],
+    "themeSource": "原卡Bunny Hop明确兔子蹦跳、抚摸兔背和兔子跳走。",
+    "card": {
+      "file": "assets/hello/rhymes/page-55.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 55,
+      "sourceTitle": "Bunny Hop",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-56",
+    "themes": [
+      "亲子互动",
+      "肢体动作"
+    ],
+    "themeSource": "原卡Papa’s Little Patty-Cakes明确爸爸抱起宝宝、上下摆动并放到肩上。",
+    "card": {
+      "file": "assets/hello/rhymes/page-56.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 56,
+      "sourceTitle": "Papa’s Little Patty-Cakes",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  },
+  {
+    "id": "hello-rhyme-57",
+    "themes": [
+      "睡觉",
+      "数数",
+      "穿衣服"
+    ],
+    "themeSource": "原卡Counting Sheep明确数羊、穿睡衣、依偎床上的睡前情境。",
+    "card": {
+      "file": "assets/hello/rhymes/page-57.jpg",
+      "sourceFile": "assets/hello/rhymes.pdf",
+      "sourcePage": 57,
+      "sourceTitle": "Counting Sheep",
+      "note": "逐页核对原卡；裁去四周空白，保留原图、书号及曲调说明。"
+    }
+  }
+]
