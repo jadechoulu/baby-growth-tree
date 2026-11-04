@@ -81,6 +81,7 @@
 .match-evidence-detail strong{font-size:12px;color:#4b674f}
 .match-evidence-detail p,.match-evidence-detail small{margin-top:5px;font-size:11px;color:#81907a}
 .match-evidence-detail button{font-size:11px;color:var(--green);padding:3px 5px;margin-top:5px;border:1px solid #dfe8d9;border-radius:4px;background:#f5f8f0}
+.match-evidence-detail>.match-evidence{color:var(--ink)}
 .match-card.uncertain{border-color:#e1d2ae;border-left-color:#c69d57;background:#fffcf4}
 .match-card.uncertain .match-head{color:#8d713a}
 .match-card.uncertain .match-head>.text-link{color:inherit}
@@ -115,7 +116,7 @@
 .shared-filter{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:7px 12px;border:1px solid #d8e4d0;border-radius:7px;background:#fff;font-size:12px;color:#6a8660;line-height:1.5}
 .shared-filter.active{border-color:#83a37a;background:#e7f0e0;color:#466e40;font-weight:600}
 .shared-filter .icon{width:15px;height:15px}
-.shared-material,.match-evidence-detail strong.shared-material{color:#2e6954;font-weight:650}
+.shared-material,.match-evidence-detail strong.shared-material{color:inherit;font-weight:750}
 .stage-resource-tags>button.shared-material{font-weight:750}
 .material-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 18px;font-size:12px;color:var(--muted)}
 
@@ -766,6 +767,8 @@
 .stage-resource-tags>button[data-material-role]{font-weight:500}
 .stage-resource-tags>button.shared-material,.detail-resource-row .shared-material{font-weight:750;color:var(--material-ink)}
 .material-role-key,.material-use-role{display:inline-block;max-width:100%;padding:2px 7px;border-radius:4px;line-height:1.6;overflow-wrap:anywhere}
+.material-selection{display:inline-block;max-width:100%;margin-inline-start:4px;padding:0 4px;border:1px dashed var(--line);border-radius:4px;font-size:12px;line-height:1.5;font-weight:400;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
+[data-material-role] .material-selection{color:var(--muted)}
 .material-legend{gap:6px;margin:10px 0 12px}
 .material-legend strong{font-weight:750;color:#435145}
 .material-use-role{margin-top:4px;font-size:12px}
@@ -1003,7 +1006,7 @@
 .practice-material-name .material-name,.practice-material-name .material-level-part{font-weight:400;color:inherit}
 .practice-material-name .material-name.shared-material,.practice-material-name .level-overlap{font-weight:750}
 .practice-material-name small{font-size:12px;color:var(--muted)}
-.practice-material-meta .practice-material-role{padding:0 4px;line-height:1.5}
+.practice-material-meta .practice-material-role{padding:0 4px;line-height:1.5;font-size:12px}
 .practice-row-actions .icon-button{width:44px;height:44px}
 .practice-material-note{grid-column:1/-1;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px}
 .practice-material-label{display:grid;gap:2px;min-width:0}
@@ -1043,6 +1046,8 @@
 .practice-page .practice-unit-progress progress{height:3px}
 .practice-page .practice-unit-progress>progress{flex:1;min-width:12px}
 .practice-page .practice-count-meter{flex:1;gap:4px}
+.practice-page .practice-count-unknown{justify-content:flex-end}
+.practice-count-unknown .practice-book-scope{white-space:normal;text-align:left;line-height:1.3;text-decoration:underline;text-underline-offset:2px}
 .practice-page .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
 .practice-song-count{flex-shrink:0;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .practice-page .practice-book-scope{min-height:20px;padding:0 2px}
@@ -1204,7 +1209,7 @@
 .vocabulary-count{font-size:12px;color:#60715f;margin:6px 0}.vocabulary-list{list-style:none;padding:0;margin:0}
 .vocabulary-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(85px,150px) auto;align-items:center;gap:6px;border-bottom:1px solid #e7e9e0;min-width:0;padding:2px 0}
 .vocabulary-name{border:0;background:transparent;text-align:left;color:inherit;padding:5px 0;min-height:38px;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 7px;overflow-wrap:anywhere}
-.vocabulary-name strong{font-size:15px;font-weight:500}.vocabulary-name small{font-size:12px;color:#71806b}
+.vocabulary-name .vocabulary-text{font-size:15px;font-weight:400}.vocabulary-name small{font-size:12px;color:#71806b}
 .vocabulary-notes{margin:12px 0 0}.vocabulary-notes>summary{font-size:12px;color:#65725e;cursor:pointer}.vocabulary-notes .profile-mode{margin:10px 0;flex-wrap:wrap}
 .vocabulary-category-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:6px;align-items:center;padding:6px 0;border-bottom:1px solid #e4e8dd}.vocabulary-category-row label{min-width:0}.vocabulary-category-row small{font-size:12px;overflow-wrap:anywhere;max-width:80px}.vocabulary-category-row .button{padding:6px 9px;min-height:40px}.vocabulary-category-row .form-error{grid-column:1/-1;margin:0}.vocabulary-category-row .form-error:empty{display:none}
 .vocabulary-import-preview:not(:empty){background:#f1f5e9;border-radius:8px;padding:10px;margin-top:12px}.vocabulary-import-preview p{overflow-wrap:anywhere}
@@ -1425,15 +1430,21 @@
 .vocabulary-fold[open]>summary::before{content:'−'}
 .vocabulary-fold>summary small{font-size:12px;font-weight:400;color:var(--muted)}
 .vocabulary-category-groups{padding-left:12px}
-.vocabulary-category-fold>summary{color:var(--muted)}
+.vocabulary-category-fold>summary{color:var(--ink)}
+.vocabulary-category-fold>summary strong{font-weight:700}
+.vocabulary-pos-label{display:inline-block;padding:1px 7px;border-radius:4px;font-size:14px;line-height:1.5;font-weight:400;color:#46515d;background:#e9edf0}
+.vocabulary-pos-noun{color:#30583c;background:#e3eddf}
+.vocabulary-pos-verb{color:#874617;background:#fae9d6}
+.vocabulary-pos-adjective{color:#285d87;background:#e0edf9}
+.vocabulary-pos-adverb{color:#674487;background:#eee4f5}
 .vocabulary-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));column-gap:12px}
 .vocabulary-word-list{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 12px}
 .vocabulary-panel .vocabulary-row{display:block;padding:0;min-width:0}
 .vocabulary-row .vocabulary-name{display:flex;width:100%;min-height:30px;padding:3px 0;line-height:1.5;min-width:0}
 .vocabulary-word-list>.vocabulary-row{flex:0 1 auto;max-width:100%;border-bottom:0}
 .vocabulary-word-list .vocabulary-name{min-height:26px;padding:1px 0;gap:0 5px}
-.vocabulary-word-list .vocabulary-name strong,.vocabulary-word-list .vocabulary-name small{min-width:0;max-width:100%;overflow-wrap:anywhere}
-.vocabulary-word-list .vocabulary-name:hover strong{text-decoration:underline;text-underline-offset:3px}
+.vocabulary-word-list .vocabulary-name .vocabulary-text,.vocabulary-word-list .vocabulary-name small{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.vocabulary-word-list .vocabulary-name:hover .vocabulary-text{text-decoration:underline;text-underline-offset:3px}
 .vocabulary-category-row input{width:100%;min-width:0;font-size:16px;padding:6px 8px;border:1px solid var(--line);border-radius:5px}
 @media(max-width:375px){.vocabulary-toolbar{gap:2px}.vocabulary-toolbar .vocabulary-type-tabs button{padding:3px 4px;gap:2px}.vocabulary-toolbar-actions{gap:2px}.vocabulary-add-toggle{padding:3px 4px}}
 
@@ -1451,6 +1462,8 @@
 .practice-form .vocabulary-entry-input-row input{width:100%;min-width:0;min-height:36px;padding:5px 8px;font-size:16px}
 .practice-form .vocabulary-entry-input-row .icon-button{width:30px;height:30px;min-width:30px;min-height:30px;padding:0;font-size:20px;color:var(--green);border:1px solid var(--line)}
 .vocabulary-entry-input-row .icon-button:disabled{opacity:.35;cursor:default}
+.practice-form .vocabulary-entry-input-row .vocabulary-entry-feedback{grid-column:1/-1;color:var(--green);font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.vocabulary-entry-feedback:empty{display:none}
 
 /* 庆爸与许密杉共用数量行；庆爸额外提供父子汇总与计时。 */
 .practice-label-shell{display:flex;align-items:center;gap:4px;min-width:0}
@@ -1572,6 +1585,54 @@
 @container(min-width:720px){.hello-view-scenes,.hello-view-rhymes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @container(max-width:560px){.hello-branches{grid-template-columns:minmax(0,1fr);gap:6px}.hello-book>summary{gap:6px;padding:6px}.hello-book-body{padding:0 6px 6px}.hello-book-cover,.hello-card-heading .hello-book-cover{width:40px;height:54px}.hello-filter-row select{padding-left:5px}.hello-card-heading{gap:6px}.hello-scene-card,.hello-rhyme-card{padding:6px}.hello-resource-links{gap:3px 7px}}
 
+
+.book-source{margin:8px 0;overflow-wrap:anywhere}
+.book-source p,.book-topic-evidence p{margin:4px 0}
+.book-topic-evidence{padding:8px 0;border-bottom:1px solid var(--line)}
+
+/* 图鉴两种阅读布局共用卡片、筛选和记录；次要标记不伪装成操作。 */
+.library-results-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;margin:2px 0 6px}
+.library-results-head .result-count{margin:0;min-width:0}
+.library-layout-toggle{display:flex;flex:none;gap:2px}
+.library-layout-toggle .icon-button{width:30px;height:28px;min-width:30px;min-height:28px;padding:5px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--muted)}
+.library-layout-toggle .icon-button[aria-pressed="true"]{color:var(--green);background:var(--site-active,#e6efe6);border-color:var(--green)}
+.library-layout-toggle .icon-button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.library-reference-count{position:relative;display:inline-grid;place-items:center;width:24px;height:24px;flex:none;vertical-align:middle;color:var(--muted);cursor:default;line-height:1}
+.library-reference-count>.icon{position:absolute;inset:0;width:24px;height:24px;stroke-width:1.1}
+.library-reference-count>span{position:relative;padding-top:5px;font-size:12px;line-height:1;font-weight:400}
+.library-card-tools .material-status.library-status-action{display:inline-flex;align-items:center;justify-content:center;gap:2px;width:auto;min-width:58px;min-height:26px;height:26px;padding:2px 5px;border-radius:5px;cursor:pointer;font-size:12px;line-height:1.3}
+.library-status-action>.icon{width:12px;height:12px;flex:none}
+.library-status-action:hover{border-color:currentColor;filter:brightness(.97)}
+.library-status-action:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.library-card-tools .material-status-control{flex:none;width:auto}
+@container(max-width:380px){
+  .library-card-tools{width:80px;gap:2px}
+  .library-card-tools:has(.library-song-link){width:86px}
+  .library-card-tools .material-status-control{flex-basis:auto;width:auto;margin-left:auto}
+}
+.resource-grid.library-grid.library-cover-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,136px),1fr));gap:10px;align-items:start}
+.library-cover-grid .library-card .resource-body{display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:8px}
+.library-cover-grid .library-card-head{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.library-cover-grid .library-card .library-card-cover{flex:none;width:100%;max-width:none}
+.library-cover-grid .library-card .resource-cover{height:152px;padding:6px;border-radius:5px}
+.library-cover-grid .library-card .resource-cover>img{height:100%;width:100%;object-fit:contain}
+.library-cover-grid .library-card .generated-cover{width:72px;height:106px;padding:12px;border-left-width:4px}
+.library-cover-grid .library-card .generated-cover>.icon{width:32px;height:32px}
+.library-cover-grid .library-card-heading{width:100%;min-width:0}
+.library-cover-grid .library-card .library-card-heading h3{font-size:15px;line-height:1.45;text-align:left}
+.library-cover-grid .library-card .resource-title{align-items:center;gap:2px 4px}
+.library-cover-grid .library-card .resource-title>.card-view-btn{flex-shrink:1;flex-basis:100%;text-align:left}
+.library-cover-grid .library-card-tools,.library-cover-grid .library-card-tools:has(.library-song-link){width:100%;justify-content:flex-end;gap:2px;flex-wrap:wrap}
+.library-cover-grid .library-card-tools .material-status-control{margin:0 auto 0 0;width:auto;flex-basis:auto}
+.library-cover-grid .library-card .library-card-tools>.icon-button{width:26px;height:26px;min-width:26px;min-height:26px;flex-basis:26px}
+.library-cover-grid .library-card .card-usage{width:100%;padding-top:4px}
+.library-cover-grid .library-card .usage-route{padding:4px}
+.library-cover-grid .library-card .usage-route>summary{flex-wrap:wrap}
+.library-cover-grid .library-card .usage-stage{max-width:100%;white-space:normal}
+@container(max-width:320px){
+  .library-cover-grid .library-card .resource-cover{height:130px;padding:4px}
+  .library-cover-grid .library-card .resource-body{padding:6px;gap:4px}
+}
 .hello-rhyme-themes{display:flex;flex-wrap:wrap;align-items:center;gap:4px}.hello-rhyme-themes .hello-chip{font-size:12px}.hello-rhyme-image{display:block;width:100%;max-height:460px;object-fit:contain;object-position:left center;border-radius:5px;background:#fff}
 
 /* 曲调播放沿用全页播放器，筛选与正文均可直接试听。 */

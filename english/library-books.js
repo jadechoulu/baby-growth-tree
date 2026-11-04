@@ -40,5 +40,87 @@ function filter(books,data,filters={}){
     return true;
   });
 }
-return {normalize,topics,topicIds,bookAppearances,entries,filter};
+function seriesCount(data,resource,model,volumes,filters={}){
+  const route=filters.route,stageIds=filters.stageIds;
+  const narrowed=!!(route&&route!=='all'||stageIds);
+  const appearances=(resource.appearances||[]).filter(a=>(!route||route==='all'||a.routeId===route)&&(!stageIds||stageIds.includes(a.stageId)));
+  const allBooks=entries(data,[resource],model);
+  let books=filter(allBooks,data,{route,stageIds});
+  const entry=volumes?.series?.find(s=>s.resourceId===resource.id),unit=entry?.unit||(['book','reader'].includes(resource.type)?'本':resource.type==='animation'?'集':resource.type==='song'?'首':resource.type==='flashcard'?'张':'个');
+  const levels=level=>model.getMaterialLevels({resource,materials:[{level}]}).map(x=>x.id);
+  const qualified=level=>/[（(][^）)]*(?:虚构|挑选|部分|复习|版)[^）)]*[）)]/.test(level||'');
+  const parts=new Map(),covered=new Set(),selectionByAppearance=new Map();
+  if(narrowed)for(const selection of filters.selections||[])for(const a of appearances){
+    if(a.routeId===selection.routeId&&a.stageId===selection.stageId)selectionByAppearance.set(a,selection);
+  }
+  for(const scope of entry?.scopes||[]){
+    // 可选出版参考尚不代表路线采用该版；只在用户实际选版后由selection计入。
+    if(scope.referenceOnly)continue;
+    const scopeLevel=normalize(scope.level),scopeTokens=levels(scope.level);
+    for(const part of scope.parts){
+      const partTokens=levels(part.label),matching=[];
+      for(const a of appearances){
+        if(scope.stageIds&&!scope.stageIds.includes(a.stageId))continue;
+        if(selectionByAppearance.has(a))continue;
+        if(!a.level){matching.push(a);continue;}
+        // 原文只挑虚构或某个子集时，不能借整级册数充当该子集总量。
+        if(qualified(a.level)&&normalize(a.level)!==scopeLevel)continue;
+        const own=levels(a.level),exact=normalize(a.level)===scopeLevel;
+        const tokens=partTokens.length?partTokens:scopeTokens;
+        if(exact&&(!partTokens.length||!own.length||partTokens.some(t=>own.includes(t)))||own.length&&tokens.length&&tokens.every(t=>own.includes(t))){matching.push(a);}
+      }
+      if((narrowed||scope.stageIds)&&!matching.length)continue;
+      const edition=scope.edition||entry.edition||'',key=JSON.stringify([edition,normalize(part.label),scope.unit||unit]);
+      if(!parts.has(key))parts.set(key,{edition,label:part.label,count:part.count,unit:scope.unit||unit,source:'quantity',sourceIds:[],sources:entry.sources||[],levelIds:[]});
+      const component=parts.get(key);
+      component.levelIds=[...new Set(component.levelIds.concat(partTokens.length?partTokens:scopeTokens.length===1?scopeTokens:[]))];
+      for(const a of matching){
+        const own=levels(a.level);
+        if(!a.level||normalize(a.level)===scopeLevel)covered.add(a);
+        else if(own.length&&own.every(t=>[...parts.values()].some(p=>p.edition===edition&&levels(p.label).includes(t))))covered.add(a);
+      }
+    }
+  }
+  for(const a of appearances){
+    const own=levels(a.level);
+    if(!selectionByAppearance.has(a)&&!qualified(a.level)&&own.length&&own.every(t=>[...parts.values()].some(p=>p.levelIds.includes(t))))covered.add(a);
+  }
+  if(selectionByAppearance.size){
+    const selectedBooks=new Set();
+    for(const [a,selection]of selectionByAppearance){
+      covered.add(a);
+      for(const part of selection.parts){
+        const key=JSON.stringify([part.edition,normalize(part.label),part.unit||unit]);
+        parts.set(key,{...part,unit:part.unit||unit,source:'selection',levelIds:[],sourceIds:[],sources:entry?.sources||[]});
+        if(part.directoryMatch)for(const book of allBooks){
+          if(book.edition===part.directoryMatch.edition&&(!part.directoryMatch.level||book.level===part.directoryMatch.level))selectedBooks.add(book);
+        }
+      }
+    }
+    books=allBooks.filter(book=>selectedBooks.has(book)||books.includes(book)&&book.appearances.some(a=>appearances.includes(a)&&!selectionByAppearance.has(a)));
+  }
+  // 已有数量来源时以其版本、分项为准，逐册目录只用于展示覆盖，不重复相加。
+  if(!entry?.scopes?.length&&!selectionByAppearance.size){
+    const groups=new Map();
+    for(const book of (narrowed?books:allBooks)){
+      const group=groups.get(book.edition)||{edition:book.edition,label:'当前收录目录',count:0,unit:'本',source:'directory',sourceIds:[]};
+      group.count++;group.sourceIds=[...new Set(group.sourceIds.concat(book.sourceIds||[]))];groups.set(book.edition,group);
+      for(const a of book.appearances)if(appearances.includes(a))covered.add(a);
+    }
+    for(const [key,value]of groups)parts.set(key,value);
+  }
+  // 原文明确写出“24本”等封闭数量时可直接采用，不从级别数字推断册数。
+  for(const a of appearances){
+    if(covered.has(a))continue;
+    const match=String(a.level||'').match(/^\s*(\d+)\s*(本|册|集|张|首)\s*$/);
+    if(!match)continue;
+    const partUnit=match[2]==='册'?'本':match[2],key=JSON.stringify(['source-count',a.sourceId,Number(match[1]),partUnit]);
+    parts.set(key,{edition:'路线原文明确数量',label:a.level,count:Number(match[1]),unit:partUnit,source:'route',sourceIds:[a.sourceId]});covered.add(a);
+  }
+  const unknown=[...new Set(appearances.filter(a=>!covered.has(a)).map(a=>a.level||'未限定级别／版本'))];
+  const components=[...parts.values()].filter(p=>p.unit===unit);
+  const basis=components.length&&components.every(p=>p.source==='directory')?'directory':components.length&&components.every(p=>p.source==='selection')?'selection':'known-range';
+  return {total:components.reduce((n,p)=>n+p.count,0),unit,parts:components,unknown,partial:unknown.length>0,narrowed,basis,books,allBooks};
+}
+return {normalize,topics,topicIds,bookAppearances,entries,filter,seriesCount};
 });

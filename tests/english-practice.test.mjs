@@ -286,7 +286,7 @@ test('出版册数只匹配本套系本级别的范围，分辑不自动成为�
   assert.equal(scopeFor('resource-1mx6gx6',['1、2'])[0].total,85);
   assert.equal(scopeFor('resource-1mx6gx6',['4、5'])[0].total,60);
   assert.equal(scopeFor('resource-141vfh7',['进阶级'])[0].total,28);
-  for(const [id,levels] of [['resource-1mx6gx6',['6']],['resource-g7xvo5',['1–3 · 24册']],['resource-9fvmjt',['GK']],['resource-1mx6gx6',['1+']],['resource-1mx6gx6',['1–3','4、5']]])assert.deepEqual(scopeFor(id,levels),[]);
+  for(const [id,levels] of [['resource-1mx6gx6',['6']],['resource-g7xvo5',['1–3 · 24册']],['resource-1mx6gx6',['1+']],['resource-1mx6gx6',['1–3','4、5']]])assert.deepEqual(scopeFor(id,levels),[]);
 });
 
 test('基础词汇改版归入原套系且保留新旧分装边界与进度隔离',()=>{
@@ -369,8 +369,8 @@ const flatUnits=(stageId,records={})=>{
   const st=catalog.stages.find(s=>s.id===stageId);
   return M.getStageMaterials(catalog,st).flatMap(item=>{
     const unit={item,key:P.unitKey(st,item),label:item.resource.title,resourceId:item.resource.id,stageId};
-    unit.bookScopes=P.bookScopes(unit.resourceId,item.materials.map(m=>M.formatLevel(m.level,item.resource)),volumes);
-    if(!unit.bookScopes.length)unit.bookScopes=P.bookScopes(unit.resourceId,[item.levelSegments.map(s=>s.text).join('')],volumes);
+    unit.bookScopes=P.bookScopes(unit.resourceId,item.materials.map(m=>M.formatLevel(m.level,item.resource)),volumes,stageId);
+    if(!unit.bookScopes.length)unit.bookScopes=P.bookScopes(unit.resourceId,[item.levelSegments.map(s=>s.text).join('')],volumes,stageId);
     return ['book','reader'].includes(item.resource.type)?P.expandBookUnits(unit,M.getMaterialLevels(item),volumes,records[unit.key]):[unit];
   });
 };
@@ -688,4 +688,84 @@ test('图鉴数量不复制公共长目录，范围身份无版次时也能稳�
   assert.equal(P.libraryQuantity(record,[],'本',scope).completed,2);
   assert.equal(P.libraryQuantity(record,[scope],'本').completed,2);
   assert.equal(P.libraryQuantity(record,[],'本').total,3);
+});
+
+test('庆爸原文选本仅补对应阶段分母，不推广到其他路线或同套系',()=>{
+  for(const [id,level,stage,total] of [['resource-hlfpbh','4册点读','qing-s4',4],['resource-1xt8nl','庆爸精选35册','qing-s7',35],['resource-13uj3q','红蓝盒20册','qing-s7',20]]){
+    const scopes=P.bookScopes(id,[level],volumes,stage);
+    assert.equal(scopes.length,1);assert.equal(scopes[0].total,total);assert.equal(scopes[0].default,true);
+    assert.equal(P.bookScopes(id,[level],volumes,'xu-current-500').length,0);
+    assert.equal(P.bookScopes(id,[],volumes).some(s=>s.stageIds),false);
+    const old=P.unitQuantityProgressUpdate(2,null,P.unitUpdate('using','原手记','2026-10-01'),'本');
+    assert.equal(P.quantityRecord(old,scopes[0],'本').completed,2);
+    assert.equal(P.quantityRecord(old,scopes[0],'本').percent,Math.round(2/total*100));
+  }
+  assert.equal(P.bookScopes('resource-13uj3q',[],volumes,'xu-panorama-reading-extensive').length,0);
+});
+
+test('GK采用本人确认70本，学乐仍不混用外研版与英文版分母',()=>{
+  const gk=scopeFor('resource-9fvmjt',['GK']);
+  assert.deepEqual(gk.map(s=>s.total),[70]);assert.equal(gk[0].default,true);
+  const old=P.unitQuantityProgressUpdate(4,null,P.unitUpdate('using','保留手记','2026-09-15'),'本');
+  assert.equal(P.quantityRecord(old,gk[0],'本').completed,4);
+  const selected=P.unitBookProgressUpdate(4,gk[0],old);
+  assert.equal(P.quantityRecord(selected,gk[0],'本').percent,6);
+  for(const level of ['A','B','C','D']){
+    const scopes=scopeFor('resource-1cn6i3m',[level]);assert.equal(scopes[0].total,25);assert.ok(scopes.every(s=>!s.default));
+  }
+  assert.deepEqual(scopeFor('resource-1cn6i3m',['E']),[]);
+  assert.deepEqual(scopeFor('resource-1cn6i3m',['A–C']),[]);
+});
+
+test('为只记数量的条目补选分母保留数量，既有不同版次不串用',()=>{
+  const scope=scopeFor('resource-9fvmjt',['GK'])[0];
+  const previous=P.unitQuantityProgressUpdate(4,null,P.unitUpdate('using','保留手记','2026-09-15'),'本');
+  const selected=P.unitBookScopeUpdate(scope,previous);
+  assert.equal(P.quantityRecord(selected,scope,'本').completed,4);
+  assert.equal(P.unitRecord({x:selected},'x').text,'保留手记');
+  assert.equal(P.unitRecord({x:selected},'x').date,'2026-09-15');
+  const snapshot=Sync.normalize('english',JSON.parse(JSON.stringify(wrap({x:selected}))));
+  assert.equal(P.quantityRecord(snapshot.records.x,scope,'本').completed,4);
+  const other={...scope,id:'different-edition',edition:'另一个版本',total:80};
+  assert.equal(P.unitBooks(P.unitBookScopeUpdate(other,selected)).completed,null);
+  assert.throws(()=>P.unitBookScopeUpdate({...scope,total:3},previous),/已记数量/);
+});
+
+test('补全套系展示名保留素材ID、原始引用及各级记录键',()=>{
+  const named=M.normalize({...raw,xuCurrent:raw['xu-current'],xuSupplements:[raw['xu-panorama'],raw['xu-thousand']],routePlan:raw['route-plan'],resourceVolumes:volumes});
+  const resource=named.resources.find(r=>r.id==='resource-1cn6i3m');
+  assert.ok(resource.aliases.includes('学乐'));
+  for(const stage of catalog.stages){
+    const before=M.getStageMaterials(catalog,stage).find(i=>i.resource.id===resource.id);
+    if(!before)continue;
+    const nextStage=named.stages.find(s=>s.id===stage.id),after=M.getStageMaterials(named,nextStage).find(i=>i.resource.id===resource.id);
+    assert.equal(P.unitKey(nextStage,after),P.unitKey(stage,before));
+    assert.deepEqual(after.materials,before.materials);
+    const parts=(st,item)=>P.expandBookUnits({key:P.unitKey(st,item),stageId:st.id,item,resourceId:resource.id,bookScopes:P.bookScopes(resource.id,M.getMaterialLevels(item).map(l=>l.label),volumes,st.id)},M.getMaterialLevels(item),volumes).map(p=>p.key);
+    assert.deepEqual(parts(nextStage,after),parts(stage,before));
+  }
+});
+
+test('Buddy单级分母补齐后保留原子键及父项数量，不拆分EF合包16本',()=>{
+  const before={...volumes,series:volumes.series.filter(s=>s.resourceId!=='resource-zl69cf')};
+  for(const [stageId,letters]of [['qing-s1',['A','B']],['qing-s2',['C','D']]]){
+    const st=catalog.stages.find(s=>s.id===stageId),item=M.getStageMaterials(catalog,st).find(i=>i.resource.id==='resource-zl69cf');
+    const unit={key:P.unitKey(st,item),stageId,item,resourceId:item.resource.id,bookScopes:[]};
+    const oldParts=P.expandBookUnits(unit,M.getMaterialLevels(item),before);
+    const parts=P.expandBookUnits(unit,M.getMaterialLevels(item),volumes);
+    assert.deepEqual(parts.map(p=>p.key),oldParts.map(p=>p.key));
+    assert.deepEqual(parts.map(p=>p.bookScopes[0].total),[20,20]);
+    assert.deepEqual(parts.map(p=>p.partLevel.label),letters);
+    const oldChildren=parts.map(p=>({key:p.key,scopeIdentity:'',unit:'本',total:null,completed:0}));
+    const record=P.groupQuantityUpdate(9,oldChildren,P.unitUpdate('using','保留总项手记','2026-09-15'));
+    const children=parts.map(p=>({key:p.key,scopeIdentity:p.bookScopes[0].id,unit:'本',total:20,completed:2,countOnlyCompatible:true}));
+    assert.equal(P.groupQuantity(record,children).completed,9);
+    assert.equal(P.groupQuantity(record,children).total,40);
+    const saved=P.groupQuantityUpdate(0,children,record);
+    assert.equal(P.groupQuantity(saved,children).completed,4); // 新范围的明确0优先于旧总项。
+    assert.equal(P.groupQuantity(record,children.map(c=>({...c,countOnlyCompatible:false}))).completed,4);
+    assert.match(saved.note,/保留总项手记/);
+  }
+  for(const level of ['E','F'])assert.deepEqual(P.bookScopes('resource-zl69cf',[level],volumes,'qing-s3'),[]);
+  assert.deepEqual(P.bookScopes('resource-zl69cf',['A'],volumes,'xu-current-500'),[]);
 });

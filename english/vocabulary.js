@@ -52,5 +52,14 @@ function importPlan(records,data){const changes={},catIds=new Set(categories(rec
     Object.assign(changes,add(current,copy,{batchId:data.batchId}));
   }return changes;
 }
-return {ENTRY,CATEGORY,SETTINGS,TYPES,CHANNELS,POS,DEFAULT_CATEGORIES,canonical,entryKey,decode,pack,categories,resolveCategory,entries,initialized,summary,groupEntries,add,edit,remove,categoryChange,parseImport,importPlan};
+function additionPlan(records,data){
+  const seen=new Set(),added=[],existing=[],repeated=[];
+  const results=data.entries.map(entry=>{
+    const state=seen.has(entry.key)?'repeated':records[entry.key]?.status==='done'?'existing':'added';
+    seen.add(entry.key);({added,existing,repeated})[state].push(entry);return {entry,state};
+  });
+  // 日常新增只写缺少的能力记录；已有分类、词性和历史元数据完全保留。
+  return {added,existing,repeated,results,changes:added.length?importPlan(records,{...data,entries:added}):{}};
+}
+return {ENTRY,CATEGORY,SETTINGS,TYPES,CHANNELS,POS,DEFAULT_CATEGORIES,canonical,entryKey,decode,pack,categories,resolveCategory,entries,initialized,summary,groupEntries,add,edit,remove,categoryChange,parseImport,importPlan,additionPlan};
 });

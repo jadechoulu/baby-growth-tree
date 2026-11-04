@@ -90,15 +90,24 @@
           "parts": [
             {
               "label": "1辑",
-              "count": 32
+              "count": 32,
+              "directoryMatch": {
+                "edition": "词汇妙趣屋（NEW）· 1辑"
+              }
             },
             {
               "label": "2辑",
-              "count": 32
+              "count": 32,
+              "directoryMatch": {
+                "edition": "词汇妙趣屋（NEW）· 2辑"
+              }
             },
             {
               "label": "3辑",
-              "count": 32
+              "count": 32,
+              "directoryMatch": {
+                "edition": "词汇妙趣屋（NEW）· 3辑"
+              }
             }
           ],
           "default": false
@@ -140,11 +149,17 @@
           "parts": [
             {
               "label": "上辑",
-              "count": 48
+              "count": 48,
+              "directoryMatch": {
+                "edition": "培生幼儿英语基础词汇 · 上辑（48本版）"
+              }
             },
             {
               "label": "下辑",
-              "count": 48
+              "count": 48,
+              "directoryMatch": {
+                "edition": "培生幼儿英语基础词汇 · 下辑（48本版）"
+              }
             }
           ],
           "default": false
@@ -292,11 +307,19 @@
           "parts": [
             {
               "label": "Pink 1A",
-              "count": 22
+              "count": 22,
+              "directoryMatch": {
+                "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
+                "level": "Pink 1A"
+              }
             },
             {
               "label": "Pink 1B",
-              "count": 22
+              "count": 22,
+              "directoryMatch": {
+                "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
+                "level": "Pink 1B"
+              }
             }
           ]
         }
@@ -641,22 +664,152 @@
     },
     {
       "resourceId": "resource-9fvmjt",
-      "edition": "原图所列素材，选用版本与总量待确定",
+      "edition": "海尼曼GK 70本选本",
       "unit": "本",
-      "note": "GK有70本与110本等不同选本；原图未标具体选本，不将任一套装总数默认用于所有GK记录。",
-      "countOnlyReason": "GK有70本与110本等不同选本；原图未标具体选本，不将任一套装总数默认用于所有GK记录。",
-      "sources": [],
-      "scopes": [],
+      "note": "按本人已确认的GK70本版记录；许密杉六阶段原表亦明确GK70。只提供70本范围，排除其他套装混入的数量。册数补充来源为第三方版本研究，不是出版社官方目录。",
+      "countOnlyReason": "按本人已确认的GK70本版记录；不将其他级别或套装的数量作为GK分母。",
+      "sources": [
+        {
+          "title": "海尼曼GK版本与数量研究（第三方）",
+          "url": "https://zhuanlan.zhihu.com/p/143779734",
+          "evidence": "正文区分GK70和110，70本选本A43+B15+C12。"
+        },
+        {
+          "title": "海尼曼版本整理（第三方）",
+          "url": "https://m.douban.com/note/756581661/",
+          "evidence": "区分70、110、117等不同选本。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "heinemann-gk-70",
+          "label": "GK 70本选本",
+          "level": "GK",
+          "edition": "海尼曼GK 70本选本",
+          "parts": [
+            {
+              "label": "GK",
+              "count": 70
+            }
+          ],
+          "default": true,
+          "countOnlyCompatible": true
+        }
+      ],
       "checkedAt": "2026-11-04"
     },
     {
       "resourceId": "resource-1cn6i3m",
-      "edition": "原图所列素材，选用版本与总量待确定",
+      "displayTitle": "学乐小读者",
+      "aliases": ["学乐", "外研社学乐小读者", "First Little Readers"],
+      "edition": "学乐小读者；已查到外研社引进大盒版跟读实例",
       "unit": "本",
-      "note": "原图仅写学乐及A–C／D–E，未明确First Little Readers、Sight Word Readers等产品身份及单级选本，不能仅凭出版社和字母级别确定册数。",
-      "countOnlyReason": "原图仅写学乐及A–C／D–E，未明确First Little Readers、Sight Word Readers等产品身份及单级选本，不能仅凭出版社和字母级别确定册数。",
-      "sources": [],
-      "scopes": [],
+      "note": "原图简称“学乐”，这里明确展示为《学乐小读者》。许密杉路线跟读者blue在《拉听力L1第26周》中明确使用“外研社的大盒”，实拍为中英双语封面。外研社确认该引进系列源自First Little Readers，并增加科普读物；不能直接套用英文Parent Pack每级25本。外研版各级读物数仍待逐级核实，暂记完成数量。下方英文FLR选项仅供实际采用英文原版时选择，不是外研版分母，也不是老师唯一指定版本。",
+      "countOnlyReason": "已明确套系为学乐小读者，并查到许密杉路线使用外研社引进大盒版的直接跟读证据。外研版逐级册数尚未核实，不能用全套282册或英文FLR每级25本作为A、B、C各级的默认总量；E–F英文合包16本也不拆作单E总数。",
+      "sources": [
+        {
+          "title": "blue《拉听力L1第26周》（许密杉路线跟读记录）",
+          "url": "https://www.xiaohongshu.com/explore/6a32b15b0000000022008fd3",
+          "evidence": "正文称“外研社学乐小读者第一级”，评论确认“外研社的大盒”；封面为Blue for You／蓝色礼物、When Night Comes／当黑夜降临。当天读21本不代表全级总量。"
+        },
+        {
+          "title": "外研社《学乐小读者》新书发布介绍",
+          "url": "https://www.fltrp.com/c/2025-06-18/530523.shtml",
+          "evidence": "出版社介绍：源自First Little Readers并增加科普类读物，A–J共282册；未提供逐级册数，不能平均分配或套用英文原版单级分母。"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level B 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-B-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231503",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "Staples",
+          "url": "https://www.staples.com/scholastic-first-little-readers-parent-pack-guided-reading-level-d-set-of-25-books-sc-811150/product_24392914",
+          "evidence": "Jumpstart reading success with this big collection of 25 motivating storybooks correlated with Guided Reading Level D. / Number of Books | 25"
+        },
+        {
+          "title": "跟着许密杉老师整理了新书单（小红书读者整理）",
+          "url": "https://www.xiaohongshu.com/explore/69899d0d000000002800b7b7",
+          "evidence": "图1学乐小读者A级、图2B级；没有唯一限定英文原版Parent Pack。"
+        },
+        {
+          "title": "跟着许密衫老师如何选书篇（小红书读者整理）",
+          "url": "https://www.xiaohongshu.com/explore/6a3725ba0000000022018571",
+          "evidence": "配图双语I Like School提示存在引进版，不把简称一律当FLR。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "flr-parent-a",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "A",
+          "level": "A",
+          "parts": [
+            {
+              "label": "A",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-b",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "B",
+          "level": "B",
+          "parts": [
+            {
+              "label": "B",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-c",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "C",
+          "level": "C",
+          "parts": [
+            {
+              "label": "C",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-d",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "D",
+          "level": "D",
+          "parts": [
+            {
+              "label": "D",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        }
+      ],
       "checkedAt": "2026-11-04"
     },
     {
@@ -999,12 +1152,36 @@
     },
     {
       "resourceId": "resource-13uj3q",
-      "edition": "原图所列素材，选用版本与总量待确定",
+      "edition": "庆爸3-4岁2.0版原稿所列选本",
       "unit": "本",
-      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "note": "只用于庆爸原稿对应阶段的明确选本，不推广为其他路线、版本或整个套系的总量。",
       "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
-      "sources": [],
-      "scopes": [],
+      "sources": [
+        {
+          "title": "庆爸3-4岁2.0版原稿第6页",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "神奇校车·红蓝盒20册"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "resource-13uj3q-qing-s7",
+          "label": "神奇校车·红蓝盒20册",
+          "level": "红蓝盒20册",
+          "levelAliases": [],
+          "stageIds": [
+            "qing-s7"
+          ],
+          "parts": [
+            {
+              "label": "神奇校车·红蓝盒20册",
+              "count": 20
+            }
+          ],
+          "default": true,
+          "countOnlyCompatible": true
+        }
+      ],
       "checkedAt": "2026-11-04"
     },
     {
@@ -1085,6 +1262,178 @@
         }
       ],
       "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-hlfpbh",
+      "unit": "本",
+      "scopes": [
+        {
+          "id": "resource-hlfpbh-qing-s4",
+          "label": "小猪和狐狸4册点读",
+          "level": "4册点读",
+          "levelAliases": [],
+          "stageIds": [
+            "qing-s4"
+          ],
+          "parts": [
+            {
+              "label": "小猪和狐狸4册点读",
+              "count": 4
+            }
+          ],
+          "default": true,
+          "countOnlyCompatible": true
+        }
+      ],
+      "edition": "庆爸3-4岁2.0版原稿所列选本",
+      "note": "只用于庆爸原稿对应阶段的明确选本，不推广为其他路线、版本或整个套系的总量。",
+      "sources": [
+        {
+          "title": "庆爸3-4岁2.0版原稿第5页",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "小猪和狐狸4册点读"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1xt8nl",
+      "unit": "本",
+      "scopes": [
+        {
+          "id": "resource-1xt8nl-qing-s7",
+          "label": "心智麦田·庆爸精选35本",
+          "level": "庆爸精选35本",
+          "levelAliases": [
+            "庆爸精选35册"
+          ],
+          "stageIds": [
+            "qing-s7"
+          ],
+          "parts": [
+            {
+              "label": "心智麦田·庆爸精选35本",
+              "count": 35
+            }
+          ],
+          "default": true,
+          "countOnlyCompatible": true
+        }
+      ],
+      "edition": "庆爸3-4岁2.0版原稿所列选本",
+      "note": "只用于庆爸原稿对应阶段的明确选本，不推广为其他路线、版本或整个套系的总量。",
+      "sources": [
+        {
+          "title": "庆爸3-4岁2.0版原稿第6页",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "心智麦田·庆爸精选35本"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-zl69cf",
+      "edition": "Scholastic Buddy Readers English Parent Pack",
+      "unit": "本",
+      "note": "庆爸原稿明确Buddy Reader A–B、C–D、E–F，与Scholastic Buddy Readers级别相符。英文Parent Pack A/B/C/D各20本（不计练习册），前两阶段各40本；E–F只核实合包16本，单E、单F的分配未核实，暂只记数量。数量依据为零售商完整商品说明；官方产品与ISBN已定位，官方数量正文暂未取得。出版套装总数不是作者必读或晋级要求。",
+      "countOnlyReason": "庆爸原稿明确Buddy Reader A–B、C–D、E–F，与Scholastic Buddy Readers级别相符。英文Parent Pack A/B/C/D各20本（不计练习册），前两阶段各40本；E–F只核实合包16本，单E、单F的分配未核实，暂只记数量。数量依据为零售商完整商品说明；官方产品与ISBN已定位，官方数量正文暂未取得。出版套装总数不是作者必读或晋级要求。",
+      "sources": [
+        {
+          "title": "庆爸3–4岁2.0原稿第3–4页",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "原稿分别列出 Buddy Reader A–B、C–D、E–F；出版套装数量不表示必读或晋级门槛。"
+        },
+        {
+          "title": "Get Smart Catalog · Buddy Readers出版商品说明",
+          "url": "https://getsmartcatalog.com/53913-buddy-readers-level-a-parent-pack-sc-831718-9781338317183.html",
+          "evidence": "This unique set includes 5 Patty Pig stories, 5 Super Chick stories, 5 Jen Pen stories, and 5 Bear Cubs stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "Edmat Company · Buddy Readers出版商品说明",
+          "url": "https://www.edmatcompany.com/ela-reading/990100714-buddy-readers-level-b-parent-pack.html",
+          "evidence": "This unique set includes 5 The Tiny Giant stories, 5 My Pet Spot stories, 5 Robot Twins stories, and 5 Magic Cupcake stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "All N All Supplies · Buddy Readers出版商品说明",
+          "url": "https://allnallsupplies.com/53915-buddy-readers-level-c-parent-pack-sc-831720-9781338317206.html",
+          "evidence": "This unique set includes 5 Princess Pug stories, 5 Gus Ghost stories, 5 Clownfish stories, and 5 Two Boots stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "Get Smart Catalog · Buddy Readers出版商品说明",
+          "url": "https://getsmartcatalog.com/53916-buddy-readers-level-d-parent-pack-sc-831721-9781338317213.html",
+          "evidence": "This unique set includes 5 Mary Fairy stories, 5 Sam Snowman stories, 5 Harry Spider stories, and 5 Cave Kids stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "Get Smart Catalog · Buddy Readers出版商品说明",
+          "url": "https://getsmartcatalog.com/65949-buddy-readers-levels-e-f-parent-pack-sc-866215-9781338662153.html",
+          "evidence": "This unique set features four stories each about the same loveable characters for a total of 16 books. / 16 full-color, 16-page books / 32-page activity book"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "buddy-parent-a",
+          "label": "A",
+          "level": "A",
+          "stageIds": [
+            "qing-s1"
+          ],
+          "default": true,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "A",
+              "count": 20
+            }
+          ]
+        },
+        {
+          "id": "buddy-parent-b",
+          "label": "B",
+          "level": "B",
+          "stageIds": [
+            "qing-s1"
+          ],
+          "default": true,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "B",
+              "count": 20
+            }
+          ]
+        },
+        {
+          "id": "buddy-parent-c",
+          "label": "C",
+          "level": "C",
+          "stageIds": [
+            "qing-s2"
+          ],
+          "default": true,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "C",
+              "count": 20
+            }
+          ]
+        },
+        {
+          "id": "buddy-parent-d",
+          "label": "D",
+          "level": "D",
+          "stageIds": [
+            "qing-s2"
+          ],
+          "default": true,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "D",
+              "count": 20
+            }
+          ]
+        }
+      ],
       "checkedAt": "2026-11-04"
     }
   ]

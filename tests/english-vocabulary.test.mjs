@@ -59,6 +59,38 @@ test('逐行输入独立解析，忽略空行、保留句内标点，批内去�
   assert.equal(V.summary(records).listening.word.unique,0);
 });
 
+test('日常新增按内容、类型及能力报告重复，只写缺少的能力并保留已有记录',()=>{
+  const records=V.add({},input('foot',{categoryId:'body',pos:'noun'})),before=structuredClone(records);
+  const data=V.parseImport(['Feet','feet','soft'],{type:'word',channels:['listening','speaking'],categoryId:'attributes',pos:'adjective'},'');
+  const plan=V.additionPlan(records,data);
+  assert.deepEqual(plan.existing.map(e=>[e.text,e.channel]),[['foot','listening']]);
+  assert.deepEqual(plan.repeated.map(e=>[e.text,e.channel]),[['foot','listening'],['foot','speaking']]);
+  assert.deepEqual(plan.added.map(e=>[e.text,e.channel]),[['foot','speaking'],['soft','listening'],['soft','speaking']]);
+  assert.equal(plan.changes[V.entryKey('foot','word','listening')],undefined);
+  assert.deepEqual(records,before,'检查重复不能改写已有数据');
+  apply(records,plan.changes);
+  assert.deepEqual(records[V.entryKey('foot','word','listening')],before[V.entryKey('foot','word','listening')]);
+  assert.equal(V.summary(records).listening.word.unique,2);
+  assert.equal(V.summary(records).speaking.word.unique,2);
+  assert.deepEqual(V.additionPlan(records,data).changes,{},'全部已有时不产生保存或同步写入');
+  const phrase=V.additionPlan(records,V.parseImport(['foot'],{type:'phrase',channels:['listening'],categoryId:'body'},''));
+  assert.equal(phrase.added.length,1,'同文字的短语不与单词混为重复');
+});
+
+test('日常新增按最新记录重查重复，删除墓碑可恢复且不补另一能力',()=>{
+  const data=V.parseImport(['quiet'],{type:'word',channels:['speaking'],categoryId:'attributes'},'');
+  const initial=V.additionPlan({},data);
+  const records={...initial.changes};
+  const afterOtherPage=V.additionPlan(records,data);
+  assert.equal(afterOtherPage.added.length,0);
+  assert.equal(afterOtherPage.existing.length,1);
+  assert.deepEqual(afterOtherPage.changes,{});
+  const key=V.entryKey('quiet','word','speaking');apply(records,V.remove(records,key));
+  const restore=V.additionPlan(records,data);assert.equal(restore.added.length,1);apply(records,restore.changes);
+  assert.equal(V.summary(records).speaking.word.unique,1);
+  assert.equal(V.summary(records).listening.word.unique,0);
+});
+
 test('普通批量不拆短语，结构化批次幂等，批内重复去重且不覆盖已有分类',()=>{
   const data=V.parseImport('hello,HELLO\nbye',{type:'word',channel:'listening',categoryId:'objects'},'batch-one');
   const records=V.importPlan({},data);assert.deepEqual(V.summary(records).listening.word,{unique:2});
