@@ -54,8 +54,8 @@ function seriesCount(data,resource,model,volumes,filters={}){
     if(a.routeId===selection.routeId&&a.stageId===selection.stageId)selectionByAppearance.set(a,selection);
   }
   for(const scope of entry?.scopes||[]){
-    // 可选出版参考尚不代表路线采用该版；只在用户实际选版后由selection计入。
-    if(scope.referenceOnly)continue;
+    // 全部素材可汇总已核出版版本；路线筛选只接受已对应或用户实际选用的版本。
+    if(scope.referenceOnly&&narrowed)continue;
     const scopeLevel=normalize(scope.level),scopeTokens=levels(scope.level);
     for(const part of scope.parts){
       const partTokens=levels(part.label),matching=[];
