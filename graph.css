@@ -568,3 +568,17 @@
   .graph-reading-controls .graph-mode-tabs button > span { display:none; }
   .site-enabled .graph-reading-controls .branch-picker { flex-basis:76px; }
 }
+
+/* 两版共用阶段导航的返回按钮，不另占预览说明行。 */
+.site-enabled :is(.stage-picker-controls,.health-month-picker) > .stage-current-button { display:grid; place-items:center; flex:0 0 44px; width:44px; height:44px; min-height:44px; padding:10px; border-radius:50%; }
+.stage-current-button svg { width:18px; height:18px; }
+@media (max-width:900px) {
+  /* 能力脉络窄屏直接进入领域与图谱，累计进度独立保留。 */
+  .site-enabled :is(.lineage-header,.health-view-overview > .health-heading) { display:none; }
+}
+
+/* 能力脉络按全领域统计，数量和百分比始终同排。 */
+.domain-progress-summary { display:flex; align-items:center; justify-content:center; gap:6px; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.lineage-view > .lineage-domains { grid-template-columns:repeat(4,minmax(88px,1fr)); overflow-x:auto; padding-bottom:4px; }
+.lineage-view > .lineage-domains > .lineage-domain { flex-wrap:wrap; }
+.lineage-domains .lineage-domain > .domain-progress-summary { flex-basis:100%; font-size:12px; opacity:1; }
