@@ -81,6 +81,7 @@
 .match-evidence-detail strong{font-size:12px;color:#4b674f}
 .match-evidence-detail p,.match-evidence-detail small{margin-top:5px;font-size:11px;color:#81907a}
 .match-evidence-detail button{font-size:11px;color:var(--green);padding:3px 5px;margin-top:5px;border:1px solid #dfe8d9;border-radius:4px;background:#f5f8f0}
+.match-evidence-detail>.match-evidence{color:var(--ink)}
 .match-card.uncertain{border-color:#e1d2ae;border-left-color:#c69d57;background:#fffcf4}
 .match-card.uncertain .match-head{color:#8d713a}
 .match-card.uncertain .match-head>.text-link{color:inherit}
@@ -115,7 +116,7 @@
 .shared-filter{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:7px 12px;border:1px solid #d8e4d0;border-radius:7px;background:#fff;font-size:12px;color:#6a8660;line-height:1.5}
 .shared-filter.active{border-color:#83a37a;background:#e7f0e0;color:#466e40;font-weight:600}
 .shared-filter .icon{width:15px;height:15px}
-.shared-material,.match-evidence-detail strong.shared-material{color:#2e6954;font-weight:650}
+.shared-material,.match-evidence-detail strong.shared-material{color:inherit;font-weight:750}
 .stage-resource-tags>button.shared-material{font-weight:750}
 .material-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 18px;font-size:12px;color:var(--muted)}
 
@@ -766,6 +767,8 @@
 .stage-resource-tags>button[data-material-role]{font-weight:500}
 .stage-resource-tags>button.shared-material,.detail-resource-row .shared-material{font-weight:750;color:var(--material-ink)}
 .material-role-key,.material-use-role{display:inline-block;max-width:100%;padding:2px 7px;border-radius:4px;line-height:1.6;overflow-wrap:anywhere}
+.material-selection{display:inline-block;max-width:100%;margin-inline-start:4px;padding:0 4px;border:1px dashed var(--line);border-radius:4px;font-size:12px;line-height:1.5;font-weight:400;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
+[data-material-role] .material-selection{color:var(--muted)}
 .material-legend{gap:6px;margin:10px 0 12px}
 .material-legend strong{font-weight:750;color:#435145}
 .material-use-role{margin-top:4px;font-size:12px}
@@ -1003,7 +1006,7 @@
 .practice-material-name .material-name,.practice-material-name .material-level-part{font-weight:400;color:inherit}
 .practice-material-name .material-name.shared-material,.practice-material-name .level-overlap{font-weight:750}
 .practice-material-name small{font-size:12px;color:var(--muted)}
-.practice-material-meta .practice-material-role{padding:0 4px;line-height:1.5}
+.practice-material-meta .practice-material-role{padding:0 4px;line-height:1.5;font-size:12px}
 .practice-row-actions .icon-button{width:44px;height:44px}
 .practice-material-note{grid-column:1/-1;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px}
 .practice-material-label{display:grid;gap:2px;min-width:0}
@@ -1043,6 +1046,8 @@
 .practice-page .practice-unit-progress progress{height:3px}
 .practice-page .practice-unit-progress>progress{flex:1;min-width:12px}
 .practice-page .practice-count-meter{flex:1;gap:4px}
+.practice-page .practice-count-unknown{justify-content:flex-end}
+.practice-count-unknown .practice-book-scope{white-space:normal;text-align:left;line-height:1.3;text-decoration:underline;text-underline-offset:2px}
 .practice-page .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
 .practice-song-count{flex-shrink:0;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .practice-page .practice-book-scope{min-height:20px;padding:0 2px}
@@ -1497,3 +1502,51 @@
 @media(max-width:650px){.hello-branches{grid-template-columns:minmax(0,1fr);gap:14px}.hello-heading{flex-wrap:wrap}.hello-heading h2{font-size:22px}.hello-filters{gap:8px}.hello-filters label{flex:1 1 120px}.hello-filters .hello-search{flex-basis:170px}.hello-book>summary{padding:10px;gap:6px}.hello-book-body{padding:0 10px 10px}.hello-resource-links{gap:8px 12px}.hello-branch{padding-left:12px}.hello-branch li::before{left:-13px}.hello-collection-tabs{gap:8px}}
 
 .hello-files{margin:0 0 14px;min-width:0}.hello-files>summary{cursor:pointer;font-size:15px}.hello-files ul{list-style:none;margin:8px 0;padding:0;display:grid;gap:10px}.hello-files li{min-width:0;overflow-wrap:anywhere}.hello-files audio{width:100%;max-width:440px;height:36px;margin-top:6px}.hello-files small{font-size:12px}.hello-files .small-note{margin:4px 0}
+
+.book-source{margin:8px 0;overflow-wrap:anywhere}
+.book-source p,.book-topic-evidence p{margin:4px 0}
+.book-topic-evidence{padding:8px 0;border-bottom:1px solid var(--line)}
+
+/* 图鉴两种阅读布局共用卡片、筛选和记录；次要标记不伪装成操作。 */
+.library-results-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;margin:2px 0 6px}
+.library-results-head .result-count{margin:0;min-width:0}
+.library-layout-toggle{display:flex;flex:none;gap:2px}
+.library-layout-toggle .icon-button{width:30px;height:28px;min-width:30px;min-height:28px;padding:5px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--muted)}
+.library-layout-toggle .icon-button[aria-pressed="true"]{color:var(--green);background:var(--site-active,#e6efe6);border-color:var(--green)}
+.library-layout-toggle .icon-button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.library-reference-count{position:relative;display:inline-grid;place-items:center;width:24px;height:24px;flex:none;vertical-align:middle;color:var(--muted);cursor:default;line-height:1}
+.library-reference-count>.icon{position:absolute;inset:0;width:24px;height:24px;stroke-width:1.1}
+.library-reference-count>span{position:relative;padding-top:5px;font-size:12px;line-height:1;font-weight:400}
+.library-card-tools .material-status.library-status-action{display:inline-flex;align-items:center;justify-content:center;gap:2px;width:auto;min-width:58px;min-height:26px;height:26px;padding:2px 5px;border-radius:5px;cursor:pointer;font-size:12px;line-height:1.3}
+.library-status-action>.icon{width:12px;height:12px;flex:none}
+.library-status-action:hover{border-color:currentColor;filter:brightness(.97)}
+.library-status-action:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.library-card-tools .material-status-control{flex:none;width:auto}
+@container(max-width:380px){
+  .library-card-tools{width:80px;gap:2px}
+  .library-card-tools:has(.library-song-link){width:86px}
+  .library-card-tools .material-status-control{flex-basis:auto;width:auto;margin-left:auto}
+}
+.resource-grid.library-grid.library-cover-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,136px),1fr));gap:10px;align-items:start}
+.library-cover-grid .library-card .resource-body{display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:8px}
+.library-cover-grid .library-card-head{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.library-cover-grid .library-card .library-card-cover{flex:none;width:100%;max-width:none}
+.library-cover-grid .library-card .resource-cover{height:152px;padding:6px;border-radius:5px}
+.library-cover-grid .library-card .resource-cover>img{height:100%;width:100%;object-fit:contain}
+.library-cover-grid .library-card .generated-cover{width:72px;height:106px;padding:12px;border-left-width:4px}
+.library-cover-grid .library-card .generated-cover>.icon{width:32px;height:32px}
+.library-cover-grid .library-card-heading{width:100%;min-width:0}
+.library-cover-grid .library-card .library-card-heading h3{font-size:15px;line-height:1.45;text-align:left}
+.library-cover-grid .library-card .resource-title{align-items:center;gap:2px 4px}
+.library-cover-grid .library-card .resource-title>.card-view-btn{flex-shrink:1;flex-basis:100%;text-align:left}
+.library-cover-grid .library-card-tools,.library-cover-grid .library-card-tools:has(.library-song-link){width:100%;justify-content:flex-end;gap:2px;flex-wrap:wrap}
+.library-cover-grid .library-card-tools .material-status-control{margin:0 auto 0 0;width:auto;flex-basis:auto}
+.library-cover-grid .library-card .library-card-tools>.icon-button{width:26px;height:26px;min-width:26px;min-height:26px;flex-basis:26px}
+.library-cover-grid .library-card .card-usage{width:100%;padding-top:4px}
+.library-cover-grid .library-card .usage-route{padding:4px}
+.library-cover-grid .library-card .usage-route>summary{flex-wrap:wrap}
+.library-cover-grid .library-card .usage-stage{max-width:100%;white-space:normal}
+@container(max-width:320px){
+  .library-cover-grid .library-card .resource-cover{height:130px;padding:4px}
+  .library-cover-grid .library-card .resource-body{padding:6px;gap:4px}
+}

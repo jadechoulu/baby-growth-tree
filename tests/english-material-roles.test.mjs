@@ -16,7 +16,7 @@ test('同一大猫套系的用途随路线、阶段和资料版本分别确定',
   assert.equal(cat('qing-s7').role.kind,'auxiliary');
   assert.equal(cat('xu-3').role.kind,'auxiliary');
   assert.equal(cat('xu-current-300').role.kind,'reference');
-  assert.equal(cat('xu-current-300').role.label,'并行选读');
+  assert.equal(cat('xu-current-300').role.usage,'闪卡式绘本');
   assert.equal(cat('banana-1').role.kind,'reference');
 });
 
@@ -43,4 +43,21 @@ test('展示角色纠正不改原始引用、来源、级别或个人记录键',
     }
   }
   assert.deepEqual(catalog,before);
+});
+
+test('原图分支不生成选读要求，各路线角色共用同一分类表',()=>{
+  for(const stage of catalog.stages){
+    for(const item of M.getStageMaterials(catalog,stage))assert.equal(item.role.label,M.materialRoles[item.role.kind]);
+  }
+  const item=cat('xu-current-500');
+  assert.equal(item.role.kind,'reference');
+  assert.equal(item.role.usage,item.material.role);
+  assert.ok(!item.role.usage.includes('选读'));
+  assert.equal(item.role.selection,null);
+  for(const [stageId,choice]of [['qing-s4','选2–3部'],['qing-s5','任选2部']]){
+    const fox=M.getStageMaterials(catalog,stageId).find(i=>i.resource.id==='resource-mxtrmb');
+    assert.equal(fox.role.kind,'main');
+    assert.equal(fox.role.selection.label,choice);
+    assert.equal(fox.role.selection.basis,fox.material.original);
+  }
 });

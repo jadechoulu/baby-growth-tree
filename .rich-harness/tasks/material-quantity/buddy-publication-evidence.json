@@ -1,0 +1,332 @@
+{
+  "checkedAt": "2026-11-04",
+  "status": "publication-counts-corroborated-official-body-gap",
+  "scope": "Buddy Readers各级英文Parent Pack出版数量；独立研究提案，不修改共享源码。",
+  "summary": {
+    "A": 20,
+    "B": 20,
+    "C": 20,
+    "D": 20,
+    "E–F": 16,
+    "E": null,
+    "F": null,
+    "A–F_uniqueReaders": 96
+  },
+  "products": [
+    {
+      "series": "Buddy Readers",
+      "edition": "English Parent Pack / Single-Copy Set",
+      "level": "A",
+      "isbn13": "9781338317183",
+      "readerCount": 20,
+      "unit": "本",
+      "sourceIds": [
+        "buddy-official-level-a",
+        "buddy-a-retailer"
+      ],
+      "countEvidenceTier": "retailer-full-product-body",
+      "officialCountBodyVerified": false,
+      "countBoundary": "只计读本；不计家长指南、活动册、练习册或贴纸；不使用Class Set重复份数。"
+    },
+    {
+      "series": "Buddy Readers",
+      "edition": "English Parent Pack / Single-Copy Set",
+      "level": "B",
+      "isbn13": "9781338317190",
+      "readerCount": 20,
+      "unit": "本",
+      "sourceIds": [
+        "buddy-official-level-b",
+        "buddy-b-retailer"
+      ],
+      "countEvidenceTier": "retailer-full-product-body",
+      "officialCountBodyVerified": false,
+      "countBoundary": "只计读本；不计家长指南、活动册、练习册或贴纸；不使用Class Set重复份数。"
+    },
+    {
+      "series": "Buddy Readers",
+      "edition": "English Parent Pack / Single-Copy Set",
+      "level": "C",
+      "isbn13": "9781338317206",
+      "readerCount": 20,
+      "unit": "本",
+      "sourceIds": [
+        "buddy-official-level-c",
+        "buddy-c-retailer"
+      ],
+      "countEvidenceTier": "retailer-full-product-body",
+      "officialCountBodyVerified": false,
+      "countBoundary": "只计读本；不计家长指南、活动册、练习册或贴纸；不使用Class Set重复份数。"
+    },
+    {
+      "series": "Buddy Readers",
+      "edition": "English Parent Pack / Single-Copy Set",
+      "level": "D",
+      "isbn13": "9781338317213",
+      "readerCount": 20,
+      "unit": "本",
+      "sourceIds": [
+        "buddy-official-level-d",
+        "buddy-d-retailer"
+      ],
+      "countEvidenceTier": "retailer-full-product-body",
+      "officialCountBodyVerified": false,
+      "countBoundary": "只计读本；不计家长指南、活动册、练习册或贴纸；不使用Class Set重复份数。"
+    },
+    {
+      "series": "Buddy Readers",
+      "edition": "English Parent Pack / Single-Copy Set",
+      "level": "E–F",
+      "isbn13": "9781338662153",
+      "readerCount": 16,
+      "unit": "本",
+      "sourceIds": [
+        "buddy-official-levels-e-f",
+        "buddy-ef-retailer"
+      ],
+      "countEvidenceTier": "retailer-full-product-body",
+      "officialCountBodyVerified": false,
+      "countBoundary": "只计读本；不计家长指南、活动册、练习册或贴纸；不使用Class Set重复份数。"
+    }
+  ],
+  "sourcePages": [
+    {
+      "id": "buddy-official-level-a",
+      "kind": "publisher-product-page-access-gap",
+      "title": "Buddy Readers: A (Parent Pack)",
+      "url": "https://shop.scholastic.com/parent-ecommerce/books/buddy-readers-level-a-parent-pack-9781338317183.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webSearch-and-webFetch",
+      "scope": "官方产品名称/ISBN URL已定位；实际webFetch只返回空商品模板，不能把数量字段说成已从官方正文读到。"
+    },
+    {
+      "id": "buddy-official-level-b",
+      "kind": "publisher-product-page-access-gap",
+      "title": "Buddy Readers: B (Parent Pack)",
+      "url": "https://shop.scholastic.com/parent-ecommerce/books/buddy-readers-level-b-parent-pack-9781338317190.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webSearch-and-webFetch",
+      "scope": "官方产品名称/ISBN URL已定位；实际webFetch只返回空商品模板，不能把数量字段说成已从官方正文读到。"
+    },
+    {
+      "id": "buddy-official-level-c",
+      "kind": "publisher-product-page-access-gap",
+      "title": "Buddy Readers: C (Parent Pack)",
+      "url": "https://shop.scholastic.com/parent-ecommerce/books/buddy-readers-level-c-parent-pack-9781338317206.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webSearch-and-webFetch",
+      "scope": "官方产品名称/ISBN URL已定位；实际webFetch只返回空商品模板，不能把数量字段说成已从官方正文读到。"
+    },
+    {
+      "id": "buddy-official-level-d",
+      "kind": "publisher-product-page-access-gap",
+      "title": "Buddy Readers: D (Parent Pack)",
+      "url": "https://shop.scholastic.com/parent-ecommerce/books/buddy-readers-level-d-parent-pack-9781338317213.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webSearch-and-webFetch",
+      "scope": "官方产品名称/ISBN URL已定位；实际webFetch只返回空商品模板，不能把数量字段说成已从官方正文读到。"
+    },
+    {
+      "id": "buddy-official-levels-e-f",
+      "kind": "publisher-product-page-access-gap",
+      "title": "Buddy Readers: E–F (Parent Pack)",
+      "url": "https://shop.scholastic.com/parent-ecommerce/books/buddy-readers-levels-e-f-parent-pack-9781338662153.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webSearch-and-webFetch",
+      "scope": "官方产品名称/ISBN URL已定位；实际webFetch只返回空商品模板，不能把数量字段说成已从官方正文读到。"
+    },
+    {
+      "id": "buddy-a-retailer",
+      "kind": "retailer-product-body",
+      "provider": "Get Smart Catalog",
+      "url": "https://getsmartcatalog.com/53913-buddy-readers-level-a-parent-pack-sc-831718-9781338317183.html",
+      "readVia": "webFetch",
+      "quotes": [
+        "This unique set includes 5 Patty Pig stories, 5 Super Chick stories, 5 Jen Pen stories, and 5 Bear Cubs stories-for a total of 20 tales.",
+        "20 full-color, 8-page books",
+        "24-page workbook"
+      ],
+      "productCode": "SC-831718",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "buddy-a-retailer-2",
+      "kind": "retailer-product-body",
+      "provider": "Alamo Classroom Solutions",
+      "url": "https://alamocrsolutionscatalog.com/53913-buddy-readers-level-a-parent-pack-sc-831718scholastic-teacher-resources-9781338317183.html",
+      "readVia": "webFetch",
+      "quote": "20 full-color, 8-page books",
+      "productCode": "SC-831718",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "buddy-b-retailer",
+      "kind": "retailer-product-body",
+      "provider": "Edmat Company",
+      "url": "https://www.edmatcompany.com/ela-reading/990100714-buddy-readers-level-b-parent-pack.html",
+      "readVia": "webFetch",
+      "quotes": [
+        "This unique set includes 5 The Tiny Giant stories, 5 My Pet Spot stories, 5 Robot Twins stories, and 5 Magic Cupcake stories-for a total of 20 tales.",
+        "20 full-color, 8-page books",
+        "24-page workbook"
+      ],
+      "scope": "网页title被抓取为Level D，实际商品heading和正文均明确Level B；不使用title错误覆盖正文。",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "buddy-c-retailer",
+      "kind": "retailer-product-body",
+      "provider": "All N All Supplies",
+      "url": "https://allnallsupplies.com/53915-buddy-readers-level-c-parent-pack-sc-831720-9781338317206.html",
+      "readVia": "webSearch-returned-full-product-description",
+      "quotes": [
+        "This unique set includes 5 Princess Pug stories, 5 Gus Ghost stories, 5 Clownfish stories, and 5 Two Boots stories-for a total of 20 tales.",
+        "20 full-color, 8-page books",
+        "24-page workbook"
+      ],
+      "scope": "webFetch初次仅返回推荐区；后续专用webSearch针对角色名称返回完整商品说明，不是仅凭两行搜索片段确认数量。",
+      "productCode": "SC-831720",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "buddy-d-retailer",
+      "kind": "retailer-product-body",
+      "provider": "Get Smart Catalog",
+      "url": "https://getsmartcatalog.com/53916-buddy-readers-level-d-parent-pack-sc-831721-9781338317213.html",
+      "readVia": "webSearch-returned-full-product-description",
+      "quotes": [
+        "This unique set includes 5 Mary Fairy stories, 5 Sam Snowman stories, 5 Harry Spider stories, and 5 Cave Kids stories-for a total of 20 tales.",
+        "20 full-color, 8-page books",
+        "24-page workbook"
+      ],
+      "scope": "webFetch初次空白；后续专用webSearch返回完整商品说明。",
+      "productCode": "SC-831721",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "buddy-d-amazon",
+      "kind": "retailer-product-body",
+      "provider": "Amazon Saudi Arabia",
+      "url": "https://www.amazon.sa/-/en/Buddy-Readers-Parent-Leveled-Learners/dp/1338317210",
+      "readVia": "webSearch-returned-full-product-description",
+      "quotes": [
+        "Buddy Readers: Level D (Parent Pack): 20 Leveled Books for Little Learners",
+        "ISBN-13 : 978-1338317213"
+      ],
+      "scope": "可读完整商品说明和ISBN，与SC-831721套装数量交叉核对。",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "buddy-ef-retailer",
+      "kind": "retailer-product-body",
+      "provider": "Get Smart Catalog",
+      "url": "https://getsmartcatalog.com/65949-buddy-readers-levels-e-f-parent-pack-sc-866215-9781338662153.html",
+      "readVia": "webFetch",
+      "quotes": [
+        "This unique set features four stories each about the same loveable characters for a total of 16 books.",
+        "16 full-color, 16-page books",
+        "32-page activity book"
+      ],
+      "productCode": "SC-866215",
+      "scope": "明确E和F合包16册，32页活动册不是第17本读本。",
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "id": "qing-primary-transcription",
+      "kind": "repository-primary-source-transcription",
+      "path": "english/data/qing.json",
+      "originalFile": "assets/sources/qing.pdf",
+      "sourceId": "qing-source",
+      "quotes": [
+        {
+          "page": 3,
+          "resourceId": "qing-r008",
+          "original": "Buddy Reader A-B"
+        },
+        {
+          "page": 4,
+          "resourceId": "qing-r023",
+          "original": "Buddy Reader C-D"
+        },
+        {
+          "page": 4,
+          "resourceId": "qing-r039",
+          "original": "Buddy Reader E-F"
+        }
+      ],
+      "scope": "当前3–4岁2.0版六页原文转录；本轮未重新OCR原图，不代表其他年龄/版本均相同。",
+      "checkedAt": "2026-11-04"
+    }
+  ],
+  "qingScopeRecommendations": [
+    {
+      "resourceId": "qing-r008",
+      "stageId": "qing-s1",
+      "originalLevel": "A–B",
+      "scopeKind": "union-of-separate-single-level-packs",
+      "levelKeys": [
+        "A",
+        "B"
+      ],
+      "catalogTotal": 40,
+      "formula": "20+20",
+      "childDenominators": {
+        "A": 20,
+        "B": 20
+      },
+      "recommendation": "A与B可各20；父项按不重复书目并集40。"
+    },
+    {
+      "resourceId": "qing-r023",
+      "stageId": "qing-s2",
+      "originalLevel": "C–D",
+      "scopeKind": "union-of-separate-single-level-packs",
+      "levelKeys": [
+        "C",
+        "D"
+      ],
+      "catalogTotal": 40,
+      "formula": "20+20",
+      "childDenominators": {
+        "C": 20,
+        "D": 20
+      },
+      "recommendation": "C与D可各20；父项按不重复书目并集40。"
+    },
+    {
+      "resourceId": "qing-r039",
+      "stageId": "qing-s3",
+      "originalLevel": "E–F",
+      "scopeKind": "joint-level-pack",
+      "levelKeys": [
+        "E–F"
+      ],
+      "catalogTotal": 16,
+      "childDenominators": {
+        "E": null,
+        "F": null
+      },
+      "recommendation": "保留E–F单一合包16；不要先展开成E、F再分别给16，也不要无证据均分为8/8。"
+    },
+    {
+      "scopeKind": "all-current-qing-buddy-coverage",
+      "catalogTotal": 96,
+      "formula": "20+20+20+20+16",
+      "recommendation": "仅当筛选覆盖上述A–F三阶段时，套系出版总量为96；单阶段按40/40/16取对应集合，不重复算合包。"
+    }
+  ],
+  "identityBoundary": "庆爸原文明确Buddy Reader并使用A–B/C–D/E–F，和已定位的Scholastic Buddy Readers单级/合包产品相符；原文未列ISBN或封面版次，因此这些是明确出版套装的目录分母，不证明作者规定必须读完所有册，不应把套装总数自动解释为晋级必读量。与FLR、Best Buddies/Acorn不同。",
+  "perLevelSplitAudit": {
+    "E": null,
+    "F": null,
+    "reason": "本次已读取商品正文只声明E和F合包16册，没有逐册书名与精确E/F归属表。未取得可核查分级表前保持合包。",
+    "noAssumedSplit": true
+  },
+  "officialEvidenceBoundary": "官方A/B/C/D/E-F商品URL及ISBN已定位；官方A/D搜索片段出现20LeveledBooks，但只作为定位线索，未将空模板或片段升级为官方正文已核实。可用数量依据为正文明确的零售商出版说明，并逐级标明证据来源。",
+  "integrationNotes": [
+    "按稳定素材引用关联范围，不重建个人记录键。",
+    "若现有E和F各有历史记录，合包总数只计一次16，历史记录合并需要按书目ID或原有进展策略处理，不能盲加两个16或直接删除旧项。",
+    "相同素材跨路线重复引用不扩大套系出版总数；目录总量与路线使用次数分开。",
+    "普通分级范围可以展开，但E-F这种出版合包应由显式scope覆盖通用拆级，未知单级量不补造。"
+  ]
+}

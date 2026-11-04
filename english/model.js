@@ -316,7 +316,11 @@
     });
     resources.forEach(function (resource) {
       var publication = array(raw.resourceVolumes && raw.resourceVolumes.series).find(function (entry) { return entry.resourceId === resource.id; });
-      if (publication) resource.aliases = unique(resource.aliases.concat(array(publication.aliases)));
+      if (publication) {
+        // 展示名称在稳定身份生成后补充，保留原图简称及已有个人记录键。
+        resource.aliases = unique(resource.aliases.concat(array(publication.aliases), publication.displayTitle ? [resource.title] : []));
+        if (publication.displayTitle) resource.title = publication.displayTitle;
+      }
       resource.referencePrices = array(raw.resourcePrices && raw.resourcePrices.quotes).filter(function (quote) { return quote.resourceId === resource.id; });
       var image = raw.resourceCovers && raw.resourceCovers[resource.id];
       if (!resource.cover && image) {
@@ -619,14 +623,15 @@
     return parts;
   }
 
+  var MATERIAL_ROLES = { main: '主线', featured: '特色推荐', auxiliary: '辅线', reference: '未标主辅' };
   function materialRole(stage, material, resource) {
     // 角色属于本路线、本版本、本阶段的这次引用；套系归并只共享身份。
     // 保留 material.role，个人进度键仍使用原始用途，不因展示纠正换键。
-    var role = material.role || '', kind = 'reference', label = role || '阶段选读';
+    var role = material.role || '', kind = 'reference', label = role || '阶段材料';
     var basis = '按本阶段原文用途展示，不据活动分支推定主辅线';
-    var labels = { core: '阶段材料', main: '阶段材料', parallel: '并行选读',
+    var labels = { core: '阶段材料', main: '阶段材料', parallel: '并行材料',
       'animation-companion': '配套动画／儿歌', companion: '配套材料', optional: '可选材料',
-      review: '复习材料', recommended: '推荐材料', '素材': '阶段选读' };
+      review: '复习材料', recommended: '推荐材料', '素材': '阶段材料' };
     label = labels[role] || label;
     if (stage.routeId === 'qing') {
       if (/^主线/.test(role)) { kind = 'main'; label = '主线'; basis = '本阶段原文明确列为' + role; }
@@ -638,20 +643,21 @@
         if (role === 'main') { kind = 'main'; label = '主线'; basis = '本阶段六阶段原表明确标注主线'; }
         else if (role === 'parallel') { kind = 'auxiliary'; label = '辅线'; basis = '本阶段六阶段原表标注平行拓展'; }
       }
-      if (role === '闪卡式绘本') label = '并行选读';
-      else if (/主节点$/.test(role)) label = '分级选读';
-      else if (/配套分支$/.test(role)) label = '配套选读';
       if (stage.variantId === 'xu-thousand' && role === 'recommended') {
         kind = 'featured'; label = '特色推荐'; basis = '本阶段执行表原文明确推荐';
       }
     } else if (stage.routeId === 'banana') {
-      label = '阶段选读'; basis = '本阶段原书单未划分主辅线，分级与故事按原方案选读';
+      label = '阶段材料'; basis = '本阶段原书单未划分主辅线，分级与故事按原方案使用';
     } else if (/^主线/.test(role)) {
       kind = 'main'; label = '主线'; basis = '本阶段原文明确标注主线';
     } else if (/^辅线/.test(role)) {
       kind = 'auxiliary'; label = '辅线'; basis = '本阶段原文明确标注辅线';
     }
-    return { kind: kind, label: label, basis: basis };
+    var selectionText = text(material.original || material.level);
+    var selectionMatch = selectionText.match(/任选(?:\d+(?:[–—-]\d+)?(?:部|套|本|辑))?|挑选|选\d+(?:[–—-]\d+)?(?:部|套|本|辑)|二选一/);
+    var selection = selectionMatch ? { label: selectionMatch[0], basis: selectionText } :
+      role === 'optional' ? { label: '可选', basis: '原引用明确标为optional' } : null;
+    return { kind: kind, label: MATERIAL_ROLES[kind], usage: label, basis: basis, selection: selection };
   }
 
   function getStageMaterials(catalog, stageId, comparisonStages) {
@@ -899,6 +905,7 @@
   }
 
   var api = { normalize: normalize, getRoutePlan: getRoutePlan, getStageFlow: getStageFlow, getRouteAgeCase: getRouteAgeCase, getStageSchedules: getStageSchedules, getAge: getAge, recommend: recommend, formatLevel: formatLevel, getLevelSummary: getLevelSummary, materialTitle: materialTitle, levelSegments: levelSegments, getStageMaterials: getStageMaterials, getMaterialLevels: getMaterialLevels, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
+  api.materialRoles = MATERIAL_ROLES;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

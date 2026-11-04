@@ -1,0 +1,357 @@
+{
+  "checkedAt": "2026-11-04",
+  "status": "publication-counts-verified-route-identity-unresolved",
+  "scope": "英文First Little Readers Parent Pack A/B/C/D及E-F合包的出版册数、ISBN，与许密杉和庆爸路线身份分离。仅研究提案，不修改共享源码或分母。",
+  "products": [
+    {
+      "series": "First Little Readers",
+      "edition": "English Parent Pack",
+      "level": "A",
+      "isbn13": "9780545231497",
+      "readerCount": 25,
+      "guideIncluded": true,
+      "countUnit": "本",
+      "evidenceStrength": "publisher-body",
+      "sourceIds": [
+        "flr-official-uk-a"
+      ],
+      "usableCondition": "只有素材被明确识别为此套装及本级全部读本时，才可用25作分母。"
+    },
+    {
+      "series": "First Little Readers",
+      "edition": "English Parent Pack",
+      "level": "B",
+      "isbn13": "9780545231503",
+      "readerCount": 25,
+      "guideIncluded": true,
+      "countUnit": "本",
+      "evidenceStrength": "publisher-body",
+      "sourceIds": [
+        "flr-official-uk-b"
+      ],
+      "usableCondition": "只有素材被明确识别为此套装及本级全部读本时，才可用25作分母。"
+    },
+    {
+      "series": "First Little Readers",
+      "edition": "English Parent Pack",
+      "level": "C",
+      "isbn13": "9780545231510",
+      "readerCount": 25,
+      "guideIncluded": true,
+      "countUnit": "本",
+      "evidenceStrength": "publisher-body",
+      "sourceIds": [
+        "flr-official-uk-c"
+      ],
+      "usableCondition": "只有素材被明确识别为此套装及本级全部读本时，才可用25作分母。"
+    },
+    {
+      "series": "First Little Readers",
+      "edition": "English Parent Pack",
+      "level": "D",
+      "isbn13": "9781338111507",
+      "readerCount": 25,
+      "guideIncluded": true,
+      "countUnit": "本",
+      "evidenceStrength": "corroborated-retailer-body",
+      "sourceIds": [
+        "flr-d-staples",
+        "flr-d-wiseowl",
+        "flr-official-asia-series"
+      ],
+      "officialCountBodyVerified": false,
+      "usableCondition": "FLR D身份确认后可据两家正文数量采用25；标明数量证据为零售商，不能伪称已读官方D数量。"
+    },
+    {
+      "series": "First Little Readers",
+      "edition": "English Parent Pack",
+      "level": "E",
+      "isbn13": null,
+      "readerCount": null,
+      "countUnit": "本",
+      "status": "per-level-split-unverified",
+      "reason": "已核实E-F为合包16册；尚未取得逐册级别归属，不能给E单独填16或均分8。",
+      "sourceIds": [
+        "flr-ef-abebooks",
+        "flr-ef-goodreads",
+        "flr-official-asia-series"
+      ]
+    },
+    {
+      "series": "First Little Readers",
+      "edition": "English Parent Pack",
+      "level": "E–F",
+      "isbn13": "9781338256574",
+      "readerCount": 16,
+      "guideIncluded": true,
+      "countUnit": "本",
+      "evidenceStrength": "corroborated-retailer-and-catalog-body",
+      "sourceIds": [
+        "flr-ef-abebooks",
+        "flr-ef-goodreads",
+        "flr-official-asia-series",
+        "flr-ef-official-us-template"
+      ],
+      "officialCountBodyVerified": false,
+      "perLevelCounts": {
+        "E": null,
+        "F": null
+      },
+      "usableCondition": "只能把完整E-F合包作为单一16册选项，不复制到E/F两个子项。"
+    }
+  ],
+  "candidateTotals": [
+    {
+      "scope": "FLR A–C三个已确认完整单级套装",
+      "readerCount": 75,
+      "formula": "25+25+25",
+      "applicableToXuCurrent": false,
+      "reason": "本人小红书确认推荐“学乐小读者”，跟读实拍涉及双语引进版；本人未明确版本及单级册数，不能默认绑定英文FLR A–C共75本。"
+    },
+    {
+      "scope": "FLR D–E",
+      "readerCount": null,
+      "reason": "即使FLR身份确认，E单级册数仍未拆清，不能用D25+E-F16当D–E总量。"
+    },
+    {
+      "scope": "FLR A–F英文Parent Pack四单级及E-F合包",
+      "readerCount": 116,
+      "formula": "25+25+25+25+16",
+      "applicableToXuCurrent": false,
+      "reason": "这只是上述明确出版组合的总数，不等于任一作者所选书单。"
+    }
+  ],
+  "qingIdentityAudit": {
+    "sourceId": "qing-source-transcription",
+    "version": "3–4岁2.0版，6页",
+    "claims": [
+      {
+        "page": 3,
+        "resourceId": "qing-r008",
+        "stageId": "qing-s1",
+        "original": "Super hammy A-B Buddy Reader A-B",
+        "identifiedName": "Buddy Reader",
+        "flrMappingSupported": false
+      },
+      {
+        "page": 4,
+        "resourceId": "qing-r023",
+        "stageId": "qing-s2",
+        "original": "Super hammy C-D | Buddy Reader C-D",
+        "identifiedName": "Buddy Reader",
+        "flrMappingSupported": false
+      },
+      {
+        "page": 4,
+        "resourceId": "qing-r039",
+        "stageId": "qing-s3",
+        "original": "Super hammy E-F| Buddy Reader E-F",
+        "identifiedName": "Buddy Reader",
+        "flrMappingSupported": false
+      },
+      {
+        "page": 4,
+        "resourceId": "qing-r052",
+        "stageId": "qing-s3",
+        "original": "Best Buddies(学乐橡子系列)",
+        "identifiedName": "Best Buddies / Acorn",
+        "flrMappingSupported": false
+      },
+      {
+        "page": 5,
+        "resourceId": "qing-r071",
+        "stageId": "qing-s4",
+        "original": "学乐橡子点读系列(你好，小螃蟹|你好，小刺猬|独角兽与雪人)",
+        "identifiedName": "Acorn子系列选读",
+        "flrMappingSupported": false
+      }
+    ],
+    "conclusion": "当前已保存原资料的明确名称是Buddy Reader和学乐橡子系列；未发现First Little Readers明示，不能从出版社学乐或A–F字母级别映射为FLR。",
+    "coverageBoundary": "仅当前仓库3–4岁2.0原资料六页转录；不代表检查过庆爸全部年代和年龄方案，也不证明他从未推荐FLR。"
+  },
+  "sources": [
+    {
+      "id": "flr-official-uk-a",
+      "kind": "publisher-product-page",
+      "publisher": "Scholastic",
+      "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+      "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quotes": [
+        "25 full colour, 8-page books",
+        "4-page parent guide with supporting notes for before, during and after reading"
+      ],
+      "isbn13": "9780545231497",
+      "scope": "25册读本，不把家长指南计为第26册；UK官方在售/目录页所列美版ISBN，不将站点显示日期当原始出版日。"
+    },
+    {
+      "id": "flr-official-uk-b",
+      "kind": "publisher-product-page",
+      "publisher": "Scholastic",
+      "title": "First Little Readers: Guided Reading Level B 25 Book Set (with Parent Guide)",
+      "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-B-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231503",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quotes": [
+        "25 full colour, 8-page books",
+        "4-page parent guide with supporting notes for before, during and after reading"
+      ],
+      "isbn13": "9780545231503",
+      "scope": "25册读本，不把家长指南计为第26册；UK官方在售/目录页所列美版ISBN，不将站点显示日期当原始出版日。"
+    },
+    {
+      "id": "flr-official-uk-c",
+      "kind": "publisher-product-page",
+      "publisher": "Scholastic",
+      "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+      "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quotes": [
+        "25 full colour, 8-page books",
+        "4-page parent guide with supporting notes for before, during and after reading"
+      ],
+      "isbn13": "9780545231510",
+      "scope": "25册读本，不把家长指南计为第26册；UK官方在售/目录页所列美版ISBN，不将站点显示日期当原始出版日。"
+    },
+    {
+      "id": "flr-official-asia-series",
+      "kind": "publisher-series-page",
+      "publisher": "Scholastic Asia",
+      "url": "http://scholastic.asia/en/first-little-series",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quote": "storybooks correlated with guided reading levels A, B, C, D, E&F, G&H",
+      "scope": "官方列出A/B/C/D与E-F合级产品；此页可读正文没有册数，不能作为D25或E-F16的数量证据。"
+    },
+    {
+      "id": "flr-d-staples",
+      "kind": "retailer-product-page",
+      "publisher": "Staples",
+      "url": "https://www.staples.com/scholastic-first-little-readers-parent-pack-guided-reading-level-d-set-of-25-books-sc-811150/product_24392914",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quotes": [
+        "Jumpstart reading success with this big collection of 25 motivating storybooks correlated with Guided Reading Level D.",
+        "Number of Books | 25"
+      ],
+      "productCode": "SC-811150"
+    },
+    {
+      "id": "flr-d-wiseowl",
+      "kind": "retailer-product-page",
+      "publisher": "The Wise Owl",
+      "url": "https://thewiseowl.com/53924-first-little-readers-guided-reading-level-d-parent-pack-sc-811150-scholastic-teacher-resources-9781338111507.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quote": "Includes box, 25 4-c/8-page readers and a 4-page parent guide.",
+      "productCode": "SC-811150",
+      "isbn13": "9781338111507",
+      "scope": "ISBN见产品URL，正文确认同产品代码和25册；Amazon与Blackwells搜索书目亦列该ISBN，Blackwells正文抓取为空。"
+    },
+    {
+      "id": "flr-ef-abebooks",
+      "kind": "retailer-bibliographic-page",
+      "publisher": "AbeBooks",
+      "url": "https://www.abebooks.com/9781338256574/Scholastic-First-Little-Readers-Parent-1338256572/plp",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quotes": [
+        "Sixteen adorable little books in a handy take-along box, plus a tip-filled parent guide. Correlates with Guided Reading Levels E & F!",
+        "ISBN 13 9781338256574"
+      ],
+      "scope": "页面提醒synopsis可能属于另一版；已用官方E-F合级身份及Goodreads16本书目交叉核对，仍不视作逐册E/F难度拆分证据。"
+    },
+    {
+      "id": "flr-ef-goodreads",
+      "kind": "third-party-catalog",
+      "publisher": "Goodreads",
+      "url": "https://www.goodreads.com/series/254590-first-little-readers-parent-pack-guided-reading-levels-e-f",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "quotes": [
+        "16 primary works • 17 total works",
+        "16 Irresistible books that are just the right level for growing readers."
+      ],
+      "scope": "16个单册+套装条目形成17 total works，不是17本。未提供E/F各自归属。"
+    },
+    {
+      "id": "flr-ef-official-us-template",
+      "kind": "publisher-product-page-access-gap",
+      "publisher": "Scholastic US",
+      "url": "https://shop.scholastic.com/parent-ecommerce/books/first-little-readers-parent-pack-guided-reading-levels-e-f-9781338256574.html",
+      "checkedAt": "2026-11-04",
+      "readVia": "webFetch",
+      "scope": "已找到官方产品URL，但抓取正文仅空商品模板，不能宣称从此页读到16册或完整ISBN字段。"
+    },
+    {
+      "id": "qing-source-transcription",
+      "kind": "repository-primary-source-transcription",
+      "title": "庆爸听力线 · 常规路径3–4岁2.0版",
+      "path": "english/data/qing.json",
+      "originalFile": "assets/sources/qing.pdf",
+      "sourceId": "qing-source",
+      "checkedAt": "2026-11-04",
+      "scope": "本次读取仓库sourcePages的原文转录及resources逐项引用；未在本次重新OCR原PDF。"
+    }
+  ],
+  "searchLog": [
+    {
+      "channel": "webSearch/webFetch",
+      "scope": "美国Scholastic Parent Store A/B/C/E-F官方产品页",
+      "outcome": "官方产品URL可定位，但美国详情抓取仅空模板。"
+    },
+    {
+      "channel": "webSearch/webFetch",
+      "scope": "英国Scholastic A/B/C官方详情",
+      "outcome": "实际读取25 full colour, 8-page books及家长指南，ISBN与产品身份匹配。"
+    },
+    {
+      "channel": "webSearch/webFetch",
+      "scope": "D级Staples/The Wise Owl与E-F AbeBooks/Goodreads",
+      "outcome": "D25、E-F16交叉核对；官方Asia确认合级身份，官方数量正文缺口如实保留。"
+    },
+    {
+      "channel": "local-source-read",
+      "scope": "english/data/qing.json sourcePages及resources",
+      "outcome": "按页核对Buddy Reader A-B/C-D/E-F及Acorn明确名称，未把其当FLR。"
+    }
+  ],
+  "integrationNotes": [
+    "不根据出版社简称自动绑定套系。",
+    "单包家长指南不计读本分母。",
+    "Classroom Set多份复本与Parent Pack一份单册不同；例如E-F课堂80本为16书名×5份，不是80种。",
+    "MORE、Phonics、English-Spanish、First Little Comics、Buddy Readers、Sight Word Readers均是不同产品，不共享本提案分母。",
+    "本次不改稳定素材ID、级别、路线或个人记录。"
+  ],
+  "xuXiaohongshuFollowup": {
+    "checkedAt": "2026-11-04",
+    "confirmedRecommendedName": "学乐小读者",
+    "primaryNote": "https://www.xiaohongshu.com/explore/698b0d2b000000000b013848",
+    "authorQuote": "学乐小读者更推荐啊",
+    "useQuote": "不是 还是需要平行阅读",
+    "languageEditionConfirmed": false,
+    "perLevelDenominatorConfirmed": false,
+    "followReaderBilingualPhoto": "https://www.xiaohongshu.com/explore/6a3bf3bf000000002200b8b9",
+    "finding": "本人名称与用途已确认；跟读实拍使用双语学乐小读者，但不能以跟读版本代替作者唯一指定版本，不能默认绑定英文FLR每级25本。",
+    "auditPath": "followup/xhs-xu-xuele-audit.md"
+  },
+  "xuFollowReaderEditionAudit": {
+    "checkedAt": "2026-11-04",
+    "status": "follow-reader-fltrp-edition-explicitly-identified",
+    "identifiedEdition": "外研社引进版《学乐小读者》大盒装",
+    "source": "https://www.xiaohongshu.com/explore/6a32b15b0000000022008fd3",
+    "explicitEditionQuote": "今天新开箱了外研社学乐小读者第一级",
+    "purchaseReply": "是的，外研社的大盒",
+    "readingProgress": {
+      "dayReadCount": 21,
+      "isCompleteLevelCount": false
+    },
+    "followUpSource": "https://www.xiaohongshu.com/explore/6a510c4b000000002201444d",
+    "followUpDayReadCount": 11,
+    "confidence": "读者实际版本明确；不冒充作者所有年代原稿的唯一指定版本",
+    "auditPath": "followup/xhs-xu-follow-reader-edition.md",
+    "perLevelDenominatorVerified": false
+  }
+}
