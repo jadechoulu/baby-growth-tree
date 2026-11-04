@@ -104,3 +104,28 @@ test('出版候选不冒充路线分母，阶段限定册数不流入其他路�
   assert.equal(count('resource-zl69cf',{route:'qing',stageIds:['qing-s2']}).total,40);
   assert.equal(count('resource-zl69cf',{route:'qing',stageIds:['qing-s3']}).total,0);
 });
+
+test('新核对范围排除指导册，背面级别不重复累加，部分级别不借全套数量',()=>{
+  assert.equal(count('resource-mavhf5').total,56);
+  assert.equal(count('resource-mavhf5',{route:'qing',stageIds:['qing-s5']}).total,24);
+  assert.equal(count('resource-mavhf5',{route:'qing',stageIds:['qing-s6']}).total,8);
+  assert.equal(count('resource-mavhf5',{route:'qing',stageIds:['qing-s7']}).total,24);
+  assert.equal(count('resource-1nnr59r').total,52);
+  assert.equal(count('resource-1qj90tg').total,12); // 不将12练习册与5游戏书算入故事进度。
+  assert.equal(count('resource-jwq9vf',{route:'xu',stageIds:['xu-3']}).total,0);
+  const partial=count('resource-jwq9vf',{route:'xu',stageIds:['xu-5']});
+  assert.equal(partial.total,24);
+  assert.equal(partial.partial,true);
+  assert.deepEqual(partial.unknown,['3-4']);
+});
+
+test('已核出版候选可供全量浏览，路线版本未定时不自动当作阶段分母',()=>{
+  assert.equal(count('resource-fkl6xf').total,41); // 英文B25、E&F合16，不拆成每级16。
+  assert.equal(count('resource-1cn6i3m').total,100);
+  for(const id of ['resource-fkl6xf','resource-nqvpg2','resource-19jrpig']){
+    const resource=catalog.resources.find(r=>r.id===id);
+    for(const a of resource.appearances){
+      assert.equal(count(id,{route:a.routeId,stageIds:[a.stageId]}).total,0);
+    }
+  }
+});

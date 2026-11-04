@@ -1252,6 +1252,12 @@
 .library-card .resource-title{display:block;padding:0;min-height:0}
 .library-card .resource-title>.card-view-btn{max-width:100%}
 .library-card .library-card-heading h3{min-height:0;font-size:16px;line-height:1.5}
+.library-type-badge{display:inline-flex;align-items:center;justify-content:center;vertical-align:-2px;margin-left:5px;color:var(--muted);font-weight:400;white-space:nowrap}
+.library-type-badge>.icon{width:15px;height:15px}
+.library-card-count{font-size:12px;line-height:1.5}
+.library-card-count .library-book-link{padding:0;min-height:24px;font-size:12px;text-align:left}
+.library-card-tools .library-reference-count{margin-right:auto;width:20px;height:22px}
+.library-card-tools .library-reference-count>.icon{width:20px;height:22px}
 .library-card .library-series-heading{display:inline;font-weight:400}
 .library-card .library-series-heading>.card-view-btn{display:inline;width:auto;font:inherit}
 .library-card .library-book-link{display:inline-block;padding:0;white-space:nowrap;font-weight:400;line-height:inherit;vertical-align:baseline}
@@ -1621,10 +1627,12 @@
 .library-cover-grid .library-card-heading{width:100%;min-width:0}
 .library-cover-grid .library-card .library-card-heading h3{font-size:15px;line-height:1.45;text-align:left}
 .library-cover-grid .library-card .resource-title{align-items:center;gap:2px 4px}
-.library-cover-grid .library-card .resource-title>.card-view-btn{flex-shrink:1;flex-basis:100%;text-align:left}
-.library-cover-grid .library-card-tools,.library-cover-grid .library-card-tools:has(.library-song-link){width:100%;justify-content:flex-end;gap:2px;flex-wrap:wrap}
-.library-cover-grid .library-card-tools .material-status-control{margin:0 auto 0 0;width:auto;flex-basis:auto}
-.library-cover-grid .library-card .library-card-tools>.icon-button{width:26px;height:26px;min-width:26px;min-height:26px;flex-basis:26px}
+.library-cover-grid .library-card .resource-title>.card-view-btn{flex:1 1 auto;text-align:left}
+.library-cover-grid .library-card-tools,.library-cover-grid .library-card-tools:has(.library-song-link){width:100%;justify-content:flex-end;gap:1px;flex-wrap:wrap}
+.library-cover-grid .library-card-tools .material-status-control{margin:0;width:auto;flex-basis:auto}
+.library-cover-grid .library-card-tools .material-status.library-status-action{min-width:0;padding:2px 1px}
+.library-cover-grid .library-card-tools .library-reference-count,.library-cover-grid .library-card-tools .library-reference-count>.icon{width:16px}
+.library-cover-grid .library-card .library-card-tools>.icon-button{width:22px;height:26px;min-width:22px;min-height:26px;flex-basis:22px}
 .library-cover-grid .library-card .card-usage{width:100%;padding-top:4px}
 .library-cover-grid .library-card .usage-route{padding:4px}
 .library-cover-grid .library-card .usage-route>summary{flex-wrap:wrap}
@@ -1633,6 +1641,9 @@
   .library-cover-grid .library-card .resource-cover{height:130px;padding:4px}
   .library-cover-grid .library-card .resource-body{padding:6px;gap:4px}
 }
+
+.library-book-cover.library-cover-fallback{position:relative}
+.library-cover-fallback-label{position:absolute;inset:auto 0 0;background:rgba(248,250,245,.94);color:var(--muted);text-align:center;font-size:12px;line-height:16px}
 .hello-rhyme-themes{display:flex;flex-wrap:wrap;align-items:center;gap:4px}.hello-rhyme-themes .hello-chip{font-size:12px}.hello-rhyme-image{display:block;width:100%;max-height:460px;object-fit:contain;object-position:left center;border-radius:5px;background:#fff}
 
 /* 曲调播放沿用全页播放器，筛选与正文均可直接试听。 */
