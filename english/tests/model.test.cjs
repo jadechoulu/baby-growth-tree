@@ -679,10 +679,10 @@ test('阶段素材按原文主线、共用辅线、未定用途排序，同作�
   assert.deepEqual(model.getStageMaterials(sample, '不存在'), []);
 });
 
-test('真实路线保留原文用途：许密杉并行选读、庆爸主辅、香蕉不推断主辅', () => {
+test('真实路线保留原文用途：许密杉不推断主辅、庆爸主辅、香蕉不推断主辅', () => {
   const first = model.getStageMaterials(currentCatalog, 'xu-current-300');
   assert.ok(first.filter(item => /闪卡/.test(item.material.role)).every(item => item.role.kind === 'reference'));
-  assert.ok(first.some(item => item.resource.title === '培生词汇妙趣屋' && item.role.kind === 'reference' && item.role.label === '并行选读'));
+  assert.ok(first.some(item => item.resource.title === '培生词汇妙趣屋' && item.role.kind === 'reference' && item.role.label === '未标主辅' && item.role.usage === '闪卡式绘本'));
   const qing = model.getStageMaterials(currentCatalog, 'qing-s2');
   assert.equal(qing.find(item => item.resource.title === '培生启明星').role.kind, 'main');
   assert.equal(qing.find(item => item.resource.title === '大猫分级').role.kind, 'auxiliary');

@@ -52,3 +52,51 @@ test('个人绘本按主题和个人选用阶段筛选，其他不混入作者�
   assert.equal(B.filter(books,data,{query:'MY bear',route:'other'}).length,1);
   assert.equal(B.entries(data,[{...custom,type:'animation'}],M).length,0);
 });
+
+test('主题筛选只接纳有来源的内容或分类核对，未读内容不凭书名命中',()=>{
+  const sourceIds=new Set(data.sources.map(s=>s.id));
+  for(const book of data.books){
+    assert.ok(['content-verified','classification-verified','pending','title-fallback'].includes(book.topicStatus),book.title);
+    if(book.topicStatus==='pending')assert.deepEqual(book.topics,[],book.title);
+    else {
+      assert.ok(book.topicEvidence.length,book.title);
+      for(const evidence of book.topicEvidence){
+        assert.ok(sourceIds.has(evidence.sourceId),book.title);
+        assert.ok(evidence.locator&&evidence.summary,book.title);
+      }
+    }
+    if(book.topicStatus==='title-fallback')assert.ok(data.seriesResearch.find(r=>r.resourceId===book.resourceId)?.searchLog.length,book.title);
+  }
+  const books=B.entries(data,catalog.resources,M),pending=books.filter(b=>b.topicStatus==='pending');
+  for(const topic of data.topics)assert.equal(B.filter(pending,data,{topic:topic.id}).length,0);
+});
+
+test('内容核对纠正同名误判，分版本分类及句型不混用',()=>{
+  const pearson=data.books.filter(b=>b.resourceId==='resource-1nuqi5t');
+  assert.ok(pearson.find(b=>b.title==='A Garden').topics.includes('food'));
+  assert.ok(pearson.find(b=>b.title==='I Like Birds').topics.includes('concepts'));
+  assert.ok(pearson.find(b=>b.title==='The Snake').topics.includes('clothing'));
+  assert.equal(pearson.find(b=>b.title==='The birthday'&&b.level==='3').topicStatus,'pending');
+  const scary=data.books.find(b=>b.title==='Pip and Posy: The Scary Monster');
+  assert.ok(scary.topics.includes('friendship'));
+  assert.ok(!scary.topics.includes('fantasy'));
+  const yum=data.books.find(b=>b.resourceId==='resource-g7xvo5'&&b.title==='Yum');
+  assert.ok(yum.topics.includes('animals'));
+  assert.ok(!yum.topics.includes('food'));
+});
+
+test('每套查证记录可直接呈现，分类配图存在且不公开浏览器会话',()=>{
+  assert.equal(data.seriesResearch.length,new Set(data.books.map(b=>b.resourceId)).size);
+  for(const research of data.seriesResearch){
+    assert.ok(Array.isArray(research.readingGuide));
+    assert.ok(Array.isArray(research.searchLog));
+  }
+  for(const source of data.sources){
+    assert.ok(!source.url?.includes('xsec_token'),source.id);
+    for(const image of source.images||[]){
+      assert.ok(Number.isInteger(image.page),source.id);
+      assert.ok(fs.existsSync(new URL('../english/'+image.path,import.meta.url)),image.path);
+    }
+  }
+  for(const book of data.books)if(book.cover)assert.ok(fs.existsSync(new URL('../english/'+book.cover,import.meta.url)),book.cover);
+});

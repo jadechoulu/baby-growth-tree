@@ -1,0 +1,2538 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-04",
+  "generatedAt": "2026-11-04T10:44:39.588Z",
+  "task": "许密杉与庆爸引用但无scope的套系册数跟进，只读结果",
+  "boundaries": [
+    "不修改共享源码、数据或测试，不操作用户浏览器。",
+    "本次完整生成无scope的书籍／分级素材清单；网络重点核查GK70与培生400句，未声称逐一完成全部套系的网络研究。",
+    "只将可读原稿或已读正文记为已核实；搜索片段仅为线索。",
+    "原始level与稳定unitKey保持不变。"
+  ],
+  "toolCoverage": {
+    "dedicatedWebTools": "当前subagent暴露工具中未发现webSearch/webFetch；已检索工具名及描述。",
+    "fallback": "通过CLI HTTP读取公开页面和搜狗搜索，不使用GUI。",
+    "limits": [
+      "知乎正文403；当当正文405；DuckDuckGo验证码；Google只有跳转页；Bing检索返回不相关或空结果，未作为证据。",
+      "苹果播客请求返回的可读内容与目标条目不符，已排除。"
+    ]
+  },
+  "canAdd": [
+    {
+      "resourceId": "resource-hlfpbh",
+      "title": "小猪和狐狸",
+      "stageId": "qing-s4",
+      "page": 5,
+      "raw": "4册点读",
+      "formatted": "4册点读",
+      "count": 4,
+      "scopeLabel": "庆爸原稿：4册点读",
+      "scopeId": "qing-pig-fox-4",
+      "quote": "小猪和狐狸(4册点读)",
+      "key": "practice.material.v1:qing:qing-s4:resource-hlfpbh:8fk0o8x3y6vg",
+      "status": "可补：路线原稿明确选用范围",
+      "unit": "本",
+      "source": {
+        "type": "author-original-local",
+        "title": "庆爸听力线常规路径3–4岁2.0版",
+        "sourceId": "qing",
+        "rawSourceId": "qing-source",
+        "file": "english/assets/sources/qing.pdf",
+        "preview": "english/assets/previews/qing-05.jpg",
+        "page": 5,
+        "verifiedBy": [
+          "qing.json sourcePages文字",
+          "直接查看对应原图"
+        ]
+      },
+      "proposedScope": {
+        "id": "qing-pig-fox-4",
+        "label": "庆爸原稿：4册点读",
+        "level": "4册点读",
+        "stageIds": [
+          "qing-s4"
+        ],
+        "default": true,
+        "parts": [
+          {
+            "label": "庆爸原稿：4册点读",
+            "count": 4
+          }
+        ]
+      },
+      "scopeBoundary": "这是该资料版本该阶段原文所选范围，不能作为整套系或其他路线的默认总量；册名清单尚未补齐。",
+      "currentRefs": [
+        {
+          "routeId": "qing",
+          "stageId": "qing-s4",
+          "sourceId": "qing",
+          "sourcePage": 5,
+          "rawLevel": "4册点读",
+          "formattedLevel": "4册点读"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1xt8nl",
+      "title": "心智麦田",
+      "stageId": "qing-s7",
+      "page": 6,
+      "raw": "庆爸精选35本",
+      "formatted": "庆爸精选35册",
+      "count": 35,
+      "scopeLabel": "庆爸精选35本",
+      "scopeId": "qing-wheatfield-selected-35",
+      "quote": "心智麦田(庆爸精选35本)",
+      "key": "practice.material.v1:qing:qing-s7:resource-1xt8nl:4l0bv37w1a03",
+      "status": "可补：路线原稿明确选用范围",
+      "unit": "本",
+      "source": {
+        "type": "author-original-local",
+        "title": "庆爸听力线常规路径3–4岁2.0版",
+        "sourceId": "qing",
+        "rawSourceId": "qing-source",
+        "file": "english/assets/sources/qing.pdf",
+        "preview": "english/assets/previews/qing-06.jpg",
+        "page": 6,
+        "verifiedBy": [
+          "qing.json sourcePages文字",
+          "直接查看对应原图"
+        ]
+      },
+      "proposedScope": {
+        "id": "qing-wheatfield-selected-35",
+        "label": "庆爸精选35本",
+        "level": "庆爸精选35册",
+        "stageIds": [
+          "qing-s7"
+        ],
+        "default": true,
+        "parts": [
+          {
+            "label": "庆爸精选35本",
+            "count": 35
+          }
+        ]
+      },
+      "scopeBoundary": "这是该资料版本该阶段原文所选范围，不能作为整套系或其他路线的默认总量；册名清单尚未补齐。",
+      "currentRefs": [
+        {
+          "routeId": "qing",
+          "stageId": "qing-s7",
+          "sourceId": "qing",
+          "sourcePage": 6,
+          "rawLevel": "庆爸精选35本",
+          "formattedLevel": "庆爸精选35册"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-13uj3q",
+      "title": "神奇校车",
+      "stageId": "qing-s7",
+      "page": 6,
+      "raw": "红蓝盒20册",
+      "formatted": "红蓝盒20册",
+      "count": 20,
+      "scopeLabel": "庆爸原稿：红蓝盒20册",
+      "scopeId": "qing-magic-school-bus-red-blue-20",
+      "quote": "神奇校车红蓝盒(20册)",
+      "key": "practice.material.v1:qing:qing-s7:resource-13uj3q:dvu8tw8il3u0",
+      "status": "可补：路线原稿明确选用范围",
+      "unit": "本",
+      "source": {
+        "type": "author-original-local",
+        "title": "庆爸听力线常规路径3–4岁2.0版",
+        "sourceId": "qing",
+        "rawSourceId": "qing-source",
+        "file": "english/assets/sources/qing.pdf",
+        "preview": "english/assets/previews/qing-06.jpg",
+        "page": 6,
+        "verifiedBy": [
+          "qing.json sourcePages文字",
+          "直接查看对应原图"
+        ]
+      },
+      "proposedScope": {
+        "id": "qing-magic-school-bus-red-blue-20",
+        "label": "庆爸原稿：红蓝盒20册",
+        "level": "红蓝盒20册",
+        "stageIds": [
+          "qing-s7"
+        ],
+        "default": true,
+        "parts": [
+          {
+            "label": "庆爸原稿：红蓝盒20册",
+            "count": 20
+          }
+        ]
+      },
+      "scopeBoundary": "这是该资料版本该阶段原文所选范围，不能作为整套系或其他路线的默认总量；册名清单尚未补齐。",
+      "currentRefs": [
+        {
+          "routeId": "xu",
+          "stageId": "xu-panorama-reading-extensive",
+          "sourceId": "xu-panorama",
+          "sourcePage": 1,
+          "rawLevel": "",
+          "formattedLevel": ""
+        },
+        {
+          "routeId": "qing",
+          "stageId": "qing-s7",
+          "sourceId": "qing",
+          "sourcePage": 6,
+          "rawLevel": "红蓝盒20册",
+          "formattedLevel": "红蓝盒20册"
+        }
+      ]
+    }
+  ],
+  "alreadyCountedFromAuthor": [
+    {
+      "resourceId": "resource-ckc2k",
+      "title": "巴塔木口语书",
+      "stageId": "qing-s1",
+      "rawLevel": "24本",
+      "count": 24,
+      "page": 3,
+      "runtimeTotal": 24
+    },
+    {
+      "resourceId": "resource-4oyfst",
+      "title": "心智麦田轻科普绘本",
+      "stageId": "qing-s6",
+      "rawLevel": "11本",
+      "count": 11,
+      "page": 6,
+      "runtimeTotal": 11
+    }
+  ],
+  "scopeMatching": {
+    "originalFinding": "bookScopes原先只按单level字符串精确匹配，空level会返回全部scope，不能给同套系的无level引用自动使用别的阶段分母。",
+    "currentCaller": "english/app.js 的 practiceUnit 先对 material.level 调用 EnglishModel.formatLevel 再传给 bookScopes；因此scope.level需匹配formattedLevel，原始level仍用于来源和稳定记录键。",
+    "recommendedGuard": "限定stageIds，并传入当前stageId；如果调用场景没有stage上下文，带stageIds的范围只作显式可选项，不自动设为全套系默认。",
+    "magicSchoolBusCounterexample": {
+      "resourceId": "resource-13uj3q",
+      "mustNotDefault20": {
+        "routeId": "xu",
+        "stageId": "xu-panorama-reading-extensive",
+        "sourceId": "xu-panorama",
+        "rawLevel": ""
+      }
+    }
+  },
+  "heinemann": {
+    "resourceIds": {
+      "explicitGk70": "resource-hojfp0",
+      "genericHeinemann": "resource-9fvmjt"
+    },
+    "verified": {
+      "canOfferTotal": 70,
+      "autoDefaultForGenericGK": false,
+      "levelCounts": null,
+      "localSource": {
+        "file": "english/assets/sources/xu.pdf",
+        "page": 1,
+        "raw": "海尼曼GK70 A／B／C",
+        "stageIds": [
+          "xu-3",
+          "xu-4",
+          "xu-5"
+        ]
+      },
+      "publicSecondary": {
+        "url": "https://www.sohu.com/a/461639090_121079305",
+        "title": "海尼曼分级阅读介绍 Gk，G1，G2分级选择 内容讲解 海尼曼各版本选择",
+        "author": "一颗向上的小豆芽",
+        "publishedAt": "2021-04-19",
+        "evidence": "正文写GK系列(共70本)，分LevelA、LevelB、LevelC；同文后段又写GK110，口径混杂。仅支持存在70本版本，不能据此确定所有GK版本或A/B/C册数。",
+        "fetch": "HTTP200，已读正文"
+      }
+    },
+    "unverifiedConflictingLevelCounts": [
+      {
+        "url": "https://zhuanlan.zhihu.com/p/661553090",
+        "title": "2023年最新｜0基础英语启蒙也能用的海尼曼，各种版本怎么选",
+        "kind": "search-snippet-only",
+        "counts": {
+          "A": 44,
+          "B": 14,
+          "C": 12
+        },
+        "status": "正文403，不采作分母"
+      },
+      {
+        "title": "海尼曼绘本阅读GK合集(共70本)",
+        "platform": "微信公众号",
+        "publishedAt": "2022-11-13",
+        "kind": "search-snippet-only",
+        "counts": {
+          "A": 43,
+          "B": 15,
+          "C": 12
+        },
+        "status": "与另一线索冲突，未核同一版本逐册目录，不采作分母"
+      }
+    ],
+    "recommendation": "GK70可提供明确标注的70本版本参考选项。A/B/C分别继续记录完成数，不根据总70平均、推分或借用110本版数据。普通GK不自动70。"
+  },
+  "otherResearch": [
+    {
+      "resourceId": "resource-166ekar",
+      "title": "培生400句",
+      "rawLevels": [
+        "上",
+        "下"
+      ],
+      "searchLead": "培生儿童英语情境口语400句，来自Sails系列，上下两辑共40册；搜索结果有当当相应书目。",
+      "sourceUrl": "https://product.dangdang.com/25340132.html",
+      "verification": "当当正文405。公众号和知乎仅搜索片段，未核实到上下辑各自册数或明确出版版本；不可由共40册推上下各20。",
+      "canAdd": false
+    },
+    {
+      "resourceId": "resource-1cn6i3m",
+      "title": "学乐",
+      "verification": "原稿简称与级别不足以唯一确认FLR；父agent小红书线索出现双语I Like School引进版，不应绑定海外Parent Pack每级25本。",
+      "canAdd": false
+    }
+  ],
+  "noConfiguredScopeInventory": {
+    "bookAndReaderCount": 69,
+    "items": [
+      {
+        "resourceId": "resource-zl69cf",
+        "title": "Buddy Reader",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "A&B",
+          "C&D",
+          "E&F",
+          "A–B",
+          "C–D",
+          "E–F"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "A–B",
+            "formattedLevel": "A、B"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s2",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "C–D",
+            "formattedLevel": "C、D"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "E–F",
+            "formattedLevel": "E、F"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-10bn1i2",
+        "title": "小书虫",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "1&2",
+          "5&6",
+          "1",
+          "2",
+          "3",
+          "4（虚构）",
+          "5（虚构）",
+          "6（虚构）",
+          "7–10（虚构）"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s2",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "2",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "3",
+            "formattedLevel": "3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "4（虚构）",
+            "formattedLevel": "4 · 虚构"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "5（虚构）",
+            "formattedLevel": "5 · 虚构"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "6（虚构）",
+            "formattedLevel": "6 · 虚构"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "7–10（虚构）",
+            "formattedLevel": "7–10 · 虚构"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1n3ix1n",
+        "title": "牛津树",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "1+&2",
+          "3&4",
+          "5&6",
+          "7-9",
+          "1",
+          "2",
+          "3-5",
+          "1–3",
+          "未限定级别／版本",
+          "2-3",
+          "4",
+          "1-3（复习）",
+          "1–2",
+          "3",
+          "5",
+          "6",
+          "7–9"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-4",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-5",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "2",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-6",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "3-5",
+            "formattedLevel": "3–5"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-listening-800",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "1–3",
+            "formattedLevel": "1–3"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-1",
+            "sourceId": "xu-thousand",
+            "sourcePage": 1,
+            "rawLevel": "1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-2",
+            "sourceId": "xu-thousand",
+            "sourcePage": 2,
+            "rawLevel": "2-3",
+            "formattedLevel": "2、3"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-3",
+            "sourceId": "xu-thousand",
+            "sourcePage": 3,
+            "rawLevel": "2-3",
+            "formattedLevel": "2、3"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "4",
+            "formattedLevel": "4"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "1-3（复习）",
+            "formattedLevel": "1–3 · 复习"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-current-800",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "1–3",
+            "formattedLevel": "1–3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s2",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "1–2",
+            "formattedLevel": "1、2"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "3",
+            "formattedLevel": "3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "4",
+            "formattedLevel": "4"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "5",
+            "formattedLevel": "5"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "6",
+            "formattedLevel": "6"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "7–9",
+            "formattedLevel": "7–9"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-912oje",
+        "title": "培生儿童英语",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "Level1",
+          "Level2",
+          "Level3",
+          "Level4-6",
+          "L3",
+          "L4",
+          "L5",
+          "L6"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "L3",
+            "formattedLevel": "3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "L4",
+            "formattedLevel": "4"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L5",
+            "formattedLevel": "5"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L6",
+            "formattedLevel": "6"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1qnd5uh",
+        "title": "RAZ",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "A&B",
+          "C&D",
+          "E&F",
+          "G&H",
+          "I&J",
+          "未限定级别／版本",
+          "AA–A（虚构部分）",
+          "B（虚构部分）",
+          "C–D（虚构部分）",
+          "E–F（虚构）",
+          "G–H（虚构）",
+          "I–J（虚构）",
+          "K–M（虚构）"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "AA–A（虚构部分）",
+            "formattedLevel": "AA、A · 虚构部分"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s2",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "B（虚构部分）",
+            "formattedLevel": "B · 虚构部分"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "C–D（虚构部分）",
+            "formattedLevel": "C、D · 虚构部分"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "E–F（虚构）",
+            "formattedLevel": "E、F · 虚构"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "G–H（虚构）",
+            "formattedLevel": "G、H · 虚构"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "I–J（虚构）",
+            "formattedLevel": "I、J · 虚构"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "K–M（虚构）",
+            "formattedLevel": "K–M · 虚构"
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-1pinwiv",
+        "title": "古力小超人",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本",
+          "1",
+          "2"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "2",
+            "formattedLevel": "2"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-123ikqd",
+        "title": "QPlay奇问妙想国",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1qj90tg",
+        "title": "WPlay词汇妙趣国",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s2",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-197hwlb",
+        "title": "水先生",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1ukyalh",
+        "title": "Fly Guy and Buzz 苍蝇小子",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-listening-1000",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-current-1000",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-45qugp",
+        "title": "Winnie and Wilbur 女巫温妮",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本",
+          "绘本版"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "绘本版",
+            "formattedLevel": "绘本版"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-var8qr",
+        "title": "Frog and Toad 青蛙与蟾蜍",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 4,
+        "runtimeBasis": "directory",
+        "runtimeUnknown": [],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1tlgrbe",
+        "title": "Dragon 胖龙蓝蓝",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1mnq6y8",
+        "title": "Magic Tree House 神奇树屋",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-1gq6hvt",
+        "title": "My Weird School 疯狂学校",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-kacco9",
+        "title": "Geronimo Stilton 老鼠记者",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-149sp5j",
+        "title": "书虫",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "1 级别",
+          "2 级别",
+          "3-4 级别",
+          "5 级别"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-2",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "1 级别",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-3",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "2 级别",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-4",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "2 级别",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-5",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "3-4 级别",
+            "formattedLevel": "3、4"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-6",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "5 级别",
+            "formattedLevel": "5"
+          }
+        ],
+        "reason": "作者原文简称不足以唯一确认出版套系或资料版本，不能将类似名称套装册数自动绑定。"
+      },
+      {
+        "resourceId": "resource-hojfp0",
+        "title": "海尼曼 GK70",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "A",
+          "B",
+          "C"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-3",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "A",
+            "formattedLevel": "GK70 A"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-4",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "B",
+            "formattedLevel": "GK70 B"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-5",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "C",
+            "formattedLevel": "GK70 C"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-jwq9vf",
+        "title": "Highlight 故事与科普配对",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "1",
+          "2",
+          "3-4"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-3",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-4",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "2",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-5",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "3-4",
+            "formattedLevel": "3、4"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-l64s2i",
+        "title": "培生（第六阶段未标明套系）",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "5-6 级别"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-6",
+            "sourceId": "xu",
+            "sourcePage": 1,
+            "rawLevel": "5-6 级别",
+            "formattedLevel": "5、6"
+          }
+        ],
+        "reason": "作者原文简称不足以唯一确认出版套系或资料版本，不能将类似名称套装册数自动绑定。"
+      },
+      {
+        "resourceId": "resource-1hv2ggo",
+        "title": "巴蒂英语",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-listening-300",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-current-300",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-11wr0uz",
+        "title": "蛙小弟",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-listening-1000",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-current-1000",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "作者原文简称不足以唯一确认出版套系或资料版本，不能将类似名称套装册数自动绑定。"
+      },
+      {
+        "resourceId": "resource-1hwirew",
+        "title": "皮特猫",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本",
+          "My First"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-listening-1000",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-current-1000",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "My First",
+            "formattedLevel": "My First"
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-1ghd02m",
+        "title": "牛津自拼",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1hu7to9",
+        "title": "丽声高频词",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-gfdta7",
+        "title": "莎林高频词",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-l141pg",
+        "title": "Evan-moor sight words",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-yy64zs",
+        "title": "蔬菜王国",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1raloog",
+        "title": "丽声自然拼读",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1nnr59r",
+        "title": "大猫自然拼读",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-literacy",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-oz0jbk",
+        "title": "糊涂女佣",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-ulmaqc",
+        "title": "内裤超人",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1r3pyyc",
+        "title": "罗尔德达尔",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-extensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1sx9rf3",
+        "title": "新概念",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-intensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1ew2482",
+        "title": "Power up",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-intensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-9v2gi2",
+        "title": "think",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-intensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-kcbshs",
+        "title": "basic reading",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本",
+          "200词",
+          "400词",
+          "200词／400词",
+          "200词／400词（复习）",
+          "800词"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-intensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-1",
+            "sourceId": "xu-thousand",
+            "sourcePage": 1,
+            "rawLevel": "200词",
+            "formattedLevel": "200词"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-2",
+            "sourceId": "xu-thousand",
+            "sourcePage": 2,
+            "rawLevel": "400词",
+            "formattedLevel": "400词"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-2",
+            "sourceId": "xu-thousand",
+            "sourcePage": 2,
+            "rawLevel": "200词",
+            "formattedLevel": "200词"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-3",
+            "sourceId": "xu-thousand",
+            "sourcePage": 3,
+            "rawLevel": "200词／400词",
+            "formattedLevel": "200词、400词"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "200词／400词（复习）",
+            "formattedLevel": "200词、400词（复习）"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "800词",
+            "formattedLevel": "800词"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-zqlmu5",
+        "title": "basic words",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-panorama-reading-intensive",
+            "sourceId": "xu-panorama",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-l95jou",
+        "title": "大马泽单词本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-1",
+            "sourceId": "xu-thousand",
+            "sourcePage": 1,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-2",
+            "sourceId": "xu-thousand",
+            "sourcePage": 2,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-3",
+            "sourceId": "xu-thousand",
+            "sourcePage": 3,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-16z7681",
+        "title": "大马泽台词本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-3",
+            "sourceId": "xu-thousand",
+            "sourcePage": 3,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-11spny4",
+        "title": "Highlight",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "L1",
+          "第2级别",
+          "第3级别"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-1",
+            "sourceId": "xu-thousand",
+            "sourcePage": 1,
+            "rawLevel": "L1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-2",
+            "sourceId": "xu-thousand",
+            "sourcePage": 2,
+            "rawLevel": "第2级别",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-3",
+            "sourceId": "xu-thousand",
+            "sourcePage": 3,
+            "rawLevel": "第3级别",
+            "formattedLevel": "3"
+          }
+        ],
+        "reason": "作者原文简称不足以唯一确认出版套系或资料版本，不能将类似名称套装册数自动绑定。"
+      },
+      {
+        "resourceId": "resource-1hotvkv",
+        "title": "牛津自然拼读",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "第一册和第二册"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-2",
+            "sourceId": "xu-thousand",
+            "sourcePage": 2,
+            "rawLevel": "第一册和第二册",
+            "formattedLevel": "第1、2册"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1clzu3i",
+        "title": "Booklife Junior",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-3",
+            "sourceId": "xu-thousand",
+            "sourcePage": 3,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-ezbi3s",
+        "title": "小狐狸台词本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-a52ypl",
+        "title": "饼干狗",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "xu",
+            "stageId": "xu-thousand-4",
+            "sourceId": "xu-thousand",
+            "sourcePage": 4,
+            "rawLevel": "",
+            "formattedLevel": ""
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-ckc2k",
+        "title": "巴塔木口语书",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 24,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "24本",
+            "formattedLevel": "24册"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1yfs7b5",
+        "title": "Super Hammy",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "A–B",
+          "C–D",
+          "E–F"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s1",
+            "sourceId": "qing",
+            "sourcePage": 3,
+            "rawLevel": "A–B",
+            "formattedLevel": "A、B"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s2",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "C–D",
+            "formattedLevel": "C、D"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "E–F",
+            "formattedLevel": "E、F"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-e87t8v",
+        "title": "小猪小象",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 25,
+        "runtimeBasis": "directory",
+        "runtimeUnknown": [
+          "简单部分",
+          "难的部分"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "简单部分",
+            "formattedLevel": "简单部分"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "难的部分",
+            "formattedLevel": "难的部分"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-45fjcl",
+        "title": "口语剧场",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "Part 1",
+          "Part 2"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "Part 1",
+            "formattedLevel": "Part 1"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "Part 2",
+            "formattedLevel": "Part 2"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-166ekar",
+        "title": "培生400句",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "上",
+          "下"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "上",
+            "formattedLevel": "上"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "下",
+            "formattedLevel": "下"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-yl8irm",
+        "title": "Best Buddies",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "学乐橡子系列"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s3",
+            "sourceId": "qing",
+            "sourcePage": 4,
+            "rawLevel": "学乐橡子系列",
+            "formattedLevel": "学乐橡子系列"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-o2t6vh",
+        "title": "波西与皮普",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 12,
+        "runtimeBasis": "directory",
+        "runtimeUnknown": [],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-ie3zww",
+        "title": "佩奇高频词绘本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "L1–3",
+          "L4–5"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "L1–3",
+            "formattedLevel": "1–3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "L4–5",
+            "formattedLevel": "4、5"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-106pkss",
+        "title": "快乐瓢虫",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "L1",
+          "L2",
+          "L3",
+          "L4"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "L1",
+            "formattedLevel": "1"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "L2",
+            "formattedLevel": "2"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L3",
+            "formattedLevel": "3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L4",
+            "formattedLevel": "4"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1qn098f",
+        "title": "I can read",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "预备级（挑选）",
+          "基础级（挑选）",
+          "基础"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "预备级（挑选）",
+            "formattedLevel": "预备级 · 挑选"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "基础级（挑选）",
+            "formattedLevel": "基础级 · 挑选"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "基础",
+            "formattedLevel": "基础级"
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-uux27w",
+        "title": "银河号阅读全解码",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "L1–3",
+          "L4–5",
+          "L6",
+          "L7–9"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "L1–3",
+            "formattedLevel": "1–3"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L4–5",
+            "formattedLevel": "4、5"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L6",
+            "formattedLevel": "6"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "L7–9",
+            "formattedLevel": "7–9"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-kjiouh",
+        "title": "学乐橡子点读系列",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "你好，小螃蟹｜你好，小刺猬｜独角兽与雪人"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s4",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "你好，小螃蟹｜你好，小刺猬｜独角兽与雪人",
+            "formattedLevel": "你好，小螃蟹｜你好，小刺猬｜独角兽与雪人"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1hwgnzy",
+        "title": "小毛人",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "My First"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 5,
+            "rawLevel": "My First",
+            "formattedLevel": "My First"
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-mavhf5",
+        "title": "丽声冒险岛",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "1–3（背面L3–5）",
+          "4（背面L6）",
+          "5–7（背面L7–9）"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "1–3（背面L3–5）",
+            "formattedLevel": "1–3 · 背面L3-5"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "4（背面L6）",
+            "formattedLevel": "4 · 背面L6"
+          },
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "5–7（背面L7–9）",
+            "formattedLevel": "5–7 · 背面L7-9"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-zs4dhg",
+        "title": "淘气兔子",
+        "type": "reader",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "点读版"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "点读版",
+            "formattedLevel": "点读版"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-127dfoe",
+        "title": "脏脏书",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s5",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1g6rmtp",
+        "title": "汪培珽一段",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "Syd Hoff系列"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "Syd Hoff系列",
+            "formattedLevel": "Syd Hoff系列"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-3z1ap6",
+        "title": "佩奇绘本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "红黄蓝盒"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "红黄蓝盒",
+            "formattedLevel": "红黄蓝盒"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-pc7ej8",
+        "title": "Baby why",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "生物化学"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "生物化学",
+            "formattedLevel": "生物化学"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-19dcja1",
+        "title": "Baby all",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "物理｜艺术"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "物理｜艺术",
+            "formattedLevel": "物理｜艺术"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-4oyfst",
+        "title": "心智麦田轻科普绘本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 11,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s6",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "11本",
+            "formattedLevel": "11册"
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-1l68zks",
+        "title": "大红狗",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      },
+      {
+        "resourceId": "resource-xqapbe",
+        "title": "Frog and Friends",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "未限定级别／版本"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "",
+            "formattedLevel": ""
+          }
+        ],
+        "reason": "原稿未唯一限定出版版本／分辑／当前选用目录；先按数量记录，不能由名称自动设置套系分母。"
+      },
+      {
+        "resourceId": "resource-13d4vi4",
+        "title": "布鲁伊绘本",
+        "type": "book",
+        "configuredScopes": 0,
+        "runtimeKnownTotal": 0,
+        "runtimeBasis": "known-range",
+        "runtimeUnknown": [
+          "点读"
+        ],
+        "appearances": [
+          {
+            "routeId": "qing",
+            "stageId": "qing-s7",
+            "sourceId": "qing",
+            "sourcePage": 6,
+            "rawLevel": "点读",
+            "formattedLevel": "点读"
+          }
+        ],
+        "reason": "开放套系或多版本且原文只指定级别、分支、挑选或媒介；需明确版本目录和所选范围。"
+      }
+    ]
+  }
+}

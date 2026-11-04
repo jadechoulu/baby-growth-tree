@@ -79,11 +79,11 @@ function unitProgressUpdate(percent,record,date){
   return {...record,status:percent===100?'done':percent>0?'using':'not-started',note:JSON.stringify({...previous,version:1,percent,date,...(previous.books?{books:{version:1,mode:'percent'}}:{})})};
 }
 // 出版范围与路线原始级别分开，不能为补册数修改素材签名或跨版本借用分母。
-function bookScopes(resourceId,levels,catalog){
+function bookScopes(resourceId,levels,catalog,stageId){
   const entry=catalog?.series?.find(s=>s.resourceId===resourceId);
   if(!entry)return [];
   const selected=[...new Set(levels.filter(Boolean))];
-  return entry.scopes.filter(s=>!selected.length||selected.length===1&&s.level===selected[0]).map(s=>({...s,total:s.parts.reduce((n,p)=>n+p.count,0),unit:s.unit||entry.unit||'本',edition:s.edition||entry.edition,sources:entry.sources,checkedAt:catalog.checkedAt}));
+  return entry.scopes.filter(s=>(!s.stageIds||s.stageIds.includes(stageId))&&(!selected.length||selected.length===1&&(s.level===selected[0]||s.levelAliases?.includes(selected[0])))).map(s=>({...s,total:s.parts.reduce((n,p)=>n+p.count,0),unit:s.unit||entry.unit||'本',edition:s.edition||entry.edition,sources:s.sources||entry.sources,checkedAt:catalog.checkedAt}));
 }
 function unitBooks(record){const meta=json(record?.note);return meta?.version===1&&meta.books?.version===1?meta.books:null;}
 function partKey(key,identity){let hash=2166136261;for(const c of identity)hash=Math.imul(hash^c.charCodeAt(0),16777619);return key+':p'+(hash>>>0).toString(36);}
@@ -93,13 +93,13 @@ function expandBookUnits(unit,levels,catalog,record){
   const canChooseEdition=entry?.recordingLevels?sourceLevels.length>0&&sourceLevels.every(level=>entry.recordingLevels.includes(level)):!sourceLevels.length;
   const editions=canChooseEdition?entry?.recordingEditions:[];
   const edition=editions?.find(e=>e.id===meta?.recordingEdition)||(old?.edition&&editions?.find(e=>{const scope=entry.scopes.find(s=>s.id===e.scopeId);return scope&&(scope.edition||entry.edition)===old.edition;}))||editions?.find(e=>e.default)||editions?.[0];
-  const scope=edition?bookScopes(unit.resourceId,[],catalog).find(s=>s.id===edition.scopeId):unit.bookScopes.find(s=>s.default);
+  const scope=edition?bookScopes(unit.resourceId,[],catalog,unit.stageId).find(s=>s.id===edition.scopeId):unit.bookScopes.find(s=>s.default);
   if(scope&&(scope.parts.length>1||edition))return scope.parts.map(part=>{
     const title=scope.title||unit.item.resource.title,identity=JSON.stringify([scope.edition,part.label]);
     const partScope={id:partKey('part',identity),label:part.label,total:part.count,edition:scope.edition,origin:'catalog'};
     return {...unit,key:partKey(unit.key,identity),parentKey:unit.key,label:title+' · '+part.label,partTitle:title,partScope,editionId:edition?.id,editionOptions:editions||[],recordingNote:edition?entry.recordingNote:'',bookScopes:[]};
   });
-  if(levels.length>1)return levels.map(level=>({...unit,key:partKey(unit.key,level.id),parentKey:unit.key,label:unit.item.resource.title+' · '+level.label,partLevel:level,bookScopes:bookScopes(unit.resourceId,[level.label],catalog)}));
+  if(levels.length>1)return levels.map(level=>({...unit,key:partKey(unit.key,level.id),parentKey:unit.key,label:unit.item.resource.title+' · '+level.label,partLevel:level,bookScopes:bookScopes(unit.resourceId,[level.label],catalog,unit.stageId)}));
   return [unit];
 }
 function materialRecord(records,unit){
@@ -114,7 +114,11 @@ function validBookScope(scope){return scope&&typeof scope.id==='string'&&scope.i
 function unitBookScopeUpdate(scope,record){
   if(scope!==null&&!validBookScope(scope))throw new Error('请填写选用范围和1–10000本的总数。');
   const meta=json(record?.note),previous=meta?.version===1?meta:{text:record?.note||''},old=unitBooks(record);
-  const books=scope?{version:1,mode:'count',scopeId:scope.id,label:scope.label,total:scope.total,edition:scope.edition||'',origin:scope.origin||'catalog',completed:old?.mode==='count'&&old.scopeId===scope.id&&old.total===scope.total&&old.label===scope.label&&old.edition===(scope.edition||'')?old.completed:null}:{version:1,mode:'percent'};
+  // 用户为原来只记数量的同一条目补选范围时，保留已有数量；已确定的不同版本仍隔离。
+  const sameScope=old?.mode==='count'&&old.scopeId===scope?.id&&old.total===scope?.total&&old.label===scope?.label&&old.edition===(scope?.edition||'');
+  if(scope&&old?.mode==='count'&&old.total===null&&Number.isInteger(old.completed)&&old.completed>scope.total)throw new Error('已记数量大于这个选本的总量，请核对版本或先修改数量。');
+  const addingTotal=old?.mode==='count'&&old.total===null&&old.unit===(scope?.unit||'本')&&Number.isInteger(old.completed)&&old.completed<=scope?.total;
+  const books=scope?{version:1,mode:'count',scopeId:scope.id,label:scope.label,total:scope.total,edition:scope.edition||'',origin:scope.origin||'catalog',completed:sameScope||addingTotal?old.completed:null}:{version:1,mode:'percent'};
   // 换范围不反推已读本数、不改变原百分比；用户填写本数后才开始按新分母计算。
   return {...record,status:record?.status||'not-started',note:JSON.stringify({...previous,version:1,books})};
 }
@@ -127,7 +131,7 @@ function unitBookProgressUpdate(completed,scope,record){
 function quantityUnit(type){return ({animation:'集',song:'首',flashcard:'张',book:'本',reader:'本'})[type]||'个';}
 function quantityRecord(record,scope,unit='个'){
   const books=unitBooks(record),total=scope?.total??null;
-  const matches=books?.mode==='count'&&(scope?books.total===total&&books.label===scope.label&&books.edition===(scope.edition||''):books.total===null&&books.unit===unit);
+  const matches=books?.mode==='count'&&(scope?(books.total===total&&books.label===scope.label&&books.edition===(scope.edition||''))||(scope.countOnlyCompatible&&books.total===null&&books.unit===(scope.unit||unit)):books.total===null&&books.unit===unit);
   const completed=matches&&Number.isInteger(books.completed)?books.completed:0;
   const percent=total===null?null:completed===total?100:Math.min(99,Math.round(completed/total*100));
   return {completed,total,unit:scope?.unit||unit,percent,status:total!==null&&completed===total?'done':completed>0?'using':'not-started'};
@@ -141,7 +145,10 @@ function unitQuantityProgressUpdate(completed,scope,record,unit='个'){
 function groupQuantity(record,children){
   const unit=children[0]?.unit||'个',total=children.length&&children.every(c=>c.total!==null&&c.unit===unit)?children.reduce((n,c)=>n+c.total,0):null;
   const id=partKey('group',JSON.stringify(children.map(c=>[c.key,c.total,c.unit,c.scopeIdentity||'']))),meta=json(record?.note);
-  const childCompleted=children.reduce((n,c)=>n+c.completed,0),saved=meta?.version===1?meta.quantityRollup?.groups?.[id]?.completed:0;
+  // 同一原文范围首次补齐分母时，可回显旧的无分母总项；不同版次不沿用。
+  const legacyId=children.length&&children.every(c=>c.countOnlyCompatible)?partKey('group',JSON.stringify(children.map(c=>[c.key,null,c.unit,'']))):null;
+  const groups=meta?.version===1?meta.quantityRollup?.groups:null;
+  const childCompleted=children.reduce((n,c)=>n+c.completed,0),saved=groups?.[id]?.completed??(legacyId?groups?.[legacyId]?.completed:0);
   const directCompleted=Number.isSafeInteger(saved)&&saved>=0?saved:0,completed=Math.max(directCompleted,childCompleted);
   const percent=total===null?null:completed>=total?100:Math.min(99,Math.round(completed/total*100));
   return {id,unit,total,completed,childCompleted,directCompleted,percent,status:total!==null&&completed>=total?'done':completed>0?'using':'not-started'};
