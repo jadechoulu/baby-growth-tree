@@ -1,12 +1,12 @@
 import { localDateString } from './lib/model.mjs';
-import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-popover';
+import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-suggestions';
 import { HEALTH_PROGRESSION, healthGraph } from './lib/health-progression.mjs?v=20261104-browse-stages';
 import { layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { HEALTH_DOMAINS, HEALTH_MONTHS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, undoHealthChange, nextHealthItems, OBSERVATION_LABELS, emptyHealth, referenceMonth, filterHealth, observationStats, validateHealthBackup } from './lib/health-model.mjs?v=20261103-status';
 
 const M = window.XiaoyaSyncModel;
 const profile = window.XiaoyaBabyProfile.createClient();
-const state = { view: 'month', month: 1, domain: 'gross', status: 'all', search: '', limit: 8, focus: null, graphMode: 'lineage', zoom: window.matchMedia('(max-width:900px)').matches ? .7 : .85, expanded: false };
+const state = { view: 'month', month: 1, domain: 'gross', status: 'all', search: '', focus: null, graphMode: 'lineage', zoom: window.matchMedia('(max-width:900px)').matches ? .7 : .85, expanded: false };
 let source, shell, sync, store, snapshot = null, writing = false, notice = '', detail, lastUndo = null;
 let saveError = false, graphLegendOpen = false;
 let storageProblem = '';
@@ -62,7 +62,7 @@ function navigate(id) {
   if (id === 'backup') { openBackup(); return; }
   if (id === 'profile') { openProfile(); return; }
   if (id.startsWith('stage:')) { state.view = 'month'; changeStage(HEALTH_STAGES.find(stage => stage.id === id.slice(6))); window.scrollTo(0, 0); return; }
-  state.view = id; state.limit = 8;
+  state.view = id;
   state.search = ''; state.expanded = false; state.status = 'all';
   if (id === 'month') { state.month = referenceMonth(profile.get().birthDate); state.focus = null; }
   if (id !== 'month' && state.domain === 'all') state.domain = 'gross';
@@ -134,7 +134,7 @@ function domainPicker() {
   return section;
 }
 function changeStage(stage) {
-  state.month = HEALTH_MONTHS.find(month => month >= stage.min); state.focus = null; state.search = ''; state.limit = 8; state.expanded = false; render();
+  state.month = HEALTH_MONTHS.find(month => month >= stage.min); state.focus = null; state.search = ''; state.expanded = false; render();
 }
 function monthPicker() {
   const row = node('div', 'health-month-picker');
@@ -225,7 +225,7 @@ function render() {
   if (state.view === 'overview' && !source.items.some(item => item.id === state.focus && item.domain === state.domain)) state.graphMode = 'overview';
   const searchOpen = skillSearchControl?.isOpen();
   skillSearchControl?.destroy(); skillSearchControl = null;
-  if (state.search.trim() || state.view === 'next') state.expanded = false;
+  if (state.view === 'next') state.expanded = false;
   document.body.classList.toggle('health-graph-open', state.expanded);
   const oldViewport = document.querySelector('.health-lineage-viewport');
   const oldScroll = oldViewport && { left: oldViewport.scrollLeft, top: oldViewport.scrollTop, key: oldViewport.dataset.key, width: Number(oldViewport.dataset.layoutWidth) };
@@ -265,7 +265,7 @@ function render() {
   }
   const toolbar = node('div', 'health-toolbar' + (state.view === 'next' ? ' health-next-search' : ''));
   const statuses = node('div', 'health-status-tabs'); statuses.setAttribute('role', 'group'); statuses.setAttribute('aria-label', '观察状态筛选');
-  const pool = state.view === 'next' ? nextHealthItems(source.items, records(), currentStage()) : state.search.trim() || state.view === 'overview' ? source.items : stageHealthItems(source.items, selectedStage());
+  const pool = state.view === 'next' ? nextHealthItems(source.items, records(), currentStage()) : state.view === 'overview' ? source.items : stageHealthItems(source.items, selectedStage());
   const domainItems = pool.filter(item => state.domain === 'all' || state.domain === item.domain);
   const statusOptions = [['all', '全部'], ['exploring', '探索中'], ['observed', '已完成']];
   for (const [id, label] of statusOptions) {
@@ -276,32 +276,46 @@ function render() {
   if (state.view !== 'next') toolbar.append(statuses);
   const search = node('input', 'health-search'); search.type = 'search'; search.placeholder = '搜索技能'; search.title = '搜索项目、方法或编号'; search.setAttribute('aria-label', state.view === 'next' ? '搜索下一步待探索项目' : '搜索本版本全部月龄项目'); search.value = state.search;
   search.id = 'health-search';
-  const updateSearch = () => {
-    if (state.search === search.value) return;
-    state.search = search.value; state.limit = 8; renderResults(); saveView();
-  };
-  search.addEventListener('input', event => { if (!event.isComposing) updateSearch(); });
-  search.addEventListener('compositionend', updateSearch);
   const searchBox = node('div', 'health-search-box');
-  const clear = iconButton('close', '清除搜索和状态筛选', () => { state.search = ''; state.status = 'all'; render(); document.getElementById('health-search')?.focus(); }); clear.id = 'health-clear-filters';
+  const clear = iconButton('close', '清除搜索和状态筛选', () => {
+    state.search = ''; search.value = ''; skillSearchControl?.update(); saveView();
+    if (state.status !== 'all') { state.status = 'all'; render(); }
+    document.getElementById('health-search')?.focus();
+  }); clear.id = 'health-clear-filters';
   searchBox.append(search, clear); toolbar.append(searchBox); main.append(toolbar);
   main.append(node('div', 'health-results'));
   const footer = node('footer', 'health-footer');
   footer.append(node('p', '', 'R 可询问家长 · * 原文注明未通过需引起注意。'), node('p', '', '家庭观察记录 · 原始月龄与测查条件见项目详情。'));
   main.append(footer); shell.content.replaceChildren(main); renderResults(oldScroll);
-  if (state.view !== 'next') skillSearchControl = mountGrowthSearch(toolbar, { box: searchBox, input: search, filters: statuses, open: searchOpen });
+  skillSearchControl = mountGrowthSearch(toolbar, {
+    box: searchBox, input: search, filters: state.view === 'next' ? null : statuses, open: searchOpen,
+    onQuery(value) {
+      state.search = value; saveView();
+      clear.disabled = !value.trim() && state.status === 'all';
+    },
+    getSuggestions(query) {
+      const pool = state.view === 'next' ? nextHealthItems(source.items, records(), currentStage()) : source.items;
+      return filterHealth(pool, records(), { domain: state.domain, status: state.status, search: query }).map(item => ({
+        id: item.id, title: item.title,
+        meta: `${healthStage(item.month).label} · ${HEALTH_DOMAINS.find(domain => domain.id === item.domain).label} · 标准 ${item.month} 月龄`,
+      }));
+    },
+    onSelect(match) {
+      graphViewportAction = 'focus'; showLineage(source.items.find(item => item.id === match.id));
+      document.getElementById('health-focus')?.focus({ preventScroll: true });
+    },
+  });
 }
 function renderResults(previousScroll) {
   const target = document.querySelector('.health-results');
   if (!target) return;
   const oldViewport = target.querySelector('.health-lineage-viewport');
   const oldScroll = previousScroll || oldViewport && { left: oldViewport.scrollLeft, top: oldViewport.scrollTop, key: oldViewport.dataset.key, width: Number(oldViewport.dataset.layoutWidth) };
-  const searchAll = Boolean(state.search.trim()), stage = state.view === 'next' ? currentStage() : selectedStage();
+  const stage = state.view === 'next' ? currentStage() : selectedStage();
   const toolbar = document.querySelector('.health-toolbar');
-  const complete = document.querySelector('.health-stage-controls .health-stage-complete'); if (complete) complete.hidden = searchAll;
-  document.getElementById('health-clear-filters').disabled = !searchAll && state.status === 'all';
-  const statusPool = state.view === 'next' ? nextHealthItems(source.items, records(), stage) : searchAll || state.view === 'overview' ? source.items : stageHealthItems(source.items, stage);
-  for (const button of document.querySelectorAll('.health-status-tabs [data-status]')) button.querySelector('small').textContent = filterHealth(statusPool, records(), { domain: state.domain, status: button.dataset.status, search: state.search }).length;
+  document.getElementById('health-clear-filters').disabled = !state.search.trim() && state.status === 'all';
+  const statusPool = state.view === 'next' ? nextHealthItems(source.items, records(), stage) : state.view === 'overview' ? source.items : stageHealthItems(source.items, stage);
+  for (const button of document.querySelectorAll('.health-status-tabs [data-status]')) button.querySelector('small').textContent = filterHealth(statusPool, records(), { domain: state.domain, status: button.dataset.status }).length;
   // 搜索栏及其祖先保持连接，避免打断输入法、光标或原生搜索气泡。
   let listSection = target.querySelector('.health-list-section');
   if (!listSection) {
@@ -315,15 +329,14 @@ function renderResults(previousScroll) {
   const toolbarHost = state.view === 'next' ? listSection.querySelector('.health-next-summary') : toolbar;
   for (const child of [...listSection.children]) if (child !== toolbarHost) child.remove();
   window.XiaoyaSite.balanceSkillLists([]);
-  if (state.view === 'overview' && !searchAll) { listSection.removeAttribute('aria-label'); renderLineage(target, oldScroll); return; }
+  if (state.view === 'overview') { listSection.removeAttribute('aria-label'); renderLineage(target, oldScroll); return; }
   const pool = state.view === 'next' ? nextHealthItems(source.items, records(), stage)
-    : state.view === 'month' && !searchAll ? stageHealthItems(source.items, stage) : source.items;
-  const items = filterHealth(pool, records(), { ...state, month: undefined });
+    : state.view === 'month' ? stageHealthItems(source.items, stage) : source.items;
+  const items = filterHealth(pool, records(), { ...state, month: undefined, search: '' });
   listSection.setAttribute('aria-label', state.view === 'next' ? '下一步待探索项目' : stage.label + '技能清单');
   if (state.view === 'next') toolbarHost.querySelector('span').textContent = `${HEALTH_DOMAINS.find(domain => domain.id === state.domain)?.label || '全部能区'} · ${items.length} 项可探索`;
-  if (searchAll && state.view !== 'next') listSection.append(node('h2', 'health-search-heading', `全月龄搜索 · ${items.length} 项`));
   // 宽屏与毛老师版相同：先图谱再清单；窄屏先读清单，完整图谱在后。
-  const graphFirst = state.view === 'month' && !searchAll && !window.matchMedia('(max-width:900px)').matches;
+  const graphFirst = state.view === 'month' && !window.matchMedia('(max-width:900px)').matches;
   if (graphFirst) {
     renderLineage(target, oldScroll);
     target.insertBefore(target.querySelector('.health-lineage'), listSection);
@@ -334,35 +347,26 @@ function renderResults(previousScroll) {
     renderNext(listSection, items, stage);
   } else {
     const list = node('div', 'health-groups');
-    if (!searchAll) {
-      for (const domain of HEALTH_DOMAINS) {
-        const groupItems = items.filter(item => item.domain === domain.id); if (!groupItems.length) continue;
-        const group = node('details', 'health-group'); group.dataset.domain = domain.id;
-        const key = `${state.view}:${stage.id}:${domain.id}`;
-        group.open = expandedGroups.get(key) ?? false;
-        group.addEventListener('toggle', () => { if (group.isConnected) expandedGroups.set(key, group.open); });
-        const title = node('summary', 'health-group-heading');
-        const fullGroup = stageHealthItems(source.items, stage).filter(item => item.domain === domain.id);
-        title.append(node('strong', '', domain.label), node('span', '', `${observationStats(fullGroup, records()).observed} / ${fullGroup.length}`)); title.title = '展开或收起技能清单'; group.append(title);
-        if (state.view === 'month' && !searchAll) {
-          title.classList.add('health-group-with-actions');
-          title.append(stageCompleteButton(stage, domain));
-        }
-        const rows = node('div', 'health-items');
-        rows.append(...groupItems.map(item => itemRow(item))); group.append(rows);
-        list.append(group);
+    for (const domain of HEALTH_DOMAINS) {
+      const groupItems = items.filter(item => item.domain === domain.id); if (!groupItems.length) continue;
+      const group = node('details', 'health-group'); group.dataset.domain = domain.id;
+      const key = `${state.view}:${stage.id}:${domain.id}`;
+      group.open = expandedGroups.get(key) ?? false;
+      group.addEventListener('toggle', () => { if (group.isConnected) expandedGroups.set(key, group.open); });
+      const title = node('summary', 'health-group-heading');
+      const fullGroup = stageHealthItems(source.items, stage).filter(item => item.domain === domain.id);
+      title.append(node('strong', '', domain.label), node('span', '', `${observationStats(fullGroup, records()).observed} / ${fullGroup.length}`)); title.title = '展开或收起技能清单'; group.append(title);
+      if (state.view === 'month') {
+        title.classList.add('health-group-with-actions');
+        title.append(stageCompleteButton(stage, domain));
       }
-    } else {
-      const stages = HEALTH_STAGES.filter(stage => stageHealthItems(items, stage).length);
-      for (const stage of stages.slice(0, state.limit)) {
-        const group = node('section', 'health-group'); group.append(node('h3', '', stage.label));
-        const rows = node('div', 'health-items'); rows.append(...stageHealthItems(items, stage).map(item => itemRow(item, { showStage: true }))); group.append(rows); list.append(group);
-      }
-      if (stages.length > state.limit) list.append(btn(`继续查看 · 还有 ${stages.length - state.limit} 个阶段`, () => { state.limit += 8; renderResults(); }, 'health-button health-more'));
+      const rows = node('div', 'health-items');
+      rows.append(...groupItems.map(item => itemRow(item))); group.append(rows);
+      list.append(group);
     }
     listSection.append(list);
   }
-  if (state.view === 'month' && !searchAll) {
+  if (state.view === 'month') {
     if (!graphFirst) renderLineage(target, oldScroll);
   }
   if (state.view === 'next') listSection.append(node('p', 'health-next-hint', '保留当前及此前未观察项目，各能区从最新观察月龄继续下一组；同组其余项目也会保留。月龄顺序不是能力前置条件。'));

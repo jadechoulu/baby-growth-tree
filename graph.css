@@ -532,6 +532,7 @@
 .growth-search-trigger { display:none; }
 .site-enabled :is(.growth-content,.health-content) .growth-search-toolbar { display:grid; grid-template-columns:max-content minmax(0,320px); justify-content:space-between; align-items:center; gap:8px; }
 .site-enabled :is(.growth-content,.health-content) .growth-search-toolbar.is-compact-search { display:grid; grid-template-columns:max-content 32px; justify-content:space-between; align-items:center; gap:8px; }
+.site-enabled :is(.growth-content,.health-content) .growth-search-toolbar:has(> .growth-search:only-child) { grid-template-columns:minmax(0,1fr); }
 .is-compact-search .growth-search-trigger { display:grid; place-items:center; width:32px; height:32px; padding:7px; border:1px solid var(--site-border); border-radius:6px; background:var(--site-surface); color:var(--site-accent); }
 .growth-search-trigger .site-icon { width:16px; height:16px; }
 .growth-search-trigger.has-query { background:var(--site-accent-soft); box-shadow:inset 0 -3px var(--site-accent); }
@@ -544,6 +545,12 @@
 .site-enabled .health-content .growth-search-panel .health-search { width:100%; height:32px; min-height:32px; padding:3px 28px 3px 7px; }
 .site-enabled .health-content .growth-search-panel .health-icon { position:absolute; right:0; top:0; width:28px; height:32px; min-height:32px; padding:6px; }
 .growth-search-trigger:focus-visible { outline:2px solid var(--site-accent); outline-offset:2px; }
+.growth-search-suggestions { position:fixed; inset:auto; margin:0; padding:4px; box-sizing:border-box; overflow:auto; overscroll-behavior:contain; border:1px solid var(--site-border); border-radius:8px; background:var(--site-surface); color:var(--site-text); box-shadow:0 6px 24px #24345224; }
+.growth-search-suggestions:not(:popover-open) { display:none; }
+.growth-search-matches { padding:5px 7px; font-size:12px; color:var(--site-muted); }
+.growth-search-option { display:flex; flex-direction:column; gap:2px; padding:7px; border-radius:5px; cursor:pointer; font-size:14px; line-height:1.5; overflow-wrap:anywhere; }
+.growth-search-option small { font-size:12px; color:var(--site-muted); }
+.growth-search-option:hover,.growth-search-option[aria-selected="true"] { background:var(--site-accent-soft); outline:1px solid var(--site-accent); outline-offset:-1px; }
 @media(max-width:420px) {
   .site-enabled .stage-picker-controls { gap: 3px; }
   .site-enabled .stage-select-label select { padding-left: 6px; padding-right: 20px; }
