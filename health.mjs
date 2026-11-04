@@ -1,7 +1,7 @@
 import { localDateString } from './lib/model.mjs';
 import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-popover';
 import { HEALTH_PROGRESSION, healthGraph } from './lib/health-progression.mjs?v=20261104-browse-stages';
-import { layoutGraph } from './lib/graph.mjs?v=20261103-health-stages';
+import { layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { HEALTH_DOMAINS, HEALTH_MONTHS, HEALTH_STAGES, healthStage, stageHealthItems, completeHealthStage, undoHealthChange, nextHealthItems, OBSERVATION_LABELS, emptyHealth, referenceMonth, filterHealth, observationStats, validateHealthBackup } from './lib/health-model.mjs?v=20261103-status';
 
 const M = window.XiaoyaSyncModel;
@@ -417,29 +417,19 @@ function renderLineage(target, oldScroll) {
       if (group.children.length) select.append(group);
     }
     select.value = focused?.id || '';
+    select.title = focused?.title || '全部技能';
     select.addEventListener('change', () => { const item = source.items.find(item => item.id === select.value); state.focus = item?.id || null; if (item) state.month = item.month; state.status = 'all'; render(); document.getElementById('health-focus')?.focus(); });
     const clear = iconButton('close', '清除技能定位，查看整个领域', () => { state.focus = null; state.graphMode = 'overview'; render(); document.getElementById('health-focus')?.focus(); }); clear.disabled = !focused;
     picker.append(label, select, clear); controls.append(modes, picker); section.append(controls);
   }
-  const strip = node('div', state.view === 'month' ? 'stage-lineage-focus' : 'health-focus-strip' + (focused ? '' : ' is-overview'));
   let clearStageFocus;
-  if (focused) {
-    const copy = node(state.view === 'month' ? 'span' : 'div');
-    if (state.view === 'month') {
-      const clear = iconButton('close', '清除当前技能追踪', () => {
-        state.focus = ''; render();
-        document.querySelector('.health-lineage-viewport')?.focus({ preventScroll: true });
-      });
-      clear.classList.add('stage-lineage-clear');
-      clearStageFocus = clear;
-    }
-    else copy.append(node('small', '', `正在追踪 · ${healthStage(focused.month).label}`), node('strong', '', focused.title));
-    strip.append(copy);
+  if (state.view === 'month' && focused) {
+    clearStageFocus = iconButton('close', '清除当前技能追踪', () => {
+      state.focus = ''; render();
+      document.querySelector('.health-lineage-viewport')?.focus({ preventScroll: true });
+    });
+    clearStageFocus.classList.add('stage-lineage-clear');
   }
-  const stats = observationStats(graph.nodes, records());
-  const counts = node('span', state.view === 'month' ? 'stage-lineage-counts' : '', `${state.view !== 'month' && focused ? `${graph.relation.ancestors.length} 项上游 · ${graph.relation.descendants.length} 项后续 · ` : ''}${stats.observed}/${stats.total} 已完成`);
-  if (state.view !== 'month') strip.append(counts);
-  if (state.view !== 'month') section.append(strip);
   const workspace = node('div', 'graph-workspace'), toolbar = node('div', 'graph-toolbar'), tools = node('div', 'graph-tools'); tools.setAttribute('role', 'group'); tools.setAttribute('aria-label', '图谱工具栏');
   const zoomTools = node('div', 'graph-zoom-tools'), viewTools = node('div', 'graph-view-tools');
   const zoomLabel = node('output', '', `${Math.round(state.zoom * 100)}%`); zoomLabel.setAttribute('aria-label', '画布缩放比例');
@@ -465,6 +455,8 @@ function renderLineage(target, oldScroll) {
   if (clearStageFocus) viewTools.append(clearStageFocus);
   tools.append(zoomTools, viewTools);
   if (state.view === 'month') {
+    const stats = observationStats(graph.nodes, records());
+    const counts = node('span', 'stage-lineage-counts', `${stats.observed}/${stats.total} 已完成`);
     counts.title = '当前图中全部技能的完成进度（含其他月龄）';
     section.querySelector('.lineage-title-row')?.append(counts);
   }
@@ -494,7 +486,9 @@ function renderLineage(target, oldScroll) {
     const group = document.createElementNS(ns, 'g'); group.setAttribute('class', `graph-edge-group edge-${edge.kind}`); group.dataset.from = edge.from; group.dataset.to = edge.to;
     const path = document.createElementNS(ns, 'path'); path.setAttribute('class', 'graph-edge'); path.setAttribute('d', edge.path); path.setAttribute('stroke', colors[edge.kind]); path.setAttribute('marker-end', `url(#graph-arrow-${edge.kind})`);
     const title = document.createElementNS(ns, 'title'), evidence = HEALTH_PROGRESSION.find(value => value.from === edge.from && value.to === edge.to); title.textContent = evidence.reason;
-    group.append(title, path); svg.append(group);
+    const halo = document.createElementNS(ns, 'path');
+    halo.setAttribute('class', 'graph-edge-halo'); halo.setAttribute('d', edge.path);
+    group.append(title, halo, path); svg.append(group);
   }
   board.append(svg, ...layout.nodes.map(position => graphItem(graph.catalog.find(item => item.id === position.id), position, graph, focused)));
   space.append(board); viewport.append(space); workspace.append(viewport);

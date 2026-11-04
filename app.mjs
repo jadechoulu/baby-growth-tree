@@ -1,5 +1,5 @@
 import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
-import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
+import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
 import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
@@ -722,15 +722,13 @@ function treeView() {
   if (state.treeMode === 'overview') graph.edges = graph.edges.map(edge => ({ ...edge, kind: relationEdges.get(`${edge.from}:${edge.to}`) || (edge.kind === 'supporting' ? 'supporting' : 'neutral') }));
   const layout = layoutGraph(graph.nodes, graph.edges);
   currentGraph = { ...graph, layout, relations, focusId: hasFocus ? skill.id : null, key: 'tree' };
-  const stats = getStats(graph.nodes, state.records);
   return html`<section class="lineage-view domain-${domain.id}">
     <header class="lineage-header"><div><span class="lineage-eyebrow">小技能，大脉络</span><h1>成长的来龙去脉，一眼看懂<span>。</span></h1><p>从哪一步走来，再向哪里生长。点一个技能，顺着箭头一路看下去。</p></div><span class="lineage-header-icon">${icon('tree')}</span></header>
     <div class="lineage-domains" role="group" aria-label="技能树领域">${DOMAINS.map(item => html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-tree-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>${catalog.filter(node => node.domain === item.id).length} 个技能</span></button>`)}</div>
-    <div class="lineage-controls graph-reading-controls"><div class="graph-mode-tabs" role="group" aria-label="脉络查看范围"><button data-tree-mode="lineage" aria-label="这项技能的完整脉络" title="这项技能的完整脉络" class="${state.treeMode === 'lineage' ? 'active' : ''}" aria-pressed="${state.treeMode === 'lineage'}">${icon('tree')}<span>单项脉络</span></button><button data-tree-mode="overview" aria-label="整个领域全景" title="整个领域全景" class="${state.treeMode === 'overview' ? 'active' : ''}" aria-pressed="${state.treeMode === 'overview'}">${icon('fit')}<span>领域全景</span></button></div><div class="lineage-picker"><label for="tree-focus">定位技能</label><div class="lineage-focus-input"><select id="tree-focus" aria-label="定位技能"><option value="" selected="${!hasFocus}">全部技能</option>${STAGES.map(stage => {
+    <div class="lineage-controls graph-reading-controls"><div class="graph-mode-tabs" role="group" aria-label="脉络查看范围"><button data-tree-mode="lineage" aria-label="这项技能的完整脉络" title="这项技能的完整脉络" class="${state.treeMode === 'lineage' ? 'active' : ''}" aria-pressed="${state.treeMode === 'lineage'}">${icon('tree')}<span>单项脉络</span></button><button data-tree-mode="overview" aria-label="整个领域全景" title="整个领域全景" class="${state.treeMode === 'overview' ? 'active' : ''}" aria-pressed="${state.treeMode === 'overview'}">${icon('fit')}<span>领域全景</span></button></div><div class="lineage-picker"><label for="tree-focus">定位技能</label><div class="lineage-focus-input"><select id="tree-focus" aria-label="定位技能" title="${hasFocus ? skill.title : '全部技能'}"><option value="" selected="${!hasFocus}">全部技能</option>${STAGES.map(stage => {
       const items = catalog.filter(item => item.domain === domain.id && item.stage === stage.id);
       return items.length ? html`<optgroup label="${stage.label}">${items.map(item => html`<option value="${item.id}" selected="${hasFocus && item.id === skill.id}">${item.title}</option>`)}</optgroup>` : '';
     })}</select><button type="button" class="lineage-clear" data-action="clear-tree-focus" aria-label="清除技能筛选，查看整个领域" title="清除技能筛选" disabled="${!hasFocus && state.treeCategory === 'all'}">${icon('close')}</button></div></div>${state.treeMode === 'overview' ? html`<label class="lineage-picker branch-picker"><span>能力分支</span><select id="tree-category" aria-label="选择技能分支"><option value="all" selected="${state.treeCategory === 'all'}">全部分支</option>${categories.map(category => html`<option value="${category}" selected="${state.treeCategory === category}">${category}</option>`)}</select></label>` : ''}</div>
-    <div class="focus-strip"><span class="focus-strip-icon">${icon(domain.id)}</span><div><span class="focus-strip-kicker">${hasFocus ? `正在追踪 · ${skillStageLabel(skill)}` : '整个领域全景'}</span><h2>${hasFocus ? skill.title : domain.label}</h2></div><div class="trace-counts">${hasFocus ? html`<span><strong>${relations.ancestors.length}</strong> 项上游</span><span><strong>${relations.descendants.length}</strong> 项后续</span>` : ''}<span><strong>${stats.completed}/${stats.total}</strong> 已完成</span></div></div>
     ${graphWorkspace(graph, layout, relations, categories)}
     <p class="lineage-footnote">${icon('info')} 脉络来自原始图谱的发展关系，支持跨年龄、跨分支查看；前序尚未标注，也可以记录后续技能。</p>
   </section>`;
@@ -921,7 +919,9 @@ function drawTree() {
     path.setAttribute('marker-end', `url(#graph-arrow-${edge.kind})`);
     const title = document.createElementNS(ns, 'title');
     title.textContent = `${catalog.find(item => item.id === edge.from).title} → ${catalog.find(item => item.id === edge.to).title}`;
-    group.append(title, path);
+    const halo = document.createElementNS(ns, 'path');
+    halo.setAttribute('class', 'graph-edge-halo'); halo.setAttribute('d', edge.path);
+    group.append(title, halo, path);
     svg.append(group);
   }
 }

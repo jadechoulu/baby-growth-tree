@@ -256,3 +256,60 @@ test('空图可正常显示，循环依赖提供明确错误', () => {
     { from: 'a', to: 'b' }, { from: 'b', to: 'a' },
   ]), /技能依赖存在循环/);
 });
+
+function assertSeparatedEdges(layout) {
+  const segments = layout.edges.flatMap(edge => {
+    const coordinates = edge.path.match(/-?\d+(?:\.\d+)?/g).map(Number);
+    const result = [];
+    for (let index = 2; index < coordinates.length; index += 2) {
+      const [x1, y1, x2, y2] = coordinates.slice(index - 2, index + 2);
+      if (x1 === x2 && y1 === y2) continue;
+      result.push({ edge, vertical: x1 === x2, fixed: x1 === x2 ? x1 : y1,
+        start: Math.min(x1 === x2 ? y1 : x1, x1 === x2 ? y2 : x2),
+        end: Math.max(x1 === x2 ? y1 : x1, x1 === x2 ? y2 : x2) });
+    }
+    return result;
+  });
+  for (let index = 0; index < segments.length; index += 1) {
+    const a = segments[index];
+    for (const b of segments.slice(index + 1)) {
+      if (a.edge === b.edge || a.vertical !== b.vertical || Math.abs(a.fixed - b.fixed) > .02) continue;
+      assert.ok(Math.min(a.end, b.end) - Math.max(a.start, b.start) < .02,
+        `${a.edge.from}→${a.edge.to} 与 ${b.edge.from}→${b.edge.to} 不能共用线段`);
+    }
+  }
+}
+
+test('两版全部领域及每项完整脉络的连线均不共用水平或垂直线段', async () => {
+  const { healthGraph } = await import('../lib/health-progression.mjs');
+  const { HEALTH_STAGES, HEALTH_DOMAINS } = await import('../lib/health-model.mjs');
+  const { items } = JSON.parse(await readFile(new URL('../data/health-standard.json', import.meta.url)));
+  for (const domain of DOMAINS) {
+    const graph = getBranchGraph(catalog, domain.id);
+    assertSeparatedEdges(layoutGraph(graph.nodes, graph.edges));
+  }
+  for (const skill of catalog) {
+    const graph = getSkillRelations(catalog, skill.id);
+    assertSeparatedEdges(layoutGraph(graph.nodes, graph.edges));
+  }
+  for (const stage of STAGES) {
+    for (const domain of DOMAINS) {
+      const graph = getStageGraph(catalog, stage.id, domain.id);
+      assertSeparatedEdges(layoutGraph(graph.nodes, graph.edges));
+    }
+  }
+  for (const domain of HEALTH_DOMAINS) {
+    const graph = healthGraph(items, { domain: domain.id, mode: 'overview' });
+    assertSeparatedEdges(layoutGraph(graph.nodes, graph.edges, HEALTH_STAGES));
+  }
+  for (const stage of HEALTH_STAGES) {
+    for (const domain of HEALTH_DOMAINS) {
+      const graph = healthGraph(items, { domain: domain.id, stage });
+      assertSeparatedEdges(layoutGraph(graph.nodes, graph.edges, HEALTH_STAGES));
+    }
+  }
+  for (const item of items) {
+    const graph = healthGraph(items, { domain: item.domain, focus: item.id });
+    assertSeparatedEdges(layoutGraph(graph.nodes, graph.edges, HEALTH_STAGES));
+  }
+});

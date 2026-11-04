@@ -103,6 +103,7 @@
 .graph-age-band > span { position: absolute; left: 14px; top: 19px; color: #80628f; font-size: 14px; font-weight: 600; display: flex; gap: 9px; align-items: center; }
 .graph-age-band small { font-size: 10px; color: #976b13; padding: 4px 6px; border-radius: 4px; background: #ffe7a2; font-weight: 450; }
 #graph-edges { position: absolute; inset: 0; z-index: 1; overflow: visible; pointer-events: none; }
+.graph-edge-halo { fill: none; stroke: var(--site-surface, #fffdf8); stroke-width: 7; stroke-linejoin: round; stroke-linecap: round; }
 .graph-edge { fill: none; stroke-width: 2.8; stroke-linejoin: round; stroke-linecap: round; }
 .edge-supporting .graph-edge { stroke-dasharray: 5 5; stroke-width: 2.3; }
 .edge-neutral .graph-edge { stroke-width: 1.8; }
@@ -447,6 +448,7 @@
   .next-step-header > :is(.section-kicker,p), .next-age-legend small { display: none; }
   .site-enabled .growth-content .lineage-domains { margin: 10px 0; gap: 6px; }
   .site-enabled .growth-content .lineage-domain { min-height: 44px; padding: 8px; }
+  .site-enabled .growth-content .lineage-domain > .icon { display: none; }
   .site-enabled .growth-content :is(.lineage-controls,.focus-strip) { margin: 10px 0; gap: 8px; }
   .site-enabled .growth-content .next-age-legend { gap: 4px 6px; margin-bottom: 8px; }
   .site-enabled .growth-content .next-results-summary { margin: 8px 0; font-size: 12px; }
