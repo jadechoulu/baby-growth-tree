@@ -2,7 +2,7 @@
   "version": 1,
   "checkedAt": "2026-11-04",
   "unit": "本读物",
-  "policy": "出版书目用于核算选用范围，不补造作者阶段要求；不含家长指导、光盘与卡片。个人改选范围不改变原始素材引用及记录键。",
+  "policy": "出版或官方目录用于核算当前版本与范围，不补造作者阶段要求。书籍计本、动画计集、卡片计张；总量未核实仅记录完成数量，不要求填写百分比。指导册、光盘及赠品不计为读物。",
   "series": [
     {
       "resourceId": "resource-1nuqi5t",
@@ -148,6 +148,42 @@
             }
           ],
           "default": false
+        },
+        {
+          "id": "pearson-vocab-level-1",
+          "label": "1辑",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1辑",
+              "count": 32
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-vocab-level-2",
+          "label": "2辑",
+          "level": "2",
+          "parts": [
+            {
+              "label": "2辑",
+              "count": 32
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-vocab-level-3",
+          "label": "3辑",
+          "level": "3",
+          "parts": [
+            {
+              "label": "3辑",
+              "count": 32
+            }
+          ],
+          "default": true
         }
       ],
       "aliases": [
@@ -359,6 +395,66 @@
             }
           ],
           "default": true
+        },
+        {
+          "id": "pearson-star-1-2025",
+          "label": "1级",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 44
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-2-2025",
+          "label": "2级",
+          "level": "2",
+          "parts": [
+            {
+              "label": "2级",
+              "count": 41
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-3-2025",
+          "label": "3级",
+          "level": "3",
+          "parts": [
+            {
+              "label": "3级",
+              "count": 42
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-4-2025",
+          "label": "4级",
+          "level": "4",
+          "parts": [
+            {
+              "label": "4级",
+              "count": 31
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-5-2025",
+          "label": "5级",
+          "level": "5",
+          "parts": [
+            {
+              "label": "5级",
+              "count": 29
+            }
+          ],
+          "default": true
         }
       ]
     },
@@ -404,6 +500,592 @@
           "default": true
         }
       ]
+    },
+    {
+      "resourceId": "resource-29ukn0",
+      "edition": "悠游阅读·成长计划第一级（外研社，60本读物）",
+      "unit": "本",
+      "note": "仅按所列版本与范围核算；数量不作为作者的阶段完成条件。",
+      "sources": [
+        {
+          "title": "外研社Unischool官方配套微课",
+          "url": "https://weike.unischool.cn/unischool/microlesson/video-detail?ID=160992&SiteID=48&CatalogID=24568",
+          "evidence": "专题简介明确第一级60本读物及配套60个动画故事；不计指导册与光盘。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "resource-29ukn0-count-20261104",
+          "label": "1级",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 60
+            }
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1u3sl6e",
+      "edition": "Little Fox英文动画 The Big Green Forest，Level 1，24集",
+      "unit": "集",
+      "note": "仅按所列版本与范围核算；数量不作为作者的阶段完成条件。",
+      "sources": [
+        {
+          "title": "Little Fox官方：New Sight Words Worksheets（2020-11-09）",
+          "url": "https://www.littlefox.com/en/news_forum/bbs_view/1247254/0/8/N/null/search/",
+          "evidence": "官方明确The Big Green Forest为Level 1，24 Episodes。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "resource-1u3sl6e-count-20261104",
+          "label": "全系列",
+          "level": "",
+          "parts": [
+            {
+              "label": "全系列",
+              "count": 24
+            }
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-smispi",
+      "edition": "Little Fox英文动画 Bat and Friends，FS0056，72集",
+      "unit": "集",
+      "note": "仅按所列版本与范围核算；数量不作为作者的阶段完成条件。",
+      "sources": [
+        {
+          "title": "Little Fox官方：Bat and Friends完整目录",
+          "url": "https://www.littlefox.com/tw/readers/contents_list_v2/FS0056",
+          "evidence": "第1阶72篇，目录按1–72编号；不以故事大标题24组替代集数。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "resource-smispi-count-20261104",
+          "label": "全系列",
+          "level": "",
+          "parts": [
+            {
+              "label": "全系列",
+              "count": 72
+            }
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-ngqkjv",
+      "edition": "Harry Potter原版七部小说（不含剧本、伴读及衍生作品）",
+      "unit": "本",
+      "note": "仅按所列版本与范围核算；数量不作为作者的阶段完成条件。",
+      "sources": [
+        {
+          "title": "Bloomsbury官方：House Editions Box Sets",
+          "url": "https://www.bloomsbury.com/au/discover/superpages/harry-potter/harry-potter-house-editions-box-sets/",
+          "evidence": "出版方明确包含all seven novels；不含The Cursed Child剧本与衍生作品。"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "resource-ngqkjv-count-20261104",
+          "label": "七部小说",
+          "level": "",
+          "parts": [
+            {
+              "label": "七部小说",
+              "count": 7
+            }
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-19cnwh8",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "张",
+      "note": "原图未指定品牌、卡片清单或张数；不同套装数量不能混用。",
+      "countOnlyReason": "原图未指定品牌、卡片清单或张数；不同套装数量不能混用。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-ehqeof",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "张",
+      "note": "原图未指定品牌、卡片清单或张数；不同套装数量不能混用。",
+      "countOnlyReason": "原图未指定品牌、卡片清单或张数；不同套装数量不能混用。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1hv2ggo",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "检索发现学乐Buddy Readers与外研社巴蒂英语启蒙分级绘本等不同产品；原图简称未限定出版方、级别或版次，不能把其中一套的本数套用到这里。",
+      "countOnlyReason": "检索发现学乐Buddy Readers与外研社巴蒂英语启蒙分级绘本等不同产品；原图简称未限定出版方、级别或版次，不能把其中一套的本数套用到这里。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-9fvmjt",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "GK有70本与110本等不同选本；原图未标具体选本，不将任一套装总数默认用于所有GK记录。",
+      "countOnlyReason": "GK有70本与110本等不同选本；原图未标具体选本，不将任一套装总数默认用于所有GK记录。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1cn6i3m",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图仅写学乐及A–C／D–E，未明确First Little Readers、Sight Word Readers等产品身份及单级选本，不能仅凭出版社和字母级别确定册数。",
+      "countOnlyReason": "原图仅写学乐及A–C／D–E，未明确First Little Readers、Sight Word Readers等产品身份及单级选本，不能仅凭出版社和字母级别确定册数。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1n3ix1n",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "家庭版、学校版、主干与拓展等书目范围不同；原图未标明选本，不能只凭1–3级决定总本数。",
+      "countOnlyReason": "家庭版、学校版、主干与拓展等书目范围不同；原图未标明选本，不能只凭1–3级决定总本数。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1ukyalh",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-11wr0uz",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.taobao.com/list/product/froggy%E7%BB%98%E6%9C%AC.htm",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1hwirew",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.amazon.com/-/zh_TW/dp/0062641034",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1c2hg6x",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "集",
+      "note": "检索存在不同剪辑与分集版本；本阶段未指定原版或拆分集目录，暂不采用网盘合集的集数。",
+      "countOnlyReason": "检索存在不同剪辑与分集版本；本阶段未指定原版或拆分集目录，暂不采用网盘合集的集数。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.leranl.com/bigmuzzy-mazede-gushi-wangpan-ziyuan/",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-ij95m4",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "集",
+      "note": "官网包括不同课程与持续发布的视频；原图未限定颜色级别、课程或播放列表，未确定本阶段的封闭分母。",
+      "countOnlyReason": "官网包括不同课程与持续发布的视频；原图未限定颜色级别、课程或播放列表，未确定本阶段的封闭分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.wowenglish.com/en/about-us/",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1md8os8",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "集",
+      "note": "持续更新且中英文分季与合辑不同；原图未限定季或播放清单，不把某一季或某一时点的全集数作为本阶段总量。",
+      "countOnlyReason": "持续更新且中英文分季与合辑不同；原图未限定季或播放清单，不把某一季或某一时点的全集数作为本阶段总量。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://zh.wikipedia.org/zh-hans/%E7%B2%89%E7%B4%85%E8%B1%AC%E4%B8%80%E5%AE%B6%E8%A6%AA",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1ghd02m",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "官网确认Oxford Phonics World为5级课程，但原图未限定具体版本、学生书或练习册；5级不是5本读物的核实依据。",
+      "countOnlyReason": "官网确认Oxford Phonics World为5级课程，但原图未限定具体版本、学生书或练习册；5级不是5本读物的核实依据。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1hu7to9",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://baike.baidu.com/item/%E4%B8%BD%E5%A3%B0%E7%BB%8F%E5%85%B8%E6%95%85%E4%BA%8B%E5%B1%8B/12333580",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-gfdta7",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "个",
+      "note": "检索有高频词卡片等不同素材，尚不能核实原图简称对应的读物或卡片版本，暂以个记录。",
+      "countOnlyReason": "检索有高频词卡片等不同素材，尚不能核实原图简称对应的读物或卡片版本，暂以个记录。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://dir.jd.com/guide/jd-geo-guide-dolch-sight-words-gao-pin-ci-ka-v1",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-l141pg",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "http://www.ourpieceofearth.com/evan-moor-smart-start-sight-words-review/",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-yy64zs",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "检索发现Veggie’s World 40册等商品线索，尚未核实原图对应版本与完整出版目录，不采用商品标题作为固定分母。",
+      "countOnlyReason": "检索发现Veggie’s World 40册等商品线索，尚未核实原图对应版本与完整出版目录，不采用商品标题作为固定分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://m.douban.com/book/review/16100832/",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1raloog",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.jd.com/jiage/17132b75e14d48ef0ec3.html",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1nnr59r",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.fltrp.com/c/2025-08-19/539122.shtml",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1qnd5uh",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.raz-kids.com/",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-oz0jbk",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.amazon.com/stores/page/6FBA7161-4093-4BFC-993C-5A1C4636D6EA",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-45qugp",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://literature.fandom.com/wiki/Winnie_and_Wilbur_picture_book_series",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-var8qr",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "经典四部作品既有单册也有合订本；原图未标具体装帧与选用目录，不以作品数代替手头书本数。",
+      "countOnlyReason": "经典四部作品既有单册也有合订本；原图未标具体装帧与选用目录，不以作品数代替手头书本数。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.taobao.com/list/product/froggy%E7%BB%98%E6%9C%AC.htm",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1mnq6y8",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://en.wikipedia.org/wiki/The_Magic_School_Bus_(book_series)",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1gq6hvt",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.thebookbundle.com/products/my-weird-school-collection-21-books-set-by-dan-gutman-ages-6-10?srsltid=AYCX9vIAykt2smHRD93WiWUsshGFYZBewdGy0AK7GmY1YB8cyVxnjr64",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-kacco9",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://geronimostilton.com/US-en/libri_top/collana.php?id=419",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-ulmaqc",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1r3pyyc",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-13uj3q",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1sx9rf3",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://apps.apple.com/il/app/%E6%96%B0%E6%A6%82%E5%BF%B5ai%E8%8B%B1%E8%AF%AD-%E6%96%B0%E6%A6%82%E5%BF%B5%E8%8B%B1%E8%AF%AD%E9%9D%92%E5%B0%91%E7%89%88%E5%85%A8%E5%9B%9B%E5%86%8C/id6479482594",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-1ew2482",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.cambridge.org/cambridgeenglish/catalog/primary/power-2nd-edition",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-9v2gi2",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.cambridge.org/cambridgeenglish/catalog/secondary/think-2nd-edition",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-kcbshs",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.efuture-elt.com/main/levelchart/index.do?",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
+    },
+    {
+      "resourceId": "resource-zqlmu5",
+      "edition": "原图所列素材，选用版本与总量待确定",
+      "unit": "本",
+      "note": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "countOnlyReason": "原图未限定版本、分辑或选用目录；检索到的套装、分支和教辅数量不能唯一对应本阶段。先记完成数量，确认手头范围后再设置分母。",
+      "sources": [
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "http://www.ourpieceofearth.com/evan-moor-smart-start-sight-words-review/",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        }
+      ],
+      "scopes": [],
+      "checkedAt": "2026-11-04"
     }
   ]
 }
