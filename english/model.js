@@ -150,12 +150,14 @@
       var role = material.role || (rawResource && rawResource.role) || '素材';
       var original = material.original || material.label || (rawResource && (rawResource.label || rawResource.title || rawResource.name)) || byResource[resourceId].title;
       var item = { resourceId: resourceId, level: level, role: role, page: page, original: original, sourceId: sourceId, variantId: stage.variantId };
+      if (material.roleEvidence) item.roleEvidence = material.roleEvidence;
       // 同一素材在同一阶段的不同级别/角色都保留，重复的引用只展示一次。
       var signature = [resourceId, level, role, page, original, sourceId].join('|');
       if (stage.materials.some(function (entry) { return [entry.resourceId, entry.level, entry.role, entry.page, entry.original, entry.sourceId].join('|') === signature; })) return;
       stage.materials.push(item);
       var appearance = { routeId: stage.routeId, stageId: stage.id, level: level, role: role, page: page, original: original, sourceId: sourceId, variantId: stage.variantId,
         preview: material.preview || (rawResource && previewOf(rawResource)) || stage.preview };
+      if (material.roleEvidence) appearance.roleEvidence = material.roleEvidence;
       byResource[resourceId].appearances.push(appearance);
       byResource[resourceId].levels = unique(byResource[resourceId].levels.concat(level));
     }
@@ -653,11 +655,21 @@
     } else if (/^辅线/.test(role)) {
       kind = 'auxiliary'; label = '辅线'; basis = '本阶段原文明确标注辅线';
     }
+    var evidence = material.roleEvidence || null;
+    if (evidence && evidence.status === 'confirmed') {
+      kind = evidence.kind;
+      label = evidence.usage || MATERIAL_ROLES[kind];
+      basis = evidence.basis;
+    } else if (evidence && evidence.status === 'unresolved') {
+      kind = 'reference';
+      label = evidence.usage || label;
+      basis = '本次引用尚未核定主辅' + (evidence.basis ? '；' + evidence.basis : '，不代表作者整条路线没有划分');
+    }
     var selectionText = text(material.original || material.level);
     var selectionMatch = selectionText.match(/任选(?:\d+(?:[–—-]\d+)?(?:部|套|本|辑))?|挑选|选\d+(?:[–—-]\d+)?(?:部|套|本|辑)|二选一/);
     var selection = selectionMatch ? { label: selectionMatch[0], basis: selectionText } :
       role === 'optional' ? { label: '可选', basis: '原引用明确标为optional' } : null;
-    return { kind: kind, label: MATERIAL_ROLES[kind], usage: label, basis: basis, selection: selection };
+    return { kind: kind, label: MATERIAL_ROLES[kind], usage: label, basis: basis, selection: selection, evidence: evidence };
   }
 
   function getStageMaterials(catalog, stageId, comparisonStages) {
@@ -871,6 +883,7 @@
         var stage = stageMap[appearance.stageId];
         return { stageId: appearance.stageId, stageTitle: stage ? stage.title : appearance.stageId, level: appearance.level,
           role: appearance.role, page: appearance.page, original: appearance.original,
+          roleEvidence: appearance.roleEvidence,
           sourceId: appearance.sourceId || stage && stage.sourceId || appearance.routeId,
           variantId: appearance.variantId || stage && stage.variantId || appearance.routeId,
           variantLabel: stage && stage.variantLabel || route.name };
