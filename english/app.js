@@ -150,10 +150,12 @@ function vocabularyResults(){
   const total=groups.reduce((n,g)=>n+g.total,0);
   const categoryList=group=>group.categories.map(cat=>{
     const key=JSON.stringify([vocabState.channel,vocabState.type,group.id,cat.id]),limit=vocabState.limits.get(key)||30;
-    return vocabularyFold(key,[h('span',{},cat.name),h('small',{},cat.entries.length)],h('div',{},h('ul',{class:'vocabulary-list'+(vocabState.type==='word'?' vocabulary-word-list':'')},cat.entries.slice(0,limit).map(e=>h('li',{class:'vocabulary-row'},btn([h('strong',{},e.text),e.aliases.length?h('small',{},e.aliases.join(' / ')):null],'vocab-edit',{'data-key':e.key,'aria-label':'编辑词条 '+e.text},'vocabulary-name')))),cat.entries.length>limit?btn('继续查看 · 余 '+(cat.entries.length-limit)+' 条','vocab-more',{'data-group':key},'text-link'):null),'vocabulary-category-fold');
+    const content=h('div',{},h('ul',{class:'vocabulary-list'+(vocabState.type==='word'?' vocabulary-word-list':'')},cat.entries.slice(0,limit).map(e=>h('li',{class:'vocabulary-row'},btn([h('span',{class:'vocabulary-text'},e.text),e.aliases.length?h('small',{},e.aliases.join(' / ')):null],'vocab-edit',{id:'vocabulary-entry-'+e.key,'data-key':e.key,'aria-label':'编辑词条 '+e.text},'vocabulary-name')))),cat.entries.length>limit?btn('继续查看 · 余 '+(cat.entries.length-limit)+' 条','vocab-more',{'data-group':key},'text-link'):null);
+    if(vocabState.type==='word'&&group.id==='verb'&&group.categories.length===1&&cat.id==='actions')return content;
+    return vocabularyFold(key,[h('strong',{},cat.name),h('small',{},cat.entries.length)],content,'vocabulary-category-fold');
   });
   return h('div',{id:'vocabulary-results'},vocabState.search||vocabState.category!=='all'?h('p',{class:'vocabulary-count',role:'status'},'筛选出 '+total+' 条'):null,
-    groups.length?groups.map(group=>vocabState.type==='word'?vocabularyFold(JSON.stringify([vocabState.channel,vocabState.type,group.id]),[h('strong',{},group.label),h('small',{},group.total)],h('div',{class:'vocabulary-category-groups'},categoryList(group)),'vocabulary-pos-fold'):categoryList(group)):h('p',{class:'empty'},V.entries(S.records).length?'暂无匹配词条，可调整筛选或点击“新增”。':'点击“新增”，选择单词词性、短语或句型。'));
+    groups.length?groups.map(group=>vocabState.type==='word'?vocabularyFold(JSON.stringify([vocabState.channel,vocabState.type,group.id]),[h('span',{class:'vocabulary-pos-label vocabulary-pos-'+group.id},group.label),h('small',{},group.total)],h('div',{class:'vocabulary-category-groups'},categoryList(group)),'vocabulary-pos-fold'):categoryList(group)):h('p',{class:'empty'},V.entries(S.records).length?'暂无匹配词条，可调整筛选或点击“新增”。':'点击“新增”，选择单词词性、短语或句型。'));
 }
 function vocabularyPopover(id,trigger,content){
   const panel=h('div',{id,class:'vocabulary-popover',popover:'auto',ontoggle:e=>{
@@ -186,16 +188,45 @@ function vocabularyAddForm(){
   draft.channels??=[draft.channel];
   draft.items??=[draft.text||''];
   const rows=h('div',{class:'vocabulary-entry-inputs'});
-  const syncRows=()=>{draft.items=[...rows.querySelectorAll('input')].map(e=>e.value);[...rows.children].forEach((row,i)=>{const input=row.querySelector('input'),remove=row.querySelector('.vocabulary-entry-remove');input.id=i?'vocabulary-text-'+i:'vocabulary-text';input.setAttribute('aria-label','第'+(i+1)+'条'+label);remove.disabled=rows.children.length===1;remove.setAttribute('aria-label','删除第'+(i+1)+'条'+label);});};
+  const updateFeedback=()=>{
+    const channels=Object.keys(V.CHANNELS),items=[...rows.children];
+    items.forEach(row=>{row.querySelector('.vocabulary-entry-feedback').textContent='';});
+    try{
+      const data=V.parseImport(draft.items,{type:m.type,channels,categoryId:draft.categoryId,pos:draft.pos},''),plan=V.additionPlan(S.records,data);
+      let offset=0;
+      for(const row of items){
+        if(!V.canonical(row.querySelector('input').value,m.type))continue;
+        const results=plan.results.slice(offset,offset+channels.length);offset+=channels.length;
+        const names=state=>results.filter(result=>result.state===state&&(state==='existing'||draft.channels.includes(result.entry.channel))).map(result=>V.CHANNELS[result.entry.channel]);
+        const existing=names('existing'),repeated=names('repeated'),added=names('added');
+        row.querySelector('.vocabulary-entry-feedback').textContent=[existing.length?'已记录：'+existing.join('、'):null,repeated.length?'本次重复：'+repeated.join('、')+'（只添加一次）':null,added.length?'将新增：'+added.join('、'):null].filter(Boolean).join('；');
+      }
+    }catch{/* 空行及未完成输入在提交时统一校验，不打断录入。 */}
+  };
+  const syncRows=()=>{draft.items=[...rows.querySelectorAll('input')].map(e=>e.value);[...rows.children].forEach((row,i)=>{const input=row.querySelector('input'),remove=row.querySelector('.vocabulary-entry-remove'),feedback=row.querySelector('.vocabulary-entry-feedback');input.id=i?'vocabulary-text-'+i:'vocabulary-text';input.setAttribute('aria-label','第'+(i+1)+'条'+label);feedback.id='vocabulary-feedback-'+i;input.setAttribute('aria-describedby',feedback.id);remove.disabled=rows.children.length===1;remove.setAttribute('aria-label','删除第'+(i+1)+'条'+label);});updateFeedback();};
   const addRow=(after)=>{const row=makeRow('');after.after(row);syncRows();rows.closest('form').dataset.dirty='true';row.querySelector('input').focus();};
-  const makeRow=value=>h('div',{class:'vocabulary-entry-input-row'},h('input',{name:'text',type:'text',value,maxlength:100,placeholder:'输入'+label,onkeydown:e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();addRow(e.currentTarget.parentElement);}}}),h('button',{type:'button',class:'icon-button',title:'再加一条','aria-label':'再加一条'+label,onclick:e=>addRow(e.currentTarget.parentElement)},'＋'),h('button',{type:'button',class:'icon-button vocabulary-entry-remove',title:'删除这一条',onclick:e=>{const row=e.currentTarget.parentElement,target=row.nextElementSibling||row.previousElementSibling;row.remove();syncRows();rows.closest('form').dataset.dirty='true';target.querySelector('input').focus();}},'−'));
+  const makeRow=value=>h('div',{class:'vocabulary-entry-input-row'},h('input',{name:'text',type:'text',value,maxlength:100,placeholder:'输入'+label,onkeydown:e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();addRow(e.currentTarget.parentElement);}}}),h('button',{type:'button',class:'icon-button',title:'再加一条','aria-label':'再加一条'+label,onclick:e=>addRow(e.currentTarget.parentElement)},'＋'),h('button',{type:'button',class:'icon-button vocabulary-entry-remove',title:'删除这一条',onclick:e=>{const row=e.currentTarget.parentElement,target=row.nextElementSibling||row.previousElementSibling;row.remove();syncRows();rows.closest('form').dataset.dirty='true';target.querySelector('input').focus();}},'−'),h('small',{class:'vocabulary-entry-feedback','aria-live':'polite'}));
   rows.append(...draft.items.map(makeRow));syncRows();
-  const updateDraft=e=>{e.currentTarget.dataset.dirty='true';if(e.target.name==='text')syncRows();else if(e.target.name==='channel'){draft.channels=new FormData(e.currentTarget).getAll('channel');e.currentTarget.querySelector('.form-error').textContent='';}else if(e.target.name)draft[e.target.name]=e.target.value;};
+  const updateDraft=e=>{e.currentTarget.dataset.dirty='true';if(e.target.name==='text')syncRows();else if(e.target.name==='channel'){draft.channels=new FormData(e.currentTarget).getAll('channel');updateFeedback();}else if(e.target.name)draft[e.target.name]=e.target.value;e.currentTarget.querySelector('.form-error').textContent='';};
   return h('form',{id:'vocabulary-add',class:'practice-form',oninput:updateDraft,onchange:updateDraft},h('h2',{},'新增'+label),
     h('input',{type:'hidden',name:'type',value:m.type}),
     h('fieldset',{class:'form-row vocabulary-entries'},h('legend',{},label+'内容'),rows),
     h('div',{class:'practice-form-grid'},h('fieldset',{class:'form-row vocabulary-channel-field'},h('legend',{},'能力（可多选）'),h('div',{class:'vocabulary-channel-tags'},Object.entries(V.CHANNELS).map(([id,label])=>h('label',{},h('input',{type:'checkbox',name:'channel',value:id,checked:draft.channels.includes(id)}),label)))),h('label',{class:'form-row'},'分类',h('select',{name:'categoryId'},vocabularyOptions(draft.categoryId))),m.type==='word'?h('label',{class:'form-row'},'词性',h('select',{name:'pos'},Object.entries(V.POS).map(([id,label])=>h('option',{value:id,selected:id===draft.pos},label)))):null),
     h('p',{class:'form-error',role:'alert'}),h('button',{type:'submit',class:'button primary'},'添加'+label));
+}
+function vocabularyShowAdded(entries){
+  if(!entries.some(entry=>entry.channel===vocabState.channel))vocabState.channel=entries[0].channel;
+  vocabState.type=entries[0].type;vocabState.category='all';vocabState.search='';
+  const keys=new Set(entries.map(entry=>entry.key));
+  for(const group of V.groupEntries(S.records,{channel:vocabState.channel,type:vocabState.type}))for(const category of group.categories){
+    const index=category.entries.reduce((last,entry,i)=>keys.has(entry.key)?i:last,-1);if(index<0)continue;
+    const groupKey=JSON.stringify([vocabState.channel,vocabState.type,group.id]),key=JSON.stringify([vocabState.channel,vocabState.type,group.id,category.id]);
+    vocabState.folds.set(groupKey,true);vocabState.folds.set(key,true);
+    vocabState.limits.set(key,Math.max(vocabState.limits.get(key)||30,Math.ceil((index+1)/30)*30));
+  }
+  render();
+  const entry=entries.find(entry=>entry.channel===vocabState.channel),target=document.getElementById('vocabulary-entry-'+entry.key);
+  target?.focus({preventScroll:true});target?.scrollIntoView({block:'nearest'});
 }
 function vocabularyEditForm(){
   const m=S.modal,e=V.entries(S.records).find(e=>e.key===m.id);if(!e)return h('p',{},'这条记录已被删除。');
@@ -227,7 +258,11 @@ function vocabularySubmit(form){try{
     const e=V.entries(S.records).find(e=>e.key===m.id);if(!e)throw new Error('词条已被删除，请重新核对。');const input={...e,...Object.fromEntries(f)},newKey=V.entryKey(input.text,input.type,input.channel);if(newKey!==m.id&&S.records[newKey])throw new Error('该词条已有历史记录，请用新增记录恢复，避免覆盖。');vocabSave(V.edit(S.records,m.id,input),m.base);form.dataset.dirty='false';closeModal();render();toast('词条已更新');return;
   }
   if(form.id==='vocabulary-add'){
-    const channels=f.getAll('channel'),data=V.parseImport(f.getAll('text'),{...Object.fromEntries(f),channels},'');vocabSave(V.importPlan(S.records,data));vocabState.channel=channels.includes(vocabState.channel)?vocabState.channel:channels[0];vocabState.type=f.get('type');vocabState.category='all';vocabState.search='';for(const entry of data.entries){const group=entry.type==='word'?(Object.hasOwn(V.POS,entry.pos)?entry.pos:'other'):entry.type;vocabState.folds.set(JSON.stringify([entry.channel,entry.type,group]),true);vocabState.folds.set(JSON.stringify([entry.channel,entry.type,group,entry.categoryId]),true);}m.draft.text='';m.draft.items=[''];form.dataset.dirty='false';closeModal();render();toast('已添加，重复内容只计一条');return;
+    const channels=f.getAll('channel'),data=V.parseImport(f.getAll('text'),{...Object.fromEntries(f),channels},''),plan=V.additionPlan(S.records,data);
+    if(!plan.added.length)throw new Error('所选能力下均已记录，无需重复添加；可修改内容或切换听懂／会说。');
+    vocabSave(plan.changes);m.draft.text='';m.draft.items=[''];form.dataset.dirty='false';closeModal();vocabularyShowAdded(plan.added);
+    const counts=entries=>Object.keys(V.CHANNELS).map(channel=>{const count=entries.filter(entry=>entry.channel===channel).length;return count?V.CHANNELS[channel]+count+'条':null;}).filter(Boolean).join('、');
+    toast('已新增：'+counts(plan.added)+(plan.existing.length?'；已存在：'+counts(plan.existing)+'（未重复添加）':'')+(plan.repeated.length?'；本次重复输入已合并':''));return;
   }
   const id=form.dataset.categoryId||crypto.randomUUID();
   if(form.dataset.categoryId&&S.modal.categoryBase?.[V.CATEGORY+id]!==JSON.stringify(S.records[V.CATEGORY+id]||null))throw new Error('分类已在其他页面更新，请重新打开核对。');
