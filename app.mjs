@@ -15,7 +15,8 @@ let skillGuides = { sources: {}, categories: {}, skills: {} };
 let toastTimer;
 let pendingImport;
 let skillSearchControl;
-const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'cognition', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, stageFocus: null, graphZoom: .85, graphExpanded: false, storageError: '', lastUndo: null };
+function defaultGraphZoom() { return window.matchMedia('(max-width:900px)').matches ? .7 : .85; }
+const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'cognition', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, stageFocus: null, graphZoom: defaultGraphZoom(), graphExpanded: false, storageError: '', lastUndo: null };
 state.savedAt = null;
 state.viewStorageError = '';
 state.savePending = false;
@@ -701,8 +702,8 @@ function stageTreeView() {
   return html`<section class="stage-lineage domain-${domain.id}" aria-label="本阶段技能脉络">
     <div class="section-title-row lineage-title-row"><h2>${stage.label}<span>的成长脉络</span></h2></div>
     ${domainCards()}
-    <div class="stage-lineage-focus"><span>${hasFocus ? html`${icon('tree')}<span class="stage-lineage-name"><strong>${skill.title}</strong><button type="button" class="stage-lineage-clear" data-action="clear-stage-focus" aria-label="清除当前技能追踪" title="清除当前技能追踪">${icon('close')}</button></span>` : ''}</span></div>
-    <span class="stage-lineage-counts">${getStats(graph.nodes, state.records).completed}/${graph.nodes.length} 已完成</span>
+    ${hasFocus ? html`<button type="button" class="stage-lineage-clear" data-action="clear-stage-focus" aria-label="清除当前技能追踪" title="清除当前技能追踪">${icon('close')}</button>` : ''}
+    <span class="stage-lineage-counts" title="当前图中全部技能的完成进度（含其他月龄）">${getStats(graph.nodes, state.records).completed}/${graph.nodes.length} 已完成</span>
     ${graphWorkspace(graph, layout, relations, categories)}
     <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。技能清单的筛选不会隐藏这里的依赖关系。</p>
   </section>`;
@@ -725,7 +726,7 @@ function treeView() {
   return html`<section class="lineage-view domain-${domain.id}">
     <header class="lineage-header"><div><span class="lineage-eyebrow">小技能，大脉络</span><h1>成长的来龙去脉，一眼看懂<span>。</span></h1><p>从哪一步走来，再向哪里生长。点一个技能，顺着箭头一路看下去。</p></div><span class="lineage-header-icon">${icon('tree')}</span></header>
     <div class="lineage-domains" role="group" aria-label="技能树领域">${DOMAINS.map(item => html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-tree-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>${catalog.filter(node => node.domain === item.id).length} 个技能</span></button>`)}</div>
-    <div class="lineage-controls"><div class="graph-mode-tabs" role="group" aria-label="脉络查看范围"><button data-tree-mode="lineage" class="${state.treeMode === 'lineage' ? 'active' : ''}" aria-pressed="${state.treeMode === 'lineage'}">${icon('tree')} 这项技能的完整脉络</button><button data-tree-mode="overview" class="${state.treeMode === 'overview' ? 'active' : ''}" aria-pressed="${state.treeMode === 'overview'}">整个领域全景</button></div><div class="lineage-picker"><label for="tree-focus">定位技能</label><div class="lineage-focus-input"><select id="tree-focus" aria-label="定位技能"><option value="" selected="${!hasFocus}">全部技能</option>${STAGES.map(stage => {
+    <div class="lineage-controls graph-reading-controls"><div class="graph-mode-tabs" role="group" aria-label="脉络查看范围"><button data-tree-mode="lineage" aria-label="这项技能的完整脉络" title="这项技能的完整脉络" class="${state.treeMode === 'lineage' ? 'active' : ''}" aria-pressed="${state.treeMode === 'lineage'}">${icon('tree')}<span>单项脉络</span></button><button data-tree-mode="overview" aria-label="整个领域全景" title="整个领域全景" class="${state.treeMode === 'overview' ? 'active' : ''}" aria-pressed="${state.treeMode === 'overview'}">${icon('fit')}<span>领域全景</span></button></div><div class="lineage-picker"><label for="tree-focus">定位技能</label><div class="lineage-focus-input"><select id="tree-focus" aria-label="定位技能"><option value="" selected="${!hasFocus}">全部技能</option>${STAGES.map(stage => {
       const items = catalog.filter(item => item.domain === domain.id && item.stage === stage.id);
       return items.length ? html`<optgroup label="${stage.label}">${items.map(item => html`<option value="${item.id}" selected="${hasFocus && item.id === skill.id}">${item.title}</option>`)}</optgroup>` : '';
     })}</select><button type="button" class="lineage-clear" data-action="clear-tree-focus" aria-label="清除技能筛选，查看整个领域" title="清除技能筛选" disabled="${!hasFocus && state.treeCategory === 'all'}">${icon('close')}</button></div></div>${state.treeMode === 'overview' ? html`<label class="lineage-picker branch-picker"><span>能力分支</span><select id="tree-category" aria-label="选择技能分支"><option value="all" selected="${state.treeCategory === 'all'}">全部分支</option>${categories.map(category => html`<option value="${category}" selected="${state.treeCategory === category}">${category}</option>`)}</select></label>` : ''}</div>
@@ -744,7 +745,7 @@ function navigateToLineage(id) {
   state.treeFocus = id;
   state.treeMode = 'lineage';
   state.treeCategory = 'all';
-  state.graphZoom = .85;
+  state.graphZoom = defaultGraphZoom();
   graphViewportAction = 'focus';
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -811,11 +812,11 @@ function layoutGrowthStageReading() {
   const fold = content?.querySelector('.growth-stage-graph');
   if (!lineage || !fold) return;
   const heading = content.querySelector('.stage-lineage>.section-title-row') || fold.querySelector('.section-title-row');
-  const focus = content.querySelector('.stage-lineage-focus');
+  const clearFocus = content.querySelector('.stage-lineage-clear');
   const milestones = content.querySelector('.milestones');
-  if (focus && heading) heading.append(focus);
+  if (clearFocus) fold.querySelector('.graph-view-tools')?.append(clearFocus);
   const counts = lineage.querySelector(':scope > .stage-lineage-counts');
-  if (counts) fold.querySelector('.graph-toolbar')?.prepend(counts);
+  if (counts && heading) heading.append(counts);
   if (window.matchMedia('(max-width:900px)').matches) {
     // 窄屏先读技能清单，完整图谱直接展示，不再增加外层折叠标题。
     fold.prepend(...[heading].filter(Boolean));
@@ -956,7 +957,7 @@ function locateGraphFocus() {
   const viewport = document.querySelector('#graph-viewport');
   const position = currentGraph?.layout.nodes.find(node => node.id === currentGraph.focusId);
   if (!viewport || !position) return;
-  if (state.graphZoom < .6) setGraphZoom(.85, false);
+  if (state.graphZoom < .6) setGraphZoom(defaultGraphZoom(), false);
   viewport.scrollLeft = (position.x + position.width / 2) * state.graphZoom - viewport.clientWidth / 2;
   viewport.scrollTop = (position.y + position.height / 2) * state.graphZoom - viewport.clientHeight / 2;
 }
@@ -984,7 +985,7 @@ function locateCurrentAgeStage(rebuild = true) {
   }
   const viewport = document.querySelector('#graph-viewport');
   if (!viewport || !stage) return;
-  if (state.graphZoom < .6) setGraphZoom(.85, false);
+  if (state.graphZoom < .6) setGraphZoom(defaultGraphZoom(), false);
   viewport.scrollLeft = stage.x * state.graphZoom - Math.max(12, (viewport.clientWidth - stage.width * state.graphZoom) / 2);
   viewport.scrollTop = 0;
 }
