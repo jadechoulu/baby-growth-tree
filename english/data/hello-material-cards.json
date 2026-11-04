@@ -1,0 +1,5047 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-04",
+  "mappingNote": "按实际图片/PDF内容分类。独立童谣卡、原书童谣页、词汇图、阅读指导和活动分别保留；只有完整原文已核对的卡/原书页填rhymeIds。改编卡用relatedRhymeIds记录拓展关系，不冒充原书歌词。",
+  "sourceAudit": {
+    "baiduScope": "hello资料/1–24号书资料包",
+    "remoteFiles": 209,
+    "pdfFiles": 54,
+    "imageFiles": 40,
+    "downloadedImages": 40,
+    "uniqueImages": 39,
+    "notesPagesReviewed": 125,
+    "nasScope": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+    "rhymeCardNote": "极空间14张真实拼图拆出56张独立卡：55张按书号、标题和正文精确配对；Find It Halloween为场景改编卡，仅按册关联。另保留55张原书童谣页，origin与独立卡明确区分。",
+    "nasCollageFiles": 14,
+    "nasStandaloneCards": 56,
+    "nasExactRhymeLinks": 55,
+    "nasAdaptationCards": 1,
+    "nasOriginals": [
+      {
+        "sourceName": "1-2-3号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+        "sha256": "fe2c61890f1f175fd1fb1fed4f11eeb36921006bcd7dd7e82602567811147ea3",
+        "bytes": 1736191,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "3-4号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+        "sha256": "5d505a675c4eb97017c5b66852561d22dfd3e7a0825948622160db9331517782",
+        "bytes": 1636500,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "5-6号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+        "sha256": "83cc5524cb8ac336cf1958c8493c52585c66209c7b30cc5c54dfe1d004c57b5d",
+        "bytes": 1629389,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "6-7-8号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+        "sha256": "93244cbf2a7e4ce5d0a6b77964bd7c3ad5a45983607ddb4a9d4a2c9c9491d40b",
+        "bytes": 1602399,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "8-9号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+        "sha256": "23ed40e84bc1b419287a551155f6cde2aa54978fa6590080430cc10f2f83b1ec",
+        "bytes": 1798584,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "10-11号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+        "sha256": "dcd050884949982d05bed804d83fb26c08aff8cc960855be89db3f5b65d1b69e",
+        "bytes": 1815821,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "12-13-14号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+        "sha256": "896afc4dccc6bd474b9fc5d43a4cc7f8346943ed4c44e56a87f71c4378b72094",
+        "bytes": 1598056,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "14-15号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+        "sha256": "41b2eeeabf965cb4435581589c06c47d3feede4bb91e74bf69a3359b46f93180",
+        "bytes": 1506071,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "15-16号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+        "sha256": "574d309679248373531f15b3bfaa544ac0fad65448ca997e6d1ca80cda9f73ff",
+        "bytes": 2198755,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "17-18号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+        "sha256": "b706767c9bbbc6b0461844d259ee46336ee6f28f7deb7afe66c7ab5bb8631250",
+        "bytes": 1583123,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "18-19号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+        "sha256": "53ee05a68ae6a541ac5e4d0c4ecb7f7a5451f76fb0239b60d489c7cc82a186f2",
+        "bytes": 1522621,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "19-20-21号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+        "sha256": "e594f8bc0604277d299347ca820c37d0966c89ce8bbc7f11d137505010b9ac77",
+        "bytes": 1636783,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "21-23-24号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+        "sha256": "8c9e0b68e377876be7ceb5012d9319a897b27bd336f26d904a1e3bd989df6411",
+        "bytes": 1576368,
+        "width": 2480,
+        "height": 3508
+      },
+      {
+        "sourceName": "22号书.jpg",
+        "file": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+        "sha256": "7caac03f37013a2ceac304c85b08b9e98ee28d34f4325bb5fb9cd9b29b14e295",
+        "bytes": 1502228,
+        "width": 2480,
+        "height": 3508
+      }
+    ],
+    "printingGuide": {
+      "sourceName": "打印设置图例.png",
+      "file": "assets/hello/material-cards/nas-print-guide-f79a8c5bc3b8349b.png",
+      "sha256": "f79a8c5bc3b8349b949211ee2b36bd44e1dd55d6f8e29d23404d0262742b395b"
+    }
+  },
+  "items": [
+    {
+      "id": "hello-material-original-02",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-01",
+      "rhymeIds": [
+        "hello-rhyme-02"
+      ],
+      "title": "Can You? · 原书童谣页",
+      "file": "assets/hello/files/084d55e137fd61cc.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-02.jpg",
+      "sourceFile": "assets/hello/files/084d55e137fd61cc.pdf",
+      "sourceName": "1号书.pdf",
+      "sourcePages": [
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-03",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-02",
+      "rhymeIds": [
+        "hello-rhyme-03"
+      ],
+      "title": "Rockin’ Baby · 原书童谣页",
+      "file": "assets/hello/files/050f51627da1d3f9.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-03.jpg",
+      "sourceFile": "assets/hello/files/050f51627da1d3f9.pdf",
+      "sourceName": "2号书.pdf",
+      "sourcePages": [
+        4
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-04",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-02",
+      "rhymeIds": [
+        "hello-rhyme-04"
+      ],
+      "title": "Watch It Go! · 原书童谣页",
+      "file": "assets/hello/files/050f51627da1d3f9.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-04.jpg",
+      "sourceFile": "assets/hello/files/050f51627da1d3f9.pdf",
+      "sourceName": "2号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-05",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-03",
+      "rhymeIds": [
+        "hello-rhyme-05"
+      ],
+      "title": "Giggle Kisses · 原书童谣页",
+      "file": "assets/hello/files/2e1b3026ab144ba5.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-05.jpg",
+      "sourceFile": "assets/hello/files/2e1b3026ab144ba5.pdf",
+      "sourceName": "3号书.pdf",
+      "sourcePages": [
+        4
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-06",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-03",
+      "rhymeIds": [
+        "hello-rhyme-06"
+      ],
+      "title": "A Very Long Car Ride · 原书童谣页",
+      "file": "assets/hello/files/2e1b3026ab144ba5.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-06.jpg",
+      "sourceFile": "assets/hello/files/2e1b3026ab144ba5.pdf",
+      "sourceName": "3号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-07",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-03",
+      "rhymeIds": [
+        "hello-rhyme-07"
+      ],
+      "title": "Bubble Bath · 原书童谣页",
+      "file": "assets/hello/files/2e1b3026ab144ba5.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-07.jpg",
+      "sourceFile": "assets/hello/files/2e1b3026ab144ba5.pdf",
+      "sourceName": "3号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-08",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-04",
+      "rhymeIds": [
+        "hello-rhyme-08"
+      ],
+      "title": "Little Bird · 原书童谣页",
+      "file": "assets/hello/files/81709058b2fe924a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-08.jpg",
+      "sourceFile": "assets/hello/files/81709058b2fe924a.pdf",
+      "sourceName": "4号书-.pdf",
+      "sourcePages": [
+        2,
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-09",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-04",
+      "rhymeIds": [
+        "hello-rhyme-09"
+      ],
+      "title": "Where Toys Can Sleep · 原书童谣页",
+      "file": "assets/hello/files/81709058b2fe924a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-09.jpg",
+      "sourceFile": "assets/hello/files/81709058b2fe924a.pdf",
+      "sourceName": "4号书-.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-10",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-05",
+      "rhymeIds": [
+        "hello-rhyme-10"
+      ],
+      "title": "City and Country · 原书童谣页",
+      "file": "assets/hello/files/6b49dac64d71f4a7.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-10.jpg",
+      "sourceFile": "assets/hello/files/6b49dac64d71f4a7.pdf",
+      "sourceName": "5号书.pdf",
+      "sourcePages": [
+        2,
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-11",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-05",
+      "rhymeIds": [
+        "hello-rhyme-11"
+      ],
+      "title": "I’m Your Little Sippy Cup · 原书童谣页",
+      "file": "assets/hello/files/6b49dac64d71f4a7.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-11.jpg",
+      "sourceFile": "assets/hello/files/6b49dac64d71f4a7.pdf",
+      "sourceName": "5号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-12",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-06",
+      "rhymeIds": [
+        "hello-rhyme-12"
+      ],
+      "title": "Baby Bunny’s in Her Pool · 原书童谣页",
+      "file": "assets/hello/files/578e3e139ece229a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-12.jpg",
+      "sourceFile": "assets/hello/files/578e3e139ece229a.pdf",
+      "sourceName": "6号书.pdf",
+      "sourcePages": [
+        4
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-13",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-06",
+      "rhymeIds": [
+        "hello-rhyme-13"
+      ],
+      "title": "Bouncy · 原书童谣页",
+      "file": "assets/hello/files/578e3e139ece229a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-13.jpg",
+      "sourceFile": "assets/hello/files/578e3e139ece229a.pdf",
+      "sourceName": "6号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-14",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-06",
+      "rhymeIds": [
+        "hello-rhyme-14"
+      ],
+      "title": "Watering the Garden · 原书童谣页",
+      "file": "assets/hello/files/578e3e139ece229a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-14.jpg",
+      "sourceFile": "assets/hello/files/578e3e139ece229a.pdf",
+      "sourceName": "6号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-15",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-07",
+      "rhymeIds": [
+        "hello-rhyme-15"
+      ],
+      "title": "Go, Go, Go! · 原书童谣页",
+      "file": "assets/hello/files/027ac25b599e3c5f.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-15.jpg",
+      "sourceFile": "assets/hello/files/027ac25b599e3c5f.pdf",
+      "sourceName": "7号书.pdf",
+      "sourcePages": [
+        2,
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-16",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-07",
+      "rhymeIds": [
+        "hello-rhyme-16"
+      ],
+      "title": "Clap, Clap, Clap · 原书童谣页",
+      "file": "assets/hello/files/027ac25b599e3c5f.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-16.jpg",
+      "sourceFile": "assets/hello/files/027ac25b599e3c5f.pdf",
+      "sourceName": "7号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-17",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-08",
+      "rhymeIds": [
+        "hello-rhyme-17"
+      ],
+      "title": "Beach Baby · 原书童谣页",
+      "file": "assets/hello/files/1dba5651a0db0690.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-17.jpg",
+      "sourceFile": "assets/hello/files/1dba5651a0db0690.pdf",
+      "sourceName": "8号书.pdf",
+      "sourcePages": [
+        2,
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-18",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-08",
+      "rhymeIds": [
+        "hello-rhyme-18"
+      ],
+      "title": "It’s Time to Put Your Toys Away · 原书童谣页",
+      "file": "assets/hello/files/1dba5651a0db0690.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-18.jpg",
+      "sourceFile": "assets/hello/files/1dba5651a0db0690.pdf",
+      "sourceName": "8号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-19",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-09",
+      "rhymeIds": [
+        "hello-rhyme-19"
+      ],
+      "title": "My Racing Cars · 原书童谣页",
+      "file": "assets/hello/files/35e78cf2a2e013e7.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-19.jpg",
+      "sourceFile": "assets/hello/files/35e78cf2a2e013e7.pdf",
+      "sourceName": "9号书.pdf",
+      "sourcePages": [
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-20",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-09",
+      "rhymeIds": [
+        "hello-rhyme-20"
+      ],
+      "title": "Here I Am · 原书童谣页",
+      "file": "assets/hello/files/35e78cf2a2e013e7.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-20.jpg",
+      "sourceFile": "assets/hello/files/35e78cf2a2e013e7.pdf",
+      "sourceName": "9号书.pdf",
+      "sourcePages": [
+        5,
+        6
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-21",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-09",
+      "rhymeIds": [
+        "hello-rhyme-21"
+      ],
+      "title": "Do They Sink? · 原书童谣页",
+      "file": "assets/hello/files/35e78cf2a2e013e7.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-21.jpg",
+      "sourceFile": "assets/hello/files/35e78cf2a2e013e7.pdf",
+      "sourceName": "9号书.pdf",
+      "sourcePages": [
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-22",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-10",
+      "rhymeIds": [
+        "hello-rhyme-22"
+      ],
+      "title": "Patty-Cake Clap · 原书童谣页",
+      "file": "assets/hello/files/0d5903887d9f591f.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-22.jpg",
+      "sourceFile": "assets/hello/files/0d5903887d9f591f.pdf",
+      "sourceName": "10号书.pdf",
+      "sourcePages": [
+        4
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-23",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-11",
+      "rhymeIds": [
+        "hello-rhyme-23"
+      ],
+      "title": "Toaster Treats · 原书童谣页",
+      "file": "assets/hello/files/707c6b2943e67112.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-23.jpg",
+      "sourceFile": "assets/hello/files/707c6b2943e67112.pdf",
+      "sourceName": "11号书.pdf",
+      "sourcePages": [
+        2,
+        3
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-24",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-11",
+      "rhymeIds": [
+        "hello-rhyme-24"
+      ],
+      "title": "Little Wagon · 原书童谣页",
+      "file": "assets/hello/files/707c6b2943e67112.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-24.jpg",
+      "sourceFile": "assets/hello/files/707c6b2943e67112.pdf",
+      "sourceName": "11号书.pdf",
+      "sourcePages": [
+        5,
+        6
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-25",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-11",
+      "rhymeIds": [
+        "hello-rhyme-25"
+      ],
+      "title": "Rock-a-Bye, Darling · 原书童谣页",
+      "file": "assets/hello/files/707c6b2943e67112.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-25.jpg",
+      "sourceFile": "assets/hello/files/707c6b2943e67112.pdf",
+      "sourceName": "11号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-26",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-12",
+      "rhymeIds": [
+        "hello-rhyme-26"
+      ],
+      "title": "Make a Splash! · 原书童谣页",
+      "file": "assets/hello/files/c778324b61f96d6a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-26.jpg",
+      "sourceFile": "assets/hello/files/c778324b61f96d6a.pdf",
+      "sourceName": "12号书.pdf",
+      "sourcePages": [
+        4
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-27",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-12",
+      "rhymeIds": [
+        "hello-rhyme-27"
+      ],
+      "title": "Graham’s New Toy · 原书童谣页",
+      "file": "assets/hello/files/c778324b61f96d6a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-27.jpg",
+      "sourceFile": "assets/hello/files/c778324b61f96d6a.pdf",
+      "sourceName": "12号书.pdf",
+      "sourcePages": [
+        8
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-28",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-13",
+      "rhymeIds": [
+        "hello-rhyme-28"
+      ],
+      "title": "Hickety Pickety · 原书童谣页",
+      "file": "assets/hello/files/d6921167aef00fae.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-28.jpg",
+      "sourceFile": "assets/hello/files/d6921167aef00fae.pdf",
+      "sourceName": "13号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-29",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-14",
+      "rhymeIds": [
+        "hello-rhyme-29"
+      ],
+      "title": "Babies Everywhere! · 原书童谣页",
+      "file": "assets/hello/files/4b8660b11462d380.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-29.jpg",
+      "sourceFile": "assets/hello/files/4b8660b11462d380.pdf",
+      "sourceName": "14号书.pdf",
+      "sourcePages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-30",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-14",
+      "rhymeIds": [
+        "hello-rhyme-30"
+      ],
+      "title": "First Steps · 原书童谣页",
+      "file": "assets/hello/files/4b8660b11462d380.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-30.jpg",
+      "sourceFile": "assets/hello/files/4b8660b11462d380.pdf",
+      "sourceName": "14号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-31",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-14",
+      "rhymeIds": [
+        "hello-rhyme-31"
+      ],
+      "title": "Where’s My Baby? · 原书童谣页",
+      "file": "assets/hello/files/4b8660b11462d380.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-31.jpg",
+      "sourceFile": "assets/hello/files/4b8660b11462d380.pdf",
+      "sourceName": "14号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-32",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-32"
+      ],
+      "title": "What I Like · 原书童谣页",
+      "file": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-32.jpg",
+      "sourceFile": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "sourceName": "15号书.pdf",
+      "sourcePages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-33",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-33"
+      ],
+      "title": "Playing Ball · 原书童谣页",
+      "file": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-33.jpg",
+      "sourceFile": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "sourceName": "15号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-34",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-34"
+      ],
+      "title": "Flying High · 原书童谣页",
+      "file": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-34.jpg",
+      "sourceFile": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "sourceName": "15号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-35",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-35"
+      ],
+      "title": "My Puppy · 原书童谣页",
+      "file": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-35.jpg",
+      "sourceFile": "assets/hello/files/9eb634a2bf7bbb80.pdf",
+      "sourceName": "15号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-36",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-16",
+      "rhymeIds": [
+        "hello-rhyme-36"
+      ],
+      "title": "Rain and Sun · 原书童谣页",
+      "file": "assets/hello/files/6c35ac5a22d55243.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-36.jpg",
+      "sourceFile": "assets/hello/files/6c35ac5a22d55243.pdf",
+      "sourceName": "16号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-37",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-16",
+      "rhymeIds": [
+        "hello-rhyme-37"
+      ],
+      "title": "Who Is… · 原书童谣页",
+      "file": "assets/hello/files/6c35ac5a22d55243.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-37.jpg",
+      "sourceFile": "assets/hello/files/6c35ac5a22d55243.pdf",
+      "sourceName": "16号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-38",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-17",
+      "rhymeIds": [
+        "hello-rhyme-38"
+      ],
+      "title": "Mama’s Monkey · 原书童谣页",
+      "file": "assets/hello/files/90962276af3b39df.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-38.jpg",
+      "sourceFile": "assets/hello/files/90962276af3b39df.pdf",
+      "sourceName": "17号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-39",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-17",
+      "rhymeIds": [
+        "hello-rhyme-39"
+      ],
+      "title": "Rock and Sing · 原书童谣页",
+      "file": "assets/hello/files/90962276af3b39df.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-39.jpg",
+      "sourceFile": "assets/hello/files/90962276af3b39df.pdf",
+      "sourceName": "17号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-40",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-40"
+      ],
+      "title": "Baby Bunny’s Train · 原书童谣页",
+      "file": "assets/hello/files/364c646d6fd149f1.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-40.jpg",
+      "sourceFile": "assets/hello/files/364c646d6fd149f1.pdf",
+      "sourceName": "18号书.pdf",
+      "sourcePages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-41",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-41"
+      ],
+      "title": "My Toothbrush · 原书童谣页",
+      "file": "assets/hello/files/364c646d6fd149f1.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-41.jpg",
+      "sourceFile": "assets/hello/files/364c646d6fd149f1.pdf",
+      "sourceName": "18号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-42",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-42"
+      ],
+      "title": "Pickups · 原书童谣页",
+      "file": "assets/hello/files/364c646d6fd149f1.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-42.jpg",
+      "sourceFile": "assets/hello/files/364c646d6fd149f1.pdf",
+      "sourceName": "18号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-43",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-43"
+      ],
+      "title": "One Star, One Moon · 原书童谣页",
+      "file": "assets/hello/files/364c646d6fd149f1.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-43.jpg",
+      "sourceFile": "assets/hello/files/364c646d6fd149f1.pdf",
+      "sourceName": "18号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-44",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-19",
+      "rhymeIds": [
+        "hello-rhyme-44"
+      ],
+      "title": "Let’s Pretend · 原书童谣页",
+      "file": "assets/hello/files/083567236ece20f6.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-44.jpg",
+      "sourceFile": "assets/hello/files/083567236ece20f6.pdf",
+      "sourceName": "19号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-45",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-19",
+      "rhymeIds": [
+        "hello-rhyme-45"
+      ],
+      "title": "Nana and Me · 原书童谣页",
+      "file": "assets/hello/files/083567236ece20f6.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-45.jpg",
+      "sourceFile": "assets/hello/files/083567236ece20f6.pdf",
+      "sourceName": "19号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-46",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-19",
+      "rhymeIds": [
+        "hello-rhyme-46"
+      ],
+      "title": "Move to the Beat · 原书童谣页",
+      "file": "assets/hello/files/083567236ece20f6.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-46.jpg",
+      "sourceFile": "assets/hello/files/083567236ece20f6.pdf",
+      "sourceName": "19号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-47",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-20",
+      "rhymeIds": [
+        "hello-rhyme-47"
+      ],
+      "title": "Jelly Baby · 原书童谣页",
+      "file": "assets/hello/files/511a796c4aadafae.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-47.jpg",
+      "sourceFile": "assets/hello/files/511a796c4aadafae.pdf",
+      "sourceName": "Hello杂志20号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-48",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-21",
+      "rhymeIds": [
+        "hello-rhyme-48"
+      ],
+      "title": "Where’s Bear? · 原书童谣页",
+      "file": "assets/hello/files/a514fdb78b61447b.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-48.jpg",
+      "sourceFile": "assets/hello/files/a514fdb78b61447b.pdf",
+      "sourceName": "21号书.pdf",
+      "sourcePages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-49",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-21",
+      "rhymeIds": [
+        "hello-rhyme-49"
+      ],
+      "title": "Daddy’s Home · 原书童谣页",
+      "file": "assets/hello/files/a514fdb78b61447b.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-49.jpg",
+      "sourceFile": "assets/hello/files/a514fdb78b61447b.pdf",
+      "sourceName": "21号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-50",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-21",
+      "rhymeIds": [
+        "hello-rhyme-50"
+      ],
+      "title": "All Grown Up · 原书童谣页",
+      "file": "assets/hello/files/a514fdb78b61447b.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-50.jpg",
+      "sourceFile": "assets/hello/files/a514fdb78b61447b.pdf",
+      "sourceName": "21号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-51",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-22",
+      "rhymeIds": [
+        "hello-rhyme-51"
+      ],
+      "title": "Find Me! · 原书童谣页",
+      "file": "assets/hello/files/c2dd41c5298c7a20.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-51.jpg",
+      "sourceFile": "assets/hello/files/c2dd41c5298c7a20.pdf",
+      "sourceName": "22号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-53",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-22",
+      "rhymeIds": [
+        "hello-rhyme-53"
+      ],
+      "title": "October Fun · 原书童谣页",
+      "file": "assets/hello/files/c2dd41c5298c7a20.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-53.jpg",
+      "sourceFile": "assets/hello/files/c2dd41c5298c7a20.pdf",
+      "sourceName": "22号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-54",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-22",
+      "rhymeIds": [
+        "hello-rhyme-54"
+      ],
+      "title": "Baby’s Lullaby · 原书童谣页",
+      "file": "assets/hello/files/c2dd41c5298c7a20.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-54.jpg",
+      "sourceFile": "assets/hello/files/c2dd41c5298c7a20.pdf",
+      "sourceName": "22号书.pdf",
+      "sourcePages": [
+        14,
+        15
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-55",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-23",
+      "rhymeIds": [
+        "hello-rhyme-55"
+      ],
+      "title": "Bunny Hop · 原书童谣页",
+      "file": "assets/hello/files/98abf5388964c57a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-55.jpg",
+      "sourceFile": "assets/hello/files/98abf5388964c57a.pdf",
+      "sourceName": "23号书.pdf",
+      "sourcePages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-56",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-23",
+      "rhymeIds": [
+        "hello-rhyme-56"
+      ],
+      "title": "Papa’s Little Patty-Cakes · 原书童谣页",
+      "file": "assets/hello/files/98abf5388964c57a.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-56.jpg",
+      "sourceFile": "assets/hello/files/98abf5388964c57a.pdf",
+      "sourceName": "23号书.pdf",
+      "sourcePages": [
+        6,
+        7
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-original-57",
+      "type": "rhyme-card",
+      "origin": "book-pages",
+      "bookId": "hello-24",
+      "rhymeIds": [
+        "hello-rhyme-57"
+      ],
+      "title": "Counting Sheep · 原书童谣页",
+      "file": "assets/hello/files/a3275b2846f4afc1.pdf",
+      "preview": "assets/hello/material-cards/hello-material-original-57.jpg",
+      "sourceFile": "assets/hello/files/a3275b2846f4afc1.pdf",
+      "sourceName": "24号书.pdf",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "note": "由本册原书实际页面生成预览，保留原文与页面现有水印；这是原书页，不是目录中另附的独立歌词卡。",
+      "evidence": {
+        "method": "逐页渲染目视核对；可提取文本的原书另核对文本",
+        "basis": "书内标题、歌词或韵文原文与该童谣一致，按实际PDF页码定位；不使用带读汇总页码。",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-guide-01",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-01",
+      "rhymeIds": [],
+      "title": "1号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-01.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-01.jpg",
+      "sourceFile": "assets/hello/notes/book-01.pdf",
+      "sourceName": "Hello1号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-02",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-02",
+      "rhymeIds": [],
+      "title": "2号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-02.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-02.jpg",
+      "sourceFile": "assets/hello/notes/book-02.pdf",
+      "sourceName": "Hello2号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-03",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-03",
+      "rhymeIds": [],
+      "title": "3号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-03.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-03.jpg",
+      "sourceFile": "assets/hello/notes/book-03.pdf",
+      "sourceName": "3号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-04",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-04",
+      "rhymeIds": [],
+      "title": "4号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-04.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-04.jpg",
+      "sourceFile": "assets/hello/notes/book-04.pdf",
+      "sourceName": "Hello4号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-05",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-05",
+      "rhymeIds": [],
+      "title": "5号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-05.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-05.jpg",
+      "sourceFile": "assets/hello/notes/book-05.pdf",
+      "sourceName": "Hello5号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 6,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-06",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-06",
+      "rhymeIds": [],
+      "title": "6号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-06.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-06.jpg",
+      "sourceFile": "assets/hello/notes/book-06.pdf",
+      "sourceName": "Hello6号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-07",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-07",
+      "rhymeIds": [],
+      "title": "7号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-07.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-07.jpg",
+      "sourceFile": "assets/hello/notes/book-07.pdf",
+      "sourceName": "Hello7号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-08",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-08",
+      "rhymeIds": [],
+      "title": "8号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-08.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-08.jpg",
+      "sourceFile": "assets/hello/notes/book-08.pdf",
+      "sourceName": "Hello8号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-09",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-09",
+      "rhymeIds": [],
+      "title": "9号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-09.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-09.jpg",
+      "sourceFile": "assets/hello/notes/book-09.pdf",
+      "sourceName": "9号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-10",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-10",
+      "rhymeIds": [],
+      "title": "10号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-10.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-10.jpg",
+      "sourceFile": "assets/hello/notes/book-10.pdf",
+      "sourceName": "10号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-11",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-11.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-11.jpg",
+      "sourceFile": "assets/hello/notes/book-11.pdf",
+      "sourceName": "Hello11号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-12",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-12.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-12.jpg",
+      "sourceFile": "assets/hello/notes/book-12.pdf",
+      "sourceName": "12号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-13",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-13",
+      "rhymeIds": [],
+      "title": "13号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-13.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-13.jpg",
+      "sourceFile": "assets/hello/notes/book-13.pdf",
+      "sourceName": "Hello13号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 7,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-14",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-14",
+      "rhymeIds": [],
+      "title": "14号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-14.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-14.jpg",
+      "sourceFile": "assets/hello/notes/book-14.pdf",
+      "sourceName": "14号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-15",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-15",
+      "rhymeIds": [],
+      "title": "15号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-15.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-15.jpg",
+      "sourceFile": "assets/hello/notes/book-15.pdf",
+      "sourceName": "Hello杂志15号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-16",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-16",
+      "rhymeIds": [],
+      "title": "16号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-16.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-16.jpg",
+      "sourceFile": "assets/hello/notes/book-16.pdf",
+      "sourceName": "Hello杂志16号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-17",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-17",
+      "rhymeIds": [],
+      "title": "17号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-17.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-17.jpg",
+      "sourceFile": "assets/hello/notes/book-17.pdf",
+      "sourceName": "17号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-18",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-18",
+      "rhymeIds": [],
+      "title": "18号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-18.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-18.jpg",
+      "sourceFile": "assets/hello/notes/book-18.pdf",
+      "sourceName": "Hello18号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-19",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-19",
+      "rhymeIds": [],
+      "title": "19号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-19.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-19.jpg",
+      "sourceFile": "assets/hello/notes/book-19.pdf",
+      "sourceName": "Hello19号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-20",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-20",
+      "rhymeIds": [],
+      "title": "20号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-20.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-20.jpg",
+      "sourceFile": "assets/hello/notes/book-20.pdf",
+      "sourceName": "Hello杂志20号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-21",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-21",
+      "rhymeIds": [],
+      "title": "21号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-21.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-21.jpg",
+      "sourceFile": "assets/hello/notes/book-21.pdf",
+      "sourceName": "Hello21号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-22",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-22",
+      "rhymeIds": [],
+      "title": "22号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-22.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-22.jpg",
+      "sourceFile": "assets/hello/notes/book-22.pdf",
+      "sourceName": "Hello22号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-23",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-23",
+      "rhymeIds": [],
+      "title": "23号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-23.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-23.jpg",
+      "sourceFile": "assets/hello/notes/book-23.pdf",
+      "sourceName": "Hello杂志23号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 5,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-guide-24",
+      "type": "reading-guide",
+      "origin": "notes-pdf",
+      "bookId": "hello-24",
+      "rhymeIds": [],
+      "title": "24号书 · 语言点与阅读指导",
+      "file": "assets/hello/notes/book-24.pdf",
+      "preview": "assets/hello/material-cards/hello-material-guide-24.jpg",
+      "sourceFile": "assets/hello/notes/book-24.pdf",
+      "sourceName": "24号书笔记汇总.pdf",
+      "note": "本册笔记含场景、语言点、亲子表达、阅读建议及拓展书目；不是独立歌词卡。",
+      "evidence": {
+        "method": "全PDF逐页渲染核对",
+        "pagesChecked": 7,
+        "basis": "逐页栏目为语言点/阅读注意事项/亲子英文等，按资料包与页内书号归册；不逐首强配。"
+      }
+    },
+    {
+      "id": "hello-material-image-20c25725fb199c72",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-01",
+      "rhymeIds": [],
+      "title": "1号书 · 身体动作指令词汇图",
+      "file": "assets/hello/material-cards/source-20c25725fb199c72.png",
+      "preview": "assets/hello/material-cards/hello-material-image-20c25725fb199c72.jpg",
+      "sourceFile": "assets/hello/material-cards/source-20c25725fb199c72.png",
+      "sourceName": "身体动作指令.png",
+      "sourceNames": [
+        "1号书资料包/身体动作指令.png"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "20c25725fb199c723a362ac46e623f410500bdd8e957e4714631ea46668115b8",
+      "bytes": 340318,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/1号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-63661c7d02cf9415",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-02",
+      "rhymeIds": [],
+      "title": "2号书 · Rockin’ Baby画面词汇词汇图",
+      "file": "assets/hello/material-cards/source-63661c7d02cf9415.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-63661c7d02cf9415.jpg",
+      "sourceFile": "assets/hello/material-cards/source-63661c7d02cf9415.jpg",
+      "sourceName": "2号书P2.jpg",
+      "sourceNames": [
+        "2号书资料包/2号书P2.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。画面包含Rockin’ Baby标题和部分原诗，但词汇标注遮挡部分诗句，保留为词汇图。",
+      "sha256": "63661c7d02cf9415ad924b6bea494c544a1d113e0f51564121e23264c054308e",
+      "bytes": 337271,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/2号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-6a860901345715bb",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-02",
+      "rhymeIds": [],
+      "title": "2号书 · 宠物医院词汇图",
+      "file": "assets/hello/material-cards/source-6a860901345715bb.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-6a860901345715bb.jpg",
+      "sourceFile": "assets/hello/material-cards/source-6a860901345715bb.jpg",
+      "sourceName": "2号书P3.jpg",
+      "sourceNames": [
+        "2号书资料包/2号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "6a860901345715bbfba1e0ea551128928e25473e940b77764d7f414494cc2777",
+      "bytes": 278743,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/2号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-7137997bfbd12364",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-03",
+      "rhymeIds": [],
+      "title": "3号书 · 玩具房词汇图",
+      "file": "assets/hello/material-cards/source-7137997bfbd12364.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-7137997bfbd12364.jpg",
+      "sourceFile": "assets/hello/material-cards/source-7137997bfbd12364.jpg",
+      "sourceName": "3号书 P3.jpg",
+      "sourceNames": [
+        "3号书资料包/3号书 P3.jpg",
+        "3号书资料包/3号书 P3(1).jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "7137997bfbd12364417f1f6f938aaa78314cbab1979bccfd5c524a8ed4d36de4",
+      "bytes": 249610,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/3号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-83a0c0df59e9bfdb",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-04",
+      "rhymeIds": [],
+      "title": "4号书 · 阅读笔记拆页（Hello4号书笔记_页面_1.jpg）",
+      "file": "assets/hello/material-cards/source-83a0c0df59e9bfdb.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-83a0c0df59e9bfdb.jpg",
+      "sourceFile": "assets/hello/material-cards/source-83a0c0df59e9bfdb.jpg",
+      "sourceName": "Hello4号书笔记_页面_1.jpg",
+      "sourceNames": [
+        "4号书资料包/Hello4号书笔记_页面_1.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "83a0c0df59e9bfdb0309d571efdde9b7d7effbf004f00bd325177ba020098a12",
+      "bytes": 300887,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/4号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-04"
+    },
+    {
+      "id": "hello-material-image-20f403b69b16046f",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-04",
+      "rhymeIds": [],
+      "title": "4号书 · 阅读笔记拆页（Hello4号书笔记_页面_2.jpg）",
+      "file": "assets/hello/material-cards/source-20f403b69b16046f.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-20f403b69b16046f.jpg",
+      "sourceFile": "assets/hello/material-cards/source-20f403b69b16046f.jpg",
+      "sourceName": "Hello4号书笔记_页面_2.jpg",
+      "sourceNames": [
+        "4号书资料包/Hello4号书笔记_页面_2.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "20f403b69b16046f3e1ab2358ab320a04dfa537ca2f79ebe1c618874f5be4193",
+      "bytes": 269872,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/4号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-04"
+    },
+    {
+      "id": "hello-material-image-2805b871cf8b4d8c",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-04",
+      "rhymeIds": [],
+      "title": "4号书 · 阅读笔记拆页（Hello4号书笔记_页面_3.jpg）",
+      "file": "assets/hello/material-cards/source-2805b871cf8b4d8c.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-2805b871cf8b4d8c.jpg",
+      "sourceFile": "assets/hello/material-cards/source-2805b871cf8b4d8c.jpg",
+      "sourceName": "Hello4号书笔记_页面_3.jpg",
+      "sourceNames": [
+        "4号书资料包/Hello4号书笔记_页面_3.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "2805b871cf8b4d8cfd808ff4c4e966e52f972de468896b84dccd073078d83a19",
+      "bytes": 301627,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/4号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-04"
+    },
+    {
+      "id": "hello-material-image-81f5b03d4f7832fc",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-04",
+      "rhymeIds": [],
+      "title": "4号书 · 阅读笔记拆页（Hello4号书笔记_页面_4.jpg）",
+      "file": "assets/hello/material-cards/source-81f5b03d4f7832fc.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-81f5b03d4f7832fc.jpg",
+      "sourceFile": "assets/hello/material-cards/source-81f5b03d4f7832fc.jpg",
+      "sourceName": "Hello4号书笔记_页面_4.jpg",
+      "sourceNames": [
+        "4号书资料包/Hello4号书笔记_页面_4.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "81f5b03d4f7832fc9b15ac6bfa8bfe2b3c049038a5ce7fbb0f0a1323c0190207",
+      "bytes": 277021,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/4号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-04"
+    },
+    {
+      "id": "hello-material-image-6c6e110b190cce38",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-04",
+      "rhymeIds": [],
+      "title": "4号书 · 阅读笔记拆页（Hello4号书笔记_页面_5.jpg）",
+      "file": "assets/hello/material-cards/source-6c6e110b190cce38.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-6c6e110b190cce38.jpg",
+      "sourceFile": "assets/hello/material-cards/source-6c6e110b190cce38.jpg",
+      "sourceName": "Hello4号书笔记_页面_5.jpg",
+      "sourceNames": [
+        "4号书资料包/Hello4号书笔记_页面_5.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "6c6e110b190cce38aca38de5f2010c9ac28068abfb68c82a7392cfb17497d407",
+      "bytes": 228013,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/4号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-04"
+    },
+    {
+      "id": "hello-material-image-f9394194adb90aba",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-06",
+      "rhymeIds": [],
+      "title": "6号书 · 客厅玩具词汇图",
+      "file": "assets/hello/material-cards/source-f9394194adb90aba.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-f9394194adb90aba.jpg",
+      "sourceFile": "assets/hello/material-cards/source-f9394194adb90aba.jpg",
+      "sourceName": "Hello6号书p3图.jpg",
+      "sourceNames": [
+        "6号书资料包/Hello6号书p3图.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "f9394194adb90aba2aee61f339836ff3a7acb3d8a5af067a968c1042941d3aa0",
+      "bytes": 1688330,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/6号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-cab4c05df0aa0172",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-07",
+      "rhymeIds": [],
+      "title": "7号书 · 庭院与泳池词汇图",
+      "file": "assets/hello/material-cards/source-cab4c05df0aa0172.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-cab4c05df0aa0172.jpg",
+      "sourceFile": "assets/hello/material-cards/source-cab4c05df0aa0172.jpg",
+      "sourceName": "Hello7号书P3图.jpg",
+      "sourceNames": [
+        "7号书资料包/Hello7号书P3图.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "cab4c05df0aa0172a0332c3a5040568883febcb40205470097535e741daade80",
+      "bytes": 219002,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/7号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-677bfeba0b05ec87",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-08",
+      "rhymeIds": [],
+      "title": "8号书 · 海边词汇图",
+      "file": "assets/hello/material-cards/source-677bfeba0b05ec87.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-677bfeba0b05ec87.jpg",
+      "sourceFile": "assets/hello/material-cards/source-677bfeba0b05ec87.jpg",
+      "sourceName": "Hello8号书P3图.jpg",
+      "sourceNames": [
+        "8号书资料包/Hello8号书P3图.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "677bfeba0b05ec87e4880105fa4ba8411df95115762367504e0ca568b1bed3aa",
+      "bytes": 1702839,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/8号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-c9a88ad3d3e5b53a",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-09",
+      "rhymeIds": [],
+      "title": "9号书 · 嘉年华与游乐场词汇图",
+      "file": "assets/hello/material-cards/source-c9a88ad3d3e5b53a.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-c9a88ad3d3e5b53a.jpg",
+      "sourceFile": "assets/hello/material-cards/source-c9a88ad3d3e5b53a.jpg",
+      "sourceName": "9号书 P3.jpg",
+      "sourceNames": [
+        "9号书资料包/9号书 P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "c9a88ad3d3e5b53a034e98874005a4f06d936f605d267b3a085a76f9519b2350",
+      "bytes": 56614,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/9号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-486d636fa2989f00",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-10",
+      "rhymeIds": [],
+      "title": "10号书 · 后院与宠物词汇图",
+      "file": "assets/hello/material-cards/source-486d636fa2989f00.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-486d636fa2989f00.jpg",
+      "sourceFile": "assets/hello/material-cards/source-486d636fa2989f00.jpg",
+      "sourceName": "后院中英注释图.JPG",
+      "sourceNames": [
+        "10号书资料包/后院中英注释图.JPG"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "486d636fa2989f007b89bf9f13fec98f0a4f770f30f8043dcabdaaa55f41eed7",
+      "bytes": 2386663,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/10号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-e4052882f86cf2f3",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 阅读笔记拆页（Hello11号书—P1.jpg）",
+      "file": "assets/hello/material-cards/source-e4052882f86cf2f3.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-e4052882f86cf2f3.jpg",
+      "sourceFile": "assets/hello/material-cards/source-e4052882f86cf2f3.jpg",
+      "sourceName": "Hello11号书—P1.jpg",
+      "sourceNames": [
+        "11号书资料包/Hello11号书—P1.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "e4052882f86cf2f363cdc5b4b63c621d537141df2be443c9657dec810757e0f3",
+      "bytes": 741704,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/11号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-11"
+    },
+    {
+      "id": "hello-material-image-f51306665c0a4cab",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 阅读笔记拆页（Hello11号书—P2.jpg）",
+      "file": "assets/hello/material-cards/source-f51306665c0a4cab.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-f51306665c0a4cab.jpg",
+      "sourceFile": "assets/hello/material-cards/source-f51306665c0a4cab.jpg",
+      "sourceName": "Hello11号书—P2.jpg",
+      "sourceNames": [
+        "11号书资料包/Hello11号书—P2.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "f51306665c0a4cab457ba0ebbdd18667b42afe5aa5e91ffa19b9e5e18c2d0433",
+      "bytes": 768525,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/11号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-11"
+    },
+    {
+      "id": "hello-material-image-102777245be07707",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 阅读笔记拆页（Hello11号书—P3.jpg）",
+      "file": "assets/hello/material-cards/source-102777245be07707.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-102777245be07707.jpg",
+      "sourceFile": "assets/hello/material-cards/source-102777245be07707.jpg",
+      "sourceName": "Hello11号书—P3.jpg",
+      "sourceNames": [
+        "11号书资料包/Hello11号书—P3.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "102777245be0770778e7dc3c6712b2379ee7a5bb47cd015c7ae62dea0e73d8df",
+      "bytes": 1025661,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/11号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-11"
+    },
+    {
+      "id": "hello-material-image-0c8647eed0928a4f",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 阅读笔记拆页（Hello11号书—P4.jpg）",
+      "file": "assets/hello/material-cards/source-0c8647eed0928a4f.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-0c8647eed0928a4f.jpg",
+      "sourceFile": "assets/hello/material-cards/source-0c8647eed0928a4f.jpg",
+      "sourceName": "Hello11号书—P4.jpg",
+      "sourceNames": [
+        "11号书资料包/Hello11号书—P4.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "0c8647eed0928a4f52c1a22fa118fce20ebe6591974d1cdf9374e744cb26fb0f",
+      "bytes": 773625,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/11号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-11"
+    },
+    {
+      "id": "hello-material-image-b22d4bff3565bba8",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 阅读笔记拆页（Hello11号书—P5.jpg）",
+      "file": "assets/hello/material-cards/source-b22d4bff3565bba8.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-b22d4bff3565bba8.jpg",
+      "sourceFile": "assets/hello/material-cards/source-b22d4bff3565bba8.jpg",
+      "sourceName": "Hello11号书—P5.jpg",
+      "sourceNames": [
+        "11号书资料包/Hello11号书—P5.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "b22d4bff3565bba840d319ca03a453eca22fca26e817c3e65c61efd9c0daefcf",
+      "bytes": 812755,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/11号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-11"
+    },
+    {
+      "id": "hello-material-image-f1f1b65dc2691493",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-11",
+      "rhymeIds": [],
+      "title": "11号书 · 秋天庭院词汇图",
+      "file": "assets/hello/material-cards/source-f1f1b65dc2691493.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-f1f1b65dc2691493.jpg",
+      "sourceFile": "assets/hello/material-cards/source-f1f1b65dc2691493.jpg",
+      "sourceName": "Hello11号书P3图.jpg",
+      "sourceNames": [
+        "11号书资料包/Hello11号书P3图.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "f1f1b65dc26914939bd4255131229d6f78c5bbbc15a30db9b9e8ecc7d9c853cd",
+      "bytes": 439383,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/11号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-c170193f9fbc59de",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 室内玩具词汇图",
+      "file": "assets/hello/material-cards/source-c170193f9fbc59de.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-c170193f9fbc59de.jpg",
+      "sourceFile": "assets/hello/material-cards/source-c170193f9fbc59de.jpg",
+      "sourceName": "12号书-1.jpg",
+      "sourceNames": [
+        "12号书资料包/12号书-1.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "c170193f9fbc59de13b736f65073ebd86fce0e6db10be827d684493aefd4f91f",
+      "bytes": 454187,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-1007bf9e266f84a0",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 睡前房间词汇图",
+      "file": "assets/hello/material-cards/source-1007bf9e266f84a0.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-1007bf9e266f84a0.jpg",
+      "sourceFile": "assets/hello/material-cards/source-1007bf9e266f84a0.jpg",
+      "sourceName": "12号书更新图片.jpg",
+      "sourceNames": [
+        "12号书资料包/12号书更新图片.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "1007bf9e266f84a0a8c0276c945d96ba1cbdcb0c66cf68661c6b5c24329180dd",
+      "bytes": 2544391,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-0f7675f1725e1d13",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 阅读笔记拆页（Hello12号书 页面_1.jpg）",
+      "file": "assets/hello/material-cards/source-0f7675f1725e1d13.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-0f7675f1725e1d13.jpg",
+      "sourceFile": "assets/hello/material-cards/source-0f7675f1725e1d13.jpg",
+      "sourceName": "Hello12号书 页面_1.jpg",
+      "sourceNames": [
+        "12号书资料包/Hello12号书 页面_1.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "0f7675f1725e1d139aaf6aa74f8e6f6586c0f90c5aa3db51f66a957582b55669",
+      "bytes": 274671,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-12"
+    },
+    {
+      "id": "hello-material-image-bdf48ecfbcfbd245",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 阅读笔记拆页（Hello12号书 页面_2.jpg）",
+      "file": "assets/hello/material-cards/source-bdf48ecfbcfbd245.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-bdf48ecfbcfbd245.jpg",
+      "sourceFile": "assets/hello/material-cards/source-bdf48ecfbcfbd245.jpg",
+      "sourceName": "Hello12号书 页面_2.jpg",
+      "sourceNames": [
+        "12号书资料包/Hello12号书 页面_2.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "bdf48ecfbcfbd245e419a16b2a296d786f528b0a6af45aac01b29dd4d129c5f7",
+      "bytes": 263982,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-12"
+    },
+    {
+      "id": "hello-material-image-0b69f07d810510b9",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 阅读笔记拆页（Hello12号书 页面_3.jpg）",
+      "file": "assets/hello/material-cards/source-0b69f07d810510b9.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-0b69f07d810510b9.jpg",
+      "sourceFile": "assets/hello/material-cards/source-0b69f07d810510b9.jpg",
+      "sourceName": "Hello12号书 页面_3.jpg",
+      "sourceNames": [
+        "12号书资料包/Hello12号书 页面_3.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "0b69f07d810510b9ece6f6eaacc3daaa95a512378a65dc8c764fca52839be6f2",
+      "bytes": 295507,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-12"
+    },
+    {
+      "id": "hello-material-image-c5c442814d43a3c4",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 阅读笔记拆页（Hello12号书 页面_4.jpg）",
+      "file": "assets/hello/material-cards/source-c5c442814d43a3c4.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-c5c442814d43a3c4.jpg",
+      "sourceFile": "assets/hello/material-cards/source-c5c442814d43a3c4.jpg",
+      "sourceName": "Hello12号书 页面_4.jpg",
+      "sourceNames": [
+        "12号书资料包/Hello12号书 页面_4.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "c5c442814d43a3c4ac1ceea3fe19964348f60acb7e8770be4d9a6c3b65b861bc",
+      "bytes": 266090,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-12"
+    },
+    {
+      "id": "hello-material-image-fc8cd4ee61f76edc",
+      "type": "reading-guide",
+      "origin": "standalone-image",
+      "bookId": "hello-12",
+      "rhymeIds": [],
+      "title": "12号书 · 阅读笔记拆页（Hello12号书 页面_5.jpg）",
+      "file": "assets/hello/material-cards/source-fc8cd4ee61f76edc.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-fc8cd4ee61f76edc.jpg",
+      "sourceFile": "assets/hello/material-cards/source-fc8cd4ee61f76edc.jpg",
+      "sourceName": "Hello12号书 页面_5.jpg",
+      "sourceNames": [
+        "12号书资料包/Hello12号书 页面_5.jpg"
+      ],
+      "note": "与本册笔记PDF对应的独立拆页图片，含语言点和阅读建议；按册关联，不当作歌词卡。",
+      "sha256": "fc8cd4ee61f76edc22b5de0948e8c2b9864cebe9df436692c9b5da99b93a6306",
+      "bytes": 238404,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/12号书资料包"
+      },
+      "duplicateOf": "hello-material-guide-12"
+    },
+    {
+      "id": "hello-material-image-a77fdcd2254223fc",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-13",
+      "rhymeIds": [],
+      "title": "13号书 · 农场词汇图",
+      "file": "assets/hello/material-cards/source-a77fdcd2254223fc.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-a77fdcd2254223fc.jpg",
+      "sourceFile": "assets/hello/material-cards/source-a77fdcd2254223fc.jpg",
+      "sourceName": "Hello13号书P3图解.jpg",
+      "sourceNames": [
+        "13号书资料包/Hello13号书P3图解.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "a77fdcd2254223fc6dab79460220be12e96123e6982d973ec857c2600f932635",
+      "bytes": 3240357,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/13号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-a39120584424f7e4",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-15",
+      "rhymeIds": [],
+      "title": "15号书 · 厨房词汇图",
+      "file": "assets/hello/material-cards/source-a39120584424f7e4.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-a39120584424f7e4.jpg",
+      "sourceFile": "assets/hello/material-cards/source-a39120584424f7e4.jpg",
+      "sourceName": "Hello15号书P3.jpg",
+      "sourceNames": [
+        "15号书资料包/Hello15号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "a39120584424f7e4e6f47d2540b1d8b4989c124f1128ad5f4172ff3ec8e31c48",
+      "bytes": 349347,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/15号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-f497655dc5cbee6a",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-16",
+      "rhymeIds": [],
+      "title": "16号书 · 街景词汇图",
+      "file": "assets/hello/material-cards/source-f497655dc5cbee6a.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-f497655dc5cbee6a.jpg",
+      "sourceFile": "assets/hello/material-cards/source-f497655dc5cbee6a.jpg",
+      "sourceName": "16号书P3.jpg",
+      "sourceNames": [
+        "16号书资料包/16号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "f497655dc5cbee6a3f24def096f8440b0c748150ae89b8f5082e9ecbdaca73cd",
+      "bytes": 543591,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/16号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-2c6ebd86f0584892",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-17",
+      "rhymeIds": [],
+      "title": "17号书 · 门廊与庭院词汇图",
+      "file": "assets/hello/material-cards/source-2c6ebd86f0584892.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-2c6ebd86f0584892.jpg",
+      "sourceFile": "assets/hello/material-cards/source-2c6ebd86f0584892.jpg",
+      "sourceName": "17号书 P3.jpg",
+      "sourceNames": [
+        "17号书资料包/17号书 P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "2c6ebd86f0584892c4ef12026f7128c0b3f8945ac1cf1824a8f59006a1c2e136",
+      "bytes": 415512,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/17号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-c2c8176d427e196e",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-17",
+      "rhymeIds": [],
+      "title": "17号书 · 摇椅与房间物品词汇图",
+      "file": "assets/hello/material-cards/source-c2c8176d427e196e.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-c2c8176d427e196e.jpg",
+      "sourceFile": "assets/hello/material-cards/source-c2c8176d427e196e.jpg",
+      "sourceName": "17号书 P5.jpg",
+      "sourceNames": [
+        "17号书资料包/17号书 P5.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "c2c8176d427e196ea8c679f0e15ec993da6c7f3ce1d52193d9f9927d3f443b85",
+      "bytes": 135795,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/17号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-4f23fd64f3cf3769",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-18",
+      "rhymeIds": [],
+      "title": "18号书 · 卧室词汇图",
+      "file": "assets/hello/material-cards/source-4f23fd64f3cf3769.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-4f23fd64f3cf3769.jpg",
+      "sourceFile": "assets/hello/material-cards/source-4f23fd64f3cf3769.jpg",
+      "sourceName": "18号书P3.jpg",
+      "sourceNames": [
+        "18号书资料包/18号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。图内为Find It卧室物品（床头板、床铃、台灯、床头柜等），与My Toothbrush刷牙原文不同。",
+      "sha256": "4f23fd64f3cf376924a053f1b6fb8cce7cff3cc9b853cf4b1a116a679a17ef4b",
+      "bytes": 254716,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/18号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-a7b57e49cd06f4b6",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-19",
+      "rhymeIds": [],
+      "title": "19号书 · 公园池塘词汇图",
+      "file": "assets/hello/material-cards/source-a7b57e49cd06f4b6.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-a7b57e49cd06f4b6.jpg",
+      "sourceFile": "assets/hello/material-cards/source-a7b57e49cd06f4b6.jpg",
+      "sourceName": "19号书P3.jpg",
+      "sourceNames": [
+        "19号书资料包/19号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "a7b57e49cd06f4b6c69f10cb38985b84334adc12e05af4e690c2eff4b09ac360",
+      "bytes": 429652,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/19号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-bc8efc89ace8150b",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-20",
+      "rhymeIds": [],
+      "title": "20号书 · 庭院与沙坑词汇图",
+      "file": "assets/hello/material-cards/source-bc8efc89ace8150b.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-bc8efc89ace8150b.jpg",
+      "sourceFile": "assets/hello/material-cards/source-bc8efc89ace8150b.jpg",
+      "sourceName": "Hello20号书P3图.jpg",
+      "sourceNames": [
+        "20号书资料包/Hello20号书P3图.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "bc8efc89ace8150be841ce0528f3681f1ff444e08122101110ec60f1608b2401",
+      "bytes": 531959,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/20号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-b7c0178901eda794",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-21",
+      "rhymeIds": [],
+      "title": "21号书 · 卧室与衣柜词汇图",
+      "file": "assets/hello/material-cards/source-b7c0178901eda794.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-b7c0178901eda794.jpg",
+      "sourceFile": "assets/hello/material-cards/source-b7c0178901eda794.jpg",
+      "sourceName": "Hello21号书P3图.jpg",
+      "sourceNames": [
+        "21号书资料包/Hello21号书P3图.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "b7c0178901eda7940a5c243390b0ca59512f073afdaa98ab8fb8630a0cb3f2ab",
+      "bytes": 381996,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/21号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-2a5535d3933d6c42",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-22",
+      "rhymeIds": [],
+      "title": "22号书 · 万圣节门前词汇图",
+      "file": "assets/hello/material-cards/source-2a5535d3933d6c42.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-2a5535d3933d6c42.jpg",
+      "sourceFile": "assets/hello/material-cards/source-2a5535d3933d6c42.jpg",
+      "sourceName": "微信图片_20220624235031.jpg",
+      "sourceNames": [
+        "22号书资料包/微信图片_20220624235031.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "2a5535d3933d6c422f31ffd1818637deeaccd47b0e313af15a150c40d550fb6a",
+      "bytes": 676472,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/22号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-60bd253413d80df2",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-23",
+      "rhymeIds": [],
+      "title": "23号书 · 厨房用具词汇图",
+      "file": "assets/hello/material-cards/source-60bd253413d80df2.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-60bd253413d80df2.jpg",
+      "sourceFile": "assets/hello/material-cards/source-60bd253413d80df2.jpg",
+      "sourceName": "Hello23号书P3.jpg",
+      "sourceNames": [
+        "23号书资料包/Hello23号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "60bd253413d80df2916ad3628c3c119c8c6ad992113894b8c55778297a5157d1",
+      "bytes": 666502,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/23号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-image-d4c8641548f3b59c",
+      "type": "vocabulary-card",
+      "origin": "standalone-image",
+      "bookId": "hello-24",
+      "rhymeIds": [],
+      "title": "24号书 · 车库与工具词汇图",
+      "file": "assets/hello/material-cards/source-d4c8641548f3b59c.jpg",
+      "preview": "assets/hello/material-cards/hello-material-image-d4c8641548f3b59c.jpg",
+      "sourceFile": "assets/hello/material-cards/source-d4c8641548f3b59c.jpg",
+      "sourceName": "24号书P3.jpg",
+      "sourceNames": [
+        "24号书资料包/24号书P3.jpg"
+      ],
+      "note": "原始独立图片，含双语物品/动作标注；不是完整歌词卡。",
+      "sha256": "d4c8641548f3b59c680f48fab8eb17ec77a270fc9a75b6cc0a5a65165841af81",
+      "bytes": 2826153,
+      "evidence": {
+        "method": "下载原图、图片解码及逐张目视核对",
+        "basis": "资料包书号和图内实际文字/画面一致；未依据P3等文件名推断PDF页码或童谣。",
+        "sourceDirectory": "百度hello资料/24号书资料包"
+      }
+    },
+    {
+      "id": "hello-material-activity-01",
+      "type": "activity",
+      "origin": "supplement-pdf",
+      "bookId": "hello-01",
+      "rhymeIds": [],
+      "title": "Animal Homes · 动物与住所连线",
+      "file": "assets/hello/files/704c9da9b3bb5549.pdf",
+      "preview": "assets/hello/material-cards/hello-material-activity-01.jpg",
+      "sourceFile": "assets/hello/files/704c9da9b3bb5549.pdf",
+      "sourceName": "Activity sheet.pdf",
+      "note": "资料包中的拓展活动，按册归档；不依据同主题把它当作本册歌词卡。",
+      "evidence": {
+        "method": "全页渲染目视核对",
+        "basis": "Animal Homes页面明确Draw a line to match；From Head To Toe为动物与孩子动作图文的12格排版。"
+      }
+    },
+    {
+      "id": "hello-material-activity-20",
+      "type": "activity",
+      "origin": "supplement-pdf",
+      "bookId": "hello-20",
+      "rhymeIds": [],
+      "title": "From Head To Toe · 肢体动作活动排版",
+      "file": "assets/hello/files/91a3b6b6d452c267.pdf",
+      "preview": "assets/hello/material-cards/hello-material-activity-20.jpg",
+      "sourceFile": "assets/hello/files/91a3b6b6d452c267.pdf",
+      "sourceName": "From Head To Toe排版.pdf",
+      "note": "资料包中的拓展活动，按册归档；不依据同主题把它当作本册歌词卡。",
+      "evidence": {
+        "method": "全页渲染目视核对",
+        "basis": "Animal Homes页面明确Draw a line to match；From Head To Toe为动物与孩子动作图文的12格排版。"
+      }
+    },
+    {
+      "id": "hello-material-standalone-02",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-01",
+      "rhymeIds": [
+        "hello-rhyme-02"
+      ],
+      "title": "Can You? · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-02.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "sourceName": "1-2-3号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "fe2c61890f1f175fd1fb1fed4f11eeb36921006bcd7dd7e82602567811147ea3",
+      "bytes": 1736191,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-03",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-02",
+      "rhymeIds": [
+        "hello-rhyme-03"
+      ],
+      "title": "Rockin’ Baby · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-03.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "sourceName": "1-2-3号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "fe2c61890f1f175fd1fb1fed4f11eeb36921006bcd7dd7e82602567811147ea3",
+      "bytes": 1736191,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-06",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-03",
+      "rhymeIds": [
+        "hello-rhyme-06"
+      ],
+      "title": "A Very Long Car Ride · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-06.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "sourceName": "1-2-3号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "fe2c61890f1f175fd1fb1fed4f11eeb36921006bcd7dd7e82602567811147ea3",
+      "bytes": 1736191,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-04",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-02",
+      "rhymeIds": [
+        "hello-rhyme-04"
+      ],
+      "title": "Watch It Go! · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-04.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-fe2c61890f1f175f.jpg",
+      "sourceName": "1-2-3号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "fe2c61890f1f175fd1fb1fed4f11eeb36921006bcd7dd7e82602567811147ea3",
+      "bytes": 1736191,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-07",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-03",
+      "rhymeIds": [
+        "hello-rhyme-07"
+      ],
+      "title": "Bubble Bath · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-07.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "sourceName": "3-4号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "5d505a675c4eb97017c5b66852561d22dfd3e7a0825948622160db9331517782",
+      "bytes": 1636500,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-05",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-03",
+      "rhymeIds": [
+        "hello-rhyme-05"
+      ],
+      "title": "Giggle Kisses · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-05.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "sourceName": "3-4号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "5d505a675c4eb97017c5b66852561d22dfd3e7a0825948622160db9331517782",
+      "bytes": 1636500,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-08",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-04",
+      "rhymeIds": [
+        "hello-rhyme-08"
+      ],
+      "title": "Little Bird · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-08.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "sourceName": "3-4号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "5d505a675c4eb97017c5b66852561d22dfd3e7a0825948622160db9331517782",
+      "bytes": 1636500,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-09",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-04",
+      "rhymeIds": [
+        "hello-rhyme-09"
+      ],
+      "title": "Where Toys Can Sleep · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-09.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-5d505a675c4eb970.jpg",
+      "sourceName": "3-4号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "5d505a675c4eb97017c5b66852561d22dfd3e7a0825948622160db9331517782",
+      "bytes": 1636500,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-10",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-05",
+      "rhymeIds": [
+        "hello-rhyme-10"
+      ],
+      "title": "City and Country · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-10.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "sourceName": "5-6号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "83cc5524cb8ac336cf1958c8493c52585c66209c7b30cc5c54dfe1d004c57b5d",
+      "bytes": 1629389,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-11",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-05",
+      "rhymeIds": [
+        "hello-rhyme-11"
+      ],
+      "title": "I’m Your Little Sippy Cup · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-11.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "sourceName": "5-6号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "83cc5524cb8ac336cf1958c8493c52585c66209c7b30cc5c54dfe1d004c57b5d",
+      "bytes": 1629389,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-12",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-06",
+      "rhymeIds": [
+        "hello-rhyme-12"
+      ],
+      "title": "Baby Bunny’s in Her Pool · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-12.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "sourceName": "5-6号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "83cc5524cb8ac336cf1958c8493c52585c66209c7b30cc5c54dfe1d004c57b5d",
+      "bytes": 1629389,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-13",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-06",
+      "rhymeIds": [
+        "hello-rhyme-13"
+      ],
+      "title": "Bouncy · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-13.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-83cc5524cb8ac336.jpg",
+      "sourceName": "5-6号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "83cc5524cb8ac336cf1958c8493c52585c66209c7b30cc5c54dfe1d004c57b5d",
+      "bytes": 1629389,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-14",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-06",
+      "rhymeIds": [
+        "hello-rhyme-14"
+      ],
+      "title": "Watering the Garden · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-14.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "sourceName": "6-7-8号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "93244cbf2a7e4ce5d0a6b77964bd7c3ad5a45983607ddb4a9d4a2c9c9491d40b",
+      "bytes": 1602399,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-16",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-07",
+      "rhymeIds": [
+        "hello-rhyme-16"
+      ],
+      "title": "Clap, Clap, Clap · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-16.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "sourceName": "6-7-8号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "93244cbf2a7e4ce5d0a6b77964bd7c3ad5a45983607ddb4a9d4a2c9c9491d40b",
+      "bytes": 1602399,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-17",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-08",
+      "rhymeIds": [
+        "hello-rhyme-17"
+      ],
+      "title": "Beach Baby · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-17.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "sourceName": "6-7-8号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "93244cbf2a7e4ce5d0a6b77964bd7c3ad5a45983607ddb4a9d4a2c9c9491d40b",
+      "bytes": 1602399,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-15",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-07",
+      "rhymeIds": [
+        "hello-rhyme-15"
+      ],
+      "title": "Go, Go, Go! · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-15.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-93244cbf2a7e4ce5.jpg",
+      "sourceName": "6-7-8号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "93244cbf2a7e4ce5d0a6b77964bd7c3ad5a45983607ddb4a9d4a2c9c9491d40b",
+      "bytes": 1602399,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-18",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-08",
+      "rhymeIds": [
+        "hello-rhyme-18"
+      ],
+      "title": "It’s Time to Put Your Toys Away · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-18.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "sourceName": "8-9号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "23ed40e84bc1b419287a551155f6cde2aa54978fa6590080430cc10f2f83b1ec",
+      "bytes": 1798584,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-21",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-09",
+      "rhymeIds": [
+        "hello-rhyme-21"
+      ],
+      "title": "Do They Sink? · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-21.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "sourceName": "8-9号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "23ed40e84bc1b419287a551155f6cde2aa54978fa6590080430cc10f2f83b1ec",
+      "bytes": 1798584,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-20",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-09",
+      "rhymeIds": [
+        "hello-rhyme-20"
+      ],
+      "title": "Here I Am · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-20.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "sourceName": "8-9号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "23ed40e84bc1b419287a551155f6cde2aa54978fa6590080430cc10f2f83b1ec",
+      "bytes": 1798584,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-19",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-09",
+      "rhymeIds": [
+        "hello-rhyme-19"
+      ],
+      "title": "My Racing Cars · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-19.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-23ed40e84bc1b419.jpg",
+      "sourceName": "8-9号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "23ed40e84bc1b419287a551155f6cde2aa54978fa6590080430cc10f2f83b1ec",
+      "bytes": 1798584,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-22",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-10",
+      "rhymeIds": [
+        "hello-rhyme-22"
+      ],
+      "title": "Patty-Cake Clap · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-22.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "sourceName": "10-11号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "dcd050884949982d05bed804d83fb26c08aff8cc960855be89db3f5b65d1b69e",
+      "bytes": 1815821,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-24",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-11",
+      "rhymeIds": [
+        "hello-rhyme-24"
+      ],
+      "title": "Little Wagon · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-24.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "sourceName": "10-11号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "dcd050884949982d05bed804d83fb26c08aff8cc960855be89db3f5b65d1b69e",
+      "bytes": 1815821,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-25",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-11",
+      "rhymeIds": [
+        "hello-rhyme-25"
+      ],
+      "title": "Rock-a-Bye, Darling · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-25.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "sourceName": "10-11号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "dcd050884949982d05bed804d83fb26c08aff8cc960855be89db3f5b65d1b69e",
+      "bytes": 1815821,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-23",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-11",
+      "rhymeIds": [
+        "hello-rhyme-23"
+      ],
+      "title": "Toaster Treats · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-23.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-dcd050884949982d.jpg",
+      "sourceName": "10-11号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "dcd050884949982d05bed804d83fb26c08aff8cc960855be89db3f5b65d1b69e",
+      "bytes": 1815821,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-27",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-12",
+      "rhymeIds": [
+        "hello-rhyme-27"
+      ],
+      "title": "Graham’s New Toy · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-27.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "sourceName": "12-13-14号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "896afc4dccc6bd474b9fc5d43a4cc7f8346943ed4c44e56a87f71c4378b72094",
+      "bytes": 1598056,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-26",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-12",
+      "rhymeIds": [
+        "hello-rhyme-26"
+      ],
+      "title": "Make a Splash! · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-26.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "sourceName": "12-13-14号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "896afc4dccc6bd474b9fc5d43a4cc7f8346943ed4c44e56a87f71c4378b72094",
+      "bytes": 1598056,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-28",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-13",
+      "rhymeIds": [
+        "hello-rhyme-28"
+      ],
+      "title": "Hickety Pickety · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-28.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "sourceName": "12-13-14号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "896afc4dccc6bd474b9fc5d43a4cc7f8346943ed4c44e56a87f71c4378b72094",
+      "bytes": 1598056,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-29",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-14",
+      "rhymeIds": [
+        "hello-rhyme-29"
+      ],
+      "title": "Babies Everywhere! · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-29.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-896afc4dccc6bd47.jpg",
+      "sourceName": "12-13-14号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "896afc4dccc6bd474b9fc5d43a4cc7f8346943ed4c44e56a87f71c4378b72094",
+      "bytes": 1598056,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-30",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-14",
+      "rhymeIds": [
+        "hello-rhyme-30"
+      ],
+      "title": "First Steps · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-30.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "sourceName": "14-15号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "41b2eeeabf965cb4435581589c06c47d3feede4bb91e74bf69a3359b46f93180",
+      "bytes": 1506071,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-31",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-14",
+      "rhymeIds": [
+        "hello-rhyme-31"
+      ],
+      "title": "Where’s My Baby? · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-31.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "sourceName": "14-15号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "41b2eeeabf965cb4435581589c06c47d3feede4bb91e74bf69a3359b46f93180",
+      "bytes": 1506071,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-34",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-34"
+      ],
+      "title": "Flying High · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-34.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "sourceName": "14-15号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "41b2eeeabf965cb4435581589c06c47d3feede4bb91e74bf69a3359b46f93180",
+      "bytes": 1506071,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-35",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-35"
+      ],
+      "title": "My Puppy · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-35.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-41b2eeeabf965cb4.jpg",
+      "sourceName": "14-15号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "41b2eeeabf965cb4435581589c06c47d3feede4bb91e74bf69a3359b46f93180",
+      "bytes": 1506071,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-33",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-33"
+      ],
+      "title": "Playing Ball · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-33.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "sourceName": "15-16号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "574d309679248373531f15b3bfaa544ac0fad65448ca997e6d1ca80cda9f73ff",
+      "bytes": 2198755,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-32",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-15",
+      "rhymeIds": [
+        "hello-rhyme-32"
+      ],
+      "title": "What I Like · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-32.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "sourceName": "15-16号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "574d309679248373531f15b3bfaa544ac0fad65448ca997e6d1ca80cda9f73ff",
+      "bytes": 2198755,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-36",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-16",
+      "rhymeIds": [
+        "hello-rhyme-36"
+      ],
+      "title": "Rain and Sun · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-36.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "sourceName": "15-16号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "574d309679248373531f15b3bfaa544ac0fad65448ca997e6d1ca80cda9f73ff",
+      "bytes": 2198755,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-37",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-16",
+      "rhymeIds": [
+        "hello-rhyme-37"
+      ],
+      "title": "Who Is… · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-37.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-574d309679248373.jpg",
+      "sourceName": "15-16号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "574d309679248373531f15b3bfaa544ac0fad65448ca997e6d1ca80cda9f73ff",
+      "bytes": 2198755,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-38",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-17",
+      "rhymeIds": [
+        "hello-rhyme-38"
+      ],
+      "title": "Mama’s Monkey · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-38.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "sourceName": "17-18号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "b706767c9bbbc6b0461844d259ee46336ee6f28f7deb7afe66c7ab5bb8631250",
+      "bytes": 1583123,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-39",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-17",
+      "rhymeIds": [
+        "hello-rhyme-39"
+      ],
+      "title": "Rock and Sing · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-39.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "sourceName": "17-18号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "b706767c9bbbc6b0461844d259ee46336ee6f28f7deb7afe66c7ab5bb8631250",
+      "bytes": 1583123,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-40",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-40"
+      ],
+      "title": "Baby Bunny’s Train · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-40.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "sourceName": "17-18号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "b706767c9bbbc6b0461844d259ee46336ee6f28f7deb7afe66c7ab5bb8631250",
+      "bytes": 1583123,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-41",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-41"
+      ],
+      "title": "My Toothbrush · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-41.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-b706767c9bbbc6b0.jpg",
+      "sourceName": "17-18号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "b706767c9bbbc6b0461844d259ee46336ee6f28f7deb7afe66c7ab5bb8631250",
+      "bytes": 1583123,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "页头明确18号书，标题My Toothbrush，正文从I see my face / In the mirror至And clean the / Teeth inside；与18号原书PDF第6–7页逐句一致，和18号P3卧室词汇图不同。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-43",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-43"
+      ],
+      "title": "One Star, One Moon · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-43.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "sourceName": "18-19号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "53ee05a68ae6a541ac5e4d0c4ecb7f7a5451f76fb0239b60d489c7cc82a186f2",
+      "bytes": 1522621,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-42",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-18",
+      "rhymeIds": [
+        "hello-rhyme-42"
+      ],
+      "title": "Pickups · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-42.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "sourceName": "18-19号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "53ee05a68ae6a541ac5e4d0c4ecb7f7a5451f76fb0239b60d489c7cc82a186f2",
+      "bytes": 1522621,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-44",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-19",
+      "rhymeIds": [
+        "hello-rhyme-44"
+      ],
+      "title": "Let’s Pretend · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-44.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "sourceName": "18-19号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "53ee05a68ae6a541ac5e4d0c4ecb7f7a5451f76fb0239b60d489c7cc82a186f2",
+      "bytes": 1522621,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-46",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-19",
+      "rhymeIds": [
+        "hello-rhyme-46"
+      ],
+      "title": "Move to the Beat · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-46.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-53ee05a68ae6a541.jpg",
+      "sourceName": "18-19号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "53ee05a68ae6a541ac5e4d0c4ecb7f7a5451f76fb0239b60d489c7cc82a186f2",
+      "bytes": 1522621,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-45",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-19",
+      "rhymeIds": [
+        "hello-rhyme-45"
+      ],
+      "title": "Nana and Me · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-45.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "sourceName": "19-20-21号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "e594f8bc0604277d299347ca820c37d0966c89ce8bbc7f11d137505010b9ac77",
+      "bytes": 1636783,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-47",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-20",
+      "rhymeIds": [
+        "hello-rhyme-47"
+      ],
+      "title": "Jelly Baby · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-47.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "sourceName": "19-20-21号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "e594f8bc0604277d299347ca820c37d0966c89ce8bbc7f11d137505010b9ac77",
+      "bytes": 1636783,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-50",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-21",
+      "rhymeIds": [
+        "hello-rhyme-50"
+      ],
+      "title": "All Grown Up · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-50.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "sourceName": "19-20-21号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "e594f8bc0604277d299347ca820c37d0966c89ce8bbc7f11d137505010b9ac77",
+      "bytes": 1636783,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-49",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-21",
+      "rhymeIds": [
+        "hello-rhyme-49"
+      ],
+      "title": "Daddy’s Home · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-49.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-e594f8bc0604277d.jpg",
+      "sourceName": "19-20-21号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "e594f8bc0604277d299347ca820c37d0966c89ce8bbc7f11d137505010b9ac77",
+      "bytes": 1636783,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-48",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-21",
+      "rhymeIds": [
+        "hello-rhyme-48"
+      ],
+      "title": "Where’s Bear? · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-48.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "sourceName": "21-23-24号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "8c9e0b68e377876be7ceb5012d9319a897b27bd336f26d904a1e3bd989df6411",
+      "bytes": 1576368,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-56",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-23",
+      "rhymeIds": [
+        "hello-rhyme-56"
+      ],
+      "title": "Papa’s Little Patty-Cakes · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-56.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "sourceName": "21-23-24号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "8c9e0b68e377876be7ceb5012d9319a897b27bd336f26d904a1e3bd989df6411",
+      "bytes": 1576368,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-57",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-24",
+      "rhymeIds": [
+        "hello-rhyme-57"
+      ],
+      "title": "Counting Sheep · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-57.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "sourceName": "21-23-24号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "8c9e0b68e377876be7ceb5012d9319a897b27bd336f26d904a1e3bd989df6411",
+      "bytes": 1576368,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-55",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-23",
+      "rhymeIds": [
+        "hello-rhyme-55"
+      ],
+      "title": "Bunny Hop · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-55.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-8c9e0b68e377876b.jpg",
+      "sourceName": "21-23-24号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "8c9e0b68e377876be7ceb5012d9319a897b27bd336f26d904a1e3bd989df6411",
+      "bytes": 1576368,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-51",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-22",
+      "rhymeIds": [
+        "hello-rhyme-51"
+      ],
+      "title": "Find Me! · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-51.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "sourceName": "22号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "7caac03f37013a2ceac304c85b08b9e98ee28d34f4325bb5fb9cd9b29b14e295",
+      "bytes": 1502228,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左上",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-halloween-extension",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-22",
+      "rhymeIds": [],
+      "title": "Find It Halloween · 场景改编童谣卡",
+      "file": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-halloween-extension.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "sourceName": "22号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 0,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。这是Find It万圣节场景的带读改编歌词，保留真实卡名；不当作Pumpkin Moon原诗歌词。",
+      "sha256": "7caac03f37013a2ceac304c85b08b9e98ee28d34f4325bb5fb9cd9b29b14e295",
+      "bytes": 1502228,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "卡面标题Find It Halloween，正文为Walking, walking, walking, on Halloween及pumpkin/cat/moon等改编歌词；22号原书Find It谜题与汇总第52页给出Walking walking on Halloween建议曲调，但没有这段完整原诗。因此按22号书关联，relatedRhymeIds只表达改编关系。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右上",
+        "checkedAt": "2026-11-04"
+      },
+      "relatedRhymeIds": [
+        "hello-rhyme-52"
+      ],
+      "relationType": "adaptation"
+    },
+    {
+      "id": "hello-material-standalone-53",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-22",
+      "rhymeIds": [
+        "hello-rhyme-53"
+      ],
+      "title": "October Fun · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-53.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "sourceName": "22号书.jpg",
+      "sourceRegion": {
+        "x": 0,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "7caac03f37013a2ceac304c85b08b9e98ee28d34f4325bb5fb9cd9b29b14e295",
+      "bytes": 1502228,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "左下",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "id": "hello-material-standalone-54",
+      "type": "rhyme-card",
+      "origin": "standalone-rhyme-card",
+      "bookId": "hello-22",
+      "rhymeIds": [
+        "hello-rhyme-54"
+      ],
+      "title": "Baby’s Lullaby · 独立童谣卡",
+      "file": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "preview": "assets/hello/material-cards/hello-material-standalone-54.jpg",
+      "sourceFile": "assets/hello/material-cards/nas-source-7caac03f37013a2c.jpg",
+      "sourceName": "22号书.jpg",
+      "sourceRegion": {
+        "x": 1240,
+        "y": 1754,
+        "width": 1240,
+        "height": 1754,
+        "unit": "px",
+        "imageWidth": 2480,
+        "imageHeight": 3508
+      },
+      "note": "从极空间原始四卡拼图裁出单卡预览；原始拼图、书号、歌词、二维码和水印完整保留。",
+      "sha256": "7caac03f37013a2ceac304c85b08b9e98ee28d34f4325bb5fb9cd9b29b14e295",
+      "bytes": 1502228,
+      "evidence": {
+        "method": "14张原始拼图逐张目视核对并按四象限裁分",
+        "basis": "单卡页头书号、标题及歌词正文与对应原书和带读汇总一致；按实际内容确认，不由拼图文件名或排列位置推断册号。",
+        "sourceDirectory": "团队空间/影音娱乐/英语启蒙/松果妈妈hello带读/Hello童谣卡及音频资源/童谣卡片",
+        "sourceQuadrant": "右下",
+        "checkedAt": "2026-11-04"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "bookId": "hello-01",
+      "items": 5,
+      "types": {
+        "rhyme-card": 2,
+        "reading-guide": 1,
+        "vocabulary-card": 1,
+        "activity": 1
+      },
+      "rhymesWithOriginalPages": 1,
+      "rhymesWithStandaloneCards": 1,
+      "standaloneCards": 1,
+      "rhymeCount": 1,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-02",
+      "items": 7,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1,
+        "vocabulary-card": 2
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-03",
+      "items": 8,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-04",
+      "items": 10,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 6
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-05",
+      "items": 5,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-06",
+      "items": 8,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-07",
+      "items": 6,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-08",
+      "items": 6,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-09",
+      "items": 8,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-10",
+      "items": 4,
+      "types": {
+        "rhyme-card": 2,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 1,
+      "rhymesWithStandaloneCards": 1,
+      "standaloneCards": 1,
+      "rhymeCount": 1,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-11",
+      "items": 13,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 6,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-12",
+      "items": 12,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 6,
+        "vocabulary-card": 2
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-13",
+      "items": 4,
+      "types": {
+        "rhyme-card": 2,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 1,
+      "rhymesWithStandaloneCards": 1,
+      "standaloneCards": 1,
+      "rhymeCount": 1,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-14",
+      "items": 7,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-15",
+      "items": 10,
+      "types": {
+        "rhyme-card": 8,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 4,
+      "rhymesWithStandaloneCards": 4,
+      "standaloneCards": 4,
+      "rhymeCount": 4,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-16",
+      "items": 6,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-17",
+      "items": 7,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1,
+        "vocabulary-card": 2
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-18",
+      "items": 10,
+      "types": {
+        "rhyme-card": 8,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 4,
+      "rhymesWithStandaloneCards": 4,
+      "standaloneCards": 4,
+      "rhymeCount": 4,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-19",
+      "items": 8,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-20",
+      "items": 5,
+      "types": {
+        "rhyme-card": 2,
+        "reading-guide": 1,
+        "vocabulary-card": 1,
+        "activity": 1
+      },
+      "rhymesWithOriginalPages": 1,
+      "rhymesWithStandaloneCards": 1,
+      "standaloneCards": 1,
+      "rhymeCount": 1,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-21",
+      "items": 8,
+      "types": {
+        "rhyme-card": 6,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 3,
+      "rhymeCount": 3,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-22",
+      "items": 9,
+      "types": {
+        "rhyme-card": 7,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 3,
+      "rhymesWithStandaloneCards": 3,
+      "standaloneCards": 4,
+      "rhymeCount": 4,
+      "unmatchedRhymes": [
+        "hello-rhyme-52"
+      ]
+    },
+    {
+      "bookId": "hello-23",
+      "items": 6,
+      "types": {
+        "rhyme-card": 4,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 2,
+      "rhymesWithStandaloneCards": 2,
+      "standaloneCards": 2,
+      "rhymeCount": 2,
+      "unmatchedRhymes": []
+    },
+    {
+      "bookId": "hello-24",
+      "items": 4,
+      "types": {
+        "rhyme-card": 2,
+        "reading-guide": 1,
+        "vocabulary-card": 1
+      },
+      "rhymesWithOriginalPages": 1,
+      "rhymesWithStandaloneCards": 1,
+      "standaloneCards": 1,
+      "rhymeCount": 1,
+      "unmatchedRhymes": []
+    }
+  ],
+  "gaps": [
+    {
+      "rhymeId": "hello-rhyme-52",
+      "bookId": "hello-22",
+      "reason": "Pumpkin Moon实际对应Find It谜题场景，没有同名完整原诗歌词。NAS的Find It Halloween为基于Walking on Halloween的场景改编卡，已保留且按册归档，不强配rhymeIds。",
+      "relatedMaterialId": "hello-material-standalone-halloween-extension"
+    }
+  ]
+}

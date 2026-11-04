@@ -1,0 +1,793 @@
+{
+  "checkedAt": "2026-11-04",
+  "mappingNote": "优先复用本机原资料的独立曲目；缺少本地原曲时引用已核对曲名与演唱者的Apple Music公开约30秒试听片段，录音不转存。公开片段已在当前电脑禁用代理直连及完整解码，不能保证所有运营商或未来时点可用；无法确认曲调的条目保留待补，不用Hello套唱或同名朗读替代。",
+  "tunes": [
+    {
+      "name": "Apple Red Apple Round",
+      "status": "missing",
+      "sourceTitle": "待补充独立曲调音频",
+      "note": "暂未核对到原卡指定旋律的独立录音。Apple检索仅有Apple Round Apple Red的remix等候选，未确认旋律一致，保留待补；不使用其他苹果儿歌冒充。",
+      "repertoire": {
+        "kind": "unverified",
+        "label": "来源待核",
+        "basis": "暂未核对到原卡指定旋律的独立录音。Apple检索仅有Apple Round Apple Red的remix等候选，未确认旋律一致，保留待补；不使用其他苹果儿歌冒充。"
+      }
+    },
+    {
+      "name": "Are You Sleeping?",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Are You Sleeping? (Brother John) — CoComelon",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/are-you-sleeping-brother-john/1584039361?i=1584040500&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dc/c3/21/dcc3210e-58de-a5a6-cc53-99ab3feccf47/mzaf_10803468019328992199.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Are You Sleeping? (Brother John)",
+      "previewArtist": "CoComelon",
+      "previewAlbum": "Nursery Rhymes by CoComelon",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:55:56.637767+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/frere-jacques-mp3/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Clean Up",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Clean Up! (Sing-Along) — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。 选用Super Simple Songs的Sing-Along版本。",
+      "sourceUrl": "https://music.apple.com/us/album/clean-up-sing-along/1537397068?i=1537397816&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6c/e1/6a/6ce16a43-6316-a45c-d072-e3b540f561ba/mzaf_2779499728447647653.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Clean Up! (Sing-Along)",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "The Bath Song & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:55:56.638581+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://supersimple.com/song/clean-up/",
+      "repertoire": {
+        "kind": "sss-song",
+        "label": "SSS儿歌",
+        "basis": "当前独立参考版本为Super Simple Songs，曲名与演唱者已核对；此标签表示参考版本，不声明SSS拥有旋律原创权。"
+      }
+    },
+    {
+      "name": "Cows in the Kitchen",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · 01 Cows in the Kitchen-Sing.mp3",
+      "note": "文件标题与ID3标题、专辑均为Cows in the Kitchen，演唱方元数据为Airlie Anderson。",
+      "file": "assets/hello/files/61e414d669f0eab9.mp3",
+      "sourceUrl": "",
+      "bytes": 3346043,
+      "repertoire": {
+        "kind": "other-song",
+        "label": "其他儿歌",
+        "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
+      }
+    },
+    {
+      "name": "Down by the Station",
+      "status": "available",
+      "sourceTitle": "已有廖彩杏配套音频 · 【7】Down_by_the_Station JYBOOKS .wma",
+      "note": "从已有同名配套音频转为浏览器可播放的MP3；仅作曲调参考，版本演唱与Hello套唱不同。",
+      "file": "assets/hello/tunes/a79215af78710f0f.mp3",
+      "sourceUrl": "",
+      "bytes": 4271568,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Edelweiss（雪绒花）",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Edelweiss (From \"The Sound of Music\") — Julie Andrews, London Musicians Orchestra & Ian Fraser",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/edelweiss-from-the-sound-of-music/1839262673?i=1839262691&uo=4",
+      "sourcePage": "https://music.apple.com/us/album/edelweiss-duet/1702797688?i=1702797925&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/1c/6b/151c6b15-341d-ff02-3c0b-6392a1774a28/mzaf_16485662864552152648.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Edelweiss (From \"The Sound of Music\")",
+      "previewArtist": "Julie Andrews, London Musicians Orchestra & Ian Fraser",
+      "previewAlbum": "Broadway: The Music of Richard Rodgers",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:55:56.641240+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1f/36/32/1f36324c-4222-a169-3ee9-c0a6fdf0bfb6/mzaf_17370442128692378225.plus.aac.p.m4a",
+      "repertoire": {
+        "kind": "work-song",
+        "label": "作品歌曲",
+        "basis": "独立参考曲目为《The Sound of Music》的Edelweiss，见previewTrackName及专辑来源。"
+      }
+    },
+    {
+      "name": "Five Little Ducks",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Five Little Ducks — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/five-little-ducks/1537567714?i=1537567986&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c6/1d/37/c61d37c4-1cc2-404c-7726-0f35dcab3465/mzaf_12324096345578493194.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.01,
+      "previewTrackName": "Five Little Ducks",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Baby Shark & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:55:56.644146+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/five-little-ducks-free-nursery-rhyme-mp3/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Five Little Monkeys",
+      "status": "available",
+      "sourceTitle": "已有廖彩杏配套音频 · Five Little Monkeys(super simper song).mp3",
+      "note": "已有音频来自 Monkeys Jumping On the Bed 资料目录，为床上跳的版本；不是 Five Little Monkeys Swinging in a Tree。",
+      "file": "assets/hello/tunes/04c55ff91c34a74b.mp3",
+      "sourceUrl": "",
+      "bytes": 2125129,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Hickety Pickety My Black Hen",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · hickety pickety.mp3",
+      "note": "ID3标题为Hickety, Pickety, My Black Hen，artist为Little Fox；与本册17秒的Hello童谣文件区分。",
+      "file": "assets/hello/files/3f304570d4ac5aa0.mp3",
+      "sourceUrl": "",
+      "bytes": 2047691,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Humpty Dumpty",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · Humpty Dumpty.mp3",
+      "note": "复用已归档的同名曲目文件，不额外复制音频。",
+      "file": "assets/hello/files/7d1c9057306de2df.mp3",
+      "sourceUrl": "",
+      "bytes": 1261537,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "I Love You Through and Through",
+      "status": "missing",
+      "sourceTitle": "待补充独立曲调音频",
+      "note": "暂未核对到原卡指定旋律的独立录音。Apple存在Tawnee Kendall Kids同名作品，尚无依据确认与原卡指定曲调一致，保留待补；不拿同名朗读或不同作品替代。",
+      "repertoire": {
+        "kind": "unverified",
+        "label": "来源待核",
+        "basis": "暂未核对到原卡指定旋律的独立录音。Apple存在Tawnee Kendall Kids同名作品，尚无依据确认与原卡指定曲调一致，保留待补；不拿同名朗读或不同作品替代。"
+      }
+    },
+    {
+      "name": "I’m a Little Teapot",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · I'm a little teapot.mp3",
+      "note": "复用已归档的同名曲目文件，不额外复制音频。",
+      "file": "assets/hello/files/b5d34a864bf7f71b.mp3",
+      "sourceUrl": "",
+      "bytes": 1935542,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Jelly on a Plate",
+      "status": "available",
+      "sourceTitle": "已有廖彩杏配套音频 · 14 Jelly on a plate.wma",
+      "note": "从已有同名配套音频转为浏览器可播放的MP3；仅作曲调参考，版本演唱与Hello套唱不同。",
+      "file": "assets/hello/tunes/d06663629f4096c7.mp3",
+      "sourceUrl": "",
+      "bytes": 1421647,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "London Bridge Is Falling Down",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · london bridge is falling down.mp3",
+      "note": "复用已归档的同名曲目文件，不额外复制音频。",
+      "file": "assets/hello/files/3f5c565dfdeeb0c4.mp3",
+      "sourceUrl": "",
+      "bytes": 1666529,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Mary Had a Little Lamb",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Mary Had a Little Lamb — Mother Goose Club",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/mary-had-a-little-lamb/652185764?i=652186235&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f8/6d/3e/f86d3ead-8277-dc44-5243-aa572d5d5659/mzaf_17022191820931913945.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Mary Had a Little Lamb",
+      "previewArtist": "Mother Goose Club",
+      "previewAlbum": "Mother Goose Club Sings Nursery Rhymes, Vol. 5: Rhyme Around the Rosy",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:09.804895+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/mary-had-a-little-lamb/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "My Teddy Bear",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · My Teddy Bear — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/my-teddy-bear/1530539704?i=1530540158&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9b/fd/c3/9bfdc336-7d2a-9995-6792-46b6d5994454/mzaf_995328222589236557.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.01,
+      "previewTrackName": "My Teddy Bear",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Happy, Happy, Happy!",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:01.338319+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://supersimple.com/song/my-teddy-bear/",
+      "repertoire": {
+        "kind": "sss-song",
+        "label": "SSS儿歌",
+        "basis": "当前独立参考版本为Super Simple Songs，曲名与演唱者已核对；此标签表示参考版本，不声明SSS拥有旋律原创权。"
+      }
+    },
+    {
+      "name": "Old MacDonald Had a Farm",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Old MacDonald Had a Farm — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/old-macdonald-had-a-farm/1548676600?i=1548676601&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bd/da/a7/bddaa723-0f71-edb3-748c-402dceddb350/mzaf_17703841800780137576.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.01,
+      "previewTrackName": "Old MacDonald Had a Farm",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Old MacDonald Had a Farm & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:01.697982+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/old-macdonald-had-a-farm/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Once I Caught a Fish Alive",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Once I Caught a Fish Alive — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/once-i-caught-a-fish-alive/1569605282?i=1569605814&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b9/ec/64/b9ec6480-06b2-01e6-37e4-474862052025/mzaf_14183875215996216403.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.02,
+      "previewTrackName": "Once I Caught a Fish Alive",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Let's Go for a Walk Outside & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:01.901437+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/one-two-three-four-five-once-i-caught-a-fish-alive-karaoke/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Open Shut Them",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Open Shut Them — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/open-shut-them/1537565858?i=1537565869&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dd/a8/7c/dda87c57-746d-4466-f14a-b3397929cee4/mzaf_431660752289346704.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.02,
+      "previewTrackName": "Open Shut Them",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Twinkle Twinkle Little Star & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:05.634415+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://supersimple.com/song/open-shut-them/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Patty Cake",
+      "status": "available",
+      "sourceTitle": "已有廖彩杏配套音频 · 25 Pat-a-cake.pat-a-cake , baker's man.wma",
+      "note": "从已有同名配套音频转为浏览器可播放的MP3；Pat-a-cake为Patty Cake的常见标题写法。",
+      "file": "assets/hello/tunes/61a09bc2b1ffed0f.mp3",
+      "sourceUrl": "",
+      "bytes": 922194,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Rain Rain Go Away",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Rain Rain Go Away — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/rain-rain-go-away/1537397068?i=1537397621&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/af/0e/9d/af0e9d49-6218-04e2-6306-658530503de6/mzaf_1499009080429014521.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Rain Rain Go Away",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "The Bath Song & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:05.862174+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/rain-rain-go-away/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Rock-a-Bye Baby",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Rock a Bye Baby — Nursery Rhymes 123",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/rock-a-bye-baby/1599571579?i=1599571587&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7d/5d/19/7d5d19e8-e887-2da8-81bf-3007d14f8a9e/mzaf_17233022601177649100.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Rock a Bye Baby",
+      "previewArtist": "Nursery Rhymes 123",
+      "previewAlbum": "Lullaby Baby",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:09.809643+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/rock-a-bye-baby/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Row Row Row Your Boat",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Row Row Row Your Boat — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/row-row-row-your-boat/1537565858?i=1537565862&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/77/49/057749e4-0aba-c705-5767-470c92d5702a/mzaf_10440656408084075548.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.02,
+      "previewTrackName": "Row Row Row Your Boat",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Twinkle Twinkle Little Star & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:06.463602+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/row-row-row-your-boat-mp3/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Seven Steps",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Seven Steps — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/seven-steps/1537565858?i=1537565870&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/54/12/5c/54125c18-73c0-e332-082e-8e724e9fa121/mzaf_7524159009429270374.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.01,
+      "previewTrackName": "Seven Steps",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Twinkle Twinkle Little Star & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:06.596271+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://supersimple.com/song/seven-steps/",
+      "repertoire": {
+        "kind": "sss-song",
+        "label": "SSS儿歌",
+        "basis": "当前独立参考版本为Super Simple Songs，曲名与演唱者已核对；此标签表示参考版本，不声明SSS拥有旋律原创权。"
+      }
+    },
+    {
+      "name": "Sleeping Bunnies",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · Sleeping bunnies Song I 歌曲.mp3",
+      "note": "复用资料包中的独立同名歌曲，不用Hello Bunny Hop套唱替代。",
+      "file": "assets/hello/files/aa1fc2ecbd74378c.mp3",
+      "sourceUrl": "",
+      "bytes": 2731504,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "The Farmer in the Dell",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · The Farmer In The Dell — Super Simple Songs",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。 Hello原资料209文件清单与本机文件名扫描未找到同名独立原曲；未据此推断所有未标名录音内容。Apple国区song检索无该曲，所选为美区官方片段，当前电脑禁代理直连与完整解码成功。",
+      "sourceUrl": "https://music.apple.com/us/album/the-farmer-in-the-dell/1537565496?i=1537565503&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/10/bd/57/10bd57c4-b7a8-3981-9f42-45e904392008/mzaf_5535365680615175414.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.02,
+      "previewTrackName": "The Farmer In The Dell",
+      "previewArtist": "Super Simple Songs",
+      "previewAlbum": "Humpty Dumpty & More Kids Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:09.483494+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/the-farmer-in-the-dell-mp3/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "The Wheels on the Bus",
+      "status": "available",
+      "sourceTitle": "已有廖彩杏配套音频 · the wheels on the bus安妮图书馆.mp3",
+      "note": "从已有同名配套音频转为浏览器可播放的MP3；仅作曲调参考，版本演唱与Hello套唱不同。",
+      "file": "assets/hello/tunes/21180d1f7c4b3e76.mp3",
+      "sourceUrl": "",
+      "bytes": 2556043,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "This Little Piggie",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · this little piggy 3 times.mp3",
+      "note": "Piggy为Piggie的常见拼写；复用资料包中的同名传统童谣音频。",
+      "sourceUrl": "",
+      "file": "assets/hello/files/0a934f1aa6965346.mp3",
+      "bytes": 2816671,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "This Old Man",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · This Old Man — CoComelon",
+      "note": "独立经典曲调参考版本的官方公开约30秒试听；仅引用播放URL，不转存。原16 This Old man.mp3与NAS 16 Rain and Sun.mp3为同SHA演唱资料，已归回Hello童谣，不再当作经典原曲。",
+      "sourceUrl": "https://music.apple.com/us/album/this-old-man/1608443057?i=1608443890&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f7/18/23/f71823d4-0343-ab91-eff0-33d9df9b7e88/mzaf_6677760170391933070.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "This Old Man",
+      "previewArtist": "CoComelon",
+      "previewAlbum": "Nursery Rhymes by CoComelon Vol.2",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T15:23:02.093002+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "decoder": "macOS afconvert",
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Twinkle Twinkle Little Star",
+      "status": "available",
+      "sourceTitle": "已有廖彩杏配套音频 · 52 Twinkle, twinkle,little star.wma",
+      "note": "从已有同名配套音频转为浏览器可播放的MP3；仅作曲调参考，版本演唱与Hello套唱不同。",
+      "file": "assets/hello/tunes/681752958f81898a.mp3",
+      "sourceUrl": "",
+      "bytes": 755840,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Walking Walking on Halloween",
+      "status": "available",
+      "sourceTitle": "Hello原资料包 · 22号书资料包/walking on halloween.mp4",
+      "note": "从原资料包同名万圣节动作儿歌视频提取完整音轨（96kbps MP3），保留原视频于本机资料目录；视频与提取音频均完整解码通过。",
+      "sourceUrl": "",
+      "file": "assets/hello/tunes/77d90b3479327621.mp3",
+      "bytes": 1687229,
+      "sha256": "77d90b34793276214190d246d7d3368e5f790657a45cce536733bf962ab7a851",
+      "durationSeconds": 140.53,
+      "sourceFile": "22号书资料包/walking on halloween.mp4",
+      "repertoire": {
+        "kind": "other-song",
+        "label": "其他儿歌",
+        "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
+      }
+    },
+    {
+      "name": "We’re Going on a Bear Hunt",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · We're Going on a Bear Hunt — The Kiboomers",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/were-going-on-a-bear-hunt/1261075117?i=1261075385&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/40/12/bf/4012bf7e-4c32-5fbb-beb0-c84738722547/mzaf_8123052956688896300.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "We're Going on a Bear Hunt",
+      "previewArtist": "The Kiboomers",
+      "previewAlbum": "Kids Songs for Back to School",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:10.141146+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://mothergooseclub.com/videos/going-on-a-bear-hunt-nursery-rhymes/",
+      "repertoire": {
+        "kind": "other-song",
+        "label": "其他儿歌",
+        "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
+      }
+    },
+    {
+      "name": "Where Is Thumbkin?",
+      "status": "available",
+      "sourceTitle": "Hello现有资料包 · Where Is Thumbkin.mp3",
+      "note": "复用已归档的同名曲目文件，不额外复制音频。",
+      "file": "assets/hello/files/70f8037060efce89.mp3",
+      "sourceUrl": "",
+      "bytes": 1929436,
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Yankee Doodle",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Yankee Doodle — Cedarmont Kids",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/yankee-doodle/270669547?i=270670054&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a8/69/34/a869343c-495f-ce32-1b30-f39fbf7cd97b/mzaf_5384325403689487648.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Yankee Doodle",
+      "previewArtist": "Cedarmont Kids",
+      "previewAlbum": "100 Singalong Songs for Kids",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:12.266405+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/yankee-doodle/",
+      "repertoire": {
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
+      }
+    },
+    {
+      "name": "Zoom Zoom Zoom We’re Going to the Moon",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Zoom Zoom Zoom We're Going to the Moon (2014 Version) — The Kiboomers",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/zoom-zoom-zoom-were-going-to-the-moon-2014-version/1034633786?i=1034634340&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/25/57/5a/25575aff-0bed-3b16-2015-ec0d6d4f67d0/mzaf_5625316560393908639.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "Zoom Zoom Zoom We're Going to the Moon (2014 Version)",
+      "previewArtist": "The Kiboomers",
+      "previewAlbum": "The Best Preschool Learning Songs",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:12.506344+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.scottishbooktrust.com/resources/songs-and-rhymes-zoom-zoom-zoom-audio/",
+      "repertoire": {
+        "kind": "other-song",
+        "label": "其他儿歌",
+        "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
+      }
+    },
+    {
+      "name": "勃拉姆斯摇篮曲",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · Wiegenlied, Op. 49 No. 4 (Lullaby) [Arr. for Cello and Piano] — Yo-Yo Ma & Kathryn Stott",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。 对应勃拉姆斯作品49之4《Wiegenlied》，马友友与Kathryn Stott大提琴/钢琴版。",
+      "sourceUrl": "https://music.apple.com/us/album/wiegenlied-op-49-no-4-lullaby-arr-for-cello-and-piano/1009467298?i=1009467584&uo=4",
+      "licenseUrl": "https://www.singing-bell.com/license-agreement/",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4e/dc/1f/4edc1f52-f1bf-2214-0d6f-ba4ce7afe7f0/mzaf_9075465234399483666.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.01,
+      "previewTrackName": "Wiegenlied, Op. 49 No. 4 (Lullaby) [Arr. for Cello and Piano]",
+      "previewArtist": "Yo-Yo Ma & Kathryn Stott",
+      "previewAlbum": "Songs from the Arc of Life",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:13.147393+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://www.singing-bell.com/brahms-lullaby-cradle-song-lullaby-and-goodnight/",
+      "repertoire": {
+        "kind": "classical-music",
+        "label": "古典乐曲",
+        "basis": "独立参考曲目为勃拉姆斯Wiegenlied, Op.49 No.4，见previewTrackName。"
+      }
+    },
+    {
+      "name": "听妈妈的话",
+      "status": "missing",
+      "sourceTitle": "待核对原卡所指版本",
+      "note": "原卡仅写“听妈妈的话”，未指定歌手。虽已找到周杰伦《依然范特西》的同名作品并通过直连片段解码，但尚无证据确认这就是原卡套唱所指旋律，不自动关联播放。",
+      "candidate": {
+        "sourceTitle": "Apple Music公开试听 · 聽媽媽的話 — 周杰倫",
+        "sourceUrl": "https://music.apple.com/hk/album/%E8%81%BD%E5%AA%BD%E5%AA%BD%E7%9A%84%E8%A9%B1/1721453996?i=1721454264&uo=4",
+        "previewTrackName": "聽媽媽的話",
+        "previewArtist": "周杰倫",
+        "previewAlbum": "依然范特西",
+        "previewStorefront": "hk"
+      },
+      "repertoire": {
+        "kind": "unverified",
+        "label": "来源待核",
+        "basis": "原卡仅写“听妈妈的话”，未指定歌手。虽已找到周杰伦《依然范特西》的同名作品并通过直连片段解码，但尚无证据确认这就是原卡套唱所指旋律，不自动关联播放。"
+      }
+    },
+    {
+      "name": "我有一头小毛驴",
+      "status": "preview",
+      "sourceTitle": "Apple Music公开试听 · 我有一頭小毛驢 — 小囧熊",
+      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
+      "sourceUrl": "https://music.apple.com/us/album/%E6%88%91%E6%9C%89%E4%B8%80%E9%A0%AD%E5%B0%8F%E6%AF%9B%E9%A9%A2/1801158510?i=1801158803&uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9b/d0/28/9bd0281a-c8d4-ce22-5873-6e9ee250f0bb/mzaf_17796103443322148354.plus.aac.p.m4a",
+      "previewDurationSeconds": 30.0,
+      "previewTrackName": "我有一頭小毛驢",
+      "previewArtist": "小囧熊",
+      "previewAlbum": "小囧熊中文兒歌",
+      "previewStorefront": "us",
+      "previewVerifiedAt": "2026-11-04T13:56:16.420071+00:00",
+      "previewVerification": {
+        "httpStatus": 200,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
+      },
+      "relatedOfficialUrl": "https://music.apple.com/cn/song/%E6%88%91%E6%9C%89%E4%B8%80%E5%A4%B4%E5%B0%8F%E6%AF%9B%E9%A9%B4/1801158803",
+      "repertoire": {
+        "kind": "other-song",
+        "label": "其他儿歌",
+        "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
+      }
+    }
+  ],
+  "repertoireNote": "曲目类型用于区分常见经典儿歌、SSS参考版本、作品歌曲、古典乐曲及其他独立儿歌，不是版权或公版判定。Hello童谣是杂志内容；这里的曲调是带读建议套用的已有旋律，不代表Hello官方配乐或唯一唱法。三条尚未确认所指旋律的条目保留来源待核，不标为Hello特有或原创。"
+}

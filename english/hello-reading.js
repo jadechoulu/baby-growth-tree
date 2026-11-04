@@ -1,78 +1,181 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishHello=api;})(typeof window==='object'?window:globalThis,function(){
 'use strict';
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’‘']/g,'').replace(/[^a-z0-9\u4e00-\u9fff]+/g,' ').trim();
+function searchMatches(text,query){const target=normalize(text),needle=normalize(query);return needle.split(' ').every(word=>target.includes(word))||target.replace(/\s/g,'').includes(needle.replace(/\s/g,''));}
+function numberedBookId(value){const text=String(value??'').trim();if(!text)return 'all';const number=Number(text);return /^\d+$/.test(text)&&Number.isInteger(number)&&number>=1&&number<=24?'hello-'+String(number).padStart(2,'0'):null;}
+const selectedBooks=book=>Array.isArray(book)?book:book&&book!=='all'?[book]:[];
+const matchesBook=(book,id)=>!selectedBooks(book).length||selectedBooks(book).includes(id);
+function toggleBook(book,id){const ids=new Set(selectedBooks(book));if(ids.has(id))ids.delete(id);else ids.add(id);const values=[...ids].sort();return !values.length||values.length===24?'all':values.length===1?values[0]:values;}
 const tuneNames=r=>r.tunes.concat(r.extensions.map(e=>e.tune));
-function options(data){return {scenes:[...new Set(data.books.flatMap(b=>b.parts.map(p=>p.scene)).concat(data.issues.filter(i=>i.available).map(i=>i.scene)))].sort((a,b)=>a.localeCompare(b,'zh')),tunes:[...new Set(data.rhymes.flatMap(tuneNames))].sort((a,b)=>a.localeCompare(b,'en'))};}
-function filter(data,{edition='numbered',book='all',scene='all',tune='all',query=''}={}){
-  const words=normalize(query).split(' ').filter(Boolean);
-  if(edition==='dated')return data.issues.filter(i=>(book==='all'||i.id===book)&&(scene==='all'||i.scene===scene)&&tune==='all'&&words.every(w=>normalize([i.title,i.scene,i.english].join(' ')).includes(w))).map(issue=>({issue}));
-  return data.books.filter(b=>book==='all'||b.id===book).map(b=>{
-    const parts=b.parts.filter(p=>scene==='all'||p.scene===scene);
-    const allRhymes=data.rhymes.filter(r=>r.bookId===b.id);
-    const rhymes=allRhymes.filter(r=>tune==='all'||tuneNames(r).includes(tune));
-    const text=normalize([b.title,...parts.flatMap(p=>[p.scene,p.note]),...rhymes.flatMap(r=>[r.title,...tuneNames(r)]),...b.resources.flatMap(r=>[r.label,...(r.originalNames||[])])].join(' '));
-    return {book:b,parts,rhymes,allRhymes,matched:parts.length>0&&(tune==='all'||rhymes.length>0)&&words.every(w=>text.includes(w))};
+function tuneCategory(data,name){return (data.tuneAudio?.tunes||[]).find(t=>normalize(t.name)===normalize(name))?.repertoire||{kind:'unverified',label:'来源待核',basis:'尚未核实曲目来源，不认定为Hello特有曲调。'};}
+function materials(data,{bookId,rhymeId}={}){if(rhymeId){const rhyme=data.rhymes.find(r=>r.id===rhymeId);if(!rhyme||(bookId&&bookId!==rhyme.bookId))return [];bookId=rhyme.bookId;}return (data.materialCards?.items||[]).filter(item=>(!bookId||item.bookId===bookId)&&(!rhymeId||(!['vocabulary-card','unclassified'].includes(item.type)&&(item.rhymeIds||[]).includes(rhymeId))));}
+function materialLabel(item){if(item.type==='rhyme-card')return item.origin==='book-pages'?'原书童谣页':'童谣卡';return ({'vocabulary-card':'词汇卡','reading-guide':'阅读指引',activity:'活动资料',unclassified:'待分类资料'})[item.type]||'学习资料';}
+function options(data){return {scenes:[...new Set(data.books.flatMap(b=>b.parts.map(p=>p.scene)).concat(data.rhymes.flatMap(r=>r.themes||[])))].sort((a,b)=>a.localeCompare(b,'zh')),tunes:[...new Set(data.rhymes.flatMap(tuneNames))].sort((a,b)=>a.localeCompare(b,'en'))};}
+function partRhymes(data,book,part){
+  const b=typeof book==='string'?data.books.find(b=>b.id===book):book,p=typeof part==='object'?part?.part:part;
+  if(!b||!b.parts.some(item=>item.part===Number(p)))return [];
+  const id=b.id+'-part-'+Number(p);
+  return data.rhymes.filter(r=>r.bookId===b.id&&(r.partIds||[]).includes(id));
+}
+function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part=''}={}){
+  const words=normalize(query).split(' ').filter(Boolean),matches=text=>searchMatches(text,query);
+  if(edition!=='numbered')return [];
+  return data.books.filter(b=>matchesBook(book,b.id)).map(b=>{
+    const allRhymes=data.rhymes.filter(r=>r.bookId===b.id),byPart=new Map(b.parts.map(p=>[p.part,partRhymes(data,b,p)]));
+    let parts=b.parts.filter(p=>(!part||part===b.id+'-part-'+p.part)&&(scene==='all'||p.scene===scene||byPart.get(p.part).some(r=>(r.themes||[]).includes(scene))));
+    const tuned=allRhymes.filter(r=>tune==='all'||tuneNames(r).includes(tune));
+    if(tune!=='all')parts=parts.filter(p=>byPart.get(p.part).some(r=>tuned.includes(r)));
+    const resourceText=b.resources.flatMap(r=>[r.label,...(r.originalNames||[])]).join(' '),materialText=materials(data,{bookId:b.id}).flatMap(item=>[item.title,materialLabel(item),item.sourceName]).join(' ');
+    if(words.length&&!matches(b.title)){
+      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
+      if(found.length)parts=found;else if(!matches(resourceText+' '+materialText))parts=[];
+    }
+    const scoped=part||scene!=='all'||tune!=='all'||words.length;
+    const rhymes=tuned.filter(r=>!scoped||parts.some(p=>byPart.get(p.part).includes(r)));
+    return {book:b,parts,rhymes,allRhymes,matched:parts.length>0};
   }).filter(r=>r.matched);
 }
 function graph(data){
   const nodes=[],edges=[],add=(id,label,type)=>nodes.push({id,label,type});
-  for(const b of data.books){add(b.id,b.title,'book');for(const p of b.parts){const id=b.id+'-part-'+p.part;add(id,'Part '+p.part,'part');addScene(p.scene);edges.push({from:b.id,to:id,relation:'包含'},{from:id,to:'scene:'+p.scene,relation:'场景'});}for(const [index,r] of b.resources.entries()){const id=r.id||b.id+'-resource-'+index;nodes.push({id,label:r.label,type:'resource',url:r.url||r.file,sha256:r.sha256});edges.push({from:b.id,to:id,relation:r.kind});for(const rid of r.rhymeIds||[])edges.push({from:id,to:rid,relation:'同名童谣音频'});for(const t of r.tunes||[])edges.push({from:id,to:'tune:'+t,relation:'同名曲调音频'});}}
+  for(const b of data.books){add(b.id,b.title,'book');for(const p of b.parts){const id=b.id+'-part-'+p.part;nodes.push({id,label:'Part '+p.part+(p.title?' · '+p.title:''),type:'part',bookId:b.id,part:p.part,title:p.title,scene:p.scene});addScene(p.scene);edges.push({from:b.id,to:id,relation:'包含'},{from:id,to:'scene:'+p.scene,relation:'场景'});}for(const [index,r] of b.resources.entries()){const id=r.id||b.id+'-resource-'+index;nodes.push({id,label:r.label,type:'resource',url:r.url||r.file,sha256:r.sha256,kind:r.kind,bookId:b.id});edges.push({from:b.id,to:id,relation:r.kind});for(const rid of r.rhymeIds||[])edges.push({from:id,to:rid,relation:'同名童谣音频'});for(const t of r.tunes||[])edges.push({from:id,to:'tune:'+t,relation:'同名曲调音频'});}}
   function addScene(scene){const id='scene:'+scene;if(!nodes.some(n=>n.id===id))add(id,scene,'scene');}
-  for(const r of data.rhymes){add(r.id,r.title,'rhyme');edges.push({from:r.bookId,to:r.id,relation:'童谣'});for(const t of r.tunes){const id='tune:'+t;if(!nodes.some(n=>n.id===id))add(id,t,'tune');edges.push({from:r.id,to:id,relation:'建议曲调'});}for(const [index,e] of r.extensions.entries()){const id=r.id+'-extension-'+index;add(id,e.title,'extension');edges.push({from:r.id,to:id,relation:'拓展儿歌'});const tid='tune:'+e.tune;if(!nodes.some(n=>n.id===tid))add(tid,e.tune,'tune');edges.push({from:id,to:tid,relation:'拓展曲调'});}}
-  for(const i of data.issues){add(i.id,i.title,'issue');if(i.available){addScene(i.scene);edges.push({from:i.id,to:'scene:'+i.scene,relation:'年月刊主题'});}}
+  for(const r of data.rhymes){add(r.id,r.title,'rhyme');edges.push({from:r.bookId,to:r.id,relation:'童谣'});const book=data.books.find(b=>b.id===r.bookId);for(const part of book?.parts||[])if(partRhymes(data,book,part).includes(r))edges.push({from:book.id+'-part-'+part.part,to:r.id,relation:'对应童谣'});for(const theme of r.themes||[]){addScene(theme);edges.push({from:'scene:'+theme,to:r.id,relation:'童谣主题'});}for(const t of r.tunes){const id='tune:'+t;if(!nodes.some(n=>n.id===id))add(id,t,'tune');edges.push({from:r.id,to:id,relation:'建议曲调'});}for(const [index,e] of r.extensions.entries()){const id=r.id+'-extension-'+index;add(id,e.title,'extension');edges.push({from:r.id,to:id,relation:'拓展儿歌'});const tid='tune:'+e.tune;if(!nodes.some(n=>n.id===tid))add(tid,e.tune,'tune');edges.push({from:id,to:tid,relation:'拓展曲调'});}}
+  const rhymesById=new Map(data.rhymes.map(r=>[r.id,r]));
+  for(const item of materials(data)){const relation=item.type==='rhyme-card'?(item.origin==='standalone-rhyme-card'?'独立童谣卡':item.origin==='book-pages'?'原书童谣页':'童谣素材'):({'vocabulary-card':'词汇图','reading-guide':'阅读指导',activity:'拓展活动',unclassified:'待分类素材'})[item.type]||'本册素材';nodes.push({id:item.id,type:'resource',kind:item.type,materialId:item.id,label:item.title,url:item.file,preview:item.preview,bookId:item.bookId,origin:item.origin});edges.push({from:item.bookId,to:item.id,relation});if(!['vocabulary-card','unclassified'].includes(item.type))for(const rid of item.rhymeIds||[])if(rhymesById.get(rid)?.bookId===item.bookId)edges.push({from:rid,to:item.id,relation});}
+  for(const reference of data.tuneAudio?.tunes||[]){
+    const local=(reference.status==='available'&&reference.file)||(reference.status==='preview'&&reference.previewUrl),external=reference.status==='external'&&reference.sourceUrl;if(!local&&!external)continue;
+    const url=local||reference.sourceUrl,kind=local?'audio':'tune-reference',existing=nodes.find(node=>node.type==='resource'&&node.kind===kind&&node.url===url);
+    const id=existing?.id||(local?'tune-audio:':'tune-reference:')+url;
+    if(!existing)nodes.push({id,type:'resource',kind,label:reference.name+(reference.status==='preview'?' · 原曲试听片段':local?' · 曲调参考音频':' · 官方曲调试听'),url,sourceTitle:reference.sourceTitle,note:reference.note});
+    const tid='tune:'+reference.name;if(!nodes.some(node=>node.id===tid))add(tid,reference.name,'tune');
+    edges.push({from:tid,to:id,relation:reference.status==='preview'?'原曲试听片段':local?'曲调参考音频':'官方曲调试听'});
+  }
+  for(const node of nodes)if(node.type==='tune')node.repertoire=tuneCategory(data,node.label);
   return {nodes,edges};
 }
-const state={edition:'numbered',book:'all',scene:'all',tune:'all',query:'',limit:6,openBooks:new Map()};
-function render(data,{h,asset}){
-  const choices=options(data),root=h('section',{class:'hello-library','aria-label':'Hello杂志资源图谱'}),results=h('div',{class:'hello-results'}),active=h('p',{class:'small-note',role:'status'});
-  const link=(label,path,page)=>h('a',{class:'text-link',href:asset(path)+(page?'#page='+page:''),target:'_blank',rel:'noopener noreferrer'},label+' ↗');
-  const source=(id,page)=>{const s=data.sources.find(s=>s.id===id);return link('汇总第'+page+'页',s.file,page);};
-  const change=(key,value)=>{state[key]=value;state.limit=6;refresh();};
-  const chip=(label,key,value)=>h('button',{type:'button',class:'hello-chip','aria-label':'筛选'+label,onclick:()=>{change(key,value);controls[key].value=value;}},label);
-  const controls={};
-  const select=(key,label,entries)=>{const n=h('select',{'aria-label':label,onchange:e=>key==='edition'?switchEdition(e.currentTarget.value):change(key,e.currentTarget.value)},entries.map(([value,title])=>h('option',{value,selected:state[key]===value},title)));controls[key]=n;return h('label',{},h('span',{},label),n);};
-  const bookEntries=()=>[['all','全部书号'],...(state.edition==='numbered'?data.books:data.issues).map(b=>[b.id,b.title])];
-  const search=h('input',{type:'search',value:state.query,'aria-label':'搜索Hello童谣、场景或曲调',placeholder:'搜童谣、场景、曲调或文件',oninput:e=>{if(!e.isComposing)change('query',e.currentTarget.value);},oncompositionend:e=>change('query',e.currentTarget.value)});
-  const edition=select('edition','资料版本',[['numbered','1–24号书'],['dated','2017–2020年月刊']]);
-  function switchEdition(value){state.edition=value;state.book='all';state.tune='all';state.limit=6;controls.book.replaceChildren(...bookEntries().map(([value,label])=>h('option',{value},label)));controls.tune.value='all';controls.tune.disabled=state.edition==='dated';refresh();}
-  const download=h('a',{class:'button soft',href:'data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify({...data,graph:graph(data)},null,2)),download:'Hello杂志资源图谱.json'},'导出图谱');
-  const reset=h('button',{type:'button',class:'text-link',onclick:()=>{Object.assign(state,{book:'all',scene:'all',tune:'all',query:'',limit:6});for(const key of ['book','scene','tune'])controls[key].value='all';search.value='';refresh();}},'清除筛选');
-  function resourceLinks(b){
-    return h('div',{class:'hello-resource-links'},b.resources.filter(r=>['notes','erin','official'].includes(r.kind)).map(r=>link(r.label,r.url||r.file)),
-      !b.resources.some(r=>r.kind==='notes')?h('span',{class:'small-note'},'笔记 PDF 待补充'):null,
-      !b.resources.some(r=>r.kind==='erin')?h('span',{class:'small-note'},'带读链接待补充'):null,
-      !b.resources.some(r=>r.kind==='official')?h('span',{class:'small-note'},'官方视频链接待核对'):null);
-  }
-  function resourceFiles(b){
-    const files=b.resources.filter(r=>r.kind==='audio'||r.kind==='pdf');
-    if(!files.length)return null;
-    return h('details',{class:'hello-files'},h('summary',{},'本册资料包 · '+files.filter(r=>r.kind==='audio').length+'个音频 / '+files.filter(r=>r.kind==='pdf').length+'份PDF'),
-      h('p',{class:'small-note'},'按资料包归册；音频与童谣、曲调的同名对应仅依据文件名。'),
-      h('ul',{},files.map(r=>h('li',{},h('div',{},link(r.label,r.file),h('small',{},' · '+(r.bytes/1048576).toFixed(1)+' MiB'+(r.pages?' · '+r.pages+'页':' · '+Math.round(r.duration)+'秒'))),
-        (r.rhymeIds||[]).length?h('p',{class:'small-note'},'同名童谣：'+r.rhymeIds.map(id=>data.rhymes.find(x=>x.id===id).title).join('、')):null,
-        (r.tunes||[]).map(t=>h('p',{class:'small-note'},'同名曲调：',chip(t,'tune',t))),
-        r.kind==='audio'?h('audio',{controls:true,preload:'none',src:asset(r.file),'aria-label':'播放'+r.label}):null,
-        r.originalNames?.length>1?h('p',{class:'small-note'},'相同内容合并：'+r.originalNames.join('、')):null))));
-  }
-  function bookCard(row){const {book:b,parts,rhymes,allRhymes}=row;
-    const details=h('details',{class:'hello-book',open:state.openBooks.has(b.id)?state.openBooks.get(b.id):(state.book===b.id||state.scene!=='all'||state.tune!=='all'||!!state.query),ontoggle:e=>{if(e.currentTarget.isConnected)state.openBooks.set(b.id,e.currentTarget.open);}},
-      h('summary',{},h('strong',{},b.title),h('span',{},parts.map(p=>'P'+p.part+' '+p.scene).join(' · ')),h('small',{},allRhymes.length+'篇童谣')),
-      h('div',{class:'hello-book-body'},resourceLinks(b),resourceFiles(b),h('div',{class:'hello-branches'},
-        h('section',{class:'hello-branch'},h('h4',{},'书中场景 → Part'),h('ul',{},parts.map(p=>h('li',{},h('strong',{},'Part '+p.part+' '),chip(p.scene,'scene',p.scene),p.note?h('span',{},' · '+p.note):null,source('scenes',p.sourcePage))))),
-        h('section',{class:'hello-branch'},h('h4',{},'本册童谣 → 建议曲调'),h('p',{class:'small-note'},'童谣按整册关联；场景筛选不表示这些童谣都属于命中的 Part。'),h('ul',{},rhymes.map(r=>h('li',{class:'hello-rhyme'},h('div',{},h('strong',{},r.title),' ',source('rhymes',r.sourcePage)),h('div',{class:'hello-tunes'},r.tunes.length?r.tunes.map(t=>chip(t,'tune',t)):h('span',{},'打节拍朗读')),b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>h('div',{},link('同名音频：'+a.label,a.file))),r.note?h('p',{class:'small-note'},r.note):null,r.extensions.map(e=>h('p',{class:'hello-extension'},'拓展：'+e.title+' → ',chip(e.tune,'tune',e.tune))))))))));return details;
-  }
-  function refresh(){
-    const rows=filter(data,state),numbered=state.edition==='numbered';
-    active.textContent=[state.scene!=='all'?'场景：'+state.scene:'全部场景',state.tune!=='all'?'曲调：'+state.tune:'',rows.length+(numbered?'本书':'期年月刊'),numbered?'命中 '+rows.reduce((n,r)=>n+r.parts.length,0)+' 个 Part':'主题按原汇总保留'].filter(Boolean).join(' · ');
-    const visible=rows.slice(0,state.limit);
-    results.replaceChildren(...[...visible.map(row=>row.book?bookCard(row):h('article',{class:'hello-issue'},h('strong',{},row.issue.title),h('span',{},row.issue.scene+' '+row.issue.english),source('scenes',row.issue.sourcePage))),
-      rows.length?null:h('p',{class:'empty'},'没有匹配项，可清除筛选后重新查找。'),
-      visible.length<rows.length?h('button',{type:'button',class:'button soft',onclick:()=>{state.limit+=6;refresh();}},'再看6'+(numbered?'本':'期')+'（'+visible.length+'/'+rows.length+'）'):null].filter(Boolean));
-  }
-  root.append(h('div',{class:'hello-heading'},h('div',{},h('h2',{},'Hello 杂志资源图谱'),h('p',{class:'small-note'},'场景 → 书号与 Part；书号 → 童谣 → 建议曲调。')),download),
-    h('div',{class:'hello-filters'},edition,select('book','书号 / 年月',bookEntries()),select('scene','场景',[['all','全部场景'],...choices.scenes.map(s=>[s,s])]),select('tune','曲调（含拓展）',[['all','全部曲调'],...choices.tunes.map(t=>[t,t])]),h('label',{class:'hello-search'},h('span',{},'搜索'),search),reset),active,results,
-    h('details',{class:'hello-sources'},h('summary',{},'资料依据与版本说明'),h('p',{},data.attribution),h('p',{},data.tuneNote),h('p',{},data.editionNote),h('p',{},'收录24本、120个Part、56篇童谣／拓展条目，以及35期年月索引（2018年9月原表空缺）。'),data.sources.map(s=>h('p',{},link(s.title,s.file))),(data.supplements||[]).map(s=>h('p',{},link(s.label,s.url))),data.assetInventory?h('p',{},data.assetInventory.mappingNote):null,h('p',{class:'small-note'},'核对：'+data.checkedAt+'。极空间分享链接最长180天、最多1000次访问，过期或用尽后需重新分享。')));
-  controls.tune.disabled=state.edition==='dated';refresh();return root;
+const state={view:'books',book:'all',scene:'all',tune:'all',query:'',rhyme:'',part:'',focus:null,openBooks:new Map()};
+function browse(data,filters={}){
+  let rows=filter(data,filters);
+  if(filters.rhyme){const rhyme=data.rhymes.find(r=>r.id===filters.rhyme);rows=rows.filter(row=>row.book?.id===rhyme?.bookId).map(row=>({...row,parts:row.parts.filter(p=>partRhymes(data,row.book,p).includes(rhyme)),rhymes:row.rhymes.filter(r=>r.id===filters.rhyme)})).filter(row=>row.parts.length);}
+  const scenes=rows.flatMap(row=>row.book?row.parts.map(part=>({book:row.book,part})):[]);
+  const scene=filters.scene||'all';
+  const rhymes=(filters.edition&&filters.edition!=='numbered'?[]:data.rhymes).filter(r=>(!filters.rhyme||r.id===filters.rhyme)&&matchesBook(filters.book,r.bookId)&&(!filters.part||(r.partIds||[]).includes(filters.part))&&(!filters.tune||filters.tune==='all'||tuneNames(r).includes(filters.tune))).map(rhyme=>({book:data.books.find(b=>b.id===rhyme.bookId),rhyme})).filter(({book,rhyme:r})=>
+    (scene==='all'||(r.themes||[]).includes(scene)||book.parts.some(p=>p.scene===scene&&partRhymes(data,book,p).includes(r)))&&
+    searchMatches([r.title,...tuneNames(r),...(r.themes||[]),...book.parts.filter(p=>partRhymes(data,book,p).includes(r)).flatMap(p=>[p.title,p.scene,p.note]),...book.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label),...materials(data,{bookId:book.id,rhymeId:r.id}).flatMap(item=>[item.title,materialLabel(item)])].join(' '),filters.query));
+  return {books:rows,scenes,rhymes};
 }
-return {normalize,options,filter,graph,render};
+function searchSuggestions(data,filters={},query=''){
+  if(!normalize(query))return [];
+  const found=browse(data,{...filters,query:''}),items=[],groups=new Map();
+  const add=(kind,value,label,detail='',bookId)=>items.push({kind,value,label,detail,bookId});
+  const group=(kind,label,bookId)=>{const key=kind+':'+label;if(!groups.has(key))groups.set(key,{kind,value:label,label,books:new Set()});groups.get(key).books.add(bookId);};
+  for(const {book,parts} of found.books)add('book',book.id,book.title,parts.map(p=>'P'+p.part+' '+p.scene).join(' · '));
+  for(const {book,part} of found.scenes){group('scene',part.scene,book.id);if(part.title&&!partRhymes(data,book,part).some(r=>normalize(r.title)===normalize(part.title)))add('part',book.id+'-part-'+part.part,part.title,book.title+' · Part '+part.part+' · '+part.scene,book.id);}
+  for(const {book,rhyme} of found.rhymes){add('rhyme',rhyme.id,rhyme.title,book.title+' · '+rhyme.partIds.map(id=>'Part '+id.split('-').at(-1)).join(' / '));for(const theme of rhyme.themes||[])group('scene',theme,book.id);for(const tune of tuneNames(rhyme))group('tune',tune,book.id);}
+  for(const item of groups.values())add(item.kind,item.value,item.label,item.books.size+'本书');
+  const rank={book:0,scene:1,rhyme:2,tune:3,part:4},needle=normalize(query);
+  return items.filter(item=>searchMatches(item.label,query)).sort((a,b)=>Number(normalize(b.label)===needle)-Number(normalize(a.label)===needle)||rank[a.kind]-rank[b.kind]||a.label.localeCompare(b.label,'zh'));
+}
+function render(data,{h,asset,onMaterialPreview=()=>{}}){
+  const root=h('section',{class:'hello-library','aria-label':'Hello杂志资源图谱'}),choices=options(data),controls={},tabs=new Map(),panels=new Map(),cards={books:new Map(),scenes:new Map(),rhymes:new Map()};
+  const active=h('p',{class:'hello-count',role:'status'}),empty=h('p',{class:'empty'},'没有匹配项，试试清除筛选。');
+  const link=(label,path)=>h('a',{class:'hello-resource-link',href:asset(path),target:'_blank',rel:'noopener noreferrer',onclick:e=>e.stopPropagation()},label+' ↗');
+  const action=(label,run,attrs={})=>h('button',{type:'button',class:'hello-chip',onclick:run,...attrs},label);
+  const cover=b=>b.cover?h('img',{class:'hello-book-cover',src:asset(b.cover),alt:b.title+'封面',width:56,height:72,loading:'lazy',decoding:'async'}):null;
+  function bookTitle(b){const pdf=b.resources.find(r=>r.kind==='pdf');return pdf?h('a',{class:'hello-book-pdf',href:asset(pdf.file||pdf.url),target:'_blank',rel:'noopener noreferrer','aria-label':'查看'+b.title+'原书PDF',title:'查看'+b.title+'.pdf',onclick:e=>e.stopPropagation()},b.title+' ↗'):h('strong',{},b.title);}
+  function syncControls(){closeSuggestions();for(const key of ['book','scene','tune'])controls[key].value=state[key];search.value=state.query;}
+  function change(key,value,view){state.part='';state[key]=value;if(key!=='rhyme')state.rhyme='';state.focus=null;if(view)state.view=view;syncControls();refresh();if(key==='book'&&value!=='all'&&state.view==='books'){const card=cards.books.get(value);if(card)card.open=true;}}
+  function showBook(b){state.part='';state.book=b.id;state.scene='all';state.tune='all';state.query='';state.rhyme='';state.view='books';state.focus={type:'book',id:b.id};syncControls();refresh();const card=cards.books.get(b.id);if(card)card.open=true;}
+  const chip=(label,key,value,view)=>action(label,()=>change(key,value,view),{class:'hello-chip hello-chip-'+key,'aria-label':'筛选'+label});
+  const tuneButton=name=>typeof window==='object'&&window.EnglishAudio?window.EnglishAudio.tuneButton(name,data,{h,asset}):null;
+  const tuneBadge=name=>{const category=tuneCategory(data,name);return h('span',{class:'hello-tune-category','data-kind':category.kind,title:category.basis},category.label);};
+  const tuneChip=name=>h('span',{class:'hello-tune-choice'},action(h('span',{class:'hello-tune-chip-name'},tuneBadge(name),name),()=>change('tune',name,'rhymes'),{class:'hello-chip hello-chip-tune','aria-label':'筛选'+name}),tuneButton(name));
+  function select(key,label,entries){const n=h('select',{'aria-label':label,onchange:e=>change(key,e.currentTarget.value)},entries.map(([value,title])=>h('option',{value,selected:state[key]===value},title)));controls[key]=n;return n;}
+  function tunePicker(){
+    const label=h('span',{},'套唱曲调'),names=new Map();
+    const trigger=h('summary',{'aria-label':'曲调（含拓展）',onkeydown:event=>{if(event.key==='ArrowDown'){event.preventDefault();picker.open=true;names.get(state.tune)?.focus();}}},label,h('span',{'aria-hidden':'true'},'⌄'));
+    const search=h('input',{type:'search','aria-label':'搜索曲调',placeholder:'搜索曲调…',oninput:event=>{const query=normalize(event.currentTarget.value);for(const row of list.children)row.hidden=!normalize(row.dataset.name).includes(query);}});
+    const list=h('ul',{'aria-label':'曲调列表'},[['all','全部曲调'],...choices.tunes.map(name=>[name,name])].map(([value,name])=>{
+      const choose=h('button',{type:'button',class:'hello-tune-name','aria-pressed':'false','aria-label':value==='all'?name:tuneCategory(data,name).label+'：'+name,onclick:()=>{change('tune',value);picker.open=false;trigger.focus();}},value==='all'?name:h('span',{class:'hello-tune-menu-name'},tuneBadge(name),h('span',{},name)));names.set(value,choose);
+      return h('li',{class:'hello-tune-option','data-name':name},choose,value!=='all'?tuneButton(value):null);
+    }));
+    const cleanup=()=>{document.removeEventListener('pointerdown',outside,true);document.removeEventListener('keydown',escape,true);};
+    const close=restore=>{picker.open=false;cleanup();if(restore&&trigger.isConnected)trigger.focus();};
+    const outside=event=>{if(!picker.isConnected||!picker.contains(event.target))close(false);};
+    const escape=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close(true);}};
+    const picker=h('details',{class:'hello-tune-picker',ontoggle:()=>{cleanup();if(picker.open){search.value='';for(const row of list.children)row.hidden=false;document.addEventListener('pointerdown',outside,true);document.addEventListener('keydown',escape,true);}}},trigger,h('div',{class:'hello-tune-menu','aria-label':'曲调试听与筛选'},h('p',{class:'hello-tune-menu-note'},'给 Hello 童谣套唱用的曲调'),search,list));
+    controls.tune={set value(value){label.textContent=value==='all'?'套唱曲调':value;trigger.title=value==='all'?'给Hello童谣套唱用的曲调':tuneCategory(data,value).label+' · '+value;for(const [name,button] of names)button.setAttribute('aria-pressed',String(name===value));}};
+    return picker;
+  }
+  function bookPicker(){
+    const label=h('span',{}),inputs=new Map();
+    const trigger=h('summary',{'aria-label':'选择Hello书册（可多选）',onkeydown:event=>{if(event.key==='ArrowDown'){event.preventDefault();picker.open=true;all.focus();}}},label,h('span',{'aria-hidden':'true'},'⌄'));
+    const all=h('button',{type:'button',class:'hello-book-all','aria-pressed':'false',onclick:()=>change('book','all')},'全部书册');
+    const list=h('div',{class:'hello-book-options',role:'group','aria-label':'书号多选'},data.books.map(book=>{
+      const input=h('input',{type:'checkbox','aria-label':book.title,onchange:()=>change('book',toggleBook(state.book,book.id))});inputs.set(book.id,input);
+      return h('label',{},input,h('span',{},book.title));
+    }));
+    const cleanup=()=>{document.removeEventListener('pointerdown',outside,true);document.removeEventListener('keydown',escape,true);};
+    const close=restore=>{picker.open=false;cleanup();if(restore&&trigger.isConnected)trigger.focus();};
+    const outside=event=>{if(!picker.isConnected||!picker.contains(event.target))close(false);};
+    const escape=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close(true);}};
+    const picker=h('details',{class:'hello-book-filter',ontoggle:()=>{cleanup();if(picker.open){document.addEventListener('pointerdown',outside,true);document.addEventListener('keydown',escape,true);}}},trigger,h('div',{class:'hello-book-menu'},all,list));
+    controls.book={set value(value){const ids=selectedBooks(value);label.textContent=!ids.length?'全部书册':ids.length===1?data.books.find(b=>b.id===ids[0])?.title:'已选'+ids.length+'本';trigger.title=ids.length?ids.map(id=>data.books.find(b=>b.id===id)?.title).join('、'):'全部24本书';all.setAttribute('aria-pressed',String(!ids.length));for(const [id,input] of inputs)input.checked=ids.includes(id);}};
+    return picker;
+  }
+  let composing=false,suggestionItems=[];
+  const suggestionKinds={book:'书号',scene:'场景',rhyme:'Hello童谣',tune:'套唱曲调',part:'内容'};
+  const suggestionList=h('div',{class:'hello-search-matches',id:'hello-search-matches',role:'region','aria-label':'Hello实时匹配项',hidden:true,onkeydown:event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeSearch(true);}else if(['ArrowDown','ArrowUp'].includes(event.key)){const buttons=[...suggestionList.querySelectorAll('.hello-search-choice')],index=buttons.indexOf(document.activeElement);if(index>=0){event.preventDefault();buttons[(index+(event.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length]?.focus();}}}});
+  const closeSuggestions=()=>{suggestionList.hidden=true;search.setAttribute('aria-expanded','false');document.removeEventListener('pointerdown',outsideSearch,true);};
+  const outsideSearch=event=>{if(!searchField.isConnected||!searchField.contains(event.target))closeSuggestions();};
+  function chooseSuggestion(item){state.query='';change(item.kind,item.value,item.kind==='rhyme'?'rhymes':item.kind==='scene'||item.kind==='part'?'scenes':item.kind==='book'?'books':undefined);closeSearch(true);}
+  function showSuggestions(){
+    if(composing||!normalize(search.value)){closeSuggestions();return;}
+    suggestionItems=searchSuggestions(data,state,search.value);
+    suggestionList.replaceChildren(h('p',{class:'hello-search-match-count',role:'status'},suggestionItems.length?'匹配 '+suggestionItems.length+' 项': '当前筛选下无匹配项，试试其他关键词或清除筛选'),h('ul',{},suggestionItems.map(item=>h('li',{},h('button',{type:'button',class:'hello-search-choice',onclick:()=>chooseSuggestion(item)},h('span',{class:'hello-search-kind'},suggestionKinds[item.kind]),h('span',{class:'hello-search-match-title'},h('strong',{},item.label),h('small',{},item.kind==='tune'?tuneCategory(data,item.label).label+' · '+item.detail:item.detail))),item.kind==='tune'?tuneButton(item.label):null))));
+    suggestionList.hidden=false;search.setAttribute('aria-expanded','true');document.addEventListener('pointerdown',outsideSearch,true);if(searchPopover.matches(':popover-open'))positionSearch();
+  }
+  function updateQuery(){if(composing)return;state.query=search.value;state.part='';state.rhyme='';state.focus=null;refresh();showSuggestions();}
+  const search=h('input',{type:'search',value:state.query,autocomplete:'off','aria-label':'搜索Hello书号、场景、童谣、曲调或文件','aria-controls':'hello-search-matches','aria-expanded':'false',placeholder:'输入关键词，匹配书号、场景、童谣…',oninput:e=>{if(!e.isComposing)updateQuery();},oncompositionstart:()=>{composing=true;},oncompositionend:()=>{composing=false;updateQuery();},onfocus:showSuggestions,onkeydown:event=>{if(composing||event.isComposing||event.keyCode===229)return;if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeSearch(true);}else if(event.key==='ArrowDown'){showSuggestions();const first=suggestionList.querySelector('.hello-search-choice');if(first){event.preventDefault();first.focus();}}else if(event.key==='Enter'&&!suggestionList.hidden&&suggestionItems.length){event.preventDefault();chooseSuggestion(suggestionItems[0]);}}});
+  const searchField=h('div',{class:'hello-search-field',onfocusout:event=>{if(!searchField.contains(event.relatedTarget))closeSuggestions();}},search,suggestionList);
+  const searchTrigger=h('button',{type:'button',class:'hello-search-toggle',popovertarget:'hello-search-popover','aria-label':'查找Hello素材',title:'查找书号、场景、童谣或曲调','aria-expanded':'false','aria-controls':'hello-search-popover'},h('span',{class:'hello-search-icon','aria-hidden':'true'}));
+  const positionSearch=()=>{const rect=searchTrigger.getBoundingClientRect(),width=searchPopover.getBoundingClientRect().width;searchPopover.style.left=Math.max(12,Math.min(rect.right-width,window.innerWidth-width-12))+'px';searchPopover.style.top=Math.max(8,Math.min(rect.bottom+5,window.innerHeight-searchPopover.getBoundingClientRect().height-8))+'px';};
+  function closeSearch(restore=false){closeSuggestions();if(searchPopover.matches(':popover-open'))searchPopover.hidePopover();if(restore&&searchTrigger.isConnected)searchTrigger.focus({preventScroll:true});}
+  const searchPopover=h('div',{id:'hello-search-popover',class:'hello-search-popover',popover:'auto',role:'search','aria-label':'Hello素材查找',onkeydown:event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeSearch(true);}},ontoggle:event=>{const open=event.newState==='open';searchTrigger.setAttribute('aria-expanded',String(open));window.removeEventListener('resize',positionSearch);if(open){positionSearch();window.addEventListener('resize',positionSearch);search.focus({preventScroll:true});showSuggestions();}else closeSuggestions();}},h('div',{class:'hello-search-popover-head'},h('span',{},'查找素材'),h('button',{type:'button',class:'hello-search-clear',onclick:()=>{search.value='';updateQuery();search.focus();}},'清空关键词'),h('button',{type:'button',class:'hello-search-close','aria-label':'关闭Hello查找',onclick:()=>closeSearch(true)},'×')),searchField);
+  const reset=action('↺',()=>{Object.assign(state,{book:'all',scene:'all',tune:'all',query:'',rhyme:'',part:'',focus:null});syncControls();refresh();},{'aria-label':'清除Hello全部筛选',title:'清除全部筛选',class:'hello-reset'});
+  const viewTabs=h('div',{class:'hello-view-tabs',role:'tablist','aria-label':'Hello查看方式'},[['books','书册'],['scenes','场景'],['rhymes','童谣'],['graph','关系图']].map(([id,label])=>{const tab=h('button',{type:'button',id:'hello-tab-'+id,role:'tab','aria-controls':'hello-panel-'+id,'aria-selected':state.view===id?'true':'false',tabindex:state.view===id?'0':'-1',onclick:()=>{state.view=id;refresh();},onkeydown:e=>{const ids=[...tabs.keys()],index=ids.indexOf(id);let next;if(e.key==='ArrowRight')next=ids[(index+1)%ids.length];if(e.key==='ArrowLeft')next=ids[(index+ids.length-1)%ids.length];if(e.key==='Home')next=ids[0];if(e.key==='End')next=ids.at(-1);if(next){e.preventDefault();state.view=next;refresh();tabs.get(next).focus();}}},label);tabs.set(id,tab);return tab;}));
+  for(const id of tabs.keys()){const panel=h('div',{class:'hello-results hello-view-'+id,id:'hello-panel-'+id,role:'tabpanel','aria-labelledby':'hello-tab-'+id});panels.set(id,panel);}
+  function lazyDetails(className,title,content){let loaded=false;const details=h('details',{class:className,ontoggle:()=>{if(details.open&&!loaded){loaded=true;details.append(content());}}},h('summary',{},title));return details;}
+  function videoLinks(b,includePdf=false){return h('div',{class:'hello-resource-links'},b.resources.filter(r=>['erin','official','notes'].includes(r.kind)||(includePdf&&r.kind==='pdf')).map(r=>link(({notes:'阅读指引',erin:'松果妈妈带读',official:'官方带读'})[r.kind]||r.label,r.url||r.file)));}
+  const audioButton=(r,name=r.label)=>typeof window==='object'&&window.EnglishAudio?window.EnglishAudio.audioButton(r.file,name,{h,asset}):null;
+  function audio(r){return h('div',{class:'hello-audio'},audioButton(r),h('span',{class:'hello-audio-name'},r.label));}
+  function extraAudio(b){const files=b.resources.filter(r=>r.kind==='audio'&&!(r.rhymeIds||[]).length);return files.length?lazyDetails('hello-files','补充音频',()=>h('div',{class:'hello-file-list'},files.map(audio))):null;}
+  function materialButton(item){const label=materialLabel(item),title=item.title.endsWith(' · '+label)?item.title.slice(0,-label.length-3):item.title,preview=item.preview||(/\.(?:png|jpe?g|webp)$/i.test(item.file||'')?item.file:null);return h('button',{type:'button',class:'hello-material-preview','data-action':'hello-material-preview','data-id':item.id,'aria-label':'放大查看'+label+'：'+item.title,'aria-haspopup':'dialog',title:'点击查看'+label},preview?h('img',{src:asset(preview),alt:'',width:40,height:54,loading:'lazy',decoding:'async'}):null,h('span',{},h('strong',{},label),h('span',{},title)));}
+  function materialList(items){return items.length?h('div',{class:'hello-material-list'},items.map(materialButton)):null;}
+  function bookMaterials(b){const all=materials(data,{bookId:b.id}),guides=new Set(all.filter(item=>item.origin==='notes-pdf'&&b.resources.some(r=>r.kind==='notes'&&r.file===item.file)).map(item=>item.id)),items=all.filter(item=>!(item.rhymeIds||[]).length&&!guides.has(item.id)&&!guides.has(item.duplicateOf));return items.length?lazyDetails('hello-materials',items.some(item=>item.type!=='vocabulary-card')?'词汇卡与活动资料':'词汇卡',()=>materialList(items)):null;}
+  function rhymeBody(b,r,extrasOnly=false){return h('div',{class:'hello-rhyme-body'},!extrasOnly&&(r.themes||[]).length?h('div',{class:'hello-rhyme-themes'},h('span',{class:'hello-meta'},'童谣主题'),r.themes.map(t=>chip(t,'scene',t,'rhymes'))):null,!extrasOnly?h('div',{class:'hello-tunes'},h('span',{class:'hello-meta'},r.tunes.length?'套唱曲调':'唱法'),r.tunes.length?r.tunes.map(tuneChip):h('span',{},'打节拍朗读')):null,materialList(materials(data,{bookId:b.id,rhymeId:r.id})),r.extensions.length?h('details',{class:'hello-extensions'},h('summary',{},'拓展儿歌 · '+r.extensions.length),r.extensions.map(e=>h('div',{class:'hello-extension'},h('strong',{},e.title),h('div',{class:'hello-tunes'},tuneChip(e.tune))))):null,r.note?h('p',{class:'small-note'},r.note):null);}
+  function partRhyme(b,r){const same=b.resources.filter(a=>a.kind==='audio'&&(a.rhymeIds||[]).includes(r.id)),standalone=materials(data,{bookId:b.id,rhymeId:r.id}).find(item=>item.origin==='standalone-rhyme-card');return h('article',{class:'hello-part-rhyme','data-rhyme-id':r.id},h('div',{class:'hello-part-rhyme-title'},h('strong',{},r.title),h('span',{class:'hello-rhyme-kind'},r.entryKind==='adapted-activity'?'带读改编':'Hello童谣'),same.map(a=>audioButton(a,r.title)),standalone?h('button',{type:'button',class:'hello-lyrics-link','data-action':'hello-material-preview','data-id':standalone.id,'aria-label':'查看'+r.title+'童谣卡','aria-haspopup':'dialog'},'歌词卡'):null),h('div',{class:'hello-tunes'},h('span',{class:'hello-meta'},'套唱曲调'),r.tunes.length?r.tunes.map(tuneChip):h('span',{class:'hello-meta'},'打节拍朗读')),lazyDetails('hello-rhyme-more','歌词与拓展',()=>rhymeBody(b,r,true)));}
+  function partBlock(b,p){return h('section',{class:'hello-part','data-part':p.part},h('div',{class:'hello-part-heading'},h('strong',{},'Part '+p.part),chip(p.scene,'scene',p.scene,'scenes'),p.title&&!partRhymes(data,b,p).some(r=>normalize(r.title)===normalize(p.title))?h('span',{class:'hello-part-title'},p.title):null,p.note?h('span',{class:'hello-meta'},p.note):null),partRhymes(data,b,p).map(r=>partRhyme(b,r)));}
+  function bookCard(b){const partsText=h('p',{}),partNodes=b.parts.map(p=>partBlock(b,p)),unmapped=data.rhymes.filter(r=>r.bookId===b.id&&!(r.partIds||[]).length);const card=h('details',{class:'hello-book','data-book-id':b.id,open:state.openBooks.get(b.id)||false,ontoggle:e=>{if(e.currentTarget.isConnected)state.openBooks.set(b.id,e.currentTarget.open);}},h('summary',{},cover(b),h('div',{class:'hello-book-summary'},h('div',{class:'hello-book-title'},bookTitle(b),videoLinks(b)),partsText)),h('div',{class:'hello-book-body'},h('div',{class:'hello-parts'},partNodes),unmapped.length?lazyDetails('hello-unmapped-rhymes','本册其他童谣',()=>h('div',{},unmapped.map(r=>partRhyme(b,r)))):null,extraAudio(b),bookMaterials(b)));card.helloPartsText=partsText;card.helloPartNodes=partNodes;return card;}
+  function sceneCard(b,p){return h('article',{class:'hello-scene-card','data-book-id':b.id,'data-part':p.part},h('div',{class:'hello-card-heading'},action(cover(b),()=>showBook(b),{class:'hello-cover-button','aria-label':'查看'+b.title+'全部资源'}),h('div',{},h('h3',{},p.scene),h('div',{class:'hello-meta'},bookTitle(b),' · Part '+p.part)),action('整册',()=>showBook(b),{'aria-label':'查看'+b.title+'全部资源'})),p.note?h('p',{},p.note):null,videoLinks(b),partRhymes(data,b,p).map(r=>partRhyme(b,r)));}
+  function rhymeCard(b,r){return h('article',{class:'hello-rhyme-card','data-book-id':b.id,'data-rhyme-id':r.id},h('div',{class:'hello-card-heading'},action(cover(b),()=>showBook(b),{class:'hello-cover-button','aria-label':'查看'+b.title+'全部资源'}),h('div',{},h('div',{class:'hello-part-rhyme-title'},h('h3',{},r.title),h('span',{class:'hello-rhyme-kind'},r.entryKind==='adapted-activity'?'带读改编':'Hello童谣'),b.resources.filter(a=>a.kind==='audio'&&(a.rhymeIds||[]).includes(r.id)).map(a=>audioButton(a,r.title))),h('p',{class:'hello-meta'},bookTitle(b))),action('整册',()=>showBook(b),{'aria-label':'查看'+b.title+'全部资源'})),rhymeBody(b,r),h('details',{class:'hello-rhyme-context'},h('summary',{},'书册场景与带读'),h('div',{class:'hello-context-scenes'},b.parts.filter(p=>(r.partIds||[]).includes(b.id+'-part-'+p.part)).map(p=>chip('Part '+p.part+' · '+p.scene,'scene',p.scene,'scenes'))),videoLinks(b)) );}
+  for(const b of data.books){const card=bookCard(b);cards.books.set(b.id,card);panels.get('books').append(card);for(const p of b.parts){const key=b.id+':'+p.part,card=sceneCard(b,p);cards.scenes.set(key,card);panels.get('scenes').append(card);}for(const r of data.rhymes.filter(r=>r.bookId===b.id)){const card=rhymeCard(b,r);cards.rhymes.set(r.id,card);panels.get('rhymes').append(card);}}
+  function graphSelect(selection){const {type,id,value}=selection||{};Object.assign(state,{book:'all',scene:'all',tune:'all',query:'',rhyme:'',part:'',focus:selection});if(type==='book'){state.book=id||value;}if(type==='part'){state.part=id;state.book=selection.bookId;}if(type==='scene'){state.scene=value||id?.replace(/^scene:/,'');}if(type==='tune'){state.tune=value||id?.replace(/^tune:/,'');}if(type==='rhyme'){state.rhyme=id||value;const r=data.rhymes.find(r=>r.id===state.rhyme);if(r)state.book=r.bookId;}syncControls();refresh(true);}
+  function refresh(keepGraph=false){searchTrigger.classList.toggle('active',!!normalize(state.query));searchTrigger.title=state.query?'正在查找：'+state.query:'查找书号、场景、童谣或曲调';const found=browse(data,state),rows=found.books,bookIds=new Set(rows.map(row=>row.book?.id)),partIds=new Set(found.scenes.map(row=>row.book.id+':'+row.part.part)),rhymeIds=new Set(found.rhymes.map(row=>row.rhyme.id));
+    for(const [id,card] of cards.books){card.hidden=!bookIds.has(id);if(!card.hidden){const row=rows.find(row=>row.book.id===id);card.helloPartsText.textContent=row.parts.map(p=>'P'+p.part+' '+p.scene).join(' · ');for(const part of card.helloPartNodes)part.hidden=!row.parts.some(p=>String(p.part)===part.dataset.part);}}
+    for(const [id,card] of cards.scenes)card.hidden=!partIds.has(id);
+    for(const [id,card] of cards.rhymes)card.hidden=!rhymeIds.has(id);
+    for(const [id,tab] of tabs){const selected=state.view===id;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;panels.get(id).hidden=!selected;}
+    const count=state.view==='books'?rows.length+'本书':state.view==='scenes'?found.scenes.length+'个Part · '+bookIds.size+'本书':state.view==='rhymes'?found.rhymes.length+'首童谣 · '+new Set(found.rhymes.map(row=>row.book.id)).size+'本书':rows.length+'本书的关联';
+    active.replaceChildren(h('span',{},[count,state.scene!=='all'?(state.view==='rhymes'?'童谣主题：':'书册场景：')+state.scene:'',state.rhyme?data.rhymes.find(r=>r.id===state.rhyme)?.title:''].filter(Boolean).join(' · ')),...(state.tune!=='all'?[h('span',{class:'hello-tune-choice'},' · 套唱：',tuneBadge(state.tune),state.tune,tuneButton(state.tune))]:[]));
+    const panel=panels.get(state.view);if(state.view==='graph'&&!keepGraph){const module=typeof window==='object'&&window.EnglishHelloGraph;panel.replaceChildren(module?module.render(data,{h,asset,onSelect:graphSelect,onMaterialPreview,filters:{...state}}):h('p',{class:'small-note'},'关系图正在加载，请先按书册、场景或童谣查找。'));}
+    const total=state.view==='books'?rows.length:state.view==='scenes'?found.scenes.length:state.view==='rhymes'?found.rhymes.length:1;if(total===0)panel.append(empty);else if(empty.isConnected)empty.remove();
+  }
+  const sceneSource=data.sources.find(source=>source.id==='scenes');
+  const sceneFilter=h('div',{class:'hello-scene-filter'},select('scene','场景',[['all','全部场景'],...choices.scenes.map(s=>[s,s])]),sceneSource?h('a',{class:'hello-scene-source',href:asset(sceneSource.file||sceneSource.url),target:'_blank',rel:'noopener noreferrer','aria-label':'查看原始场景汇总PDF',title:'查看原始场景汇总PDF'},h('span',{'aria-hidden':'true'},'PDF')):null);
+  root.append(viewTabs,h('div',{class:'hello-filter-row'},sceneFilter,bookPicker(),h('div',{class:'hello-tune-filter'},tunePicker()),searchTrigger,reset),searchPopover,active,...panels.values(),
+    h('details',{class:'hello-sources'},h('summary',{},'资料依据'),h('p',{},data.attribution),h('p',{},data.tuneNote),h('p',{},data.tuneAudio?.repertoireNote),h('p',{},'Part标题与童谣归属依据逐页带读笔记核对，原场景汇总存在冲突时保留原标注及更正依据。演唱音频按明确同名童谣关联；建议曲调与演唱分别保留，童谣主题不借整册其他场景推断。'),h('p',{},'文件名后的大小、页数与时长已从阅读界面省略；原始资源与来源依据仍保留。'),data.sources.map(s=>h('p',{},link(s.title,s.file))),(data.supplements||[]).map(s=>h('p',{},link(s.label,s.url))),data.assetInventory?h('p',{},data.assetInventory.mappingNote):null,data.materialCards?.mappingNote?h('p',{},data.materialCards.mappingNote):null,h('p',{class:'small-note'},'核对：'+data.checkedAt+'。极空间分享最长180天、最多1000次访问。')));
+  syncControls();refresh();return root;
+}
+return {normalize,numberedBookId,toggleBook,searchMatches,searchSuggestions,tuneCategory,materials,materialLabel,options,partRhymes,filter,graph,browse,render};
 });

@@ -1,0 +1,327 @@
+{
+  "checkedAt": "2026-11-05",
+  "sourceFile": "english/assets/hello/scenes.pdf",
+  "sourcePages": [
+    5,
+    6
+  ],
+  "decision": "从活跃素材图谱移除；未找到与现有1–24号书或已归册资源的可靠对应。年月中的1月不是1号书。",
+  "evidence": "汇总原件明确区分1–24号书的逐Part场景与2017年5月起一本一个场景的年月刊；1号原书为Beds、Can You?、Find It、First Haircut、Sweet Little One，没有2019年1月对应标识。",
+  "issues": [
+    {
+      "id": "hello-2017-05",
+      "title": "2017年5月",
+      "edition": "dated",
+      "scene": "声音",
+      "english": "sounds",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-06",
+      "title": "2017年6月",
+      "edition": "dated",
+      "scene": "农场动物",
+      "english": "farm animals",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-07",
+      "title": "2017年7月",
+      "edition": "dated",
+      "scene": "颜色",
+      "english": "colors",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-08",
+      "title": "2017年8月",
+      "edition": "dated",
+      "scene": "玩水",
+      "english": "water play",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-09",
+      "title": "2017年9月",
+      "edition": "dated",
+      "scene": "食物",
+      "english": "food",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-10",
+      "title": "2017年10月",
+      "edition": "dated",
+      "scene": "衣服",
+      "english": "clothes",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-11",
+      "title": "2017年11月",
+      "edition": "dated",
+      "scene": "交通工具",
+      "english": "vehicles",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2017-12",
+      "title": "2017年12月",
+      "edition": "dated",
+      "scene": "室内游戏",
+      "english": "play time",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-01",
+      "title": "2018年1月",
+      "edition": "dated",
+      "scene": "大小",
+      "english": "sizes",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-02",
+      "title": "2018年2月",
+      "edition": "dated",
+      "scene": "宠物",
+      "english": "pets",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-03",
+      "title": "2018年3月",
+      "edition": "dated",
+      "scene": "时间",
+      "english": "time",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-04",
+      "title": "2018年4月",
+      "edition": "dated",
+      "scene": "鸟",
+      "english": "birds",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-05",
+      "title": "2018年5月",
+      "edition": "dated",
+      "scene": "身体部位",
+      "english": "body parts",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-06",
+      "title": "2018年6月",
+      "edition": "dated",
+      "scene": "出行",
+      "english": "",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-07",
+      "title": "2018年7月",
+      "edition": "dated",
+      "scene": "虫",
+      "english": "tiny friends",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-08",
+      "title": "2018年8月",
+      "edition": "dated",
+      "scene": "户外游戏",
+      "english": "outdoor fun",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-09",
+      "title": "2018年9月",
+      "edition": "dated",
+      "scene": "（空缺）",
+      "english": "",
+      "sourcePage": 5,
+      "available": false
+    },
+    {
+      "id": "hello-2018-10",
+      "title": "2018年10月",
+      "edition": "dated",
+      "scene": "天气",
+      "english": "weather",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-11",
+      "title": "2018年11月",
+      "edition": "dated",
+      "scene": "形状",
+      "english": "shapes",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2018-12",
+      "title": "2018年12月",
+      "edition": "dated",
+      "scene": "天空",
+      "english": "looking up",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-01",
+      "title": "2019年1月",
+      "edition": "dated",
+      "scene": "宝宝的一天",
+      "english": "dawn to dusk",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-02",
+      "title": "2019年2月",
+      "edition": "dated",
+      "scene": "动物",
+      "english": "animal families",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-03",
+      "title": "2019年3月",
+      "edition": "dated",
+      "scene": "音乐",
+      "english": "tra-la-la",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-04",
+      "title": "2019年4月",
+      "edition": "dated",
+      "scene": "飞起来的东西",
+      "english": "things that fly",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-05",
+      "title": "2019年5月",
+      "edition": "dated",
+      "scene": "植物",
+      "english": "plants",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-06",
+      "title": "2019年6月",
+      "edition": "dated",
+      "scene": "双胞胎",
+      "english": "sisters and brothers",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-07",
+      "title": "2019年7月",
+      "edition": "dated",
+      "scene": "大海",
+      "english": "the ocean",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-08",
+      "title": "2019年8月",
+      "edition": "dated",
+      "scene": "户外游戏",
+      "english": "outdoor play",
+      "sourcePage": 5,
+      "available": true
+    },
+    {
+      "id": "hello-2019-09",
+      "title": "2019年9月",
+      "edition": "dated",
+      "scene": "做家务",
+      "english": "helping",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2019-10",
+      "title": "2019年10月",
+      "edition": "dated",
+      "scene": "五感",
+      "english": "senses",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2019-11",
+      "title": "2019年11月",
+      "edition": "dated",
+      "scene": "食物",
+      "english": "good things to eat",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2019-12",
+      "title": "2019年12月",
+      "edition": "dated",
+      "scene": "城市",
+      "english": "the city",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2020-01",
+      "title": "2020年1月",
+      "edition": "dated",
+      "scene": "玩具",
+      "english": "toys",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2020-02",
+      "title": "2020年2月",
+      "edition": "dated",
+      "scene": "颜色",
+      "english": "colors",
+      "sourcePage": 6,
+      "available": true
+    },
+    {
+      "id": "hello-2020-03",
+      "title": "2020年3月",
+      "edition": "dated",
+      "scene": "动物",
+      "english": "wild animals",
+      "sourcePage": 6,
+      "available": true
+    }
+  ]
+}
