@@ -111,7 +111,7 @@ function navigateEnglish(id){
 }
 function englishActions(){return h('div',{class:'top-actions'},btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'));}
 function englishGlobalActions(){return window.XiaoyaSite.createActionMenu(h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('settings'),h('span',{},'宝宝资料')],'profile',{'aria-label':'编辑宝宝资料'},'icon-button'),btn([icon('download'),h('span',{},'备份')],'backup',{'aria-label':'备份英语启蒙记录'},'icon-button')));}
-function footer(){return h('footer',{class:'page-foot'},h('span',{},'根据 '+C.sources.length+' 份本地资料整理 · '+C.stages.length+' 个阶段 / 节点 · '+C.resources.length+' 个素材系列'),h('span',{},'陪伴有节奏，成长不赶路。'));}
+function footer(){return h('footer',{class:'page-foot'},h('span',{},'根据 '+C.sources.length+' 份来源资料整理 · '+C.stages.length+' 个阶段 / 节点 · '+C.resources.length+' 个素材系列'),h('span',{},'陪伴有节奏，成长不赶路。'));}
 function render(){const active=document.activeElement;const id=active?.id;const pos=active?.selectionStart;const x=window.scrollX,y=window.scrollY;const content=({baby:babyView,'qing-progress':()=>practiceView('qing'),'xu-progress':()=>practiceView('xu'),routes:routesView,library:libraryView,relations:relationsView,sources:sourcesView})[S.view]();organizePage(content);
 if(!siteShell){siteShell=window.XiaoyaSite.createShell({sectionId:'english',siteRoot:window.XIAOYA_SITE_ROOT,onNavigate:navigateEnglish});el.replaceChildren(siteShell.element);}
 siteShell.update({navigation:englishNavigation(),activeId:S.view,title:NAV.find(x=>x[0]===S.view)?.[1]||''});
@@ -322,6 +322,16 @@ function babySupplement(){if(!(routes.get('xu').variants?.length>1))return null;
 function levelText(value,resource){return EnglishModel.formatLevel(value,resource);}
 function materialTitle(resource,level){return EnglishModel.materialTitle(resource,level);}
 function materialLegend(){return materialUI.legend();}
+function materialEvidence(role){return materialUI.evidence(role,{sourceLink:ref=>{
+  const source=src(ref.sourceId);if(!source)return h('span',{class:'small-note'},ref.sourceId);
+  if(source.previews.length)return sourceBtn(ref.sourceId,ref.page||1,source.title+' · 第 '+(ref.page||1)+' 页');
+  return source.file?h('a',{class:'text-link',href:asset(source.file),target:'_blank',rel:'noopener noreferrer'},source.title+' ↗'):h('span',{class:'small-note'},source.title);
+}});}
+function materialEvidenceFold(id,role,label){
+  const content=materialEvidence(role);if(!content)return null;
+  const fold=readingFold(id,icon('info'),content,false,'series-evidence');
+  fold.querySelector('summary').setAttribute('aria-label',label+'的用途依据');fold.querySelector('summary').title=label+'的用途依据';return fold;
+}
 const stageMaterialCache=new Map();
 function stageMaterials(st,comparisonStages){if(comparisonStages)return EnglishModel.getStageMaterials(C,st,comparisonStages);if(!stageMaterialCache.has(st.id))stageMaterialCache.set(st.id,EnglishModel.getStageMaterials(C,st));return stageMaterialCache.get(st.id);}
 function materialUse(resource,appearance){const st=stages.get(appearance.stageId);const item=st?stageMaterials(st).find(item=>item.resource.id===resource.id&&item.materials.some(material=>material.level===appearance.level&&(appearance.roles||[appearance.role]).includes(material.role))):null;return item?{...item,levelSegments:EnglishModel.levelSegments(appearance.level,resource.appearances.filter(peer=>peer.routeId!==st.routeId),resource,{expandRanges:true})}:null;}
@@ -559,7 +569,7 @@ function seriesProgression(r){
         const refs=r.appearances.filter(ref=>ref.routeId===group.routeId&&ref.stageId===a.stageId&&ref.level===a.level&&(ref.sourceId||st?.sourceId||ref.routeId)===a.sourceId);
         const evidence=refs.length?refs:[a];
         const detail=readingFold('series-evidence-'+r.id+'-'+a.stageId+'-'+group.stages.indexOf(a),icon('info'),
-          h('div',{},methods.map(method=>h('p',{class:'series-usage-method'},method)),
+          h('div',{},materialEvidence(use?.role),methods.map(method=>h('p',{class:'series-usage-method'},method)),
             h('ul',{class:'series-evidence-list'},evidence.map(ref=>h('li',{'data-original-role':ref.role},
               h('span',{class:'small-note'},[ref.variantLabel||a.variantLabel,roleLabel(ref.role)].filter(Boolean).join(' · ')),
               ref.original?h('p',{},ref.original):null,
@@ -805,7 +815,7 @@ function practiceRoleLabel(unit){return unit.item.role.label;}
 function practiceRoleLegend(units){
   const uses=units.filter((u,i)=>units.findIndex(other=>other.item.role.kind===u.item.role.kind&&practiceRoleLabel(other)===practiceRoleLabel(u))===i);
   return h('div',{},materialLegend(),h('div',{class:'material-legend'},h('span',{},'本阶段用途'),uses.map(u=>materialUI.roleTag(u.item.role))),
-    uses.some(u=>u.item.role.kind==='reference')?h('p',{},'灰色统一表示“未标主辅”；原图的主节点、配套分支、闪卡或动画分类保留在各素材来源中，不据此增加主线、辅线或选读要求。'):null,
+    uses.some(u=>u.item.role.kind==='reference')?h('p',{},'灰色表示本次引用尚未核定主辅，不代表作者整条路线没有划分；原图的主节点、配套分支、闪卡或动画分类保留在各素材来源中，不据此增加主线、辅线或选读要求。'):null,
     units.some(u=>u.item.role.selection)?h('div',{},h('h3',{},'本阶段原文选材要求'),h('ul',{},[...new Set(units.filter(u=>u.item.role.selection).map(u=>u.item.role.selection.basis))].map(text=>h('li',{},text)))):null,
     h('p',{},'标题、用途标签与单项进度条使用同一用途色；上方阶段总进度使用路线主题色，不代表主辅线。'));
 }
@@ -1040,7 +1050,8 @@ function practiceTimeRules(unit){
 }
 function practiceBookForm(){
   const unit=practiceFindUnit(stages.get(S.modal.stageId),S.modal.id),body=practiceBookQuantityForm();
-  return unit.stageId.startsWith('qing-')?h('div',{},practiceTimeRules(unit),h('details',{class:'practice-book-sources'},h('summary',{},'数量、版本与父子汇总'),body)):body;
+  const evidence=materialEvidence(unit.item.role);
+  return unit.stageId.startsWith('qing-')?h('div',{},practiceTimeRules(unit),evidence,h('details',{class:'practice-book-sources'},h('summary',{},'数量、版本与父子汇总'),body)):evidence?h('div',{},evidence,body):body;
 }
 function practiceBookQuantityForm(){
   const m=S.modal,st=stages.get(m.stageId),unit=practiceFindUnit(st,m.id);
@@ -1462,7 +1473,7 @@ function stageDetail(st){
     st.notes.length?h('section',{class:'detail-section'},h('h3',{},st.variantId==='xu-current'?'素材与整理说明':'原文方法与补充说明'),h('ul',{},st.notes.map(n=>h('li',{},n)))):null,
     activityBlocks(st),
     st.schedules.length?h('section',{class:'detail-section'},h('h3',{},'当前年龄方案 · 原文执行安排'),scheduleBlocks(st)):null,
-    h('section',{class:'detail-section stage-material-list'},h('h3',{},'全部素材 · '+stageMaterials(st).length+' 项'),materialLegend(),Object.entries(groups).map(([label,items])=>h('div',{class:'stage-material-group'},h('h4',{},label+' · '+items.length),items.map(item=>{const {material:m,resource:r,role}=item;return btn([h('span',{},h('span',{class:'material-label'},materialLabel(item)),h('small',{},[TYPES[r.type],roleLabel(m.role),'第 '+Array.from(new Set(item.materials.map(material=>material.page||st.pages[0]||1))).join('、')+' 页'].filter(Boolean).join(' · '))),icon('chevron')],'resource',{'data-id':r.id,'data-material-role':role.kind,title:role.basis},'detail-resource-row material-role-'+role.kind);})))),
+    h('section',{class:'detail-section stage-material-list'},h('h3',{},'全部素材 · '+stageMaterials(st).length+' 项'),materialLegend(),Object.entries(groups).map(([label,items])=>h('div',{class:'stage-material-group'},h('h4',{},label+' · '+items.length),items.map(item=>{const {material:m,resource:r,role}=item;return h('div',{},btn([h('span',{},h('span',{class:'material-label'},materialLabel(item)),h('small',{},[TYPES[r.type],roleLabel(m.role),'第 '+Array.from(new Set(item.materials.map(material=>material.page||st.pages[0]||1))).join('、')+' 页'].filter(Boolean).join(' · '))),icon('chevron')],'resource',{'data-id':r.id,'data-material-role':role.kind,title:role.basis},'detail-resource-row material-role-'+role.kind),materialEvidenceFold('stage-role-'+st.id+'-'+r.id+'-'+items.indexOf(item),role,r.title));})))),
     h('section',{class:'detail-section'},h('h3',{},'来源核对'),stageSourceLinks(st),st.variantId==='xu-thousand'?sourceBtn('xu-thousand-map',1,'同一计划的四阶段图解'):null,h('p',{class:'small-note'},st.variantId==='xu-current'?'本节点是网站整理视图；听力节点与级别来自全景图，SSS另引六阶段表，分别回看。':st.variantId&&st.variantId!=='xu-listening'?'本节点保留对应资料的原文目标、级别与执行安排。':'具体选材按本阶段原文要求执行，不由用途标签推定全套必读。')),
     h('section',{class:'detail-section'},h('h3',{},'对应资料的完整说明'),h('ul',{},(variant?.notes||route.notes).map(n=>h('li',{},n))),st.routeId==='qing'?accounting():null),
     h('nav',{class:'detail-nav','aria-label':st.group?'浏览同领域节点':'浏览前后阶段'},prev?btn(['← ',prev.title],'stage',{'data-id':prev.id}):h('span'),next?btn([next.title,' →'],'stage',{'data-id':next.id}):null));

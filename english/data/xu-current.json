@@ -6,7 +6,8 @@
   "notes": [
     "默认展示并行起步；后续词数是全景图原节点，不与其他资料的阶段编号混排。",
     "全景图、六阶段表、四阶段执行表均未标作者发布日期，不能凭文件名或转存时间判断新旧。",
-    "2026-10-28已查作者主页：最近相关说明为2026-10-27；当前置顶完整听力回放发布于2026-06-26。尚未取得带修订日期、可逐项核验的最新完整书单。"
+    "2026-10-28已查作者主页：最近相关说明为2026-10-27；当前置顶完整听力回放发布于2026-06-26。尚未取得带修订日期、可逐项核验的最新完整书单。",
+    "2026-11-04逐项核对25次具名素材引用的用途。500词GK主线及四套平行拓展采用显式补证；其他引用保留已查未核定的来源与版本差异，点击素材ⓘ查看。"
   ],
   "resources": [],
   "stages": [
@@ -34,7 +35,40 @@
           "role": "闪卡",
           "original": "名词卡",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "名词卡",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "时光学名词卡",
+                "note": "六阶段第1阶段具体材料；全景未指定品牌，不搬用品牌或每天张数。"
+              },
+              {
+                "sourceId": "xu-thousand",
+                "page": 1,
+                "quote": "名词闪卡5张",
+                "note": "四阶段执行表另有“每天必做”任务，仅属该表，不自动写入当前全景。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 1,
+                "quote": "名词卡",
+                "note": "读者整理列为闪卡，未标主辅。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-verb-cards",
@@ -42,7 +76,40 @@
           "role": "闪卡",
           "original": "动词卡",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "动词卡",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "阿布巴布动词卡",
+                "note": "六阶段第1阶段具体材料；不搬用品牌。"
+              },
+              {
+                "sourceId": "xu-thousand",
+                "page": 1,
+                "quote": "TPR动词指令卡2张",
+                "note": "四阶段任务频率不自动移入当前全景。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 1,
+                "quote": "动词卡",
+                "note": "读者整理列为闪卡，未标主辅。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-badi",
@@ -50,7 +117,22 @@
           "role": "闪卡式绘本",
           "original": "巴蒂英语",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。 巴蒂英语／悠游1在本轮所核六阶段起步表和四阶段第1页未列同名条目，保留全景直接来源。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "巴蒂英语",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-pearson-vocabulary",
@@ -58,7 +140,34 @@
           "role": "闪卡式绘本",
           "original": "培生词汇妙趣屋",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "培生词汇妙趣屋",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生词汇妙趣屋",
+                "note": "第2阶段闪卡式绘本材料，未标主辅。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 1,
+                "quote": "培生词汇妙趣国",
+                "note": "读者图片中的原字样；不改全景素材名称或记录键。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-big-cat",
@@ -66,7 +175,34 @@
           "role": "闪卡式绘本",
           "original": "大猫预备级",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "大猫预备级",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大猫分级预备级",
+                "note": "第2阶段，不能把后续大猫1–3的平行用途移到预备级。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 1,
+                "quote": "大猫 预备级、1级",
+                "note": "读者整理起步闪卡式绘本，并未标主辅；不将此范围覆盖全景。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-youyou",
@@ -74,7 +210,22 @@
           "role": "闪卡式绘本",
           "original": "悠游第一级",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。 巴蒂英语／悠游1在本轮所核六阶段起步表和四阶段第1页未列同名条目，保留全景直接来源。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "悠游第一级",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-sss",
@@ -82,7 +233,22 @@
           "level": null,
           "role": "配套儿歌参考",
           "original": "SSS 指令式儿歌",
-          "page": 1
+          "page": 1,
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "指令式儿歌参考",
+            "basis": "起步原图按闪卡／闪卡式绘本组织，所核来源未明确该次引用的主辅线；不继承后续GK阶段的用途。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "SSS指令式儿歌",
+                "note": "六阶段第1阶段动画栏的补充参考，全景300词未列此项。未标主辅，用户选歌范围不等于作者必读要求。"
+              }
+            ]
+          }
         }
       ],
       "activities": [
@@ -140,7 +306,34 @@
           "role": "海尼曼GK主节点",
           "original": "海尼曼GK",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "main",
+            "usage": "主线",
+            "basis": "六阶段表第3–5阶段明确GK70主线；读者500词书单交叉印证。以这两处明确用途补充当前全景GK引用，非声称全景直接写有主线。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "海尼曼GK",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "主线：海尼曼GK70",
+                "note": "第3–5阶段分级合并栏；用户已确认手头GK70。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 2,
+                "quote": "500词；海尼曼GK70主线",
+                "note": "读者整理，非作者新修订表；本条用于交叉印证。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-big-cat",
@@ -148,7 +341,46 @@
           "role": "海尼曼GK配套分支",
           "original": "大猫1-3级别",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段表明确列入GK主线阶段的平行拓展，结合作者仍需平行阅读的说明，统一归为辅线；辅线不等于可选。当前级别仍来自全景图。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "大猫1-3级别",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：大猫、培生启明星、学乐、书虫、培生故事屋、Highlight故事与科普配对",
+                "note": "第3–5阶段分级合并栏。角色补充不改变全景级别，不生成整套必读或可选要求。"
+              },
+              {
+                "sourceId": "xu-xhs-listening-500",
+                "page": null,
+                "quote": "听懂长句子的秘密是：平行绘本拓展。",
+                "note": "作者对已有GK/G1是否仍需学乐回复“不是 还是需要平行阅读”。本轮核对正文与相关回复，未将其扩大为视频逐条书单或各级版本证据。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 2,
+                "quote": "平行拓展绘本 3个月；大猫1–2级",
+                "note": ""
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 3,
+                "quote": "海尼曼GK B级别；平行拓展绘本3个月；大猫3级",
+                "note": ""
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-pearson-starlight",
@@ -156,7 +388,46 @@
           "role": "海尼曼GK配套分支",
           "original": "培生启明星1-3级别",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段表明确列入GK主线阶段的平行拓展，结合作者仍需平行阅读的说明，统一归为辅线；辅线不等于可选。当前级别仍来自全景图。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "培生启明星1-3级别",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：大猫、培生启明星、学乐、书虫、培生故事屋、Highlight故事与科普配对",
+                "note": "第3–5阶段分级合并栏。角色补充不改变全景级别，不生成整套必读或可选要求。"
+              },
+              {
+                "sourceId": "xu-xhs-listening-500",
+                "page": null,
+                "quote": "听懂长句子的秘密是：平行绘本拓展。",
+                "note": "作者对已有GK/G1是否仍需学乐回复“不是 还是需要平行阅读”。本轮核对正文与相关回复，未将其扩大为视频逐条书单或各级版本证据。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 2,
+                "quote": "平行拓展绘本 3个月；培生启明星1–2级",
+                "note": ""
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 3,
+                "quote": "海尼曼GK B级别；平行拓展绘本3个月；培生启明星3级",
+                "note": ""
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-scholastic-unspecified",
@@ -164,7 +435,46 @@
           "role": "海尼曼GK配套分支",
           "original": "学乐A-C级别",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段表明确列入GK主线阶段的平行拓展，结合作者仍需平行阅读的说明，统一归为辅线；辅线不等于可选。当前级别仍来自全景图。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "学乐A-C级别",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：大猫、培生启明星、学乐、书虫、培生故事屋、Highlight故事与科普配对",
+                "note": "第3–5阶段分级合并栏。角色补充不改变全景级别，不生成整套必读或可选要求。"
+              },
+              {
+                "sourceId": "xu-xhs-listening-500",
+                "page": null,
+                "quote": "听懂长句子的秘密是：平行绘本拓展。",
+                "note": "作者对已有GK/G1是否仍需学乐回复“不是 还是需要平行阅读”。本轮核对正文与相关回复，未将其扩大为视频逐条书单或各级版本证据。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 2,
+                "quote": "学乐小读者B级",
+                "note": "位于GK A平行拓展。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 3,
+                "quote": "学乐小读者CDEF级",
+                "note": "位于GK B平行拓展。读者级别分配与全景不同，不声称已逐级证实全景A级的GK平行归属；当前A–C不改。用途证据不能确定出版版本或每级册数。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-pearson-story-house",
@@ -172,7 +482,46 @@
           "role": "海尼曼GK配套分支",
           "original": "培生亲子故事屋基础级",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段表明确列入GK主线阶段的平行拓展，结合作者仍需平行阅读的说明，统一归为辅线；辅线不等于可选。当前级别仍来自全景图。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "培生亲子故事屋基础级",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：大猫、培生启明星、学乐、书虫、培生故事屋、Highlight故事与科普配对",
+                "note": "第3–5阶段分级合并栏。角色补充不改变全景级别，不生成整套必读或可选要求。"
+              },
+              {
+                "sourceId": "xu-xhs-listening-500",
+                "page": null,
+                "quote": "听懂长句子的秘密是：平行绘本拓展。",
+                "note": "作者对已有GK/G1是否仍需学乐回复“不是 还是需要平行阅读”。本轮核对正文与相关回复，未将其扩大为视频逐条书单或各级版本证据。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生亲子故事屋基础级",
+                "note": "第4阶段具体材料，位于上述GK主线＋平行分级阶段。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 3,
+                "quote": "海尼曼GK C级别；平行拓展绘本3个月；培生亲子故事屋基础级",
+                "note": ""
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-green-forest",
@@ -180,7 +529,34 @@
           "role": "动画片",
           "original": "绿色大森林",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画输入",
+            "basis": "全景明确列为动画。六阶段主线／平行拓展文字属于分级栏，不涵盖独立动画栏；本次动画未核定主辅，不能据类型归为辅线。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "绿色大森林",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "绿色大森林",
+                "note": "六阶段第2阶段动画栏，未给本动画独立主辅线。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "动画片小狐狸第一级别台词本；绿色大森林；蝙蝠和朋友们",
+                "note": "读者将这些动画列于1000词，未标独立主辅；不覆盖当前500词节点或媒介。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-bat-friends",
@@ -188,7 +564,34 @@
           "role": "动画片",
           "original": "蝙蝠和朋友们",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画输入",
+            "basis": "全景明确列为动画。六阶段主线／平行拓展文字属于分级栏，不涵盖独立动画栏；本次动画未核定主辅，不能据类型归为辅线。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "蝙蝠和朋友们",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "蝙蝠和朋友们",
+                "note": "六阶段第3阶段动画栏，未给本动画独立主辅线。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "动画片小狐狸第一级别台词本；绿色大森林；蝙蝠和朋友们",
+                "note": "读者将这些动画列于1000词，未标独立主辅；不覆盖当前500词节点或媒介。"
+              }
+            ]
+          }
         }
       ],
       "activities": [
@@ -242,7 +645,34 @@
           "role": "牛津树1–3主节点",
           "original": "牛津树1-3",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "阶段分级阅读",
+            "basis": "全景800词的该次引用尚缺同版本的明确主辅线原话；其他资料有主线／平行拓展说明，但阶段与级别不同，逐项保留差异，不整表继承。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "牛津树1-3",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "牛津树主线＋平行拓展；牛津树3–5",
+                "note": "六阶段第6阶段目标1000词；第4／5阶段牛津树1／2并未被标为主线。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "1000词；主线：牛津树1–3",
+                "note": "与当前全景800词不同。提供明确主线的外部参考，不将词数统一或自动继承。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-big-cat",
@@ -250,7 +680,34 @@
           "role": "牛津树配套分支",
           "original": "大猫4-5级别",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "阶段分级阅读",
+            "basis": "全景800词的该次引用尚缺同版本的明确主辅线原话；其他资料有主线／平行拓展说明，但阶段与级别不同，逐项保留差异，不整表继承。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "大猫4-5级别",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：大猫；大猫第3–4级；大猫第5–6级",
+                "note": "第5／6阶段具体级别，不是全景800词4–5。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "平行拓展绘本；大猫5–6级",
+                "note": "读者1000词节点，不覆盖全景4–5。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-pearson-starlight",
@@ -258,7 +715,34 @@
           "role": "牛津树配套分支",
           "original": "培生启明星4-5级别",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "阶段分级阅读",
+            "basis": "全景800词的该次引用尚缺同版本的明确主辅线原话；其他资料有主线／平行拓展说明，但阶段与级别不同，逐项保留差异，不整表继承。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "培生启明星4-5级别",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：培生启明星；培生启明星4；培生5–6",
+                "note": "第5阶段明确启明星4，第6阶段只写培生5–6，不擅将泛称全部视作启明星。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "平行拓展绘本；培生启明星5级",
+                "note": "读者1000词节点，不直接改全景800词角色。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-pearson-story-house",
@@ -266,7 +750,34 @@
           "role": "牛津树配套分支",
           "original": "培生亲子故事屋进阶级",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "阶段分级阅读",
+            "basis": "全景800词的该次引用尚缺同版本的明确主辅线原话；其他资料有主线／平行拓展说明，但阶段与级别不同，逐项保留差异，不整表继承。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "培生亲子故事屋进阶级",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：培生故事屋；培生亲子故事屋进阶级",
+                "note": "六阶段第5阶段目标500–800。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "平行拓展绘本；培生亲子故事屋进阶级",
+                "note": "读者1000词节点。两处方法可参考，阶段不同仍保留。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-scholastic-unspecified",
@@ -274,7 +785,34 @@
           "role": "牛津树配套分支",
           "original": "学乐D E级别",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "阶段分级阅读",
+            "basis": "全景800词的该次引用尚缺同版本的明确主辅线原话；其他资料有主线／平行拓展说明，但阶段与级别不同，逐项保留差异，不整表继承。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "学乐D E级别",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "平行拓展：学乐；学乐D–E",
+                "note": "六阶段第5阶段目标500–800；与全景800节点分支不同，不自动整体继承。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 3,
+                "quote": "海尼曼GK B级别；平行拓展绘本3个月；学乐小读者CDEF级",
+                "note": "读者将D/E放在GK B平行阅读；不把GK阶段角色传播至全景牛津树分支。"
+              }
+            ]
+          }
         }
       ],
       "activities": [
@@ -318,7 +856,34 @@
           "role": "桥梁书",
           "original": "苍蝇小子",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "桥梁书阅读",
+            "basis": "全景1000词按桥梁书／动画分类，该次素材没有取得明确主辅线原话；分类与共现关系不能代替用途证据。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "苍蝇小子",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu-thousand",
+                "page": 4,
+                "quote": "饼干狗；皮特猫；苍蝇小子",
+                "note": "四阶段自读任务仅写先从饼干狗开始，无主线／平行文字，不以整理数据的parallel代替原文。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 4,
+                "quote": "平行拓展绘本；桥梁书（苍蝇小子）",
+                "note": "读者1000词书单的补充参考，非作者全景的逐项明示。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-frog-little",
@@ -326,7 +891,22 @@
           "role": "桥梁书",
           "original": "蛙小弟",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "桥梁书阅读",
+            "basis": "全景1000词按桥梁书／动画分类，该次素材没有取得明确主辅线原话；分类与共现关系不能代替用途证据。 所核六阶段表、四阶段执行表及本轮读者四图未取得蛙小弟逐项主辅原话。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "蛙小弟",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-pete-cat",
@@ -334,7 +914,34 @@
           "role": "桥梁书",
           "original": "皮特猫",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "桥梁书阅读",
+            "basis": "全景1000词按桥梁书／动画分类，该次素材没有取得明确主辅线原话；分类与共现关系不能代替用途证据。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "皮特猫",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu-thousand",
+                "page": 4,
+                "quote": "饼干狗；皮特猫；苍蝇小子",
+                "note": "自读执行阶段，不等于全景听力1000词；没有原文主线／平行划分。"
+              },
+              {
+                "sourceId": "xu-xhs-reader-booklist",
+                "page": 3,
+                "quote": "海尼曼GK C级别；平行拓展绘本3个月；皮特猫",
+                "note": "读者GK C阶段参考，不能直接改全景1000词引用。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-muzzy",
@@ -342,7 +949,34 @@
           "role": "动画片",
           "original": "大马泽",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画输入",
+            "basis": "全景1000词按桥梁书／动画分类，该次素材没有取得明确主辅线原话；分类与共现关系不能代替用途证据。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "大马泽",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大马泽",
+                "note": "第6阶段独立动画栏，分级栏的主线标签不涵盖该动画。"
+              },
+              {
+                "sourceId": "xu-thousand",
+                "page": 1,
+                "quote": "Big Muzzy；WOW",
+                "note": "四阶段第1–3页安排词本、台词本、跟读／裸听等方法，并非主辅原话。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-panorama-wow",
@@ -350,7 +984,34 @@
           "role": "动画片",
           "original": "WOW",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画输入",
+            "basis": "全景1000词按桥梁书／动画分类，该次素材没有取得明确主辅线原话；分类与共现关系不能代替用途证据。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "WOW",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              },
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Wow English1–3；Wow English4–5",
+                "note": "第3／4阶段动画栏，未给本动画主辅。"
+              },
+              {
+                "sourceId": "xu-thousand",
+                "page": 1,
+                "quote": "Big Muzzy；WOW",
+                "note": "四阶段第1–3页方法与全景节点不合并。"
+              }
+            ]
+          }
         }
       ],
       "activities": [
@@ -402,7 +1063,22 @@
           "role": "动画片",
           "original": "小猪佩奇",
           "page": 1,
-          "sourceId": "xu-panorama"
+          "sourceId": "xu-panorama",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画输入",
+            "basis": "全景2000词只列小猪佩奇及泛称初章书，未给动画主辅或季数；本轮其他原件及读者书单未取得该次引用的独立主辅原话。",
+            "checkedAt": "2026-11-04",
+            "sources": [
+              {
+                "sourceId": "xu-panorama",
+                "page": 1,
+                "quote": "小猪佩奇",
+                "note": "素材及级别以本全景引用为准；图的分支位置不单独判定主辅线。"
+              }
+            ]
+          }
         }
       ],
       "activities": [
@@ -468,5 +1144,41 @@
         "note": "转载视频署名许密杉；标题支持300词起步口径，页面AI总结不作为作者原话。"
       }
     ]
-  }
+  },
+  "relatedSources": [
+    {
+      "id": "xu-xhs-reader-booklist",
+      "title": "读者热干面 · 跟着许密杉老师整理了新书单",
+      "file": "https://www.xiaohongshu.com/explore/69899d0d000000002800b7b7",
+      "previews": [
+        {
+          "page": 1,
+          "path": "assets/previews/xu-xhs-reader-booklist-01.jpg",
+          "note": "读者整理补证，不当作作者新版；核对2026-11-04。"
+        },
+        {
+          "page": 2,
+          "path": "assets/previews/xu-xhs-reader-booklist-02.jpg",
+          "note": "读者整理补证，不当作作者新版；核对2026-11-04。"
+        },
+        {
+          "page": 3,
+          "path": "assets/previews/xu-xhs-reader-booklist-03.jpg",
+          "note": "读者整理补证，不当作作者新版；核对2026-11-04。"
+        },
+        {
+          "page": 4,
+          "path": "assets/previews/xu-xhs-reader-booklist-04.jpg",
+          "note": "读者整理补证，不当作作者新版；核对2026-11-04。"
+        }
+      ],
+      "note": "页面显示02-09，未显示年份，不推定发布日期。四图完整目视并保存；与全景、六阶段存在级别／词数差异，分别保留。"
+    },
+    {
+      "id": "xu-xhs-listening-500",
+      "title": "许密杉老师 · 挑战全网最详细：一年从0基础到500词",
+      "file": "https://www.xiaohongshu.com/explore/698b0d2b000000000b013848",
+      "note": "核对2026-11-04。已读正文及平行阅读相关作者回复，未完整观看20:28视频；不作为各级版本、册数或动画主辅原话。"
+    }
+  ]
 }
