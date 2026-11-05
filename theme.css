@@ -36,8 +36,9 @@ textarea:focus-visible, [tabindex]:focus-visible { outline-color: #9662ed; }/* �
 .hero-counter > small { font-size: 11px; }
 .counter-leaves { color: #659b31; }
 
-/* 四个领域始终使用同一组颜色，卡片、技能、弹窗复用。 */
+/* 各领域始终使用同一组颜色，卡片、技能、弹窗复用。 */
 .domain-cognition { --domain: #ea7828; --domain-soft: #fff0db; --domain-ink: #a84c12; }
+.domain-language { --domain: #d7477a; --domain-soft: #ffe7ef; --domain-ink: #a02653; }
 .domain-sensory { --domain: #9851df; --domain-soft: #f2e6ff; --domain-ink: #7633b2; }
 .domain-gross { --domain: #3677eb; --domain-soft: #e7f0ff; --domain-ink: #275ab3; }
 .domain-fine { --domain: #17a275; --domain-soft: #ddf6e9; --domain-ink: #11714f; }

@@ -43,6 +43,12 @@ export const PUBLIC_FILES = Object.freeze([
   'data/skill-guides.json',
   'assets/favicon.svg',
   'assets/original.pdf',
+  'assets/original-with-language.pdf',
+  'assets/language/core-map.png',
+  'assets/language/understanding.jpg',
+  'assets/language/expression.jpg',
+  'assets/language/pronunciation.jpg',
+  'assets/language/phenomena.jpg',
 ]);
 
 export function normalizeApiBase(value, { allowLocalApi = false } = {}) {

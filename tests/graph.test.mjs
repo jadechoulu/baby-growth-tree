@@ -163,7 +163,8 @@ test('真实目录的每条完整路径均经过焦点且每一步都有依赖�
       }
     }
   }
-  assert.equal(maximum, 12);
+  // 完整语言图的首个名词：3条来路 × 5条去路，含发音跨分支来路和描述性语言末端。
+  assert.equal(maximum, 15);
 });
 
 function segmentHitsInterior(start, end, box) {
@@ -219,7 +220,7 @@ function verifyLayout(skills, inputEdges) {
   return result;
 }
 
-test('真实 248 节点总图和四个领域保留所有边、无重叠且连线不穿节点', () => {
+test('真实节点总图和各个领域保留所有边、无重叠且连线不穿节点', () => {
   const all = getBranchGraph(catalog, 'all');
   verifyLayout(all.nodes, all.edges);
   for (const domain of DOMAINS) {

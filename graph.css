@@ -4,7 +4,7 @@
 .next-step-header .section-kicker { display: none; }
 .next-step-header h1 { margin: 0; font-size: 24px; line-height: 1.4; color: #42304f; }
 .next-step-header p { margin-top: 6px; color: #805e3c; font-size: 15px; line-height: 1.6; }
-.next-step-view .next-domains { grid-template-columns: repeat(4, minmax(76px, 1fr)); overflow-x: auto; gap: 8px; padding: 2px 2px 5px; margin: 12px 0 8px; }
+.next-step-view .next-domains { grid-template-columns: repeat(5, minmax(76px, 1fr)); overflow-x: auto; gap: 8px; padding: 2px 2px 5px; margin: 12px 0 8px; }
 .next-step-view .next-domains .lineage-domain { display: flex; flex-direction: column; gap: 3px; min-width: 0; min-height: 60px; padding: 8px 6px; border-top: 3px solid var(--domain); border-radius: 8px; background: var(--domain-soft); color: var(--domain-ink); box-shadow: none; }
 .next-step-view .next-domains .lineage-domain.active { border-color: var(--domain); box-shadow: inset 0 0 0 1px var(--domain); }
 .next-domains .lineage-domain > .icon { display: none; }
@@ -34,7 +34,7 @@
 .lineage-header p { color: #926740; font-size: 12px; line-height: 1.8; margin-top: 8px; }
 .lineage-header-icon { width: 64px; height: 64px; display: grid; place-items: center; background: #8950df; color: white; border: 2px solid #6034a1; border-radius: 19px; transform: rotate(7deg); flex-shrink: 0; box-shadow: 4px 4px 0 #d1b46b; }
 .lineage-header-icon .icon { width: 37px; height: 37px; stroke-width: 1.5; }
-.lineage-domains { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 23px 0 20px; }
+.lineage-domains { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 23px 0 20px; }
 .lineage-domain { display: flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 9px; border: 1.5px solid #eadddf; border-radius: 10px; background: #fffdf9; color: var(--domain-ink); }
 .lineage-domain .icon { color: var(--domain); width: 22px; height: 22px; }
 .lineage-domain strong { font-size: 14px; font-weight: 600; }
@@ -238,7 +238,7 @@
 .lineage-title-row h2 { margin: 0; min-width: 0; flex: 0 1 auto; }
 .group-heading:focus-visible { outline: 2px solid #347bea; outline-offset: -2px; }
 .stage-lineage .section-title-row p { max-width: 650px; margin-top: 6px; line-height: 1.6; }
-.stage-lineage .domain-cards { grid-template-columns: repeat(4, minmax(76px, 1fr)); margin: 14px 0; gap: 10px; overflow-x: auto; padding: 3px 3px 7px; touch-action: auto; scrollbar-width: thin; }
+.stage-lineage .domain-cards { grid-template-columns: repeat(5, minmax(76px, 1fr)); margin: 14px 0; gap: 10px; overflow-x: auto; padding: 3px 3px 7px; touch-action: auto; scrollbar-width: thin; }
 .stage-lineage .domain-card { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 3px 9px; min-width: 0; padding: 10px 12px 8px; border-top-width: 3px; border-radius: 10px; }
 .stage-lineage .domain-card-top { display: contents; }
 .stage-lineage .domain-icon { grid-column: 1; grid-row: 1 / 3; width: 28px; height: 28px; border-radius: 8px; }
@@ -476,9 +476,9 @@
   .site-enabled .growth-content .status-tabs button { padding-inline: 12px; }
 }
 
-/* 按卡片区实际宽度收紧；四领域始终同排，极窄时只滚动本区域。 */
+/* 按卡片区实际宽度收紧；各领域始终同排，极窄时只滚动本区域。 */
 @container stage-lineage (max-width: 900px) {
-  .stage-lineage .domain-cards { grid-template-columns:repeat(4,minmax(88px,1fr)); gap:6px; }
+  .stage-lineage .domain-cards { grid-template-columns:repeat(5,minmax(88px,1fr)); gap:6px; }
   .stage-lineage .domain-card { grid-template-columns: minmax(0, 1fr) auto; min-height: 62px; padding: 7px 4px 5px; gap: 2px; text-align: center; }
   .stage-lineage .domain-icon { display: none; }
   .stage-lineage .domain-card-label { display: contents; font-size: 13px; white-space: nowrap; }
@@ -586,6 +586,10 @@
 
 /* 能力脉络按全领域统计，数量和百分比始终同排。 */
 .domain-progress-summary { display:flex; align-items:center; justify-content:center; gap:6px; white-space:nowrap; font-variant-numeric:tabular-nums; }
-.lineage-view > .lineage-domains { grid-template-columns:repeat(4,minmax(88px,1fr)); overflow-x:auto; padding-bottom:4px; }
+.lineage-view > .lineage-domains { grid-template-columns:repeat(5,minmax(88px,1fr)); overflow-x:auto; padding-bottom:4px; }
 .lineage-view > .lineage-domains > .lineage-domain { flex-wrap:wrap; }
 .lineage-domains .lineage-domain > .domain-progress-summary { flex-basis:100%; font-size:12px; opacity:1; }
+
+/* 语言沿用现有领域布局，资料和特殊现象按需查阅。 */
+.language-reference-dialog :is(p,li) { font-size:15px; line-height:1.8; overflow-wrap:anywhere; }
+.language-reference-dialog h3 { margin-top:18px; font-size:16px; }
