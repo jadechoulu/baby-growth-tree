@@ -7,6 +7,7 @@ RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name
 RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read_text())
 RAW['resourcePrices'] = json.loads((ROOT / 'data' / 'resource-prices.json').read_text())
 RAW['resourceVolumes'] = json.loads((ROOT / 'data' / 'resource-volumes.json').read_text())
+RAW['liaoReading'] = json.loads((ROOT / 'data' / 'liao-reading.json').read_text())
 RAW['helloReading'] = json.loads((ROOT / 'data' / 'hello-reading.json').read_text())
 
 def merge_hello_pen_audio(reading, manifest):
@@ -60,7 +61,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
