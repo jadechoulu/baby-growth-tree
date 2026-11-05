@@ -1,0 +1,362 @@
+{
+  "checkedAt": "2026-11-05",
+  "scope": "复核1、8、11、13、16、17、20、24号书当前已定位的资料包视频；只写审计，不修改共用网页数据。",
+  "policy": "阅读指引明确推荐且作品文件名吻合即可关联；用户明确要求的同场景拓展保留单独依据。题名来源差异与Part关联有效性分别核对；来源套唱建议不等于视频实唱曲调确认。",
+  "resources": [
+    {
+      "resourceId": "hello-01-video-package-f29a55ec93a3",
+      "bookId": "hello-01",
+      "label": "hair cut.mp4",
+      "partIds": [
+        "hello-01-part-4"
+      ],
+      "role": "extension-video",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "kind": "user-requested-scene-extension",
+          "file": "assets/hello/files/084d55e137fd61cc.pdf",
+          "page": 5,
+          "part": 4,
+          "partTitle": "First Haircut",
+          "quote": "First Haircut",
+          "basis": "用户要求按对应Part提供快捷播放；原书Part4为理发场景，hair cut.mp4作为同场景拓展关联，不宣称与原书同文。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "file": "assets/hello/notes/book-01.pdf",
+          "page": 4,
+          "part": 4,
+          "partTitle": "First Haircut",
+          "quote": "1号书 Part4—First Haircut；理发师barber/hairdresser、snip/trim等理发词汇。",
+          "relation": "extension-video",
+          "basis": "同场景关联由用户明确提出；未发现作者直接点名该视频的证据，不认定为原书同文。"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "原书第5页与阅读指引第4页均为First Haircut。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。",
+      "recommendationOrigin": "user-requested-scene-extension"
+    },
+    {
+      "resourceId": "hello-08-video-package-d91172660ab4",
+      "bookId": "hello-08",
+      "label": "London Bridge is Falling Down ABCkidTV Nursery Rhymes & Kids Songs.mp4",
+      "partIds": [
+        "hello-08-part-4"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-08.pdf",
+          "page": 4,
+          "part": 4,
+          "partTitle": "It’s Time to Put Your Toys Away",
+          "quote": "可以用 London Bridge is Falling Down 的旋律唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "一致；仅标点、大小写或省略号采用当前原书规范题名。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-11-video-package-a93a76edd2c5",
+      "bookId": "hello-11",
+      "label": "083. Seven Steps.mp4",
+      "partIds": [
+        "hello-11-part-4"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-11.pdf",
+          "page": 4,
+          "part": 4,
+          "partTitle": "Little Wagon",
+          "quote": "可以用super simple songs的Seven steps旋律唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "一致；仅标点、大小写或省略号采用当前原书规范题名。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-11-video-package-c7a4d4b30d32",
+      "bookId": "hello-11",
+      "label": "Rock-a-bye Baby.mp4",
+      "partIds": [
+        "hello-11-part-5"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-11.pdf",
+          "page": 5,
+          "part": 5,
+          "partTitle": "Rock-a-Bye, Darling",
+          "quote": "可以用Rock-a-bye Baby的旋律唱出来；原版歌曲视频来自cocomelon。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "一致；仅标点、大小写或省略号采用当前原书规范题名。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-13-video-package-e5f60dd17c25",
+      "bookId": "hello-13",
+      "label": "Five Little Monkeys.mp4",
+      "partIds": [
+        "hello-13-part-2"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-13.pdf",
+          "page": 4,
+          "part": 2,
+          "partTitle": "Hickety Pickety",
+          "quote": "可以用10 Little Indians、Five Little Monkeys或者Hickety Pickety My Black Hen的旋律唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "PDF第4页标题明确为Part2 Hickety Pickety；页码与Part编号不同，当前关联正确。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-16-video-package-905c522c2859",
+      "bookId": "hello-16",
+      "label": "002. Twinkle Twinkle Little Star.mp4",
+      "partIds": [
+        "hello-16-part-4"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-16.pdf",
+          "page": 4,
+          "part": 4,
+          "partTitle": "Who Is…",
+          "quote": "这个小故事可以用Twinkle twinkle little star的旋律唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "一致；仅标点、大小写或省略号采用当前原书规范题名。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-17-video-package-88c874916f89",
+      "bookId": "hello-17",
+      "label": "Row your boat跟老师学童谣.mp4",
+      "partIds": [
+        "hello-17-part-5"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-17.pdf",
+          "page": 5,
+          "part": 5,
+          "partTitle": "Rock and Sing",
+          "quote": "可以用Row, row, row your boat的旋律唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "一致；仅标点、大小写或省略号采用当前原书规范题名。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-20-video-package-0ec46ade9aaa",
+      "bookId": "hello-20",
+      "label": "down by the station.mp4",
+      "partIds": [
+        "hello-20-part-5"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-20.pdf",
+          "page": 5,
+          "part": 5,
+          "partTitle": "Jelly Baby",
+          "quote": "这首小诗可以用Jelly on a Plate唱出来，也可以用Down by the Station唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "Part5 Jelly Baby明确同时列出Jelly on a Plate和Down by the Station两种可选套唱；不表示某条演唱同时采用两曲。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-20-video-package-d7455e07736a",
+      "bookId": "hello-20",
+      "label": "Jelly on a plate.mp4",
+      "partIds": [
+        "hello-20-part-5"
+      ],
+      "role": "tune-demo",
+      "status": "verified",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-20.pdf",
+          "page": 5,
+          "part": 5,
+          "partTitle": "Jelly Baby",
+          "quote": "这首小诗可以用Jelly on a Plate唱出来，也可以用Down by the Station唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "Part5 Jelly Baby明确同时列出Jelly on a Plate和Down by the Station两种可选套唱；不表示某条演唱同时采用两曲。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。"
+    },
+    {
+      "resourceId": "hello-24-video-package-83043ba4f81b",
+      "bookId": "hello-24",
+      "label": "Hokey Pokey动画.mp4",
+      "partIds": [
+        "hello-24-part-2"
+      ],
+      "role": "extension-song",
+      "status": "sourceMismatch",
+      "associationVerified": true,
+      "keepMapping": true,
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-24.pdf",
+          "page": 2,
+          "part": 2,
+          "partTitle": "Pat, Pat, Pat",
+          "quote": "拍手相关的儿歌：Patty Cake clap（Hello 10号书）；If you’re happy and you know it；Hello, hello（Super Simple Songs）；Hokey Pokey（Super Simple Songs）。",
+          "relation": "extension-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        },
+        {
+          "file": "assets/hello/files/a3275b2846f4afc1.pdf",
+          "page": 6,
+          "part": 2,
+          "partTitle": "Clap, Clap, Clap",
+          "quote": "Read Me a Poem / Clap, Clap, Clap / By Ann Dorer / As you read, help your baby clap, clap, clap… / Baby sees me!",
+          "relation": "extension-song",
+          "basis": "核对原书文本层和完整页面图像，确认为拍手诗；指引Part2拍手儿歌列表中的Hokey Pokey仍可保留为拓展，不当作同文或指定套唱。"
+        }
+      ],
+      "checks": {
+        "correctPart": true,
+        "correctSourcePage": true,
+        "relationVerified": true,
+        "titleComparison": "阅读指引第2页称Pat, Pat, Pat；原书第6页为Clap, Clap, Clap，均指Part2拍手诗。当前原书题名及旧别名已分别保留。",
+        "playbackReviewed": false
+      },
+      "reviewMethod": "逐条阅读指引OCR及对应完整PDF页面图像核对；不以PDF页码当Part；未实播视频，不确认具体版本歌词或演唱旋律。",
+      "sourceMismatch": {
+        "kind": "part-title-only",
+        "notesTitle": "Pat, Pat, Pat",
+        "originalTitle": "Clap, Clap, Clap",
+        "mappingAffected": false,
+        "action": "保留当前Part2关联及原书正式题名；在来源依据保留指引题名差异。"
+      }
+    }
+  ],
+  "summary": {
+    "requestedExpectedVideos": 11,
+    "observedVideos": 10,
+    "books": 8,
+    "verified": 9,
+    "sourceMismatch": 1,
+    "associationVerified": 10,
+    "keepMapping": 10,
+    "playbackReviewed": 0,
+    "countDifference": "父任务称11条；当前指定8册实际只有10条资料包视频，已完整枚举，未发现第11条。",
+    "sourceMismatchDetail": "24号Part2指引题名与原书不同，仅标题来源差异；Hokey Pokey拓展关联仍有效。"
+  },
+  "visualReviewArtifacts": [
+    "/tmp/hello-video-existing-audit/notes-batch-1.jpg",
+    "/tmp/hello-video-existing-audit/notes-batch-2.jpg",
+    "/tmp/hello-video-existing-audit/notes-batch-3.jpg",
+    "/tmp/hello-video-existing-audit/book-24-original-p6.png"
+  ]
+}
