@@ -53,3 +53,38 @@ test('香蕉妈妈已加入的输出留在本阶段并行安排，年龄不明�
     assert.equal(flow.advance,'');
   }
 });
+
+test('香蕉妈妈显式按素材重合关联，正反向使用同一组主对照',()=>{
+  const view={...catalog,routes:catalog.routes.map(route=>({...route,stages:M.getRoutePlan(catalog,route.id,'listening',profile).stages}))};
+  const before=structuredClone(view);
+  for(const stage of view.routes.find(r=>r.id==='banana').stages){
+    for(const group of M.compareStages(view,stage.id)){
+      assert.equal(group.materialComparable,true);
+      if(group.matches.some(m=>m.overlapCount||m.unspecifiedCount))assert.ok(group.stageReferences.length>0,stage.id+' 应有素材重合参考');
+      else assert.equal(group.stageReferences.length,0,'级别不重合时不强行关联');
+      for(const match of group.stageReferences){
+        assert.ok(match.materialAlignment.score>0);
+        assert.equal(match.vocabularyAlignment,null);
+        assert.equal(match.startingAlignment,null);
+        const reverse=M.compareStages(view,match.stageId).find(g=>g.routeId==='banana');
+        const back=reverse.stageReferences.find(m=>m.stageId===stage.id);
+        assert.ok(back,stage.id+' ↔ '+match.stageId);
+        assert.equal(back.materialAlignment.score,match.materialAlignment.score);
+      }
+    }
+  }
+  assert.deepEqual(view,before,'不改阶段、原始引用或晋级条件');
+});
+
+test('素材重合策略按套系去重，级别不同不计匹配，其他路线仍由词汇目标对应',()=>{
+  const duplicate={...catalog,stages:catalog.stages.map(s=>({...s,materials:s.materials.concat(s.materials)})),routes:catalog.routes.map(r=>({...r,stages:r.stages.map(s=>({...s,materials:s.materials.concat(s.materials)}))}))};
+  for(const stage of catalog.routes.find(r=>r.id==='banana').stages){
+    const summary=c=>M.compareStages(c,stage.id).map(g=>[g.routeId,g.stageReferences.map(m=>[m.stageId,m.materialAlignment.score])]);
+    assert.deepEqual(summary(duplicate),summary(catalog));
+  }
+  const cleared={...catalog,stages:catalog.stages.map(s=>({...s,materials:[]})),routes:catalog.routes.map(r=>({...r,stages:r.stages.map(s=>({...s,materials:[]}))}))};
+  assert.ok(M.compareStages(cleared,'banana-1').every(g=>!g.stageReferences.length));
+  const group=M.compareStages(catalog,'xu-current-800').find(g=>g.routeId==='qing');
+  assert.equal(group.materialComparable,false);
+  assert.ok(group.stageReferences.every(m=>m.vocabularyAlignment&&!m.materialAlignment));
+});
