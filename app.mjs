@@ -1,4 +1,4 @@
-import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-core-v2';
+import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-guides-v4';
 import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
@@ -564,7 +564,7 @@ function skillGuideSection(skill) {
   const concept = skillGuides.categories[skill.category];
   const sourceIds = [...new Set([...(guide.sources || []), ...(concept?.sources || [])])];
   return html`<section class="skill-guide" aria-label="${skill.title}的详细解释">
-    <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>从日常小事理解成长</small></div>
+    <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>${skill.domain === 'language' ? '本站整理 · 释义与观察' : '从日常小事理解成长'}</small></div>
     <h3>这是什么意思？</h3><p class="guide-meaning">${guide.meaning}</p>
     <div class="guide-example"><h4>生活里的样子</h4><p>${guide.example}</p></div>
     <details class="growth-reading-fold"><summary>陪玩方法与观察要点</summary><div class="guide-practice"><section><h4>${icon('sprout')} 可以这样陪玩</h4><p>${guide.play}</p></section><section><h4>${icon('check')} 可以观察什么</h4><p>${guide.observe}</p></section></div></details>
