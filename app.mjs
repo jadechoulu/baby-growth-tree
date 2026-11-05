@@ -1,4 +1,4 @@
-import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-guides-v4';
+import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-notes-v5';
 import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
@@ -552,10 +552,19 @@ function resourceSection(config) {
   return html`<section class="resource-section"><h3>${icon('book')} 陪伴与探索</h3>${config.guidance ? html`<p>${config.guidance}</p>` : ''}${config.enrichment?.length ? html`<h4>全科启蒙</h4><ul>${config.enrichment.map(item => html`<li>${item}</li>`)}</ul>` : ''}${config.toyIdeas?.length ? html`<h4>玩具候选</h4><ul>${config.toyIdeas.map(item => html`<li>${item}</li>`)}</ul>` : ''}</section>`;
 }
 
+function languageOriginalNote(key, expanded = false) {
+  const notes = skillGuides.languageNotes;
+  const note = notes?.originalNotes?.[key];
+  if (!note) return '';
+  const content = html`<details class="guide-concept language-original-note"><summary>原图原文 · ${note.title}${icon('chevron')}</summary>${note.paragraphs.map(paragraph => html`<p>${paragraph}</p>`)}<p class="concept-example"><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${note.sourceLabel} · 查看完整原图</a>${note.transcriptionNote ? ` · ${note.transcriptionNote}` : ''}</p></details>`;
+  content.querySelector('details').open = expanded;
+  return content;
+}
+
 function languageReferenceContent() {
   const notes = skillGuides.languageNotes;
   if (!notes) return '';
-  return html`<p>${notes.intro}</p><h3>特殊现象 · 查阅说明</h3><ul>${notes.phenomena.map(item => html`<li>${item.title} · ${item.minMonths}–${item.maxMonths}个月</li>`)}</ul><p>${notes.note}</p><h3>完整原图</h3><p><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${notes.coreMap.title}</a> · <a href="${notes.coreMap.pdf}" target="_blank" rel="noopener">原始图谱第6页</a></p><h3>讲解截图补充</h3><ul>${notes.sources.map(source => html`<li><a href="${source.url}" target="_blank" rel="noopener">${source.title} · ${source.file}</a></li>`)}</ul><p>截图中的月龄为这份资料的参考位置；发音术语沿用原图，相关疑点可在技能解释中查看。</p>`;
+  return html`<p>${notes.intro}</p><h3>语言领域说明</h3>${languageOriginalNote('general', true)}<h3>特殊现象 · 查阅说明</h3><ul>${notes.phenomena.map(item => html`<li>${item.title} · ${item.minMonths}–${item.maxMonths}个月</li>`)}</ul><p><strong>本站整理：</strong>${notes.note}</p><h3>完整原图</h3><p><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${notes.coreMap.title}</a> · <a href="${notes.coreMap.pdf}" target="_blank" rel="noopener">原始图谱第6页</a></p><h3>讲解截图补充</h3><ul>${notes.sources.map(source => html`<li><a href="${source.url}" target="_blank" rel="noopener">${source.title} · ${source.file}</a></li>`)}</ul><p>截图中的月龄为这份资料的参考位置；发音术语沿用原图，相关疑点可在技能解释中查看。</p>`;
 }
 
 function skillGuideSection(skill) {
@@ -569,7 +578,7 @@ function skillGuideSection(skill) {
     <div class="guide-example"><h4>生活里的样子</h4><p>${guide.example}</p></div>
     <details class="growth-reading-fold"><summary>陪玩方法与观察要点</summary><div class="guide-practice"><section><h4>${icon('sprout')} 可以这样陪玩</h4><p>${guide.play}</p></section><section><h4>${icon('check')} 可以观察什么</h4><p>${guide.observe}</p></section></div></details>
     ${guide.note ? html`<aside class="guide-note">${icon('info')}<p>${guide.note}</p></aside>` : ''}
-    ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary><p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p></details>` : ''}
+    ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary>${skill.domain === 'language' ? html`<p><strong>本站整理</strong></p>` : ''}<p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p>${concept.originalNote ? languageOriginalNote(concept.originalNote) : ''}${concept.note ? html`<p><strong>本站整理 · 原文阅读提示：</strong>${concept.note}</p>` : ''}</details>` : ''}
     <details class="guide-sources"><summary>参考资料 · ${sourceIds.length} 项${icon('chevron')}</summary><p>以下资料用于解释相关能力与活动，原图的月龄、名称和进阶顺序不等于这些资料的统一标准。</p><ul>${sourceIds.map(id => {
       const source = skillGuides.sources[id];
       return source ? html`<li><a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.title}${icon('arrow')}</a><span>${source.publisher}</span></li>` : '';
