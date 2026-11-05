@@ -1,0 +1,648 @@
+{
+  "checkedAt": "2026-11-05",
+  "series": [
+    {
+      "resourceId": "resource-1n3ix1n",
+      "edition": "牛津树明确选本版本",
+      "unit": "本",
+      "note": "按国内具名选本与家庭版分别列级别及册数；只计读物，不含指导、练习和词典。6–9基础64本包含在含DD88本内，全量不重复相加。未绑定的版本供选择，不代表路线指定版次或必读量；此目录不是牛津出版社全部800余本的平台总目录。",
+      "sources": [
+        {
+          "title": "牛津树各版本选本逐级配置",
+          "url": "https://kknews.cc/education/443g8gg.html",
+          "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "牛津树版本介绍及10–12读物范围",
+          "url": "https://zhuanlan.zhihu.com/p/133834513",
+          "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Read with Biff, Chip & Kipper家庭版出版范围",
+          "url": "https://zhuanlan.zhihu.com/p/429811066",
+          "evidence": "家庭版1–3级33册含32本读物+1本指导；4–6级25册含24本读物+1本指导。原文未列56本纸书版各单级册数，保留有据组合不均摊。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "牛津出版社Oxford Reading Tree及级别说明",
+          "url": "https://home.oxfordowl.co.uk/reading/reading-schemes-oxford-levels/oxford-reading-tree-levels/",
+          "evidence": "Oxford Reading Tree超过800本，包含不同虚构/非虚构分支，覆盖20级；1与1+分别列为独立级别。国内具名选本不是全平台全集册数。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "ort-school-red-1",
+          "label": "1级（含DD1）",
+          "edition": "国内红标/无标选本",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级（含DD1）",
+              "count": 84,
+              "level": "1"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "ort-school-red-2",
+          "label": "2级（含DD2）",
+          "edition": "国内红标/无标选本",
+          "level": "2",
+          "parts": [
+            {
+              "label": "2级（含DD2）",
+              "count": 48,
+              "level": "2"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "ort-school-red-3-5",
+          "label": "3–5级",
+          "edition": "国内红标/无标选本",
+          "level": "3–5",
+          "parts": [
+            {
+              "label": "3级（含DD）",
+              "level": "3",
+              "count": 42
+            },
+            {
+              "label": "4级（含DD）",
+              "level": "4",
+              "count": 42
+            },
+            {
+              "label": "5级（含DD）",
+              "level": "5",
+              "count": 36
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "3–5级含DD共120本，42／42／36；公开目录同时列为橙标与红标共用范围，不重复增加另一份读物。"
+        },
+        {
+          "id": "ort-school-red-6-9",
+          "label": "6–9级（含DD）",
+          "edition": "国内红标/无标选本",
+          "level": "6–9",
+          "parts": [
+            {
+              "label": "6级（含DD）",
+              "level": "6",
+              "count": 27,
+              "note": "基础21本＋DD6本"
+            },
+            {
+              "label": "7级（含DD）",
+              "level": "7",
+              "count": 25,
+              "note": "基础19本＋DD6本"
+            },
+            {
+              "label": "8级（含DD）",
+              "level": "8",
+              "count": 18,
+              "note": "基础12本＋DD6本"
+            },
+            {
+              "label": "9级（含DD）",
+              "level": "9",
+              "count": 18,
+              "note": "基础12本＋DD6本"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "基础64本（21/19/12/12）＋DD24本（各级6）＝88本。下面保留的各级基础范围仅供精确选择，已被本范围包含，不在全量重复相加。"
+        },
+        {
+          "id": "ort-school-red-10",
+          "label": "10级",
+          "edition": "国内红标/无标18故事选本",
+          "level": "10",
+          "parts": [
+            {
+              "label": "10级",
+              "count": 6,
+              "level": "10"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "ort-school-red-11",
+          "label": "11级",
+          "edition": "国内红标/无标18故事选本",
+          "level": "11",
+          "parts": [
+            {
+              "label": "11级",
+              "count": 6,
+              "level": "11"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "ort-school-red-12",
+          "label": "12级",
+          "edition": "国内红标/无标18故事选本",
+          "level": "12",
+          "parts": [
+            {
+              "label": "12级",
+              "count": 6,
+              "level": "12"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "ort-orange-1",
+          "label": "1级（含DD1）",
+          "edition": "国内橙标150册选本",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级（含DD1）",
+              "count": 96,
+              "level": "1"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "150本指该橙标1–2级读物选本；3–12级配置见国内学校版共用读物范围，不把练习、词典和点读卡计作读物。国内“1级”组合标法可能合并官方1与1+，保留选本标签不等同官方分级。"
+        },
+        {
+          "id": "ort-orange-2",
+          "label": "2级（含DD2）",
+          "edition": "国内橙标150册选本",
+          "level": "2",
+          "parts": [
+            {
+              "label": "2级（含DD2）",
+              "count": 54,
+              "level": "2"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "150本指该橙标1–2级读物选本；3–12级配置见国内学校版共用读物范围，不把练习、词典和点读卡计作读物。国内“1级”组合标法可能合并官方1与1+，保留选本标签不等同官方分级。"
+        },
+        {
+          "id": "ort-home-1-3",
+          "label": "1–3级",
+          "edition": "Read with Biff Chip and Kipper家庭版（56本纸书选本）",
+          "level": "1–3",
+          "parts": [
+            {
+              "label": "1–3级",
+              "count": 32,
+              "level": "1–3"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Read with Biff, Chip & Kipper家庭版出版范围",
+              "url": "https://zhuanlan.zhihu.com/p/429811066",
+              "evidence": "家庭版1–3级33册含32本读物+1本指导；4–6级25册含24本读物+1本指导。原文未列56本纸书版各单级册数，保留有据组合不均摊。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "本纸书选本只核到1–3级32本、4–6级24本；各单级分配尚未由原目录确认，不按组合总量均摊，也不借用每级8本的48本电子App版。"
+        },
+        {
+          "id": "ort-home-4-6",
+          "label": "4–6级",
+          "edition": "Read with Biff Chip and Kipper家庭版（56本纸书选本）",
+          "level": "4–6",
+          "parts": [
+            {
+              "label": "4–6级",
+              "count": 24,
+              "level": "4–6"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Read with Biff, Chip & Kipper家庭版出版范围",
+              "url": "https://zhuanlan.zhihu.com/p/429811066",
+              "evidence": "家庭版1–3级33册含32本读物+1本指导；4–6级25册含24本读物+1本指导。原文未列56本纸书版各单级册数，保留有据组合不均摊。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "本纸书选本只核到1–3级32本、4–6级24本；各单级分配尚未由原目录确认，不按组合总量均摊，也不借用每级8本的48本电子App版。"
+        },
+        {
+          "id": "ort-school-shared-3",
+          "label": "3级（含DD）",
+          "edition": "国内红标/无标选本",
+          "level": "3",
+          "parts": [
+            {
+              "label": "3级（含DD）",
+              "level": "3",
+              "count": 42
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "3–5级含DD共120本，42／42／36；公开目录同时列为橙标与红标共用范围，不重复增加另一份读物。"
+        },
+        {
+          "id": "ort-school-shared-4",
+          "label": "4级（含DD）",
+          "edition": "国内红标/无标选本",
+          "level": "4",
+          "parts": [
+            {
+              "label": "4级（含DD）",
+              "level": "4",
+              "count": 42
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "3–5级含DD共120本，42／42／36；公开目录同时列为橙标与红标共用范围，不重复增加另一份读物。"
+        },
+        {
+          "id": "ort-school-shared-5",
+          "label": "5级（含DD）",
+          "edition": "国内红标/无标选本",
+          "level": "5",
+          "parts": [
+            {
+              "label": "5级（含DD）",
+              "level": "5",
+              "count": 36
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "3–5级含DD共120本，42／42／36；公开目录同时列为橙标与红标共用范围，不重复增加另一份读物。"
+        },
+        {
+          "id": "ort-school-base-6",
+          "label": "6级（基础故事）",
+          "edition": "国内学校版6–9基础64册选本",
+          "level": "6",
+          "parts": [
+            {
+              "label": "6级（基础故事）",
+              "level": "6",
+              "count": 21
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
+        },
+        {
+          "id": "ort-school-base-7",
+          "label": "7级（基础故事）",
+          "edition": "国内学校版6–9基础64册选本",
+          "level": "7",
+          "parts": [
+            {
+              "label": "7级（基础故事）",
+              "level": "7",
+              "count": 19
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
+        },
+        {
+          "id": "ort-school-base-8",
+          "label": "8级（基础故事）",
+          "edition": "国内学校版6–9基础64册选本",
+          "level": "8",
+          "parts": [
+            {
+              "label": "8级（基础故事）",
+              "level": "8",
+              "count": 12
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
+        },
+        {
+          "id": "ort-school-base-9",
+          "label": "9级（基础故事）",
+          "edition": "国内学校版6–9基础64册选本",
+          "level": "9",
+          "parts": [
+            {
+              "label": "9级（基础故事）",
+              "level": "9",
+              "count": 12
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "牛津树版本介绍及10–12读物范围",
+              "url": "https://zhuanlan.zhihu.com/p/133834513",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
+        }
+      ],
+      "checkedAt": "2026-11-05",
+      "catalogAudit": {
+        "status": "confirmed-publication-ranges",
+        "checkedAt": "2026-11-05",
+        "reason": "国内1–12具名选本已按级核对，家庭56本纸书只确认两组范围；不冒用其他版本补纸书单级。出版社全平台其他分支未在该选本内。"
+      },
+      "title": "牛津树"
+    },
+    {
+      "resourceId": "resource-s4f6np",
+      "edition": "国内10–12级18故事选本",
+      "sources": [
+        {
+          "title": "Top 50件牛津阅读树10 - 2026年9月更新",
+          "url": "https://www.taobao.com/list/product/%E7%89%9B%E6%B4%A5%E9%98%85%E8%AF%BB%E6%A0%9110.htm",
+          "evidence": "检索线索，未作为确定数量依据。原引用仅10–12；检索出现Treetops、不同分支及18册商家选集，没有可对应的确切版本目录，不以任意套装数代替总量。"
+        },
+        {
+          "title": "牛津阅读树体系超详细介绍以及各版本区别解析",
+          "url": "https://zhuanlan.zhihu.com/p/145437619",
+          "evidence": "检索线索，未作为确定数量依据。原引用仅10–12；检索出现Treetops、不同分支及18册商家选集，没有可对应的确切版本目录，不以任意套装数代替总量。"
+        },
+        {
+          "title": "免费资源史上最全牛津阅读树Oxford reading tree原版高清1- ...",
+          "url": "https://m.douban.com/group/topic/114230144/",
+          "evidence": "检索线索，未作为确定数量依据。原引用仅10–12；检索出现Treetops、不同分支及18册商家选集，没有可对应的确切版本目录，不以任意套装数代替总量。"
+        },
+        {
+          "title": "牛津树版本逐级说明",
+          "url": "https://zhuanlan.zhihu.com/p/133834513",
+          "evidence": "10级6故事+1指导、11级6故事+1指导、12级6故事，共18本读物。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [],
+      "catalogAudit": {
+        "status": "confirmed-publication-ranges",
+        "checkedAt": "2026-11-05",
+        "reason": "公共版本册数已有来源；路线是否采用该版本独立核定。"
+      },
+      "checkedAt": "2026-11-05",
+      "title": "牛津树",
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "catalogResourceId": "resource-1n3ix1n"
+    }
+  ],
+  "references": []
+}

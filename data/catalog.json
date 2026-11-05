@@ -2691,5 +2691,672 @@
       "fine-hook-fish"
     ],
     "sourcePage": 5
+  },
+  {
+    "id": "lang-speech-sounds",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s0",
+    "title": "分辨说话声和其他声音",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-voice-emotion",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s1",
+    "title": "对声音中的情绪变化有反应",
+    "parents": [
+      "lang-speech-sounds"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-word-object",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s2",
+    "title": "建立名称–事物的关联",
+    "parents": [
+      "lang-voice-emotion"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-understand-no",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s3",
+    "title": "通过语言和表情理解“不”",
+    "parents": [
+      "lang-voice-emotion"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-verbs-3",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s3",
+    "title": "听懂动词3–5个",
+    "parents": [
+      "lang-word-object"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-point",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s3",
+    "title": "指物行为",
+    "parents": [
+      "lang-word-object"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-nouns-5",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s3",
+    "title": "记忆复现：名词记忆5–10个",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-respond-name",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s3",
+    "title": "唤名反应（家人小名）",
+    "parents": [
+      "lang-joint-attention"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-joint-attention",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s2",
+    "title": "共同注意",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-question-what-where",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s4",
+    "title": "理解问句：这是什么？在哪里？",
+    "parents": [
+      "lang-one-step"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-one-step",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s4",
+    "title": "听懂一步指令",
+    "parents": [
+      "lang-verbs-3"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-verbs-10",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s4",
+    "title": "听懂动词5–10个",
+    "parents": [
+      "lang-one-step"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-nouns-30",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s4",
+    "title": "听懂名词10–30个",
+    "parents": [
+      "lang-nouns-5",
+      "lang-respond-name"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-encouragement",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s4",
+    "title": "对家人的语言鼓励有反应",
+    "parents": [
+      "lang-joint-attention"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-question-who",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s5",
+    "title": "理解问句：谁？谁的？",
+    "parents": [
+      "lang-question-what-where"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-two-step",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s5",
+    "title": "听懂两步指令",
+    "parents": [
+      "lang-one-step"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-adverbs",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s5",
+    "title": "听懂副词3个以上",
+    "parents": [
+      "lang-verbs-10"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-adjectives",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s5",
+    "title": "听懂形容词5个以上",
+    "parents": [
+      "lang-nouns-30"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-question-why",
+    "domain": "language",
+    "category": "语言理解",
+    "stage": "s6",
+    "title": "理解问句：为什么？",
+    "parents": [
+      "lang-question-who"
+    ],
+    "sourceLabel": "语言技能树 · 语言理解",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-cry",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s0",
+    "title": "原始哭声",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-coo",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s1",
+    "title": "yuyu应和",
+    "parents": [
+      "lang-cry"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-saliva",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s1",
+    "title": "玩口水、吐口水",
+    "parents": [
+      "lang-cry"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-shout",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s1",
+    "title": "大叫",
+    "parents": [
+      "lang-cry"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-tongue",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s2",
+    "title": "玩舌头",
+    "parents": [
+      "lang-saliva"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-babble",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s3",
+    "title": "婴儿语期",
+    "parents": [
+      "lang-tongue",
+      "lang-shout"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-parents",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s4",
+    "title": "正式理解性喊爸妈",
+    "parents": [
+      "lang-syllables"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-first-noun",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s4",
+    "title": "说第一个名词",
+    "parents": [
+      "lang-babble",
+      "lang-parents"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-two-words",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s4",
+    "title": "说两个词的句子",
+    "parents": [
+      "lang-first-noun"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-negative",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "使用否定词",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-polite",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "使用礼貌用语",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-ask-what",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "问答句：这是什么？",
+    "parents": [
+      "lang-telegraphic"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-telegraphic",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "说多词句、电报句",
+    "parents": [
+      "lang-two-words"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-describe",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "用名词客体的描述性语言",
+    "parents": [
+      "lang-words-30"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-words-30",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "说20–30个左右的词语",
+    "parents": [
+      "lang-first-noun"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-self-name",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s5",
+    "title": "用小名指代自己",
+    "parents": [
+      "lang-words-30"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-ask-where",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s6",
+    "title": "问答句：在哪里？",
+    "parents": [
+      "lang-ask-what"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-subject-predicate",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s6",
+    "title": "说主谓宾完整句",
+    "parents": [
+      "lang-telegraphic"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-modifiers",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s6",
+    "title": "说完整句＋修饰词",
+    "parents": [
+      "lang-subject-predicate"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-ask-who",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s7",
+    "title": "问答句：谁？谁的？",
+    "parents": [
+      "lang-ask-where"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-ask-why",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s7",
+    "title": "问答句：为什么？",
+    "parents": [
+      "lang-ask-who"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-pronouns",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s7",
+    "title": "正确使用人称代词",
+    "parents": [
+      "lang-subject-predicate"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-compare",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s7",
+    "title": "说类比、比较句",
+    "parents": [
+      "lang-modifiers"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-verbal-exchange",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s8",
+    "title": "纯言语交流",
+    "parents": [
+      "lang-ask-why",
+      "lang-pronouns",
+      "lang-compare"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-narration",
+    "domain": "language",
+    "category": "发语表达",
+    "stage": "s8",
+    "title": "完整叙述",
+    "parents": [
+      "lang-verbal-exchange"
+    ],
+    "sourceLabel": "语言技能树 · 发语表达",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-vowels",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s0",
+    "title": "出现a母韵（aoe）",
+    "parents": [],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-lip-sounds",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s1",
+    "title": "出现唇爆破音（bpmgk）",
+    "parents": [
+      "lang-vowels"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-palatal",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s2",
+    "title": "出现舌抵牙的辅音（jqx）",
+    "parents": [
+      "lang-lip-sounds"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-syllables",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s3",
+    "title": "出现元音辅音组合叠词（babadadamamagaga）",
+    "parents": [
+      "lang-palatal"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-nasal",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s4",
+    "title": "出现鼻音（nh）",
+    "parents": [
+      "lang-syllables"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-l-sound",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s5",
+    "title": "出现翘舌鼻音（l）",
+    "parents": [
+      "lang-nasal"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-r-sound",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s6",
+    "title": "出现翘舌音（r）",
+    "parents": [
+      "lang-l-sound"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
+  },
+  {
+    "id": "lang-sibilants",
+    "domain": "language",
+    "category": "普通话发音",
+    "stage": "s7",
+    "title": "出现平／翘舌音（zcs zhichishi）",
+    "parents": [
+      "lang-r-sound"
+    ],
+    "sourceLabel": "语言技能树 · 普通话发音",
+    "sourceImage": "./assets/language/core-map.png",
+    "sourcePage": 6
   }
 ]

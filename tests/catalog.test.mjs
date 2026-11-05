@@ -5,11 +5,12 @@ import { STAGES, DOMAINS, getStageSkills, getStats, toggleRecord } from '../lib/
 
 const catalog = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8'));
 
-test('技能目录覆盖五页原图，节点唯一且上游引用完整', () => {
+test('技能目录保留原五页和语言完整图，节点唯一且上游引用完整', () => {
   const byId = new Map(catalog.map(skill => [skill.id, skill]));
   assert.equal(byId.size, catalog.length);
-  assert.equal(catalog.length, 248);
-  assert.deepEqual(new Set(catalog.map(skill => skill.sourcePage)), new Set([1, 2, 3, 4, 5]));
+  assert.equal(catalog.filter(skill => skill.domain !== 'language').length, 248);
+  assert.equal(catalog.filter(skill => skill.domain === 'language').length, 52);
+  assert.deepEqual(new Set(catalog.filter(skill => skill.domain !== 'language').map(skill => skill.sourcePage)), new Set([1, 2, 3, 4, 5]));
   for (const skill of catalog) {
     assert.ok(DOMAINS.some(domain => domain.id === skill.domain));
     assert.ok(STAGES.some(stage => stage.id === skill.stage));
@@ -30,6 +31,16 @@ test('技能目录覆盖五页原图，节点唯一且上游引用完整', () =>
     visited.add(id);
   }
   for (const id of byId.keys()) visit(id);
+});
+
+test('语言依照完整图保留跨分支与同月龄关系，避免反向和漏边', () => {
+  const byId = new Map(catalog.map(skill => [skill.id, skill]));
+  assert.deepEqual(byId.get('lang-parents').parents, ['lang-syllables']);
+  assert.deepEqual(byId.get('lang-first-noun').parents, ['lang-babble', 'lang-parents']);
+  assert.deepEqual(byId.get('lang-describe').parents, ['lang-words-30']);
+  assert.deepEqual(byId.get('lang-verbal-exchange').parents, ['lang-ask-why', 'lang-pronouns', 'lang-compare']);
+  const language = catalog.filter(skill => skill.domain === 'language');
+  assert.equal(language.reduce((count, skill) => count + skill.parents.length, 0), 50);
 });
 
 test('原图跨13–36月技能只记录一次，各阶段统计和回退复用状态', () => {

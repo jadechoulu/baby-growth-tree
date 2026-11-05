@@ -1,4 +1,4 @@
-import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
+import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-notes-v5';
 import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
@@ -109,6 +109,7 @@ const paths = {
   tree: ['M12 3v18M5 21v-5h14v5M5 10V7h14v3', 'M9 3h6v5H9zM2 10h6v5H2zM16 10h6v5h-6zM9 17h6v5H9z'],
   cognition: ['M9 18h6M9 21h6', 'M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3Z', 'M12 3V1M3 9H1M23 9h-2'],
   sensory: ['M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z', 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z'],
+  language: ['M21 11a8 8 0 0 1-8 8H7l-5 3 2-6a8 8 0 1 1 17-5Z', 'M8 10h8M8 14h5'],
   gross: ['M14 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z', 'M6 9l5-3 4 3 5 1M11 6l-2 7 5 3 1 6M9 13l-4 7'],
   fine: ['M8 13V6a2 2 0 0 1 4 0v6-8a2 2 0 0 1 4 0v8-5a2 2 0 0 1 4 0v8c0 4-3 7-7 7-3 0-5-2-7-5l-3-4a2 2 0 0 1 3-3l2 3Z'],
   menu: ['M4 6h16M4 12h16M4 18h16'],
@@ -505,7 +506,7 @@ function stageCompleteBadge(stageId) {
 function stageCompleteButton(stageId) {
   const stage = STAGES.find(item => item.id === stageId);
   const stats = getStats(getStageSkills(catalog, stageId), state.records);
-  return html`<button class="stage-complete-button" data-complete-stage="${stageId}" aria-label="${stage.label}全部完成" title="将${stage.label}四个领域的全部 ${stats.total} 项技能标记完成；已有完成日期和手记保留" disabled="${!stats.remaining}">${icon('check')}<span>${stats.remaining ? '全部完成' : '全部已完成'}</span></button>`;
+  return html`<button class="stage-complete-button" data-complete-stage="${stageId}" aria-label="${stage.label}全部完成" title="将${stage.label}${DOMAINS.length}个领域的全部 ${stats.total} 项技能标记完成；已有完成日期和手记保留" disabled="${!stats.remaining}">${icon('check')}<span>${stats.remaining ? '全部完成' : '全部已完成'}</span></button>`;
 }
 function graphStageHeading(stage) {
   return html`<div class="graph-stage-heading"><div class="graph-stage-title"><span class="graph-stage-label"><strong>${stage.label}</strong>${currentStage()?.id === stage.id ? html`<small class="stage-current-badge">宝宝在这里</small>` : ''}</span>${stageCompleteButton(stage.id)}</div><div class="graph-stage-badges">${stageCompleteBadge(stage.id)}</div></div>`;
@@ -551,18 +552,33 @@ function resourceSection(config) {
   return html`<section class="resource-section"><h3>${icon('book')} 陪伴与探索</h3>${config.guidance ? html`<p>${config.guidance}</p>` : ''}${config.enrichment?.length ? html`<h4>全科启蒙</h4><ul>${config.enrichment.map(item => html`<li>${item}</li>`)}</ul>` : ''}${config.toyIdeas?.length ? html`<h4>玩具候选</h4><ul>${config.toyIdeas.map(item => html`<li>${item}</li>`)}</ul>` : ''}</section>`;
 }
 
+function languageOriginalNote(key, expanded = false) {
+  const notes = skillGuides.languageNotes;
+  const note = notes?.originalNotes?.[key];
+  if (!note) return '';
+  const content = html`<details class="guide-concept language-original-note"><summary>原图原文 · ${note.title}${icon('chevron')}</summary>${note.paragraphs.map(paragraph => html`<p>${paragraph}</p>`)}<p class="concept-example"><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${note.sourceLabel} · 查看完整原图</a>${note.transcriptionNote ? ` · ${note.transcriptionNote}` : ''}</p></details>`;
+  content.querySelector('details').open = expanded;
+  return content;
+}
+
+function languageReferenceContent() {
+  const notes = skillGuides.languageNotes;
+  if (!notes) return '';
+  return html`<p>${notes.intro}</p><h3>语言领域说明</h3>${languageOriginalNote('general', true)}<h3>特殊现象 · 查阅说明</h3><ul>${notes.phenomena.map(item => html`<li>${item.title} · ${item.minMonths}–${item.maxMonths}个月</li>`)}</ul><p><strong>本站整理：</strong>${notes.note}</p><h3>完整原图</h3><p><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${notes.coreMap.title}</a> · <a href="${notes.coreMap.pdf}" target="_blank" rel="noopener">原始图谱第6页</a></p><h3>讲解截图补充</h3><ul>${notes.sources.map(source => html`<li><a href="${source.url}" target="_blank" rel="noopener">${source.title} · ${source.file}</a></li>`)}</ul><p>截图中的月龄为这份资料的参考位置；发音术语沿用原图，相关疑点可在技能解释中查看。</p>`;
+}
+
 function skillGuideSection(skill) {
   const guide = skillGuides.skills[skill.id];
   if (!guide) return html`<section class="skill-guide"><h3>${icon('book')} 看懂这个技能</h3><p>这项技能的解释暂未加载，请刷新后再试。</p></section>`;
   const concept = skillGuides.categories[skill.category];
   const sourceIds = [...new Set([...(guide.sources || []), ...(concept?.sources || [])])];
   return html`<section class="skill-guide" aria-label="${skill.title}的详细解释">
-    <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>从日常小事理解成长</small></div>
+    <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>${skill.domain === 'language' ? '本站整理 · 释义与观察' : '从日常小事理解成长'}</small></div>
     <h3>这是什么意思？</h3><p class="guide-meaning">${guide.meaning}</p>
     <div class="guide-example"><h4>生活里的样子</h4><p>${guide.example}</p></div>
     <details class="growth-reading-fold"><summary>陪玩方法与观察要点</summary><div class="guide-practice"><section><h4>${icon('sprout')} 可以这样陪玩</h4><p>${guide.play}</p></section><section><h4>${icon('check')} 可以观察什么</h4><p>${guide.observe}</p></section></div></details>
     ${guide.note ? html`<aside class="guide-note">${icon('info')}<p>${guide.note}</p></aside>` : ''}
-    ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary><p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p></details>` : ''}
+    ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary>${skill.domain === 'language' ? html`<p><strong>本站整理</strong></p>` : ''}<p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p>${concept.originalNote ? languageOriginalNote(concept.originalNote) : ''}${concept.note ? html`<p><strong>本站整理 · 原文阅读提示：</strong>${concept.note}</p>` : ''}</details>` : ''}
     <details class="guide-sources"><summary>参考资料 · ${sourceIds.length} 项${icon('chevron')}</summary><p>以下资料用于解释相关能力与活动，原图的月龄、名称和进阶顺序不等于这些资料的统一标准。</p><ul>${sourceIds.map(id => {
       const source = skillGuides.sources[id];
       return source ? html`<li><a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.title}${icon('arrow')}</a><span>${source.publisher}</span></li>` : '';
@@ -853,7 +869,7 @@ function render() {
   siteShell.update({ navigation: growthNavigation(), activeId: state.view, title: viewLabel });
   siteShell.globalActions.replaceChildren(html`<div class="topbar-actions">${siteSync?.createButton()}<button class="icon-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}<span>宝宝资料</span></button><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
   siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${overallProgress()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
-  siteShell.actions.replaceChildren(window.XiaoyaGrowthVersions.create('mao'), html`<a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="毛老师版：查看原始图谱 PDF" title="毛老师版原始图谱">${icon('book')}<span>原始图谱</span></a>`);
+  siteShell.actions.replaceChildren(window.XiaoyaGrowthVersions.create('mao'), html`<a class="icon-button source-link" href="./assets/original-with-language.pdf" target="_blank" rel="noopener" aria-label="毛老师版：查看原始图谱 PDF" title="毛老师版原始图谱">${icon('book')}<span>原始图谱</span></a>${(state.view === 'tree' ? state.treeDomain : state.domain) === 'language' ? html`<button class="icon-button" data-action="language-sources" aria-label="查看语言原图与特殊现象" title="语言原图与特殊现象">${icon('language')}<span>语言原图</span></button>` : ''}`);
   siteShell.globalActions.append(window.XiaoyaSite.createActionMenu(siteShell.globalActions.querySelector('.topbar-actions')));
 
   organizeGrowthReading();
@@ -1043,7 +1059,7 @@ function openDetail(id) {
   const parents = (skill.parents || []).map(parent => catalog.find(item => item.id === parent)).filter(Boolean);
   const children = catalog.filter(item => item.parents?.includes(id));
   const done = isDone(id);
-  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>${skillGuideSection(skill)}<form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>${state.localMode ? '手记与完成状态自动保存到本机' : '手记与完成状态自动同步到私有云端'}</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">原始图谱第 ${skill.sourcePage} 页 · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog', id);
+  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>${skillGuideSection(skill)}<form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>${state.localMode ? '手记与完成状态自动保存到本机' : '手记与完成状态自动同步到私有云端'}</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">${skill.sourceImage ? html`<a href="${skill.sourceImage}" target="_blank" rel="noopener">${skill.sourceLabel} · 完整原图（原始图谱第 ${skill.sourcePage} 页）</a>` : `原始图谱第 ${skill.sourcePage} 页`} · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog', id);
   dialog.dataset.skillId = id;
   updateSaveStatus();
 }
@@ -1184,7 +1200,10 @@ async function completeStage(stageId) {
 document.addEventListener('click', async event => {
   const element = event.target.closest('button, a[data-action], [data-view], [data-stage]');
   if (!element) return;
-  if (element.dataset.view) {
+  if (element.dataset.action === 'language-sources') {
+    showDialog(html`${dialogHeader('毛老师版 · 语言', '语言原图与特殊现象')}${languageReferenceContent()}`, 'language-reference-dialog');
+  }
+  else if (element.dataset.view) {
     const previousView = state.view;
     state.view = element.dataset.view;
     state.search = '';

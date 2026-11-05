@@ -34,6 +34,10 @@ verify 由 main、两类专属分支的 push 或显式 dispatch 启动，不订�
 
 如工作流需要重试，可在 GitHub Actions 重跑失败任务，或执行 `gh workflow run site.yml --ref <任务分支或main>`。`scripts/publish-site.mjs` 仅保留旧流程兼容，日常不运行。原私有 Git 历史仍保存在本机备份。
 
+## 技能目录变更与同步后端
+
+同步后端会将部署包内`data/catalog.json`作为有效技能ID目录。新增或修改稳定技能ID时，须用`node scripts/build-sync-backend.mjs --netlify`重建并按[后端部署说明](../backend/netlify/README.md)更新生产接口，再发布引用该目录的网页。只发布GitHub Pages不会更新Netlify函数，旧目录会使包含新ID的整批成长写入返回`INVALID_SNAPSHOT`。核验包含新技能的真实保存与云端回执，不能以健康接口通过代替。
+
 ## 本机记录与可选云端
 
 两边记录互不合并。成长仍用 `xiaoya-growth` IndexedDB v1；英语仍用 `little-leaf-english-v1` localStorage。页面路径与网站来源保留，不清空或迁移数据库。协议、主机、端口不同仍会隔离浏览器记录；发布包不携带真实个人记录。

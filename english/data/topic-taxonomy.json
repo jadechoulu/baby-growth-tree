@@ -1,0 +1,7133 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-05",
+  "note": "本站按用户确认的20个一级与二级细分统一主题/场景。原始标签、来源、稳定ID及个人记录不变。未取得细分证据只保留一级；难度、TPR活动方式、曲目形式和路线用途不属于主题层级。",
+  "nodes": [
+    {
+      "id": "daily",
+      "label": "宝宝的一天"
+    },
+    {
+      "id": "daily.wake",
+      "label": "起床",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.wash",
+      "label": "洗漱",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.meals",
+      "label": "吃饭喝水",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.dress",
+      "label": "穿衣",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.bath",
+      "label": "洗澡",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.tidy",
+      "label": "整理收拾",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.childcare",
+      "label": "日托",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.shopping",
+      "label": "购物",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.haircut",
+      "label": "理发",
+      "parentId": "daily"
+    },
+    {
+      "id": "daily.sleep",
+      "label": "睡觉",
+      "parentId": "daily"
+    },
+    {
+      "id": "home",
+      "label": "家居"
+    },
+    {
+      "id": "home.rooms",
+      "label": "家里的房间",
+      "parentId": "home"
+    },
+    {
+      "id": "home.furniture",
+      "label": "家具",
+      "parentId": "home"
+    },
+    {
+      "id": "home.objects",
+      "label": "日常物品",
+      "parentId": "home"
+    },
+    {
+      "id": "body",
+      "label": "身体部位"
+    },
+    {
+      "id": "body.face",
+      "label": "头脸与五官",
+      "parentId": "body"
+    },
+    {
+      "id": "body.hands",
+      "label": "手与手指",
+      "parentId": "body"
+    },
+    {
+      "id": "body.feet",
+      "label": "腿与脚",
+      "parentId": "body"
+    },
+    {
+      "id": "body.whole",
+      "label": "全身",
+      "parentId": "body"
+    },
+    {
+      "id": "body.self",
+      "label": "认识自己",
+      "parentId": "body"
+    },
+    {
+      "id": "animals",
+      "label": "动物"
+    },
+    {
+      "id": "animals.farm",
+      "label": "农场动物",
+      "parentId": "animals"
+    },
+    {
+      "id": "animals.pets",
+      "label": "宠物",
+      "parentId": "animals"
+    },
+    {
+      "id": "animals.wild",
+      "label": "野生动物",
+      "parentId": "animals"
+    },
+    {
+      "id": "animals.sea",
+      "label": "海洋动物",
+      "parentId": "animals"
+    },
+    {
+      "id": "animals.insects",
+      "label": "昆虫",
+      "parentId": "animals"
+    },
+    {
+      "id": "animals.dinosaurs",
+      "label": "恐龙",
+      "parentId": "animals"
+    },
+    {
+      "id": "food",
+      "label": "食物"
+    },
+    {
+      "id": "food.fruit",
+      "label": "水果",
+      "parentId": "food"
+    },
+    {
+      "id": "food.vegetables",
+      "label": "蔬菜",
+      "parentId": "food"
+    },
+    {
+      "id": "food.staples",
+      "label": "主食",
+      "parentId": "food"
+    },
+    {
+      "id": "food.snacks",
+      "label": "零食甜点",
+      "parentId": "food"
+    },
+    {
+      "id": "food.drinks",
+      "label": "饮品",
+      "parentId": "food"
+    },
+    {
+      "id": "food.cooking",
+      "label": "食物制作",
+      "parentId": "food"
+    },
+    {
+      "id": "clothing",
+      "label": "衣物与穿戴"
+    },
+    {
+      "id": "clothing.clothes",
+      "label": "衣服",
+      "parentId": "clothing"
+    },
+    {
+      "id": "clothing.shoes",
+      "label": "鞋袜",
+      "parentId": "clothing"
+    },
+    {
+      "id": "clothing.accessories",
+      "label": "帽子与配饰",
+      "parentId": "clothing"
+    },
+    {
+      "id": "clothing.dressing",
+      "label": "穿脱衣物",
+      "parentId": "clothing"
+    },
+    {
+      "id": "family",
+      "label": "家庭"
+    },
+    {
+      "id": "family.members",
+      "label": "家庭成员",
+      "parentId": "family"
+    },
+    {
+      "id": "family.siblings",
+      "label": "兄弟姐妹",
+      "parentId": "family"
+    },
+    {
+      "id": "family.twins",
+      "label": "双胞胎",
+      "parentId": "family"
+    },
+    {
+      "id": "family.parent-child",
+      "label": "亲子互动",
+      "parentId": "family"
+    },
+    {
+      "id": "emotions",
+      "label": "情绪"
+    },
+    {
+      "id": "emotions.happy",
+      "label": "开心",
+      "parentId": "emotions"
+    },
+    {
+      "id": "emotions.sad",
+      "label": "难过",
+      "parentId": "emotions"
+    },
+    {
+      "id": "emotions.angry",
+      "label": "生气",
+      "parentId": "emotions"
+    },
+    {
+      "id": "emotions.scared",
+      "label": "害怕",
+      "parentId": "emotions"
+    },
+    {
+      "id": "emotions.expression",
+      "label": "情绪表达与调节",
+      "parentId": "emotions"
+    },
+    {
+      "id": "social",
+      "label": "社交"
+    },
+    {
+      "id": "social.greetings",
+      "label": "打招呼",
+      "parentId": "social"
+    },
+    {
+      "id": "social.introduction",
+      "label": "介绍自己",
+      "parentId": "social"
+    },
+    {
+      "id": "social.goodbye",
+      "label": "告别",
+      "parentId": "social"
+    },
+    {
+      "id": "social.manners",
+      "label": "感谢与请求",
+      "parentId": "social"
+    },
+    {
+      "id": "social.sharing",
+      "label": "分享与轮流",
+      "parentId": "social"
+    },
+    {
+      "id": "social.friends",
+      "label": "朋友与交朋友",
+      "parentId": "social"
+    },
+    {
+      "id": "concepts",
+      "label": "基础认知"
+    },
+    {
+      "id": "concepts.colors",
+      "label": "颜色",
+      "parentId": "concepts"
+    },
+    {
+      "id": "concepts.shapes",
+      "label": "形状",
+      "parentId": "concepts"
+    },
+    {
+      "id": "concepts.counting",
+      "label": "数量与数数",
+      "parentId": "concepts"
+    },
+    {
+      "id": "concepts.opposites",
+      "label": "大小与反义词",
+      "parentId": "concepts"
+    },
+    {
+      "id": "concepts.position",
+      "label": "空间位置",
+      "parentId": "concepts"
+    },
+    {
+      "id": "concepts.calendar",
+      "label": "星期月份",
+      "parentId": "concepts"
+    },
+    {
+      "id": "concepts.time",
+      "label": "时间",
+      "parentId": "concepts"
+    },
+    {
+      "id": "nature",
+      "label": "自然"
+    },
+    {
+      "id": "nature.weather",
+      "label": "天气",
+      "parentId": "nature"
+    },
+    {
+      "id": "nature.seasons",
+      "label": "季节",
+      "parentId": "nature"
+    },
+    {
+      "id": "nature.plants",
+      "label": "植物",
+      "parentId": "nature"
+    },
+    {
+      "id": "nature.ocean",
+      "label": "海洋",
+      "parentId": "nature"
+    },
+    {
+      "id": "nature.environment",
+      "label": "其他自然环境",
+      "parentId": "nature"
+    },
+    {
+      "id": "transport",
+      "label": "交通出行"
+    },
+    {
+      "id": "transport.land",
+      "label": "陆地交通",
+      "parentId": "transport"
+    },
+    {
+      "id": "transport.water",
+      "label": "水上交通",
+      "parentId": "transport"
+    },
+    {
+      "id": "transport.air",
+      "label": "空中交通",
+      "parentId": "transport"
+    },
+    {
+      "id": "transport.safety",
+      "label": "道路安全",
+      "parentId": "transport"
+    },
+    {
+      "id": "transport.travel",
+      "label": "出行场景",
+      "parentId": "transport"
+    },
+    {
+      "id": "actions",
+      "label": "动作"
+    },
+    {
+      "id": "actions.locomotion",
+      "label": "走跑跳爬",
+      "parentId": "actions"
+    },
+    {
+      "id": "actions.clap",
+      "label": "拍手跺脚",
+      "parentId": "actions"
+    },
+    {
+      "id": "actions.stretch",
+      "label": "弯腰伸展",
+      "parentId": "actions"
+    },
+    {
+      "id": "actions.turn",
+      "label": "转身摆动",
+      "parentId": "actions"
+    },
+    {
+      "id": "actions.imitation",
+      "label": "动作模仿",
+      "parentId": "actions"
+    },
+    {
+      "id": "sports",
+      "label": "运动与游戏"
+    },
+    {
+      "id": "sports.ball",
+      "label": "球类运动",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.indoor",
+      "label": "室内游戏",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.outdoor",
+      "label": "户外游戏",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.hiding",
+      "label": "躲藏游戏",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.finger",
+      "label": "手指游戏",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.toys",
+      "label": "玩具",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.water",
+      "label": "玩水",
+      "parentId": "sports"
+    },
+    {
+      "id": "sports.playground",
+      "label": "游乐场",
+      "parentId": "sports"
+    },
+    {
+      "id": "festivals",
+      "label": "节日与庆祝"
+    },
+    {
+      "id": "festivals.birthday",
+      "label": "生日",
+      "parentId": "festivals"
+    },
+    {
+      "id": "festivals.christmas",
+      "label": "圣诞节",
+      "parentId": "festivals"
+    },
+    {
+      "id": "festivals.halloween",
+      "label": "万圣节",
+      "parentId": "festivals"
+    },
+    {
+      "id": "festivals.easter",
+      "label": "复活节",
+      "parentId": "festivals"
+    },
+    {
+      "id": "festivals.other",
+      "label": "其他节庆",
+      "parentId": "festivals"
+    },
+    {
+      "id": "phonics",
+      "label": "拼读"
+    },
+    {
+      "id": "phonics.alphabet",
+      "label": "字母认知",
+      "parentId": "phonics"
+    },
+    {
+      "id": "phonics.letter-sounds",
+      "label": "字母音",
+      "parentId": "phonics"
+    },
+    {
+      "id": "phonics.blending",
+      "label": "音素合成与拆分",
+      "parentId": "phonics"
+    },
+    {
+      "id": "phonics.phonics",
+      "label": "自然拼读",
+      "parentId": "phonics"
+    },
+    {
+      "id": "jobs",
+      "label": "职业"
+    },
+    {
+      "id": "jobs.people",
+      "label": "职业人物",
+      "parentId": "jobs"
+    },
+    {
+      "id": "jobs.work",
+      "label": "工作内容",
+      "parentId": "jobs"
+    },
+    {
+      "id": "jobs.tools",
+      "label": "工具与工作场所",
+      "parentId": "jobs"
+    },
+    {
+      "id": "science",
+      "label": "科普"
+    },
+    {
+      "id": "science.light",
+      "label": "光影",
+      "parentId": "science"
+    },
+    {
+      "id": "science.space",
+      "label": "宇宙太空",
+      "parentId": "science"
+    },
+    {
+      "id": "science.phenomena",
+      "label": "自然现象",
+      "parentId": "science"
+    },
+    {
+      "id": "science.experiments",
+      "label": "简单科学与实验",
+      "parentId": "science"
+    },
+    {
+      "id": "arts",
+      "label": "艺术与音乐"
+    },
+    {
+      "id": "arts.singing",
+      "label": "歌唱",
+      "parentId": "arts"
+    },
+    {
+      "id": "arts.instruments",
+      "label": "乐器",
+      "parentId": "arts"
+    },
+    {
+      "id": "arts.rhythm",
+      "label": "节奏",
+      "parentId": "arts"
+    },
+    {
+      "id": "arts.dance",
+      "label": "舞蹈",
+      "parentId": "arts"
+    },
+    {
+      "id": "arts.art",
+      "label": "绘画与创作",
+      "parentId": "arts"
+    },
+    {
+      "id": "fantasy",
+      "label": "幻想与冒险"
+    },
+    {
+      "id": "fantasy.pirates",
+      "label": "海盗冒险",
+      "parentId": "fantasy"
+    },
+    {
+      "id": "fantasy.magic",
+      "label": "魔法",
+      "parentId": "fantasy"
+    },
+    {
+      "id": "fantasy.characters",
+      "label": "幻想角色",
+      "parentId": "fantasy"
+    },
+    {
+      "id": "fantasy.adventure",
+      "label": "冒险故事",
+      "parentId": "fantasy"
+    }
+  ],
+  "activities": [
+    {
+      "id": "tpr",
+      "label": "TPR",
+      "description": "听懂指令并用身体动作回应；属于活动方式，不代替动作主题。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "sss-day",
+      "title": "SSS承包了我的一天.xlsx",
+      "url": "https://www.zconnect.cn/home/office/onlyoffice.html?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E5%B9%BC%E5%84%BF%E5%8A%A8%E7%94%BB%2FSss%2FSSS%E6%89%BF%E5%8C%85%E4%BA%86%E6%88%91%E7%9A%84%E4%B8%80%E5%A4%A9.xlsx",
+      "locator": "Sheet1；75条场景歌单",
+      "kind": "user-provided-secondary",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "sss-185",
+      "title": "3-185首主题分类难易分级表-1.xlsx",
+      "url": "https://www.zconnect.cn/home/office/onlyoffice.html?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E5%B9%BC%E5%84%BF%E5%8A%A8%E7%94%BB%2FSss%2FSSS%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5%2F3-185%E9%A6%96%E4%B8%BB%E9%A2%98%E5%88%86%E7%B1%BB%E9%9A%BE%E6%98%93%E5%88%86%E7%BA%A7%E8%A1%A8-1.xlsx",
+      "locator": "13主题；二级实为Level 1–4，不作为主题子级",
+      "kind": "user-provided-secondary",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "sss-100",
+      "title": "2-精选100首细分主题难易排序歌单 .xlsx",
+      "url": "https://www.zconnect.cn/home/office/onlyoffice.html?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E5%B9%BC%E5%84%BF%E5%8A%A8%E7%94%BB%2FSss%2FSSS%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5%2F2-%E7%B2%BE%E9%80%89100%E9%A6%96%E7%BB%86%E5%88%86%E4%B8%BB%E9%A2%98%E9%9A%BE%E6%98%93%E6%8E%92%E5%BA%8F%E6%AD%8C%E5%8D%95%20.xlsx",
+      "locator": "精选100首细分主题难易排序歌单；100条曲目、18类与重点字词句",
+      "kind": "user-provided-secondary",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "sss-pdf",
+      "title": "SSS难度分级&主题分类.pdf",
+      "url": "https://www.zconnect.cn/home/zsviewer?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E5%B9%BC%E5%84%BF%E5%8A%A8%E7%94%BB%2FSss%2FSSS%E6%9C%80%E5%85%A8%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5%2FSSS%E9%9A%BE%E5%BA%A6%E5%88%86%E7%BA%A7%26%E4%B8%BB%E9%A2%98%E5%88%86%E7%B1%BB.pdf",
+      "locator": "整页100条；Level 1–3与平铺主题分别列示",
+      "kind": "user-provided-secondary",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "sss-official",
+      "title": "Super Simple Songs 官方主题目录",
+      "url": "https://supersimple.com/super-simple-songs/",
+      "kind": "publisher",
+      "note": "官网主题菜单供统一结构参考；本站分类不冒称官网原树。"
+    },
+    {
+      "id": "sss-official-at-the-north-pole",
+      "title": "At The North Pole - Super Simple Songs",
+      "url": "https://supersimple.com/song/at-the-north-pole/",
+      "locator": "歌曲介绍、Song Lyrics、Related Themes",
+      "kind": "publisher",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "sss-official-down-by-the-spooky-bay",
+      "title": "Down By The Spooky Bay - Super Simple Songs",
+      "url": "https://supersimple.com/song/down-by-the-spooky-bay/",
+      "locator": "歌曲介绍、Song Lyrics、Related Themes",
+      "kind": "publisher",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "id": "hello-scenes",
+      "title": "Hello原场景汇总",
+      "file": "assets/hello/scenes.pdf",
+      "note": "按现有1–24号逐Part场景与童谣原卡映射，原文名称保留。"
+    }
+  ],
+  "legacyBookTopics": {
+    "animals": [
+      "animals"
+    ],
+    "body": [
+      "body"
+    ],
+    "daily": [
+      "daily"
+    ],
+    "nature": [
+      "nature"
+    ],
+    "transport": [
+      "transport"
+    ],
+    "family": [
+      "family"
+    ],
+    "friendship": [],
+    "school": [],
+    "jobs": [
+      "jobs"
+    ],
+    "concepts": [
+      "concepts"
+    ],
+    "sports": [
+      "sports"
+    ],
+    "fantasy": [
+      "fantasy"
+    ],
+    "festivals": [
+      "festivals"
+    ],
+    "food": [
+      "food"
+    ],
+    "science": [
+      "science"
+    ],
+    "arts": [
+      "arts"
+    ],
+    "clothing": [
+      "clothing"
+    ],
+    "actions": [
+      "actions"
+    ],
+    "places": [
+      "concepts.position"
+    ]
+  },
+  "legacyBookLabels": {
+    "动物": "animals",
+    "身体与健康": "body",
+    "日常生活": "daily",
+    "自然与天气": "nature",
+    "交通出行": "transport",
+    "家庭": "family",
+    "朋友与情绪": "friendship",
+    "学校与学习": "school",
+    "职业与社会": "jobs",
+    "颜色形状与数量": "concepts",
+    "运动与游戏": "sports",
+    "幻想与冒险": "fantasy",
+    "节日与庆祝": "festivals",
+    "食物与饮食": "food",
+    "科学与探索": "science",
+    "艺术与音乐": "arts",
+    "衣物与穿戴": "clothing",
+    "动作与能力": "actions",
+    "空间与位置": "places"
+  },
+  "helloScenes": {
+    "宝宝的一天": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "刷牙": {
+      "topics": [
+        "daily.wash"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "吃饭": {
+      "topics": [
+        "daily.meals",
+        "food"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "喝水": {
+      "topics": [
+        "daily.meals",
+        "food.drinks"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "洗澡": {
+      "topics": [
+        "daily.bath"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "睡觉": {
+      "topics": [
+        "daily.sleep"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "穿衣服": {
+      "topics": [
+        "daily.dress",
+        "clothing.dressing"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "理发": {
+      "topics": [
+        "daily.haircut"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "收拾玩具": {
+      "topics": [
+        "daily.tidy"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "日托": {
+      "topics": [
+        "daily.childcare"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "购物": {
+      "topics": [
+        "daily.shopping"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "家里的房间": {
+      "topics": [
+        "home.rooms"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "身体部位": {
+      "topics": [
+        "body"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "照镜子": {
+      "topics": [
+        "home.objects"
+      ],
+      "basis": "原场景支持镜子这一日常物品；镜子出现不等于认识自己或身体部位教学。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "动物": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "农场": {
+      "topics": [],
+      "basis": "农场是场景，不能只按场景名推定农场动物；有原卡或具体Part内容依据时逐项补充。",
+      "sourceIds": [
+        "hello-scenes"
+      ],
+      "status": "pending"
+    },
+    "宠物": {
+      "topics": [
+        "animals.pets"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "亲子互动": {
+      "topics": [
+        "family.parent-child"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "双胞胎": {
+      "topics": [
+        "family.twins"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "颜色": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "数数": {
+      "topics": [
+        "concepts.counting"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "白天晚上": {
+      "topics": [
+        "concepts.time"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "天气": {
+      "topics": [
+        "nature.weather"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "冬天": {
+      "topics": [
+        "nature.seasons"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "秋天": {
+      "topics": [
+        "nature.seasons"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "植物": {
+      "topics": [
+        "nature.plants"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "海边": {
+      "topics": [
+        "nature.ocean"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "交通工具": {
+      "topics": [
+        "transport"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "出行": {
+      "topics": [
+        "transport.travel"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "马路": {
+      "topics": [
+        "transport.land"
+      ],
+      "basis": "原场景只支持道路交通，不自动推为道路安全教学。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "车库": {
+      "topics": [
+        "home.rooms"
+      ],
+      "basis": "车库作为家居空间；没有逐项内容证据时不自动推为交通工具学习。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "肢体动作": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "学走路": {
+      "topics": [
+        "actions.locomotion"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "室内游戏": {
+      "topics": [
+        "sports.indoor"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "户外游戏": {
+      "topics": [
+        "sports.outdoor"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "捉迷藏": {
+      "topics": [
+        "sports.hiding"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "玩具": {
+      "topics": [
+        "sports.toys"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "玩水": {
+      "topics": [
+        "sports.water"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "游乐场": {
+      "topics": [
+        "sports.playground"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "雨天玩水": {
+      "topics": [
+        "sports.water",
+        "nature.weather"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "生日": {
+      "topics": [
+        "festivals.birthday"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "万圣节": {
+      "topics": [
+        "festivals.halloween"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "影子": {
+      "topics": [
+        "science.light"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    },
+    "衣服": {
+      "topics": [
+        "clothing.clothes"
+      ],
+      "basis": "按原场景或童谣主题词义对应公共分类，保留原标签。",
+      "sourceIds": [
+        "hello-scenes"
+      ]
+    }
+  },
+  "bookOverrides": {
+    "book-49d7dd0d7aa2c280": {
+      "topics": [
+        "food.vegetables",
+        "food.fruit"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，A Garden行",
+          "originalTopic": "蔬菜水果",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-768b273e90f7c0ef": {
+      "topics": [
+        "home.rooms",
+        "home.objects"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，A Home行",
+          "originalTopic": "房间物品",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4283b2d7b7675eef": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，A Monster House行",
+          "originalTopic": "房屋构造",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-8dd48ff8affc9b02": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，A Ride行",
+          "originalTopic": "交通工具",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-018b3344a3283ba9": {
+      "topics": [
+        "home.objects"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，Here Is a Bird行",
+          "originalTopic": "物品",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-441564395ac2df6f": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Am a Bee行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-eb0ec2c4eb6006c8": {
+      "topics": [
+        "jobs"
+      ],
+      "replaceLegacy": [
+        "jobs"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Am a Painter行",
+          "originalTopic": "职业",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-fe8fbfabc7484b64": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Am Jumping行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-1688fb7a30e67068": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Am Working行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-86c3980ee616244e": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Can Laugh行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-6c6f080a8d255bd3": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Can Swim行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-c040ac0b98897149": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Can行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-64fe568e3e820da7": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Like Elephants行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-c1f7c71995bf888f": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Like Hats行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-29d35e890d99b212": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Like Riding行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-41654efcf4af7af7": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，I Like Birds行",
+          "originalTopic": "颜色",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-9737ae1a0f275fb4": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，Monkeys行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-0d0453ac4ee461b9": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，My Alien行",
+          "originalTopic": "身体部位",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-f4bd54cb09182c33": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，My Clothes行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-42a24118f0b43845": {
+      "topics": [
+        "family.members"
+      ],
+      "replaceLegacy": [
+        "family"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，My Family行",
+          "originalTopic": "家庭成员",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-37bf620c6c564465": {
+      "topics": [
+        "transport",
+        "animals"
+      ],
+      "replaceLegacy": [
+        "transport",
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，My Things行",
+          "originalTopic": "交通工具/动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-7ec492cade351d3f": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，Sailors行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4028f22316a88d49": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Day行",
+          "originalTopic": "大自然",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-e9df5dbbf59cdb57": {
+      "topics": [
+        "family.members"
+      ],
+      "replaceLegacy": [
+        "family"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Family行",
+          "originalTopic": "家庭成员",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-3d5c495368de7155": {
+      "topics": [
+        "animals.farm"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Farm行",
+          "originalTopic": "农场动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-fa631a0a5e2fa5cf": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Goats行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-7ccd491f73790d1f": {
+      "topics": [
+        "animals.wild"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Jungle行",
+          "originalTopic": "丛林动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-55e0feb2ca25dec1": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Monster's Clothes行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-875b228eb120188f": {
+      "topics": [
+        "food",
+        "food.drinks"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Party行",
+          "originalTopic": "食物饮料",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-1c71a66663dd69bb": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Show行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-2d3122aa1416c34b": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图2，The Water Park行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-8856517def4aa560": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，A Boat行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-87c20a381ec76c42": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，A House行",
+          "originalTopic": "房子构造",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-f72ffb59d80bc1ca": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，A Shoe行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-3032f57215270557": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Dinner行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-d05dfba5cbe9cf0f": {
+      "topics": [
+        "home.objects"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Hats行",
+          "originalTopic": "物品",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-7275b0c0a4172a44": {
+      "topics": [
+        "home.objects"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，I Like Boxes行",
+          "originalTopic": "物品",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-f1e5ca60a0eefeb1": {
+      "topics": [
+        "food",
+        "food.drinks"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，I Like Jam行",
+          "originalTopic": "食物饮料",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-85b8cd36129b98bf": {
+      "topics": [
+        "animals.insects"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，In the Garden行",
+          "originalTopic": "昆虫",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-91bd010128130089": {
+      "topics": [
+        "nature.environment"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，In the Mud行",
+          "originalTopic": "自然景观",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-96fd24663465780a": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Look at the Animals行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-7696b24fbc1ed7e8": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Look at the Robot行",
+          "originalTopic": "身体部位",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-03f701263b3a1628": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，My Hat行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-b4f3d4b6ae83fc28": {
+      "topics": [],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，My Trip行",
+          "originalTopic": "地点",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-a59336b8e4714d42": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Our Day行",
+          "originalTopic": "活动",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-d319b92455229d3e": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Rainbow Town行",
+          "originalTopic": "颜色",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-51b2b50575007b2f": {
+      "topics": [
+        "food",
+        "food.drinks"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Shopping行",
+          "originalTopic": "食物饮料",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4f965199dbff2a9c": {
+      "topics": [],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Balloon Ride行",
+          "originalTopic": "城市场景",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-9ad6ea2a7850c216": {
+      "topics": [
+        "nature.environment"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Bears行",
+          "originalTopic": "自然景观",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-624fd40162342a9a": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Bird行",
+          "originalTopic": "动作动词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-e4ceed7a0aca77ab": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Hole行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-6626b5a6b33689d2": {
+      "topics": [],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Holiday行",
+          "originalTopic": "地点",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-9689d607435638ab": {
+      "topics": [
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Mice行",
+          "originalTopic": "方位介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-120467d83dfe4093": {
+      "topics": [],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Monster Town行",
+          "originalTopic": "建筑物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-cd2932456bc86e57": {
+      "topics": [
+        "science.space"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Moon行",
+          "originalTopic": "天体星球",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-33f385f073835fa9": {
+      "topics": [
+        "animals.pets"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Pets行",
+          "originalTopic": "宠物动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-850fd4e6e70f1beb": {
+      "topics": [],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Presents行",
+          "originalTopic": "人物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-ba22b1a02e38476d": {
+      "topics": [
+        "transport.land"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Rally Car行",
+          "originalTopic": "汽车部件",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4567446b5697222e": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Snake行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-3e985931b9b37fd6": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Snowman行",
+          "originalTopic": "身体部位",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-456af7f9945ec472": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The Spy行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-291cc3ccc6043a14": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，Wheels行",
+          "originalTopic": "交通工具",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-e900847f5f77b694": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图3，The New House行",
+          "originalTopic": "房屋构造",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-a9c88105c7b5ab10": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Can You See Me行",
+          "originalTopic": "身体部位/can表能力",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-844ce5402a2f949c": {
+      "topics": [
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Come in the Grass行",
+          "originalTopic": "地点/介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-8b11fd8e25a52694": {
+      "topics": [
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Come行",
+          "originalTopic": "地点/介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-05095a1a9731890a": {
+      "topics": [
+        "home.objects"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Cooking行",
+          "originalTopic": "厨房用品",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-12cafd56c5e70667": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Elephant Trick行",
+          "originalTopic": "动物/can表能力",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4b97ef58794668ff": {
+      "topics": [
+        "food.vegetables",
+        "food.fruit"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Going Shopping行",
+          "originalTopic": "蔬菜水果",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-1ae614d9f958257e": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Going to Bed行",
+          "originalTopic": "动物/现在进行时",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-771fab0c46b09011": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Grass for Dinner行",
+          "originalTopic": "动物/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-be471a8db3ab7b27": {
+      "topics": [
+        "animals.insects"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，I Am Here行",
+          "originalTopic": "昆虫/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-57510c54e97256ba": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，I Can Help行",
+          "originalTopic": "动物/can表能力",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-227a5fa1147bf844": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Ice Cream行",
+          "originalTopic": "食物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-8ec33d4be2545232": {
+      "topics": [
+        "home.rooms",
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "daily",
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Mice行",
+          "originalTopic": "房屋构造/介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-bee60e110f2900f8": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Naughty Monkey行",
+          "originalTopic": "动物/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-afd2fa35fa099cd9": {
+      "topics": [
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Silly Tricks行",
+          "originalTopic": "地点/介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-090d5aa035a73149": {
+      "topics": [
+        "food",
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "food",
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Ants行",
+          "originalTopic": "食物/介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4cc2593dfb07b6c2": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Balloons行",
+          "originalTopic": "颜色/现在进行时",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-320c04563c44beae": {
+      "topics": [
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Bike Race行",
+          "originalTopic": "地点/介词",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-ca6541e9ea434197": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Bumper Cars行",
+          "originalTopic": "颜色",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-5a5328d8d47cf745": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Kites行",
+          "originalTopic": "颜色/现在进行时",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-7054723c806e738e": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Market行",
+          "originalTopic": "衣着服饰",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-b4cd0243a0707a95": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Rides行",
+          "originalTopic": "颜色/can表许可",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-c192bde391ca1118": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Robot行",
+          "originalTopic": "身体部位/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-4f0bc3b5383b5cc1": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Snow行",
+          "originalTopic": "动物/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-fdf80bb0913faf35": {
+      "topics": [
+        "animals.insects"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Spider行",
+          "originalTopic": "昆虫/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-45d6675dc056fc78": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Spies行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-b66bf71fee7a8222": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Tunnel行",
+          "originalTopic": "动物/现在进行时",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-38ff64f4d3c17bcc": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Turkey行",
+          "originalTopic": "动物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-a76a9f7e70d7bb2e": {
+      "topics": [
+        "concepts.position"
+      ],
+      "replaceLegacy": [
+        "places"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，The Water行",
+          "originalTopic": "介词/can表能力",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-77e25dc3f2c500ed": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，This Is for Me行",
+          "originalTopic": "动物/直接引语",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-015245ef2a251744": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-old-themes",
+          "locator": "图4，Zoo Dinners行",
+          "originalTopic": "食物",
+          "summary": "原图明确列出的学习主题；语法项另存学习重点，不由书名追加内容主题。"
+        }
+      ]
+    },
+    "book-7128befa164646c8": {
+      "topics": [
+        "body.face",
+        "concepts.opposites"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "flr-goodreads-great-hair",
+          "locator": "内容简介首段",
+          "summary": "简介具体比较头发长短与深浅，支持身体外貌；不外推情绪或自我认同教育。"
+        }
+      ]
+    },
+    "book-cd75d4fd529615f9": {
+      "topics": [
+        "jobs.people",
+        "body.face"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Goes to the Dentist",
+          "summary": "Maisy和朋友陪Charley看牙医，Charley有一颗松动的牙齿；用于为首次牙科检查做准备。"
+        }
+      ]
+    },
+    "book-904a02a7aa605845": {
+      "topics": [
+        "daily.childcare",
+        "arts.singing",
+        "social.friends"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Goes to Nursery",
+          "summary": "Maisy和朋友在幼儿园度过忙碌的一天，其中包括音乐时间唱歌。"
+        }
+      ]
+    },
+    "book-bac8c5ad2de8e6b5": {
+      "topics": [
+        "daily.sleep",
+        "social.friends",
+        "sports.indoor",
+        "food",
+        "arts.dance"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Goes on a Sleepover",
+          "summary": "首次在朋友家过夜；朋友一起做游戏、吃东西和跳舞。"
+        }
+      ]
+    },
+    "book-520c9c211d0d058f": {
+      "topics": [
+        "social.friends",
+        "sports.ball"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Plays Football",
+          "summary": "Maisy和朋友参加第一场足球比赛。"
+        }
+      ]
+    },
+    "book-2ab161b017457bac": {
+      "topics": [
+        "social.friends",
+        "daily.shopping",
+        "food.snacks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Goes to the Bookshop",
+          "summary": "逛书店给自己买新书并为Tallulah选礼物；朋友一起选书、听故事，在咖啡店吃点心。"
+        }
+      ]
+    },
+    "book-75f888c051a51d9c": {
+      "topics": [
+        "emotions.scared",
+        "sports.water"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Learns to Swim",
+          "summary": "第一次上游泳课，Maisy起初有些紧张；更衣室里忙碌热闹。"
+        }
+      ]
+    },
+    "book-25dde54746124cf1": {
+      "topics": [
+        "jobs.people",
+        "body.face"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy Goes for an Eye Test",
+          "summary": "首次视力检查，为孩子初次到验光师处检查做准备。"
+        }
+      ]
+    },
+    "book-aba1f3434e3a585c": {
+      "topics": [
+        "social.friends",
+        "festivals.christmas",
+        "food"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "maisy-set1",
+          "locator": "Description > Maisy's Christmas Eve",
+          "summary": "平安夜Maisy邀请大家来家里庆祝；朋友装饰圣诞树、准备食物，出门到雪地寻找Eddie。"
+        }
+      ]
+    },
+    "book-9875063f8237d59e": {
+      "topics": [
+        "social.friends",
+        "social.sharing",
+        "social.manners",
+        "emotions.angry"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-super-scooter",
+          "locator": "Pip and Posy: The Super Scooter > 内容简介",
+          "summary": "Posy想玩Pip的滑板车，抢走后摔倒，朋友面对生气、道歉与帮助。"
+        }
+      ]
+    },
+    "book-fa2fd016c5ab9abb": {
+      "topics": [
+        "social.friends",
+        "emotions.sad",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-big-balloon",
+          "locator": "Pip and Posy: The Big Balloon: a classic picture book > 内容简介",
+          "summary": "Pip的红气球飞走并破裂，他非常伤心；Posy想办法安慰朋友，重新找到乐趣。"
+        }
+      ]
+    },
+    "book-d7eb924a497aa7a2": {
+      "topics": [
+        "social.friends",
+        "nature.weather",
+        "sports.outdoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-snowy-day",
+          "locator": "Pip and Posy: The Snowy Day > 内容简介",
+          "summary": "朋友在雪地玩耍，堆雪人时产生分歧。"
+        }
+      ]
+    },
+    "book-6ad11bee30449e0c": {
+      "topics": [
+        "social.friends",
+        "social.sharing",
+        "emotions.scared",
+        "sports.toys",
+        "food.snacks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-scary-monster",
+          "locator": "Pip and Posy: The Scary Monster > 内容简介",
+          "summary": "Pip戴怪兽面具到Posy家吓到她；认出朋友后不再害怕，并分享饼干。不是超自然怪兽冒险。"
+        }
+      ]
+    },
+    "book-e064cabab47d64fd": {
+      "topics": [
+        "social.friends",
+        "daily.sleep",
+        "sports.toys"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-bedtime-frog",
+          "locator": "Pip and Posy: The Bedtime Frog > 内容简介",
+          "summary": "Posy到Pip家过夜，临睡时才发现忘带心爱的青蛙玩具。"
+        }
+      ]
+    },
+    "book-ca436736a3daea8f": {
+      "topics": [
+        "social.friends",
+        "emotions.expression",
+        "nature.ocean",
+        "sports.outdoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-new-friend",
+          "locator": "Pip and Posy: The New Friend > 内容简介",
+          "summary": "海边拾贝壳、挖沙，Posy午睡期间Pip结交Zac，处理加入新朋友后的情绪。"
+        }
+      ]
+    },
+    "book-223f5f0c0bac01d9": {
+      "topics": [
+        "social.friends",
+        "festivals.christmas"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-christmas-tree",
+          "locator": "Pip and Posy: The Christmas Tree > 内容简介",
+          "summary": "一起装饰圣诞树，可食用装饰不断消失；Pip不舒服，故事讨论诚实和友谊。"
+        }
+      ]
+    },
+    "book-64d522c014f328b3": {
+      "topics": [
+        "social.friends",
+        "nature.plants"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-friendly-snail",
+          "locator": "Pip and Posy: The Friendly Snail > 内容简介",
+          "summary": "Pip安静园艺，Posy喧闹游戏吓到蜗牛；鸟来袭时她的大嗓门却帮了忙，理解彼此差异。"
+        }
+      ]
+    },
+    "book-3fef1c86956d9e07": {
+      "topics": [
+        "festivals.birthday",
+        "sports.toys",
+        "sports.indoor",
+        "food.snacks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-bookhero",
+          "locator": "Pip and Posy: The Birthday Party: a classic picture book > 内容简介",
+          "summary": "生日会收到玩具巴士，玩派对游戏；Pip端蛋糕时被玩具绊倒，蛋糕飞起来。"
+        }
+      ]
+    },
+    "book-fe8bd7a0b08f9ae3": {
+      "topics": [
+        "social.friends",
+        "sports.water"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "frog-harper-series",
+          "locator": "Frog and Toad Are Friends 小标题下内容简介",
+          "summary": "写信、游泳、讲故事、找纽扣贯穿互相关心的友情。"
+        },
+        {
+          "kind": "source-content",
+          "sourceId": "frog-richland-guide",
+          "locator": "Frog and Toad Are Friends 逐章段落",
+          "summary": "五篇章内容分别见chapters；细化主题依据故事活动，不依据书名。"
+        }
+      ]
+    },
+    "book-b5c6a6bb8d0c15df": {
+      "topics": [
+        "social.friends",
+        "nature.plants",
+        "food.cooking",
+        "emotions.scared"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "frog-harper-series",
+          "locator": "Frog and Toad Together 小标题下内容简介",
+          "summary": "出版社明确写种花、烤饼干、共同面对恐惧；故事含待办清单和梦境。"
+        },
+        {
+          "kind": "source-content",
+          "sourceId": "frog-richland-guide",
+          "locator": "Frog and Toad Together 逐章段落",
+          "summary": "五篇章内容分别见chapters；细化主题依据故事活动，不依据书名。"
+        }
+      ]
+    },
+    "book-e539949f0f493247": {
+      "topics": [
+        "social.friends",
+        "nature.seasons",
+        "festivals.christmas",
+        "food.snacks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "frog-harper-series",
+          "locator": "Frog and Toad All Year 小标题下内容简介",
+          "summary": "出版社明确四季、冬天滑雪橇、夏日吃冰淇淋；图书馆逐章目录含圣诞前夜。"
+        },
+        {
+          "kind": "source-content",
+          "sourceId": "frog-richland-guide",
+          "locator": "Frog and Toad All Year 逐章段落",
+          "summary": "五篇章内容分别见chapters；细化主题依据故事活动，不依据书名。"
+        }
+      ]
+    },
+    "book-ecdb7cae39740729": {
+      "topics": [
+        "social.friends",
+        "sports.outdoor",
+        "festivals.birthday",
+        "daily.tidy"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "frog-harper-series",
+          "locator": "Days with Frog and Toad 小标题下内容简介",
+          "summary": "出版社明确放风筝、庆祝生日、讲恐怖故事；图书馆另概括打扫与独处。"
+        },
+        {
+          "kind": "source-content",
+          "sourceId": "frog-richland-guide",
+          "locator": "Days with Frog and Toad 逐章段落",
+          "summary": "五篇章内容分别见chapters；细化主题依据故事活动，不依据书名。"
+        }
+      ]
+    },
+    "book-d64fd40a72137847": {
+      "topics": [
+        "social.friends",
+        "arts.singing",
+        "sports.indoor",
+        "fantasy.characters"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "princess-prh-content",
+          "locator": "The Princess in Black and the Mysterious Playdate > 内容简介",
+          "summary": "Magnolia与Sneezewort约好一起装扮、唱歌和游戏，吃宠物的变形怪打断聚会，新的蒙面伙伴出手。"
+        }
+      ]
+    },
+    "book-1e63b03aa381815e": {
+      "topics": [
+        "social.friends",
+        "fantasy.adventure"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "princess-prh-content",
+          "locator": "The Princess in Black and the Bathtime Battle > 内容简介",
+          "summary": "恶臭云团侵扰牧场，被吹到别的王国，五位公主与Goat Avenger联手处理；简介没有详细洗澡教学，不因Bathtime归生活习惯。"
+        }
+      ]
+    },
+    "book-fff26bdf13a0cec5": {
+      "topics": [
+        "social.friends",
+        "fantasy.characters",
+        "sports.outdoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "princess-prh-content",
+          "locator": "The Princess in Black and the Giant Problem > 内容简介",
+          "summary": "朋友们雪地玩耍时巨人闯入并破坏雪怪，他们用Sparkle Signal召集全部英雄合作。"
+        }
+      ]
+    },
+    "book-ff7b9855bcfdcf5c": {
+      "topics": [
+        "social.friends",
+        "fantasy.characters"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "princess-prh-content",
+          "locator": "The Princess in Black and the Mermaid Princess > 内容简介",
+          "summary": "海底公主请求帮助保护sea goats免受kraken侵害；陆地英雄难以水下作战，鼓励美人鱼公主表达并采取行动，不当海洋科普。"
+        }
+      ]
+    },
+    "book-167c7b5f3902578c": {
+      "topics": [
+        "social.friends",
+        "fantasy.magic"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "Sparkly New Friends > 剧情简介",
+          "summary": "独角兽会魔法，雪人喜欢雪球；两人能力和喜好不同，却共同喜欢闪亮物和彩虹，并成为好友。"
+        }
+      ]
+    },
+    "book-7ec809738d359320": {
+      "topics": [
+        "social.friends",
+        "sports.ball",
+        "sports.outdoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "A Good Team > 剧情简介",
+          "summary": "踢球、赛跑、套圈和滑冰时，两位朋友发现各有所长。"
+        }
+      ]
+    },
+    "book-f5cf4c209e351632": {
+      "topics": [
+        "social.friends",
+        "social.sharing",
+        "sports.playground",
+        "food.fruit"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "Friends Rock > 剧情简介",
+          "summary": "围绕秋千轮流玩、分享桃子和一块闪亮石头，朋友学习分享。"
+        }
+      ]
+    },
+    "book-df6704213f28c1cc": {
+      "topics": [
+        "social.friends",
+        "sports.indoor",
+        "nature.weather"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "Together > 剧情简介",
+          "summary": "朋友一起观察风中的事物、模仿对方和举办茶会，对同一件事有不同期待。"
+        }
+      ]
+    },
+    "book-460ab783328fd579": {
+      "topics": [
+        "social.friends",
+        "sports.toys",
+        "sports.outdoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "Stuck with You > 剧情简介",
+          "summary": "朋友对贴纸有不同用法，尝试雪地轮滑和吹更大的泡泡。"
+        }
+      ]
+    },
+    "book-054aec69aeb65f74": {
+      "topics": [
+        "social.friends",
+        "sports.indoor",
+        "sports.hiding"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "Fun and Games > 剧情简介",
+          "summary": "朋友玩桌游、纸牌、捉迷藏并一起拼拼图。"
+        }
+      ]
+    },
+    "book-21a9e30392fb8bc3": {
+      "topics": [
+        "social.friends",
+        "sports.outdoor",
+        "food.cooking",
+        "arts.dance"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "unicorn-official",
+          "locator": "Razzle Dazzle > 剧情简介",
+          "summary": "朋友露营、烤棉花糖夹心饼、泡温泉游泳、跳舞野餐，并讨论月亮是否由奶酪做成。"
+        }
+      ]
+    },
+    "book-9409cfd7425e1802": {
+      "topics": [
+        "social.friends",
+        "social.manners",
+        "festivals.other"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva's Treetop Festival > 剧情简介",
+          "summary": "Eva主动组织学校春季庆典，发现与好友Lucy仍做不完，需要考虑向Sue求助。"
+        }
+      ]
+    },
+    "book-8535a6965f073b6c": {
+      "topics": [
+        "social.friends"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva Sees A Ghost > 剧情简介",
+          "summary": "Eva以为自己看见了鬼，与Lucy寻找真相；简介没有确认真的鬼或超自然力量。"
+        }
+      ]
+    },
+    "book-5cb30c3b3d86af08": {
+      "topics": [
+        "social.friends",
+        "festivals.other"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "A Woodland Wedding > 剧情简介",
+          "summary": "老师要结婚，学生成立婚礼筹办小组，项链失踪后改成侦探小组帮助寻找。"
+        }
+      ]
+    },
+    "book-9e3a469a41019cb4": {
+      "topics": [
+        "social.friends",
+        "emotions"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "简介明确交友与嫉妒担忧；未说明情绪表达或调节方法，保留情绪一级。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva and the New Owl > 剧情简介",
+          "summary": "新同学Hailey与Lucy交好，Eva担心失去好友并产生嫉妒。"
+        }
+      ]
+    },
+    "book-7df28a53e3a99b19": {
+      "topics": [
+        "social.friends",
+        "animals.pets"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Baxter Is Missing > 剧情简介",
+          "summary": "作家要来访，班级准备写故事；Eva的宠物蝙蝠Baxter失踪，朋友帮忙寻找。"
+        }
+      ]
+    },
+    "book-3b579d5e9eecae1f": {
+      "topics": [
+        "social.friends",
+        "food.snacks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "简介支持合作和面包糖果；筹款合作不等于分享轮流，也未明确食物制作过程。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "The Wildwood Bakery > 剧情简介",
+          "summary": "班级开面包店和糖果店筹款，为朋友的妹妹买飞行椅，竞争后需要团队合作。"
+        }
+      ]
+    },
+    "book-f7ea01570814a6e7": {
+      "topics": [
+        "social.friends",
+        "animals",
+        "nature.weather"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva and the Lost Pony > 剧情简介",
+          "summary": "暴风雨前同学准备保护森林动物的誓言任务；Eva试图救迷路小马，也被困在风雨中。"
+        }
+      ]
+    },
+    "book-88a56fc134d3f071": {
+      "topics": [
+        "social.friends",
+        "daily.sleep",
+        "emotions.scared",
+        "festivals.birthday"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva's Big Sleepover > 剧情简介",
+          "summary": "Eva准备生日过夜派对，帮助Sue面对第一次离家过夜的紧张。"
+        }
+      ]
+    },
+    "book-b10938bac27e4c59": {
+      "topics": [
+        "social.friends",
+        "food.fruit",
+        "food.drinks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Trip to the Pumpkin Farm > 剧情简介",
+          "summary": "班级去农场采苹果、挤牛奶，获奖南瓜不见了，朋友一起解谜。"
+        }
+      ]
+    },
+    "book-5778eb98b46b99cd": {
+      "topics": [
+        "social.friends",
+        "sports.outdoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva's Campfire Adventure > 剧情简介",
+          "summary": "Eva和同学露营、搭帐篷、制作实用发明，并在森林中合作寻宝。"
+        }
+      ]
+    },
+    "book-b10f2e6c24e88a20": {
+      "topics": [
+        "social.friends",
+        "emotions.expression",
+        "arts.art"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva in the Spotlight > 剧情简介",
+          "summary": "学校排演话剧，Eva与朋友试镜、背台词和搭布景，担心Sue演主角后自己无法发光。"
+        }
+      ]
+    },
+    "book-c28f261d7b36a718": {
+      "topics": [
+        "social.friends",
+        "emotions.scared",
+        "nature.ocean",
+        "sports.water"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva at the Beach > 剧情简介",
+          "summary": "Eva与Lucy在海滩堆沙堡、做贝壳项链，逐渐面对海中游泳的恐惧。"
+        }
+      ]
+    },
+    "book-c6553f652cea4b38": {
+      "topics": [
+        "social.friends",
+        "family"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Get Well, Eva > 剧情简介",
+          "summary": "Eva在球赛伤了翅膀，需要吊带一周而不能写日记，朋友和家人来帮忙。"
+        }
+      ]
+    },
+    "book-364c0e6a9cc04b7c": {
+      "topics": [
+        "social.friends",
+        "arts.instruments",
+        "arts.singing"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva in the Band > 剧情简介",
+          "summary": "音乐节有乐队缺席，Eva与朋友临时组乐队，并商量谁当主唱。"
+        }
+      ]
+    },
+    "book-5c3dd9c70c187672": {
+      "topics": [
+        "social.friends",
+        "nature"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-nature-abebooks",
+          "locator": "Nature Club, The > 剧情简介",
+          "summary": "班级准备Nature Day活动，分成两个环保小组；Eva与好友分组不同，认识同学的新面貌。"
+        }
+      ]
+    },
+    "book-e3463944bdb89047": {
+      "topics": [
+        "social"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body",
+        "jobs"
+      ],
+      "basis": "班长选举只支持社交领域；不把班长职务当职业。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva for President > 剧情简介",
+          "summary": "班级选举班长，Sue宣布参选后Eva也决定竞选，同学投票。"
+        }
+      ]
+    },
+    "book-c26bad8f9e27defd": {
+      "topics": [
+        "social.friends",
+        "sports",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "The Owlympic Games > 剧情简介",
+          "summary": "学校开展运动会、比赛和障碍赛，Eva担心拖累团队，需要面对获胜压力。"
+        }
+      ]
+    },
+    "book-843d62bc516651e0": {
+      "topics": [
+        "emotions",
+        "arts.art"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "简介支持担心改变和艺术创作；没有足够证据细分为情绪调节或职业教学。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-newteacher-audio",
+          "locator": "Eva and the New Teacher > 剧情简介",
+          "summary": "新老师Mr. Brushwing要来上艺术课，学生担心改变，随后用想象力构思艺术项目。"
+        }
+      ]
+    },
+    "book-a24f725d60d4a204": {
+      "topics": [
+        "social.friends",
+        "animals"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Eva Saves the Day > 剧情简介",
+          "summary": "学校超级英雄周野餐时，Eva和Lucy发现25枚无人保护的蛋，同学一起保护它们直至孵化。"
+        }
+      ]
+    },
+    "book-d7ed9e532c20ce39": {
+      "topics": [
+        "social.sharing",
+        "family",
+        "festivals.other",
+        "food.cooking"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "Great Gift Swap, The > 剧情简介",
+          "summary": "大家准备庆祝最长夜晚的Moonfest，Eva参与秘密交换礼物并为家人做装饰、烤饼干和包装礼物。"
+        }
+      ]
+    },
+    "book-6e20eed942fed0e5": {
+      "topics": [
+        "social.friends",
+        "arts.dance",
+        "arts.art"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "owl-official",
+          "locator": "School Dance, The > 剧情简介",
+          "summary": "学校舞会由Sue负责，Eva的装饰想法意外贴出后全班制作混乱，需要二人合作挽救舞会。"
+        }
+      ]
+    },
+    "book-254eabacf83cf598": {
+      "topics": [
+        "social.friends"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-today-i-will-fly",
+          "locator": "Today I Will Fly! > 内容简介",
+          "summary": "Piggie决心学飞，Gerald认为不可能；故事围绕尝试和朋友的不同反应，不是动物飞行科普。"
+        }
+      ]
+    },
+    "book-e7cd841c2f0eed1d": {
+      "topics": [
+        "social.friends",
+        "emotions.sad",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-my-friend-is-sad",
+          "locator": "My Friend is Sad > 内容简介",
+          "summary": "Gerald很难过，Piggie分别扮牛仔、小丑和机器人想逗朋友开心。"
+        }
+      ]
+    },
+    "book-c166e99fd50f07c8": {
+      "topics": [
+        "social.friends",
+        "clothing.clothes",
+        "festivals.other"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-am-invited-to-a-party",
+          "locator": "I Am Invited to a Party! > 内容简介",
+          "summary": "Piggie首次受邀参加派对，不知道穿什么；Gerald给服装建议，Piggie尝试不同装扮。"
+        }
+      ]
+    },
+    "book-7838071e8f34951b": {
+      "topics": [
+        "social.friends",
+        "social.manners",
+        "animals"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-there-is-a-bird-on-your-head",
+          "locator": "There Is a Bird on Your Head! > 内容简介",
+          "summary": "Gerald头上出现一只、继而两只鸟，向Piggie求助；鸟是事件主角而非仅因主角动物身份添加标签。"
+        }
+      ]
+    },
+    "book-ca1f704e81d9ae30": {
+      "topics": [
+        "social.friends",
+        "sports.toys"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-love-my-new-toy",
+          "locator": "I Love My New Toy! > 内容简介",
+          "summary": "Piggie向朋友展示新玩具，玩具意外破损使友情受考验。"
+        }
+      ]
+    },
+    "book-368ced66bf4a5e27": {
+      "topics": [
+        "social.friends",
+        "sports.indoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-will-surprise-my-friend",
+          "locator": "I Will Surprise My Friend! > 内容简介",
+          "summary": "两位朋友玩互相给惊喜的游戏，结果遇到意料之外的惊喜。"
+        }
+      ]
+    },
+    "book-41669fe76e78e402": {
+      "topics": [
+        "social.friends",
+        "sports.outdoor",
+        "nature.weather"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-are-you-ready-to-play-outside",
+          "locator": "Are You Ready To Play Outside? > 内容简介",
+          "summary": "Piggie期待在阳光下玩耍，雨天改变户外游戏计划。"
+        }
+      ]
+    },
+    "book-15163d015d8390b1": {
+      "topics": [
+        "social.friends",
+        "sports.ball"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-watch-me-throw-the-ball",
+          "locator": "Watch Me Throw The Ball! > 内容简介",
+          "summary": "Gerald认真教Piggie投球，Piggie更在意享受游戏。"
+        }
+      ]
+    },
+    "book-396004d7faf60d9f": {
+      "topics": [
+        "social.friends",
+        "arts.dance",
+        "actions.imitation"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-elephants-cannot-dance",
+          "locator": "Elephants Cannot Dance! > 内容简介",
+          "summary": "Piggie教Gerald跳舞，不同的动作和学习方式成为故事冲突。"
+        }
+      ]
+    },
+    "book-2b01036af9aaa5f0": {
+      "topics": [
+        "social.friends",
+        "emotions.scared"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-pigs-make-me-sneeze",
+          "locator": "Pigs Make Me Sneeze! > 内容简介",
+          "summary": "Gerald以为自己对最好的朋友过敏，担心不得不远离Piggie。"
+        }
+      ]
+    },
+    "book-53bc82563c4637bd": {
+      "topics": [
+        "social.friends",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-am-going",
+          "locator": "I Am Going! > 内容简介",
+          "summary": "Piggie说要离开，让Gerald担心以后无法一起跳、打乒乓和戴怪帽子。"
+        }
+      ]
+    },
+    "book-966a0d2ae1b74598": {
+      "topics": [
+        "social.friends",
+        "sports.ball"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-can-i-play-too",
+          "locator": "Can I Play Too? > 内容简介",
+          "summary": "蛇朋友想加入接球游戏，三位朋友面对没有手臂怎么接球的问题。"
+        }
+      ]
+    },
+    "book-a40941b5e8434eb5": {
+      "topics": [],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "简介是角色发现自己正在被阅读的元叙事；没有足够依据归为拼读或交友教学，保留原来源并待细分。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-we-are-in-a-book",
+          "locator": "We Are In A Book! > 内容简介",
+          "summary": "Gerald和Piggie发现自己正在被读者阅读，思考书结束后会怎样；school对应阅读与学习，不代表故事发生在学校。"
+        }
+      ],
+      "status": "pending"
+    },
+    "book-bc19d3ac3eb058a9": {
+      "topics": [
+        "social.friends",
+        "body.face"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-broke-my-trunk",
+          "locator": "I Broke My Trunk! > 内容简介",
+          "summary": "Gerald向Piggie讲述自己鼻子受伤的曲折经历。"
+        }
+      ]
+    },
+    "book-744107a57b6359ec": {
+      "topics": [
+        "social.sharing",
+        "food.snacks"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-should-i-share-my-ice-cream",
+          "locator": "Should I Share My Ice Cream? > 内容简介",
+          "summary": "Gerald面对是否与朋友分享冰淇淋的决定；简介明确这是做正确选择的挑战。"
+        }
+      ]
+    },
+    "book-89683634a409472f": {
+      "topics": [
+        "social.friends",
+        "festivals.other"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-happy-pig-day",
+          "locator": "Happy Pig Day! > 内容简介",
+          "summary": "Piggie庆祝最喜欢的特别日子，Gerald担心自己能否参与庆祝。"
+        }
+      ]
+    },
+    "book-ecf049ce8ebac87e": {
+      "topics": [
+        "social.friends",
+        "arts.instruments"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-listen-to-my-trumpet",
+          "locator": "Listen To My Trumpet! > 内容简介",
+          "summary": "Piggie迫不及待演奏新乐器给Gerald听，又要面对朋友对演奏的反应。"
+        }
+      ]
+    },
+    "book-c92cdc4eb93edfc8": {
+      "topics": [
+        "social.friends",
+        "transport.travel"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-lets-go-for-a-drive",
+          "locator": "Let's Go for a Drive! > 内容简介",
+          "summary": "朋友计划开车旅行，但事先的安排没有按预期进行。"
+        }
+      ]
+    },
+    "book-5c20609a85d2a5a1": {
+      "topics": [
+        "social.friends",
+        "emotions.sad",
+        "sports.ball"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-a-big-guy-took-my-ball",
+          "locator": "A Big Guy Took My Ball! > 内容简介",
+          "summary": "Piggie因大个子拿走球而难过，Gerald想帮助朋友。"
+        }
+      ]
+    },
+    "book-d42670679bb77b11": {
+      "topics": [
+        "social.friends",
+        "sports.indoor"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-im-a-frog",
+          "locator": "I'm a Frog! > 内容简介",
+          "summary": "Piggie假装自己是青蛙，Gerald要理解假扮和想象；不因frog一词归动物认知。"
+        }
+      ]
+    },
+    "book-e6629591274518b9": {
+      "topics": [
+        "social.friends",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-my-new-friend-is-so-fun",
+          "locator": "My New Friend Is So Fun! > 内容简介",
+          "summary": "Piggie有了新朋友，Gerald面对分享朋友的担忧。"
+        }
+      ]
+    },
+    "book-de3b66353ccb7051": {
+      "topics": [
+        "social.friends",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-waiting-is-not-easy",
+          "locator": "Waiting Is Not Easy! > 内容简介",
+          "summary": "Piggie给Gerald准备惊喜，但Gerald需要等待很久；简介支持等待与耐心，没有说明惊喜内容，不补自然主题。"
+        }
+      ]
+    },
+    "book-9281d76a0ea359be": {
+      "topics": [
+        "social.friends",
+        "daily.sleep",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-will-take-a-nap",
+          "locator": "I Will Take a Nap! > 内容简介",
+          "summary": "Gerald疲倦又烦躁，想小睡，担心Piggie会不会打扰做梦。"
+        }
+      ]
+    },
+    "book-927c045e12416ff3": {
+      "topics": [
+        "social.friends",
+        "food"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-i-really-like-slop",
+          "locator": "I Really Like Slop! > 内容简介",
+          "summary": "Piggie邀请Gerald尝试自己最喜欢的食物slop，Gerald拿不准是否会喜欢。"
+        }
+      ]
+    },
+    "book-0529067e861d71e7": {
+      "topics": [
+        "social.friends",
+        "social.manners"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "piggie-disney-the-thank-you-book",
+          "locator": "The Thank You Book > 内容简介",
+          "summary": "Piggie想感谢所有人，Gerald担心她会漏掉重要的人。"
+        }
+      ]
+    },
+    "book-292bbd6b02d94056": {
+      "topics": [
+        "social.friends",
+        "daily.wash"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "pip-axel-little-puddle",
+          "locator": "Pip and Posy: The Little Puddle: a classic picture book > 内容简介",
+          "summary": "Pip在Posy家玩得太开心，忘了要小便；如厕训练与朋友帮助。"
+        }
+      ]
+    },
+    "book-b62ebcd428c429cd": {
+      "topics": [
+        "social.friends",
+        "transport.land"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "hello-official",
+          "locator": "Do You Like My Bike? > 剧情简介",
+          "summary": "刺猬邀请Harry一起骑新自行车，Harry犹豫的原因与辅助轮有关。"
+        }
+      ]
+    },
+    "book-288fe73aaefc20d5": {
+      "topics": [
+        "social.friends",
+        "daily.sleep",
+        "emotions.scared"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "hello-official",
+          "locator": "Let's Have a Sleepover! > 剧情简介",
+          "summary": "Harry受邀到朋友家过夜，得知要睡在户外后出现第一次过夜的紧张。"
+        }
+      ]
+    },
+    "book-f7e84e89ca470b1b": {
+      "topics": [
+        "social.friends",
+        "emotions.scared",
+        "jobs.people"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "hello-official",
+          "locator": "Who Needs A Checkup? > 剧情简介",
+          "summary": "Harry将去医生处检查，担心打针，刺猬帮助朋友做好准备。"
+        }
+      ]
+    },
+    "book-4d6f3906f866d9ef": {
+      "topics": [
+        "social.friends",
+        "emotions.scared",
+        "sports.water"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "hello-official",
+          "locator": "Let's Go Swimming! > 剧情简介",
+          "summary": "朋友在池塘游泳玩游戏，刺猬帮助Harry面对潜水的恐惧。"
+        }
+      ]
+    },
+    "book-656b6b2706a9a345": {
+      "topics": [
+        "social.sharing",
+        "sports.toys"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "hello-official",
+          "locator": "Can I Have a Turn? > 剧情简介",
+          "summary": "Harry收到玩具车后愿意让刺猬玩，却发现轮流分享新玩具并不容易。"
+        }
+      ]
+    },
+    "book-94473ffd81596ded": {
+      "topics": [
+        "social.friends",
+        "festivals.birthday",
+        "sports.toys",
+        "emotions.expression"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "hello-official",
+          "locator": "Happy Birthday, Hedgehog! > 剧情简介",
+          "summary": "Harry给刺猬买生日礼物，却在派对发现别人也送了相同的玩具飞机，担心朋友不喜欢自己的礼物。"
+        }
+      ]
+    },
+    "book-0a26e024f131ce19": {
+      "topics": [
+        "social.friends",
+        "fantasy.adventure"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "press-official",
+          "locator": "Super Rabbit Boy's Team-up Trouble! > 剧情简介",
+          "summary": "Super Rabbit Boy与Mega Mole Girl对抗King Viking和Miss Business，却必须先克服单独行动习惯与争执。"
+        }
+      ]
+    },
+    "book-f5dc53b70be34d5f": {
+      "topics": [
+        "social.friends",
+        "sports.water"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "bumble-official",
+          "locator": "Don't Worry, Bee Happy > 剧情简介",
+          "summary": "Bumble和Bee在池边玩闹，安静的朋友Froggy与他们一起遇到拍照日问题和打嗝等趣事。"
+        }
+      ]
+    },
+    "book-c624d012524e8137": {
+      "topics": [
+        "social.friends",
+        "sports.hiding"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "bumble-official",
+          "locator": "Let's Play Make Bee-lieve > 剧情简介",
+          "summary": "Bumble和Bee想寻宝、玩不同的捉迷藏，并邀请一开始不愿参加的Froggy。"
+        }
+      ]
+    },
+    "book-de311c8fdb6167ed": {
+      "topics": [
+        "social.friends",
+        "nature.seasons",
+        "arts.art",
+        "food.cooking"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "bumble-official",
+          "locator": "Let's Bee Thankful > 剧情简介",
+          "summary": "秋叶落下时朋友画南瓜、做苹果派，天气变冷后Froggy准备过冬；简介未指定为感恩节。"
+        }
+      ]
+    },
+    "book-c32a14991351a5e4": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号1行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-b30de0c24adbc74e": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号2行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        },
+        {
+          "kind": "source-content",
+          "sourceId": "pearson-xhs-basic-usage",
+          "locator": "图3–5，The Farm内页",
+          "summary": "可见hen、pig、cow、duck、horse、goat及相应农场画面。"
+        }
+      ]
+    },
+    "book-b59735f4f1870500": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号3行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-4573d2be2bc20fab": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号4行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-1843c5b72f5fbfe2": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号5行",
+          "originalTopic": "身体部位",
+          "summary": "原图将本册列入“身体部位”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-952f345458a00781": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号6行",
+          "originalTopic": "房子/家",
+          "summary": "原图将本册列入“房子/家”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-6447286436b0097a": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号7行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-13b0f18dacc5ee71": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号9行",
+          "originalTopic": "房子/家",
+          "summary": "原图将本册列入“房子/家”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-ad92f2508610d4e1": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号10行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-37b4179fbda7ed2a": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号11行",
+          "originalTopic": "交通工具",
+          "summary": "原图将本册列入“交通工具”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-3648afdeb96fc665": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号12行",
+          "originalTopic": "交通工具",
+          "summary": "原图将本册列入“交通工具”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-28d01919cace0b8c": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号13行",
+          "originalTopic": "颜色",
+          "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-e6088a4bc92696c0": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号14行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-16038c65195efac2": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号15行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-685d82ef9a75bb28": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号16行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-cfa70ea07c2bf37b": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号18行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-da8be3c1501f96e4": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号19行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-81ad478de3bb863a": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号21行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-707c4f2d0a7c75b7": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号22行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-11ecb49c101a1430": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号23行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-e38347b4b1931c87": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号24行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-aee0902b288b1851": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号25行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-1a3934608bf3d3c4": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号26行",
+          "originalTopic": "房子/家",
+          "summary": "原图将本册列入“房子/家”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-4392ff504fb9029d": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号27行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-9f0e086222e962b2": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号28行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-1a9ac431aef1f691": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号29行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-b95d05ad98148d34": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号30行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-a3a637d685ab33d6": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号31行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-8869db370aa8297e": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号32行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-4529d856de2a2654": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号33行",
+          "originalTopic": "颜色",
+          "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-5466c0ae9fdc7056": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号34行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-877ef68a42b8d67b": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号35行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-005a85a44b6f7234": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号36行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-03697b85a0ababc0": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号37行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-8f58e2fc1df1392b": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号38行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-5cf5f96031d51b37": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号39行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-561bafdff965336f": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号40行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-1526ade2bed21b3d": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号41行",
+          "originalTopic": "身体部位",
+          "summary": "原图将本册列入“身体部位”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-2826cb459a938647": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号42行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-8eb8dff8df1f3864": {
+      "topics": [
+        "actions"
+      ],
+      "replaceLegacy": [
+        "actions"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号43行",
+          "originalTopic": "动作",
+          "summary": "原图将本册列入“动作”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-0c5598d891b2ac4d": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号44行",
+          "originalTopic": "交通工具",
+          "summary": "原图将本册列入“交通工具”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-21354110c6b1301d": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号45行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-c7249dbaa46bd867": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号46行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-6f92f666b5e5d97e": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号48行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-5fa4d445ac77f5a5": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号49行",
+          "originalTopic": "身体部位",
+          "summary": "原图将本册列入“身体部位”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-436c7b88025e5ccd": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号50行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-e80fc20d13494a03": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号51行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-ee39b1051769b39c": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号52行",
+          "originalTopic": "交通工具",
+          "summary": "原图将本册列入“交通工具”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-b181db4117080fb4": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号53行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-f7f3cdff940e2a65": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号54行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-85d8f160896fc0a8": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号55行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-e2c47a7cde1bc39e": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号56行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-d200b250beebd6aa": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号57行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-1548055f58ae755c": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号58行",
+          "originalTopic": "房子/家",
+          "summary": "原图将本册列入“房子/家”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-2a75ab4a65c7e7c9": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号59行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-84e0026532ab4c5e": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号60行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-04ff1deb851e8ca1": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号61行",
+          "originalTopic": "颜色",
+          "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-ce19da7a3282e0e8": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号62行",
+          "originalTopic": "身体部位",
+          "summary": "原图将本册列入“身体部位”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-03c3c89a49c6744c": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号63行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-a02055c16e08b70a": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号64行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-015cd0f7074be3bd": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号65行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-a7c9ce54fd755a57": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号66行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-38c00c28045d766d": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号67行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-f8d1e4f7b24b267c": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号68行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-78f4a223cc9549fe": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号69行",
+          "originalTopic": "房子/家",
+          "summary": "原图将本册列入“房子/家”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-e12d0c3dc7fd87a9": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号70行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-40bb3ea5ac35c681": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号71行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-7b48393ad93df409": {
+      "topics": [
+        "clothing"
+      ],
+      "replaceLegacy": [
+        "clothing"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号72行",
+          "originalTopic": "服装",
+          "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-2e598ee4c4197a86": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号73行",
+          "originalTopic": "颜色",
+          "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-f17b8ef2da20540c": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号74行",
+          "originalTopic": "颜色",
+          "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-0b83fe3c2c0e3421": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号75行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-51224792459693a9": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号76行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-6deb7ded286b6a0f": {
+      "topics": [
+        "home.rooms"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号77行",
+          "originalTopic": "房子/家",
+          "summary": "原图将本册列入“房子/家”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-dfbe1d6140039505": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号78行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-8adfe8ec1430dd6e": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号79行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-bd6c81f03292b102": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号80行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-85d40b977117fb5b": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号81行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-ca84bb7c0547fbbb": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号82行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-f058f468878be0d7": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号83行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-bb1301eb4c59c5ab": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号84行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-b94663a7d97d65d2": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号85行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-2fb0e3f8a9854e07": {
+      "topics": [
+        "food"
+      ],
+      "replaceLegacy": [
+        "food"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号86行",
+          "originalTopic": "食物",
+          "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-28fc04d5ca931c85": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "replaceLegacy": [
+        "concepts"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号87行",
+          "originalTopic": "颜色",
+          "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-54ec8da961f8c123": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号88行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-80c84be4d2f293d6": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号89行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-9cc0f2b934cfc148": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号90行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-21e86cee84b768fb": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号91行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-67b032fb69b8b7fe": {
+      "topics": [
+        "animals"
+      ],
+      "replaceLegacy": [
+        "animals"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号92行",
+          "originalTopic": "动物",
+          "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-72d7c22dba2e7444": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "body"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号93行",
+          "originalTopic": "身体部位",
+          "summary": "原图将本册列入“身体部位”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-e6dbbb1b57ebe355": {
+      "topics": [
+        "daily"
+      ],
+      "replaceLegacy": [
+        "daily"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号94行",
+          "originalTopic": "生活场景",
+          "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-25b993f27409ec47": {
+      "topics": [
+        "transport"
+      ],
+      "replaceLegacy": [
+        "transport"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号95行",
+          "originalTopic": "交通工具",
+          "summary": "原图将本册列入“交通工具”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-d6052bb89173b5e8": {
+      "topics": [
+        "nature"
+      ],
+      "replaceLegacy": [
+        "nature"
+      ],
+      "basis": "按原分类图明确栏目映射；原栏目没有支持的细分不补造。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-basic-themes",
+          "locator": "图4，书号96行",
+          "originalTopic": "自然场景",
+          "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+        }
+      ]
+    },
+    "book-996ab94efaec8e68": {
+      "topics": [
+        "sports.outdoor",
+        "daily.bath"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body",
+        "daily"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007185382",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "妈妈整理花园时两个男孩在帐篷、沙坑、草、树叶、泥中玩，最后洗澡；不是植物科普。"
+        }
+      ]
+    },
+    "book-b0c4135724e71db4": {
+      "topics": [
+        "daily.wake",
+        "daily.wash",
+        "daily.bath",
+        "daily.sleep"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body",
+        "daily"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007512645",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "跟随主角从起床到睡前洗澡，讲定期清洗的重要性。"
+        }
+      ]
+    },
+    "book-e98b89cdf006c375": {
+      "topics": [
+        "daily.dress",
+        "clothing.dressing",
+        "nature.weather"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body",
+        "daily"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007412785",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "女孩按每时点变化的天气穿不同衣物，第14–15页回顾。"
+        }
+      ]
+    },
+    "book-e6b9308b06dc3202": {
+      "topics": [
+        "body.face",
+        "science"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007412792",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "出版社明确Science: Ourselves，非虚构介绍。"
+        }
+      ]
+    },
+    "book-2545cc14e442449e": {
+      "topics": [
+        "animals.pets",
+        "body"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007185481",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "出版社说明家猫身体标注图；小红书第3图原文A cat has teeth及狮子牙齿照片支持。"
+        }
+      ]
+    },
+    "book-03a27a2c57e76215": {
+      "topics": [
+        "social"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007512676",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "牧童谎报有狼，真正狼到来时村民是否相信；出版社明确Personal, social and emotional development。"
+        }
+      ]
+    },
+    "book-b90f8ef5532b4084": {
+      "topics": [
+        "body"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007185467",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "出版社明确末页完成机器人各身体部位标注图，重点是身体部位，不只科学机器人。"
+        }
+      ]
+    },
+    "book-0060dd08ba449561": {
+      "topics": [
+        "daily.bath",
+        "sports.water",
+        "sports.toys"
+      ],
+      "replaceLegacy": [
+        "friendship",
+        "school",
+        "body",
+        "daily"
+      ],
+      "basis": "逐项依据现有内容简介拆分；不以书名或旧混合分类推定。",
+      "evidence": [
+        {
+          "kind": "source-content",
+          "sourceId": "collins-topic-9780007185573",
+          "locator": "Product Description / 内容简介；按实际内容归入本站主题",
+          "summary": "怪兽在浴缸中玩水，末页标注其洗澡玩具。"
+        }
+      ]
+    }
+  },
+  "songMappings": {
+    "sss-row-row-row-your-boat": {
+      "topics": [
+        "transport.water",
+        "daily.sleep"
+      ],
+      "status": "mapped",
+      "basis": "第68首：划船；现歌单原场景为摇篮曲。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/row-row-row-your-boat/"
+    },
+    "sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets": {
+      "topics": [
+        "emotions.happy",
+        "actions.clap"
+      ],
+      "status": "mapped",
+      "basis": "第51首：开心等感受与拍手回应。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/if-youre-happy-and-you-know-it-ft-super-simple-puppets/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-old-macdonald-had-a-farm-2018": {
+      "topics": [
+        "animals.farm"
+      ],
+      "status": "mapped",
+      "basis": "第16首：农场动物及其叫声。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/old-macdonald-had-a-farm-2018/"
+    },
+    "sss-pat-a-cake": {
+      "topics": [
+        "food.cooking",
+        "sports.finger",
+        "jobs.people"
+      ],
+      "status": "mapped",
+      "basis": "第60首：做蛋糕，拍、滚等动作与面包师。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/pat-a-cake/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-alice-the-camel": {
+      "topics": [
+        "animals",
+        "concepts.counting"
+      ],
+      "status": "mapped",
+      "basis": "第23首：骆驼、兔、狐狸等动物及其身体数量。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/alice-the-camel/"
+    },
+    "sss-peekaboo": {
+      "topics": [
+        "sports.hiding"
+      ],
+      "status": "mapped",
+      "basis": "第34首：宝宝躲猫猫。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/peekaboo/"
+    },
+    "sss-mr-golden-sun": {
+      "topics": [
+        "nature.weather",
+        "sports.outdoor"
+      ],
+      "status": "mapped",
+      "basis": "第82首：太阳；现歌单原场景为出门玩。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/mr-golden-sun/"
+    },
+    "sss-baby-shark": {
+      "topics": [
+        "animals.sea",
+        "family.members"
+      ],
+      "status": "mapped",
+      "basis": "第18首：鲨鱼宝宝与妈妈、爸爸、奶奶、爷爷。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/baby-shark/"
+    },
+    "sss-five-little-speckled-frogs": {
+      "topics": [
+        "animals",
+        "concepts.counting"
+      ],
+      "status": "mapped",
+      "basis": "第27首：青蛙与数量递减。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/five-little-speckled-frogs/"
+    },
+    "sss-five-little-ducks": {
+      "topics": [
+        "animals.farm",
+        "concepts.counting"
+      ],
+      "status": "mapped",
+      "basis": "第15首：小鸭与五至一的倒数。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/five-little-ducks/"
+    },
+    "sss-this-is-the-way": {
+      "topics": [
+        "daily.wash",
+        "daily.dress"
+      ],
+      "status": "mapped",
+      "basis": "第73首：梳头、穿衣等早晨生活活动。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/this-is-the-way/"
+    },
+    "sss-hello-hello": {
+      "topics": [
+        "social.greetings",
+        "actions.stretch",
+        "actions.clap"
+      ],
+      "status": "mapped",
+      "basis": "第3首：问好、举手、碰脚趾等动作。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/hello-hello/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-rain-rain-go-away": {
+      "topics": [
+        "nature.weather",
+        "family.members"
+      ],
+      "status": "mapped",
+      "basis": "第80首：下雨，爸爸妈妈、兄弟姐妹和宝宝。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/rain-rain-go-away/"
+    },
+    "sss-wheels-on-the-bus": {
+      "topics": [
+        "transport.land"
+      ],
+      "status": "mapped",
+      "basis": "第69首：巴士、轮子、雨刷、喇叭。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/wheels-on-the-bus/"
+    },
+    "sss-one-little-finger": {
+      "topics": [
+        "body",
+        "actions.imitation"
+      ],
+      "status": "mapped",
+      "basis": "第8首：手指以及头、鼻子、下巴、胳膊、腿、脚。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/one-little-finger/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-head-shoulders-knees-toes-sing-it": {
+      "topics": [
+        "body",
+        "actions.imitation"
+      ],
+      "status": "mapped",
+      "basis": "第5主题“认知自我”明确Sing It版与身体部位。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/head-shoulders-knees-toes-sing-it/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-open-shut-them": {
+      "topics": [
+        "concepts.opposites",
+        "actions.imitation",
+        "social.manners"
+      ],
+      "status": "mapped",
+      "basis": "第32首：开关、大小、快慢、响轻，以及please和thank you。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/open-shut-them/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-bingo": {
+      "topics": [
+        "phonics.alphabet",
+        "animals.pets"
+      ],
+      "status": "mapped",
+      "basis": "第8条标字母；100首第11首说明Bingo为狗名。",
+      "sourceIds": [
+        "sss-pdf"
+      ],
+      "officialUrl": "https://supersimple.com/song/bingo/"
+    },
+    "sss-twinkle-twinkle-little-star": {
+      "topics": [
+        "daily.sleep"
+      ],
+      "status": "mapped",
+      "basis": "第78首，睡前安抚类别；星星比喻不自动标天文科普。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/twinkle-twinkle-little-star/"
+    },
+    "sss-five-little-monkeys": {
+      "topics": [
+        "animals",
+        "concepts.counting"
+      ],
+      "status": "mapped",
+      "basis": "第24首：小猴子与递减数量；不当作睡觉流程或医生职业教学。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/five-little-monkeys/"
+    },
+    "sss-driving-in-my-car": {
+      "topics": [
+        "transport.land"
+      ],
+      "status": "mapped",
+      "basis": "第7主题“认识交通工具”中明确列Driving In My Car。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/driving-in-my-car/"
+    },
+    "sss-here-we-go-looby-loo": {
+      "topics": [
+        "actions.turn",
+        "actions.imitation",
+        "arts.dance"
+      ],
+      "status": "mapped",
+      "basis": "第5主题列左右摇摆歌曲；身体动作和舞蹈。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/here-we-go-looby-loo/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-farmer-in-the-dell": {
+      "topics": [
+        "animals.farm",
+        "jobs.work",
+        "food.cooking"
+      ],
+      "status": "mapped",
+      "basis": "第14首：农夫挤奶、喂猪、收鸡蛋、播种、采玉米；食物生产劳动。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/farmer-in-the-dell/"
+    },
+    "sss-down-by-the-bay": {
+      "topics": [
+        "animals"
+      ],
+      "status": "mapped",
+      "basis": "第10主题“认识动物”明确Down By The Bay第1部；不依据标题海湾自动加自然环境。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/down-by-the-bay/"
+    },
+    "sss-who-took-the-cookie": {
+      "topics": [
+        "food.snacks",
+        "social.sharing",
+        "sports.indoor"
+      ],
+      "status": "mapped",
+      "basis": "第54首：饼干、饼干罐及分享；185首表第11主题为游戏儿歌。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/who-took-the-cookie/"
+    },
+    "sss-bath-song": {
+      "topics": [
+        "daily.bath",
+        "body"
+      ],
+      "status": "mapped",
+      "basis": "第70首洗澡；185首表第5主题认识身体亦列此曲。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/bath-song/"
+    },
+    "sss-rock-scissors-paper-1": {
+      "topics": [
+        "sports.finger"
+      ],
+      "status": "mapped",
+      "basis": "第37首：剪刀石头布手指游戏。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/rock-scissors-paper-1/"
+    },
+    "sss-im-a-little-snowman": {
+      "topics": [
+        "body"
+      ],
+      "status": "mapped",
+      "basis": "第6首归自我认知；PDF第89条归身体部位；不因雪人名称自动添冬季。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/im-a-little-snowman/"
+    },
+    "sss-mary-had-a-kangaroo": {
+      "topics": [
+        "animals"
+      ],
+      "status": "mapped",
+      "basis": "第22首：羊、长颈鹿、犀牛、袋鼠、骆驼及身体特点。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/mary-had-a-kangaroo/"
+    },
+    "sss-hickory-dickory-crash": {
+      "topics": [
+        "concepts.time",
+        "animals"
+      ],
+      "status": "mapped",
+      "basis": "第93首：钟、敲钟及松鼠等；PDF仅标经典，不据此生成主题类别。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/hickory-dickory-crash/"
+    },
+    "sss-down-by-the-bay-3": {
+      "topics": [
+        "animals"
+      ],
+      "status": "mapped",
+      "basis": "第10主题“认识动物”明确Down By The Bay第3部。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/down-by-the-bay-3/"
+    },
+    "sss-down-by-the-bay-2": {
+      "topics": [
+        "animals"
+      ],
+      "status": "mapped",
+      "basis": "第10主题“认识动物”明确Down By The Bay第2部。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/down-by-the-bay-2/"
+    },
+    "sss-rock-scissors-paper-4": {
+      "topics": [
+        "sports.finger"
+      ],
+      "status": "mapped",
+      "basis": "第11主题“游戏儿歌”明确剪刀石头布第4部。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/rock-scissors-paper-4/"
+    },
+    "sss-rock-scissors-paper-3": {
+      "topics": [
+        "sports.finger"
+      ],
+      "status": "mapped",
+      "basis": "第11主题“游戏儿歌”明确剪刀石头布第3部。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/rock-scissors-paper-3/"
+    },
+    "sss-rock-scissors-paper-2": {
+      "topics": [
+        "sports.finger"
+      ],
+      "status": "mapped",
+      "basis": "第11主题“游戏儿歌”明确剪刀石头布第2部。",
+      "sourceIds": [
+        "sss-185"
+      ],
+      "officialUrl": "https://supersimple.com/song/rock-scissors-paper-2/"
+    },
+    "sss-good-morning-mr-rooster": {
+      "topics": [
+        "daily.wake",
+        "social.greetings"
+      ],
+      "status": "mapped",
+      "basis": "第1首，起床；100首第1首归社交问好。",
+      "sourceIds": [
+        "sss-day"
+      ],
+      "officialUrl": "https://supersimple.com/song/good-morning-mr-rooster/"
+    },
+    "sss-brush-your-teeth": {
+      "topics": [
+        "daily.wash"
+      ],
+      "status": "mapped",
+      "basis": "第71首：刷牙；保留现歌单刷牙场景。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/brush-your-teeth/"
+    },
+    "sss-this-is-the-way-we-get-dressed": {
+      "topics": [
+        "daily.dress",
+        "clothing.dressing"
+      ],
+      "status": "mapped",
+      "basis": "第72首：穿衣、袜子、拉拉链、外套。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/this-is-the-way-we-get-dressed/"
+    },
+    "sss-walking-walking": {
+      "topics": [
+        "actions.locomotion"
+      ],
+      "status": "mapped",
+      "basis": "第33首：走、单脚跳、跑、停、踮脚、游泳等动作。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/walking-walking/",
+      "activities": [
+        "tpr"
+      ]
+    },
+    "sss-clean-up": {
+      "topics": [
+        "daily.tidy"
+      ],
+      "status": "mapped",
+      "basis": "第75首：收拾，把物品归位。",
+      "sourceIds": [
+        "sss-100"
+      ],
+      "officialUrl": "https://supersimple.com/song/clean-up/"
+    },
+    "sss-at-the-north-pole": {
+      "topics": [
+        "festivals.christmas",
+        "fantasy.characters"
+      ],
+      "status": "mapped",
+      "basis": "官网明确介绍为Christmas song；歌词围绕Santa、elf及飞行驯鹿等圣诞幻想角色，不将北极场景推定为地理或科普主题。",
+      "sourceIds": [
+        "sss-official-at-the-north-pole"
+      ],
+      "evidence": [
+        {
+          "sourceId": "sss-official-at-the-north-pole",
+          "locator": "歌曲介绍；Song Lyrics；Related Themes",
+          "quote": "Join Santa and sing along with this fun Christmas song for kids; Did you ever see an elf sitting on a shelf?; Did you ever see reindeer flying like a plane, dear?; Holidays & Celebrations - Christmas"
+        }
+      ],
+      "officialUrl": "https://supersimple.com/song/at-the-north-pole/"
+    },
+    "sss-down-by-the-spooky-bay": {
+      "topics": [
+        "festivals.halloween",
+        "fantasy.characters"
+      ],
+      "status": "mapped",
+      "basis": "官网明确介绍为Halloween song；歌词逐段出现ghost、vampire、witch、troll等幻想角色，不因spooky字样推定为情绪或职业主题。",
+      "sourceIds": [
+        "sss-official-down-by-the-spooky-bay"
+      ],
+      "evidence": [
+        {
+          "sourceId": "sss-official-down-by-the-spooky-bay",
+          "locator": "歌曲介绍；Song Lyrics；Related Themes",
+          "quote": "sing along with this new Halloween song for kids; Did you ever see a ghost eating some toast?; Did you ever see a vampire making a campfire?; Did you ever see a witch scratching an itch?; Did you ever see a troll digging a hole?; Holidays & Celebrations – Halloween"
+        }
+      ],
+      "officialUrl": "https://supersimple.com/song/down-by-the-spooky-bay/"
+    }
+  },
+  "helloActivities": {
+    "hello-rhyme-02": {
+      "activities": [
+        "tpr"
+      ],
+      "basis": "原卡Can You?明确弯腰碰脚趾、拍手与原地踏步，可按指令做动作。",
+      "file": "assets/hello/rhymes/page-02.jpg"
+    }
+  },
+  "helloPartOverrides": {
+    "assets/hello/notes/book-13.pdf#2": {
+      "topics": [
+        "animals.farm",
+        "concepts.counting"
+      ],
+      "basis": "13号Part2明确关联Hickety Pickety；原卡写母鸡孵蛋及six little chicks。",
+      "evidence": [
+        {
+          "file": "assets/hello/rhymes/page-28.jpg",
+          "sourcePage": 28,
+          "summary": "母鸡与六只小鸡。"
+        },
+        {
+          "file": "assets/hello/notes/book-13.pdf",
+          "page": 4,
+          "summary": "Hickety Pickety与13号书Part2明确关联。"
+        }
+      ]
+    }
+  },
+  "helloRhymeOverrides": {
+    "hello-rhyme-06": {
+      "topics": [
+        "animals.farm"
+      ],
+      "basis": "A Very Long Car Ride原卡明确开车到乡间，沿途看鸭、猪、牛。",
+      "evidence": [
+        {
+          "file": "assets/hello/rhymes/page-06.jpg",
+          "sourcePage": 6,
+          "summary": "沿途看鸭、猪、牛。"
+        }
+      ]
+    },
+    "hello-rhyme-28": {
+      "topics": [
+        "animals.farm"
+      ],
+      "basis": "Hickety Pickety原卡明确母鸡与六只小鸡。",
+      "evidence": [
+        {
+          "file": "assets/hello/rhymes/page-28.jpg",
+          "sourcePage": 28,
+          "summary": "母鸡孵蛋，六只小鸡。"
+        }
+      ]
+    }
+  }
+}

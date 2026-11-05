@@ -1,4 +1,4 @@
-(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishHello=api;})(typeof window==='object'?window:globalThis,function(){
+(function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./topics.js'):root.EnglishTopics);if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishHello=api;})(typeof window==='object'?window:globalThis,function(Topics){
 'use strict';
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’‘']/g,'').replace(/[^a-z0-9\u4e00-\u9fff]+/g,' ').trim();
 function searchMatches(text,query){const target=normalize(text),needle=normalize(query);return needle.split(' ').every(word=>target.includes(word))||target.replace(/\s/g,'').includes(needle.replace(/\s/g,''));}
@@ -57,21 +57,23 @@ function supplementalAudio(data,book){
 }
 function audioVersions(resources){const counts=new Map(),seen=new Map();for(const resource of resources){const label=audioVariantLabel(resource);counts.set(label,(counts.get(label)||0)+1);}return resources.map(resource=>{const base=audioVariantLabel(resource),index=(seen.get(base)||0)+1;seen.set(base,index);return {resource,label:base+(counts.get(base)>1?' '+index:'')};});}
 function rhymeMatchesTune(data,book,rhyme,tune){return tune==='all'||tuneNames(rhyme).includes(tune)||packageVideos(data,book,{rhymeId:rhyme.id}).some(resource=>(resource.tunes||[]).includes(tune));}
-function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part=''}={}){
+function partTopics(data,book,part){return [...new Set(Topics.entryTopics('hello-part',part).concat(partRhymes(data,book,part).flatMap(r=>Topics.entryTopics('hello-rhyme',r))))];}
+function rhymeTopics(data,book,rhyme){return [...new Set(Topics.entryTopics('hello-rhyme',rhyme).concat(book.parts.filter(p=>(rhyme.partIds||[]).includes(book.id+'-part-'+p.part)).flatMap(p=>Topics.entryTopics('hello-part',p))))];}
+function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part='',topic='all',subtopic='all'}={}){
   const words=normalize(query).split(' ').filter(Boolean),matches=text=>searchMatches(text,query);
   if(edition!=='numbered')return [];
   return data.books.filter(b=>matchesBook(book,b.id)).map(b=>{
     const allRhymes=data.rhymes.filter(r=>r.bookId===b.id),byPart=new Map(b.parts.map(p=>[p.part,partRhymes(data,b,p)]));
-    let parts=b.parts.filter(p=>(!part||part===b.id+'-part-'+p.part)&&(scene==='all'||p.scene===scene||byPart.get(p.part).some(r=>(r.themes||[]).includes(scene))));
+    let parts=b.parts.filter(p=>(!part||part===b.id+'-part-'+p.part)&&(scene==='all'||p.scene===scene||byPart.get(p.part).some(r=>(r.themes||[]).includes(scene)))&&Topics.matches(partTopics(data,b,p),{topic,subtopic}));
     const tuned=allRhymes.filter(r=>rhymeMatchesTune(data,b,r,tune));
     if(tune!=='all')parts=parts.filter(p=>byPart.get(p.part).some(r=>tuned.includes(r))||packageVideos(data,b,{partId:b.id+'-part-'+p.part}).some(resource=>(resource.tunes||[]).includes(tune)));
     const resourceText=b.resources.flatMap(r=>[r.label,...(r.originalNames||[])]).join(' '),materialText=materials(data,{bookId:b.id}).flatMap(item=>[item.title,materialLabel(item),item.sourceName]).join(' ');
     if(words.length&&!matches(b.title)){
-      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...packageVideos(data,b,{partId:b.id+'-part-'+p.part}).flatMap(resource=>[resource.label,...(resource.tunes||[])]),...audioResources(data,b,{partId:b.id+'-part-'+p.part}).map(resource=>resource.label),...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
+      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...Topics.labels(Topics.expand(partTopics(data,b,p))),...packageVideos(data,b,{partId:b.id+'-part-'+p.part}).flatMap(resource=>[resource.label,...(resource.tunes||[])]),...audioResources(data,b,{partId:b.id+'-part-'+p.part}).map(resource=>resource.label),...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
       if(found.length)parts=found;else if(!matches(resourceText+' '+materialText))parts=[];
     }
-    const scoped=part||scene!=='all'||tune!=='all'||words.length;
-    const rhymes=tuned.filter(r=>!scoped||parts.some(p=>byPart.get(p.part).includes(r)));
+    const scoped=part||scene!=='all'||tune!=='all'||topic!=='all'||subtopic!=='all'||words.length;
+    const rhymes=tuned.filter(r=>(!scoped||parts.some(p=>byPart.get(p.part).includes(r)))&&Topics.matches(rhymeTopics(data,b,r),{topic,subtopic}));
     return {book:b,parts,rhymes,allRhymes,matched:parts.length>0};
   }).filter(r=>r.matched);
 }
@@ -104,7 +106,7 @@ function graph(data){
   for(const node of nodes)if(node.type==='tune')node.repertoire=tuneCategory(data,node.label);
   return {nodes,edges};
 }
-const state={view:'books',book:'all',scene:'all',tune:'all',query:'',rhyme:'',part:'',focus:null,openBooks:new Map()};
+const state={view:'books',book:'all',scene:'all',topic:'all',subtopic:'all',tune:'all',query:'',rhyme:'',part:'',focus:null,openBooks:new Map()};
 function browse(data,filters={}){
   let rows=filter(data,filters);
   if(filters.rhyme){const rhyme=data.rhymes.find(r=>r.id===filters.rhyme);rows=rows.filter(row=>row.book?.id===rhyme?.bookId).map(row=>({...row,parts:row.parts.filter(p=>partRhymes(data,row.book,p).includes(rhyme)),rhymes:row.rhymes.filter(r=>r.id===filters.rhyme)})).filter(row=>row.parts.length);}
@@ -112,31 +114,39 @@ function browse(data,filters={}){
   const scene=filters.scene||'all';
   const rhymes=(filters.edition&&filters.edition!=='numbered'?[]:data.rhymes).filter(r=>(!filters.rhyme||r.id===filters.rhyme)&&matchesBook(filters.book,r.bookId)&&(!filters.part||(r.partIds||[]).includes(filters.part))&&(!filters.tune||rhymeMatchesTune(data,r.bookId,r,filters.tune))).map(rhyme=>({book:data.books.find(b=>b.id===rhyme.bookId),rhyme})).filter(({book,rhyme:r})=>
     (scene==='all'||(r.themes||[]).includes(scene)||book.parts.some(p=>p.scene===scene&&partRhymes(data,book,p).includes(r)))&&
-    searchMatches([r.title,...tuneNames(r),...(r.themes||[]),...book.parts.filter(p=>partRhymes(data,book,p).includes(r)).flatMap(p=>[p.title,p.scene,p.note]),...book.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label),...materials(data,{bookId:book.id,rhymeId:r.id}).flatMap(item=>[item.title,materialLabel(item)])].join(' '),filters.query));
+    Topics.matches(rhymeTopics(data,book,r),filters)&&
+    searchMatches([r.title,...tuneNames(r),...(r.themes||[]),...Topics.labels(Topics.expand(rhymeTopics(data,book,r))),...book.parts.filter(p=>partRhymes(data,book,p).includes(r)).flatMap(p=>[p.title,p.scene,p.note]),...book.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label),...materials(data,{bookId:book.id,rhymeId:r.id}).flatMap(item=>[item.title,materialLabel(item)])].join(' '),filters.query));
   return {books:rows,scenes,rhymes};
+}
+function topicGraphData(data,filters={}){
+  if((!filters.topic||filters.topic==='all')&&(!filters.subtopic||filters.subtopic==='all'))return data;
+  const found=browse(data,{topic:filters.topic,subtopic:filters.subtopic}),ids=new Set(found.rhymes.map(row=>row.rhyme.id)),books=new Set(found.books.map(row=>row.book.id)),rhymes=found.rhymes.map(row=>row.rhyme),tunes=new Set(rhymes.flatMap(tuneNames));
+  return {...data,books:found.books.map(row=>({...row.book,parts:row.parts,resources:row.book.resources.filter(r=>!(r.rhymeIds||[]).length||r.rhymeIds.some(id=>ids.has(id)))})),rhymes,materialCards:data.materialCards?{...data.materialCards,items:data.materialCards.items.filter(item=>books.has(item.bookId)&&(!(item.rhymeIds||[]).length||item.rhymeIds.some(id=>ids.has(id))))}:undefined,tuneAudio:data.tuneAudio?{...data.tuneAudio,tunes:data.tuneAudio.tunes.filter(item=>tunes.has(item.name))}:undefined};
 }
 function searchSuggestions(data,filters={},query=''){
   if(!normalize(query))return [];
   const found=browse(data,{...filters,query:''}),items=[],groups=new Map();
   const add=(kind,value,label,detail='',bookId)=>items.push({kind,value,label,detail,bookId});
   const group=(kind,label,bookId)=>{const key=kind+':'+label;if(!groups.has(key))groups.set(key,{kind,value:label,label,books:new Set()});groups.get(key).books.add(bookId);};
+  const groupTopics=(ids,bookId)=>{for(const id of Topics.expand(ids)){const key='topic:'+id;if(!groups.has(key))groups.set(key,{kind:'topic',value:id,label:Topics.label(id),books:new Set()});groups.get(key).books.add(bookId);}};
   for(const {book,parts} of found.books)add('book',book.id,book.title,parts.map(p=>'P'+p.part+' '+p.scene).join(' · '));
-  for(const {book,part} of found.scenes){group('scene',part.scene,book.id);for(const resource of packageVideos(data,book,{partId:book.id+'-part-'+part.part}))for(const tune of resource.tunes||[])group('tune',tune,book.id);if(part.title&&!partRhymes(data,book,part).some(r=>normalize(r.title)===normalize(part.title)))add('part',book.id+'-part-'+part.part,part.title,book.title+' · Part '+part.part+' · '+part.scene,book.id);}
-  for(const {book,rhyme} of found.rhymes){add('rhyme',rhyme.id,rhyme.title,book.title+' · '+rhyme.partIds.map(id=>'Part '+id.split('-').at(-1)).join(' / '));for(const theme of rhyme.themes||[])group('scene',theme,book.id);for(const tune of tuneNames(rhyme))group('tune',tune,book.id);}
+  for(const {book,part} of found.scenes){group('scene',part.scene,book.id);groupTopics(partTopics(data,book,part),book.id);for(const resource of packageVideos(data,book,{partId:book.id+'-part-'+part.part}))for(const tune of resource.tunes||[])group('tune',tune,book.id);if(part.title&&!partRhymes(data,book,part).some(r=>normalize(r.title)===normalize(part.title)))add('part',book.id+'-part-'+part.part,part.title,book.title+' · Part '+part.part+' · '+part.scene,book.id);}
+  for(const {book,rhyme} of found.rhymes){add('rhyme',rhyme.id,rhyme.title,book.title+' · '+rhyme.partIds.map(id=>'Part '+id.split('-').at(-1)).join(' / '));groupTopics(rhymeTopics(data,book,rhyme),book.id);for(const theme of rhyme.themes||[])group('scene',theme,book.id);for(const tune of tuneNames(rhyme))group('tune',tune,book.id);}
   for(const item of groups.values())add(item.kind,item.value,item.label,item.books.size+'本书');
-  const rank={book:0,scene:1,rhyme:2,tune:3,part:4},needle=normalize(query);
+  const rank={book:0,topic:1,scene:1,rhyme:2,tune:3,part:4},needle=normalize(query);
   return items.filter(item=>searchMatches(item.label,query)).sort((a,b)=>Number(normalize(b.label)===needle)-Number(normalize(a.label)===needle)||rank[a.kind]-rank[b.kind]||a.label.localeCompare(b.label,'zh'));
 }
 function render(data,{h,asset,onMaterialPreview=()=>{}}){
   const root=h('section',{class:'hello-library','aria-label':'Hello杂志资源图谱'}),choices=options(data),controls={},tabs=new Map(),panels=new Map(),cards={books:new Map(),scenes:new Map(),rhymes:new Map()};
+  const topicUI=window.EnglishTopicUI.create({h,topics:Topics});
   const active=h('p',{class:'hello-count',role:'status'}),empty=h('p',{class:'empty'},'没有匹配项，试试清除筛选。');
   const link=(label,path)=>h('a',{class:'hello-resource-link',href:asset(path),target:'_blank',rel:'noopener noreferrer',onclick:e=>e.stopPropagation()},label+' ↗');
   const action=(label,run,attrs={})=>h('button',{type:'button',class:'hello-chip',onclick:run,...attrs},label);
   const cover=b=>b.cover?h('img',{class:'hello-book-cover',src:asset(b.cover),alt:b.title+'封面',width:56,height:72,loading:'lazy',decoding:'async'}):null;
   function bookTitle(b){const pdf=bookPdf(b);return pdf?h('a',{class:'hello-book-pdf',href:asset(pdf.file||pdf.url),target:'_blank',rel:'noopener noreferrer','aria-label':'查看'+b.title+'原书PDF',title:'查看'+b.title+'.pdf',onclick:e=>e.stopPropagation()},b.title+' ↗'):h('strong',{},b.title);}
-  function syncControls(){closeSuggestions();for(const key of ['book','scene','tune'])controls[key].value=state[key];search.value=state.query;}
+  function syncControls(){closeSuggestions();for(const key of ['book','scene','tune'])controls[key].value=state[key];topicControl.sync(state.topic,state.subtopic);topicLabel.textContent=state.subtopic!=='all'?Topics.label(state.subtopic):state.topic!=='all'?Topics.label(state.topic):'主题';topicTrigger.title=[state.topic!=='all'?Topics.label(state.topic):'全部主题',state.subtopic!=='all'?Topics.label(state.subtopic):'',state.scene!=='all'?'原场景：'+state.scene:''].filter(Boolean).join(' · ');search.value=state.query;}
   function change(key,value,view){state.part='';state[key]=value;if(key!=='rhyme')state.rhyme='';state.focus=null;if(view)state.view=view;syncControls();refresh();if(key==='book'&&value!=='all'&&state.view==='books'){const card=cards.books.get(value);if(card)card.open=true;}}
-  function showBook(b){state.part='';state.book=b.id;state.scene='all';state.tune='all';state.query='';state.rhyme='';state.view='books';state.focus={type:'book',id:b.id};syncControls();refresh();const card=cards.books.get(b.id);if(card)card.open=true;}
+  function showBook(b){state.part='';state.book=b.id;state.scene='all';state.topic='all';state.subtopic='all';state.tune='all';state.query='';state.rhyme='';state.view='books';state.focus={type:'book',id:b.id};syncControls();refresh();const card=cards.books.get(b.id);if(card)card.open=true;}
   const chip=(label,key,value,view)=>action(label,()=>change(key,value,view),{class:'hello-chip hello-chip-'+key,'aria-label':'筛选'+label});
   const tuneButton=name=>typeof window==='object'&&window.EnglishAudio?window.EnglishAudio.tuneButton(name,data,{h,asset}):null;
   const tuneBadge=name=>{const category=tuneCategory(data,name);return h('span',{class:'hello-tune-category','data-kind':category.kind,title:category.basis},category.label);};
@@ -176,11 +186,11 @@ function render(data,{h,asset,onMaterialPreview=()=>{}}){
     return picker;
   }
   let composing=false,suggestionItems=[];
-  const suggestionKinds={book:'书号',scene:'场景',rhyme:'Hello童谣',tune:'套唱曲调',part:'内容'};
+  const suggestionKinds={book:'书号',topic:'主题',scene:'原场景',rhyme:'Hello童谣',tune:'套唱曲调',part:'内容'};
   const suggestionList=h('div',{class:'hello-search-matches',id:'hello-search-matches',role:'region','aria-label':'Hello实时匹配项',hidden:true,onkeydown:event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeSearch(true);}else if(['ArrowDown','ArrowUp'].includes(event.key)){const buttons=[...suggestionList.querySelectorAll('.hello-search-choice')],index=buttons.indexOf(document.activeElement);if(index>=0){event.preventDefault();buttons[(index+(event.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length]?.focus();}}}});
   const closeSuggestions=()=>{suggestionList.hidden=true;search.setAttribute('aria-expanded','false');document.removeEventListener('pointerdown',outsideSearch,true);};
   const outsideSearch=event=>{if(!searchField.isConnected||!searchField.contains(event.target))closeSuggestions();};
-  function chooseSuggestion(item){state.query='';change(item.kind,item.value,item.kind==='rhyme'?'rhymes':item.kind==='scene'||item.kind==='part'?'scenes':item.kind==='book'?'books':undefined);closeSearch(true);}
+  function chooseSuggestion(item){state.query='';if(item.kind==='topic'){const node=Topics.node(item.value);state.topic=node.parentId||node.id;state.subtopic=node.parentId?node.id:'all';state.part='';state.rhyme='';state.focus=null;syncControls();refresh();}else change(item.kind,item.value,item.kind==='rhyme'?'rhymes':item.kind==='scene'||item.kind==='part'?'scenes':item.kind==='book'?'books':undefined);closeSearch(true);}
   function showSuggestions(){
     if(composing||!normalize(search.value)){closeSuggestions();return;}
     suggestionItems=searchSuggestions(data,state,search.value);
@@ -194,7 +204,7 @@ function render(data,{h,asset,onMaterialPreview=()=>{}}){
   const positionSearch=()=>{const rect=searchTrigger.getBoundingClientRect(),width=searchPopover.getBoundingClientRect().width;searchPopover.style.left=Math.max(12,Math.min(rect.right-width,window.innerWidth-width-12))+'px';searchPopover.style.top=Math.max(8,Math.min(rect.bottom+5,window.innerHeight-searchPopover.getBoundingClientRect().height-8))+'px';};
   function closeSearch(restore=false){closeSuggestions();if(searchPopover.matches(':popover-open'))searchPopover.hidePopover();if(restore&&searchTrigger.isConnected)searchTrigger.focus({preventScroll:true});}
   const searchPopover=h('div',{id:'hello-search-popover',class:'hello-search-popover',popover:'auto',role:'search','aria-label':'Hello素材查找',onkeydown:event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeSearch(true);}},ontoggle:event=>{const open=event.newState==='open';searchTrigger.setAttribute('aria-expanded',String(open));window.removeEventListener('resize',positionSearch);if(open){positionSearch();window.addEventListener('resize',positionSearch);search.focus({preventScroll:true});showSuggestions();}else closeSuggestions();}},h('div',{class:'hello-search-popover-head'},h('span',{},'查找素材'),h('button',{type:'button',class:'hello-search-clear',onclick:()=>{search.value='';updateQuery();search.focus();}},'清空关键词'),h('button',{type:'button',class:'hello-search-close','aria-label':'关闭Hello查找',onclick:()=>closeSearch(true)},'×')),searchField);
-  const reset=action('↺',()=>{Object.assign(state,{book:'all',scene:'all',tune:'all',query:'',rhyme:'',part:'',focus:null});syncControls();refresh();},{'aria-label':'清除Hello全部筛选',title:'清除全部筛选',class:'hello-reset'});
+  const reset=action('↺',()=>{Object.assign(state,{book:'all',scene:'all',topic:'all',subtopic:'all',tune:'all',query:'',rhyme:'',part:'',focus:null});syncControls();refresh();},{'aria-label':'清除Hello全部筛选',title:'清除全部筛选',class:'hello-reset'});
   const viewTabs=h('div',{class:'hello-view-tabs',role:'tablist','aria-label':'Hello查看方式'},[['books','书册'],['scenes','场景'],['rhymes','童谣'],['graph','关系图']].map(([id,label])=>{const tab=h('button',{type:'button',id:'hello-tab-'+id,role:'tab','aria-controls':'hello-panel-'+id,'aria-selected':state.view===id?'true':'false',tabindex:state.view===id?'0':'-1',onclick:()=>{state.view=id;refresh();},onkeydown:e=>{const ids=[...tabs.keys()],index=ids.indexOf(id);let next;if(e.key==='ArrowRight')next=ids[(index+1)%ids.length];if(e.key==='ArrowLeft')next=ids[(index+ids.length-1)%ids.length];if(e.key==='Home')next=ids[0];if(e.key==='End')next=ids.at(-1);if(next){e.preventDefault();state.view=next;refresh();tabs.get(next).focus();}}},label);tabs.set(id,tab);return tab;}));
   for(const id of tabs.keys()){const panel=h('div',{class:'hello-results hello-view-'+id,id:'hello-panel-'+id,role:'tabpanel','aria-labelledby':'hello-tab-'+id});panels.set(id,panel);}
   function lazyDetails(className,title,content,open=false){let loaded=false;const details=h('details',{class:className,open,ontoggle:()=>{if(details.open&&!loaded){loaded=true;details.append(content());}}},h('summary',{},title));return details;}
@@ -212,7 +222,7 @@ function render(data,{h,asset,onMaterialPreview=()=>{}}){
   function materialList(items){return items.length?h('div',{class:'hello-material-list'},items.map(materialButton)):null;}
   function bookMaterials(b){const all=materials(data,{bookId:b.id}),guides=new Set(all.filter(item=>item.origin==='notes-pdf'&&b.resources.some(r=>r.kind==='notes'&&r.file===item.file)).map(item=>item.id)),items=all.filter(item=>!(item.rhymeIds||[]).length&&!guides.has(item.id)&&!guides.has(item.duplicateOf));return items.length?lazyDetails('hello-materials',items.some(item=>item.type!=='vocabulary-card')?'词汇卡与配套资料':'词汇卡',()=>materialList(items),true):null;}
   const tuneLabel=r=>h('span',{class:'hello-tune-label'},h('span',{class:'hello-meta'},r.tunes.length?'套唱曲调':'唱法'),r.tunes.length&&r.card?.file?h('a',{class:'hello-tune-source',href:asset(r.card.file),'aria-label':'查看'+r.title+'的松果妈妈套唱建议原图',title:'松果妈妈建议的可选唱法；查看原图','aria-haspopup':'dialog'},'ⓘ'):null);
-  function rhymeBody(b,r,extrasOnly=false){return h('div',{class:'hello-rhyme-body'},!extrasOnly&&(r.themes||[]).length?h('div',{class:'hello-rhyme-themes'},h('span',{class:'hello-meta'},'童谣主题'),r.themes.map(t=>chip(t,'scene',t,'rhymes'))):null,!extrasOnly?h('div',{class:'hello-tunes'},tuneLabel(r),r.tunes.length?orderedTunes(data,r.tunes,[r.id]).map(name=>tuneChip(name,true,[r.id])):h('span',{},'打节拍朗读')):null,materialList(materials(data,{bookId:b.id,rhymeId:r.id})),!extrasOnly?packageVideoList(packageVideos(data,b,{rhymeId:r.id})):null,r.extensions.length?h('details',{class:'hello-extensions'},h('summary',{},'拓展儿歌 · '+r.extensions.length),r.extensions.map(e=>h('div',{class:'hello-extension'},h('strong',{},e.title),h('div',{class:'hello-tunes'},tuneChip(e.tune,false))))):null,r.note?h('p',{class:'small-note'},r.note):null);}
+  function rhymeBody(b,r,extrasOnly=false){return h('div',{class:'hello-rhyme-body'},h('div',{class:'chips'},topicUI.tags(rhymeTopics(data,b,r)),Topics.entryActivities('hello-rhyme',r).includes('tpr')?h('span',{class:'chip activity-tag',title:'活动方式：听指令做动作'},'TPR'):null),topicUI.evidence('hello-rhyme',r),!extrasOnly&&(r.themes||[]).length?h('div',{class:'hello-rhyme-themes'},h('span',{class:'hello-meta'},'童谣主题'),r.themes.map(t=>chip(t,'scene',t,'rhymes'))):null,!extrasOnly?h('div',{class:'hello-tunes'},tuneLabel(r),r.tunes.length?orderedTunes(data,r.tunes,[r.id]).map(name=>tuneChip(name,true,[r.id])):h('span',{},'打节拍朗读')):null,materialList(materials(data,{bookId:b.id,rhymeId:r.id})),!extrasOnly?packageVideoList(packageVideos(data,b,{rhymeId:r.id})):null,r.extensions.length?h('details',{class:'hello-extensions'},h('summary',{},'拓展儿歌 · '+r.extensions.length),r.extensions.map(e=>h('div',{class:'hello-extension'},h('strong',{},e.title),h('div',{class:'hello-tunes'},tuneChip(e.tune,false))))):null,r.note?h('p',{class:'small-note'},r.note):null);}
   const versionAudio=(resource,title=resource.label,label=audioVariantLabel(resource))=>h('span',{class:'hello-audio-version'},h('span',{},label),audioButton(resource,title+' · '+label+' · '+resource.label));
   const partAudio=(b,p)=>audioVersions(audioResources(data,b,{partId:b.id+'-part-'+p.part}).filter(resource=>!(resource.rhymeIds||[]).length)).map(({resource,label})=>versionAudio(resource,p.title||p.scene,label));
   function partRhyme(b,r){const same=audioResources(data,b,{rhymeId:r.id});return h('article',{class:'hello-part-rhyme','data-rhyme-id':r.id},h('div',{class:'hello-part-rhyme-title'},h('strong',{},r.title),h('span',{class:'hello-rhyme-kind'},r.entryKind==='adapted-activity'?'带读改编':'Hello童谣'),audioVersions(same).map(({resource,label})=>versionAudio(resource,r.title,label))),h('div',{class:'hello-tunes'},tuneLabel(r),r.tunes.length?orderedTunes(data,r.tunes,[r.id]).map(name=>tuneChip(name,true,[r.id])):h('span',{class:'hello-meta'},'打节拍朗读')),lazyDetails('hello-rhyme-more','歌词与拓展',()=>rhymeBody(b,r,true),true));}
@@ -228,15 +238,22 @@ function render(data,{h,asset,onMaterialPreview=()=>{}}){
     for(const [id,card] of cards.rhymes)card.hidden=!rhymeIds.has(id);
     for(const [id,tab] of tabs){const selected=state.view===id;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;panels.get(id).hidden=!selected;}
     const count=state.view==='books'?rows.length+'本书':state.view==='scenes'?found.scenes.length+'个Part · '+bookIds.size+'本书':state.view==='rhymes'?found.rhymes.length+'首童谣 · '+new Set(found.rhymes.map(row=>row.book.id)).size+'本书':rows.length+'本书的关联';
-    active.replaceChildren(h('span',{},[count,state.scene!=='all'?(state.view==='rhymes'?'童谣主题：':'书册场景：')+state.scene:'',state.rhyme?data.rhymes.find(r=>r.id===state.rhyme)?.title:''].filter(Boolean).join(' · ')),...(state.tune!=='all'?[h('span',{class:'hello-tune-choice','data-tune-suggested':String(tuneIsSuggested(data,state.tune,found.rhymes.map(row=>row.rhyme.id))),'data-tune-highlighted':String(tuneIsHighlighted(data,state.tune,found.rhymes.map(row=>row.rhyme.id)))},' · 套唱：',tuneBadge(state.tune),state.tune,tuneButton(state.tune))]:[]));
-    const panel=panels.get(state.view);if(state.view==='graph'&&!keepGraph){const module=typeof window==='object'&&window.EnglishHelloGraph;panel.replaceChildren(module?module.render(data,{h,asset,onSelect:graphSelect,onMaterialPreview,filters:{...state}}):h('p',{class:'small-note'},'关系图正在加载，请先按书册、场景或童谣查找。'));}
-    const total=state.view==='books'?rows.length:state.view==='scenes'?found.scenes.length:state.view==='rhymes'?found.rhymes.length:1;if(total===0)panel.append(empty);else if(empty.isConnected)empty.remove();
+    active.replaceChildren(h('span',{},[count,state.topic!=='all'?Topics.label(state.topic):'',state.subtopic!=='all'?Topics.label(state.subtopic):'',state.scene!=='all'?(state.view==='rhymes'?'童谣主题：':'书册场景：')+state.scene:'',state.rhyme?data.rhymes.find(r=>r.id===state.rhyme)?.title:''].filter(Boolean).join(' · ')),...(state.tune!=='all'?[h('span',{class:'hello-tune-choice','data-tune-suggested':String(tuneIsSuggested(data,state.tune,found.rhymes.map(row=>row.rhyme.id))),'data-tune-highlighted':String(tuneIsHighlighted(data,state.tune,found.rhymes.map(row=>row.rhyme.id)))},' · 套唱：',tuneBadge(state.tune),state.tune,tuneButton(state.tune))]:[]));
+    const panel=panels.get(state.view);if(state.view==='graph'&&!keepGraph){const module=typeof window==='object'&&window.EnglishHelloGraph;panel.replaceChildren(module?module.render(topicGraphData(data,state),{h,asset,onSelect:graphSelect,onMaterialPreview,filters:{...state}}):h('p',{class:'small-note'},'关系图正在加载，请先按书册、场景或童谣查找。'));}
+    const total=state.view==='books'?rows.length:state.view==='scenes'?found.scenes.length:state.view==='rhymes'?found.rhymes.length:rows.length;if(total===0)panel.append(empty);else if(empty.isConnected)empty.remove();
   }
   const sceneSource=data.sources.find(source=>source.id==='scenes');
-  const sceneFilter=h('div',{class:'hello-scene-filter'},select('scene','场景',[['all','全部场景'],...choices.scenes.map(s=>[s,s])]),sceneSource?h('a',{class:'hello-scene-source',href:asset(sceneSource.file||sceneSource.url),target:'_blank',rel:'noopener noreferrer','aria-label':'查看原始场景汇总PDF',title:'查看原始场景汇总PDF'},h('span',{'aria-hidden':'true'},'PDF')):null);
+  const topicControl=topicUI.picker({id:'hello-topic',topic:state.topic,subtopic:state.subtopic,onchange:(topic,subtopic)=>{state.topic=topic;state.subtopic=subtopic;state.part='';state.rhyme='';state.focus=null;syncControls();refresh();}}),topicLabel=h('span',{},'主题');
+  const topicTrigger=h('summary',{'aria-label':'筛选Hello一级主题与二级分类',onkeydown:event=>{if(event.key==='ArrowDown'){event.preventDefault();topicPicker.open=true;topicControl.element.querySelector('select')?.focus();}}},topicLabel,h('span',{'aria-hidden':'true'},'⌄'));
+  const topicCleanup=()=>{document.removeEventListener('pointerdown',outsideTopic,true);document.removeEventListener('keydown',escapeTopic,true);};
+  const closeTopic=restore=>{topicPicker.open=false;topicCleanup();if(restore&&topicTrigger.isConnected)topicTrigger.focus();};
+  const outsideTopic=event=>{if(!topicPicker.isConnected||!topicPicker.contains(event.target))closeTopic(false);};
+  const escapeTopic=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeTopic(true);}};
+  const topicPicker=h('details',{class:'hello-topic-picker',ontoggle:()=>{topicCleanup();if(topicPicker.open){document.addEventListener('pointerdown',outsideTopic,true);document.addEventListener('keydown',escapeTopic,true);}}},topicTrigger,h('div',{class:'hello-topic-menu'},topicControl.element,h('label',{class:'hello-original-scene'},h('span',{},'原始场景'),select('scene','场景',[['all','全部原始场景'],...choices.scenes.map(s=>[s,s])])),h('p',{class:'hello-meta'},'一级包含全部二级；原始场景名称保持不变。')));
+  const sceneFilter=h('div',{class:'hello-scene-filter'},topicPicker,sceneSource?h('a',{class:'hello-scene-source',href:asset(sceneSource.file||sceneSource.url),target:'_blank',rel:'noopener noreferrer','aria-label':'查看原始场景汇总PDF',title:'查看原始场景汇总PDF'},h('span',{'aria-hidden':'true'},'PDF')):null);
   root.append(viewTabs,h('div',{class:'hello-filter-row'},sceneFilter,bookPicker(),tunePicker(),searchTrigger,reset),searchPopover,active,...panels.values(),
     h('details',{class:'hello-sources'},h('summary',{},'资料依据'),h('p',{},data.attribution),h('p',{},data.tuneNote),h('p',{},data.tuneAudio?.repertoireNote),h('p',{},'Part标题与童谣归属依据逐页带读笔记核对，原场景汇总存在冲突时保留原标注及更正依据。演唱音频按明确同名童谣关联；建议曲调与演唱分别保留，童谣主题不借整册其他场景推断。'),h('p',{},'文件名后的大小、页数与时长已从阅读界面省略；原始资源与来源依据仍保留。'),data.sources.map(s=>h('p',{},link(s.title,s.file))),(data.supplements||[]).map(s=>h('p',{},link(s.label,s.url))),data.assetInventory?h('p',{},data.assetInventory.mappingNote):null,data.materialCards?.mappingNote?h('p',{},data.materialCards.mappingNote):null,h('p',{class:'small-note'},'核对：'+data.checkedAt+'。极空间分享最长180天、最多1000次访问。')));
   syncControls();refresh();return root;
 }
-return {normalize,numberedBookId,toggleBook,bookPdf,searchMatches,searchSuggestions,orderedTunes,tuneIsPackage,tuneIsHighlighted,tuneCategory,tuneIsSuggested,materials,materialLabel,options,partRhymes,packageVideos,audioResources,supplementalAudio,audioVariantLabel,audioVersions,filter,graph,browse,render};
+return {normalize,numberedBookId,toggleBook,bookPdf,searchMatches,searchSuggestions,orderedTunes,tuneIsPackage,tuneIsHighlighted,tuneCategory,tuneIsSuggested,materials,materialLabel,options,partRhymes,partTopics,rhymeTopics,topicGraphData,packageVideos,audioResources,supplementalAudio,audioVariantLabel,audioVersions,filter,graph,browse,render};
 });
