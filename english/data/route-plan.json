@@ -153,6 +153,10 @@
         "page": 4,
         "flow": {
           "advanceNote": "按理解和实际读书状态调整；原表年龄与计划月份不作为自动晋级条件。"
+        },
+        "stageComparison": {
+          "strategy": "material-overlap",
+          "basis": "按素材及级别重合度关联阶段，双向保留最佳关联与并列；只作选材参考，不换算词数、时数或晋级条件。"
         }
       },
       "speaking": {

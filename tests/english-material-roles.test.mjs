@@ -51,7 +51,8 @@ test('原图分支不生成选读要求，各路线角色共用同一分类表',
   }
   const item=cat('xu-current-500');
   assert.equal(item.role.kind,'auxiliary');
-  assert.equal(item.role.usage,'平行拓展');
+  assert.equal(item.role.usage,'辅线');
+    assert.equal(item.role.evidence.usage,'平行拓展','原始用途证据不改写');
   assert.ok(!item.role.usage.includes('选读'));
   assert.equal(item.role.selection,null);
   for(const [stageId,choice]of [['qing-s4','选2–3部'],['qing-s5','任选2部']]){
@@ -91,7 +92,8 @@ test('默认许密杉路线的每次引用均有可追溯核查，确认角色�
   const parallel=confirmed.filter(item=>item.role.kind==='auxiliary');
   assert.equal(parallel.length,4);
   for(const item of parallel){
-    assert.equal(item.role.usage,'平行拓展');
+    assert.equal(item.role.usage,'辅线');
+    assert.equal(item.role.evidence.usage,'平行拓展','原始用途证据不改写');
     assert.equal(item.role.selection,null,'平行拓展不能自动生成任选或选读要求');
   }
 });
@@ -147,4 +149,15 @@ test('未核定引用保留具体跨版本限制，不把另一阶段主线或�
   const peppa=find('xu-current-2000','小猪佩奇');
   assert.equal(peppa.role.kind,'reference');
   assert.match(peppa.role.evidence.basis,/未给动画主辅或季数/);
+});
+
+
+test('平行拓展全局显示为辅线，整理字段不冒充已核定用途',()=>{
+  assert.equal(M.materialUsageLabel('平行拓展'),'辅线');
+  for(const stage of catalog.stages)for(const item of M.getStageMaterials(catalog,stage)){
+    if(item.material.role==='parallel')assert.equal(M.materialUsageLabel(item.material.role,item.role),item.role.kind==='auxiliary'?'辅线':'并行材料');
+    assert.notEqual(item.role.usage,'平行拓展');
+  }
+  assert.ok(catalog.relationships.some(edge=>edge.type==='pair'&&edge.label.includes('主线与辅线')));
+  assert.ok(!catalog.relationships.some(edge=>edge.label.includes('主线与平行拓展')));
 });
