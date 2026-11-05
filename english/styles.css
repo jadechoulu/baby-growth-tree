@@ -1682,6 +1682,8 @@
 /* 曲调播放沿用全页播放器，筛选与正文均可直接试听。 */
 .hello-tune-choice{display:inline-flex;align-items:center;gap:3px;max-width:100%;min-width:0}
 .hello-tune-choice>.hello-chip{min-width:0;flex:1}
+.hello-tune-choice[data-tune-highlighted=false],.hello-tune-option[data-tune-highlighted=false],.hello-graph [data-tune-highlighted=false]{--hello-tune-bg:#f1f2f3;--hello-tune-line:#d9dcdf;--hello-tune-ink:#667078}
+.hello-tune-option[data-tune-highlighted=false]>.hello-tune-name{background:var(--hello-tune-bg);color:var(--hello-tune-ink)}
 .hello-tune-category,.hello-rhyme-kind{display:inline-block;flex:none;white-space:nowrap;font-size:12px;font-weight:400;line-height:1.4;padding:1px 4px;border-radius:3px;color:var(--muted,#6c7e72);background:var(--bg,#f6f7f2);vertical-align:baseline}
 .hello-tune-category[data-kind=unverified]{color:var(--hello-tune-ink);background:var(--hello-tune-bg)}
 .hello-tune-chip-name>.hello-tune-category{margin-right:4px}
@@ -1692,6 +1694,7 @@
 .hello-tune-play[aria-pressed=true]{background:var(--hello-tune-ink);border-color:var(--hello-tune-ink);color:var(--paper,#fff)}
 .hello-tune-play:disabled{opacity:.38;cursor:default}
 .hello-tune-filter{display:flex;align-items:center;gap:3px;min-width:0}
+.hello-tune-clear{flex:none;width:24px;height:28px;min-height:28px;padding:0;border:1px solid var(--line,#dce6dd);border-radius:5px;background:var(--paper,#fff);color:var(--muted);font-size:18px;line-height:1;cursor:pointer}.hello-tune-clear[hidden]{display:none}
 .hello-tune-picker{position:static;width:100%;min-width:0}
 .hello-tune-picker>summary{display:flex;align-items:center;justify-content:space-between;gap:4px;min-width:0;min-height:28px;height:28px;padding:2px 6px;border:1px solid var(--line,#dce6dd);border-radius:6px;background:var(--paper,#fff);font-size:13px;line-height:1.4;cursor:pointer;list-style:none}
 .hello-tune-picker>summary::-webkit-details-marker{display:none}
@@ -1732,9 +1735,16 @@
 .hello-part-heading,.hello-part-rhyme-title{display:flex;flex-wrap:wrap;align-items:center;gap:3px 6px;min-width:0}
 .hello-part-heading>strong{font-size:13px}.hello-part-heading>.hello-chip{font-size:12px}
 .hello-part-title{font-size:13px;color:var(--ink,#243b35);overflow-wrap:anywhere}
+.hello-video-play{display:inline-flex;align-items:center;justify-content:center;flex:none;width:27px;height:25px;box-sizing:border-box;border:1px solid var(--line,#dce6dd);border-radius:5px;background:var(--green-soft,#edf5ee);color:var(--green,#2e6954);font-size:16px;line-height:1;text-decoration:none}
+.hello-video-play:hover{background:var(--line,#dce6dd)}
+.hello-video-play:focus-visible{outline:2px solid var(--green,#2e6954);outline-offset:2px}
 .hello-part-rhyme{min-width:0;padding:4px 0 3px 8px;border-left:2px solid var(--line,#dce6dd);margin-top:5px}
 .hello-part-rhyme-title>strong{font-size:14px;color:var(--ink,#243b35);overflow-wrap:anywhere}
 .hello-part-rhyme .hello-tunes{margin-top:2px}
+.hello-package-videos{display:flex;flex-wrap:wrap;gap:3px 8px;min-width:0;max-width:100%;padding:3px 0}
+.hello-package-video{display:inline-flex;align-items:baseline;gap:4px;min-width:0;max-width:100%;font-size:12px;line-height:1.4;color:var(--green,#2e6954);overflow-wrap:anywhere}
+.hello-package-video>span:nth-child(2){min-width:0;overflow-wrap:anywhere}.hello-video-kind{flex:none;color:var(--muted,#77847d);font-size:12px}.hello-package-video>span:last-child{flex:none}
+.hello-package-video-group{font-size:13px;margin:3px 0}.hello-package-video-group>summary{cursor:pointer;padding:3px 0}
 .hello-lyrics-link{font:inherit;font-size:12px;padding:2px 3px;color:var(--green,#2e6954);cursor:zoom-in}
 .hello-rhyme-more{font-size:12px;min-width:0;margin-top:2px}.hello-rhyme-more>summary{padding:2px 0;cursor:pointer;color:var(--muted,#77847d)}
 .hello-audio{display:flex;align-items:center;gap:5px;min-width:0;padding:2px 0}
@@ -1749,6 +1759,31 @@
 .hello-audio-popover .hello-tune-player{display:block;position:static;width:100%;max-width:100%;min-width:0;height:34px;box-shadow:none;border-radius:0;background:transparent}
 .hello-unmapped-rhymes{font-size:13px;margin:5px 0}.hello-unmapped-rhymes>summary{cursor:pointer}
 @media(max-width:900px){.hello-audio-popover{bottom:calc(68px + env(safe-area-inset-bottom))}.hello-audio-error{bottom:calc(164px + env(safe-area-inset-bottom))}}
+
+/* 本站原文件在当前页阅读；原生dialog管理遮罩、焦点与底层不可交互。 */
+.file-preview{box-sizing:border-box;width:min(1100px,calc(100vw - 20px));height:calc(100dvh - 24px);max-width:none;max-height:none;margin:auto;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);overflow:hidden}
+.file-preview[open]{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto}
+.file-preview::backdrop{background:#173b3166}
+.file-preview>header{display:flex;align-items:center;gap:6px;padding:6px 8px;border-bottom:1px solid var(--line);min-width:0}
+.file-preview h2{flex:1;min-width:0;margin:0;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+.file-preview button,.file-preview-download{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:30px;height:30px;min-height:30px;padding:3px 7px;border:1px solid var(--line);border-radius:5px;color:var(--ink);background:var(--paper);font:inherit;font-size:13px;cursor:pointer;text-decoration:none}
+.file-preview button:disabled{opacity:.4;cursor:default}
+.file-preview button:focus-visible,.file-preview a:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+.file-preview-controls{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:5px 8px;border-bottom:1px solid var(--line);font-size:13px}
+.file-preview-controls[hidden]{display:none}.file-preview:has(.file-preview-web){grid-template-rows:auto minmax(0,1fr) auto}.file-preview-web{padding:0}.file-preview-web iframe{display:block;width:100%;height:100%;border:0;background:white}
+.file-preview-paging{display:flex;align-items:center;gap:4px;margin-right:auto}.file-preview-paging[hidden]{display:none}
+.file-preview .file-preview-paging input{box-sizing:border-box;width:48px;min-width:0;height:30px;min-height:30px;padding:2px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);font-size:16px;text-align:center}
+.file-preview output{min-width:40px;text-align:center;font-variant-numeric:tabular-nums}
+.file-preview-body{min-width:0;min-height:0;overflow:auto;overflow-anchor:none;padding:12px;overscroll-behavior:contain;background:var(--bg)}
+.file-preview-page{position:relative;margin:0 auto 10px;background:white;box-shadow:0 1px 5px #0002}.file-preview-page:last-child{margin-bottom:0}
+.file-preview-body canvas,.file-preview-body img{display:block;margin:0 auto;max-width:none;background:white;box-shadow:0 1px 5px #0002}.file-preview-body img{width:100%;height:auto}
+.file-preview>footer{padding:2px 8px;min-height:20px;font-size:12px}.file-preview-status{margin:0;font-size:12px}
+
+/* 同一童谣的朗读与演唱按版本标注，标题后就地播放。 */
+.hello-audio-version{display:inline-flex;align-items:center;gap:3px;min-width:0;max-width:100%;font-size:12px;line-height:1.4;color:var(--muted,#6c7e72)}
+.hello-audio-version>span{min-width:0;overflow-wrap:anywhere}.hello-audio-version>.hello-audio-play{flex:none}
+
+.hello-tune-label{display:inline-flex;align-items:center;gap:2px}.hello-tune-source{display:inline-grid;place-items:center;width:20px;min-height:20px;border:1px solid var(--line,#dce6dd);border-radius:4px;color:var(--muted,#6c7e72);background:var(--paper,#fff);font-size:13px;text-decoration:none}
 
 .topic-evidence{font-size:12px;margin-top:6px;overflow-wrap:anywhere}
 .topic-evidence summary{cursor:pointer;width:fit-content;text-decoration:underline;text-underline-offset:3px}

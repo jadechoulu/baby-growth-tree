@@ -1,16 +1,31 @@
 {
-  "checkedAt": "2026-11-04",
-  "mappingNote": "优先复用本机原资料的独立曲目；缺少本地原曲时引用已核对曲名与演唱者的Apple Music公开约30秒试听片段，录音不转存。公开片段已在当前电脑禁用代理直连及完整解码，不能保证所有运营商或未来时点可用；无法确认曲调的条目保留待补，不用Hello套唱或同名朗读替代。",
+  "checkedAt": "2026-11-05",
+  "mappingNote": "优先复用本机原资料的曲目或有内容依据的配套套唱示范，分别注明音源性质；缺少本地参考录音时引用已核对曲名与演唱者的Apple Music公开约30秒试听片段，录音不转存。公开片段已在当前电脑禁用代理直连及完整解码，不能保证所有运营商或未来时点可用；尚缺参考录音不表示Hello童谣本身没有演唱音频，不用同名但内容不同的录音替代。",
   "tunes": [
     {
       "name": "Apple Red Apple Round",
-      "status": "missing",
-      "sourceTitle": "待补充独立曲调音频",
-      "note": "暂未核对到原卡指定旋律的独立录音。Apple检索仅有Apple Round Apple Red的remix等候选，未确认旋律一致，保留待补；不使用其他苹果儿歌冒充。",
+      "status": "available",
+      "sourceTitle": "小鸭子儿童乐园 · Apple Round Apple Red（伴奏）",
+      "note": "独立伴奏参考音源，来源页曲名为Apple Round Apple Red，列有Apple round, Apple red / Apple juicy, Apple sweet等完整歌词；原资料使用Apple Red Apple Round这一名称。本条不表示Hello原声或松果演唱采用此伴奏，也不替换已有Hello演唱。",
       "repertoire": {
-        "kind": "unverified",
-        "label": "来源待核",
-        "basis": "暂未核对到原卡指定旋律的独立录音。Apple检索仅有Apple Round Apple Red的remix等候选，未确认旋律一致，保留待补；不使用其他苹果儿歌冒充。"
+        "kind": "classic-rhyme",
+        "label": "经典儿歌",
+        "basis": "来源页收录同名英语儿歌及完整歌词，当前资源为独立伴奏参考版本；不据此推定作品版权归属或Hello演唱采用的旋律。"
+      },
+      "file": "assets/hello/files/50f26c9043bd047b.mp3",
+      "sourceUrl": "https://m.littleducks.cn/ergeflash/ergebanzou/141802.html",
+      "sourceAudioUrl": "https://www.littleducks.cn/uploads/ergebanzou/apple22.mp3",
+      "bytes": 1113187,
+      "sha256": "50f26c9043bd047b567ac593c4073740a3a4fb0b35550eb29ca84b8261ae8926",
+      "duration": 69.56,
+      "checkedAt": "2026-11-05",
+      "verification": {
+        "httpStatus": 200,
+        "rangeStatus": 206,
+        "fullDecode": true,
+        "proxy": "disabled",
+        "basis": "来源页同名曲目及完整歌词与该页audio元素对应；HTTPS原始MP3完整解码通过。未以同名remix替代。",
+        "scope": "当前电脑网络直连可达；网页使用本地保存的原始完整文件。"
       }
     },
     {
@@ -78,7 +93,8 @@
         "kind": "other-song",
         "label": "其他儿歌",
         "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "Down by the Station",
@@ -174,7 +190,8 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "Humpty Dumpty",
@@ -188,18 +205,39 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "I Love You Through and Through",
-      "status": "missing",
-      "sourceTitle": "待补充独立曲调音频",
-      "note": "暂未核对到原卡指定旋律的独立录音。Apple存在Tawnee Kendall Kids同名作品，尚无依据确认与原卡指定曲调一致，保留待补；不拿同名朗读或不同作品替代。",
+      "status": "available",
+      "sourceTitle": "Hello18号书资料包 · i love you.mp3",
+      "note": "18号书阅读指引Part5明确建议用I Love You Through and Through的歌曲旋律套唱One Star, One Moon，并可为I Love You绘本套唱。本音频已解码并以本地歌词转写核对“I love your top side / bottom side”“I love you through and through”“Yesterday, today, and tomorrow, too”，与指定绘本内容对应。复用资料包完整歌曲；未据此认定原唱歌手或发行版本。",
       "repertoire": {
-        "kind": "unverified",
-        "label": "来源待核",
-        "basis": "暂未核对到原卡指定旋律的独立录音。Apple存在Tawnee Kendall Kids同名作品，尚无依据确认与原卡指定曲调一致，保留待补；不拿同名朗读或不同作品替代。"
-      }
+        "kind": "other-song",
+        "label": "绘本歌曲",
+        "basis": "18号书阅读指引Part5明确指出I Love You Through and Through绘本及歌曲旋律，资料包MP3歌词与该绘本内容对应；不据此认定Hello原创或特定原唱版本。"
+      },
+      "file": "assets/hello/files/3a01aaf3b565214b.mp3",
+      "sourceUrl": "",
+      "bytes": 4268296,
+      "sha256": "3a01aaf3b565214bf195a1b289ce67f9fb6ee56bb977efdeb692e34ee17bd0a7",
+      "durationSeconds": 133.36,
+      "referenceKind": "package-song",
+      "contentVerification": {
+        "checkedAt": "2026-11-05",
+        "method": "原阅读指引图文与本地音频歌词转写交叉核对",
+        "source": "18号书阅读指引Part5 — One Star, One Moon",
+        "quote": "可以配合 I Love You Through and Through 的歌曲旋律来唱",
+        "lyricsEvidence": [
+          "I love your top side",
+          "I love your bottom side",
+          "I love you through and through",
+          "Yesterday, today, and tomorrow, too"
+        ],
+        "excludedAlternative": "3_I love you【Erin演唱版】.mp3自报I Love You: A Rebus Poem，是另一绘本套唱示范，不当作本曲独立原录音。"
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "I’m a Little Teapot",
@@ -213,7 +251,8 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "Jelly on a Plate",
@@ -241,7 +280,8 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "Mary Had a Little Lamb",
@@ -509,7 +549,8 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "The Farmer in the Dell",
@@ -564,7 +605,8 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "This Old Man",
@@ -621,7 +663,8 @@
         "kind": "other-song",
         "label": "其他儿歌",
         "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "We’re Going on a Bear Hunt",
@@ -661,7 +704,8 @@
         "kind": "classic-rhyme",
         "label": "经典儿歌",
         "basis": "常见英语童谣曲目，供带读套唱；独立录音的版本来源见本条sourceTitle及note，不表示当前录音是传统原版或公版。"
-      }
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "Yankee Doodle",
@@ -692,29 +736,30 @@
     },
     {
       "name": "Zoom Zoom Zoom We’re Going to the Moon",
-      "status": "preview",
-      "sourceTitle": "Apple Music公开试听 · Zoom Zoom Zoom We're Going to the Moon (2014 Version) — The Kiboomers",
-      "note": "官方公开约30秒试听片段，仅引用播放直链，不转存完整录音。曲名、演唱者及专辑已核对；为独立曲调参考版本，不是Hello套唱录音。",
-      "sourceUrl": "https://music.apple.com/us/album/zoom-zoom-zoom-were-going-to-the-moon-2014-version/1034633786?i=1034634340&uo=4",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/25/57/5a/25575aff-0bed-3b16-2015-ec0d6d4f67d0/mzaf_5625316560393908639.plus.aac.p.m4a",
-      "previewDurationSeconds": 30.0,
-      "previewTrackName": "Zoom Zoom Zoom We're Going to the Moon (2014 Version)",
-      "previewArtist": "The Kiboomers",
-      "previewAlbum": "The Best Preschool Learning Songs",
-      "previewStorefront": "us",
-      "previewVerifiedAt": "2026-11-04T13:56:12.506344+00:00",
-      "previewVerification": {
-        "httpStatus": 200,
-        "fullDecode": true,
-        "proxy": "disabled",
-        "scope": "当前电脑网络直连；不保证所有运营商和未来时点均可用。"
-      },
-      "relatedOfficialUrl": "https://www.scottishbooktrust.com/resources/songs-and-rhymes-zoom-zoom-zoom-audio/",
+      "status": "available",
+      "sourceTitle": "Hello15号书资料包 · 1. We're going to the moon Song I 童谣歌曲.mp3",
+      "note": "复用资料包中的完整歌曲，优先于外站30秒试听。音频已完整解码，本地歌词转写核对“Zoom, zoom, zoom! We’re going to the moon”“If you want to take a trip, climb aboard my rocket ship”及倒数发射段，与本曲内容对应；未据此认定具体演唱者或发行版本。",
       "repertoire": {
         "kind": "other-song",
         "label": "其他儿歌",
         "basis": "独立儿歌参考曲目，具体来源见sourceTitle及note；不据资料包位置认定为Hello原创，未进一步声明传统或原创归属。"
-      }
+      },
+      "file": "assets/hello/files/f4428daf6fae35c9.mp3",
+      "sourceUrl": "",
+      "bytes": 2124412,
+      "sha256": "f4428daf6fae35c9b3a90aff773cc27b77ce2aefce82846b83177e2d7cfe25b0",
+      "durationSeconds": 88.25,
+      "referenceKind": "package-song",
+      "contentVerification": {
+        "checkedAt": "2026-11-05",
+        "method": "原资料包文件名与本地音频歌词转写交叉核对",
+        "lyricsEvidence": [
+          "Zoom, zoom, zoom! We're going to the moon!",
+          "If you want to take a trip, climb aboard my rocket ship",
+          "Five, four, three, two, one"
+        ]
+      },
+      "referenceOrigin": "hello-package"
     },
     {
       "name": "勃拉姆斯摇篮曲",
@@ -746,8 +791,8 @@
     {
       "name": "听妈妈的话",
       "status": "missing",
-      "sourceTitle": "待核对原卡所指版本",
-      "note": "原卡仅写“听妈妈的话”，未指定歌手。虽已找到周杰伦《依然范特西》的同名作品并通过直连片段解码，但尚无证据确认这就是原卡套唱所指旋律，不自动关联播放。",
+      "sourceTitle": "参考音源待补",
+      "note": "套唱建议来自21号Daddy’s Home原资料；缺的是可确认版本的独立参考录音，非Hello童谣本身缺音频。21号资料包已有Daddy’s Home演唱，可在童谣旁播放，尚未确认其旋律与本曲的对应。原卡未注明歌手，同名周杰伦作品仅为候选，不自动当作已确认参考音源。",
       "candidate": {
         "sourceTitle": "Apple Music公开试听 · 聽媽媽的話 — 周杰倫",
         "sourceUrl": "https://music.apple.com/hk/album/%E8%81%BD%E5%AA%BD%E5%AA%BD%E7%9A%84%E8%A9%B1/1721453996?i=1721454264&uo=4",
@@ -758,8 +803,8 @@
       },
       "repertoire": {
         "kind": "unverified",
-        "label": "来源待核",
-        "basis": "原卡仅写“听妈妈的话”，未指定歌手。虽已找到周杰伦《依然范特西》的同名作品并通过直连片段解码，但尚无证据确认这就是原卡套唱所指旋律，不自动关联播放。"
+        "label": "参考音源待补",
+        "basis": "套唱建议来自21号Daddy’s Home原资料；缺的是可确认版本的独立参考录音，非Hello童谣本身缺音频。21号资料包已有Daddy’s Home演唱，可在童谣旁播放，尚未确认其旋律与本曲的对应。原卡未注明歌手，同名周杰伦作品仅为候选，不自动当作已确认参考音源。"
       }
     },
     {
@@ -789,5 +834,5 @@
       }
     }
   ],
-  "repertoireNote": "曲目类型用于区分常见经典儿歌、SSS参考版本、作品歌曲、古典乐曲及其他独立儿歌，不是版权或公版判定。Hello童谣是杂志内容；这里的曲调是带读建议套用的已有旋律，不代表Hello官方配乐或唯一唱法。三条尚未确认所指旋律的条目保留来源待核，不标为Hello特有或原创。"
+  "repertoireNote": "曲目类型用于区分常见经典儿歌、SSS参考版本、绘本歌曲、古典乐曲及其他儿歌，不是版权或公版判定。Hello童谣是杂志内容；这里的曲调是带读建议套用的已有旋律，不代表Hello官方配乐或唯一唱法。两条仍缺可确认参考录音的条目标为参考音源待补，保留原卡套唱关联及可播放的Hello童谣，不标为Hello特有或原创。"
 }

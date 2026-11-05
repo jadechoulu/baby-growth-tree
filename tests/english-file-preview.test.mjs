@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+const {fileInfo}=createRequire(import.meta.url)('../english/file-preview.js');
+test('本站原文件路由保留部署前缀、资源路径和PDF页码',()=>{
+  const base='https://example.com/baby-growth-tree/english/index.html';
+  assert.deepEqual(fileInfo('assets/hello/notes/book-02.pdf#page=5',base),{kind:'pdf',path:'assets/hello/notes/book-02.pdf',url:'https://example.com/baby-growth-tree/english/assets/hello/notes/book-02.pdf#page=5',page:5});
+  assert.equal(fileInfo('assets/hello/scenes.pdf#page=-1',base).page,1);
+  assert.equal(fileInfo('assets/hello/scenes.pdf#page=2.5',base).page,2);
+  assert.equal(fileInfo('assets/童谣卡.png',base).path,'assets/童谣卡.png');
+  assert.equal(fileInfo('assets/a.JPG',base).kind,'image');
+  assert.equal(fileInfo('assets/a.mp3',base).kind,'audio');
+});
+test('外部网页、站内导航与下载文件不误入媒体弹窗',()=>{
+  const base='http://127.0.0.1:5321/english/index.html';
+  for(const url of ['https://t3.znas.cn/a','https://other.test/english/assets/a.pdf','#library','../index.html','assets/a.json','/other/assets/a.pdf'])assert.equal(fileInfo(url,base),null);
+});
+test('离线单文件入口可以用原始资源路径恢复预览类型',()=>{
+  assert.equal(fileInfo('assets/hello/notes/book-02.pdf','file:///tmp/英语启蒙路线导航.html').kind,'pdf');
+});

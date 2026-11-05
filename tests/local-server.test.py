@@ -151,6 +151,57 @@ class LocalBackupTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     local_server.create_server(bind=bind, port=0, directory=self.site)
 
+    def test_audio_seeking_returns_only_requested_bytes(self):
+        audio = bytes(range(256)) * 1024
+        (self.site / 'test.mp3').write_bytes(audio)
+        cases = [
+            ('GET', {}, 200, audio, None),
+            ('GET', {'Range': 'bytes=1000-1999'}, 206, audio[1000:2000], 'bytes 1000-1999/262144'),
+            ('GET', {'Range': 'bytes=260000-'}, 206, audio[260000:], 'bytes 260000-262143/262144'),
+            ('GET', {'Range': 'bytes=-1000'}, 206, audio[-1000:], 'bytes 261144-262143/262144'),
+            ('GET', {'Range': 'bytes=262140-999999'}, 206, audio[-4:], 'bytes 262140-262143/262144'),
+            ('GET', {'Range': 'bytes=999999-'}, 416, b'', 'bytes */262144'),
+            ('GET', {'Range': 'bytes=20-10'}, 416, b'', 'bytes */262144'),
+            ('GET', {'Range': 'bytes=-0'}, 416, b'', 'bytes */262144'),
+            ('GET', {'Range': 'bytes=0-1,5-6'}, 200, audio, None),
+            ('GET', {'Range': 'bytes=abc'}, 200, audio, None),
+            ('GET', {'Range': 'items=0-1'}, 200, audio, None),
+            ('GET', {'Range': 'bytes=0-1', 'If-Range': 'old-version'}, 200, audio, None),
+            ('HEAD', {'Range': 'bytes=1000-1999'}, 200, b'', None),
+        ]
+        for method, headers, status, body, content_range in cases:
+            with self.subTest(method=method, headers=headers):
+                connection = http.client.HTTPConnection('127.0.0.1', self.server.server_address[1], timeout=5)
+                connection.request(method, '/test.mp3', headers=headers)
+                response = connection.getresponse()
+                self.assertEqual(response.status, status)
+                self.assertEqual(response.getheader('Accept-Ranges'), 'bytes')
+                self.assertEqual(response.getheader('Content-Range'), content_range)
+                self.assertEqual(int(response.getheader('Content-Length')), len(audio) if method == 'HEAD' else len(body))
+                self.assertEqual(response.read(), body)
+                connection.close()
+
+    def test_audio_cache_and_non_audio_requests_keep_standard_behavior(self):
+        (self.site / 'test.mp3').write_bytes(b'audio')
+        connection = http.client.HTTPConnection('127.0.0.1', self.server.server_address[1], timeout=5)
+        connection.request('HEAD', '/test.mp3')
+        response = connection.getresponse()
+        modified = response.getheader('Last-Modified')
+        response.read()
+        for path, headers, status, expected in [
+            ('/test.mp3', {'Range': 'bytes=1-2', 'If-Range': modified}, 206, b'ud'),
+            ('/test.mp3', {'If-Modified-Since': modified}, 304, b''),
+            ('/index.html', {'Range': 'bytes=1-2'}, 200, (self.site / 'index.html').read_bytes()),
+        ]:
+            with self.subTest(path=path, headers=headers):
+                connection.close()
+                connection = http.client.HTTPConnection('127.0.0.1', self.server.server_address[1], timeout=5)
+                connection.request('GET', path, headers=headers)
+                response = connection.getresponse()
+                self.assertEqual(response.status, status)
+                self.assertEqual(response.read(), expected)
+        connection.close()
+
 
 if __name__ == '__main__':
     unittest.main()

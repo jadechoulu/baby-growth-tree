@@ -1,0 +1,257 @@
+{
+  "checkedAt": "2026-11-05",
+  "scope": "2、4、5号书共7个资料包视频；阅读指引16页及原书正文逐页核对；独立补丁，未修改共用数据或网页。",
+  "resources": [
+    {
+      "resourceId": "hello-02-video-package-6bfbfe2e81e4",
+      "bookId": "hello-02",
+      "label": "06.I Have A Pet.mp4",
+      "status": "source-confirmed",
+      "partIds": [
+        "hello-02-part-3"
+      ],
+      "role": "extension-song",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-02.pdf",
+          "page": 3,
+          "part": 3,
+          "partTitle": "Find It",
+          "quote": "把sss当中的I have a Pet这首歌拓展着一起唱。",
+          "relation": "extension-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      }
+    },
+    {
+      "resourceId": "hello-02-video-package-6bd020d2ca42",
+      "bookId": "hello-02",
+      "label": "064. The Bath Song.mp4",
+      "status": "unresolved",
+      "partIds": [],
+      "role": null,
+      "mappingEvidence": [],
+      "basis": "已核对2号全部5个Part的原书正文与笔记5页：散步认颜色、肢体律动、宠物找图、照镜子、玩火车；没有洗澡栏目，也没有The Bath Song的明确推荐。即使视频含身体部位词，与P2/P4的肢体动作也不足以唯一定位；需要实播并核课程后半段示范，不能因同册或洗手主题猜Part。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      },
+      "reviewedScope": {
+        "notesFile": "assets/hello/notes/book-02.pdf",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "parts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "originalFile": "assets/hello/files/050f51627da1d3f9.pdf",
+        "originalPages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "resourceId": "hello-02-video-package-5907706f007a",
+      "bookId": "hello-02",
+      "label": "hello.mp4",
+      "status": "unresolved",
+      "partIds": [],
+      "role": null,
+      "mappingEvidence": [],
+      "basis": "文件名hello没有唯一指向具体儿歌。2号阅读指引全部5页没有推荐Hello/Hello Hello；P2讲shake hands/shuffle feet，P4讲nod head/clap hands/make faces。需要实播歌词来区分动作歌内容，未观看前不填Part。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      },
+      "candidatePartIds": [
+        "hello-02-part-2",
+        "hello-02-part-4"
+      ],
+      "reviewedScope": {
+        "notesFile": "assets/hello/notes/book-02.pdf",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "parts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "originalFile": "assets/hello/files/050f51627da1d3f9.pdf",
+        "originalPages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "resourceId": "hello-04-video-package-483e28635973",
+      "bookId": "hello-04",
+      "label": "055. Rain Rain Go Away.mp4",
+      "status": "source-confirmed",
+      "partIds": [
+        "hello-04-part-1"
+      ],
+      "role": "tune-demo",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-04.pdf",
+          "page": 1,
+          "part": 1,
+          "partTitle": "Little Bird",
+          "quote": "这首歌可以用Rain Rain Go Away的旋律唱出来。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      }
+    },
+    {
+      "resourceId": "hello-04-video-package-19d69bdbbce1",
+      "bookId": "hello-04",
+      "label": "teddy bear.mp4",
+      "status": "confirmed-content",
+      "partIds": [
+        "hello-04-part-5"
+      ],
+      "role": "extension-content",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/files/81709058b2fe924a.pdf",
+          "page": 8,
+          "part": 5,
+          "partTitle": "Where Toys Can Sleep",
+          "quote": "I found a place where toys can sleep / All warm and cuddly in a heap. / ... And there’s my bear. My crib is BIG!",
+          "method": "原书逐页OCR核对正文；原书PDF页序独立于Part。"
+        },
+        {
+          "file": "assets/hello/notes/book-04.pdf",
+          "page": 5,
+          "part": 5,
+          "partTitle": "Where Toys Can Sleep",
+          "quote": "共读的时候可以让宝宝试着指认图上的毛绒玩具，也可以模仿图中把毛绒玩具放在自己的床里玩哄睡游戏",
+          "method": "阅读指引全部5页OCR与整页图像复核。"
+        }
+      ],
+      "basis": "按本轮用户明确要求，作品与原书内容明确对应即可建立内容拓展关系：原书Part5明确毛绒熊在婴儿床睡觉，笔记p5明确将毛绒玩具放入床里玩哄睡游戏；资料包作品Teddy Bear作为该Part的毛绒熊/哄睡内容拓展，不声称原作者点名推荐、原书同文或已实播。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      },
+      "recommendationOrigin": "content-review",
+      "notAuthorRecommendation": true
+    },
+    {
+      "resourceId": "hello-05-video-package-75dbb73423c8",
+      "bookId": "hello-05",
+      "label": "3-6 Creep Crawly Calypso.mp4",
+      "status": "source-confirmed",
+      "partIds": [
+        "hello-05-part-3"
+      ],
+      "role": "extension-book-song",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-05.pdf",
+          "page": 4,
+          "part": 3,
+          "partTitle": "Find It",
+          "quote": "虫虫相关绘本推荐→ Creepy Crawly Calypso；适合3-6岁。",
+          "relation": "extension-book-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      }
+    },
+    {
+      "resourceId": "hello-05-video-package-270dfb8b79b1",
+      "bookId": "hello-05",
+      "label": "baa baa black sheep.mp4",
+      "status": "confirmed-content",
+      "partIds": [
+        "hello-05-part-1"
+      ],
+      "role": "extension-content",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/files/6b49dac64d71f4a7.pdf",
+          "page": 3,
+          "part": 1,
+          "partTitle": "City and Country",
+          "quote": "Baa! Baa! says the sheep. / Quack! Quack! says the duck. / Woof! Woof! says the farmer’s dog / as he jumps into the truck.",
+          "method": "原书逐页OCR核对正文。"
+        },
+        {
+          "file": "assets/hello/notes/book-05.pdf",
+          "page": 1,
+          "part": 1,
+          "partTitle": "City and Country",
+          "quote": "Baa：绵羊叫声；Meh：山羊叫声。可以用Twinkle twinkle little star的旋律唱出来。",
+          "method": "阅读指引全部6页OCR与整页图像复核。"
+        }
+      ],
+      "basis": "按本轮用户明确要求，作品与原书内容明确对应即可建立内容拓展关系：原书Part1正文Baa! Baa! says the sheep，阅读指引p1讲解绵羊叫声Baa；资料包作品Baa Baa Black Sheep作为该Part的羊叫/农场词汇内容拓展，不声称原作者点名推荐、原书同文、实唱曲调或已实播。",
+      "videoReview": {
+        "status": "not-reviewed",
+        "basis": "本子任务只核对原书及阅读指引；未直接访问NAS视频，不能确认实际视频歌词和画面。"
+      },
+      "recommendationOrigin": "content-review",
+      "notAuthorRecommendation": true
+    }
+  ],
+  "summary": {
+    "videos": 7,
+    "sourceConfirmed": 3,
+    "contentConfirmed": 2,
+    "unresolved": 2
+  },
+  "sourceDifferences": [
+    {
+      "bookId": "hello-02",
+      "part": 2,
+      "file": "assets/hello/notes/book-02.pdf",
+      "page": 2,
+      "quote": "可以用I love you, You love me的旋律唱，小宝宝可以妈妈握住手脚一起律动。",
+      "basis": "与原童谣汇总多个建议不同；属于原资料内部建议差异，不是当前视频关联可推导出的实唱旋律。此次未修改曲调。"
+    }
+  ],
+  "policy": "按本轮用户要求：PDF明确推荐且文件名对应→直接关联；书中内容与视频作品明确对应→内容拓展关联；仅含糊、多Part冲突或资料冲突才需视频抽样。内容确认不等于视频完整播放确认。"
+}

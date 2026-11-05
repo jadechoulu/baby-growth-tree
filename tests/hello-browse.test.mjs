@@ -5,6 +5,41 @@ import {readFileSync} from 'node:fs';
 const H=createRequire(import.meta.url)('../english/hello-reading.js');
 const data=JSON.parse(readFileSync(new URL('../english/data/hello-reading.json',import.meta.url)));
 
+test('参考排序按原资料包来源优先，外部音频转存本地仍不优先且不改原建议顺序',()=>{
+ const fixture={tuneAudio:{tunes:[
+  {name:'External A',file:'assets/a.mp3'},
+  {name:'Package B',file:'assets/b.mp3',referenceOrigin:'hello-package'},
+  {name:'External C',previewUrl:'https://example.com/c.mp3'},
+  {name:'Package D',file:'assets/d.mp3',referenceOrigin:'hello-package'},
+ ]}},names=['External A','Package B','External C','Package D'];
+ assert.deepEqual(H.orderedTunes(fixture,names),['Package B','Package D','External A','External C']);
+ assert.deepEqual(names,['External A','Package B','External C','Package D']);
+ assert.equal(H.tuneIsPackage(fixture,'External A'),false);
+ assert.equal(H.tuneIsPackage(fixture,'Package B'),true);
+ assert.equal(H.tuneIsPackage(fixture,'Missing'),false);
+});
+
+test('逐音轨确认的实唱曲调优先于参考来源，不影响其他童谣或独立原曲映射',()=>{
+ const tunes=JSON.parse(readFileSync(new URL('../english/data/hello-tune-audio.json',import.meta.url)));
+ const fixture={...data,tuneAudio:tunes},rhyme=data.rhymes.find(r=>r.id==='hello-rhyme-08');
+ const rain='Rain Rain Go Away',london='London Bridge Is Falling Down',before=[...rhyme.tunes];
+ assert.equal(H.tuneIsPackage(fixture,london),true);
+ assert.equal(H.orderedTunes(fixture,rhyme.tunes,[rhyme.id])[0],rain);
+ assert.equal(H.tuneIsHighlighted(fixture,rain,[rhyme.id]),true);
+ assert.equal(H.tuneIsHighlighted(fixture,london,[rhyme.id]),false);
+ const other=data.rhymes.find(r=>r.id!==rhyme.id&&r.tunes.includes(london)&&r.tunes.includes(rain));
+ assert.ok(other);
+ assert.equal(H.orderedTunes(fixture,other.tunes,[other.id])[0],london);
+ assert.equal(H.tuneIsHighlighted(fixture,rain,[other.id]),false);
+ assert.equal(H.tuneIsHighlighted(fixture,london,[other.id]),true);
+ const audio=data.books.find(b=>b.id===rhyme.bookId).resources.find(a=>a.performedTune===rain);
+ assert.deepEqual(audio.tunes,[]);
+ assert.deepEqual(rhyme.tunes,before);
+ for(const graph of [H.graph(fixture),createRequire(import.meta.url)('../english/hello-graph.js').buildGraph(fixture)]){
+  assert.equal(graph.edges.find(e=>e.from===rhyme.id&&e.relation==='建议曲调').to,'tune:'+rain);
+ }
+});
+
 test('书号可多选，切回全部及取消最后一项均恢复24册',()=>{
  let book=H.toggleBook('all','hello-01');assert.equal(book,'hello-01');
  book=H.toggleBook(book,'hello-18');assert.deepEqual(book,['hello-01','hello-18']);
@@ -139,11 +174,14 @@ test('童谣和内容标题检索只定位相应Part，按书号仍完整返回�
  assert.equal(H.filter(data,{query:'12号书'})[0].parts.length,5);
 });
 
-test('全部童谣逐册笔记Part定位有出处，错册及未核实关系不会生成',()=>{
+test('全部童谣Part定位有本册原书或笔记出处，错册及未核实关系不会生成',()=>{
  for(const b of data.books)for(const p of b.parts){
-  assert.ok(p.title);assert.ok(p.titleSource.heading.includes('Part'+p.part));
-  assert.equal(p.titleSource.file,b.resources.find(r=>r.kind==='notes').file);
-  assert.ok(p.titleSource.page>=1&&p.titleSource.page<=b.resources.find(r=>r.kind==='notes').pages);
+  assert.ok(p.title);assert.ok(p.titleSource.basis);
+  const source=b.resources.find(r=>r.file===p.titleSource.file&&(['notes'].includes(r.kind)||r.role==='original-book'));
+  assert.ok(source,'标题来源必须属于本册');
+  assert.ok(p.titleSource.page>=1&&p.titleSource.page<=source.pages);
+  if(source.role==='original-book')assert.ok(p.titleSource.quote.includes(p.title));
+  else assert.ok(p.titleSource.heading.includes('Part'+p.part));
  }
  for(const r of data.rhymes){
   assert.equal(r.partIds.length,1);assert.ok(r.partSource.basis);

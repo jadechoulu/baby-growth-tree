@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04",
+  "checkedAt": "2026-11-05",
   "mappingNote": "按实际图片/PDF内容分类。独立童谣卡、原书童谣页、词汇图、阅读指导和活动分别保留；只有完整原文已核对的卡/原书页填rhymeIds。改编卡用relatedRhymeIds记录拓展关系，不冒充原书歌词。",
   "sourceAudit": {
     "baiduScope": "hello资料/1–24号书资料包",
@@ -134,6 +134,15 @@
       "sourceName": "打印设置图例.png",
       "file": "assets/hello/material-cards/nas-print-guide-f79a8c5bc3b8349b.png",
       "sha256": "f79a8c5bc3b8349b949211ee2b36bd44e1dd55d6f8e29d23404d0262742b395b"
+    },
+    "supplementPdfAudit": {
+      "checkedAt": "2026-11-05",
+      "addedMaterialIds": [
+        "hello-material-weather-supplement-06",
+        "hello-material-weather-supplement-16"
+      ],
+      "sourceFile": "assets/hello/files/0ac10913f9277dd0.pdf",
+      "reason": "已下载归册，但书册列表没有补充PDF入口；此次以拓展读物独立关联，保持本册原书和童谣映射不变。"
     }
   },
   "items": [
@@ -4695,6 +4704,68 @@
         "sourceQuadrant": "右下",
         "checkedAt": "2026-11-04"
       }
+    },
+    {
+      "id": "hello-material-weather-supplement-06",
+      "type": "supplementary-book",
+      "origin": "supplement-pdf",
+      "bookId": "hello-06",
+      "rhymeIds": [],
+      "title": "天气主题拓展杂志 · Highlights Hello 2018年10月",
+      "file": "assets/hello/files/0ac10913f9277dd0.pdf",
+      "preview": "assets/hello/material-cards/hello-weather-supplement-201810.jpg",
+      "sourceFile": "assets/hello/files/0ac10913f9277dd0.pdf",
+      "sourceName": "HighlightsHello-2018年10月.pdf",
+      "sourceNames": [
+        "6号书资料包/HighlightsHello-2018年10月.pdf"
+      ],
+      "note": "来源资料包附带的另一册完整天气主题杂志，含雷雨、彩虹、风、雪与天气辨认，以及After the Rain歌曲（原件注明套用Open, Shut Them）。与编号书原文不同，不计作本册原书或本册童谣。6号与16号资料包里的文件SHA-256相同，共用原件。",
+      "themes": [
+        "天气",
+        "雷雨",
+        "彩虹",
+        "风",
+        "雪"
+      ],
+      "sha256": "0ac10913f9277dd099f9842c83a725224534da15198a355964d20a3e36d654c9",
+      "bytes": 1085929,
+      "evidence": {
+        "method": "完整16页文本与封面渲染核对",
+        "pagesChecked": 16,
+        "basis": "封面明示An issue all about WEATHER；第7页为After the Rain并注明To the tune of Open, Shut Them；末页含1018-0与Copyright 2018。资料包书号仅作为存放来源，不推定为6号或16号原书。",
+        "checkedAt": "2026-11-05"
+      }
+    },
+    {
+      "id": "hello-material-weather-supplement-16",
+      "type": "supplementary-book",
+      "origin": "supplement-pdf",
+      "bookId": "hello-16",
+      "rhymeIds": [],
+      "title": "天气主题拓展杂志 · Highlights Hello 2018年10月",
+      "file": "assets/hello/files/0ac10913f9277dd0.pdf",
+      "preview": "assets/hello/material-cards/hello-weather-supplement-201810.jpg",
+      "sourceFile": "assets/hello/files/0ac10913f9277dd0.pdf",
+      "sourceName": "HighlightsHello-2018年10月.pdf",
+      "sourceNames": [
+        "16号书资料包/HighlightsHello-2018年10月.pdf"
+      ],
+      "note": "来源资料包附带的另一册完整天气主题杂志，含雷雨、彩虹、风、雪与天气辨认，以及After the Rain歌曲（原件注明套用Open, Shut Them）。与编号书原文不同，不计作本册原书或本册童谣。6号与16号资料包里的文件SHA-256相同，共用原件。",
+      "themes": [
+        "天气",
+        "雷雨",
+        "彩虹",
+        "风",
+        "雪"
+      ],
+      "sha256": "0ac10913f9277dd099f9842c83a725224534da15198a355964d20a3e36d654c9",
+      "bytes": 1085929,
+      "evidence": {
+        "method": "完整16页文本与封面渲染核对",
+        "pagesChecked": 16,
+        "basis": "封面明示An issue all about WEATHER；第7页为After the Rain并注明To the tune of Open, Shut Them；末页含1018-0与Copyright 2018。资料包书号仅作为存放来源，不推定为6号或16号原书。",
+        "checkedAt": "2026-11-05"
+      }
     }
   ],
   "coverage": [
@@ -4769,11 +4840,12 @@
     },
     {
       "bookId": "hello-06",
-      "items": 8,
+      "items": 9,
       "types": {
         "rhyme-card": 6,
         "reading-guide": 1,
-        "vocabulary-card": 1
+        "vocabulary-card": 1,
+        "supplementary-book": 1
       },
       "rhymesWithOriginalPages": 3,
       "rhymesWithStandaloneCards": 3,
@@ -4908,11 +4980,12 @@
     },
     {
       "bookId": "hello-16",
-      "items": 6,
+      "items": 7,
       "types": {
         "rhyme-card": 4,
         "reading-guide": 1,
-        "vocabulary-card": 1
+        "vocabulary-card": 1,
+        "supplementary-book": 1
       },
       "rhymesWithOriginalPages": 2,
       "rhymesWithStandaloneCards": 2,

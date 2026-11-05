@@ -1,0 +1,156 @@
+{
+  "checkedAt": "2026-11-05",
+  "basis": "极空间逐文件实际创建分享的独立记录；用于防止同名视频跨册错配，不从hello-reading.json反向生成。",
+  "shares": [
+    {
+      "bookId": "hello-02",
+      "sourceFile": "06.I Have A Pet.mp4",
+      "shortUrl": "https://t3.znas.cn/cH3q5wPId7"
+    },
+    {
+      "bookId": "hello-02",
+      "sourceFile": "064. The Bath Song.mp4",
+      "shortUrl": "https://t3.znas.cn/34cqGw3QXf4"
+    },
+    {
+      "bookId": "hello-02",
+      "sourceFile": "hello.mp4",
+      "shortUrl": "https://t3.znas.cn/rmxjM2Q32i4"
+    },
+    {
+      "bookId": "hello-04",
+      "sourceFile": "055. Rain Rain Go Away.mp4",
+      "shortUrl": "https://t3.znas.cn/JGtEOZ4Zh23"
+    },
+    {
+      "bookId": "hello-04",
+      "sourceFile": "teddy bear.mp4",
+      "shortUrl": "https://t3.znas.cn/PViE1eWnCW5"
+    },
+    {
+      "bookId": "hello-05",
+      "sourceFile": "3-6 Creep Crawly Calypso.mp4",
+      "shortUrl": "https://t3.znas.cn/Weggee0Erz3"
+    },
+    {
+      "bookId": "hello-05",
+      "sourceFile": "baa baa black sheep.mp4",
+      "shortUrl": "https://t3.znas.cn/hBmE1H8Ysj"
+    },
+    {
+      "bookId": "hello-06",
+      "sourceFile": "Five Little Monkeys.mp4",
+      "shortUrl": "https://t3.znas.cn/QPUXVBhwKbd"
+    },
+    {
+      "bookId": "hello-06",
+      "sourceFile": "Swimming Song.mp4",
+      "shortUrl": "https://t3.znas.cn/yqhoF8PwT8l"
+    },
+    {
+      "bookId": "hello-07",
+      "sourceFile": "Five Little Monkeys（数字认知）.mp4",
+      "shortUrl": "https://t3.znas.cn/S8bFOZO7Kc2"
+    },
+    {
+      "bookId": "hello-07",
+      "sourceFile": "The Animal Boogie.mp4",
+      "shortUrl": "https://t3.znas.cn/zLyvtJ5Kq54"
+    },
+    {
+      "bookId": "hello-07",
+      "sourceFile": "This Little Piggy (HD) - Mother Goose Club Nursery Rhymes.mp4",
+      "shortUrl": "https://t3.znas.cn/gsu4kt1YEO6"
+    },
+    {
+      "bookId": "hello-08",
+      "sourceFile": "London Bridge is Falling Down ABCkidTV Nursery Rhymes & Kids Songs.mp4",
+      "shortUrl": "https://t3.znas.cn/Gm1gPBk6c0l"
+    },
+    {
+      "bookId": "hello-09",
+      "sourceFile": "hello.mp4",
+      "shortUrl": "https://t3.znas.cn/jWXw0BMVpv3"
+    },
+    {
+      "bookId": "hello-09",
+      "sourceFile": "Open Shut Them.mp4",
+      "shortUrl": "https://t3.znas.cn/UtgQX6rWONf"
+    },
+    {
+      "bookId": "hello-09",
+      "sourceFile": "pat a cake.mp4",
+      "shortUrl": "https://t3.znas.cn/9IgYRzIXy51"
+    },
+    {
+      "bookId": "hello-11",
+      "sourceFile": "083. Seven Steps.mp4",
+      "shortUrl": "https://t3.znas.cn/yfEmX2Eohp2"
+    },
+    {
+      "bookId": "hello-11",
+      "sourceFile": "Rock-a-bye Baby.mp4",
+      "shortUrl": "https://t3.znas.cn/dRNpRAc9dWe"
+    },
+    {
+      "bookId": "hello-13",
+      "sourceFile": "Five Little Monkeys.mp4",
+      "shortUrl": "https://t3.znas.cn/HBF2U6YpuTc"
+    },
+    {
+      "bookId": "hello-14",
+      "sourceFile": "do you wanna build a snowman.mp4",
+      "shortUrl": "https://t3.znas.cn/W8ypKjGKfyf"
+    },
+    {
+      "bookId": "hello-16",
+      "sourceFile": "002. Twinkle Twinkle Little Star.mp4",
+      "shortUrl": "https://t3.znas.cn/wHv68ooEhIg"
+    },
+    {
+      "bookId": "hello-17",
+      "sourceFile": "Row your boat跟老师学童谣.mp4",
+      "shortUrl": "https://t3.znas.cn/SjefASP1zth"
+    },
+    {
+      "bookId": "hello-20",
+      "sourceFile": "down by the station.mp4",
+      "shortUrl": "https://t3.znas.cn/ImYq5JnxWVi"
+    },
+    {
+      "bookId": "hello-20",
+      "sourceFile": "Jelly on a plate.mp4",
+      "shortUrl": "https://t3.znas.cn/5KMoM8ibUbc"
+    },
+    {
+      "bookId": "hello-22",
+      "sourceFile": "160. Where Is Thumbkin.mp4",
+      "shortUrl": "https://t3.znas.cn/ypyoGv9d0cb"
+    },
+    {
+      "bookId": "hello-22",
+      "sourceFile": "walking on halloween.mp4",
+      "shortUrl": "https://t3.znas.cn/VILtjwiOmf7"
+    },
+    {
+      "bookId": "hello-23",
+      "sourceFile": "pat a cake.mp4",
+      "shortUrl": "https://t3.znas.cn/tQljuExzCzl"
+    },
+    {
+      "bookId": "hello-23",
+      "sourceFile": "Sleeping bunnies视频.mp4",
+      "shortUrl": "https://t3.znas.cn/H2Z3Q6V3k7h"
+    },
+    {
+      "bookId": "hello-24",
+      "sourceFile": "Hokey Pokey动画.mp4",
+      "shortUrl": "https://t3.znas.cn/NxlDThoF408"
+    },
+    {
+      "bookId": "hello-01",
+      "sourceFile": "hair cut.mp4",
+      "shortUrl": "https://t3.znas.cn/dFGiuTuvsS"
+    }
+  ]
+}
