@@ -91,6 +91,72 @@ def save_backup(filename, content, destination=BACKUP_DIRECTORY):
 
 
 class BackupHandler(SimpleHTTPRequestHandler):
+    def send_head(self):
+        self.audio_range_remaining = None
+        path = self.translate_path(self.path)
+        self.audio_ranges = self.guess_type(path).startswith('audio/') and os.path.isfile(path)
+        value = self.headers.get('Range', '')
+        match = re.fullmatch(r'bytes=([0-9]*)-([0-9]*)', value)
+        # HEAD、条件缓存以及不支持的多段范围继续沿用标准静态响应。
+        if (
+            not self.audio_ranges or self.command != 'GET' or not match
+            or not any(match.groups())
+            or 'If-Modified-Since' in self.headers or 'If-None-Match' in self.headers
+        ):
+            return super().send_head()
+        try:
+            first, last = (int(part) if part else None for part in match.groups())
+        except ValueError:
+            return super().send_head()
+        try:
+            handle = open(path, 'rb')
+        except OSError:
+            return super().send_head()
+        try:
+            info = os.fstat(handle.fileno())
+            modified = self.date_time_string(info.st_mtime)
+            if 'If-Range' in self.headers and self.headers['If-Range'] != modified:
+                handle.close()
+                return super().send_head()
+            size = info.st_size
+            start = max(0, size - last) if first is None else first
+            end = size - 1 if first is None or last is None else min(last, size - 1)
+            if start > end or start >= size or (first is None and last == 0):
+                self.send_response(416)
+                self.send_header('Content-Range', f'bytes */{size}')
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                handle.close()
+                return None
+            handle.seek(start)
+            self.audio_range_remaining = end - start + 1
+            self.send_response(206)
+            self.send_header('Content-Type', self.guess_type(path))
+            self.send_header('Content-Range', f'bytes {start}-{end}/{size}')
+            self.send_header('Content-Length', str(self.audio_range_remaining))
+            self.send_header('Last-Modified', modified)
+            self.end_headers()
+            return handle
+        except BaseException:
+            handle.close()
+            raise
+
+    def end_headers(self):
+        if getattr(self, 'audio_ranges', False):
+            self.send_header('Accept-Ranges', 'bytes')
+        super().end_headers()
+
+    def copyfile(self, source, outputfile):
+        if self.audio_range_remaining is None:
+            return super().copyfile(source, outputfile)
+        remaining = self.audio_range_remaining
+        while remaining:
+            chunk = source.read(min(64 * 1024, remaining))
+            if not chunk:
+                break
+            outputfile.write(chunk)
+            remaining -= len(chunk)
+
     def json_response(self, status, value):
         body = json.dumps(value, ensure_ascii=False).encode('utf-8')
         self.send_response(status)

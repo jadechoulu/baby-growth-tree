@@ -89,5 +89,5 @@ function audioButton(file,name,{h,asset}){
   const button=tuneButton(name,{tuneAudio:{tunes:[{name,file}]}},{h,asset});button.classList.add('hello-audio-play');button.dataset.audioKind='音频';
   button.setAttribute('aria-label',(button.getAttribute('aria-pressed')==='true'?'暂停音频：':'播放音频：')+name);return button;
 }
-return {normalize,tuneSource,coordinator,install,playSource,tuneButton,audioButton};
+return {normalize,tuneSource,coordinator,install,playSource,tuneButton,audioButton,stop:closePlayer};
 });

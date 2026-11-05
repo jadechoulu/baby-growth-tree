@@ -130,7 +130,14 @@
             "hello-rhyme-02"
           ],
           "tunes": [],
-          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨",
+          "variantLabel": "松果演唱",
+          "performer": "松果妈妈",
+          "performerEvidence": {
+            "kind": "user-confirmation",
+            "checkedAt": "2026-11-05",
+            "basis": "用户在1号书Part2 Can You?的原包演唱入口明确确认“松果演唱”；仅确认此音频，不推定其他文件。"
+          }
         },
         {
           "id": "hello-01-asset-084d55e137fd61cc",
@@ -142,7 +149,8 @@
           "originalNames": [
             "1号书.pdf"
           ],
-          "pages": 7
+          "pages": 7,
+          "role": "original-book"
         },
         {
           "id": "hello-01-asset-704c9da9b3bb5549",
@@ -167,6 +175,63 @@
             "Hello1号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-01-video-package-f29a55ec93a3",
+          "kind": "package-video",
+          "label": "hair cut.mp4",
+          "sourceFile": "hair cut.mp4",
+          "sourcePackagePath": "1号书资料包/hair cut.mp4",
+          "sourceBytes": 58371059,
+          "mappingBasis": "按用户要求将资料包理发视频放到对应理发Part，关联1号书Part4 First Haircut，作为同场景拓展；不认定为原书同文动画。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D1Gm10o21sjXeb4vk3sm3a1YIsNvHvdY9VlWdvci7RC4K8&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/dFGiuTuvsS",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "sha256": "58156c9ea2ff76855f779b87ac38a53401039a2e369f36c88162b795919974b7",
+          "duration": 249.94,
+          "verification": {
+            "checkedAt": "2026-11-05",
+            "basis": "百度原始完整MP4已下载并校验字节/SHA256/时长，上传极空间同名完整文件后重新分享；不用旧timestamp文件分享。",
+            "sourceBytes": 58371059,
+            "sha256": "58156c9ea2ff76855f779b87ac38a53401039a2e369f36c88162b795919974b7",
+            "duration": 249.94
+          },
+          "previousMappingBasis": "按来源资料包归册；逐册笔记未明示与该视频同名作品的具体Part，不因同册或主题相近推定。",
+          "role": "extension-video",
+          "partIds": [
+            "hello-01-part-4"
+          ],
+          "mappingEvidence": [
+            {
+              "kind": "user-requested-scene-extension",
+              "file": "assets/hello/files/084d55e137fd61cc.pdf",
+              "page": 5,
+              "part": 4,
+              "partTitle": "First Haircut",
+              "quote": "First Haircut",
+              "basis": "用户要求按对应Part提供快捷播放；原书Part4为理发场景，hair cut.mp4作为同场景拓展关联，不宣称与原书同文。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "file": "assets/hello/notes/book-01.pdf",
+              "page": 4,
+              "part": 4,
+              "partTitle": "First Haircut",
+              "quote": "1号书 Part4—First Haircut；理发师barber/hairdresser、snip/trim等理发词汇。",
+              "relation": "extension-video",
+              "basis": "同场景关联由用户明确提出；未发现作者直接点名该视频的证据，不认定为原书同文。"
+            }
+          ],
+          "recommendationOrigin": "user-requested-scene-extension",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-01.jpg",
@@ -295,7 +360,14 @@
             "hello-rhyme-03"
           ],
           "tunes": [],
-          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨",
+          "variantLabel": "松果妈妈演唱",
+          "performer": "松果妈妈",
+          "performerEvidence": {
+            "kind": "user-confirmation",
+            "checkedAt": "2026-11-05",
+            "basis": "用户对2册Rockin’ Baby此音频明确确认“这是松果演唱”；此确认仅应用于该文件，不推定全部资料包音频演唱者。"
+          }
         },
         {
           "id": "hello-02-asset-6e69b9e0653000f5",
@@ -324,7 +396,8 @@
           "originalNames": [
             "2号书.pdf"
           ],
-          "pages": 9
+          "pages": 9,
+          "role": "original-book"
         },
         {
           "id": "hello-02-asset-721d2ef17ce0a352",
@@ -337,6 +410,87 @@
             "Hello2号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-02-video-package-6bfbfe2e81e4",
+          "kind": "package-video",
+          "label": "06.I Have A Pet.mp4",
+          "sourceFile": "06.I Have A Pet.mp4",
+          "sourcePackagePath": "2号书资料包/06.I Have A Pet.mp4",
+          "sourceBytes": 41644558,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-02-part-3"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-02.pdf",
+              "page": 3,
+              "part": 3,
+              "partTitle": "Find It",
+              "quote": "把sss当中的I have a Pet这首歌拓展着一起唱。",
+              "relation": "extension-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "extensionTitle": "I Have a Pet",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D7UiULZHD5VHJY6MlnH2OoXNm2sgm3DCtsqiWaLHIkLw4m1&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/cH3q5wPId7",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-02-video-package-6bd020d2ca42",
+          "kind": "package-video",
+          "label": "064. The Bath Song.mp4",
+          "sourceFile": "064. The Bath Song.mp4",
+          "sourcePackagePath": "2号书资料包/064. The Bath Song.mp4",
+          "sourceBytes": 27546111,
+          "mappingBasis": "按来源资料包归册；逐册笔记未明示与该视频同名作品的具体Part，不因同册或主题相近推定。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dzdfofm1m3bKhrJFACGoLIUFam1w7naAxhlMHhWhqK2scVH&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/34cqGw3QXf4",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "unresolved",
+            "checkedAt": "2026-11-05",
+            "reason": "本册无洗澡内容；身体部位可关联多个Part，尚不能唯一定位。"
+          }
+        },
+        {
+          "id": "hello-02-video-package-5907706f007a",
+          "kind": "package-video",
+          "label": "hello.mp4",
+          "sourceFile": "hello.mp4",
+          "sourcePackagePath": "2号书资料包/hello.mp4",
+          "sourceBytes": 21454468,
+          "mappingBasis": "按来源资料包归册；逐册笔记未明示与该视频同名作品的具体Part，不因同册或主题相近推定。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DykkBVxm2EuMm25FefTJqAOJVeN4uAd1IThXnjvhYlHJAK&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/rmxjM2Q32i4",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "unresolved",
+            "checkedAt": "2026-11-05",
+            "reason": "文件名hello含糊，本册Part2律动与Part4动作都可能匹配；尚未确认具体作品。"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-02.jpg",
@@ -509,7 +663,8 @@
             "3号书.pdf",
             "3号书(1).pdf"
           ],
-          "pages": 8
+          "pages": 8,
+          "role": "original-book"
         },
         {
           "id": "hello-03-asset-e370f553b785d439",
@@ -536,9 +691,55 @@
             "We_re-going-on-a-car-ride(1).mp3"
           ],
           "duration": 23.64,
-          "rhymeIds": [],
+          "rhymeIds": [
+            "hello-rhyme-06"
+          ],
           "tunes": [],
-          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+          "mappingBasis": "本地完整音频转写与3册Part4原书正文及既有演唱逐句交叉核对；歌词同属A Very Long Car Ride。文件哈希及解码波形不同，保留为另一录音文件，不按完全重复文件删除；入口归入同一Part，不再列整册补充音频。",
+          "partIds": [
+            "hello-03-part-4"
+          ],
+          "variantLabel": "原包另版",
+          "checkedAt": "2026-11-05",
+          "matchEvidence": {
+            "status": "confirmed",
+            "method": "local-full-audio-transcription-and-original-text-crosscheck",
+            "text": "A very long car ride. We're going for a car ride. The day is bright and sunny. We're driving to the country. I'm taking fuzzy bunny. We'll cuddle by the window so we can see the sheep, the ducks and pigs and moo-cows, and then we'll fall asleep.",
+            "originalSource": {
+              "file": "assets/hello/files/2e1b3026ab144ba5.pdf",
+              "pages": [
+                6,
+                7
+              ],
+              "sourceTitle": "A Very Long Car Ride"
+            },
+            "comparedWith": "hello-03-asset-0453260c02807a50",
+            "comparisonNote": "两个原始文件分别完整转写，均覆盖相同正文；SHA256不同，解码单声道16kHz长度分别23.872s与23.616s，未确认同一录音，不做音源去重。"
+          }
+        },
+        {
+          "id": "hello-03-asset-f3bcae6b431fd528",
+          "kind": "audio",
+          "label": "3号书Giggle kisses.m4a",
+          "file": "assets/hello/files/f3bcae6b431fd528.m4a",
+          "bytes": 175403,
+          "sha256": "f3bcae6b431fd528d44ca001061e06e0f86d19726457e6eb41ca80199330171e",
+          "originalNames": [
+            "3号书Giggle kisses.m4a",
+            "3号书Giggle kisses(1).m4a"
+          ],
+          "sourceNames": [
+            "3号书资料包/3号书Giggle kisses.m4a",
+            "3号书资料包/3号书Giggle kisses(1).m4a"
+          ],
+          "duration": 20.309,
+          "rhymeIds": [
+            "hello-rhyme-05"
+          ],
+          "tunes": [],
+          "variantLabel": "资料包另版（M4A）",
+          "mappingBasis": "来源资料包书号、文件名与音轨内嵌title一致，按同名Hello童谣关联另一录音版本；与现有MP3的时长和PCM波形不同，不合并音源，不认定为经典曲调原曲。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "cover": "assets/hello/covers/hello-03.jpg",
@@ -660,7 +861,13 @@
             "hello-rhyme-08"
           ],
           "tunes": [],
-          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+          "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨",
+          "performedTune": "Rain Rain Go Away",
+          "performedTuneEvidence": {
+            "kind": "user-confirmation",
+            "checkedAt": "2026-11-05",
+            "basis": "用户确认4号书Little Bird原包演唱使用Rain Rain Go Away；仅适用于此音轨，不推断其他演唱版本或童谣。"
+          }
         },
         {
           "id": "hello-04-asset-78cadbbe70e5e5f4",
@@ -689,7 +896,8 @@
           "originalNames": [
             "4号书-.pdf"
           ],
-          "pages": 8
+          "pages": 8,
+          "role": "original-book"
         },
         {
           "id": "hello-04-asset-dcc92ca9eea2dd69",
@@ -702,6 +910,93 @@
             "Hello4号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-04-video-package-483e28635973",
+          "kind": "package-video",
+          "label": "055. Rain Rain Go Away.mp4",
+          "sourceFile": "055. Rain Rain Go Away.mp4",
+          "sourcePackagePath": "4号书资料包/055. Rain Rain Go Away.mp4",
+          "sourceBytes": 22794646,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-04-part-1"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-04.pdf",
+              "page": 1,
+              "part": 1,
+              "partTitle": "Little Bird",
+              "quote": "这首歌可以用Rain Rain Go Away的旋律唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-08"
+          ],
+          "tunes": [
+            "Rain Rain Go Away"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DzO8tS7d7n74R2P69CR94ceK0tLjSenl32d5AHF3UpwD&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/JGtEOZ4Zh23",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-04-video-package-19d69bdbbce1",
+          "kind": "package-video",
+          "label": "teddy bear.mp4",
+          "sourceFile": "teddy bear.mp4",
+          "sourcePackagePath": "4号书资料包/teddy bear.mp4",
+          "sourceBytes": 6969512,
+          "mappingBasis": "按本轮用户明确要求，作品与原书内容明确对应即可建立内容拓展关系：原书Part5明确毛绒熊在婴儿床睡觉，笔记p5明确将毛绒玩具放入床里玩哄睡游戏；资料包作品Teddy Bear作为该Part的毛绒熊/哄睡内容拓展，不声称原作者点名推荐、原书同文或已实播。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D22QNSFrkAxhm1m3Uwm2bQi7m3sLom1jWyo3Niei7cSMOMJP8&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/PViE1eWnCW5",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-04-part-5"
+          ],
+          "role": "extension-content",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/files/81709058b2fe924a.pdf",
+              "page": 8,
+              "part": 5,
+              "partTitle": "Where Toys Can Sleep",
+              "quote": "I found a place where toys can sleep / All warm and cuddly in a heap. / ... And there’s my bear. My crib is BIG!",
+              "method": "原书逐页OCR核对正文；原书PDF页序独立于Part。"
+            },
+            {
+              "file": "assets/hello/notes/book-04.pdf",
+              "page": 5,
+              "part": 5,
+              "partTitle": "Where Toys Can Sleep",
+              "quote": "共读的时候可以让宝宝试着指认图上的毛绒玩具，也可以模仿图中把毛绒玩具放在自己的床里玩哄睡游戏",
+              "method": "阅读指引全部5页OCR与整页图像复核。"
+            }
+          ],
+          "recommendationOrigin": "content-review",
+          "notAuthorRecommendation": true,
+          "mappingReview": {
+            "status": "confirmed-content",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-04.jpg",
@@ -835,7 +1130,8 @@
           "originalNames": [
             "5号书.pdf"
           ],
-          "pages": 8
+          "pages": 8,
+          "role": "original-book"
         },
         {
           "id": "hello-05-asset-40bc0374127a5ddc",
@@ -897,6 +1193,88 @@
             "I’m a Little Teapot"
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-05-video-package-75dbb73423c8",
+          "kind": "package-video",
+          "label": "3-6 Creep Crawly Calypso.mp4",
+          "sourceFile": "3-6 Creep Crawly Calypso.mp4",
+          "sourcePackagePath": "5号书资料包/3-6 Creep Crawly Calypso.mp4",
+          "sourceBytes": 17904168,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-05-part-3"
+          ],
+          "role": "extension-book-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-05.pdf",
+              "page": 4,
+              "part": 3,
+              "partTitle": "Find It",
+              "quote": "虫虫相关绘本推荐→ Creepy Crawly Calypso；适合3-6岁。",
+              "relation": "extension-book-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "extensionTitle": "Creepy Crawly Calypso",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D56FPixEtm3poS3j9C2kcyKsC0Dp7ntOWAti9ROGsGxSn&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/Weggee0Erz3",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-05-video-package-270dfb8b79b1",
+          "kind": "package-video",
+          "label": "baa baa black sheep.mp4",
+          "sourceFile": "baa baa black sheep.mp4",
+          "sourcePackagePath": "5号书资料包/baa baa black sheep.mp4",
+          "sourceBytes": 14233957,
+          "mappingBasis": "按本轮用户明确要求，作品与原书内容明确对应即可建立内容拓展关系：原书Part1正文Baa! Baa! says the sheep，阅读指引p1讲解绵羊叫声Baa；资料包作品Baa Baa Black Sheep作为该Part的羊叫/农场词汇内容拓展，不声称原作者点名推荐、原书同文、实唱曲调或已实播。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D2NhaCAsbwHQpD0pNJu6iRD2KofY9WwSAThUQEi4elQc&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/hBmE1H8Ysj",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-05-part-1"
+          ],
+          "role": "extension-content",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/files/6b49dac64d71f4a7.pdf",
+              "page": 3,
+              "part": 1,
+              "partTitle": "City and Country",
+              "quote": "Baa! Baa! says the sheep. / Quack! Quack! says the duck. / Woof! Woof! says the farmer’s dog / as he jumps into the truck.",
+              "method": "原书逐页OCR核对正文。"
+            },
+            {
+              "file": "assets/hello/notes/book-05.pdf",
+              "page": 1,
+              "part": 1,
+              "partTitle": "City and Country",
+              "quote": "Baa：绵羊叫声；Meh：山羊叫声。可以用Twinkle twinkle little star的旋律唱出来。",
+              "method": "阅读指引全部6页OCR与整页图像复核。"
+            }
+          ],
+          "recommendationOrigin": "content-review",
+          "notAuthorRecommendation": true,
+          "mappingReview": {
+            "status": "confirmed-content",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-05.jpg",
@@ -1064,7 +1442,8 @@
           "originalNames": [
             "6号书.pdf"
           ],
-          "pages": 9
+          "pages": 9,
+          "role": "original-book"
         },
         {
           "id": "hello-06-asset-1b894a87b6153e8f",
@@ -1106,6 +1485,95 @@
             "I’m a Little Teapot"
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-06-video-package-ae3976fd3e8f",
+          "kind": "package-video",
+          "label": "Five Little Monkeys.mp4",
+          "sourceFile": "Five Little Monkeys.mp4",
+          "sourcePackagePath": "6号书资料包/Five Little Monkeys.mp4",
+          "sourceBytes": 12249219,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-06-part-2"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-06.pdf",
+              "page": 2,
+              "part": 2,
+              "partTitle": "Baby Bunny’s in Her Pool",
+              "quote": "这首小诗可以按照 I'm a little teapot 或者 Rain rain go away 或者 Five little monkeys 这三首歌的旋律来唱，大家选择自己熟悉的就可以。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-12"
+          ],
+          "tunes": [
+            "Five Little Monkeys"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6QlcsDm2cJBuKzZErm1Ms5aZIm3HanQy2Y1FLUAAfvm1LUv&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/QPUXVBhwKbd",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-06-video-package-245471de1892",
+          "kind": "package-video",
+          "label": "Swimming Song.mp4",
+          "sourceFile": "Swimming Song.mp4",
+          "sourcePackagePath": "6号书资料包/Swimming Song.mp4",
+          "sourceBytes": 63733939,
+          "mappingBasis": "原书泳池与泼水正文明确，Swimming Song作为游泳动作拓展，不作原诗同文或套唱。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dm350m3ddAifSim3vqzfWMcqN2qHjcaRLoU7E9qYVDHaBnA&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/yqhoF8PwT8l",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-06-part-2"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-06.pdf",
+              "page": 2,
+              "part": 2,
+              "partTitle": "Baby Bunny’s in Her Pool",
+              "quote": "场景：游泳；Splash everyone；Stop splashing me!",
+              "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+            },
+            {
+              "file": "assets/hello/files/578e3e139ece229a.pdf",
+              "page": 4,
+              "part": 2,
+              "partTitle": "Baby Bunny’s in Her Pool",
+              "quote": "In her yellow swimming pool. / Happy-splashing everyone!",
+              "method": "原书对应完整页面图像核对"
+            }
+          ],
+          "recommendationOrigin": "content-extension",
+          "mappingReview": {
+            "status": "confirmed-content",
+            "checkedAt": "2026-11-05"
+          },
+          "extensionTitle": "Swimming Song",
+          "notAuthorRecommendation": true
         }
       ],
       "cover": "assets/hello/covers/hello-06.jpg",
@@ -1256,7 +1724,8 @@
           "originalNames": [
             "7号书.pdf"
           ],
-          "pages": 9
+          "pages": 9,
+          "role": "original-book"
         },
         {
           "id": "hello-07-asset-5beaca34b3294c98",
@@ -1301,6 +1770,128 @@
             "Where Is Thumbkin?"
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-07-video-package-9a179cc4b968",
+          "kind": "package-video",
+          "label": "Five Little Monkeys（数字认知）.mp4",
+          "sourceFile": "Five Little Monkeys（数字认知）.mp4",
+          "sourcePackagePath": "7号书资料包/Five Little Monkeys（数字认知）.mp4",
+          "sourceBytes": 12249219,
+          "mappingBasis": "原书明确Count the kittens，带数字认知标识的Five Little Monkeys作为数数拓展，不作原作者点名推荐或本诗套唱。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dm2GQ7shUnQYZIp2CGKNPc9NsQsOGWm3zRdZNMFbvDc11j&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/S8bFOZO7Kc2",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-07-part-2"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-07.pdf",
+              "page": 2,
+              "part": 2,
+              "partTitle": "Count the Kittens",
+              "quote": "数小猫 Count the kittens",
+              "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+            },
+            {
+              "file": "assets/hello/files/027ac25b599e3c5f.pdf",
+              "page": 4,
+              "part": 2,
+              "partTitle": "Count the Kittens",
+              "quote": "Count the kittens / With Mama cat.",
+              "method": "原书对应完整页面图像核对"
+            }
+          ],
+          "recommendationOrigin": "content-extension",
+          "mappingReview": {
+            "status": "confirmed-content",
+            "checkedAt": "2026-11-05"
+          },
+          "extensionTitle": "Five Little Monkeys",
+          "notAuthorRecommendation": true
+        },
+        {
+          "id": "hello-07-video-package-a4af8b7c1b17",
+          "kind": "package-video",
+          "label": "The Animal Boogie.mp4",
+          "sourceFile": "The Animal Boogie.mp4",
+          "sourcePackagePath": "7号书资料包/The Animal Boogie.mp4",
+          "sourceBytes": 31176224,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-07-part-5"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-07.pdf",
+              "page": 5,
+              "part": 5,
+              "partTitle": "Clap, Clap, Clap",
+              "quote": "关于拍手、跺脚的儿歌：The animal boogie（来自barefoot）。",
+              "relation": "extension-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "extensionTitle": "The Animal Boogie",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D9cvwaMySVYeBkFqlsNm1dvfM2dcb3i8xm3xN1fm1AD8of3&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/zLyvtJ5Kq54",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-07-video-package-b4de1dfcc7f3",
+          "kind": "package-video",
+          "label": "This Little Piggy (HD) - Mother Goose Club Nursery Rhymes.mp4",
+          "sourceFile": "This Little Piggy (HD) - Mother Goose Club Nursery Rhymes.mp4",
+          "sourcePackagePath": "7号书资料包/This Little Piggy (HD) - Mother Goose Club Nursery Rhymes.mp4",
+          "sourceBytes": 23510908,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-07-part-4"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-07.pdf",
+              "page": 4,
+              "part": 4,
+              "partTitle": "Your Wonderful Body",
+              "quote": "身体部位相关儿歌推荐：Where is thumbkin；This little piggy；My Teddy bear；The bath song。",
+              "relation": "extension-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "extensionTitle": "This Little Piggy",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D4XsXtQm1Im2TwoYOSzTm1sCSB8Km2EJm1zaSHm2xm1OCR3f2bZ&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/gsu4kt1YEO6",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-07.jpg",
@@ -1451,7 +2042,8 @@
           "originalNames": [
             "8号书.pdf"
           ],
-          "pages": 9
+          "pages": 9,
+          "role": "original-book"
         },
         {
           "id": "hello-08-asset-01191e747ce80b75",
@@ -1481,6 +2073,48 @@
             "London Bridge Is Falling Down"
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-08-video-package-d91172660ab4",
+          "kind": "package-video",
+          "label": "London Bridge is Falling Down ABCkidTV Nursery Rhymes & Kids Songs.mp4",
+          "sourceFile": "London Bridge is Falling Down ABCkidTV Nursery Rhymes & Kids Songs.mp4",
+          "sourcePackagePath": "8号书资料包/London Bridge is Falling Down   ABCkidTV Nursery Rhymes & Kids Songs.mp4",
+          "sourceBytes": 40295086,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-08-part-4"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-08.pdf",
+              "page": 4,
+              "part": 4,
+              "partTitle": "It’s Time to Put Your Toys Away",
+              "quote": "可以用 London Bridge is Falling Down 的旋律唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-18"
+          ],
+          "tunes": [
+            "London Bridge Is Falling Down"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D2fyE9huXoim3HXc4UMM0hvRCi2fgNZ6wjnJTajEm1VFQM&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/Gm1gPBk6c0l",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-08.jpg",
@@ -1648,7 +2282,8 @@
           "originalNames": [
             "9号书.pdf"
           ],
-          "pages": 7
+          "pages": 7,
+          "role": "original-book"
         },
         {
           "id": "hello-09-asset-de080b6ad376df6d",
@@ -1678,6 +2313,128 @@
             "London Bridge Is Falling Down"
           ],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-09-video-package-3f023048fb08",
+          "kind": "package-video",
+          "label": "hello.mp4",
+          "sourceFile": "hello.mp4",
+          "sourcePackagePath": "9号书资料包/hello.mp4",
+          "sourceBytes": 21454468,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-09-part-1"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-09.pdf",
+              "page": 1,
+              "part": 1,
+              "partTitle": "Stormy Day",
+              "quote": "拍手相关的英文儿歌：If you’re happy and you know it；Hello, hello（来自super simple songs）。",
+              "relation": "extension-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "extensionTitle": "Hello, Hello",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DzjQYm38NZ3sFetidib1VqpqLDbHdwum1UYkEMnvKYHQbQ&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/jWXw0BMVpv3",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-09-video-package-942373f7621c",
+          "kind": "package-video",
+          "label": "Open Shut Them.mp4",
+          "sourceFile": "Open Shut Them.mp4",
+          "sourcePackagePath": "9号书资料包/Open Shut Them.mp4",
+          "sourceBytes": 21280774,
+          "mappingBasis": "原书dance and clap和拍手游戏明确；Open Shut Them作为开合手与拍手动作拓展，不作原作者点名推荐或套唱。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dx9wpGKkE7053ucB9Nld0jvbjCxFOcyIcyDKm2vqm2om3oc&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/UtgQX6rWONf",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-09-part-1"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-09.pdf",
+              "page": 1,
+              "part": 1,
+              "partTitle": "Stormy Day",
+              "quote": "读之前先玩一下里面的活动，例如peekaboo, patty cake；拍手相关的英文儿歌。",
+              "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+            },
+            {
+              "file": "assets/hello/files/35e78cf2a2e013e7.pdf",
+              "page": 2,
+              "part": 1,
+              "partTitle": "Stormy Day",
+              "quote": "or patty-cake / or dance and clap",
+              "method": "原书对应完整页面图像核对"
+            }
+          ],
+          "recommendationOrigin": "content-extension",
+          "mappingReview": {
+            "status": "confirmed-content",
+            "checkedAt": "2026-11-05"
+          },
+          "extensionTitle": "Open Shut Them",
+          "notAuthorRecommendation": true
+        },
+        {
+          "id": "hello-09-video-package-64874ab12f18",
+          "kind": "package-video",
+          "label": "pat a cake.mp4",
+          "sourceFile": "pat a cake.mp4",
+          "sourcePackagePath": "9号书资料包/pat a cake.mp4",
+          "sourceBytes": 4215026,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-09-part-1"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-09.pdf",
+              "page": 1,
+              "part": 1,
+              "partTitle": "Stormy Day",
+              "quote": "Patty cake这首歌，小娃可以拉着小朋友的小手玩，大一点的娃就可以坐对面拍手玩起来了。",
+              "relation": "extension-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "extensionTitle": "Patty Cake",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DwfLo42VUm1yTxz60m1ji3M9YAnxg6sJIm2OPTzYkabm2m1CV&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/9IgYRzIXy51",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-09.jpg",
@@ -1818,7 +2575,8 @@
           "originalNames": [
             "10号书.pdf"
           ],
-          "pages": 9
+          "pages": 9,
+          "role": "original-book"
         },
         {
           "id": "hello-10-asset-c7589dd897027a45",
@@ -2013,7 +2771,8 @@
           "originalNames": [
             "11号书.pdf"
           ],
-          "pages": 9
+          "pages": 9,
+          "role": "original-book"
         },
         {
           "id": "hello-11-asset-0bb7415fe2b9ebf3",
@@ -2026,6 +2785,90 @@
             "Hello11号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-11-video-package-a93a76edd2c5",
+          "kind": "package-video",
+          "label": "083. Seven Steps.mp4",
+          "sourceFile": "083. Seven Steps.mp4",
+          "sourcePackagePath": "11号书资料包/083. Seven Steps.mp4",
+          "sourceBytes": 6157193,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-11-part-4"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-11.pdf",
+              "page": 4,
+              "part": 4,
+              "partTitle": "Little Wagon",
+              "quote": "可以用super simple songs的Seven steps旋律唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-24"
+          ],
+          "tunes": [
+            "Seven Steps"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D0t8bO8tm1rr5ZB7FEXoJawhifm38OSY7PD9yem1iWm2ihi9&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/yfEmX2Eohp2",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-11-video-package-c7a4d4b30d32",
+          "kind": "package-video",
+          "label": "Rock-a-bye Baby.mp4",
+          "sourceFile": "Rock-a-bye Baby.mp4",
+          "sourcePackagePath": "11号书资料包/Rock-a-bye Baby.mp4",
+          "sourceBytes": 28503671,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-11-part-5"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-11.pdf",
+              "page": 5,
+              "part": 5,
+              "partTitle": "Rock-a-Bye, Darling",
+              "quote": "可以用Rock-a-bye Baby的旋律唱出来；原版歌曲视频来自cocomelon。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-25"
+          ],
+          "tunes": [
+            "Rock-a-Bye Baby"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dm34xaXm1cNOHsrLjpvXooVZlysbV6PUcd75bE3CoAC6I8&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/dRNpRAc9dWe",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-11.jpg",
@@ -2183,7 +3026,8 @@
           "originalNames": [
             "12号书.pdf"
           ],
-          "pages": 8
+          "pages": 8,
+          "role": "original-book"
         },
         {
           "id": "hello-12-asset-973f0a5697dae188",
@@ -2329,7 +3173,8 @@
           "originalNames": [
             "13号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-13-asset-1f28a4e694353deb",
@@ -2359,6 +3204,48 @@
           ],
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-13-video-package-e5f60dd17c25",
+          "kind": "package-video",
+          "label": "Five Little Monkeys.mp4",
+          "sourceFile": "Five Little Monkeys.mp4",
+          "sourcePackagePath": "13号书资料包/Five Little Monkeys.mp4",
+          "sourceBytes": 12249219,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-13-part-2"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-13.pdf",
+              "page": 4,
+              "part": 2,
+              "partTitle": "Hickety Pickety",
+              "quote": "可以用10 Little Indians、Five Little Monkeys或者Hickety Pickety My Black Hen的旋律唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-28"
+          ],
+          "tunes": [
+            "Five Little Monkeys"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DxgRpS9cjYZdnFVPeM1M9m1YyPxcHhCJ3m3PxCj0Rnm3pBy&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/HBF2U6YpuTc",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-13.jpg",
@@ -2407,13 +3294,24 @@
           "scene": "冬天",
           "note": "",
           "sourcePage": 3,
-          "title": "What Is It?",
+          "title": "Find It",
           "titleSource": {
-            "file": "assets/hello/notes/book-14.pdf",
-            "page": 3,
-            "heading": "14号书 Part3 — What Is It?",
-            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
-          }
+            "file": "assets/hello/files/4b8660b11462d380.pdf",
+            "page": 8,
+            "heading": "Find It",
+            "quote": "Find It / Cloud / Squirrel / Hat",
+            "basis": "2026-11-05核对原书实际文本层纠正；保留原带读笔记题名差异，不以ASR单独改标题。",
+            "previousTitle": "What Is It?",
+            "previousSource": {
+              "file": "assets/hello/notes/book-14.pdf",
+              "page": 3,
+              "heading": "14号书 Part3 — What Is It?",
+              "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+            }
+          },
+          "aliases": [
+            "What Is It?"
+          ]
         },
         {
           "part": 4,
@@ -2526,7 +3424,8 @@
           "originalNames": [
             "14号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-14-asset-2010bc8114f97d9e",
@@ -2554,6 +3453,65 @@
           "rhymeIds": [],
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-14-asset-152bd1d063ff7529",
+          "kind": "audio",
+          "label": "14号书 Babies Everywhere.m4a",
+          "file": "assets/hello/files/152bd1d063ff7529.m4a",
+          "bytes": 180051,
+          "sha256": "152bd1d063ff7529dc1c07d8a66c43ce26bff7fe1741d30208ab1293a3ccbb84",
+          "originalNames": [
+            "14号书 Babies Everywhere.m4a"
+          ],
+          "sourceNames": [
+            "14号书资料包/14号书 Babies Everywhere.m4a"
+          ],
+          "duration": 20.864,
+          "rhymeIds": [
+            "hello-rhyme-29"
+          ],
+          "tunes": [],
+          "variantLabel": "资料包另版（M4A）",
+          "mappingBasis": "来源资料包书号、文件名与音轨内嵌title一致，按同名Hello童谣关联另一录音版本；与现有MP3的时长和PCM波形不同，不合并音源，不认定为经典曲调原曲。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "id": "hello-14-video-package-79ad54cc9b74",
+          "kind": "package-video",
+          "label": "do you wanna build a snowman.mp4",
+          "sourceFile": "do you wanna build a snowman.mp4",
+          "sourcePackagePath": "14号书资料包/do you wanna build a snowman.mp4",
+          "sourceBytes": 5950134,
+          "mappingBasis": "完整页面图像确认Part3点名推荐，文件名吻合；该页标题误写What is it，按明确Part3归入当前Find It，不改书中标题。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D12fK6BpWm1iyTVc4Ssppp8xOyPG2krfeNKvwXi5hZX3V&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/W8ypKjGKfyf",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-14-part-3"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-14.pdf",
+              "page": 3,
+              "part": 3,
+              "partTitle": "Find It",
+              "quote": "可以边指着这一页，边唱雪天相关的歌曲：Frosty the snowman；Snowflake；Do you wanna build a snowman。",
+              "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+            }
+          ],
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          },
+          "extensionTitle": "Do You Wanna Build a Snowman"
         }
       ],
       "cover": "assets/hello/covers/hello-14.jpg",
@@ -2768,7 +3726,8 @@
           "originalNames": [
             "15号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-15-asset-01c0da8e1c65d80a",
@@ -2938,7 +3897,8 @@
           "originalNames": [
             "16号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-16-asset-bd765985e6a9210b",
@@ -2963,6 +3923,48 @@
             "HighlightsHello-2018年10月.pdf"
           ],
           "pages": 16
+        },
+        {
+          "id": "hello-16-video-package-905c522c2859",
+          "kind": "package-video",
+          "label": "002. Twinkle Twinkle Little Star.mp4",
+          "sourceFile": "002. Twinkle Twinkle Little Star.mp4",
+          "sourcePackagePath": "16号书资料包/002. Twinkle Twinkle Little Star.mp4",
+          "sourceBytes": 7955560,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-16-part-4"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-16.pdf",
+              "page": 4,
+              "part": 4,
+              "partTitle": "Who Is…",
+              "quote": "这个小故事可以用Twinkle twinkle little star的旋律唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-37"
+          ],
+          "tunes": [
+            "Twinkle Twinkle Little Star"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dzsfum1zS5OpZDu9FNjeXBiViova1GHE8sELzHEkvHozV&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/wHv68ooEhIg",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-16.jpg",
@@ -3113,7 +4115,8 @@
           "originalNames": [
             "17号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-17-asset-c314ea3cdee52552",
@@ -3126,6 +4129,48 @@
             "17号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-17-video-package-88c874916f89",
+          "kind": "package-video",
+          "label": "Row your boat跟老师学童谣.mp4",
+          "sourceFile": "Row your boat跟老师学童谣.mp4",
+          "sourcePackagePath": "17号书资料包/Row your boat跟老师学童谣.mp4",
+          "sourceBytes": 17268736,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-17-part-5"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-17.pdf",
+              "page": 5,
+              "part": 5,
+              "partTitle": "Rock and Sing",
+              "quote": "可以用Row, row, row your boat的旋律唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-39"
+          ],
+          "tunes": [
+            "Row Row Row Your Boat"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D3QR8tI0Nxm3lT7R3rIx8KFIX0yFm3O5CtYxR4Lf418oUS&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/SjefASP1zth",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-17.jpg",
@@ -3325,7 +4370,8 @@
           "originalNames": [
             "18号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-18-asset-9a52f7e19178eac3",
@@ -3535,7 +4581,8 @@
           "originalNames": [
             "19号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-19-asset-748e5ec5f63fc228",
@@ -3725,7 +4772,8 @@
           "originalNames": [
             "Hello杂志20号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-20-asset-4f3ce461d5560460",
@@ -3738,6 +4786,90 @@
             "Hello杂志20号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-20-video-package-0ec46ade9aaa",
+          "kind": "package-video",
+          "label": "down by the station.mp4",
+          "sourceFile": "down by the station.mp4",
+          "sourcePackagePath": "20号书资料包/down by the station.mp4",
+          "sourceBytes": 29282868,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-20-part-5"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-20.pdf",
+              "page": 5,
+              "part": 5,
+              "partTitle": "Jelly Baby",
+              "quote": "这首小诗可以用Jelly on a Plate唱出来，也可以用Down by the Station唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-47"
+          ],
+          "tunes": [
+            "Down by the Station"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D80q5MSIhm3kpYZ6l84IS50FxTm1kqqm1NCr6xxNyxpOm3K7&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/ImYq5JnxWVi",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-20-video-package-d7455e07736a",
+          "kind": "package-video",
+          "label": "Jelly on a plate.mp4",
+          "sourceFile": "Jelly on a plate.mp4",
+          "sourcePackagePath": "20号书资料包/Jelly on a plate.mp4",
+          "sourceBytes": 30190157,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-20-part-5"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-20.pdf",
+              "page": 5,
+              "part": 5,
+              "partTitle": "Jelly Baby",
+              "quote": "这首小诗可以用Jelly on a Plate唱出来，也可以用Down by the Station唱出来。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-47"
+          ],
+          "tunes": [
+            "Jelly on a Plate"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DwzJKMYm10hoGL5UbPEOdDgpOqeGeBjshm2VevVDf0iOBw&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/5KMoM8ibUbc",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "verified",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-20.jpg",
@@ -3905,7 +5037,8 @@
           "originalNames": [
             "21号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-21-asset-04946d8d3d5aeb58",
@@ -4102,7 +5235,8 @@
           "originalNames": [
             "22号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-22-asset-b4d52ab7c3473d85",
@@ -4115,6 +5249,94 @@
             "Hello22号书笔记汇总.pdf"
           ],
           "pages": 5
+        },
+        {
+          "id": "hello-22-video-package-d8d3582e3fbb",
+          "kind": "package-video",
+          "label": "160. Where Is Thumbkin.mp4",
+          "sourceFile": "160. Where Is Thumbkin.mp4",
+          "sourcePackagePath": "22号书资料包/160. Where Is Thumbkin.mp4",
+          "sourceBytes": 9448204,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-22-part-2"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-22.pdf",
+              "page": 2,
+              "part": 2,
+              "partTitle": "Find Me!",
+              "quote": "这首小诗按照 Where is Thumbkin 这首歌的旋律来唱，那么Thumbkin这首歌里包含的手指名字，一起记下来吧！",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-51"
+          ],
+          "tunes": [
+            "Where Is Thumbkin?"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D7CNN4MFiGipltgoB3fbHm3R79TulF8TUrrLPD0CBaZFC&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/ypyoGv9d0cb",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
+        },
+        {
+          "id": "hello-22-video-package-64d2efffced9",
+          "kind": "package-video",
+          "label": "walking on halloween.mp4",
+          "sourceFile": "walking on halloween.mp4",
+          "sourcePackagePath": "22号书资料包/walking on halloween.mp4",
+          "sourceBytes": 7456787,
+          "mappingBasis": "阅读指引完整图像与本地同名视频10秒抽样帧匹配：红外套海盗帽男子、卡通街道房屋与树一致，归Part3拓展；不声明完整播放。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6f1m1Y7m3BPBfWroaYkRY0O7QQ820v7cwC66qxzB1V4Q9&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/VILtjwiOmf7",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-22-part-3"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-22.pdf",
+              "page": 3,
+              "part": 3,
+              "partTitle": "Find It",
+              "quote": "场景：万圣节；左下嵌图标注“万圣节超欢乐歌曲”。",
+              "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+            }
+          ],
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          },
+          "extensionTitle": "Walking on Halloween",
+          "videoContentReview": {
+            "bytes": 7456787,
+            "sha256": "37104051c362b5ad7d6f9ee6fe31d7fe319e6ed96949df7bc15aa2f32b466770",
+            "duration": 140.527166,
+            "sampleSeconds": [
+              10
+            ]
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-22.jpg",
@@ -4265,7 +5487,8 @@
           "originalNames": [
             "23号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-23-asset-e2849a5a3a75ef0d",
@@ -4293,6 +5516,95 @@
           "rhymeIds": [],
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-23-video-package-9877a8d44583",
+          "kind": "package-video",
+          "label": "pat a cake.mp4",
+          "sourceFile": "pat a cake.mp4",
+          "sourcePackagePath": "23号书资料包/pat a cake.mp4",
+          "sourceBytes": 4215026,
+          "mappingBasis": "原书题名与正文明确Patty-cakes，传统Pat-a-cake作为同名亲子动作童谣拓展，不作原诗同文或实唱曲调。阅读指引另建议Rain Rain Go Away，不覆盖该来源差异。",
+          "checkedAt": "2026-11-05",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D3nBCFhQRblPwvUjV8548lb3M99tRsDm3930nzoKcRndL&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/tQljuExzCzl",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "partIds": [
+            "hello-23-part-2"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-23.pdf",
+              "page": 2,
+              "part": 2,
+              "partTitle": "Papa’s Little Patty-Cakes",
+              "quote": "Patty cakes, patty cakes / Pick you up and hold you / Swing you high and low / Flip you on my shoulder。",
+              "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+            },
+            {
+              "file": "assets/hello/files/98abf5388964c57a.pdf",
+              "page": 6,
+              "part": 2,
+              "partTitle": "Papa’s Little Patty-Cakes",
+              "quote": "Patty-cakes, patty-cakes. Papa picks her up and holds her.",
+              "method": "原书PDF完整文本提取，题名及正文核对"
+            }
+          ],
+          "recommendationOrigin": "content-extension",
+          "mappingReview": {
+            "status": "confirmed-content",
+            "checkedAt": "2026-11-05"
+          },
+          "extensionTitle": "Patty Cake",
+          "notAuthorRecommendation": true
+        },
+        {
+          "id": "hello-23-video-package-490fc32ddcc0",
+          "kind": "package-video",
+          "label": "Sleeping bunnies视频.mp4",
+          "sourceFile": "Sleeping bunnies视频.mp4",
+          "sourcePackagePath": "23号书资料包/Sleeping bunnies视频.mp4",
+          "sourceBytes": 16092322,
+          "mappingBasis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-23-part-1"
+          ],
+          "role": "tune-demo",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-23.pdf",
+              "page": 1,
+              "part": 1,
+              "partTitle": "Bunny Hop",
+              "quote": "可以用 Sleeping Bunnies 的旋律唱出来，演唱示范见课程视频后半段。",
+              "relation": "tune-demo",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            }
+          ],
+          "rhymeIds": [
+            "hello-rhyme-55"
+          ],
+          "tunes": [
+            "Sleeping Bunnies"
+          ],
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D2MjP8JDzj9wXKQhObeqguASfPsnj0uAhBuOzT6nGk4E&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/H2Z3Q6V3k7h",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "recommendationOrigin": "reading-guide",
+          "mappingReview": {
+            "status": "source-confirmed",
+            "checkedAt": "2026-11-05"
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-23.jpg",
@@ -4328,13 +5640,24 @@
           "scene": "肢体动作",
           "note": "",
           "sourcePage": 4,
-          "title": "Pat, Pat, Pat",
+          "title": "Clap, Clap, Clap",
           "titleSource": {
-            "file": "assets/hello/notes/book-24.pdf",
-            "page": 2,
-            "heading": "24号书 Part2 — Pat, Pat, Pat",
-            "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
-          }
+            "file": "assets/hello/files/a3275b2846f4afc1.pdf",
+            "page": 6,
+            "heading": "Clap, Clap, Clap",
+            "quote": "Read Me a Poem / Clap, Clap, Clap / Baby sees me!",
+            "basis": "2026-11-05核对原书实际文本层纠正；保留原带读笔记题名差异，不以ASR单独改标题。",
+            "previousTitle": "Pat, Pat, Pat",
+            "previousSource": {
+              "file": "assets/hello/notes/book-24.pdf",
+              "page": 2,
+              "heading": "24号书 Part2 — Pat, Pat, Pat",
+              "basis": "逐页笔记Part标题核对；标题标点按相同原书/童谣标题统一，不将PDF页号当作Part。"
+            }
+          },
+          "aliases": [
+            "Pat, Pat, Pat"
+          ]
         },
         {
           "part": 3,
@@ -4426,7 +5749,8 @@
           "originalNames": [
             "24号书.pdf"
           ],
-          "pages": 16
+          "pages": 16,
+          "role": "original-book"
         },
         {
           "id": "hello-24-asset-e88a40f7ac3ba463",
@@ -4469,6 +5793,59 @@
           "rhymeIds": [],
           "tunes": [],
           "mappingBasis": "按本册资料包归属；与童谣或曲调同名时关联，保留原文件名，未逐段听辨"
+        },
+        {
+          "id": "hello-24-video-package-83043ba4f81b",
+          "kind": "package-video",
+          "label": "Hokey Pokey动画.mp4",
+          "sourceFile": "Hokey Pokey动画.mp4",
+          "sourcePackagePath": "24号书资料包/Hokey Pokey动画.mp4",
+          "sourceBytes": 16579023,
+          "mappingBasis": "逐册阅读指引明确列出对应作品与Part的套唱/拓展关系；资料包MP4文件名与作品名一致（保留常用别名）；未对NAS视频完整播放核验。",
+          "checkedAt": "2026-11-05",
+          "partIds": [
+            "hello-24-part-2"
+          ],
+          "role": "extension-song",
+          "mappingEvidence": [
+            {
+              "file": "assets/hello/notes/book-24.pdf",
+              "page": 2,
+              "part": 2,
+              "partTitle": "Pat, Pat, Pat",
+              "quote": "拍手相关的儿歌：Patty Cake clap（Hello 10号书）；If you’re happy and you know it；Hello, hello（Super Simple Songs）；Hokey Pokey（Super Simple Songs）。",
+              "relation": "extension-song",
+              "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+            },
+            {
+              "file": "assets/hello/files/a3275b2846f4afc1.pdf",
+              "page": 6,
+              "part": 2,
+              "partTitle": "Clap, Clap, Clap",
+              "quote": "Read Me a Poem / Clap, Clap, Clap / By Ann Dorer / As you read, help your baby clap, clap, clap… / Baby sees me!",
+              "relation": "extension-song",
+              "basis": "核对原书文本层和完整页面图像，确认为拍手诗；指引Part2拍手儿歌列表中的Hokey Pokey仍可保留为拓展，不当作同文或指定套唱。"
+            }
+          ],
+          "extensionTitle": "Hokey Pokey",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D23qKTcLn4nMJOvDY4Gm1ZncoDt74eOTqPydGj9NxTuXQ&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/NxlDThoF408",
+          "createdAt": "2026-11-05",
+          "expiresAfterDays": 180,
+          "password": false,
+          "maxVisits": 1000,
+          "shareUrlResolvedAt": "2026-11-05",
+          "mappingReview": {
+            "status": "sourceMismatch",
+            "checkedAt": "2026-11-05",
+            "sourceDifference": {
+              "kind": "part-title-only",
+              "notesTitle": "Pat, Pat, Pat",
+              "originalTitle": "Clap, Clap, Clap",
+              "mappingAffected": false,
+              "action": "保留当前Part2关联及原书正式题名；在来源依据保留指引题名差异。"
+            }
+          }
         }
       ],
       "cover": "assets/hello/covers/hello-24.jpg",
@@ -5645,14 +7022,21 @@
     }
   ],
   "assetInventory": {
-    "sourceFiles": 136,
-    "downloadedFiles": 136,
-    "sourceBytes": 322505628,
-    "uniqueFiles": 126,
-    "uniqueBytes": 303180880,
+    "sourceFiles": 139,
+    "downloadedFiles": 139,
+    "sourceBytes": 323036485,
+    "uniqueFiles": 128,
+    "uniqueBytes": 303536334,
     "pdfFiles": 54,
-    "audioFiles": 82,
+    "audioFiles": 85,
     "deduplication": "SHA-256完全相同时共用文件，原始文件名按册保留",
-    "mappingNote": "额外PDF和MP3按来源资料包归册；同名音频关联童谣或建议曲调，不推断具体Part或官方录音身份"
+    "mappingNote": "PDF、MP3与M4A按来源资料包归册；3个M4A来源文件按SHA-256合并为2个文件，原名完整保留。明确同名音频关联对应Hello童谣，曲调仅按已核实音源映射，不按同名或文件存放位置推定。",
+    "mp3Files": 82,
+    "m4aFiles": 3,
+    "sourceTypes": [
+      "pdf",
+      "mp3",
+      "m4a"
+    ]
   }
 }

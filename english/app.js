@@ -36,6 +36,10 @@ function btn(label,action,attrs={},cls='button'){return h('button',Object.assign
 function routeChip(id){return h('span',{class:'chip '+id},routes.get(id)?.name||id);}
 function src(id){return C.sources.find(x=>x.id===id);}
 function asset(path){if(!path)return '';const item=window.ROADMAP_ASSETS?.[path];if(!item)return path;if(!item.startsWith('data:application/pdf'))return item;if(!blobs[path]){const data=atob(item.slice(item.indexOf(',')+1));const b=new Uint8Array(data.length);for(let i=0;i<data.length;i++)b[i]=data.charCodeAt(i);blobs[path]=URL.createObjectURL(new Blob([b],{type:'application/pdf'}));}return blobs[path];}
+window.EnglishFilePreview=window.EnglishFilePreview.install({h,asset,externalUrls:[...window.ROADMAP_RAW.helloReading.books.flatMap(book=>book.resources),...(window.ROADMAP_RAW.helloReading.supplements||[])].map(item=>item.url).filter(Boolean),originalPath:href=>{
+  const [url,hash]=href.split('#'),path=Object.keys(blobs).find(path=>blobs[path]===url)||Object.keys(window.ROADMAP_ASSETS||{}).find(path=>window.ROADMAP_ASSETS[path]===url);
+  return path?path+(hash?'#'+hash:''):null;
+}});
 function sourcePage(id,page){const s=src(id);return s?.previews.find(p=>p.page===Number(page))||s?.previews[0];}
 function sourceBtn(id,page,label){return btn([icon('source'),label||((src(id)?.title||'原文')+' · 第 '+page+' 页')],'preview',{'data-source':id,'data-page':page},'text-link');}
 function stageSourceLinks(st){const refs=st.pages.map(page=>({id:st.sourceId||st.routeId,page}));for(const m of st.materials){const id=m.sourceId||st.sourceId||st.routeId,page=m.page||st.pages[0]||1;if(!refs.some(ref=>ref.id===id&&ref.page===page))refs.push({id,page});}for(const ref of st.raw.referenceSources||[]){if(!refs.some(item=>item.id===ref.sourceId&&item.page===ref.page))refs.push({id:ref.sourceId,page:ref.page,label:ref.label});}return refs.map(ref=>sourceBtn(ref.id,ref.page,ref.label));}
@@ -509,11 +513,13 @@ function independentRouteView(route){
 }
 function routesView(){
   const comparison=S.roadmapMode==='compare',route=browseRoute();
+  const legend=libraryPopover('routes-legend','路线素材图例',icon('info'),materialLegend());
+  legend.querySelector('button').classList.add('button','icon-button');
   return h('div',{class:'routes-view'+(readingFolds.get(routeExpansionKey())?' routes-expanded':'')},
     heading('THE COMPLETE ROADMAP','三条完整路线',null,btn([icon('book'),'多路线共用书单'],'shared-library')),
     authorPicker(),routeJourney(route),
     h('div',{class:'toolbar roadmap-mode','aria-label':'完整路线查看模式'},h('div',{class:'segmented'},[['compare','阶段对照'],['complete','独立排列']].map(([id,label])=>btn(label,'roadmap-mode',{'data-mode':id,'aria-pressed':String(S.roadmapMode===id)},S.roadmapMode===id?'active':''))),
-      h('div',{class:'route-fold-actions'},h('button',{id:'routes-toggle-all',type:'button',class:'button','aria-expanded':String(!!readingFolds.get(routeExpansionKey())),onclick:()=>setRouteStagesOpen(!readingFolds.get(routeExpansionKey()))},readingFolds.get(routeExpansionKey())?'折叠全部':'展开全部'))),
+      h('div',{class:'route-fold-actions'},legend,h('button',{id:'routes-toggle-all',type:'button',class:'button','aria-expanded':String(!!readingFolds.get(routeExpansionKey())),onclick:()=>setRouteStagesOpen(!readingFolds.get(routeExpansionKey()))},readingFolds.get(routeExpansionKey())?'折叠全部':'展开全部'))),
     routeDomainPanel(),comparison&&route.stages.length?stageComparison():independentRouteView(route),
     h('details',{class:'route-reference-panel'},h('summary',{},'执行方法、来源与对照说明'),domainMethodsPanel(),routeSourcesPanel(),
       h('details',{class:'route-help'},h('summary',{},'对照规则与共用素材图例'),h('div',{},h('p',{},'先核对原文阶段定义、准入与目标，再查看素材。许密杉与庆爸按听力词汇目标粗略参考；香蕉妈妈Pre仅参考起步方式，后续阶段的换算依据仍待核验。共用素材不参与阶段判定。听、说、读、写可以交叉发展，不按领域按钮的排列顺序晋级。'),materialLegend()))));
@@ -1619,7 +1625,9 @@ function previewSource(preview){
   return resource?.cover?{title:resource.title,file:resource.cover,previews:[{page:1,path:resource.cover,alt:resource.title+'，'+coverLabel(resource)}]}:null;
 }
 function showPreview(sourceId,page,resourceId,helloRhymeId,helloMaterialId){
-  const source=previewSource({sourceId,resourceId,helloRhymeId,helloMaterialId}),p=source?.previews.find(x=>x.page===Number(page))||source?.previews[0];if(!p)return;
+  const source=previewSource({sourceId,resourceId,helloRhymeId,helloMaterialId});
+  if(helloMaterialId&&/\.pdf(?:[?#]|$)/i.test(source?.file||'')&&window.EnglishFilePreview.open(source.file.split('#')[0]+'#page='+(source.previews[0]?.page||1),source.title))return;
+  const p=source?.previews.find(x=>x.page===Number(page))||source?.previews[0];if(!p)return;
   if(!S.preview){previewFocus=document.activeElement;el.inert=true;overlay.inert=true;}
   S.preview={sourceId,resourceId,helloRhymeId,helloMaterialId,page:p.page,zoom:100};document.body.style.overflow='hidden';renderPreview();
   previewRoot.querySelector('[data-action="close-preview"]')?.focus({preventScroll:true});

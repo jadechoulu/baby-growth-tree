@@ -1,0 +1,391 @@
+{
+  "checkedAt": "2026-11-05",
+  "scope": "6、7、9、14、22、23号书全部13条配套MP4",
+  "summary": {
+    "resources": 13,
+    "previouslyMapped": 7,
+    "newPartMappings": 6,
+    "newReadingGuideMappings": 2,
+    "newContentExtensions": 4,
+    "unresolved": 0
+  },
+  "policy": "PDF点名与明确文件名优先；原书具体内容可建立content-extension。除22号10秒抽样外，未实播各远程视频，不宣称同文或实唱曲调已核实。",
+  "resources": [
+    {
+      "resourceId": "hello-06-video-package-ae3976fd3e8f",
+      "bookId": "hello-06",
+      "sourceFile": "Five Little Monkeys.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-06-part-2"
+      ],
+      "role": "tune-demo",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-06.pdf",
+          "page": 2,
+          "part": 2,
+          "partTitle": "Baby Bunny’s in Her Pool",
+          "quote": "这首小诗可以按照 I'm a little teapot 或者 Rain rain go away 或者 Five little monkeys 这三首歌的旋律来唱，大家选择自己熟悉的就可以。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "rhymeIds": [
+        "hello-rhyme-12"
+      ],
+      "tunes": [
+        "Five Little Monkeys"
+      ]
+    },
+    {
+      "resourceId": "hello-06-video-package-245471de1892",
+      "bookId": "hello-06",
+      "sourceFile": "Swimming Song.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-06-part-2"
+      ],
+      "role": "extension-song",
+      "origin": "content-extension",
+      "extensionTitle": "Swimming Song",
+      "basis": "原书泳池与泼水正文明确，Swimming Song作为游泳动作拓展，不作原诗同文或套唱。",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-06.pdf",
+          "page": 2,
+          "part": 2,
+          "partTitle": "Baby Bunny’s in Her Pool",
+          "quote": "场景：游泳；Splash everyone；Stop splashing me!",
+          "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+        },
+        {
+          "file": "assets/hello/files/578e3e139ece229a.pdf",
+          "page": 4,
+          "part": 2,
+          "partTitle": "Baby Bunny’s in Her Pool",
+          "quote": "In her yellow swimming pool. / Happy-splashing everyone!",
+          "method": "原书对应完整页面图像核对"
+        }
+      ],
+      "videoContentVerified": false
+    },
+    {
+      "resourceId": "hello-07-video-package-9a179cc4b968",
+      "bookId": "hello-07",
+      "sourceFile": "Five Little Monkeys（数字认知）.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-07-part-2"
+      ],
+      "role": "extension-song",
+      "origin": "content-extension",
+      "extensionTitle": "Five Little Monkeys",
+      "basis": "原书明确Count the kittens，带数字认知标识的Five Little Monkeys作为数数拓展，不作原作者点名推荐或本诗套唱。",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-07.pdf",
+          "page": 2,
+          "part": 2,
+          "partTitle": "Count the Kittens",
+          "quote": "数小猫 Count the kittens",
+          "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+        },
+        {
+          "file": "assets/hello/files/027ac25b599e3c5f.pdf",
+          "page": 4,
+          "part": 2,
+          "partTitle": "Count the Kittens",
+          "quote": "Count the kittens / With Mama cat.",
+          "method": "原书对应完整页面图像核对"
+        }
+      ],
+      "videoContentVerified": false
+    },
+    {
+      "resourceId": "hello-07-video-package-a4af8b7c1b17",
+      "bookId": "hello-07",
+      "sourceFile": "The Animal Boogie.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-07-part-5"
+      ],
+      "role": "extension-song",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-07.pdf",
+          "page": 5,
+          "part": 5,
+          "partTitle": "Clap, Clap, Clap",
+          "quote": "关于拍手、跺脚的儿歌：The animal boogie（来自barefoot）。",
+          "relation": "extension-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "extensionTitle": "The Animal Boogie"
+    },
+    {
+      "resourceId": "hello-07-video-package-b4de1dfcc7f3",
+      "bookId": "hello-07",
+      "sourceFile": "This Little Piggy (HD) - Mother Goose Club Nursery Rhymes.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-07-part-4"
+      ],
+      "role": "extension-song",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-07.pdf",
+          "page": 4,
+          "part": 4,
+          "partTitle": "Your Wonderful Body",
+          "quote": "身体部位相关儿歌推荐：Where is thumbkin；This little piggy；My Teddy bear；The bath song。",
+          "relation": "extension-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "extensionTitle": "This Little Piggy"
+    },
+    {
+      "resourceId": "hello-09-video-package-3f023048fb08",
+      "bookId": "hello-09",
+      "sourceFile": "hello.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-09-part-1"
+      ],
+      "role": "extension-song",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-09.pdf",
+          "page": 1,
+          "part": 1,
+          "partTitle": "Stormy Day",
+          "quote": "拍手相关的英文儿歌：If you’re happy and you know it；Hello, hello（来自super simple songs）。",
+          "relation": "extension-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "extensionTitle": "Hello, Hello"
+    },
+    {
+      "resourceId": "hello-09-video-package-942373f7621c",
+      "bookId": "hello-09",
+      "sourceFile": "Open Shut Them.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-09-part-1"
+      ],
+      "role": "extension-song",
+      "origin": "content-extension",
+      "extensionTitle": "Open Shut Them",
+      "basis": "原书dance and clap和拍手游戏明确；Open Shut Them作为开合手与拍手动作拓展，不作原作者点名推荐或套唱。",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-09.pdf",
+          "page": 1,
+          "part": 1,
+          "partTitle": "Stormy Day",
+          "quote": "读之前先玩一下里面的活动，例如peekaboo, patty cake；拍手相关的英文儿歌。",
+          "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+        },
+        {
+          "file": "assets/hello/files/35e78cf2a2e013e7.pdf",
+          "page": 2,
+          "part": 1,
+          "partTitle": "Stormy Day",
+          "quote": "or patty-cake / or dance and clap",
+          "method": "原书对应完整页面图像核对"
+        }
+      ],
+      "videoContentVerified": false
+    },
+    {
+      "resourceId": "hello-09-video-package-64874ab12f18",
+      "bookId": "hello-09",
+      "sourceFile": "pat a cake.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-09-part-1"
+      ],
+      "role": "extension-song",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-09.pdf",
+          "page": 1,
+          "part": 1,
+          "partTitle": "Stormy Day",
+          "quote": "Patty cake这首歌，小娃可以拉着小朋友的小手玩，大一点的娃就可以坐对面拍手玩起来了。",
+          "relation": "extension-song",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "extensionTitle": "Patty Cake"
+    },
+    {
+      "resourceId": "hello-14-video-package-79ad54cc9b74",
+      "bookId": "hello-14",
+      "sourceFile": "do you wanna build a snowman.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-14-part-3"
+      ],
+      "role": "extension-song",
+      "origin": "reading-guide",
+      "extensionTitle": "Do You Wanna Build a Snowman",
+      "basis": "完整页面图像确认Part3点名推荐，文件名吻合；该页标题误写What is it，按明确Part3归入当前Find It，不改书中标题。",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-14.pdf",
+          "page": 3,
+          "part": 3,
+          "partTitle": "Find It",
+          "quote": "可以边指着这一页，边唱雪天相关的歌曲：Frosty the snowman；Snowflake；Do you wanna build a snowman。",
+          "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+        }
+      ],
+      "videoContentVerified": false
+    },
+    {
+      "resourceId": "hello-22-video-package-d8d3582e3fbb",
+      "bookId": "hello-22",
+      "sourceFile": "160. Where Is Thumbkin.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-22-part-2"
+      ],
+      "role": "tune-demo",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-22.pdf",
+          "page": 2,
+          "part": 2,
+          "partTitle": "Find Me!",
+          "quote": "这首小诗按照 Where is Thumbkin 这首歌的旋律来唱，那么Thumbkin这首歌里包含的手指名字，一起记下来吧！",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "rhymeIds": [
+        "hello-rhyme-51"
+      ],
+      "tunes": [
+        "Where Is Thumbkin?"
+      ]
+    },
+    {
+      "resourceId": "hello-22-video-package-64d2efffced9",
+      "bookId": "hello-22",
+      "sourceFile": "walking on halloween.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-22-part-3"
+      ],
+      "role": "extension-song",
+      "origin": "reading-guide",
+      "extensionTitle": "Walking on Halloween",
+      "basis": "阅读指引完整图像与本地同名视频10秒抽样帧匹配：红外套海盗帽男子、卡通街道房屋与树一致，归Part3拓展；不声明完整播放。",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-22.pdf",
+          "page": 3,
+          "part": 3,
+          "partTitle": "Find It",
+          "quote": "场景：万圣节；左下嵌图标注“万圣节超欢乐歌曲”。",
+          "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+        }
+      ],
+      "videoContentVerified": true,
+      "sampleEvidence": {
+        "localFile": "/Users/zhoulu/Documents/生活/育儿/codex/Hello素材卡核对_20261104/曲调原视频/walking on halloween.mp4",
+        "bytes": 7456787,
+        "sha256": "37104051c362b5ad7d6f9ee6fe31d7fe319e6ed96949df7bc15aa2f32b466770",
+        "duration": 140.527166,
+        "sampleSeconds": [
+          10
+        ],
+        "frame": "/Users/zhoulu/Documents/生活/育儿/codex/Hello视频核对_20261105/later-audit-walking-halloween-10s.png"
+      }
+    },
+    {
+      "resourceId": "hello-23-video-package-9877a8d44583",
+      "bookId": "hello-23",
+      "sourceFile": "pat a cake.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-23-part-2"
+      ],
+      "role": "extension-song",
+      "origin": "content-extension",
+      "extensionTitle": "Patty Cake",
+      "basis": "原书题名与正文明确Patty-cakes，传统Pat-a-cake作为同名亲子动作童谣拓展，不作原诗同文或实唱曲调。阅读指引另建议Rain Rain Go Away，不覆盖该来源差异。",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-23.pdf",
+          "page": 2,
+          "part": 2,
+          "partTitle": "Papa’s Little Patty-Cakes",
+          "quote": "Patty cakes, patty cakes / Pick you up and hold you / Swing you high and low / Flip you on my shoulder。",
+          "method": "本册全部阅读指引OCR复核；新增关联相关完整页面图像及原书正文核对"
+        },
+        {
+          "file": "assets/hello/files/98abf5388964c57a.pdf",
+          "page": 6,
+          "part": 2,
+          "partTitle": "Papa’s Little Patty-Cakes",
+          "quote": "Patty-cakes, patty-cakes. Papa picks her up and holds her.",
+          "method": "原书PDF完整文本提取，题名及正文核对"
+        }
+      ],
+      "videoContentVerified": false
+    },
+    {
+      "resourceId": "hello-23-video-package-490fc32ddcc0",
+      "bookId": "hello-23",
+      "sourceFile": "Sleeping bunnies视频.mp4",
+      "status": "confirmed",
+      "partIds": [
+        "hello-23-part-1"
+      ],
+      "role": "tune-demo",
+      "origin": "reading-guide",
+      "mappingEvidence": [
+        {
+          "file": "assets/hello/notes/book-23.pdf",
+          "page": 1,
+          "part": 1,
+          "partTitle": "Bunny Hop",
+          "quote": "可以用 Sleeping Bunnies 的旋律唱出来，演唱示范见课程视频后半段。",
+          "relation": "tune-demo",
+          "method": "完整笔记PDF全文OCR；对OCR遗漏的绘本封面及新增拓展歌曲逐页图像复核"
+        }
+      ],
+      "basis": "本轮重读本册全部阅读指引OCR，Part与点名推荐原文一致；保留原关联。confirmed仅表示推荐关系，不表示完整实播。",
+      "videoContentVerified": false,
+      "rhymeIds": [
+        "hello-rhyme-55"
+      ],
+      "tunes": [
+        "Sleeping Bunnies"
+      ]
+    }
+  ]
+}

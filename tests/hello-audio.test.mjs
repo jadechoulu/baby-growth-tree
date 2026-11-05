@@ -43,6 +43,16 @@ test('NAS同SHA的改编演唱归入童谣，不能借原包曲调文件名冒�
  const classic=tuneSource('This Old Man',{...data,tuneAudio:audio});assert.equal(classic.status,'preview');assert.equal(classic.previewTrackName,'This Old Man');assert.notEqual(classic.file,rain.file);
 });
 
+test('按歌词核实的资料包歌曲直接用于套唱试听，不误用另一绘本的同名演唱',()=>{
+ const data=JSON.parse(readFileSync(new URL('../english/data/hello-reading.json',import.meta.url))),audio=JSON.parse(readFileSync(new URL('../english/data/hello-tune-audio.json',import.meta.url)));
+ const source=name=>tuneSource(name,{...data,tuneAudio:audio});
+ const love=source('I Love You Through and Through'),book18=data.books.find(book=>book.id==='hello-18');
+ const matching=book18.resources.find(resource=>resource.sha256===love.sha256),rebus=book18.resources.find(resource=>resource.label==='3_I love you【Erin演唱版】.mp3');
+ assert.ok(matching);assert.equal(love.file,matching.file);assert.notEqual(love.file,rebus.file);assert.equal(love.status,'available');
+ const moon=source('Zoom Zoom Zoom We’re Going to the Moon'),book15=data.books.find(book=>book.id==='hello-15');
+ assert.equal(moon.file,book15.resources.find(resource=>resource.sha256===moon.sha256).file);assert.equal(moon.status,'available');assert.equal(moon.previewUrl,undefined);
+});
+
 // 用真实事件顺序验证浮层生命周期，不依赖浏览器的媒体网络和解码速度。
 function playerHarness(){
  const events=new Map(),windowEvents=new Map();let document;

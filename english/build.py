@@ -8,12 +8,39 @@ RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read
 RAW['resourcePrices'] = json.loads((ROOT / 'data' / 'resource-prices.json').read_text())
 RAW['resourceVolumes'] = json.loads((ROOT / 'data' / 'resource-volumes.json').read_text())
 RAW['helloReading'] = json.loads((ROOT / 'data' / 'hello-reading.json').read_text())
+
+def merge_hello_pen_audio(reading, manifest):
+    """点读音源按已核实书号并入运行数据；资料包原库存保持独立。"""
+    if manifest.get('schemaVersion') != 1:
+        raise ValueError('Hello点读音频清单版本无效')
+    books = {book['id']: book for book in reading['books']}
+    rhymes = {rhyme['id']: rhyme for rhyme in reading['rhymes']}
+    ids = {resource['id'] for book in reading['books'] for resource in book['resources'] if 'id' in resource}
+    for resource in manifest['resources']:
+        book = books.get(resource['bookId'])
+        if not book or resource['id'] in ids or resource['kind'] != 'audio' or resource['sourceKind'] != 'reading-pen':
+            raise ValueError('Hello点读音频书号、类型或ID无效：' + resource['id'])
+        if resource.get('tunes'):
+            raise ValueError('点读朗读不提供套唱原曲关联：' + resource['id'])
+        part_ids = {book['id'] + '-part-' + str(part['part']) for part in book['parts']}
+        if not set(resource.get('partIds', [])).issubset(part_ids) or any(rhymes.get(rhyme_id, {}).get('bookId') != book['id'] for rhyme_id in resource.get('rhymeIds', [])):
+            raise ValueError('Hello点读音频关联跨册或Part不存在：' + resource['id'])
+        book['resources'].append(resource)
+        ids.add(resource['id'])
+    reading['penAudioSource'] = manifest['source']
+    return reading
+
+hello_pen_manifest = ROOT / 'data' / 'hello-pen-audio.json'
+if not hello_pen_manifest.is_file():
+    raise FileNotFoundError('缺少Hello点读音频清单：english/data/hello-pen-audio.json；请先生成已核实清单')
+RAW['helloReading'] = merge_hello_pen_audio(RAW['helloReading'], json.loads(hello_pen_manifest.read_text()))
 hello_rhyme_content = {item['id']: item for item in json.loads((ROOT / 'data' / 'hello-rhyme-content.json').read_text())}
 assert set(hello_rhyme_content) == {item['id'] for item in RAW['helloReading']['rhymes']}, '童谣内容与索引不一致'
 RAW['helloReading']['rhymes'] = [{**item, **hello_rhyme_content[item['id']]} for item in RAW['helloReading']['rhymes']]
 RAW['helloReading']['tuneAudio'] = json.loads((ROOT / 'data' / 'hello-tune-audio.json').read_text())
 RAW['helloReading']['materialCards'] = json.loads((ROOT / 'data' / 'hello-material-cards.json').read_text())
 RAW['resourceBooks'] = json.loads((ROOT / 'data' / 'resource-books.json').read_text())
+RAW['filePreviewAssets'] = [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/vendor/pdfjs').rglob('*')) if path.is_file()]
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
 RAW['routePlan'] = json.loads((ROOT / 'data' / 'route-plan.json').read_text())
 RAW['xuCurrent'] = json.loads((ROOT / 'data' / 'xu-current.json').read_text())
@@ -32,7 +59,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','hello-reading.js','hello-graph.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
@@ -112,6 +139,6 @@ if __name__ == '__main__':
         embedded={}
         for path in sorted((ROOT/'assets').rglob('*')):
             if not path.is_file() or path.name.startswith('.'): continue
-            mime=mimetypes.guess_type(path.name)[0] or 'application/octet-stream'
+            mime='text/javascript' if path.suffix == '.mjs' else mimetypes.guess_type(path.name)[0] or 'application/octet-stream'
             embedded[path.relative_to(ROOT).as_posix()]='data:'+mime+';base64,'+base64.b64encode(path.read_bytes()).decode()
         write(ROOT.parent/'output/web/英语启蒙路线导航.html',embedded,site={'home':'../../home.html','growth':'../../index.html'})

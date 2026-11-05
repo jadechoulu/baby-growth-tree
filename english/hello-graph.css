@@ -6,3 +6,6 @@
 .hello-graph-node.is-audio,.hello-graph-node.is-audio.is-focus{cursor:default}
 
 .hello-graph-node-title{display:flex;align-items:center;gap:4px;min-width:0}.hello-graph-node-title>strong,.hello-graph-node-title>.hello-graph-tune-title{flex:0 1 auto;min-width:0}.hello-graph-node-title>.hello-tune-play,.hello-graph-play-measure{flex:none;box-sizing:border-box;width:28px;height:28px;margin:0}.hello-graph-play-measure{display:inline-flex;align-items:center;justify-content:center}
+
+.hello-graph-node.type-tune[data-tune-highlighted=false]>rect{fill:var(--hello-tune-bg);stroke:var(--hello-tune-line)}
+.hello-graph-node.type-tune[data-tune-highlighted=false] .hello-graph-node-copy,.hello-graph-neighbor-row[data-tune-highlighted=false]>button:not(.hello-tune-play){color:var(--hello-tune-ink)}
