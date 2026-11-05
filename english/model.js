@@ -285,7 +285,7 @@
     if (raw.xu) array(raw.xu.stages).forEach(function (stage) {
       var main = array(stage.materials).find(function (m) { return m.role === 'main'; });
       if (main) array(stage.materials).filter(function (m) { return m.role === 'parallel'; }).forEach(function (m) {
-        link(main.resourceId, m.resourceId, 'pair', stage.title + '：主线与平行拓展（非等值）', 'xu', m.page || stage.page);
+        link(main.resourceId, m.resourceId, 'pair', stage.title + '：主线与辅线（非等值）', 'xu', m.page || stage.page);
       });
     });
     var genericHeinemann = resources.find(function (r) { return r.title === '海尼曼'; });
@@ -634,6 +634,14 @@
   }
 
   var MATERIAL_ROLES = { main: '主线', featured: '特色推荐', auxiliary: '辅线', reference: '未标主辅' };
+  function materialUsageLabel(value, role) {
+    // 原文证据保持原样；所有页面只在展示层统一同义用途。
+    if (value === '平行拓展') return MATERIAL_ROLES.auxiliary;
+    // 历史 parallel 也包含整理出的并行安排，未核定时不能据字段名补造辅线。
+    if (value === 'parallel') return role && role.kind === 'auxiliary' ? MATERIAL_ROLES.auxiliary : '并行材料';
+    return ({ main: '主线', core: '核心素材', 'animation-companion': '配套动画 / 儿歌',
+      companion: '配套', optional: '可选素材', review: '复习材料', recommended: '推荐材料' })[value] || value || '原文材料';
+  }
   function materialRole(stage, material, resource) {
     // 角色属于本路线、本版本、本阶段的这次引用；套系归并只共享身份。
     // 保留 material.role，个人进度键仍使用原始用途，不因展示纠正换键。
@@ -677,7 +685,7 @@
     var selectionMatch = selectionText.match(/任选(?:\d+(?:[–—-]\d+)?(?:部|套|本|辑))?|挑选|选\d+(?:[–—-]\d+)?(?:部|套|本|辑)|二选一/);
     var selection = selectionMatch ? { label: selectionMatch[0], basis: selectionText } :
       role === 'optional' ? { label: '可选', basis: '原引用明确标为optional' } : null;
-    return { kind: kind, label: MATERIAL_ROLES[kind], usage: label, basis: basis, selection: selection, evidence: evidence };
+    return { kind: kind, label: MATERIAL_ROLES[kind], usage: materialUsageLabel(label), basis: basis, selection: selection, evidence: evidence };
   }
 
   function getStageMaterials(catalog, stageId, comparisonStages) {
@@ -837,15 +845,44 @@
       referenceOnly: context.status !== 'general' && context.status !== 'matched', sourceId: plan.sourceId, page: plan.page };
   }
 
+  function materialComparisonEnabled(catalog, stage) {
+    var plans = ((((catalog.raw || {}).routePlan || {}).routes || {})[stage.routeId] || {});
+    return Object.keys(plans).some(function (domain) {
+      var plan = plans[domain];
+      return plan.stageComparison && plan.stageComparison.strategy === 'material-overlap' && array(plan.stageIds).indexOf(stage.id) !== -1;
+    });
+  }
+  function materialOverlapScore(left, right, resources) {
+    var leftIds = unique(array(left.materials).map(function (m) { return m.resourceId; }));
+    var rightIds = unique(array(right.materials).map(function (m) { return m.resourceId; }));
+    var union = unique(leftIds.concat(rightIds)).length, weight = 0;
+    leftIds.forEach(function (id) {
+      if (rightIds.indexOf(id) === -1 || !resources[id]) return;
+      var best = 0;
+      array(left.materials).filter(function (m) { return m.resourceId === id; }).forEach(function (a) {
+        array(right.materials).filter(function (m) { return m.resourceId === id; }).forEach(function (b) {
+          var kind = compareLevels(a, b, resources[id]).kind;
+          best = Math.max(best, kind === 'exact' || kind === 'overlap' ? 2 : kind === 'unspecified' ? 1 : 0);
+        });
+      });
+      weight += best;
+    });
+    return union ? weight / (2 * union) : 0;
+  }
   function compareStages(catalog, focusStageId) {
     var focus = array(catalog.stages).find(function (stage) { return stage.id === focusStageId; });
     if (!focus) return [];
     var resourceMap = {}, focusBand = listeningComparisonBand(focus, catalog);
     array(catalog.resources).forEach(function (resource) { resourceMap[resource.id] = resource; });
     return array(catalog.routes).filter(function (route) { return route.id !== focus.routeId; }).map(function (route) {
-      var vocabularyComparable = !!focusBand && array(route.stages).some(function (target) { return !!listeningComparisonBand(target, catalog); });
+      var materialComparable = materialComparisonEnabled(catalog, focus) || array(route.stages).some(function (target) { return materialComparisonEnabled(catalog, target); });
+      var focusRoute = array(catalog.routes).find(function (item) { return item.id === focus.routeId; });
+      var overlapPairs = materialComparable ? array(focusRoute && focusRoute.stages).flatMap(function (left) {
+        return array(route.stages).map(function (right) { return { left: left.id, right: right.id, score: materialOverlapScore(left, right, resourceMap) }; });
+      }) : [];
+      var vocabularyComparable = !materialComparable && !!focusBand && array(route.stages).some(function (target) { return !!listeningComparisonBand(target, catalog); });
       var focusStart = (focus.raw || {}).startingReference;
-      var startingComparable = !vocabularyComparable && focusStart && focusStart.kind === 'route-start' && array(route.stages).some(function (target) {
+      var startingComparable = !materialComparable && !vocabularyComparable && focusStart && focusStart.kind === 'route-start' && array(route.stages).some(function (target) {
         return ((target.raw || {}).startingReference || {}).kind === 'route-start';
       });
       var matches = array(route.stages).map(function (target) {
@@ -853,7 +890,7 @@
         var targetStart = (target.raw || {}).startingReference;
         var startingAlignment = startingComparable && targetStart && targetStart.kind === 'route-start' ?
           { focus: focusStart.basis, target: targetStart.basis, basis: '各自路线的起步方式参考；不表示词汇量、素材难度或整阶段等同。' } : null;
-        var vocabularyAlignment = focusBand && targetBand && Math.max(focusBand.min, targetBand.min) < Math.min(focusBand.max, targetBand.max) ?
+        var vocabularyAlignment = !materialComparable && focusBand && targetBand && Math.max(focusBand.min, targetBand.min) < Math.min(focusBand.max, targetBand.max) ?
           { focus: focusBand, target: targetBand, basis: '按听力词汇目标区间粗略对照；许密杉相邻节点之间的范围为本站整理，不代表两阶段执行要求相同。' } : null;
         array(focus.materials).forEach(function (left) {
           array(target.materials).filter(function (right) { return right.resourceId === left.resourceId; }).forEach(function (right) {
@@ -869,15 +906,20 @@
         });
         function count(kinds) { return unique(evidence.filter(function (entry) { return !kinds || kinds.indexOf(entry.kind) !== -1; }).map(function (entry) { return entry.resourceId; })).length; }
         var overlapCount = count(['exact', 'overlap']), exactCount = count(['exact']), unspecifiedCount = count(['unspecified']);
+        var pair = overlapPairs.find(function (item) { return item.left === focus.id && item.right === target.id; });
+        var bestLeft = Math.max(0, ...overlapPairs.filter(function (item) { return item.left === focus.id; }).map(function (item) { return item.score; }));
+        var bestRight = Math.max(0, ...overlapPairs.filter(function (item) { return item.right === target.id; }).map(function (item) { return item.score; }));
+        var materialAlignment = pair && pair.score > 0 && (pair.score === bestLeft || pair.score === bestRight) ?
+          { score: pair.score, basis: '按素材及级别重合度关联；同套系同级计完整权重，未标级计一半，级别不同不计；套系去重后除以双方套系并集，双向保留最佳及并列。仅为选材参考。' } : null;
         return { stageId: target.id, sourceId: target.sourceId || target.routeId, variantId: target.variantId, sharedCount: count(), overlapCount: overlapCount, exactCount: exactCount, unspecifiedCount: unspecifiedCount,
-          vocabularyAlignment: vocabularyAlignment, startingAlignment: startingAlignment, evidence: evidence, basis: vocabularyAlignment ? vocabularyAlignment.basis : startingAlignment ? startingAlignment.basis : overlapCount ? '依据共同套系的原文级别交集；仅表示素材交集，不能据此判定两个阶段等价。' :
+          vocabularyAlignment: vocabularyAlignment, startingAlignment: startingAlignment, materialAlignment: materialAlignment, evidence: evidence, basis: materialAlignment ? materialAlignment.basis : vocabularyAlignment ? vocabularyAlignment.basis : startingAlignment ? startingAlignment.basis : overlapCount ? '依据共同套系的原文级别交集；仅表示素材交集，不能据此判定两个阶段等价。' :
             unspecifiedCount ? '仅确认共同套系，存在原文未标级资料，不能确认两个阶段的级别对应。' : '仅确认共同套系，原文级别不同或标尺不同，未确认级别交集。' };
-      }).filter(function (match) { return match.sharedCount > 0 || match.vocabularyAlignment || match.startingAlignment; });
+      }).filter(function (match) { return match.sharedCount > 0 || match.vocabularyAlignment || match.startingAlignment || match.materialAlignment; });
       matches.sort(function (a, b) { return Number(!!b.vocabularyAlignment) - Number(!!a.vocabularyAlignment) || Number(!!b.startingAlignment) - Number(!!a.startingAlignment) || b.overlapCount - a.overlapCount || b.exactCount - a.exactCount || b.sharedCount - a.sharedCount ||
         route.stages.findIndex(function (stage) { return stage.id === a.stageId; }) - route.stages.findIndex(function (stage) { return stage.id === b.stageId; }); });
-      // 主对照只由阶段判定依据产生，素材证据和数量不能参与选择。起步方式单独标注为参考。
-      var stageReferences = matches.filter(function (match) { return match.vocabularyAlignment || match.startingAlignment; });
-      return { routeId: route.id, vocabularyComparable: vocabularyComparable, startingComparable: !!startingComparable, stageReferences: stageReferences, matches: matches };
+      // 显式启用素材重合策略的路线使用统一素材关联；其他路线仍按词汇或起步依据。
+      var stageReferences = matches.filter(function (match) { return match.materialAlignment || match.vocabularyAlignment || match.startingAlignment; });
+      return { routeId: route.id, materialComparable: materialComparable, vocabularyComparable: vocabularyComparable, startingComparable: !!startingComparable, stageReferences: stageReferences, matches: matches };
     });
   }
 
@@ -1013,6 +1055,7 @@
   api.publicationScopes = publicationScopes;
   api.publicationLevelScopes = publicationLevelScopes;
   api.materialRoles = MATERIAL_ROLES;
+  api.materialUsageLabel = materialUsageLabel;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
