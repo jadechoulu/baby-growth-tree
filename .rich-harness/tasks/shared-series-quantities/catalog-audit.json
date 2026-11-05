@@ -1,0 +1,5077 @@
+{
+  "checkedAt": "2026-11-05",
+  "total": 166,
+  "withCount": 162,
+  "withoutCount": 4,
+  "publicEntries": 159,
+  "publicEntriesWithCount": 150,
+  "rows": [
+    {
+      "resourceId": "resource-fkl6xf",
+      "title": "学乐小读者",
+      "total": 41,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "First Little Readers · 英文Parent Pack Level B（25本）",
+        "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574）"
+      ],
+      "parts": [
+        {
+          "edition": "First Little Readers · 英文Parent Pack Level B（25本）",
+          "label": "B",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574）",
+          "label": "E&F",
+          "count": 16,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-h4sa2o",
+      "title": "学乐高频词",
+      "total": 142,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Nonfiction Sight Word Readers 学乐官方英语原版"
+      ],
+      "parts": [
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "A",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "B",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "C",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "D",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "E&F",
+          "count": 14,
+          "unit": "本"
+        },
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "G&H",
+          "count": 14,
+          "unit": "本"
+        },
+        {
+          "edition": "Nonfiction Sight Word Readers 学乐官方英语原版",
+          "label": "I&J",
+          "count": 14,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-960t1q",
+      "title": "First Little Readers",
+      "total": 25,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Scholastic Parent Pack · Level B"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic Parent Pack · Level B",
+          "label": "当前收录目录",
+          "count": 25,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-z5w7e2",
+      "title": "Sight Word Stories",
+      "total": 100,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Scholastic Sight Word Stories 英语故事版A–D"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic Sight Word Stories 英语故事版A–D",
+          "label": "A",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Sight Word Stories 英语故事版A–D",
+          "label": "B",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Sight Word Stories 英语故事版A–D",
+          "label": "C",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Sight Word Stories 英语故事版A–D",
+          "label": "D",
+          "count": 25,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-nqvpg2",
+      "title": "Guided Science Readers",
+      "total": 16,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922）"
+      ],
+      "parts": [
+        {
+          "edition": "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922）",
+          "label": "A",
+          "count": 16,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-zl69cf",
+      "title": "Buddy Reader",
+      "total": 80,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Scholastic Buddy Readers English Parent Pack"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic Buddy Readers English Parent Pack",
+          "label": "A",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Buddy Readers English Parent Pack",
+          "label": "B",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Buddy Readers English Parent Pack",
+          "label": "C",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Buddy Readers English Parent Pack",
+          "label": "D",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 4
+    },
+    {
+      "resourceId": "resource-19jrpig",
+      "title": "First Little Comics",
+      "total": 16,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "First Little Comics · 英文E&F Single-Copy Set"
+      ],
+      "parts": [
+        {
+          "edition": "First Little Comics · 英文E&F Single-Copy Set",
+          "label": "E&F",
+          "count": 16,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-g7xvo5",
+      "title": "大猫分级",
+      "total": 194,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社大猫点读版，2023大众图书目录",
+        "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）"
+      ],
+      "parts": [
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "预备级1",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "预备级2",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "1级",
+          "count": 30,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "2级",
+          "count": 31,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "3级",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "4级",
+          "count": 27,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "5级",
+          "count": 19,
+          "unit": "本"
+        },
+        {
+          "edition": "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）",
+          "label": "Pink 1A",
+          "count": 22,
+          "unit": "本"
+        },
+        {
+          "edition": "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）",
+          "label": "Pink 1B",
+          "count": 22,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 4
+    },
+    {
+      "resourceId": "resource-1mi9g2h",
+      "title": "丽声妙想英文绘本2",
+      "total": 126,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声妙想两辑"
+      ],
+      "parts": [
+        {
+          "edition": "丽声妙想两辑",
+          "label": "第一、二辑全套",
+          "count": 126,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-5434e",
+      "title": "丽声英语百科",
+      "total": 55,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声英语百科分级读物"
+      ],
+      "parts": [
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "1",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "2",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "3",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "4",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "5",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "6",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "7",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "8",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "9",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "10",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语百科分级读物",
+          "label": "11",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 11
+    },
+    {
+      "resourceId": "resource-10bn1i2",
+      "title": "小书虫",
+      "total": 108,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社小书虫·牛津英语分级读物"
+      ],
+      "parts": [
+        {
+          "edition": "外研社小书虫·牛津英语分级读物",
+          "label": "1–14级",
+          "count": 108,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-1mzat21",
+      "title": "悦读中国",
+      "total": 126,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "悦读中国 · 外研社21级126册版"
+      ],
+      "parts": [
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "1级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "2级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "3级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "4级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "5级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "6级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "7级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "8级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "9级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "10级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "11级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "12级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "13级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "14级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "15级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "16级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "17级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "18级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "19级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "20级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "悦读中国 · 外研社21级126册版",
+          "label": "21级",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 21
+    },
+    {
+      "resourceId": "resource-1n3ix1n",
+      "title": "牛津树",
+      "total": 628,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "国内红标/无标选本",
+        "国内红标/无标18故事选本",
+        "国内橙标150册选本",
+        "Read with Biff Chip and Kipper家庭版",
+        "国内学校版6–9基础64册选本"
+      ],
+      "parts": [
+        {
+          "edition": "国内红标/无标选本",
+          "label": "1级（含DD1）",
+          "count": 84,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "2级（含DD2）",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "3级（含DD）",
+          "count": 42,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "4级（含DD）",
+          "count": 42,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "5级（含DD）",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "6–9级（含DD）",
+          "count": 88,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标18故事选本",
+          "label": "10级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标18故事选本",
+          "label": "11级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标18故事选本",
+          "label": "12级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "国内橙标150册选本",
+          "label": "1级（含DD1）",
+          "count": 96,
+          "unit": "本"
+        },
+        {
+          "edition": "国内橙标150册选本",
+          "label": "2级（含DD2）",
+          "count": 54,
+          "unit": "本"
+        },
+        {
+          "edition": "Read with Biff Chip and Kipper家庭版",
+          "label": "1–3级",
+          "count": 32,
+          "unit": "本"
+        },
+        {
+          "edition": "Read with Biff Chip and Kipper家庭版",
+          "label": "4–6级",
+          "count": 24,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "6级（基础故事）",
+          "count": 21,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "7级（基础故事）",
+          "count": 19,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "8级（基础故事）",
+          "count": 12,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "9级（基础故事）",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 18
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "title": "培生启明星",
+      "total": 187,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "培生启明星，海豚出版社2025版"
+      ],
+      "parts": [
+        {
+          "edition": "培生启明星，海豚出版社2025版",
+          "label": "1级",
+          "count": 44,
+          "unit": "本"
+        },
+        {
+          "edition": "培生启明星，海豚出版社2025版",
+          "label": "2级",
+          "count": 41,
+          "unit": "本"
+        },
+        {
+          "edition": "培生启明星，海豚出版社2025版",
+          "label": "3级",
+          "count": 42,
+          "unit": "本"
+        },
+        {
+          "edition": "培生启明星，海豚出版社2025版",
+          "label": "4级",
+          "count": 31,
+          "unit": "本"
+        },
+        {
+          "edition": "培生启明星，海豚出版社2025版",
+          "label": "5级",
+          "count": 29,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 8
+    },
+    {
+      "resourceId": "resource-912oje",
+      "title": "培生儿童英语",
+      "total": 116,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版"
+      ],
+      "parts": [
+        {
+          "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+          "label": "1",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+          "label": "2",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+          "label": "3",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+          "label": "4",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+          "label": "5",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+          "label": "6",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1wlddvg",
+      "title": "Jump百科分级·蝌蚪",
+      "total": 147,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "文脉／小Book Jump Tadpole Books Set1–3"
+      ],
+      "parts": [
+        {
+          "edition": "文脉／小Book Jump Tadpole Books Set1–3",
+          "label": "Set1",
+          "count": 50,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Tadpole Books Set1–3",
+          "label": "Set2",
+          "count": 50,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Tadpole Books Set1–3",
+          "label": "Set3",
+          "count": 47,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-hlndqy",
+      "title": "Jump百科分级·牛蛙",
+      "total": 271,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "文脉／小Book Jump Bullfrog Books SetA–H"
+      ],
+      "parts": [
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "A",
+          "count": 38,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "B",
+          "count": 34,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "C",
+          "count": 31,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "D",
+          "count": 32,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "E",
+          "count": 34,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "F",
+          "count": 33,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "G",
+          "count": 35,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Bullfrog Books SetA–H",
+          "label": "H",
+          "count": 34,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-nymq45",
+      "title": "Jump百科分级·袋鼠",
+      "total": 121,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "文脉／小Book Jump Pogo Books 系列1–5"
+      ],
+      "parts": [
+        {
+          "edition": "文脉／小Book Jump Pogo Books 系列1–5",
+          "label": "Set1",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Pogo Books 系列1–5",
+          "label": "Set2",
+          "count": 24,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Pogo Books 系列1–5",
+          "label": "Set3",
+          "count": 23,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Pogo Books 系列1–5",
+          "label": "Set4",
+          "count": 26,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump Pogo Books 系列1–5",
+          "label": "Set5",
+          "count": 28,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-163rc2r",
+      "title": "Jump百科分级·蓝鹰",
+      "total": 10,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "文脉／小Book Jump Blue Owl Books 10本盒装"
+      ],
+      "parts": [
+        {
+          "edition": "文脉／小Book Jump Blue Owl Books 10本盒装",
+          "label": "Set1",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-5iilo9",
+      "title": "国家地理",
+      "total": 57,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "National Geographic Readers 2014英语原版57本选集"
+      ],
+      "parts": [
+        {
+          "edition": "National Geographic Readers 2014英语原版57本选集",
+          "label": "Pre-reader",
+          "count": 12,
+          "unit": "本"
+        },
+        {
+          "edition": "National Geographic Readers 2014英语原版57本选集",
+          "label": "1",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "National Geographic Readers 2014英语原版57本选集",
+          "label": "2",
+          "count": 15,
+          "unit": "本"
+        },
+        {
+          "edition": "National Geographic Readers 2014英语原版57本选集",
+          "label": "3",
+          "count": 14,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1qnd5uh",
+      "title": "RAZ",
+      "total": 1243,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）"
+      ],
+      "parts": [
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "aa",
+          "count": 99,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "A",
+          "count": 97,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "B",
+          "count": 98,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "C",
+          "count": 100,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "D",
+          "count": 88,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "E",
+          "count": 91,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "F",
+          "count": 86,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "G",
+          "count": 84,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "H",
+          "count": 81,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "I",
+          "count": 85,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "J",
+          "count": 85,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "K",
+          "count": 83,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "L",
+          "count": 85,
+          "unit": "本"
+        },
+        {
+          "edition": "One One Bookshop 在售Reading A-Z分册选本（2026-11-05页面快照）",
+          "label": "M",
+          "count": 81,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-190oaw2",
+      "title": "红火箭",
+      "total": 638,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Red Rocket Readers 官方分级目录"
+      ],
+      "parts": [
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Lilac 字母探索",
+          "count": 30,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "粉 Pink · Key Letters",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Pink · Blend Explorers",
+          "count": 22,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Pink · Sound Explorers",
+          "count": 26,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "玫红 Magenta",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Magenta · Rainbow and World Explorers",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Red",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Yellow",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Blue",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Green",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Orange",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Turquoise",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Purple",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Gold",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Silver",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Emerald",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Ruby",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "Red Rocket Readers 官方分级目录",
+          "label": "Sapphire",
+          "count": 16,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 18
+    },
+    {
+      "resourceId": "resource-9fvmjt",
+      "title": "海尼曼",
+      "total": 140,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "海尼曼GK 70本选本",
+        "LLI Orange Grade K"
+      ],
+      "parts": [
+        {
+          "edition": "海尼曼GK 70本选本",
+          "label": "GK",
+          "count": 70,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "Getting Started",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "A",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "B",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "C",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 9
+    },
+    {
+      "resourceId": "resource-7vimum",
+      "title": "悠游阅读",
+      "total": 90,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "悠游阅读成长计划1级第1–5套",
+        "悠游阅读成长计划第四级1–10套"
+      ],
+      "parts": [
+        {
+          "edition": "悠游阅读成长计划1级第1–5套",
+          "label": "1级第1–5套",
+          "count": 30,
+          "unit": "本"
+        },
+        {
+          "edition": "悠游阅读成长计划第四级1–10套",
+          "label": "4级第1–10套",
+          "count": 60,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-1pinwiv",
+      "title": "古力小超人",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "彩虹兔古力小超人12册套装"
+      ],
+      "parts": [
+        {
+          "edition": "彩虹兔古力小超人12册套装",
+          "label": "12册套装",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-123ikqd",
+      "title": "QPlay奇问妙想国",
+      "total": 10,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "彩虹兔Q-Play奇问妙想国·ISBN9787561966181（故事分支）"
+      ],
+      "parts": [
+        {
+          "edition": "彩虹兔Q-Play奇问妙想国·ISBN9787561966181（故事分支）",
+          "label": "主故事绘本",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1qj90tg",
+      "title": "WPlay词汇妙趣国",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "彩虹兔W-PLAY词汇妙趣国 · 故事绘本12本"
+      ],
+      "parts": [
+        {
+          "edition": "彩虹兔W-PLAY词汇妙趣国 · 故事绘本12本",
+          "label": "职业认知故事绘本",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1y3ytv6",
+      "title": "My First Reading",
+      "total": 49,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "彩虹兔第一图书馆"
+      ],
+      "parts": [
+        {
+          "edition": "彩虹兔第一图书馆",
+          "label": "Very First Reading",
+          "count": 22,
+          "unit": "本"
+        },
+        {
+          "edition": "彩虹兔第一图书馆",
+          "label": "First Reading Level1",
+          "count": 17,
+          "unit": "本"
+        },
+        {
+          "edition": "彩虹兔第一图书馆",
+          "label": "First Reading Level2",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 4
+    },
+    {
+      "resourceId": "resource-1x8d7zy",
+      "title": "小犀牛",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Archie the Rhino Series4册版"
+      ],
+      "parts": [
+        {
+          "edition": "Archie the Rhino Series4册版",
+          "label": "4册套装",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-bbcmo0",
+      "title": "猪和狐狸",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "小彼恩小猪和狐狸双语4册版"
+      ],
+      "parts": [
+        {
+          "edition": "小彼恩小猪和狐狸双语4册版",
+          "label": "全套",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1wpc6vb",
+      "title": "培生亲子故事屋（爆笑英语）",
+      "total": 56,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "培生亲子故事屋，基础级／进阶级28册版"
+      ],
+      "parts": [
+        {
+          "edition": "培生亲子故事屋，基础级／进阶级28册版",
+          "label": "基础级",
+          "count": 28,
+          "unit": "本"
+        },
+        {
+          "edition": "培生亲子故事屋，基础级／进阶级28册版",
+          "label": "进阶级",
+          "count": 28,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-1vpccvb",
+      "title": "儿童英语情境口语400句",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "培生上下合辑40册"
+      ],
+      "parts": [
+        {
+          "edition": "培生上下合辑40册",
+          "label": "上",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "培生上下合辑40册",
+          "label": "下",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-nwgt6e",
+      "title": "Unicorn And Yeti",
+      "total": 7,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Unicorn and Yeti · 英文原版（官网已列书目）"
+      ],
+      "parts": [
+        {
+          "edition": "Unicorn and Yeti · 英文原版（官网已列书目）",
+          "label": "当前收录目录",
+          "count": 7,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-1vonnh3",
+      "title": "Hello Hedgehog",
+      "total": 6,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "英文原版 · 出版社已列书目"
+      ],
+      "parts": [
+        {
+          "edition": "英文原版 · 出版社已列书目",
+          "label": "当前收录目录",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-197hwlb",
+      "title": "水先生",
+      "total": 15,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Scholastic ISBN9789813466517"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic ISBN9789813466517",
+          "label": "1–15",
+          "count": 15,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-afwa0g",
+      "title": "Bumble And Bee",
+      "total": 3,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "英文原版 · 出版社已列书目"
+      ],
+      "parts": [
+        {
+          "edition": "英文原版 · 出版社已列书目",
+          "label": "当前收录目录",
+          "count": 3,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-qckpg5",
+      "title": "Maisy初体验",
+      "total": 12,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Walker Books · First Experiences Set 1"
+      ],
+      "parts": [
+        {
+          "edition": "Walker Books · First Experiences Set 1",
+          "label": "当前收录目录",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-1f8szif",
+      "title": "牛津树初体验",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "OUP ISBN9780192785848"
+      ],
+      "parts": [
+        {
+          "edition": "OUP ISBN9780192785848",
+          "label": "8册套装",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-bpm5u8",
+      "title": "神奇校车桥梁版",
+      "total": 20,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "英文桥梁红蓝盒20册选本"
+      ],
+      "parts": [
+        {
+          "edition": "英文桥梁红蓝盒20册选本",
+          "label": "红蓝盒20册",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1mymg35",
+      "title": "Croc and Ally 鳄鱼和艾丽",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Croc and Ally · Derek Anderson英文主系列"
+      ],
+      "parts": [
+        {
+          "edition": "Croc and Ally · Derek Anderson英文主系列",
+          "label": "主系列",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-9d0yj6",
+      "title": "A Jack Book 淘气兔子杰克",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列"
+      ],
+      "parts": [
+        {
+          "edition": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列",
+          "label": "Books 1–8",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1ukyalh",
+      "title": "Fly Guy and Buzz 苍蝇小子",
+      "total": 19,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Fly Guy 英文编号主故事 1–19"
+      ],
+      "parts": [
+        {
+          "edition": "Fly Guy 英文编号主故事 1–19",
+          "label": "Fly Guy 英文编号主故事 1–19",
+          "count": 19,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-16o9su4",
+      "title": "小火柴",
+      "total": 30,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Little Match小火柴经典童话 · 三级30本版"
+      ],
+      "parts": [
+        {
+          "edition": "Little Match小火柴经典童话 · 三级30本版",
+          "label": "第1级",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "Little Match小火柴经典童话 · 三级30本版",
+          "label": "第2级",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "Little Match小火柴经典童话 · 三级30本版",
+          "label": "第3级",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1b758sx",
+      "title": "Clifford Ultimate Red 大红狗克里弗",
+      "total": 10,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Clifford Ultimate Red Box · ISBN 9789810906429"
+      ],
+      "parts": [
+        {
+          "edition": "Clifford Ultimate Red Box · ISBN 9789810906429",
+          "label": "Clifford Ultimate Red Box · ISBN 9789810906429",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-gb603o",
+      "title": "Moby Shinobi and Toby too! 忍者莫比与托比",
+      "total": 3,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Moby Shinobi and Toby Too! · Acorn英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Moby Shinobi and Toby Too! · Acorn英文原版",
+          "label": "官网所列主系列读物",
+          "count": 3,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-wqz9tv",
+      "title": "Fairlight Friends系列",
+      "total": 3,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Fairylight Friends · Acorn英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Fairylight Friends · Acorn英文原版",
+          "label": "官网所列主系列读物",
+          "count": 3,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-170tbmv",
+      "title": "Henry and Mudge 亨利与马吉",
+      "total": 28,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Henry and Mudge · Ready-to-Read英文主系列"
+      ],
+      "parts": [
+        {
+          "edition": "Henry and Mudge · Ready-to-Read英文主系列",
+          "label": "主系列",
+          "count": 28,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1dwbb86",
+      "title": "Flat Stanley 纸片人",
+      "total": 6,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Jeff Brown 原始 Flat Stanley 六本"
+      ],
+      "parts": [
+        {
+          "edition": "Jeff Brown 原始 Flat Stanley 六本",
+          "label": "Jeff Brown 原始 Flat Stanley 六本",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-45qugp",
+      "title": "Winnie and Wilbur 女巫温妮",
+      "total": 16,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Winnie and Wilbur 图画书16本袋装 · ISBN 9789123620999"
+      ],
+      "parts": [
+        {
+          "edition": "Winnie and Wilbur 图画书16本袋装 · ISBN 9789123620999",
+          "label": "Winnie and Wilbur 图画书16本袋装 · ISBN 9789123620999",
+          "count": 16,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-var8qr",
+      "title": "Frog and Toad 青蛙与蟾蜍",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Frog and Toad经典四册单行本"
+      ],
+      "parts": [
+        {
+          "edition": "Frog and Toad经典四册单行本",
+          "label": "经典四册单行本",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1tlgrbe",
+      "title": "Dragon 胖龙蓝蓝",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Dragon · Dav Pilkey · Acorn英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Dragon · Dav Pilkey · Acorn英文原版",
+          "label": "官网所列主系列读物",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-t0s324",
+      "title": "冒险故事岛",
+      "total": 56,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声冒险故事岛（1–7级）"
+      ],
+      "parts": [
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "1级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "2级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "3级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "4级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "5级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "6级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "7级",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 10
+    },
+    {
+      "resourceId": "resource-1ef7fo1",
+      "title": "Olive & Beatrix 奥莉和贝特丽克斯",
+      "total": 2,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Olive & Beatrix · 英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Olive & Beatrix · 英文原版",
+          "label": "官网所列主系列读物",
+          "count": 2,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-sfumgq",
+      "title": "Press Start! 方块兔",
+      "total": 19,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "英文原版 · 出版社已列书目"
+      ],
+      "parts": [
+        {
+          "edition": "英文原版 · 出版社已列书目",
+          "label": "当前收录目录",
+          "count": 19,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-6rpiv2",
+      "title": "Missy’s Super Duper 米西公主",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Missy’s Super Duper Royal Deluxe · 英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Missy’s Super Duper Royal Deluxe · 英文原版",
+          "label": "官网所列主系列读物",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1af6ny6",
+      "title": "Journey to the West 西游记",
+      "total": 108,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Little Fox 官方可打印故事册"
+      ],
+      "parts": [
+        {
+          "edition": "Little Fox 官方可打印故事册",
+          "label": "Little Fox 官方可打印故事册",
+          "count": 108,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-3qjvdw",
+      "title": "Rocket Girl 火箭女孩",
+      "total": 252,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Little Fox 官方可打印故事册"
+      ],
+      "parts": [
+        {
+          "edition": "Little Fox 官方可打印故事册",
+          "label": "Little Fox 官方可打印故事册",
+          "count": 252,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-hcpvnf",
+      "title": "Rocket Girl’s Journey to the West 火箭女孩西游记",
+      "total": 24,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Little Fox 官方可打印故事册"
+      ],
+      "parts": [
+        {
+          "edition": "Little Fox 官方可打印故事册",
+          "label": "Little Fox 官方可打印故事册",
+          "count": 24,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1b0dlwg",
+      "title": "Mighty Robot 威猛机器人",
+      "total": 9,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Ricky Ricotta's Mighty Robot 9本 · ISBN 9789124192013"
+      ],
+      "parts": [
+        {
+          "edition": "Ricky Ricotta's Mighty Robot 9本 · ISBN 9789124192013",
+          "label": "Ricky Ricotta's Mighty Robot 9本 · ISBN 9789124192013",
+          "count": 9,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-7pnqm0",
+      "title": "Billy and mini Monsters 比利和小怪兽",
+      "total": 15,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Billy and the Mini Monsters 编号1–15"
+      ],
+      "parts": [
+        {
+          "edition": "Billy and the Mini Monsters 编号1–15",
+          "label": "Billy and the Mini Monsters 编号1–15",
+          "count": 15,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-13qqnf6",
+      "title": "Hot dog 腊肠狗系列",
+      "total": 20,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Hotdog! 澳版主系列1–20"
+      ],
+      "parts": [
+        {
+          "edition": "Hotdog! 澳版主系列1–20",
+          "label": "Hotdog! 澳版主系列1–20",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-d2yc4z",
+      "title": "Layla and the bots 莱拉和机器人",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Layla and the Bots · 英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Layla and the Bots · 英文原版",
+          "label": "官网所列主系列读物",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-cy521f",
+      "title": "Mercy Watson 小猪梅西",
+      "total": 6,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Mercy Watson · 英文主系列"
+      ],
+      "parts": [
+        {
+          "edition": "Mercy Watson · 英文主系列",
+          "label": "当前收录目录",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-152pfrt",
+      "title": "Owl Diaries 猫头鹰日记",
+      "total": 24,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Owl Diaries · 英文原版（官网已列书目）"
+      ],
+      "parts": [
+        {
+          "edition": "Owl Diaries · 英文原版（官网已列书目）",
+          "label": "当前收录目录",
+          "count": 24,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-156rqb1",
+      "title": "The Princess in Black 黑衣公主",
+      "total": 11,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "The Princess in Black"
+      ],
+      "parts": [
+        {
+          "edition": "The Princess in Black",
+          "label": "当前收录目录",
+          "count": 11,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-ox5enn",
+      "title": "Haggis and Tank 哈吉斯坦克",
+      "total": 3,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Haggis and Tank Unleashed · 英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Haggis and Tank Unleashed · 英文原版",
+          "label": "官网所列主系列读物",
+          "count": 3,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-ny70rr",
+      "title": "Princess Pink and the Land of Fake-Believe 粉红公主与虚无世界",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Princess Pink and the Land of Fake-Believe · 英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Princess Pink and the Land of Fake-Believe · 英文原版",
+          "label": "官网所列主系列读物",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-17uzhaa",
+      "title": "Bad guys 坏蛋联盟",
+      "total": 20,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "The Bad Guys 已完结主系列1–20"
+      ],
+      "parts": [
+        {
+          "edition": "The Bad Guys 已完结主系列1–20",
+          "label": "The Bad Guys 已完结主系列1–20",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-6ze03a",
+      "title": "Kung Pow Chicken 宫保鸡丁",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Kung Pow Chicken 主系列1–5"
+      ],
+      "parts": [
+        {
+          "edition": "Kung Pow Chicken 主系列1–5",
+          "label": "Kung Pow Chicken 主系列1–5",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-z8zhbt",
+      "title": "Monkey Me 猴子男孩",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Monkey Me 主系列1–4"
+      ],
+      "parts": [
+        {
+          "edition": "Monkey Me 主系列1–4",
+          "label": "Monkey Me 主系列1–4",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-gzsymu",
+      "title": "Junie B Jones 朱妮琼斯",
+      "total": 28,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Junie B. Jones · 英文28本正文系列（ISBN 9781101938591）"
+      ],
+      "parts": [
+        {
+          "edition": "Junie B. Jones · 英文28本正文系列（ISBN 9781101938591）",
+          "label": "Books 1–28",
+          "count": 28,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-o1ogk8",
+      "title": "Rabbit & Bear 胖熊和瘦兔",
+      "total": 6,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Rabbit & Bear 六本选集 · ISBN 9781444987126"
+      ],
+      "parts": [
+        {
+          "edition": "Rabbit & Bear 六本选集 · ISBN 9781444987126",
+          "label": "Rabbit & Bear 六本选集 · ISBN 9781444987126",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1buy45u",
+      "title": "Isadora moon 伊莎多拉穆恩系列",
+      "total": 7,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Isadora Moon 七本选集 · ISBN 9781382055178"
+      ],
+      "parts": [
+        {
+          "edition": "Isadora Moon 七本选集 · ISBN 9781382055178",
+          "label": "Isadora Moon 七本选集 · ISBN 9781382055178",
+          "count": 7,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-11j61f",
+      "title": "Desmond Cole Ghost Patrol 捉鬼小分队",
+      "total": 28,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Desmond Cole Ghost Patrol 主系列1–28"
+      ],
+      "parts": [
+        {
+          "edition": "Desmond Cole Ghost Patrol 主系列1–28",
+          "label": "Desmond Cole Ghost Patrol 主系列1–28",
+          "count": 28,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-13sgknh",
+      "title": "The Zack Files 扎克档案",
+      "total": 30,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "The Zack Files · 英文主系列"
+      ],
+      "parts": [
+        {
+          "edition": "The Zack Files · 英文主系列",
+          "label": "Books 1–30",
+          "count": 30,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-4meiec",
+      "title": "Dragon Master 驯龙大师",
+      "total": 33,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Dragon Masters · 英文原版（官网已列书目）"
+      ],
+      "parts": [
+        {
+          "edition": "Dragon Masters · 英文原版（官网已列书目）",
+          "label": "当前收录目录",
+          "count": 33,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-1jxbmnm",
+      "title": "Magic Treehouse 神奇树屋漫画版",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Magic Tree House Graphic Novels 编号1–8"
+      ],
+      "parts": [
+        {
+          "edition": "Magic Tree House Graphic Novels 编号1–8",
+          "label": "1–4",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "Magic Tree House Graphic Novels 编号1–8",
+          "label": "5–8",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1mnq6y8",
+      "title": "Magic Tree House 神奇树屋",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Magic Tree House 2017重编号主系列1–40"
+      ],
+      "parts": [
+        {
+          "edition": "Magic Tree House 2017重编号主系列1–40",
+          "label": "Magic Tree House 2017重编号主系列1–40",
+          "count": 40,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1j8s6qm",
+      "title": "The last firehawk 火鹰传奇",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "The Last Firehawk 编号1–12"
+      ],
+      "parts": [
+        {
+          "edition": "The Last Firehawk 编号1–12",
+          "label": "The Last Firehawk 编号1–12",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-9ub1k4",
+      "title": "Stink 朱迪弟弟系列",
+      "total": 14,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Stink 主系列1–14"
+      ],
+      "parts": [
+        {
+          "edition": "Stink 主系列1–14",
+          "label": "Stink 主系列1–14",
+          "count": 14,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1mu8hkl",
+      "title": "Judy Moody 稀奇古怪小朱迪",
+      "total": 17,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Judy Moody 原主系列1–17"
+      ],
+      "parts": [
+        {
+          "edition": "Judy Moody 原主系列1–17",
+          "label": "Judy Moody 原主系列1–17",
+          "count": 17,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-18dli54",
+      "title": "Marvin Redpost 麻烦精马文",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Marvin Redpost · 英文主系列"
+      ],
+      "parts": [
+        {
+          "edition": "Marvin Redpost · 英文主系列",
+          "label": "Books 1–8",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-12jlik8",
+      "title": "Pets rule! 萌宠当家",
+      "total": 9,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Pets Rule! 截至2026已出版1–9"
+      ],
+      "parts": [
+        {
+          "edition": "Pets Rule! 截至2026已出版1–9",
+          "label": "Pets Rule! 截至2026已出版1–9",
+          "count": 9,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-19sq4gs",
+      "title": "Real Pigeons 鸽子侦探",
+      "total": 14,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Real Pigeons 澳新英语版1–14"
+      ],
+      "parts": [
+        {
+          "edition": "Real Pigeons 澳新英语版1–14",
+          "label": "Real Pigeons 澳新英语版1–14",
+          "count": 14,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-agtp1r",
+      "title": "The Notebook of Doom 毁灭日记",
+      "total": 13,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "The Notebook of Doom · 英文正文13册"
+      ],
+      "parts": [
+        {
+          "edition": "The Notebook of Doom · 英文正文13册",
+          "label": "Books 1–13故事正文",
+          "count": 13,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-nxe263",
+      "title": "Eerie elementary 怪诞小学",
+      "total": 10,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Eerie Elementary 原版主系列 #1–10"
+      ],
+      "parts": [
+        {
+          "edition": "Eerie Elementary 原版主系列 #1–10",
+          "label": "Eerie Elementary 原版主系列 #1–10",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1nhjndw",
+      "title": "A to Z Mysteries 神秘事件",
+      "total": 26,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "A to Z Mysteries 原系列 A–Z"
+      ],
+      "parts": [
+        {
+          "edition": "A to Z Mysteries 原系列 A–Z",
+          "label": "A to Z Mysteries 原系列 A–Z",
+          "count": 26,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1whu8ta",
+      "title": "Wayside School 歪歪路小学",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Wayside School 四部小说"
+      ],
+      "parts": [
+        {
+          "edition": "Wayside School 四部小说",
+          "label": "Wayside School 四部小说",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1wst5jk",
+      "title": "Lotus Lane 莲花巷女生日记",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Lotus Lane Diaries #1–4"
+      ],
+      "parts": [
+        {
+          "edition": "Lotus Lane Diaries #1–4",
+          "label": "Lotus Lane Diaries #1–4",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1gq6hvt",
+      "title": "My Weird School 疯狂学校",
+      "total": 21,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "My Weird School 原系列1–21"
+      ],
+      "parts": [
+        {
+          "edition": "My Weird School 原系列1–21",
+          "label": "My Weird School 原系列1–21",
+          "count": 21,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1k30p32",
+      "title": "The Treehouse Collection 小屁孩树屋",
+      "total": 13,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Treehouse 主小说 #1–13（13–169层）"
+      ],
+      "parts": [
+        {
+          "edition": "Treehouse 主小说 #1–13（13–169层）",
+          "label": "Treehouse 主小说 #1–13（13–169层）",
+          "count": 13,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1tu4qnm",
+      "title": "Andrew Lost 安德鲁的微观世界",
+      "total": 18,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Andrew Lost 原系列 #1–18"
+      ],
+      "parts": [
+        {
+          "edition": "Andrew Lost 原系列 #1–18",
+          "label": "Andrew Lost 原系列 #1–18",
+          "count": 18,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-s4f6np",
+      "title": "牛津树",
+      "total": 628,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "国内红标/无标选本",
+        "国内红标/无标18故事选本",
+        "国内橙标150册选本",
+        "Read with Biff Chip and Kipper家庭版",
+        "国内学校版6–9基础64册选本"
+      ],
+      "parts": [
+        {
+          "edition": "国内红标/无标选本",
+          "label": "1级（含DD1）",
+          "count": 84,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "2级（含DD2）",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "3级（含DD）",
+          "count": 42,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "4级（含DD）",
+          "count": 42,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "5级（含DD）",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标选本",
+          "label": "6–9级（含DD）",
+          "count": 88,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标18故事选本",
+          "label": "10级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标18故事选本",
+          "label": "11级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "国内红标/无标18故事选本",
+          "label": "12级",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "国内橙标150册选本",
+          "label": "1级（含DD1）",
+          "count": 96,
+          "unit": "本"
+        },
+        {
+          "edition": "国内橙标150册选本",
+          "label": "2级（含DD2）",
+          "count": 54,
+          "unit": "本"
+        },
+        {
+          "edition": "Read with Biff Chip and Kipper家庭版",
+          "label": "1–3级",
+          "count": 32,
+          "unit": "本"
+        },
+        {
+          "edition": "Read with Biff Chip and Kipper家庭版",
+          "label": "4–6级",
+          "count": 24,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "6级（基础故事）",
+          "count": 21,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "7级（基础故事）",
+          "count": 19,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "8级（基础故事）",
+          "count": 12,
+          "unit": "本"
+        },
+        {
+          "edition": "国内学校版6–9基础64册选本",
+          "label": "9级（基础故事）",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 18
+    },
+    {
+      "resourceId": "resource-1fcf1ox",
+      "title": "The magic school bus rides again 神奇校车大树系列",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Magic School Bus Rides Again · Branches五本章节书"
+      ],
+      "parts": [
+        {
+          "edition": "Magic School Bus Rides Again · Branches五本章节书",
+          "label": "Magic School Bus Rides Again · Branches五本章节书",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1c42je5",
+      "title": "Merlin Mission 梅林任务",
+      "total": 27,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Magic Tree House Merlin Missions #1–27"
+      ],
+      "parts": [
+        {
+          "edition": "Magic Tree House Merlin Missions #1–27",
+          "label": "Magic Tree House Merlin Missions #1–27",
+          "count": 27,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-kacco9",
+      "title": "Geronimo Stilton 老鼠记者",
+      "total": 83,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "原图所列素材，选用版本与总量待确定"
+      ],
+      "parts": [
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "Geronimo Stilton 美国英文原系列 #1–83（已发布范围）",
+          "count": 83,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1rtjaam",
+      "title": "Football super stars 足球明星",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Football Superstars 12本球员传记选集"
+      ],
+      "parts": [
+        {
+          "edition": "Football Superstars 12本球员传记选集",
+          "label": "Football Superstars 12本球员传记选集",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1nuqi5t",
+      "title": "培生词汇妙趣屋",
+      "total": 192,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "培生词汇妙趣屋（NEW），三辑各32本",
+        "培生幼儿英语·基础词汇（点读版），上、下两辑各48本"
+      ],
+      "parts": [
+        {
+          "edition": "培生词汇妙趣屋（NEW），三辑各32本",
+          "label": "1辑",
+          "count": 32,
+          "unit": "本"
+        },
+        {
+          "edition": "培生词汇妙趣屋（NEW），三辑各32本",
+          "label": "2辑",
+          "count": 32,
+          "unit": "本"
+        },
+        {
+          "edition": "培生词汇妙趣屋（NEW），三辑各32本",
+          "label": "3辑",
+          "count": 32,
+          "unit": "本"
+        },
+        {
+          "edition": "培生幼儿英语·基础词汇（点读版），上、下两辑各48本",
+          "label": "上辑",
+          "count": 48,
+          "unit": "本"
+        },
+        {
+          "edition": "培生幼儿英语·基础词汇（点读版），上、下两辑各48本",
+          "label": "下辑",
+          "count": 48,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 11
+    },
+    {
+      "resourceId": "resource-1cn6i3m",
+      "title": "学乐",
+      "total": 382,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "First Little Readers English Parent Pack",
+        "外研社2025学乐小读者"
+      ],
+      "parts": [
+        {
+          "edition": "First Little Readers English Parent Pack",
+          "label": "A",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "First Little Readers English Parent Pack",
+          "label": "B",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "First Little Readers English Parent Pack",
+          "label": "C",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "First Little Readers English Parent Pack",
+          "label": "D",
+          "count": 25,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2025学乐小读者",
+          "label": "A–J全套",
+          "count": 282,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 5
+    },
+    {
+      "resourceId": "resource-149sp5j",
+      "title": "书虫",
+      "total": 149,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社2021目录149册旧版"
+      ],
+      "parts": [
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "入门级上",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "入门级中",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "入门级下",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "1级上",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "1级中",
+          "count": 13,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "1级下",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "2级上",
+          "count": 12,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "2级中",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "2级下",
+          "count": 13,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "3级上",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "3级下",
+          "count": 11,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "4级上",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "4级下",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "5级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社2021目录149册旧版",
+          "label": "6级",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 7
+    },
+    {
+      "resourceId": "resource-hojfp0",
+      "title": "海尼曼 GK70",
+      "total": 140,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "海尼曼GK 70本选本",
+        "LLI Orange Grade K"
+      ],
+      "parts": [
+        {
+          "edition": "海尼曼GK 70本选本",
+          "label": "GK",
+          "count": 70,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "Getting Started",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "A",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "B",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "LLI Orange Grade K",
+          "label": "C",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 9
+    },
+    {
+      "resourceId": "resource-jwq9vf",
+      "title": "Highlight 故事与科普配对",
+      "total": 24,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "北京语言大学出版社 Highlights 英语故事与科普配对阅读（四级）"
+      ],
+      "parts": [
+        {
+          "edition": "北京语言大学出版社 Highlights 英语故事与科普配对阅读（四级）",
+          "label": "3级",
+          "count": 24,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-141vfh7",
+      "title": "培生亲子故事屋",
+      "total": 56,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "培生亲子故事屋，基础级／进阶级28册版"
+      ],
+      "parts": [
+        {
+          "edition": "培生亲子故事屋，基础级／进阶级28册版",
+          "label": "基础级",
+          "count": 28,
+          "unit": "本"
+        },
+        {
+          "edition": "培生亲子故事屋，基础级／进阶级28册版",
+          "label": "进阶级",
+          "count": 28,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-l64s2i",
+      "title": "培生（第六阶段未标明套系）",
+      "total": 0,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [],
+      "parts": [],
+      "reason": "公开检索未取得该阶段读物封面、ISBN、完整套系名称或作者说明，无法唯一指定培生版本及级别册数。原因是引用身份不完整，不是出版物客观没有册数。",
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-1hv2ggo",
+      "title": "巴蒂英语",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社巴蒂英语启蒙分级绘本"
+      ],
+      "parts": [
+        {
+          "edition": "外研社巴蒂英语启蒙分级绘本",
+          "label": "1级",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社巴蒂英语启蒙分级绘本",
+          "label": "2级",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-29ukn0",
+      "title": "悠游",
+      "total": 60,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "悠游阅读·成长计划第一级（外研社，60本读物）"
+      ],
+      "parts": [
+        {
+          "edition": "悠游阅读·成长计划第一级（外研社，60本读物）",
+          "label": "1级",
+          "count": 60,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-11wr0uz",
+      "title": "蛙小弟",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Eve Bunting Frog and Friends"
+      ],
+      "parts": [
+        {
+          "edition": "Eve Bunting Frog and Friends",
+          "label": "英文8册",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1hwirew",
+      "title": "皮特猫",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "HarperCollins Pete the Cat 12-Book Phonics Fun!"
+      ],
+      "parts": [
+        {
+          "edition": "HarperCollins Pete the Cat 12-Book Phonics Fun!",
+          "label": "12册自然拼读盒",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1ghd02m",
+      "title": "牛津自拼",
+      "total": 15,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Oxford Phonics World Readers"
+      ],
+      "parts": [
+        {
+          "edition": "Oxford Phonics World Readers",
+          "label": "1",
+          "count": 3,
+          "unit": "本"
+        },
+        {
+          "edition": "Oxford Phonics World Readers",
+          "label": "2",
+          "count": 3,
+          "unit": "本"
+        },
+        {
+          "edition": "Oxford Phonics World Readers",
+          "label": "3",
+          "count": 3,
+          "unit": "本"
+        },
+        {
+          "edition": "Oxford Phonics World Readers",
+          "label": "4",
+          "count": 3,
+          "unit": "本"
+        },
+        {
+          "edition": "Oxford Phonics World Readers",
+          "label": "5",
+          "count": 3,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 5
+    },
+    {
+      "resourceId": "resource-1hu7to9",
+      "title": "丽声高频词",
+      "total": 72,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声英语高频词读物上下两辑"
+      ],
+      "parts": [
+        {
+          "edition": "丽声英语高频词读物上下两辑",
+          "label": "上",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声英语高频词读物上下两辑",
+          "label": "下",
+          "count": 36,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-gfdta7",
+      "title": "莎林高频词",
+      "total": 220,
+      "unit": "张",
+      "basis": "known-range",
+      "editions": [
+        "Saalin 220 Sight Words Flash Cards"
+      ],
+      "parts": [
+        {
+          "edition": "Saalin 220 Sight Words Flash Cards",
+          "label": "220张词卡全套",
+          "count": 220,
+          "unit": "张"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-l141pg",
+      "title": "Evan-moor sight words",
+      "total": 1,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Evan-Moor Smart Start Sight Words and High-Frequency Words Grade K"
+      ],
+      "parts": [
+        {
+          "edition": "Evan-Moor Smart Start Sight Words and High-Frequency Words Grade K",
+          "label": "K",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-yy64zs",
+      "title": "蔬菜王国",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "原图所列素材，选用版本与总量待确定"
+      ],
+      "parts": [
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "蔬菜王国 Veggie's World 40册",
+          "count": 40,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1raloog",
+      "title": "丽声自然拼读",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社《丽声瑞格叔叔自然拼读法》五级学习用书"
+      ],
+      "parts": [
+        {
+          "edition": "外研社《丽声瑞格叔叔自然拼读法》五级学习用书",
+          "label": "1",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社《丽声瑞格叔叔自然拼读法》五级学习用书",
+          "label": "2",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社《丽声瑞格叔叔自然拼读法》五级学习用书",
+          "label": "3",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社《丽声瑞格叔叔自然拼读法》五级学习用书",
+          "label": "4",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社《丽声瑞格叔叔自然拼读法》五级学习用书",
+          "label": "5",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1nnr59r",
+      "title": "大猫自然拼读",
+      "total": 52,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "原图所列素材，选用版本与总量待确定"
+      ],
+      "parts": [
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "1级1",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "1级2",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "2级1",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "2级2",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "3级1",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "3级2",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "4级1",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "4级2",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "5级1",
+          "count": 5,
+          "unit": "本"
+        },
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "5级2",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 5
+    },
+    {
+      "resourceId": "resource-oz0jbk",
+      "title": "糊涂女佣",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "HarperCollins 2016，ISBN 9780062443564"
+      ],
+      "parts": [
+        {
+          "edition": "HarperCollins 2016，ISBN 9780062443564",
+          "label": "Level 2 五册盒装#1",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-ulmaqc",
+      "title": "内裤超人",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "原图所列素材，选用版本与总量待确定"
+      ],
+      "parts": [
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "Captain Underpants 原小说 #1–12",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1r3pyyc",
+      "title": "罗尔德达尔",
+      "total": 16,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Roald Dahl Collection 16 Book Box Set"
+      ],
+      "parts": [
+        {
+          "edition": "Roald Dahl Collection 16 Book Box Set",
+          "label": "16部盒装选本",
+          "count": 16,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-13uj3q",
+      "title": "神奇校车",
+      "total": 20,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "庆爸3-4岁2.0版原稿所列选本"
+      ],
+      "parts": [
+        {
+          "edition": "庆爸3-4岁2.0版原稿所列选本",
+          "label": "神奇校车·红蓝盒20册",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-ngqkjv",
+      "title": "哈里波特",
+      "total": 7,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Harry Potter原版七部小说（不含剧本、伴读及衍生作品）"
+      ],
+      "parts": [
+        {
+          "edition": "Harry Potter原版七部小说（不含剧本、伴读及衍生作品）",
+          "label": "七部小说",
+          "count": 7,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1sx9rf3",
+      "title": "新概念",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "朗文外研社《新概念英语》经典版／智慧版学生用书"
+      ],
+      "parts": [
+        {
+          "edition": "朗文外研社《新概念英语》经典版／智慧版学生用书",
+          "label": "1",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "朗文外研社《新概念英语》经典版／智慧版学生用书",
+          "label": "2",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "朗文外研社《新概念英语》经典版／智慧版学生用书",
+          "label": "3",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "朗文外研社《新概念英语》经典版／智慧版学生用书",
+          "label": "4",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1ew2482",
+      "title": "Power up",
+      "total": 6,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Cambridge Power Up Second Edition，2025–2026已出版"
+      ],
+      "parts": [
+        {
+          "edition": "Cambridge Power Up Second Edition，2025–2026已出版",
+          "label": "1",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Power Up Second Edition，2025–2026已出版",
+          "label": "2",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Power Up Second Edition，2025–2026已出版",
+          "label": "3",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Power Up Second Edition，2025–2026已出版",
+          "label": "4",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Power Up Second Edition，2025–2026已出版",
+          "label": "5",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Power Up Second Edition，2025–2026已出版",
+          "label": "6",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-9v2gi2",
+      "title": "think",
+      "total": 6,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Cambridge Think Second Edition British English"
+      ],
+      "parts": [
+        {
+          "edition": "Cambridge Think Second Edition British English",
+          "label": "Starter",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Think Second Edition British English",
+          "label": "1",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Think Second Edition British English",
+          "label": "2",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Think Second Edition British English",
+          "label": "3",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Think Second Edition British English",
+          "label": "4",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Cambridge Think Second Edition British English",
+          "label": "5",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-kcbshs",
+      "title": "basic reading",
+      "total": 3,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "原图所列素材，选用版本与总量待确定"
+      ],
+      "parts": [
+        {
+          "edition": "原图所列素材，选用版本与总量待确定",
+          "label": "200词",
+          "count": 3,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-zqlmu5",
+      "title": "basic words",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Compass 1000 Basic English Words Second Edition"
+      ],
+      "parts": [
+        {
+          "edition": "Compass 1000 Basic English Words Second Edition",
+          "label": "1",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Compass 1000 Basic English Words Second Edition",
+          "label": "2",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Compass 1000 Basic English Words Second Edition",
+          "label": "3",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Compass 1000 Basic English Words Second Edition",
+          "label": "4",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-l95jou",
+      "title": "大马泽单词本",
+      "total": 0,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [],
+      "parts": [],
+      "reason": "已定向检索许密杉／杉杉大马泽营单词本，原稿指许密杉自己整理的可点读纸质单词本；公开索引未取得她该产品的固定目录或分册构成。通用BBC MUZZY零售12分册不是同一身份，不能据此填12。",
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-16z7681",
+      "title": "大马泽台词本",
+      "total": 0,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [],
+      "parts": [],
+      "reason": "大马泽台词本有多种任意合订。已排查BBC MUZZY12分册零售版和38册大橙盒，但未能与原稿指名的整理版逐目录对应，暂不统一总量。",
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-11spny4",
+      "title": "Highlight",
+      "total": 108,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "中信《Highlights科普英语分级阅读》"
+      ],
+      "parts": [
+        {
+          "edition": "中信《Highlights科普英语分级阅读》",
+          "label": "1",
+          "count": 18,
+          "unit": "本"
+        },
+        {
+          "edition": "中信《Highlights科普英语分级阅读》",
+          "label": "2",
+          "count": 18,
+          "unit": "本"
+        },
+        {
+          "edition": "中信《Highlights科普英语分级阅读》",
+          "label": "3",
+          "count": 18,
+          "unit": "本"
+        },
+        {
+          "edition": "中信《Highlights科普英语分级阅读》",
+          "label": "4",
+          "count": 18,
+          "unit": "本"
+        },
+        {
+          "edition": "中信《Highlights科普英语分级阅读》",
+          "label": "5",
+          "count": 18,
+          "unit": "本"
+        },
+        {
+          "edition": "中信《Highlights科普英语分级阅读》",
+          "label": "6",
+          "count": 18,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1hotvkv",
+      "title": "牛津自然拼读",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "牛津自然拼读天地学生用书"
+      ],
+      "parts": [
+        {
+          "edition": "牛津自然拼读天地学生用书",
+          "label": "1",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "牛津自然拼读天地学生用书",
+          "label": "2",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "牛津自然拼读天地学生用书",
+          "label": "3",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "牛津自然拼读天地学生用书",
+          "label": "4",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "牛津自然拼读天地学生用书",
+          "label": "5",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1clzu3i",
+      "title": "Booklife Junior",
+      "total": 156,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+        "Junior Learning Letters & Sounds，SKU BB106"
+      ],
+      "parts": [
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Lilac",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Pink",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Red",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Yellow",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Blue",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Green",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Orange",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Turquoise",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Purple",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Gold",
+          "count": 16,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "White",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "BookLife Readers Catalogue2024；逐ISBN固定目录范围",
+          "label": "Lime",
+          "count": 10,
+          "unit": "本"
+        },
+        {
+          "edition": "Junior Learning Letters & Sounds，SKU BB106",
+          "label": "Phase2 Set2 Fiction",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-ezbi3s",
+      "title": "小狐狸台词本",
+      "total": 0,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [],
+      "parts": [],
+      "reason": "Little Fox是持续更新故事平台，台词本可按剧集或自选集任意合订；无确定出版社版次、ISBN或固定打印分册清单，不将平台故事／集数直接当实体册数。",
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-a52ypl",
+      "title": "饼干狗",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "My First I Can Read，ISBN9780062688262"
+      ],
+      "parts": [
+        {
+          "edition": "My First I Can Read，ISBN9780062688262",
+          "label": "Neighborhood五册盒装",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-ckc2k",
+      "title": "巴塔木口语书",
+      "total": 24,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "路线原文明确数量"
+      ],
+      "parts": [
+        {
+          "edition": "路线原文明确数量",
+          "label": "24本",
+          "count": 24,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-1yfs7b5",
+      "title": "Super Hammy",
+      "total": 15,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "DC Canada My First Reading Series"
+      ],
+      "parts": [
+        {
+          "edition": "DC Canada My First Reading Series",
+          "label": "My First Reading Series",
+          "count": 15,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-e87t8v",
+      "title": "小猪小象",
+      "total": 25,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Elephant & Piggie · 英文主系列25本"
+      ],
+      "parts": [
+        {
+          "edition": "Elephant & Piggie · 英文主系列25本",
+          "label": "当前收录目录",
+          "count": 25,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-45fjcl",
+      "title": "口语剧场",
+      "total": 30,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "小彼恩点读版Benchmark Reader's Theater口语剧场"
+      ],
+      "parts": [
+        {
+          "edition": "小彼恩点读版Benchmark Reader's Theater口语剧场",
+          "label": "30册盒装",
+          "count": 30,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-166ekar",
+      "title": "培生400句",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "培生儿童英语情境口语400句，上、下两辑"
+      ],
+      "parts": [
+        {
+          "edition": "培生儿童英语情境口语400句，上、下两辑",
+          "label": "上",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "培生儿童英语情境口语400句，上、下两辑",
+          "label": "下",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 2
+    },
+    {
+      "resourceId": "resource-yl8irm",
+      "title": "Best Buddies",
+      "total": 3,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Scholastic Acorn Best Buddies"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic Acorn Best Buddies",
+          "label": "1 A Pie for Us",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Acorn Best Buddies",
+          "label": "2 Save Duck!",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Acorn Best Buddies",
+          "label": "3 Rain Is Wet!",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-o2t6vh",
+      "title": "波西与皮普",
+      "total": 12,
+      "unit": "本",
+      "basis": "directory",
+      "editions": [
+        "Pip and Posy",
+        "Pip and Posy · Nosy Crow英文原版"
+      ],
+      "parts": [
+        {
+          "edition": "Pip and Posy",
+          "label": "当前收录目录",
+          "count": 11,
+          "unit": "本"
+        },
+        {
+          "edition": "Pip and Posy · Nosy Crow英文原版",
+          "label": "当前收录目录",
+          "count": 1,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-ie3zww",
+      "title": "佩奇高频词绘本",
+      "total": 20,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "小彼恩平装点读版20册套装"
+      ],
+      "parts": [
+        {
+          "edition": "小彼恩平装点读版20册套装",
+          "label": "L1",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "小彼恩平装点读版20册套装",
+          "label": "L2",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "小彼恩平装点读版20册套装",
+          "label": "L3",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "小彼恩平装点读版20册套装",
+          "label": "L4",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "小彼恩平装点读版20册套装",
+          "label": "L5",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-hlfpbh",
+      "title": "小猪和狐狸",
+      "total": 4,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "庆爸3-4岁2.0版原稿所列选本"
+      ],
+      "parts": [
+        {
+          "edition": "庆爸3-4岁2.0版原稿所列选本",
+          "label": "小猪和狐狸4册点读",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-106pkss",
+      "title": "快乐瓢虫",
+      "total": 50,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Ladybird Read It Yourself Collection 50 Books，旧版盒装"
+      ],
+      "parts": [
+        {
+          "edition": "Ladybird Read It Yourself Collection 50 Books，旧版盒装",
+          "label": "1–4级50册盒装",
+          "count": 50,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1qn098f",
+      "title": "I can read",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Greenwillow/HarperCollins 2016，ISBN9780062443564"
+      ],
+      "parts": [
+        {
+          "edition": "Greenwillow/HarperCollins 2016，ISBN9780062443564",
+          "label": "Level2 Amelia Bedelia五本选本",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-uux27w",
+      "title": "银河号阅读全解码",
+      "total": 116,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "童趣编译／人民邮电出版社《银盒号儿童英语分级读物》主题阅读"
+      ],
+      "parts": [
+        {
+          "edition": "童趣编译／人民邮电出版社《银盒号儿童英语分级读物》主题阅读",
+          "label": "主题阅读基础1–3、提高4–6、进阶7–9",
+          "count": 116,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-kjiouh",
+      "title": "学乐橡子点读系列",
+      "total": 21,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Scholastic Unicorn and Yeti 固定编号1–9选本",
+        "Scholastic Hello Hedgehog 固定编号1–6",
+        "Scholastic A Crabby Book 固定编号1–6"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "1 Sparkly New Friends",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "2 A Good Team",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "3 Friends Rock",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "4 Cheer Up",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "5 Fair and Square",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "6 Together",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "7 Stuck with You",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "8 Fun and Games",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Unicorn and Yeti 固定编号1–9选本",
+          "label": "9 Razzle Dazzle",
+          "count": 1,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic Hello Hedgehog 固定编号1–6",
+          "label": "1–6",
+          "count": 6,
+          "unit": "本"
+        },
+        {
+          "edition": "Scholastic A Crabby Book 固定编号1–6",
+          "label": "1–6",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 3
+    },
+    {
+      "resourceId": "resource-1hwgnzy",
+      "title": "小毛人",
+      "total": 5,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "HarperCollins My First I Can Read，ISBN9780062653499"
+      ],
+      "parts": [
+        {
+          "edition": "HarperCollins My First I Can Read，ISBN9780062653499",
+          "label": "Collector's Quintet",
+          "count": 5,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-mavhf5",
+      "title": "丽声冒险岛",
+      "total": 56,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声冒险故事岛（1–7级）"
+      ],
+      "parts": [
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "1级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "2级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "3级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "4级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "5级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "6级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "7级",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 10
+    },
+    {
+      "resourceId": "resource-zs4dhg",
+      "title": "淘气兔子",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "湖南少年儿童出版社2025/09/01汉英双语版"
+      ],
+      "parts": [
+        {
+          "edition": "湖南少年儿童出版社2025/09/01汉英双语版",
+          "label": "双语八册版",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-127dfoe",
+      "title": "脏脏书",
+      "total": 20,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Poodle Doodle 英文纸板书"
+      ],
+      "parts": [
+        {
+          "edition": "Poodle Doodle 英文纸板书",
+          "label": "All About My Body",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1g6rmtp",
+      "title": "汪培珽一段",
+      "total": 28,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "凯妈整理版本：I Can Read13＋Penguin9＋绘本6"
+      ],
+      "parts": [
+        {
+          "edition": "凯妈整理版本：I Can Read13＋Penguin9＋绘本6",
+          "label": "I Can Read Level1",
+          "count": 13,
+          "unit": "本"
+        },
+        {
+          "edition": "凯妈整理版本：I Can Read13＋Penguin9＋绘本6",
+          "label": "Penguin Group",
+          "count": 9,
+          "unit": "本"
+        },
+        {
+          "edition": "凯妈整理版本：I Can Read13＋Penguin9＋绘本6",
+          "label": "各名家绘本六本选集",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-3z1ap6",
+      "title": "佩奇绘本",
+      "total": 50,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Ladybird／Penguin 黄盒50故事本"
+      ],
+      "parts": [
+        {
+          "edition": "Ladybird／Penguin 黄盒50故事本",
+          "label": "Yellow Box",
+          "count": 50,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-pc7ej8",
+      "title": "Baby why",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Poodle Doodle Baby Why 英文版"
+      ],
+      "parts": [
+        {
+          "edition": "Poodle Doodle Baby Why 英文版",
+          "label": "Biology",
+          "count": 20,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Baby Why 英文版",
+          "label": "Chemistry",
+          "count": 20,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-19dcja1",
+      "title": "Baby all",
+      "total": 40,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "盖世《啊！物理》《啊！艺术》"
+      ],
+      "parts": [
+        {
+          "edition": "盖世《啊！物理》《啊！艺术》",
+          "label": "Ah! Physics & Ah! Art",
+          "count": 40,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-4oyfst",
+      "title": "心智麦田轻科普绘本",
+      "total": 11,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "路线原文明确数量"
+      ],
+      "parts": [
+        {
+          "edition": "路线原文明确数量",
+          "label": "11本",
+          "count": 11,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 0
+    },
+    {
+      "resourceId": "resource-1l68zks",
+      "title": "大红狗",
+      "total": 6,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Scholastic 8×8 paperback story box"
+      ],
+      "parts": [
+        {
+          "edition": "Scholastic 8×8 paperback story box",
+          "label": "Big Red Friend Story Box",
+          "count": 6,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-xqapbe",
+      "title": "Frog and Friends",
+      "total": 8,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Frog and Friends（Eve Bunting／Sleeping Bear Press）"
+      ],
+      "parts": [
+        {
+          "edition": "Frog and Friends（Eve Bunting／Sleeping Bear Press）",
+          "label": "Frog and Friends（Eve Bunting／Sleeping Bear Press）",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1xt8nl",
+      "title": "心智麦田",
+      "total": 35,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "庆爸3-4岁2.0版原稿所列选本"
+      ],
+      "parts": [
+        {
+          "edition": "庆爸3-4岁2.0版原稿所列选本",
+          "label": "心智麦田·庆爸精选35本",
+          "count": 35,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-13d4vi4",
+      "title": "布鲁伊绘本",
+      "total": 10,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Ladybird Bluey，ISBN9780241796308"
+      ],
+      "parts": [
+        {
+          "edition": "Ladybird Bluey，ISBN9780241796308",
+          "label": "Awesome Box of Books",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1mopiiw",
+      "title": "培生",
+      "total": 101,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "湖北少儿／海豚《培生幼儿英语》第一辑"
+      ],
+      "parts": [
+        {
+          "edition": "湖北少儿／海豚《培生幼儿英语》第一辑",
+          "label": "第一辑 预备级",
+          "count": 35,
+          "unit": "本"
+        },
+        {
+          "edition": "湖北少儿／海豚《培生幼儿英语》第一辑",
+          "label": "第一辑 基础级",
+          "count": 42,
+          "unit": "本"
+        },
+        {
+          "edition": "湖北少儿／海豚《培生幼儿英语》第一辑",
+          "label": "第一辑 提高级",
+          "count": 24,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1m8k2cj",
+      "title": "海狸",
+      "total": 360,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "Poodle Doodle Beaver Readers 英文版"
+      ],
+      "parts": [
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "1",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "2",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "3",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "4",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "5",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "6",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "7",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "8",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "9",
+          "count": 36,
+          "unit": "本"
+        },
+        {
+          "edition": "Poodle Doodle Beaver Readers 英文版",
+          "label": "10",
+          "count": 36,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-lkawg4",
+      "title": "美国Jump百科",
+      "total": 549,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "文脉／小Book Jump 百科549本四分支具名选集"
+      ],
+      "parts": [
+        {
+          "edition": "文脉／小Book Jump 百科549本四分支具名选集",
+          "label": "蝌蚪",
+          "count": 147,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump 百科549本四分支具名选集",
+          "label": "牛蛙",
+          "count": 271,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump 百科549本四分支具名选集",
+          "label": "袋鼠",
+          "count": 121,
+          "unit": "本"
+        },
+        {
+          "edition": "文脉／小Book Jump 百科549本四分支具名选集",
+          "label": "蓝鹰",
+          "count": 10,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1u6no5j",
+      "title": "丽声中国文化英语分级阅读",
+      "total": 72,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声中国文化英语分级阅读（外研社六级）"
+      ],
+      "parts": [
+        {
+          "edition": "丽声中国文化英语分级阅读（外研社六级）",
+          "label": "丽声中国文化英语分级阅读（外研社六级）",
+          "count": 72,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-hrutzm",
+      "title": "悠游阅读成长计划",
+      "total": 30,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社悠游阅读成长计划2019第四级1–5"
+      ],
+      "parts": [
+        {
+          "edition": "外研社悠游阅读成长计划2019第四级1–5",
+          "label": "第四级第1–5辑",
+          "count": 30,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-a3pj5d",
+      "title": "托马斯和朋友",
+      "total": 12,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "固定双语12册盒装"
+      ],
+      "parts": [
+        {
+          "edition": "固定双语12册盒装",
+          "label": "双语阅读绘本12册盒装",
+          "count": 12,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 1
+    },
+    {
+      "resourceId": "resource-1daz61h",
+      "title": "丽声冒险故事岛",
+      "total": 56,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "丽声冒险故事岛（1–7级）"
+      ],
+      "parts": [
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "1级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "2级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "3级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "4级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "5级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "6级",
+          "count": 8,
+          "unit": "本"
+        },
+        {
+          "edition": "丽声冒险故事岛（1–7级）",
+          "label": "7级",
+          "count": 8,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 10
+    },
+    {
+      "resourceId": "resource-ffnro6",
+      "title": "牛津阅读树丽声经典故事屋",
+      "total": 36,
+      "unit": "本",
+      "basis": "known-range",
+      "editions": [
+        "外研社丽声经典故事屋（1–9级）"
+      ],
+      "parts": [
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "1级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "2级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "3级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "4级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "5级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "6级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "7级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "8级",
+          "count": 4,
+          "unit": "本"
+        },
+        {
+          "edition": "外研社丽声经典故事屋（1–9级）",
+          "label": "9级",
+          "count": 4,
+          "unit": "本"
+        }
+      ],
+      "reason": null,
+      "scopeCount": 9
+    }
+  ]
+}

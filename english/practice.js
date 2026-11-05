@@ -80,15 +80,14 @@ function unitProgressUpdate(percent,record,date){
 }
 // 出版范围与路线原始级别分开，不能为补册数修改素材签名或跨版本借用分母。
 function bookScopes(resourceId,levels,catalog,stageId){
-  const entry=catalog?.series?.find(s=>s.resourceId===resourceId);
-  if(!entry)return [];
-  const selected=[...new Set(levels.filter(Boolean))];
-  return entry.scopes.filter(s=>(!s.stageIds||s.stageIds.includes(stageId))&&(!selected.length||selected.length===1&&(s.level===selected[0]||s.levelAliases?.includes(selected[0])))).map(s=>({...s,total:s.parts.reduce((n,p)=>n+p.count,0),unit:s.unit||entry.unit||'本',edition:s.edition||entry.edition,sources:s.sources||entry.sources,checkedAt:catalog.checkedAt}));
+  const model=typeof module==='object'&&module.exports?require('./model.js'):root.EnglishModel;
+  return model.publicationLevelScopes(catalog,resourceId,levels,stageId);
 }
 function unitBooks(record){const meta=json(record?.note);return meta?.version===1&&meta.books?.version===1?meta.books:null;}
 function partKey(key,identity){let hash=2166136261;for(const c of identity)hash=Math.imul(hash^c.charCodeAt(0),16777619);return key+':p'+(hash>>>0).toString(36);}
 function expandBookUnits(unit,levels,catalog,record){
-  const entry=catalog?.series?.find(s=>s.resourceId===unit.resourceId),meta=json(record?.note),old=unitBooks(record);
+  const model=typeof module==='object'&&module.exports?require('./model.js'):root.EnglishModel;
+  const entry=model.publicationEntry(catalog,unit.resourceId),meta=json(record?.note),old=unitBooks(record);
   const sourceLevels=unit.item.materials.map(m=>m.level).filter(Boolean);
   const canChooseEdition=entry?.recordingLevels?sourceLevels.length>0&&sourceLevels.every(level=>entry.recordingLevels.includes(level)):!sourceLevels.length;
   const editions=canChooseEdition?entry?.recordingEditions:[];

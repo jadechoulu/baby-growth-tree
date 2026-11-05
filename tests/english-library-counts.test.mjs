@@ -49,7 +49,7 @@ test('无出版数量表时按当前收录版本目录计数，筛选后保留�
   const frog=count('resource-var8qr',{route:'qing',stageIds:['qing-s7']});
   assert.equal(frog.total,4);
   assert.equal(frog.books.length,4);
-  assert.equal(frog.basis,'directory');
+  assert.equal(frog.basis,'known-range'); // 经典四册已提升为公共出版范围。
   const piggie=count('resource-e87t8v');
   assert.equal(piggie.total,25);
   const selected=count('resource-e87t8v',{route:'qing',stageIds:['qing-s3']});
@@ -121,7 +121,7 @@ test('新核对范围排除指导册，背面级别不重复累加，部分级�
 
 test('已核出版候选可供全量浏览，路线版本未定时不自动当作阶段分母',()=>{
   assert.equal(count('resource-fkl6xf').total,41); // 英文B25、E&F合16，不拆成每级16。
-  assert.equal(count('resource-1cn6i3m').total,100);
+  assert.equal(count('resource-1cn6i3m').total,382); // 英文A–D100与外研社2025A–J282为两个版本。
   for(const id of ['resource-fkl6xf','resource-nqvpg2','resource-19jrpig']){
     const resource=catalog.resources.find(r=>r.id===id);
     for(const a of resource.appearances){
