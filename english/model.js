@@ -1,5 +1,6 @@
 (function (root) {
   'use strict';
+  var TOPICS = typeof module === 'object' && module.exports ? require('./topics.js') : root.EnglishTopics;
 
   var ROUTES = {
     banana: { name: '香蕉妈妈', color: '#e7ab43' },
@@ -913,11 +914,97 @@
     var query = searchKey(filters.query);
     return songs.filter(function (song) {
       return (!filters.scene || filters.scene === 'all' || song.scene === filters.scene) &&
-        (!query || searchKey(song.title + ' ' + song.scene).includes(query));
+        TOPICS.matches(TOPICS.entryTopics('song', song), { topic: filters.topic || 'all', subtopic: filters.subtopic || 'all' }) &&
+        (!filters.activity || filters.activity === 'all' || TOPICS.entryActivities('song', song).includes(filters.activity)) &&
+        (!query || searchKey(song.title + ' ' + song.scene + ' ' + TOPICS.labels(TOPICS.expand(TOPICS.entryTopics('song', song))).join(' ')).includes(query));
     });
   }
 
   var api = { normalize: normalize, getRoutePlan: getRoutePlan, getStageFlow: getStageFlow, getRouteAgeCase: getRouteAgeCase, getStageSchedules: getStageSchedules, getAge: getAge, recommend: recommend, formatLevel: formatLevel, getLevelSummary: getLevelSummary, materialTitle: materialTitle, levelSegments: levelSegments, getStageMaterials: getStageMaterials, getMaterialLevels: getMaterialLevels, compareStages: compareStages, getSeriesProgression: getSeriesProgression, getSongResources: getSongResources, filterSongs: filterSongs };
+  // 出版数量属于公共套系；路线只通过 scopeId 引用版本，不复制册数。
+  function publicationEntry(catalog, resourceId) {
+    var own = array(catalog && catalog.series).find(function (s) { return s.resourceId === resourceId; });
+    if (!own || !own.catalogResourceId) return own;
+    var shared = publicationEntry(catalog, own.catalogResourceId);
+    return shared ? Object.assign({}, shared, own, { scopes: shared.scopes, sources: shared.sources, edition: shared.edition }) : own;
+  }
+  function publicationBindings(catalog, resourceId, scopeId) {
+    var entry = publicationEntry(catalog, resourceId);
+    return array(catalog && catalog.references).filter(function (ref) { return (ref.resourceId === resourceId || entry && ref.resourceId === entry.catalogResourceId) && ref.scopeId === scopeId; });
+  }
+  function publicationScopes(catalog, resourceId, stageId) {
+    var entry = publicationEntry(catalog, resourceId);
+    return array(entry && entry.scopes).map(function (scope) {
+      var refs = publicationBindings(catalog, resourceId, scope.id);
+      var selected = refs.some(function (ref) { return ref.stageId === stageId; });
+      return Object.assign({}, scope, {
+        total: scope.parts.reduce(function (sum, part) { return sum + part.count; }, 0),
+        unit: scope.unit || entry.unit || '本', edition: scope.edition || entry.edition,
+        sources: scope.sources || entry.sources, checkedAt: entry.checkedAt || catalog.checkedAt,
+        default: selected || !!scope.default && !scope.referenceOnly
+      });
+    });
+  }
+  function publicationLevelScopes(catalog, resourceId, values, stageId) {
+    var scopes = publicationScopes(catalog, resourceId, stageId);
+    var selected = unique(array(values).filter(Boolean));
+    if (!selected.length) return scopes;
+    // 保留原文中的虚构、选读及版本限定，不能仅凭数字相同借用整级数量。
+    var exactKeys = new Set();
+    var exactMatches = scopes.filter(function (scope) { return selected.length === 1 && (scope.level === selected[0] || array(scope.levelAliases).indexOf(selected[0]) !== -1); });
+    var exact = exactMatches.filter(function (scope) {
+      if (array(scope.includedIn).some(function (id) { return exactMatches.some(function (s) { return s.id === id; }); })) return false;
+      if (!(selected.length === 1 && (scope.level === selected[0] || array(scope.levelAliases).indexOf(selected[0]) !== -1))) return false;
+      var key = JSON.stringify([scope.edition, scope.unit, scope.parts]);
+      if (exactKeys.has(key)) return false;
+      exactKeys.add(key); return true;
+    });
+    var entry = publicationEntry(catalog, resourceId);
+    var resource = { title: entry && (entry.displayTitle || entry.title) || '' };
+    var own = selected.map(function (level) { return levelParts(level, resource); });
+    if (own.some(function (part) { return !part || part.qualifier || part.quantities.length; })) return exact;
+    var ids = unique(own.flatMap(function (part) { return part.tokens.map(function (token) { return token.id; }); }));
+    if (!ids.length) return exact;
+    var result = exact.slice(), seen = new Set(), editions = new Map(), partDefaults = new Map();
+    // 同一版的逐级scope共同组成可选范围，不能要求每条scope重复存全套册数。
+    scopes.forEach(function (scope) {
+      var editionKey = JSON.stringify([scope.edition, scope.unit]);
+      if (!editions.has(editionKey)) editions.set(editionKey, Object.assign({}, scope, { parts: [], sources: [] }));
+      var combined = editions.get(editionKey);
+      scope.parts.forEach(function (part) {
+        var normalized = Object.assign({}, part);
+        if (!normalized.level && scope.parts.length === 1 && scope.level) normalized.level = scope.level;
+        var previous = combined.parts.find(function (p) { return p.label === part.label; });
+        if (!previous) combined.parts.push(normalized);
+        else if (normalized.level) previous.level = normalized.level;
+        var defaultKey = JSON.stringify([scope.edition, scope.unit, part.label]);
+        partDefaults.set(defaultKey, partDefaults.get(defaultKey) || scope.default);
+      });
+      array(scope.sources).forEach(function (source) { if (!combined.sources.some(function (s) { return s.url === source.url && s.evidence === source.evidence; })) combined.sources.push(source); });
+    });
+    editions.forEach(function (scope) {
+      if (exact.some(function (s) { return s.edition === scope.edition && s.unit === scope.unit; })) return;
+      var parts = scope.parts.filter(function (part) {
+        var parsed = levelParts(part.level || part.label, resource);
+        return parsed && !parsed.qualifier && parsed.tokens.length && parsed.tokens.every(function (token) { return ids.indexOf(token.id) !== -1; });
+      });
+      var found = unique(parts.flatMap(function (part) { return levelParts(part.level || part.label, resource).tokens.map(function (token) { return token.id; }); }));
+      if (!ids.every(function (id) { return found.indexOf(id) !== -1; })) return;
+      var identity = JSON.stringify([scope.edition, parts.map(function (part) { return [part.label, part.count]; })]);
+      if (seen.has(identity)) return;
+      seen.add(identity);
+      result.push(Object.assign({}, scope, {
+        id: scope.id + '-levels-' + hash(ids.join('|')), level: selected.join('、'), label: selected.join('、'), parts: parts,
+        default: parts.every(function (part) { return partDefaults.get(JSON.stringify([scope.edition, scope.unit, part.label])); }),
+        total: parts.reduce(function (sum, part) { return sum + part.count; }, 0)
+      }));
+    });
+    return result;
+  }
+  api.publicationEntry = publicationEntry;
+  api.publicationBindings = publicationBindings;
+  api.publicationScopes = publicationScopes;
+  api.publicationLevelScopes = publicationLevelScopes;
   api.materialRoles = MATERIAL_ROLES;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

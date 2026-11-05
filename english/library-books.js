@@ -1,12 +1,12 @@
-(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishLibraryBooks=api;})(typeof window==='object'?window:globalThis,function(){
+(function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./topics.js'):root.EnglishTopics);if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishLibraryBooks=api;})(typeof window==='object'?window:globalThis,function(T){
 'use strict';
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9\u4e00-\u9fff]+/g,' ').trim();
 function topics(data,custom=[]){
-  const result=data.topics.map(t=>({...t}));
-  for(const book of custom)for(const name of book.topics||[])if(!result.some(t=>t.id===name||t.label===name))result.push({id:name,label:name});
+  const result=T.roots().map(t=>({...t}));
+  for(const book of custom)for(const id of topicIds(book,data))if(!T.node(id)&&!result.some(t=>t.id===id))result.push({id,label:id});
   return result;
 }
-function topicIds(book,data){return (book.topics||[]).map(value=>data.topics.find(t=>t.id===value||t.label===value)?.id||value);}
+function topicIds(book,data){return T.entryTopics('book',book);}
 function bookAppearances(book,resource,model){
   if(book.custom)return book.stageRefs||[];
   // 逐册级别来自具体版本目录；未标级别的原文只能关联套系，不能补造逐册阶段。
@@ -32,11 +32,11 @@ function filter(books,data,filters={}){
     const resource=book.resource;
     if(filters.route&&filters.route!=='all'&&(filters.route==='other'?!book.custom:!book.appearances.some(a=>a.routeId===filters.route)))return false;
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
-    if(filters.topic&&filters.topic!=='all'&&!topicIds(book,data).includes(filters.topic))return false;
+    if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.favoriteIds&&!filters.favoriteIds.includes(resource.id))return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
-    if(query&&!normalize([book.title,book.edition,book.level,resource.title,...(resource.aliases||[]),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
+    if(query&&!normalize([book.title,book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
     return true;
   });
 }
@@ -46,30 +46,34 @@ function seriesCount(data,resource,model,volumes,filters={}){
   const appearances=(resource.appearances||[]).filter(a=>(!route||route==='all'||a.routeId===route)&&(!stageIds||stageIds.includes(a.stageId)));
   const allBooks=entries(data,[resource],model);
   let books=filter(allBooks,data,{route,stageIds});
-  const entry=volumes?.series?.find(s=>s.resourceId===resource.id),unit=entry?.unit||(['book','reader'].includes(resource.type)?'本':resource.type==='animation'?'集':resource.type==='song'?'首':resource.type==='flashcard'?'张':'个');
+  const entry=model.publicationEntry(volumes,resource.id),unit=entry?.unit||(['book','reader'].includes(resource.type)?'本':resource.type==='animation'?'集':resource.type==='song'?'首':resource.type==='flashcard'?'张':'个');
   const levels=level=>model.getMaterialLevels({resource,materials:[{level}]}).map(x=>x.id);
   const qualified=level=>/[（(][^）)]*(?:虚构|挑选|部分|复习|版)[^）)]*[）)]/.test(level||'');
   const parts=new Map(),covered=new Set(),selectionByAppearance=new Map();
   if(narrowed)for(const selection of filters.selections||[])for(const a of appearances){
     if(a.routeId===selection.routeId&&a.stageId===selection.stageId)selectionByAppearance.set(a,selection);
   }
-  for(const scope of entry?.scopes||[]){
+  const scopes=entry?.scopes||[];
+  for(const scope of scopes){
     // 全部素材可汇总已核出版版本；路线筛选只接受已对应或用户实际选用的版本。
-    if(scope.referenceOnly&&narrowed)continue;
+    const references=model.publicationBindings(volumes,resource.id,scope.id);
+    if(scope.referenceOnly&&narrowed&&!appearances.some(a=>references.some(ref=>ref.stageId===a.stageId)))continue;
+    // 同版小包已包含在完整目录内，未筛选汇总只计一次；保留小包供精确选级。
+    if(!narrowed&&(scope.includedIn||[]).some(id=>scopes.some(s=>s.id===id)))continue;
     const scopeLevel=normalize(scope.level),scopeTokens=levels(scope.level);
     for(const part of scope.parts){
-      const partTokens=levels(part.label),matching=[];
+      const partTokens=levels(part.level||part.label),matching=[];
       for(const a of appearances){
-        if(scope.stageIds&&!scope.stageIds.includes(a.stageId))continue;
+        if(scope.referenceOnly&&!references.some(ref=>ref.stageId===a.stageId))continue;
         if(selectionByAppearance.has(a))continue;
         if(!a.level){matching.push(a);continue;}
         // 原文只挑虚构或某个子集时，不能借整级册数充当该子集总量。
         if(qualified(a.level)&&normalize(a.level)!==scopeLevel)continue;
         const own=levels(a.level),exact=normalize(a.level)===scopeLevel;
         const tokens=partTokens.length?partTokens:scopeTokens;
-        if(exact&&(!partTokens.length||!own.length||partTokens.some(t=>own.includes(t)))||own.length&&tokens.length&&tokens.every(t=>own.includes(t))){matching.push(a);}
+        if(exact||own.length&&tokens.length&&tokens.every(t=>own.includes(t))){matching.push(a);}
       }
-      if((narrowed||scope.stageIds)&&!matching.length)continue;
+      if(narrowed&&!matching.length)continue;
       const edition=scope.edition||entry.edition||'',key=JSON.stringify([edition,normalize(part.label),scope.unit||unit]);
       if(!parts.has(key))parts.set(key,{edition,label:part.label,count:part.count,unit:scope.unit||unit,source:'quantity',sourceIds:[],sources:entry.sources||[],levelIds:[]});
       const component=parts.get(key);

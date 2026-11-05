@@ -15,6 +15,7 @@ RAW['helloReading']['tuneAudio'] = json.loads((ROOT / 'data' / 'hello-tune-audio
 RAW['helloReading']['materialCards'] = json.loads((ROOT / 'data' / 'hello-material-cards.json').read_text())
 RAW['resourceBooks'] = json.loads((ROOT / 'data' / 'resource-books.json').read_text())
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
+RAW['topicTaxonomy'] = json.loads((ROOT / 'data' / 'topic-taxonomy.json').read_text())
 RAW['routePlan'] = json.loads((ROOT / 'data' / 'route-plan.json').read_text())
 RAW['xuCurrent'] = json.loads((ROOT / 'data' / 'xu-current.json').read_text())
 
@@ -32,7 +33,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','hello-reading.js','hello-graph.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','hello-reading.js','hello-graph.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
