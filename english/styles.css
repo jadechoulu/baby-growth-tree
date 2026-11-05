@@ -1052,6 +1052,15 @@
 .publication-level-summary{min-width:0;overflow-wrap:anywhere}
 .publication-level-summary h4{margin:10px 0 3px;font-size:15px}
 .publication-level-summary p{margin:0 0 8px}
+.publication-edition-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
+.publication-edition-head h4{min-width:0;flex:1}
+.publication-edition-head>span{flex-shrink:0;font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.publication-level-grid{margin:4px 0 12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:0 12px}
+.publication-level-grid>div{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:2px 8px;padding:6px 0;border-bottom:1px solid var(--line)}
+.publication-level-grid dt{min-width:0;overflow-wrap:anywhere}
+.publication-level-grid dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.publication-level-grid small{grid-column:1/-1;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+
 .practice-page .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
 .practice-song-count{flex-shrink:0;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .practice-page .practice-book-scope{min-height:20px;padding:0 2px}
@@ -1084,7 +1093,6 @@
 .practice-log-row small{font-size:12px;color:var(--muted)}
 .practice-log-row .icon-button{width:44px;height:44px}
 .material-status-control{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:12px;margin:10px 0}
-.resource-practice-summary{margin:12px 0;padding:10px 0;border-top:1px solid var(--line)}
 .material-status{width:112px}
 .material-status.using{background:#fff6e6;color:#835719;border-color:#e7d3ac}
 .material-status.done{background:#e8f2ec;color:#2e6954;border-color:#bfd8ca}

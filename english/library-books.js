@@ -75,7 +75,7 @@ function seriesCount(data,resource,model,volumes,filters={}){
       }
       if(narrowed&&!matching.length)continue;
       const edition=scope.edition||entry.edition||'',key=JSON.stringify([edition,normalize(part.label),scope.unit||unit]);
-      if(!parts.has(key))parts.set(key,{edition,label:part.label,count:part.count,unit:scope.unit||unit,source:'quantity',sourceIds:[],sources:entry.sources||[],levelIds:[]});
+      if(!parts.has(key))parts.set(key,{edition,label:part.label,count:part.count,unit:scope.unit||unit,source:'quantity',sourceIds:[],sources:entry.sources||[],displayEdition:scope.displayEdition,group:part.group||scope.displayGroup||'',levelIds:[]});
       const component=parts.get(key);
       component.levelIds=[...new Set(component.levelIds.concat(partTokens.length?partTokens:scopeTokens.length===1?scopeTokens:[]))];
       for(const a of matching){
@@ -126,5 +126,20 @@ function seriesCount(data,resource,model,volumes,filters={}){
   const basis=components.length&&components.every(p=>p.source==='directory')?'directory':components.length&&components.every(p=>p.source==='selection')?'selection':'known-range';
   return {total:components.reduce((n,p)=>n+p.count,0),unit,parts:components,unknown,partial:unknown.length>0,narrowed,basis,books,allBooks};
 }
-return {normalize,topics,topicIds,bookAppearances,entries,filter,seriesCount};
+function levelGroups(parts){
+  const editions=new Map(),seen=new Set();
+  for(const part of parts){
+    const identity=JSON.stringify([part.edition,normalize(part.label),part.unit]);
+    if(seen.has(identity))continue;
+    seen.add(identity);
+    const displayEdition=part.displayEdition||part.edition,editionKey=JSON.stringify([displayEdition,part.unit]);
+    if(!editions.has(editionKey))editions.set(editionKey,{edition:displayEdition,unit:part.unit,total:0,groups:[]});
+    const edition=editions.get(editionKey),label=part.group||part.label;
+    let group=edition.groups.find(g=>g.label===label);
+    if(!group){group={label,count:0,parts:[]};edition.groups.push(group);}
+    group.count+=part.count;group.parts.push(part);edition.total+=part.count;
+  }
+  return [...editions.values()];
+}
+return {normalize,topics,topicIds,bookAppearances,entries,filter,seriesCount,levelGroups};
 });

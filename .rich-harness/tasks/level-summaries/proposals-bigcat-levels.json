@@ -1,0 +1,803 @@
+{
+  "resourceId": "resource-g7xvo5",
+  "edition": "外研社大猫点读版，2023大众图书目录",
+  "note": "仅计读物，排除家庭阅读指导；不同版本或只选部分辑请改用自选范围。",
+  "sources": [
+    {
+      "title": "外研社2023目录：印刷页134",
+      "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page135.html",
+      "evidence": "预备级1、2各9本；一级1为8本。",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "title": "外研社2023目录：印刷页135",
+      "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page136.html",
+      "evidence": "一级8+8+7+7；二级8+8+8+7；三级9+9+7；四级10+10+7；五级6+7+6。",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "title": "小花生／小新：2019年英版大猫套装介绍",
+      "url": "https://zhuanlan.zhihu.com/p/57782726",
+      "evidence": "第三方套装介绍：粉色1级Readers共44册，Pink A、Pink B各22册；另售粉色自然拼读16册。红色2级也有44册套装，不能只凭44册确定级别。"
+    },
+    {
+      "title": "外研社2023大众图书目录：印刷页136",
+      "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page137.html",
+      "checkedAt": "2026-11-05",
+      "evidence": "六级共6+7+7；七级6+6+7；八级6+7+7；九级7+6+7；十级9+7；十一级7+7；十二级5+6；十三级6+5；十四级5+6；十五级第1辑5册读物。均另含指导册，不计读物总量。"
+    },
+    {
+      "title": "外研社2023大众图书目录：印刷页137",
+      "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page138.html",
+      "checkedAt": "2026-11-05",
+      "evidence": "十七级第1辑6册读物。十五级第2辑、十六级第2辑、十七级第2辑及十八至二十级各辑标“即将出版”；十六级第1辑未列读物册数，不能补猜。"
+    },
+    {
+      "title": "Collins官方：Lilac 0 Band Set · ISBN 9780007938049",
+      "url": "https://collins.co.uk/products/9780007938049",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 22 books: Fiction: Oh Dear Me, I’m Late for Tea! Little Red Riding Hood Stop That Robot! Get；Publication Date 16-09-2013。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Pink 1A Band Set · ISBN 9780007981151",
+      "url": "https://collins.co.uk/products/9780007981151",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 23 books: Fiction: The Picnic The Farmer’s Lunch In the Boat The Very Wet Dog In the Garden ；Publication Date 11-11-2019。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Pink 1B Band Set · ISBN 9780007981168",
+      "url": "https://collins.co.uk/products/9780007981168",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 24 books: Fiction: Fly Away Home Playing Monster Mess The Robot The Big Splash The See-Saw C；Publication Date 03-02-2020。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Red 2A Band Set · ISBN 9780008597948",
+      "url": "https://collins.co.uk/products/9780008597948",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 23 books: Fiction: The Beach The Magic Egg Have You Ever? Tec and the Cake Tec and the Hole ；Publication Date 26-01-2023。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Red 2B Band Set · ISBN 9780008597955",
+      "url": "https://collins.co.uk/products/9780008597955",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 25 books: Fiction: Tec and the Litter Ben and Bobo Super Ben Where is the Wind? Pirates Wood；Publication Date 29-09-2022。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Yellow 3 Band Set · ISBN 9780008869458",
+      "url": "https://collins.co.uk/products/9780008869458",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 29 fiction and non-fiction books. This contains: 29 Paperback RRP: £127.00 ISBN 978000886945；Publication Date 05-11-2026。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Blue 4 Band Set · ISBN 9780007980529",
+      "url": "https://collins.co.uk/products/9780007980529",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 34 books: Fiction: Bert’s Band The Steam Train Mojo and Weeza and the New Hat Mojo and Weeza；Publication Date 04-11-2019。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Green 5 Band Set · ISBN 9780007988143",
+      "url": "https://collins.co.uk/products/9780007988143",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 25 books: Fiction: Worm Looks for Lunch Too Hot to Stop! Jodie the Juggler I Want a Pet! The；Publication Date 20-05-2021。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Orange 6 Band Set · ISBN 9780007990788",
+      "url": "https://collins.co.uk/products/9780007990788",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 24 books: Fiction: Arthur’s Fantastic Party Bugs! First Day Kind Emma Morris Plays Hide and ；Publication Date 09-12-2021。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Turquoise 7 Band Set · ISBN 9780007946808",
+      "url": "https://collins.co.uk/products/9780007946808",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains the following 22 books: Fiction: Harry the Clever Spider Going for a Drive Harry the Clever Spider Good Fu；Publication Date 15-04-2015。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Purple 8 Band Set · ISBN 9780008805340",
+      "url": "https://collins.co.uk/products/9780008805340",
+      "checkedAt": "2026-11-05",
+      "evidence": "This contains: 47 Paperback；Publication Date 06-10-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Gold 9 Band Set · ISBN 9780008805357",
+      "url": "https://collins.co.uk/products/9780008805357",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 47 fiction and non-fiction books. This contains: 47 Paperback RRP: £253.00 ISBN 978000880535；Publication Date 29-09-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：White 10 Band Set · ISBN 9780008805364",
+      "url": "https://collins.co.uk/products/9780008805364",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 45 fiction and non-fiction books. This contains: 45 Paperback RRP: £270.00 ISBN 978000880536；Publication Date 05-11-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Lime 11 Band Set · ISBN 9780008805371",
+      "url": "https://collins.co.uk/products/9780008805371",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 47 books fiction and non-fiction books. This contains: 47 Paperback RRP: £282.00 ISBN 978000；Publication Date 22-09-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Copper 12 Band Set · ISBN 9780008770167",
+      "url": "https://collins.co.uk/products/9780008770167",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 58 fiction and non-fiction books. This contains: 58 Paperback RRP: £348.00 ISBN 978000877016；Publication Date 13-03-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Topaz 13 Band Set · ISBN 9780008770174",
+      "url": "https://collins.co.uk/products/9780008770174",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 57 fiction and non-fiction books. This contains: 57 Paperback RRP: £342.00 ISBN 978000877017；Publication Date 13-03-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Ruby 14 Band Set · ISBN 9780008770181",
+      "url": "https://collins.co.uk/products/9780008770181",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 58 books fiction and non-fiction books. This contains: 58 Paperback RRP: £359.00 ISBN 978000；Publication Date 13-03-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Emerald 15 Band Set · ISBN 9780008770198",
+      "url": "https://collins.co.uk/products/9780008770198",
+      "checkedAt": "2026-11-05",
+      "evidence": "contains 62 fiction and non-fiction books. This contains: 62 Paperback RRP: £384.00 ISBN 978000877019；Publication Date 13-03-2025。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Diamond 17 Band Set · ISBN 9780008856496",
+      "url": "https://collins.co.uk/products/9780008856496",
+      "checkedAt": "2026-11-05",
+      "evidence": "This contains: 59 Paperback；Publication Date 02-07-2026。指本ISBN套装数量，不含Phonics for Letters and Sounds或Little Wandle等独立系列。"
+    },
+    {
+      "title": "Collins官方：Sapphire 16 Band Set（同页数量冲突）",
+      "url": "https://collins.co.uk/products/9780008856502",
+      "checkedAt": "2026-11-05",
+      "evidence": "Product Description正文contains 57 fiction and non-fiction books；This contains: 58 Paperback。两处不一致，未填确定数量。"
+    },
+    {
+      "title": "Collins官方：Pearl 18 Band Set（同页数量冲突）",
+      "url": "https://collins.co.uk/products/9780008856519",
+      "checkedAt": "2026-11-05",
+      "evidence": "Product Description正文contains 52 fiction and non-fiction books；This contains: 53 Paperback。两处不一致，未填确定数量。"
+    }
+  ],
+  "scopes": [
+    {
+      "id": "big-cat-starter-2023",
+      "label": "启蒙级",
+      "level": "启蒙级",
+      "parts": [
+        {
+          "label": "启蒙级1",
+          "count": 9
+        },
+        {
+          "label": "启蒙级2",
+          "count": 9
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-pre-2023",
+      "label": "预备级",
+      "level": "预备级",
+      "parts": [
+        {
+          "label": "预备级1",
+          "count": 9
+        },
+        {
+          "label": "预备级2",
+          "count": 9
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-1-3-2023",
+      "label": "1–3",
+      "level": "1–3",
+      "parts": [
+        {
+          "label": "1级",
+          "count": 30
+        },
+        {
+          "label": "2级",
+          "count": 31
+        },
+        {
+          "label": "3级",
+          "count": 25
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-4-5-2023",
+      "label": "4、5",
+      "level": "4、5",
+      "parts": [
+        {
+          "label": "4级",
+          "count": 27
+        },
+        {
+          "label": "5级",
+          "count": 19
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-pink-44",
+      "label": "Pink 1A、1B",
+      "level": "Pink 1A、1B",
+      "edition": "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）",
+      "parts": [
+        {
+          "label": "Pink 1A",
+          "count": 22,
+          "directoryMatch": {
+            "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
+            "level": "Pink 1A"
+          }
+        },
+        {
+          "label": "Pink 1B",
+          "count": 22,
+          "directoryMatch": {
+            "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
+            "level": "Pink 1B"
+          }
+        }
+      ],
+      "displayGroup": "Pink 1A＋1B"
+    },
+    {
+      "id": "big-cat-6-2023",
+      "label": "6级",
+      "level": "6",
+      "displayGroup": "6级",
+      "parts": [
+        {
+          "label": "6级第1辑",
+          "level": "6",
+          "count": 6
+        },
+        {
+          "label": "6级第2辑",
+          "level": "6",
+          "count": 7
+        },
+        {
+          "label": "6级第3辑",
+          "level": "6",
+          "count": 7
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-7-2023",
+      "label": "7级",
+      "level": "7",
+      "displayGroup": "7级",
+      "parts": [
+        {
+          "label": "7级第1辑",
+          "level": "7",
+          "count": 6
+        },
+        {
+          "label": "7级第2辑",
+          "level": "7",
+          "count": 6
+        },
+        {
+          "label": "7级第3辑",
+          "level": "7",
+          "count": 7
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-8-2023",
+      "label": "8级",
+      "level": "8",
+      "displayGroup": "8级",
+      "parts": [
+        {
+          "label": "8级第1辑",
+          "level": "8",
+          "count": 6
+        },
+        {
+          "label": "8级第2辑",
+          "level": "8",
+          "count": 7
+        },
+        {
+          "label": "8级第3辑",
+          "level": "8",
+          "count": 7
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-9-2023",
+      "label": "9级",
+      "level": "9",
+      "displayGroup": "9级",
+      "parts": [
+        {
+          "label": "9级第1辑",
+          "level": "9",
+          "count": 7
+        },
+        {
+          "label": "9级第2辑",
+          "level": "9",
+          "count": 6
+        },
+        {
+          "label": "9级第3辑",
+          "level": "9",
+          "count": 7
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-10-2023",
+      "label": "10级",
+      "level": "10",
+      "displayGroup": "10级",
+      "parts": [
+        {
+          "label": "10级第1辑",
+          "level": "10",
+          "count": 9
+        },
+        {
+          "label": "10级第2辑",
+          "level": "10",
+          "count": 7
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-11-2023",
+      "label": "11级",
+      "level": "11",
+      "displayGroup": "11级",
+      "parts": [
+        {
+          "label": "11级第1辑",
+          "level": "11",
+          "count": 7
+        },
+        {
+          "label": "11级第2辑",
+          "level": "11",
+          "count": 7
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-12-2023",
+      "label": "12级",
+      "level": "12",
+      "displayGroup": "12级",
+      "parts": [
+        {
+          "label": "12级第1辑",
+          "level": "12",
+          "count": 5
+        },
+        {
+          "label": "12级第2辑",
+          "level": "12",
+          "count": 6
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-13-2023",
+      "label": "13级",
+      "level": "13",
+      "displayGroup": "13级",
+      "parts": [
+        {
+          "label": "13级第1辑",
+          "level": "13",
+          "count": 6
+        },
+        {
+          "label": "13级第2辑",
+          "level": "13",
+          "count": 5
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-14-2023",
+      "label": "14级",
+      "level": "14",
+      "displayGroup": "14级",
+      "parts": [
+        {
+          "label": "14级第1辑",
+          "level": "14",
+          "count": 5
+        },
+        {
+          "label": "14级第2辑",
+          "level": "14",
+          "count": 6
+        }
+      ],
+      "default": true
+    },
+    {
+      "id": "big-cat-15-pack1-2023",
+      "label": "15级第1辑",
+      "level": "15",
+      "displayGroup": "15级 · 第1辑",
+      "parts": [
+        {
+          "label": "15级第1辑",
+          "level": "15",
+          "count": 5
+        }
+      ],
+      "referenceOnly": true
+    },
+    {
+      "id": "big-cat-17-pack1-2023",
+      "label": "17级第1辑",
+      "level": "17",
+      "displayGroup": "17级 · 第1辑",
+      "parts": [
+        {
+          "label": "17级第1辑",
+          "level": "17",
+          "count": 6
+        }
+      ],
+      "referenceOnly": true
+    },
+    {
+      "id": "big-cat-uk-current-lilac",
+      "label": "Lilac 0",
+      "level": "Lilac 0",
+      "displayGroup": "Lilac 0",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Lilac 0",
+          "level": "Lilac 0",
+          "count": 22,
+          "isbn": "9780007938049"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-pink",
+      "label": "Pink 1A＋1B",
+      "level": "Pink 1A＋1B",
+      "displayGroup": "Pink 1A＋1B",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Pink 1A",
+          "level": "Pink 1A",
+          "count": 23,
+          "isbn": "9780007981151"
+        },
+        {
+          "label": "Pink 1B",
+          "level": "Pink 1B",
+          "count": 24,
+          "isbn": "9780007981168"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-red",
+      "label": "Red 2A＋2B",
+      "level": "Red 2A＋2B",
+      "displayGroup": "Red 2A＋2B",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Red 2A",
+          "level": "Red 2A",
+          "count": 23,
+          "isbn": "9780008597948"
+        },
+        {
+          "label": "Red 2B",
+          "level": "Red 2B",
+          "count": 25,
+          "isbn": "9780008597955"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-yellow",
+      "label": "Yellow 3",
+      "level": "Yellow 3",
+      "displayGroup": "Yellow 3",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Yellow 3",
+          "level": "Yellow 3",
+          "count": 29,
+          "isbn": "9780008869458"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-blue",
+      "label": "Blue 4",
+      "level": "Blue 4",
+      "displayGroup": "Blue 4",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Blue 4",
+          "level": "Blue 4",
+          "count": 34,
+          "isbn": "9780007980529"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-green",
+      "label": "Green 5",
+      "level": "Green 5",
+      "displayGroup": "Green 5",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Green 5",
+          "level": "Green 5",
+          "count": 25,
+          "isbn": "9780007988143"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-orange",
+      "label": "Orange 6",
+      "level": "Orange 6",
+      "displayGroup": "Orange 6",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Orange 6",
+          "level": "Orange 6",
+          "count": 24,
+          "isbn": "9780007990788"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-turquoise",
+      "label": "Turquoise 7",
+      "level": "Turquoise 7",
+      "displayGroup": "Turquoise 7",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Turquoise 7",
+          "level": "Turquoise 7",
+          "count": 22,
+          "isbn": "9780007946808"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-purple",
+      "label": "Purple 8",
+      "level": "Purple 8",
+      "displayGroup": "Purple 8",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Purple 8",
+          "level": "Purple 8",
+          "count": 47,
+          "isbn": "9780008805340"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-gold",
+      "label": "Gold 9",
+      "level": "Gold 9",
+      "displayGroup": "Gold 9",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Gold 9",
+          "level": "Gold 9",
+          "count": 47,
+          "isbn": "9780008805357"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-white",
+      "label": "White 10",
+      "level": "White 10",
+      "displayGroup": "White 10",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "White 10",
+          "level": "White 10",
+          "count": 45,
+          "isbn": "9780008805364"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-lime",
+      "label": "Lime 11",
+      "level": "Lime 11",
+      "displayGroup": "Lime 11",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Lime 11",
+          "level": "Lime 11",
+          "count": 47,
+          "isbn": "9780008805371"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-copper",
+      "label": "Copper 12",
+      "level": "Copper 12",
+      "displayGroup": "Copper 12",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Copper 12",
+          "level": "Copper 12",
+          "count": 58,
+          "isbn": "9780008770167"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-topaz",
+      "label": "Topaz 13",
+      "level": "Topaz 13",
+      "displayGroup": "Topaz 13",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Topaz 13",
+          "level": "Topaz 13",
+          "count": 57,
+          "isbn": "9780008770174"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-ruby",
+      "label": "Ruby 14",
+      "level": "Ruby 14",
+      "displayGroup": "Ruby 14",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Ruby 14",
+          "level": "Ruby 14",
+          "count": 58,
+          "isbn": "9780008770181"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-emerald",
+      "label": "Emerald 15",
+      "level": "Emerald 15",
+      "displayGroup": "Emerald 15",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Emerald 15",
+          "level": "Emerald 15",
+          "count": 62,
+          "isbn": "9780008770198"
+        }
+      ]
+    },
+    {
+      "id": "big-cat-uk-current-diamond",
+      "label": "Diamond 17",
+      "level": "Diamond 17",
+      "displayGroup": "Diamond 17",
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "referenceOnly": true,
+      "parts": [
+        {
+          "label": "Diamond 17",
+          "level": "Diamond 17",
+          "count": 59,
+          "isbn": "9780008856496"
+        }
+      ]
+    }
+  ],
+  "versionNote": "外研社引进版与柯林斯英版使用不同的分级和选书范围。英版粉色44本套装按Pink 1A、1B各22本记录；不表示外研社预备级1、2与Pink 1A、1B逐项等价。 本轮补入2023目录其余已明确册数的级别，以及Collins官网Band Set具名ISBN的2026-11-05快照。两版级别不互相等价，历史44本选本与现售47本粉色套装分别保留；不同版次相加不代表故事去重。",
+  "recordingNote": "这里切换个人选读版本，不修改路线原图“大猫预备级”的范围。粉色44本册数来自2019年英版套装介绍，不包含另售自然拼读读本，也不代表现行全部粉色书目。",
+  "recordingLevels": [
+    "预备级"
+  ],
+  "recordingEditions": [
+    {
+      "id": "big-cat-pink-44",
+      "default": true,
+      "label": "柯林斯英版 · 粉色44本（Pink 1A＋1B）",
+      "shortLabel": "英版粉色44本",
+      "scopeId": "big-cat-pink-44"
+    },
+    {
+      "id": "big-cat-fltrp-pre-2023",
+      "label": "外研社引进版 · 预备级1、2（各9本）",
+      "shortLabel": "外研社预备级",
+      "scopeId": "big-cat-pre-2023"
+    }
+  ],
+  "title": "大猫分级",
+  "levelNotes": [
+    {
+      "edition": "外研社大猫点读版，2023大众图书目录",
+      "label": "15级第2辑、16级、17级第2辑、18–20级",
+      "note": "2023目录中相应后续辑标“即将出版”；16级第1辑列品种但未列读物册数。本版快照只计已明确读物数量的15级第1辑5本、17级第1辑6本，不把未出版或未列数写成0本，也不代表2026出版现状。"
+    },
+    {
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "label": "Sapphire 16",
+      "note": "官网ISBN9780008856502同页正文写57本，This contains栏写58本，存在冲突；暂不作为确定总量计入。来源：https://collins.co.uk/products/9780008856502（2026-11-05实际读取）。"
+    },
+    {
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "label": "Pearl 18",
+      "note": "官网ISBN9780008856519同页正文写52本，This contains栏写53本，存在冲突；暂不作为确定总量计入。来源：https://collins.co.uk/products/9780008856519（2026-11-05实际读取）。"
+    },
+    {
+      "edition": "Collins英版 Readers · 官网Band Set在售ISBN快照（2026-11-05）",
+      "label": "Lime 11、Copper 12后续ISBN套装",
+      "note": "已查Lime ISBN9780008869465为49本但出版日2026-12-10；Copper ISBN9780008869472为60本但出版日2027-01-07，均晚于核对日，未计入当前已出版范围。仍采用现已出版的Lime47及Copper58。"
+    }
+  ]
+}
