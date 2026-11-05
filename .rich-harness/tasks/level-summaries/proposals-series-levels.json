@@ -1,0 +1,973 @@
+{
+  "checkedAt": "2026-11-05",
+  "policy": "只追加有来源的公共出版级别，不改路线引用、既有scope ID、已存版次或个人记录键；联合级不均分。",
+  "series": [
+    {
+      "resourceId": "resource-zl69cf",
+      "edition": "Scholastic Buddy Readers English Parent Pack",
+      "unit": "本",
+      "note": "Scholastic Buddy Readers英文Parent Pack A/B/C/D各20本、E&F合包16本；E和F不均分。出版范围与路线实际选版、必读或晋级条件分别处理。",
+      "countOnlyReason": "单E与单F的分配未核实；E&F可作为联合级16本公共范围。",
+      "sources": [
+        {
+          "title": "庆爸3–4岁2.0原稿第3–4页",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "原稿分别列出 Buddy Reader A–B、C–D、E–F；出版套装数量不表示必读或晋级门槛。"
+        },
+        {
+          "title": "Get Smart Catalog · Buddy Readers出版商品说明",
+          "url": "https://getsmartcatalog.com/53913-buddy-readers-level-a-parent-pack-sc-831718-9781338317183.html",
+          "evidence": "This unique set includes 5 Patty Pig stories, 5 Super Chick stories, 5 Jen Pen stories, and 5 Bear Cubs stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "Edmat Company · Buddy Readers出版商品说明",
+          "url": "https://www.edmatcompany.com/ela-reading/990100714-buddy-readers-level-b-parent-pack.html",
+          "evidence": "This unique set includes 5 The Tiny Giant stories, 5 My Pet Spot stories, 5 Robot Twins stories, and 5 Magic Cupcake stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "All N All Supplies · Buddy Readers出版商品说明",
+          "url": "https://allnallsupplies.com/53915-buddy-readers-level-c-parent-pack-sc-831720-9781338317206.html",
+          "evidence": "This unique set includes 5 Princess Pug stories, 5 Gus Ghost stories, 5 Clownfish stories, and 5 Two Boots stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "Get Smart Catalog · Buddy Readers出版商品说明",
+          "url": "https://getsmartcatalog.com/53916-buddy-readers-level-d-parent-pack-sc-831721-9781338317213.html",
+          "evidence": "This unique set includes 5 Mary Fairy stories, 5 Sam Snowman stories, 5 Harry Spider stories, and 5 Cave Kids stories-for a total of 20 tales. / 20 full-color, 8-page books / 24-page workbook"
+        },
+        {
+          "title": "Get Smart Catalog · Buddy Readers出版商品说明",
+          "url": "https://getsmartcatalog.com/65949-buddy-readers-levels-e-f-parent-pack-sc-866215-9781338662153.html",
+          "evidence": "This unique set features four stories each about the same loveable characters for a total of 16 books. / 16 full-color, 16-page books / 32-page activity book"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "buddy-parent-a",
+          "label": "A",
+          "level": "A",
+          "default": false,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "A",
+              "count": 20
+            }
+          ],
+          "referenceOnly": true
+        },
+        {
+          "id": "buddy-parent-b",
+          "label": "B",
+          "level": "B",
+          "default": false,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "B",
+              "count": 20
+            }
+          ],
+          "referenceOnly": true
+        },
+        {
+          "id": "buddy-parent-c",
+          "label": "C",
+          "level": "C",
+          "default": false,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "C",
+              "count": 20
+            }
+          ],
+          "referenceOnly": true
+        },
+        {
+          "id": "buddy-parent-d",
+          "label": "D",
+          "level": "D",
+          "default": false,
+          "countOnlyCompatible": true,
+          "parts": [
+            {
+              "label": "D",
+              "count": 20
+            }
+          ],
+          "referenceOnly": true
+        },
+        {
+          "id": "buddy-parent-ef",
+          "label": "E&F",
+          "level": "E&F",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Get Smart Catalog · Buddy Readers E&F Parent Pack",
+              "url": "https://getsmartcatalog.com/65949-buddy-readers-levels-e-f-parent-pack-sc-866215-9781338662153.html",
+              "evidence": "This unique set features four stories each about the same loveable characters for a total of 16 books. Includes 16 full-color, 16-page books；练习册不计读物。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        }
+      ],
+      "checkedAt": "2026-11-05",
+      "title": "Buddy Reader"
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "edition": "培生启明星，海豚出版社2025版",
+      "note": "按该版整级核算；不与培生儿童英语或其他培生产品混用。",
+      "sources": [
+        {
+          "title": "心喜阅官方：1级44册",
+          "url": "https://piyopen.lovereadingbooks.com/content/1115",
+          "evidence": "1级共44册。"
+        },
+        {
+          "title": "心喜阅官方：4级31册",
+          "url": "https://piyopen.lovereadingbooks.com/content/1116",
+          "evidence": "4级共31册。"
+        },
+        {
+          "title": "豆瓣各级出版书目",
+          "url": "https://book.douban.com/series/77830",
+          "evidence": "1级44、2级41、3级42、4级31、5级29；仅采用套装书目，不采用该页营销能力描述。"
+        },
+        {
+          "title": "豆瓣出版书目 · 培生启明星1–8级",
+          "url": "https://book.douban.com/series/77830",
+          "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "pearson-star-1-3-2025",
+          "label": "1–3",
+          "level": "1–3",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 44
+            },
+            {
+              "label": "2级",
+              "count": 41
+            },
+            {
+              "label": "3级",
+              "count": 42
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-4-5-2025",
+          "label": "4、5",
+          "level": "4、5",
+          "parts": [
+            {
+              "label": "4级",
+              "count": 31
+            },
+            {
+              "label": "5级",
+              "count": 29
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-1-2-2025",
+          "label": "1、2",
+          "level": "1、2",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 44
+            },
+            {
+              "label": "2级",
+              "count": 41
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-1-2025",
+          "label": "1级",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 44
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-2-2025",
+          "label": "2级",
+          "level": "2",
+          "parts": [
+            {
+              "label": "2级",
+              "count": 41
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-3-2025",
+          "label": "3级",
+          "level": "3",
+          "parts": [
+            {
+              "label": "3级",
+              "count": 42
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-4-2025",
+          "label": "4级",
+          "level": "4",
+          "parts": [
+            {
+              "label": "4级",
+              "count": 31
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-5-2025",
+          "label": "5级",
+          "level": "5",
+          "parts": [
+            {
+              "label": "5级",
+              "count": 29
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "pearson-star-6-2025",
+          "label": "6",
+          "level": "6",
+          "parts": [
+            {
+              "label": "6",
+              "count": 18
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "豆瓣出版书目 · 培生启明星1–8级",
+              "url": "https://book.douban.com/series/77830",
+              "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "pearson-star-7-2025",
+          "label": "7",
+          "level": "7",
+          "parts": [
+            {
+              "label": "7",
+              "count": 18
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "豆瓣出版书目 · 培生启明星1–8级",
+              "url": "https://book.douban.com/series/77830",
+              "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "pearson-star-8-2025",
+          "label": "8",
+          "level": "8",
+          "parts": [
+            {
+              "label": "8",
+              "count": 18
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "豆瓣出版书目 · 培生启明星1–8级",
+              "url": "https://book.douban.com/series/77830",
+              "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        }
+      ],
+      "title": "培生启明星",
+      "checkedAt": "2026-11-05"
+    },
+    {
+      "resourceId": "resource-1cn6i3m",
+      "displayTitle": "学乐小读者",
+      "aliases": [
+        "学乐",
+        "外研社学乐小读者",
+        "First Little Readers"
+      ],
+      "edition": "学乐小读者；已查到外研社引进大盒版跟读实例",
+      "unit": "本",
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "sources": [
+        {
+          "title": "blue《拉听力L1第26周》（许密杉路线跟读记录）",
+          "url": "https://www.xiaohongshu.com/explore/6a32b15b0000000022008fd3",
+          "evidence": "正文称“外研社学乐小读者第一级”，评论确认“外研社的大盒”；封面为Blue for You／蓝色礼物、When Night Comes／当黑夜降临。当天读21本不代表全级总量。"
+        },
+        {
+          "title": "外研社《学乐小读者》新书发布介绍",
+          "url": "https://www.fltrp.com/c/2025-06-18/530523.shtml",
+          "evidence": "出版社介绍：源自First Little Readers并增加科普类读物，A–J共282册；未提供逐级册数，不能平均分配或套用英文原版单级分母。"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level B 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-B-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231503",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "Staples",
+          "url": "https://www.staples.com/scholastic-first-little-readers-parent-pack-guided-reading-level-d-set-of-25-books-sc-811150/product_24392914",
+          "evidence": "Jumpstart reading success with this big collection of 25 motivating storybooks correlated with Guided Reading Level D. / Number of Books | 25"
+        },
+        {
+          "title": "跟着许密杉老师整理了新书单（小红书读者整理）",
+          "url": "https://www.xiaohongshu.com/explore/69899d0d000000002800b7b7",
+          "evidence": "图1学乐小读者A级、图2B级；没有唯一限定英文原版Parent Pack。"
+        },
+        {
+          "title": "跟着许密衫老师如何选书篇（小红书读者整理）",
+          "url": "https://www.xiaohongshu.com/explore/6a3725ba0000000022018571",
+          "evidence": "配图双语I Like School提示存在引进版，不把简称一律当FLR。"
+        },
+        {
+          "title": "外研社2025新书首发",
+          "url": "https://www.fltrp.com/c/2025-06-18/530523.shtml",
+          "evidence": "实际读取A–J共282册、故事与科普1:1；有282公共总量但未在本文给逐级分配。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers EF",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-ef-kr/",
+          "evidence": "Inside this little box, you’ll find 16 original titles plus a tip-filled parent guide. E与F合计16，指导册不计。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers GH",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+          "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "flr-parent-a",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "A",
+          "level": "A",
+          "parts": [
+            {
+              "label": "A",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-b",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "B",
+          "level": "B",
+          "parts": [
+            {
+              "label": "B",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-c",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "C",
+          "level": "C",
+          "parts": [
+            {
+              "label": "C",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-d",
+          "title": "英文FLR Parent Pack（选本参考）",
+          "edition": "First Little Readers English Parent Pack",
+          "label": "D",
+          "level": "D",
+          "parts": [
+            {
+              "label": "D",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "fltrp-flr-2025-aj282",
+          "label": "A–J全套",
+          "edition": "外研社2025学乐小读者",
+          "level": "A–J",
+          "parts": [
+            {
+              "label": "A–J全套",
+              "level": "A–J",
+              "count": 282
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "外研社2025新书首发",
+              "url": "https://www.fltrp.com/c/2025-06-18/530523.shtml",
+              "evidence": "实际读取A–J共282册、故事与科普1:1；有282公共总量但未在本文给逐级分配。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "flr-parent-ef",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers EF",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-ef-kr/",
+              "evidence": "Inside this little box, you’ll find 16 original titles plus a tip-filled parent guide. E与F合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "flr-parent-gh",
+          "label": "G&H",
+          "level": "G&H",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "G&H",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers GH",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+              "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        }
+      ],
+      "checkedAt": "2026-11-05",
+      "catalogAudit": {
+        "status": "confirmed-publication-ranges",
+        "checkedAt": "2026-11-05",
+        "reason": "公共版本册数已有来源；路线是否采用该版本独立核定。"
+      },
+      "title": "学乐"
+    },
+    {
+      "resourceId": "resource-fkl6xf",
+      "edition": "First Little Readers · 已核英文Parent Pack分版本范围",
+      "unit": "本",
+      "note": "英文First Little Readers Parent Pack公共范围A/B/C/D各25，E&F16、G&H16；仅作具名出版参考，不套用到外研社2025 A–J282本版，不推断I&J。已有B和E&F scope ID、edition保持原值。",
+      "sources": [
+        {
+          "title": "First Little Readers · 英文Parent Pack Level B（25本） · 原页核查",
+          "url": "https://americanbookworm.com/products/first-little-readers-guided-reading-level-b-parent-pack-25-books-box-set-by-liza-charlesworth-ages-0-5-paperback",
+          "evidence": "实际读取书商原页25册完整目录、Includes 25 full color 8-page books；另附4页parent guide不计读物。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574） · 原页核查",
+          "url": "https://www.walmart.com/ip/First-Little-Readers-First-Little-Readers-Guided-Reading-Levels-E-F-Parent-Pack-16-Irresistible-Books-Just-Right-Level-for-Paperback-9781338256574/992123247",
+          "evidence": "Walmart原页商品完整标题明确16 Irresistible Books、ISBN 9781338256574；只采用出版标题册数，不采用页面AI生成内容。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers D",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
+          "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers GH",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+          "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "audit-20261105-fkl6xf-19-1",
+          "label": "B",
+          "level": "B",
+          "edition": "First Little Readers · 英文Parent Pack Level B（25本）",
+          "parts": [
+            {
+              "label": "B",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "audit-20261105-fkl6xf-20-1",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574）",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flr-parent-reference-a",
+          "label": "A",
+          "level": "A",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "A",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+            }
+          ]
+        },
+        {
+          "id": "flr-parent-reference-c",
+          "label": "C",
+          "level": "C",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "C",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+            }
+          ]
+        },
+        {
+          "id": "flr-parent-reference-d",
+          "label": "D",
+          "level": "D",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "D",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers D",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
+              "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "flr-parent-reference-gh",
+          "label": "G&H",
+          "level": "G&H",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "G&H",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers GH",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+              "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        }
+      ],
+      "catalogAudit": {
+        "status": "referenceOnly",
+        "queries": [
+          "First Little Readers A B C D E F G H I J number books set"
+        ],
+        "reason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
+        "checkedAt": "2026-11-05"
+      },
+      "checkedAt": "2026-11-05",
+      "countOnlyReason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
+      "title": "学乐小读者"
+    },
+    {
+      "resourceId": "resource-960t1q",
+      "title": "First Little Readers",
+      "catalogResourceId": "resource-1cn6i3m",
+      "checkedAt": "2026-11-05",
+      "note": "原文明确First Little Readers名称，共用公共出版目录；不确认作者选用的具体版次，不改变路线ID或记录键。"
+    },
+    {
+      "resourceId": "resource-nqvpg2",
+      "edition": "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922）",
+      "unit": "本",
+      "note": "英文Parent Pack A/B/C/D各16本，E&F联合级12本；不将16-page页数当册数，不拆分联合级。出版候选与路线实际选版独立处理。",
+      "sources": [
+        {
+          "title": "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922） · 原页核查",
+          "url": "https://www.dkclassroomoutlet.com/level-a-guided-science-readers-parent-pack",
+          "evidence": "实际读取书商原页：Guided Science Readers Level A Parent Pack Pack of 16 Books；商品编号SC-565092。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · B",
+          "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/0545650933",
+          "evidence": "实际读取商品标题Guided Science Readers Parent Pack: Level B: 16 Fun Nonfiction Books。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · C",
+          "url": "https://www.walmart.com/ip/Guided-Science-Readers-Level-C-Fun-Nonfiction-Books-That-Are-Just-Right-for-New-Readers-Paperback/2436849372?conditionGroupCode=3",
+          "evidence": "实际读取Key item features：Guided Science Readers: Level C (Parent Pack): 16 Fun Nonfiction Books；ISBN-13 9780545650946。二手商品页只用于核对原出版标题数量，不取卖家库存数。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · D",
+          "url": "https://bookmarkludington.com/guided-science-readers-parent-pack-level-d-16-fun-nonfiction-books-that-are-just-right-for-new-readers/",
+          "evidence": "实际读取出版商品标题Level D: 16 Fun Nonfiction Books；SKU 9780545650953。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · E&F",
+          "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/1338091182",
+          "evidence": "实际读取正文Spark reading success with 12 exciting books...guided reading levels E–F；16-page是页数，不是16本。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "audit-20261105-nqvpg2-21-1",
+          "label": "A",
+          "level": "A",
+          "edition": "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922）",
+          "parts": [
+            {
+              "label": "A",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "gsr-parent-reference-b",
+          "label": "B",
+          "level": "B",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9780545650939）",
+          "parts": [
+            {
+              "label": "B",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · B",
+              "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/0545650933",
+              "evidence": "实际读取商品标题Guided Science Readers Parent Pack: Level B: 16 Fun Nonfiction Books。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "gsr-parent-reference-c",
+          "label": "C",
+          "level": "C",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9780545650946）",
+          "parts": [
+            {
+              "label": "C",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · C",
+              "url": "https://www.walmart.com/ip/Guided-Science-Readers-Level-C-Fun-Nonfiction-Books-That-Are-Just-Right-for-New-Readers-Paperback/2436849372?conditionGroupCode=3",
+              "evidence": "实际读取Key item features：Guided Science Readers: Level C (Parent Pack): 16 Fun Nonfiction Books；ISBN-13 9780545650946。二手商品页只用于核对原出版标题数量，不取卖家库存数。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "gsr-parent-reference-d",
+          "label": "D",
+          "level": "D",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9780545650953）",
+          "parts": [
+            {
+              "label": "D",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · D",
+              "url": "https://bookmarkludington.com/guided-science-readers-parent-pack-level-d-16-fun-nonfiction-books-that-are-just-right-for-new-readers/",
+              "evidence": "实际读取出版商品标题Level D: 16 Fun Nonfiction Books；SKU 9780545650953。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "gsr-parent-reference-ef",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9781338091182）",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 12
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · E&F",
+              "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/1338091182",
+              "evidence": "实际读取正文Spark reading success with 12 exciting books...guided reading levels E–F；16-page是页数，不是16本。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        }
+      ],
+      "catalogAudit": {
+        "status": "referenceOnly",
+        "queries": [
+          "Guided Science Readers A B C D E F 16 books"
+        ],
+        "reason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
+        "checkedAt": "2026-11-05"
+      },
+      "checkedAt": "2026-11-05",
+      "countOnlyReason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
+      "title": "Guided Science Readers"
+    },
+    {
+      "resourceId": "resource-19jrpig",
+      "edition": "First Little Comics · 英文E&F Single-Copy Set",
+      "unit": "本",
+      "note": "A&B20、C&D20按Scholastic StoryPlus官方具名套装；既有E&F Single-Copy Set16保持。StoryPlus官方EF2025文案写20，与既有零售版16冲突且缺ISBN核对，不能把二者擅自称为不同已确认版次，暂不新增EF20或覆盖原16。",
+      "sources": [
+        {
+          "title": "First Little Comics · 英文E&F Single-Copy Set · 原页核查",
+          "url": "https://www.booksrtoys.com.br/first-little-comics-guided-reading-levels-e-f-single-copy-set",
+          "evidence": "实际读取书商原页：Includes 16 full-color 16-page books；其他workbook/guide不计读物。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Comics A&B",
+          "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-ab/",
+          "evidence": "实际读取官方正文：guided reading levels A&B is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Comics C&D",
+          "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-c-d/",
+          "evidence": "实际读取官方正文：guided reading levels C&D is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+          "checkedAt": "2026-11-05"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "audit-20261105-19jrpig-22-1",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "First Little Comics · 英文E&F Single-Copy Set",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "flc-storyplus-ab-2025",
+          "label": "A&B",
+          "level": "A&B",
+          "edition": "First Little Comics · StoryPlus 2025具名套装",
+          "parts": [
+            {
+              "label": "A&B",
+              "count": 20
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Comics A&B",
+              "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-ab/",
+              "evidence": "实际读取官方正文：guided reading levels A&B is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "flc-storyplus-cd-2025",
+          "label": "C&D",
+          "level": "C&D",
+          "edition": "First Little Comics · StoryPlus 2025具名套装",
+          "parts": [
+            {
+              "label": "C&D",
+              "count": 20
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Comics C&D",
+              "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-c-d/",
+              "evidence": "实际读取官方正文：guided reading levels C&D is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        }
+      ],
+      "catalogAudit": {
+        "status": "referenceOnly",
+        "queries": [
+          "First Little Comics A B C D E F 20 16 books"
+        ],
+        "reason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
+        "checkedAt": "2026-11-05"
+      },
+      "checkedAt": "2026-11-05",
+      "countOnlyReason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
+      "title": "First Little Comics"
+    }
+  ],
+  "notes": [
+    "First Little Comics E&F存在官方20与ISBN/零售版16冲突；须核封底ISBN或官方清单，不假称已确认两种版本。",
+    "First Little Readers已有B及EF的edition带级别，未更改身份字段；如UI需要同版本分组，应在展示摘要层处理，不能迁移个人记录。",
+    "Guided Science Readers同样保留既有A级edition与scope ID；新增B/C/D/EF各保留ISBN。",
+    "First Little Readers resource-960t1q此前没有public entry，提议通过catalogResourceId共用resource-1cn6i3m；父agent决定是否纳入。"
+  ]
+}

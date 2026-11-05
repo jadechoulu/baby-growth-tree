@@ -234,20 +234,100 @@
         {
           "title": "外研社2023目录：印刷页134",
           "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page135.html",
-          "evidence": "预备级1、2各9本；一级1为8本。"
+          "evidence": "预备级1、2各9本；一级1为8本。",
+          "checkedAt": "2026-11-05"
         },
         {
           "title": "外研社2023目录：印刷页135",
           "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page136.html",
-          "evidence": "一级8+8+7+7；二级8+8+8+7；三级9+9+7；四级10+10+7；五级6+7+6。"
+          "evidence": "一级8+8+7+7；二级8+8+8+7；三级9+9+7；四级10+10+7；五级6+7+6。",
+          "checkedAt": "2026-11-05"
         },
         {
           "title": "小花生／小新：2019年英版大猫套装介绍",
           "url": "https://zhuanlan.zhihu.com/p/57782726",
           "evidence": "第三方套装介绍：粉色1级Readers共44册，Pink A、Pink B各22册；另售粉色自然拼读16册。红色2级也有44册套装，不能只凭44册确定级别。"
+        },
+        {
+          "title": "外研社2023大众图书目录：印刷页136",
+          "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page137.html",
+          "checkedAt": "2026-11-05",
+          "evidence": "六级共6+7+7；七级6+6+7；八级6+7+7；九级7+6+7；十级9+7；十一级7+7；十二级5+6；十三级6+5；十四级5+6；十五级第1辑5册读物。均另含指导册，不计读物总量。"
+        },
+        {
+          "title": "外研社2023大众图书目录：印刷页137",
+          "url": "https://www.fltrp.com/ebook/zhcb/zhcb_dz2023/files/basic-html/page138.html",
+          "checkedAt": "2026-11-05",
+          "evidence": "十七级第1辑6册读物。十五级第2辑、十六级第2辑、十七级第2辑及十八至二十级各辑标“即将出版”；十六级第1辑未列读物册数，不能补猜。"
         }
       ],
       "scopes": [
+        {
+          "id": "big-cat-pink-44",
+          "label": "Pink 1A、1B",
+          "level": "Pink 1A、1B",
+          "edition": "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）",
+          "parts": [
+            {
+              "label": "Pink 1A",
+              "count": 22,
+              "directoryMatch": {
+                "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
+                "level": "Pink 1A"
+              }
+            },
+            {
+              "label": "Pink 1B",
+              "count": 22,
+              "directoryMatch": {
+                "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
+                "level": "Pink 1B"
+              }
+            }
+          ],
+          "displayGroup": "Pink 1A＋1B",
+          "displayEdition": "Collins英版 Readers · 2019年44本套装资料"
+        },
+        {
+          "id": "big-cat-red-44-2019",
+          "label": "Red 2A＋2B（44本套装）",
+          "level": "Red 2A＋2B",
+          "edition": "Collins Big Cat英版红色44本Readers套装（2019年套装资料）",
+          "displayEdition": "Collins英版 Readers · 2019年44本套装资料",
+          "parts": [
+            {
+              "label": "Red 2A＋2B",
+              "count": 44
+            }
+          ],
+          "sources": [
+            {
+              "title": "小花生／小新：2019年英版大猫套装介绍",
+              "url": "https://zhuanlan.zhihu.com/p/57782726",
+              "evidence": "第三方套装介绍：粉色1级Readers共44册，Pink A、Pink B各22册；另售粉色自然拼读16册。红色2级也有44册套装，不能只凭44册确定级别。"
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "note": "沿用2019套装介绍明确的红色2级Readers44册组合；未确认2A、2B分别册数，不拆摊，不用现售23＋25代替旧版。"
+        },
+        {
+          "id": "big-cat-starter-2023",
+          "label": "启蒙级",
+          "level": "启蒙级",
+          "parts": [
+            {
+              "label": "启蒙级1",
+              "count": 9
+            },
+            {
+              "label": "启蒙级2",
+              "count": 9
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
         {
           "id": "big-cat-pre-2023",
           "label": "预备级",
@@ -301,31 +381,237 @@
           "default": true
         },
         {
-          "id": "big-cat-pink-44",
-          "label": "Pink 1A、1B",
-          "level": "Pink 1A、1B",
-          "edition": "Collins Big Cat英版粉色44本Readers套装（2019年套装资料）",
+          "id": "big-cat-6-2023",
+          "label": "6级",
+          "level": "6",
+          "displayGroup": "6级",
           "parts": [
             {
-              "label": "Pink 1A",
-              "count": 22,
-              "directoryMatch": {
-                "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
-                "level": "Pink 1A"
-              }
+              "label": "6级第1辑",
+              "level": "6",
+              "count": 6
             },
             {
-              "label": "Pink 1B",
-              "count": 22,
-              "directoryMatch": {
-                "edition": "Collins原版进口 · Pink 1A＋1B（44本套装）",
-                "level": "Pink 1B"
-              }
+              "label": "6级第2辑",
+              "level": "6",
+              "count": 7
+            },
+            {
+              "label": "6级第3辑",
+              "level": "6",
+              "count": 7
             }
-          ]
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-7-2023",
+          "label": "7级",
+          "level": "7",
+          "displayGroup": "7级",
+          "parts": [
+            {
+              "label": "7级第1辑",
+              "level": "7",
+              "count": 6
+            },
+            {
+              "label": "7级第2辑",
+              "level": "7",
+              "count": 6
+            },
+            {
+              "label": "7级第3辑",
+              "level": "7",
+              "count": 7
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-8-2023",
+          "label": "8级",
+          "level": "8",
+          "displayGroup": "8级",
+          "parts": [
+            {
+              "label": "8级第1辑",
+              "level": "8",
+              "count": 6
+            },
+            {
+              "label": "8级第2辑",
+              "level": "8",
+              "count": 7
+            },
+            {
+              "label": "8级第3辑",
+              "level": "8",
+              "count": 7
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-9-2023",
+          "label": "9级",
+          "level": "9",
+          "displayGroup": "9级",
+          "parts": [
+            {
+              "label": "9级第1辑",
+              "level": "9",
+              "count": 7
+            },
+            {
+              "label": "9级第2辑",
+              "level": "9",
+              "count": 6
+            },
+            {
+              "label": "9级第3辑",
+              "level": "9",
+              "count": 7
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-10-2023",
+          "label": "10级",
+          "level": "10",
+          "displayGroup": "10级",
+          "parts": [
+            {
+              "label": "10级第1辑",
+              "level": "10",
+              "count": 9
+            },
+            {
+              "label": "10级第2辑",
+              "level": "10",
+              "count": 7
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-11-2023",
+          "label": "11级",
+          "level": "11",
+          "displayGroup": "11级",
+          "parts": [
+            {
+              "label": "11级第1辑",
+              "level": "11",
+              "count": 7
+            },
+            {
+              "label": "11级第2辑",
+              "level": "11",
+              "count": 7
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-12-2023",
+          "label": "12级",
+          "level": "12",
+          "displayGroup": "12级",
+          "parts": [
+            {
+              "label": "12级第1辑",
+              "level": "12",
+              "count": 5
+            },
+            {
+              "label": "12级第2辑",
+              "level": "12",
+              "count": 6
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-13-2023",
+          "label": "13级",
+          "level": "13",
+          "displayGroup": "13级",
+          "parts": [
+            {
+              "label": "13级第1辑",
+              "level": "13",
+              "count": 6
+            },
+            {
+              "label": "13级第2辑",
+              "level": "13",
+              "count": 5
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-14-2023",
+          "label": "14级",
+          "level": "14",
+          "displayGroup": "14级",
+          "parts": [
+            {
+              "label": "14级第1辑",
+              "level": "14",
+              "count": 5
+            },
+            {
+              "label": "14级第2辑",
+              "level": "14",
+              "count": 6
+            }
+          ],
+          "default": false,
+          "referenceOnly": true
+        },
+        {
+          "id": "big-cat-15-pack1-2023",
+          "label": "15级第1辑",
+          "level": "15",
+          "displayGroup": "15级 · 第1辑",
+          "parts": [
+            {
+              "label": "15级第1辑",
+              "level": "15",
+              "count": 5
+            }
+          ],
+          "referenceOnly": true,
+          "default": false
+        },
+        {
+          "id": "big-cat-17-pack1-2023",
+          "label": "17级第1辑",
+          "level": "17",
+          "displayGroup": "17级 · 第1辑",
+          "parts": [
+            {
+              "label": "17级第1辑",
+              "level": "17",
+              "count": 6
+            }
+          ],
+          "referenceOnly": true,
+          "default": false
         }
       ],
-      "versionNote": "外研社引进版与柯林斯英版使用不同的分级和选书范围。英版粉色44本套装按Pink 1A、1B各22本记录；不表示外研社预备级1、2与Pink 1A、1B逐项等价。",
+      "versionNote": "外研社引进版与柯林斯英版使用不同的分级和选书范围。英版粉色44本套装按Pink 1A、1B各22本记录；不表示外研社预备级1、2与Pink 1A、1B逐项等价。 沿用2019年英版套装资料，不采用现售Band Set数量更新；红色2级44本仅记录有据组合，不均分2A、2B。外研社各级仍按2023目录快照单列，版本之间不互相等价。",
       "recordingNote": "这里切换个人选读版本，不修改路线原图“大猫预备级”的范围。粉色44本册数来自2019年英版套装介绍，不包含另售自然拼读读本，也不代表现行全部粉色书目。",
       "recordingLevels": [
         "预备级"
@@ -345,7 +631,14 @@
           "scopeId": "big-cat-pre-2023"
         }
       ],
-      "title": "大猫分级"
+      "title": "大猫分级",
+      "levelNotes": [
+        {
+          "edition": "外研社大猫点读版，2023大众图书目录",
+          "label": "15级第2辑、16级、17级第2辑、18–20级",
+          "note": "2023目录中相应后续辑标“即将出版”；16级第1辑列品种但未列读物册数。本版快照只计已明确读物数量的15级第1辑5本、17级第1辑6本，不把未出版或未列数写成0本，也不代表2026出版现状。"
+        }
+      ]
     },
     {
       "resourceId": "resource-1mx6gx6",
@@ -366,6 +659,12 @@
           "title": "豆瓣各级出版书目",
           "url": "https://book.douban.com/series/77830",
           "evidence": "1级44、2级41、3级42、4级31、5级29；仅采用套装书目，不采用该页营销能力描述。"
+        },
+        {
+          "title": "豆瓣出版书目 · 培生启明星1–8级",
+          "url": "https://book.douban.com/series/77830",
+          "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -480,9 +779,73 @@
             }
           ],
           "default": true
+        },
+        {
+          "id": "pearson-star-6-2025",
+          "label": "6",
+          "level": "6",
+          "parts": [
+            {
+              "label": "6",
+              "count": 18
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "豆瓣出版书目 · 培生启明星1–8级",
+              "url": "https://book.douban.com/series/77830",
+              "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "pearson-star-7-2025",
+          "label": "7",
+          "level": "7",
+          "parts": [
+            {
+              "label": "7",
+              "count": 18
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "豆瓣出版书目 · 培生启明星1–8级",
+              "url": "https://book.douban.com/series/77830",
+              "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "pearson-star-8-2025",
+          "label": "8",
+          "level": "8",
+          "parts": [
+            {
+              "label": "8",
+              "count": 18
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "豆瓣出版书目 · 培生启明星1–8级",
+              "url": "https://book.douban.com/series/77830",
+              "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
         }
       ],
-      "title": "培生启明星"
+      "title": "培生启明星",
+      "checkedAt": "2026-11-05"
     },
     {
       "resourceId": "resource-141vfh7",
@@ -1124,6 +1487,18 @@
           "url": "https://www.fltrp.com/c/2025-06-18/530523.shtml",
           "evidence": "实际读取A–J共282册、故事与科普1:1；有282公共总量但未在本文给逐级分配。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers EF",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-ef-kr/",
+          "evidence": "Inside this little box, you’ll find 16 original titles plus a tip-filled parent guide. E与F合计16，指导册不计。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers GH",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+          "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -1209,6 +1584,50 @@
               "checkedAt": "2026-11-05"
             }
           ]
+        },
+        {
+          "id": "flr-parent-ef",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers EF",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-ef-kr/",
+              "evidence": "Inside this little box, you’ll find 16 original titles plus a tip-filled parent guide. E与F合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "flr-parent-gh",
+          "label": "G&H",
+          "level": "G&H",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "G&H",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers GH",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+              "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
         }
       ],
       "checkedAt": "2026-11-05",
@@ -1223,24 +1642,30 @@
       "resourceId": "resource-1n3ix1n",
       "edition": "牛津树明确选本版本",
       "unit": "本",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "note": "按国内具名选本与家庭版分别列级别及册数；只计读物，不含指导、练习和词典。6–9基础64本包含在含DD88本内，全量不重复相加。未绑定的版本供选择，不代表路线指定版次或必读量；此目录不是牛津出版社全部800余本的平台总目录。",
       "sources": [
         {
-          "title": "牛津树国内选本明细",
-          "url": "https://zhuanlan.zhihu.com/p/62721043",
-          "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+          "title": "牛津树各版本选本逐级配置",
+          "url": "https://kknews.cc/education/443g8gg.html",
+          "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
           "checkedAt": "2026-11-05"
         },
         {
-          "title": "牛津树版本介绍",
+          "title": "牛津树版本介绍及10–12读物范围",
           "url": "https://zhuanlan.zhihu.com/p/133834513",
-          "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
+          "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
           "checkedAt": "2026-11-05"
         },
         {
-          "title": "牛津树常见包逐级明细",
-          "url": "https://kknews.cc/baby/6rgav9p.html",
-          "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+          "title": "Read with Biff, Chip & Kipper家庭版出版范围",
+          "url": "https://zhuanlan.zhihu.com/p/429811066",
+          "evidence": "家庭版1–3级33册含32本读物+1本指导；4–6级25册含24本读物+1本指导。原文未列56本纸书版各单级册数，保留有据组合不均摊。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "牛津出版社Oxford Reading Tree及级别说明",
+          "url": "https://home.oxfordowl.co.uk/reading/reading-schemes-oxford-levels/oxford-reading-tree-levels/",
+          "evidence": "Oxford Reading Tree超过800本，包含不同虚构/非虚构分支，覆盖20级；1与1+分别列为独立级别。国内具名选本不是全平台全集册数。",
           "checkedAt": "2026-11-05"
         }
       ],
@@ -1261,21 +1686,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ]
@@ -1296,21 +1715,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ]
@@ -1341,21 +1754,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ],
@@ -1368,33 +1775,47 @@
           "level": "6–9",
           "parts": [
             {
-              "label": "6–9级（含DD）",
-              "count": 88,
-              "level": "6–9"
+              "label": "6级（含DD）",
+              "level": "6",
+              "count": 27,
+              "note": "基础21本＋DD6本"
+            },
+            {
+              "label": "7级（含DD）",
+              "level": "7",
+              "count": 25,
+              "note": "基础19本＋DD6本"
+            },
+            {
+              "label": "8级（含DD）",
+              "level": "8",
+              "count": 18,
+              "note": "基础12本＋DD6本"
+            },
+            {
+              "label": "9级（含DD）",
+              "level": "9",
+              "count": 18,
+              "note": "基础12本＋DD6本"
             }
           ],
           "default": false,
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "note": "基础64本（21/19/12/12）＋DD24本（各级6）＝88本。下面保留的各级基础范围仅供精确选择，已被本范围包含，不在全量重复相加。"
         },
         {
           "id": "ort-school-red-10",
@@ -1412,21 +1833,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ]
@@ -1447,21 +1862,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ]
@@ -1482,21 +1891,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ]
@@ -1517,24 +1920,19 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "note": "150本指该橙标1–2级读物选本；3–12级配置见国内学校版共用读物范围，不把练习、词典和点读卡计作读物。国内“1级”组合标法可能合并官方1与1+，保留选本标签不等同官方分级。"
         },
         {
           "id": "ort-orange-2",
@@ -1552,29 +1950,24 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "note": "150本指该橙标1–2级读物选本；3–12级配置见国内学校版共用读物范围，不把练习、词典和点读卡计作读物。国内“1级”组合标法可能合并官方1与1+，保留选本标签不等同官方分级。"
         },
         {
           "id": "ort-home-1-3",
           "label": "1–3级",
-          "edition": "Read with Biff Chip and Kipper家庭版",
+          "edition": "Read with Biff Chip and Kipper家庭版（56本纸书选本）",
           "level": "1–3",
           "parts": [
             {
@@ -1587,29 +1980,18 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树版本介绍",
-              "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "title": "Read with Biff, Chip & Kipper家庭版出版范围",
+              "url": "https://zhuanlan.zhihu.com/p/429811066",
+              "evidence": "家庭版1–3级33册含32本读物+1本指导；4–6级25册含24本读物+1本指导。原文未列56本纸书版各单级册数，保留有据组合不均摊。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "note": "本纸书选本只核到1–3级32本、4–6级24本；各单级分配尚未由原目录确认，不按组合总量均摊，也不借用每级8本的48本电子App版。"
         },
         {
           "id": "ort-home-4-6",
           "label": "4–6级",
-          "edition": "Read with Biff Chip and Kipper家庭版",
+          "edition": "Read with Biff Chip and Kipper家庭版（56本纸书选本）",
           "level": "4–6",
           "parts": [
             {
@@ -1622,24 +2004,13 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树版本介绍",
-              "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "title": "Read with Biff, Chip & Kipper家庭版出版范围",
+              "url": "https://zhuanlan.zhihu.com/p/429811066",
+              "evidence": "家庭版1–3级33册含32本读物+1本指导；4–6级25册含24本读物+1本指导。原文未列56本纸书版各单级册数，保留有据组合不均摊。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "note": "本纸书选本只核到1–3级32本、4–6级24本；各单级分配尚未由原目录确认，不按组合总量均摊，也不借用每级8本的48本电子App版。"
         },
         {
           "id": "ort-school-shared-3",
@@ -1657,21 +2028,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ],
@@ -1693,21 +2058,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ],
@@ -1729,21 +2088,15 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
           ],
@@ -1765,24 +2118,22 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
         },
         {
           "id": "ort-school-base-7",
@@ -1800,24 +2151,22 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
         },
         {
           "id": "ort-school-base-8",
@@ -1835,24 +2184,22 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
         },
         {
           "id": "ort-school-base-9",
@@ -1870,31 +2217,29 @@
           "referenceOnly": true,
           "sources": [
             {
-              "title": "牛津树国内选本明细",
-              "url": "https://zhuanlan.zhihu.com/p/62721043",
-              "evidence": "1级故事60+DD1 24；2级故事36+DD2 12。",
+              "title": "牛津树各版本选本逐级配置",
+              "url": "https://kknews.cc/education/443g8gg.html",
+              "evidence": "红标1级60+DD24、2级36+DD12；3/4/5级42/42/36；6/7/8/9基础21/19/12/12；DD6/7/8/9各6；10/11/12读物各6。只计读物，不计练习、指导与词典。",
               "checkedAt": "2026-11-05"
             },
             {
-              "title": "牛津树版本介绍",
+              "title": "牛津树版本介绍及10–12读物范围",
               "url": "https://zhuanlan.zhihu.com/p/133834513",
-              "evidence": "红标/无标1–2读物132，3–5读物120，6–9主读64+DD24，10–12故事18。橙标1级60+DD36，2级36+DD18。家庭1–3读物32，4–6读物24。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "牛津树常见包逐级明细",
-              "url": "https://kknews.cc/baby/6rgav9p.html",
-              "evidence": "正文明确橙标3级30+DD12、4级30+DD12、5级24+DD12；6级21、7级19、8级12、9级12。红/无标同3–5合120、6–9合64。",
+              "evidence": "红/无标1–2读物132、3–5读物120、6–9基础64+DD24；10级6读物+1指导、11级6读物+1指导、12级6读物，读物合18。橙标1级60+DD36，2级36+DD18。",
               "checkedAt": "2026-11-05"
             }
-          ]
+          ],
+          "includedIn": [
+            "ort-school-red-6-9"
+          ],
+          "note": "本级基础故事已包含在6–9级含DD88本范围；全量目录不重复累计。独立选择本级基础故事时仍保留原范围ID与基础册数。"
         }
       ],
       "checkedAt": "2026-11-05",
       "catalogAudit": {
         "status": "confirmed-publication-ranges",
         "checkedAt": "2026-11-05",
-        "reason": "公共版本册数已有来源；路线是否采用该版本独立核定。"
+        "reason": "国内1–12具名选本已按级核对，家庭56本纸书只确认两组范围；不冒用其他版本补纸书单级。出版社全平台其他分支未在该选本内。"
       },
       "title": "牛津树"
     },
@@ -3852,8 +4197,8 @@
       "resourceId": "resource-zl69cf",
       "edition": "Scholastic Buddy Readers English Parent Pack",
       "unit": "本",
-      "note": "庆爸原稿明确Buddy Reader A–B、C–D、E–F，与Scholastic Buddy Readers级别相符。英文Parent Pack A/B/C/D各20本（不计练习册），前两阶段各40本；E–F只核实合包16本，单E、单F的分配未核实，暂只记数量。数量依据为零售商完整商品说明；官方产品与ISBN已定位，官方数量正文暂未取得。出版套装总数不是作者必读或晋级要求。",
-      "countOnlyReason": "庆爸原稿明确Buddy Reader A–B、C–D、E–F，与Scholastic Buddy Readers级别相符。英文Parent Pack A/B/C/D各20本（不计练习册），前两阶段各40本；E–F只核实合包16本，单E、单F的分配未核实，暂只记数量。数量依据为零售商完整商品说明；官方产品与ISBN已定位，官方数量正文暂未取得。出版套装总数不是作者必读或晋级要求。",
+      "note": "Scholastic Buddy Readers英文Parent Pack A/B/C/D各20本、E&F合包16本；E和F不均分。出版范围与路线实际选版、必读或晋级条件分别处理。",
+      "countOnlyReason": "单E与单F的分配未核实；E&F可作为联合级16本公共范围。",
       "sources": [
         {
           "title": "庆爸3–4岁2.0原稿第3–4页",
@@ -3942,9 +4287,30 @@
             }
           ],
           "referenceOnly": true
+        },
+        {
+          "id": "buddy-parent-ef",
+          "label": "E&F",
+          "level": "E&F",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Get Smart Catalog · Buddy Readers E&F Parent Pack",
+              "url": "https://getsmartcatalog.com/65949-buddy-readers-levels-e-f-parent-pack-sc-866215-9781338662153.html",
+              "evidence": "This unique set features four stories each about the same loveable characters for a total of 16 books. Includes 16 full-color, 16-page books；练习册不计读物。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
         }
       ],
-      "checkedAt": "2026-11-04",
+      "checkedAt": "2026-11-05",
       "title": "Buddy Reader"
     },
     {
@@ -5597,7 +5963,7 @@
       "resourceId": "resource-fkl6xf",
       "edition": "First Little Readers · 已核英文Parent Pack分版本范围",
       "unit": "本",
-      "note": "仅确认英文Parent Pack B级25本；不能用于双语282本版，也不外推A/C/D/I/J。 E、F合计16本，不能再各算16。 出版候选尚未与路线引用版次确认；仅用于未筛选时的已知出版范围合计，路线与阶段筛选不自动采用。",
+      "note": "英文First Little Readers Parent Pack公共范围A/B/C/D各25，E&F16、G&H16；仅作具名出版参考，不套用到外研社2025 A–J282本版，不推断I&J。已有B和E&F scope ID、edition保持原值。",
       "sources": [
         {
           "title": "First Little Readers · 英文Parent Pack Level B（25本） · 原页核查",
@@ -5609,6 +5975,28 @@
           "title": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574） · 原页核查",
           "url": "https://www.walmart.com/ip/First-Little-Readers-First-Little-Readers-Guided-Reading-Levels-E-F-Parent-Pack-16-Irresistible-Books-Just-Right-Level-for-Paperback-9781338256574/992123247",
           "evidence": "Walmart原页商品完整标题明确16 Irresistible Books、ISBN 9781338256574；只采用出版标题册数，不采用页面AI生成内容。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers D",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
+          "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers GH",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+          "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
           "checkedAt": "2026-11-05"
         }
       ],
@@ -5625,7 +6013,8 @@
             }
           ],
           "default": false,
-          "referenceOnly": true
+          "referenceOnly": true,
+          "displayEdition": "First Little Readers · 英文Parent Pack"
         },
         {
           "id": "audit-20261105-fkl6xf-20-1",
@@ -5639,7 +6028,98 @@
             }
           ],
           "default": false,
-          "referenceOnly": true
+          "referenceOnly": true,
+          "displayEdition": "First Little Readers · 英文Parent Pack"
+        },
+        {
+          "id": "flr-parent-reference-a",
+          "label": "A",
+          "level": "A",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "A",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack"
+        },
+        {
+          "id": "flr-parent-reference-c",
+          "label": "C",
+          "level": "C",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "C",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack"
+        },
+        {
+          "id": "flr-parent-reference-d",
+          "label": "D",
+          "level": "D",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "D",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers D",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
+              "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack"
+        },
+        {
+          "id": "flr-parent-reference-gh",
+          "label": "G&H",
+          "level": "G&H",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "G&H",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers GH",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+              "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack"
         }
       ],
       "catalogAudit": {
@@ -5658,12 +6138,36 @@
       "resourceId": "resource-nqvpg2",
       "edition": "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922）",
       "unit": "本",
-      "note": "只确认Level A16本，不按同品牌套装推断B/C/D/E&F。 出版候选尚未与路线引用版次确认；仅用于未筛选时的已知出版范围合计，路线与阶段筛选不自动采用。",
+      "note": "英文Parent Pack A/B/C/D各16本，E&F联合级12本；不将16-page页数当册数，不拆分联合级。出版候选与路线实际选版独立处理。",
       "sources": [
         {
           "title": "Guided Science Readers · 英文Parent Pack Level A（ISBN 9780545650922） · 原页核查",
           "url": "https://www.dkclassroomoutlet.com/level-a-guided-science-readers-parent-pack",
           "evidence": "实际读取书商原页：Guided Science Readers Level A Parent Pack Pack of 16 Books；商品编号SC-565092。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · B",
+          "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/0545650933",
+          "evidence": "实际读取商品标题Guided Science Readers Parent Pack: Level B: 16 Fun Nonfiction Books。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · C",
+          "url": "https://www.walmart.com/ip/Guided-Science-Readers-Level-C-Fun-Nonfiction-Books-That-Are-Just-Right-for-New-Readers-Paperback/2436849372?conditionGroupCode=3",
+          "evidence": "实际读取Key item features：Guided Science Readers: Level C (Parent Pack): 16 Fun Nonfiction Books；ISBN-13 9780545650946。二手商品页只用于核对原出版标题数量，不取卖家库存数。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · D",
+          "url": "https://bookmarkludington.com/guided-science-readers-parent-pack-level-d-16-fun-nonfiction-books-that-are-just-right-for-new-readers/",
+          "evidence": "实际读取出版商品标题Level D: 16 Fun Nonfiction Books；SKU 9780545650953。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Guided Science Readers Parent Pack · E&F",
+          "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/1338091182",
+          "evidence": "实际读取正文Spark reading success with 12 exciting books...guided reading levels E–F；16-page是页数，不是16本。",
           "checkedAt": "2026-11-05"
         }
       ],
@@ -5680,7 +6184,100 @@
             }
           ],
           "default": false,
-          "referenceOnly": true
+          "referenceOnly": true,
+          "displayEdition": "Guided Science Readers · 英文Parent Pack"
+        },
+        {
+          "id": "gsr-parent-reference-b",
+          "label": "B",
+          "level": "B",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9780545650939）",
+          "parts": [
+            {
+              "label": "B",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · B",
+              "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/0545650933",
+              "evidence": "实际读取商品标题Guided Science Readers Parent Pack: Level B: 16 Fun Nonfiction Books。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "Guided Science Readers · 英文Parent Pack"
+        },
+        {
+          "id": "gsr-parent-reference-c",
+          "label": "C",
+          "level": "C",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9780545650946）",
+          "parts": [
+            {
+              "label": "C",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · C",
+              "url": "https://www.walmart.com/ip/Guided-Science-Readers-Level-C-Fun-Nonfiction-Books-That-Are-Just-Right-for-New-Readers-Paperback/2436849372?conditionGroupCode=3",
+              "evidence": "实际读取Key item features：Guided Science Readers: Level C (Parent Pack): 16 Fun Nonfiction Books；ISBN-13 9780545650946。二手商品页只用于核对原出版标题数量，不取卖家库存数。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "Guided Science Readers · 英文Parent Pack"
+        },
+        {
+          "id": "gsr-parent-reference-d",
+          "label": "D",
+          "level": "D",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9780545650953）",
+          "parts": [
+            {
+              "label": "D",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · D",
+              "url": "https://bookmarkludington.com/guided-science-readers-parent-pack-level-d-16-fun-nonfiction-books-that-are-just-right-for-new-readers/",
+              "evidence": "实际读取出版商品标题Level D: 16 Fun Nonfiction Books；SKU 9780545650953。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "Guided Science Readers · 英文Parent Pack"
+        },
+        {
+          "id": "gsr-parent-reference-ef",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "Guided Science Readers · 英文Parent Pack（ISBN 9781338091182）",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 12
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Guided Science Readers Parent Pack · E&F",
+              "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/1338091182",
+              "evidence": "实际读取正文Spark reading success with 12 exciting books...guided reading levels E–F；16-page是页数，不是16本。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "Guided Science Readers · 英文Parent Pack"
         }
       ],
       "catalogAudit": {
@@ -5699,12 +6296,24 @@
       "resourceId": "resource-19jrpig",
       "edition": "First Little Comics · 英文E&F Single-Copy Set",
       "unit": "本",
-      "note": "E、F合计16本，不可拆为每级16。 出版候选尚未与路线引用版次确认；仅用于未筛选时的已知出版范围合计，路线与阶段筛选不自动采用。",
+      "note": "A&B20、C&D20按Scholastic StoryPlus官方具名套装；既有E&F Single-Copy Set16保持。StoryPlus官方EF2025文案写20，与既有零售版16冲突且缺ISBN核对，不能把二者擅自称为不同已确认版次，暂不新增EF20或覆盖原16。",
       "sources": [
         {
           "title": "First Little Comics · 英文E&F Single-Copy Set · 原页核查",
           "url": "https://www.booksrtoys.com.br/first-little-comics-guided-reading-levels-e-f-single-copy-set",
           "evidence": "实际读取书商原页：Includes 16 full-color 16-page books；其他workbook/guide不计读物。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Comics A&B",
+          "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-ab/",
+          "evidence": "实际读取官方正文：guided reading levels A&B is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Comics C&D",
+          "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-c-d/",
+          "evidence": "实际读取官方正文：guided reading levels C&D is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
           "checkedAt": "2026-11-05"
         }
       ],
@@ -5722,6 +6331,50 @@
           ],
           "default": false,
           "referenceOnly": true
+        },
+        {
+          "id": "flc-storyplus-ab-2025",
+          "label": "A&B",
+          "level": "A&B",
+          "edition": "First Little Comics · StoryPlus 2025具名套装",
+          "parts": [
+            {
+              "label": "A&B",
+              "count": 20
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Comics A&B",
+              "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-ab/",
+              "evidence": "实际读取官方正文：guided reading levels A&B is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
+        },
+        {
+          "id": "flc-storyplus-cd-2025",
+          "label": "C&D",
+          "level": "C&D",
+          "edition": "First Little Comics · StoryPlus 2025具名套装",
+          "parts": [
+            {
+              "label": "C&D",
+              "count": 20
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Comics C&D",
+              "url": "http://storyplus.scholasticinternational.com/first-little-comics-set-c-d/",
+              "evidence": "实际读取官方正文：guided reading levels C&D is packed with 20 just-right titles PLUS a parent guide, mini-workbook, and motivating stickers. 指导册、练习册和贴纸不计读物。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -11952,6 +12605,15 @@
       },
       "checkedAt": "2026-11-05",
       "title": "WPlay词汇妙趣国"
+    },
+    {
+      "resourceId": "resource-960t1q",
+      "title": "First Little Readers",
+      "catalogResourceId": "resource-1cn6i3m",
+      "checkedAt": "2026-11-05",
+      "note": "原文明确First Little Readers名称，共用公共出版目录；不确认作者选用的具体版次，不改变路线ID或记录键。",
+      "scopes": [],
+      "sources": []
     }
   ],
   "references": [

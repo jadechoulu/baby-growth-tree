@@ -286,7 +286,9 @@ test('出版册数只匹配本套系本级别的范围，分辑不自动成为�
   assert.equal(scopeFor('resource-1mx6gx6',['1、2'])[0].total,85);
   assert.equal(scopeFor('resource-1mx6gx6',['4、5'])[0].total,60);
   assert.equal(scopeFor('resource-141vfh7',['进阶级'])[0].total,28);
-  for(const [id,levels] of [['resource-1mx6gx6',['6']],['resource-g7xvo5',['1–3 · 24册']],['resource-1mx6gx6',['1+']]])assert.deepEqual(scopeFor(id,levels),[]);
+  assert.equal(scopeFor('resource-1mx6gx6',['6'])[0].total,18);
+  assert.equal(scopeFor('resource-1mx6gx6',['6'])[0].default,false);
+  for(const [id,levels] of [['resource-g7xvo5',['1–3 · 24册']],['resource-1mx6gx6',['1+']]])assert.deepEqual(scopeFor(id,levels),[]);
   assert.equal(scopeFor('resource-1mx6gx6',['1–3','4、5'])[0].total,187);
 });
 
@@ -770,4 +772,19 @@ test('Buddy单级分母补齐后保留原子键及父项数量，不拆分EF合�
   for(const level of ['E','F'])assert.deepEqual(P.bookScopes('resource-zl69cf',[level],volumes,'qing-s3'),[]);
   assert.equal(P.bookScopes('resource-zl69cf',['A'],volumes,'xu-current-500')[0].total,20);
   assert.equal(P.bookScopes('resource-zl69cf',['A'],volumes,'xu-current-500')[0].default,false);
+});
+
+test('大猫新增出版分辑只补资料，不将原级别进度改拆为分辑记录',()=>{
+  for(const [stageId,suffixes]of [
+    ['banana-4',['p170hsby','p15mjrv3','p15ck664']],
+    ['xu-6',['p16giky0','p17ahe0x']]
+  ]){
+    const st=catalog.stages.find(s=>s.id===stageId),item=M.getStageMaterials(catalog,st).find(i=>i.resource.id==='resource-g7xvo5');
+    const unit={key:P.unitKey(st,item),stageId,item,resourceId:item.resource.id};
+    unit.bookScopes=P.bookScopes(unit.resourceId,item.materials.map(m=>M.formatLevel(m.level,item.resource)),volumes,stageId);
+    const parts=P.expandBookUnits(unit,M.getMaterialLevels(item),volumes);
+    assert.deepEqual(parts.map(p=>p.key),suffixes.map(s=>unit.key+':'+s));
+    const saved=P.unitUpdate('using','原级别手记','2026-09-15');
+    for(const part of parts)assert.equal(P.materialRecord({[part.key]:saved},part),saved);
+  }
 });
