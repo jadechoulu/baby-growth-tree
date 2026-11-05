@@ -27,10 +27,26 @@ test('所有技能及能力分支均能找到独立解释和参考资料', () =>
   }
 });
 
-test('参考资料包含可追溯的机构、标题与公开 HTTPS 原文链接', () => {
+test('语言特殊现象保留原图月龄，只作为资料而不生成可完成的技能', () => {
+  assert.equal(guides.languageNotes.phenomena.length, 6);
+  for (const item of guides.languageNotes.phenomena) {
+    assert.ok(Number.isInteger(item.minMonths) && item.minMonths <= item.maxMonths);
+    assert.equal(catalog.some(skill => skill.title === item.title), false);
+  }
+  assert.deepEqual(guides.languageNotes.phenomena.map(item => [item.minMonths, item.maxMonths]), [
+    [13, 24], [13, 18], [19, 30], [19, 36], [25, 36], [31, 36],
+  ]);
+});
+
+test('参考资料包含可追溯的机构、标题与可访问的原文链接或本地原始截图', async () => {
   assert.ok(Object.keys(guides.sources).length);
   for (const [id, source] of Object.entries(guides.sources)) {
     assert.ok(source.title?.trim() && source.publisher?.trim(), `${id} 缺少资料信息`);
+    if (id.startsWith('mao-language-')) {
+      assert.ok(source.url.startsWith('./assets/language/'));
+      assert.ok((await readFile(new URL('../' + source.url.slice(2), import.meta.url))).length > 0);
+      continue;
+    }
     const url = new URL(source.url);
     assert.equal(url.protocol, 'https:', `${id} 应链接到 HTTPS 原文`);
     assert.equal(url.username, '');
