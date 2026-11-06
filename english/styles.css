@@ -1803,7 +1803,6 @@
 .liao-library-nav{display:flex;align-items:center;gap:4px;min-width:0}
 .liao-library-nav>.hello-collection-tabs{flex-wrap:nowrap;gap:6px;margin:0;min-width:0}
 .liao-library-nav .button{padding:6px 9px;font-size:15px;min-height:44px}
-.liao-library-nav>.library-filter-control{flex:none}
 .liao-collection-short{display:none}
 .liao-controls{display:flex;align-items:center;gap:6px;min-width:0}
 .liao-controls .library-filter-button{flex:none}
@@ -1813,8 +1812,6 @@
   .liao-library-nav .button{padding:6px;font-size:15px}
   .liao-collection-full{display:none}
   .liao-collection-short{display:inline}
-  .liao-library-toolbar .library-filter-button{width:26px;min-width:26px;height:32px;min-height:32px;padding:3px}
-  .liao-library-toolbar .library-filter-button .icon{width:18px;height:18px}
 }
 .liao-reading .result-count{margin:6px 0;font-size:12px}
 .liao-plan-stage{min-width:0;border-bottom:1px solid var(--line,#dce6dd);padding:4px 0}
@@ -1881,11 +1878,13 @@
 .liao-media-links .text-link{overflow-wrap:anywhere;white-space:normal}
 
 /* 图示编号、周计划与使用方法各自保留依据。 */
-.liao-mode-switch{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0}
-.liao-mode-switch>[hidden]{display:none}
-.liao-mode-button{font:inherit;font-size:15px;min-height:44px;border:1px solid var(--line,#dce6dd);border-radius:8px;padding:6px 10px;background:var(--paper,#fff);color:inherit;cursor:pointer;max-width:100%;white-space:normal}
-.liao-mode-button[aria-pressed=true]{border-color:var(--accent,#2e6954);background:var(--accent-soft,#e9f1e9);color:var(--accent,#2e6954);font-weight:700}
-@container(max-width:440px){.liao-mode-switch{gap:3px}.liao-mode-button{padding-inline:4px}.liao-mode-switch .library-filter-button{width:32px;min-width:32px;padding:5px}}
+.liao-mode-switch{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;margin:2px 0 8px}
+.liao-mode-tabs{display:flex;align-items:stretch;gap:12px;max-width:100%;min-width:0}
+.liao-mode-tools{display:flex;align-items:center;gap:4px;flex:none;margin-left:auto}
+.liao-mode-tools>[hidden]{display:none}
+.liao-mode-button{font:inherit;font-size:15px;min-height:44px;min-width:0;border:0;border-bottom:2px solid transparent;border-radius:0;padding:6px 2px;background:transparent;color:var(--muted,#69756d);cursor:pointer;white-space:normal}
+.liao-mode-button[aria-pressed=true]{border-bottom-color:var(--accent,#2e6954);color:var(--accent,#2e6954);font-weight:700}
+@container(max-width:440px){.liao-mode-switch{column-gap:6px}.liao-mode-tabs{gap:8px}.liao-mode-tools{gap:2px}.liao-mode-tools .library-filter-button{width:32px;min-width:32px;padding:5px}}
 .liao-method-fold{color:var(--muted);font-size:13px}
 .liao-method-fold>summary,.liao-method .liao-fold>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 8px;font-size:13px;font-weight:500;line-height:1.6}
 .liao-method-fold>summary::after,.liao-method .liao-fold>summary::after{content:'＋';margin-left:auto;color:var(--green);font-size:16px;font-weight:400}

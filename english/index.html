@@ -1811,7 +1811,6 @@
 .liao-library-nav{display:flex;align-items:center;gap:4px;min-width:0}
 .liao-library-nav>.hello-collection-tabs{flex-wrap:nowrap;gap:6px;margin:0;min-width:0}
 .liao-library-nav .button{padding:6px 9px;font-size:15px;min-height:44px}
-.liao-library-nav>.library-filter-control{flex:none}
 .liao-collection-short{display:none}
 .liao-controls{display:flex;align-items:center;gap:6px;min-width:0}
 .liao-controls .library-filter-button{flex:none}
@@ -1821,8 +1820,6 @@
   .liao-library-nav .button{padding:6px;font-size:15px}
   .liao-collection-full{display:none}
   .liao-collection-short{display:inline}
-  .liao-library-toolbar .library-filter-button{width:26px;min-width:26px;height:32px;min-height:32px;padding:3px}
-  .liao-library-toolbar .library-filter-button .icon{width:18px;height:18px}
 }
 .liao-reading .result-count{margin:6px 0;font-size:12px}
 .liao-plan-stage{min-width:0;border-bottom:1px solid var(--line,#dce6dd);padding:4px 0}
@@ -1889,11 +1886,13 @@
 .liao-media-links .text-link{overflow-wrap:anywhere;white-space:normal}
 
 /* 图示编号、周计划与使用方法各自保留依据。 */
-.liao-mode-switch{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0}
-.liao-mode-switch>[hidden]{display:none}
-.liao-mode-button{font:inherit;font-size:15px;min-height:44px;border:1px solid var(--line,#dce6dd);border-radius:8px;padding:6px 10px;background:var(--paper,#fff);color:inherit;cursor:pointer;max-width:100%;white-space:normal}
-.liao-mode-button[aria-pressed=true]{border-color:var(--accent,#2e6954);background:var(--accent-soft,#e9f1e9);color:var(--accent,#2e6954);font-weight:700}
-@container(max-width:440px){.liao-mode-switch{gap:3px}.liao-mode-button{padding-inline:4px}.liao-mode-switch .library-filter-button{width:32px;min-width:32px;padding:5px}}
+.liao-mode-switch{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;margin:2px 0 8px}
+.liao-mode-tabs{display:flex;align-items:stretch;gap:12px;max-width:100%;min-width:0}
+.liao-mode-tools{display:flex;align-items:center;gap:4px;flex:none;margin-left:auto}
+.liao-mode-tools>[hidden]{display:none}
+.liao-mode-button{font:inherit;font-size:15px;min-height:44px;min-width:0;border:0;border-bottom:2px solid transparent;border-radius:0;padding:6px 2px;background:transparent;color:var(--muted,#69756d);cursor:pointer;white-space:normal}
+.liao-mode-button[aria-pressed=true]{border-bottom-color:var(--accent,#2e6954);color:var(--accent,#2e6954);font-weight:700}
+@container(max-width:440px){.liao-mode-switch{column-gap:6px}.liao-mode-tabs{gap:8px}.liao-mode-tools{gap:2px}.liao-mode-tools .library-filter-button{width:32px;min-width:32px;padding:5px}}
 .liao-method-fold{color:var(--muted);font-size:13px}
 .liao-method-fold>summary,.liao-method .liao-fold>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 8px;font-size:13px;font-weight:500;line-height:1.6}
 .liao-method-fold>summary::after,.liao-method .liao-fold>summary::after{content:'＋';margin-left:auto;color:var(--green);font-size:16px;font-weight:400}
@@ -6492,9 +6491,10 @@ function render(data,ui){
   weekLegend.hidden=state.mode!=='plan';
   function refreshResults(){weekLegend.hidden=state.mode!=='plan';area.querySelector('.liao-results').replaceWith(results());}
   const search=h('input',{id:'liao-query',type:'search',value:state.query,placeholder:'书名、英文名或原表写法','aria-label':'搜索廖彩杏书目',oninput:e=>{if(e.isComposing)return;state.query=e.target.value;state.limits.clear();refreshResults();},oncompositionend:e=>{state.query=e.target.value;state.limits.clear();refreshResults();}});
-  const modeButtons=['picture','plan'].map(mode=>button(mode==='picture'?'图示顺序 · 130本':'52周安排 · 100本',()=>{state.mode=mode;modeButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(['picture','plan'][i]===mode)));refreshResults();},{class:'liao-mode-button','aria-pressed':String(state.mode===mode)}));
-  area.append(h('div',{class:'liao-library-toolbar'},h('div',{class:'liao-library-nav'},ui.collectionTabs,popover('liao-info','廖彩杏资料与等级说明',icon('info'),info()),button(icon('help'),ui.onMethod,{id:'liao-method-toggle',class:'library-filter-button','aria-label':'这些素材怎么用','aria-haspopup':'dialog',title:'这些素材怎么用'})),h('div',{class:'liao-controls'},popover('liao-search','搜索廖彩杏书目',icon('search'),h('div',{class:'library-search-box'},search),!!state.query),button(icon('close'),()=>{state.query='';state.limits.clear();search.value='';refreshResults();},{class:'library-filter-button','aria-label':'清除廖彩杏搜索',title:'清除搜索'}))),
-    h('div',{class:'liao-mode-switch',role:'group','aria-label':'书单排列方式'},modeButtons,weekLegend),results());
+  const modeButtons=['picture','plan'].map(mode=>button(mode==='picture'?'建议阅读顺序 · 130本':'52周安排 · 100本',()=>{state.mode=mode;modeButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(['picture','plan'][i]===mode)));refreshResults();},{class:'liao-mode-button','aria-pressed':String(state.mode===mode)}));
+  const controls=h('div',{class:'liao-controls'},popover('liao-search','搜索廖彩杏书目',icon('search'),h('div',{class:'library-search-box'},search),!!state.query),button(icon('close'),()=>{state.query='';state.limits.clear();search.value='';refreshResults();},{class:'library-filter-button','aria-label':'清除廖彩杏搜索',title:'清除搜索'}));
+  area.append(h('div',{class:'liao-library-toolbar'},h('div',{class:'liao-library-nav'},ui.collectionTabs)),
+    h('div',{class:'liao-mode-switch'},h('div',{class:'liao-mode-tabs',role:'group','aria-label':'书单排列方式'},modeButtons),h('div',{class:'liao-mode-tools'},popover('liao-info','廖彩杏资料与等级说明',icon('info'),info()),button(icon('help'),ui.onMethod,{id:'liao-method-toggle',class:'library-filter-button','aria-label':'这些素材怎么用','aria-haspopup':'dialog',title:'这些素材怎么用'}),weekLegend,controls)),results());
   return area;
 }
 function method(data,{h,icon,sourceBtn,onResource}){
@@ -6509,8 +6509,8 @@ function method(data,{h,icon,sourceBtn,onResource}){
     return h('li',{},h('div',{class:'liao-map-heading'},h('strong',{},branch.title),source),h('p',{},branch.text));
   });
   const content=h('section',{class:'liao-method','aria-label':'廖彩杏理念与使用方法'},h('p',{},m.dailyBrief),h('p',{},m.rotationBrief),
-    fold('liao-method-map','理念与使用路径 · 思维导图',h('div',{},h('p',{class:'small-note'},m.basis),h('div',{class:'liao-mindmap'},h('p',{class:'liao-map-root'},'优质有声书 + 规律重复 + 轻松吸收'),h('ol',{},branches)),h('p',{class:'small-note'},'这是本站整理的使用路径；轮换与复习反复循环，不是按能力考试逐级通关。'))),
-    fold('liao-method-steps','每天的步骤、音频用法与换书判断',h('div',{},h('p',{class:'small-note'},m.basis),m.sections.map(section=>h('section',{class:'liao-method-section'},h('h4',{},section.title),h('ul',{},section.points.map(point=>h('li',{},point))),fold(section.id,'原话与页码',section.sources.map(ref=>h('div',{},h('p',{class:'small-note'},'“'+ref.quote+'”'),evidence(ref)))))),h('article',{class:'liao-method-example'},h('h4',{},m.example.title),h('p',{class:'small-note'},m.example.label),h('ol',{},m.example.steps.map(step=>h('li',{},step))),bookButton(m.example.bookId),m.example.sources.map(evidence)))));
+    fold('liao-method-steps','每天的步骤、音频用法与换书判断',h('div',{},h('p',{class:'small-note'},m.basis),m.sections.map(section=>h('section',{class:'liao-method-section'},h('h4',{},section.title),h('ul',{},section.points.map(point=>h('li',{},point))),fold(section.id,'原话与页码',section.sources.map(ref=>h('div',{},h('p',{class:'small-note'},'“'+ref.quote+'”'),evidence(ref)))))),h('article',{class:'liao-method-example'},h('h4',{},m.example.title),h('p',{class:'small-note'},m.example.label),h('ol',{},m.example.steps.map(step=>h('li',{},step))),bookButton(m.example.bookId),m.example.sources.map(evidence)))),
+    fold('liao-method-map','理念与使用路径 · 思维导图',h('div',{},h('p',{class:'small-note'},m.basis),h('div',{class:'liao-mindmap'},h('p',{class:'liao-map-root'},'优质有声书 + 规律重复 + 轻松吸收'),h('ol',{},branches)),h('p',{class:'small-note'},'这是本站整理的使用路径；轮换与复习反复循环，不是按能力考试逐级通关。'))));
   content.append(guidance(),fold('liao-stage-basis','周次编排与复习出处',h('div',{},h('p',{},data.stages[0].basis),data.stages.map(stage=>h('p',{class:'small-note'},stage.title+' · '+stage.sources[0].locator)),data.reviews.map(review=>evidence(review.evidence)))));
   return content;
   function guidance(){return fold('liao-guidance','指导书五章：选书思路与具体建议',h('div',{},h('p',{class:'small-note'},'以下是指导PDF的章节思路，不是资料包分类，也不与参考表或图示主题逐项绑定。'),h('div',{class:'liao-groups'},data.guidanceTopics.map(group=>fold(group.id,group.title,h('div',{},h('p',{},group.summary),group.sources.map(evidence))))),data.recommendations.map(relation=>h('article',{class:'liao-recommendation'},h('h4',{},relation.title),h('p',{class:'small-note'},relation.note),h('div',{class:'liao-recommendation-books'},h('p',{},'从这两本入门'),relation.from.map(bookButton),h('p',{},'再接续'),relation.to.map(bookButton)),fold(relation.id,'原话与出处',relation.sources.map(ref=>h('div',{},h('p',{},ref.quote),evidence(ref))))))));}
@@ -7178,7 +7178,7 @@ function savePracticeRecords(changes){
   if(!persist()){S.records=previous;return false;}return true;
 }
 function liaoBookDone(id){return BP.bookState(S.records,id).done;}
-function liaoCompletionLabel(id){return (liaoBookDone(id)?'已完成，点击取消完成：':'标记完成：')+window.EnglishLiao.findBook(LIAO,id).title;}
+function liaoCompletionLabel(id){return (liaoBookDone(id)?'已阅读，点击取消已阅读：':'标记已阅读：')+window.EnglishLiao.findBook(LIAO,id).title;}
 function liaoCompletionControl(id){
   return btn(h('span',{class:'liao-completion-circle','aria-hidden':'true'},icon('check')),'liao-toggle',{'data-id':id,'aria-pressed':String(liaoBookDone(id)),'aria-label':liaoCompletionLabel(id),title:liaoCompletionLabel(id)},'liao-complete');
 }
