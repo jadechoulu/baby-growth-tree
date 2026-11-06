@@ -24,7 +24,9 @@ function update(){
   const current=manager?.current;
   for(const button of document.querySelectorAll('[data-tune-audio]')){
     const playing=!!current&&!current.paused&&!current.ended&&source(current)===button.dataset.tuneAudio;
-    button.textContent=playing?'❚❚':'▶';button.setAttribute('aria-pressed',String(playing));
+    const marker=button.querySelector?.('[data-audio-state-icon]');
+    if(marker)marker.textContent=playing?'❚❚':'▶';else button.textContent=playing?'❚❚':'▶';
+    button.setAttribute('aria-pressed',String(playing));
     button.setAttribute('aria-label',(playing?'暂停':'播放')+(button.dataset.audioKind||'曲调')+'：'+button.dataset.tuneName);
     button.title=(playing?'暂停：':'播放：')+button.dataset.tuneName;
   }
@@ -46,20 +48,20 @@ function closePlayer(restoreFocus=true){
   document.getElementById('hello-audio-error')?.remove();
   if(restoreFocus&&focusInside&&lastTrigger?.isConnected)lastTrigger.focus();
 }
-function ensurePlayer(){
-  if(player)return;
+function ensurePlayer(container=document.body){
+  if(player){if(!container.contains(popover))container.append(popover);return;}
   popover=document.createElement('section');popover.className='hello-audio-popover';popover.setAttribute('role','region');popover.setAttribute('aria-label','当前播放');
   const header=document.createElement('div');header.className='hello-audio-popover-head';
   playerTitle=document.createElement('span');playerTitle.className='hello-audio-title';playerTitle.setAttribute('aria-live','polite');
   const close=document.createElement('button');close.type='button';close.className='hello-audio-close';close.textContent='×';close.setAttribute('aria-label','关闭播放器');close.title='关闭播放器';close.onclick=()=>closePlayer();
   header.append(playerTitle,close);
   player=document.createElement('audio');player.preload='none';player.className='hello-tune-player';player.controls=true;
-  popover.append(header,player);document.body.append(popover);
+  popover.append(header,player);container.append(popover);
 }
-async function playSource(file,name,asset=value=>value){
+async function playSource(file,name,asset=value=>value,container=document.body){
   install();const url=asset(file),absolute=new URL(url,document.baseURI).href,current=manager.current;
   if(current&&source(current)===absolute&&!current.paused){current.pause();return;}
-  manager.stop();const request=++requestId;ensurePlayer();
+  manager.stop();const request=++requestId;ensurePlayer(container);
   if(!popover.contains(document.activeElement))lastTrigger=document.activeElement;
   popover.hidden=false;playerTitle.textContent=name;
   if(source(player)!==absolute)player.src=url;
@@ -89,5 +91,5 @@ function audioButton(file,name,{h,asset}){
   const button=tuneButton(name,{tuneAudio:{tunes:[{name,file}]}},{h,asset});button.classList.add('hello-audio-play');button.dataset.audioKind='音频';
   button.setAttribute('aria-label',(button.getAttribute('aria-pressed')==='true'?'暂停音频：':'播放音频：')+name);return button;
 }
-return {normalize,tuneSource,coordinator,install,playSource,tuneButton,audioButton,stop:closePlayer};
+return {normalize,tuneSource,coordinator,install,playSource,tuneButton,audioButton,refresh:update,stop:closePlayer};
 });

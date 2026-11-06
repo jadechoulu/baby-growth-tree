@@ -5,6 +5,23 @@ import {readFileSync,existsSync,statSync} from 'node:fs';
 const require=createRequire(import.meta.url),L=require('../english/liao-reading.js'),M=require('../english/model.js');
 const read=name=>JSON.parse(readFileSync(new URL('../english/data/'+name+'.json',import.meta.url)));
 const data=read('liao-reading');
+test('逐本完成与取消沿用英语记录，章节和复习去重，新增不补造阶段',()=>{
+ const B=require('../english/book-progress.js');
+ const other={status:'using',note:'保留其他记录'},goose=data.books.find(b=>b.number===1);
+ let records={other};
+ const done=id=>B.bookState(records,id).done;
+ assert.deepEqual(data.stages.map(stage=>L.stageProgress(stage,done)),[22,24,24,30].map(total=>({completed:0,total})));
+ records={...records,...B.manualUpdate(records,goose.id,true)};
+ assert.deepEqual(L.stageProgress({...data.stages[0],bookIds:[...data.stages[0].bookIds,goose.id]},done),{completed:1,total:22});
+ for(const week of [1,2,3,5,6])assert.equal(done(L.weekPlan(data,week).entries.find(entry=>entry.book.id===goose.id).book.id),true);
+ for(const book of data.supplementaryBooks)records={...records,...B.manualUpdate(records,book.id,true)};
+ assert.ok(data.supplementaryBooks.every(book=>done(book.id)));
+ assert.equal(data.stages.reduce((n,stage)=>n+L.stageProgress(stage,done).completed,0),1);
+ records=JSON.parse(JSON.stringify(records));assert.equal(done(goose.id),true);
+ records={...records,...B.manualUpdate(records,goose.id,false)};
+ assert.equal(done(goose.id),false);assert.deepEqual(L.stageProgress(data.stages[0],done),{completed:0,total:22});
+ assert.deepEqual(records.other,other);
+});
 test('100部作品保留102条章节引入，书号与计划序号不可混用',()=>{
  assert.equal(data.books.length,100);
  assert.deepEqual(data.books.map(b=>b.order),Array.from({length:100},(_,i)=>i+1));
@@ -26,6 +43,34 @@ test('阶段和多词搜索取交集，复习指向原周段而不造新书',()=
  assert.deepEqual(L.reviewFor(data,goose).map(r=>r.weeks),[[5,6]]);
  assert.equal(data.reviews.length,8);
  const before=JSON.stringify(data);L.filter(data,{query:'anything'});L.reviewFor(data,goose);assert.equal(JSON.stringify(data),before);
+});
+test('逐周安排沿用当周原表顺序和鹅妈妈章节，不以首次引入周次代替后续章',()=>{
+ const before=JSON.stringify(data);
+ for(const week of [1,2,3,4,14,27,40,49]){
+  const plan=L.weekPlan(data,week),refs=data.introductions.filter(ref=>ref.week===week);
+  assert.equal(plan.review,undefined);
+  assert.deepEqual(plan.entries.map(entry=>entry.book.id),refs.map(ref=>ref.bookId));
+  assert.deepEqual(plan.entries.flatMap(entry=>entry.references),refs);
+ }
+ const goose=data.books.find(book=>book.order===1);
+ for(const week of [1,2,3])assert.deepEqual(L.weekPlan(data,week).entries.find(entry=>entry.book.id===goose.id).references.map(ref=>ref.chapter),[week]);
+ assert.deepEqual(L.weekPlan(data,2,{query:'goose'}).entries.map(entry=>entry.book.id),[goose.id]);
+ assert.equal(L.weekPlan(data,2,{query:'brown bear'}).entries.length,0);
+ assert.equal(JSON.stringify(data),before);
+});
+test('全部复习周呈现原周段书单并去重，保留章节且不擅自分配单周阅读',()=>{
+ for(const review of data.reviews){
+  const refs=data.introductions.filter(ref=>ref.week>=review.fromWeeks[0]&&ref.week<=review.fromWeeks[1]);
+  const ids=[...new Set(refs.map(ref=>ref.bookId))];
+  for(let week=review.weeks[0];week<=review.weeks[1];week++){
+   const plan=L.weekPlan(data,week);
+   assert.equal(plan.review,review);
+   assert.deepEqual(plan.entries.map(entry=>entry.book.id),ids);
+   for(const entry of plan.entries)assert.deepEqual(entry.references,refs.filter(ref=>ref.bookId===entry.book.id));
+  }
+ }
+ assert.deepEqual(L.weekPlan(data,5).entries.find(entry=>entry.book.order===1).references.map(ref=>ref.chapter),[1,2,3]);
+ assert.ok(Array.from({length:52},(_,i)=>L.weekPlan(data,i+1)).every(plan=>plan.entries.length>0));
 });
 test('加入书单只补素材与来源，不产生路线、阶段、能力对应或旧素材ID漂移',()=>{
  const raw=Object.fromEntries(['banana','xu','qing','route-plan'].map(n=>[n==='route-plan'?'routePlan':n,read(n)]));

@@ -11,9 +11,40 @@ function fileInfo(href,base){
   let path;try{path=decodeURIComponent(url.pathname.slice(home.pathname.length));}catch{return null;}
   return {kind,url:url.href,path:'assets/'+path,page:Math.max(1,Math.trunc(Number(new URLSearchParams(url.hash.slice(1)).get('page')))||1)};
 }
-function install({h,asset,originalPath=()=>null,externalUrls=[]}){
+// 分享接口显式携带设备标识，不依赖第三方 iframe Cookie；临时令牌仅留在当前弹窗。
+function nasClient(href,request=fetch,signal){
+  const share=new URL(href);
+  if(share.origin!=='https://s.znas.cn'||share.pathname!=='/AppH5/share/'||share.searchParams.get('mode')!=='file')return null;
+  const nid=share.searchParams.get('nid'),code=share.searchParams.get('code');
+  if(!nid||!code)return null;
+  let session;
+  async function api(path,params){
+    const url=new URL(path,share.origin),options={method:'POST',credentials:'omit',signal};
+    url.searchParams.set('nid',nid);options.body=new URLSearchParams(params);
+    const response=await request(url.href,options);
+    if(!response.ok)throw new Error('极空间请求失败，请重试。');
+    const result=await response.json();
+    if(String(result.code)!=='200')throw new Error(result.msg||'极空间分享暂时不可用。');
+    return result.data;
+  }
+  const token=()=>session||(session=api('/share/v2/share/token',{code,num:1}).catch(error=>{session=null;throw error;}));
+  return {
+    async list(path='',start=0){
+      const {dtoken}=await token();
+      return api('/share/v2/share/files',{dtoken,start,num:100,sortby:'mtime',order:'desc',show_hidden:0,pencrypt:1,...(path?{path}:{})});
+    },
+    async audio(path){
+      const {dtoken}=await token(),url=new URL('/share/v2/share/dlfile',share.origin);
+      // 直接流式读取原文件；原站转码地址接口不允许跨站读取。
+      url.search=new URLSearchParams({remote_port:8050,request_purpose:5,device_type:'h5',path,nid,dtoken});
+      return url.href;
+    }
+  };
+}
+function install({h,asset,originalPath=()=>null,externalUrls=[],nasAudioUrls=[]}){
   let current=null,libraryPromise;
   const external=new Set(externalUrls.map(url=>new URL(url,document.baseURI).href));
+  const nasAudio=new Set(nasAudioUrls.map(url=>new URL(url,document.baseURI).href));
   const describe=href=>{const file=fileInfo(originalPath(href)||href,document.baseURI);if(file)return file;let url;try{url=new URL(href,document.baseURI).href;}catch{return null;}return external.has(url)?{kind:'web',url}:null;};
   const library=()=>libraryPromise||(libraryPromise=import(new URL(asset('assets/vendor/pdfjs/pdf.min.mjs'),document.baseURI).href).then(pdf=>{pdf.GlobalWorkerOptions.workerSrc=new URL(asset('assets/vendor/pdfjs/pdf.worker.min.mjs'),document.baseURI).href;return pdf;}).catch(error=>{libraryPromise=null;throw error;}));
   function close(){if(current){const state=current;state.dialog.close();state.dispose();}}
@@ -32,6 +63,7 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     state.dispose=()=>{
       if(state.disposed)return;state.disposed=true;
       state.revision++;state.observer?.disconnect();for(const task of state.renderTasks)task.cancel();state.task?.destroy().catch(()=>{});dialog.remove();
+      state.abort?.abort();if(state.nas)root.EnglishAudio?.stop(false);
       if(current===state){current=null;document.body.style.overflow=previousOverflow;if(trigger?.isConnected)trigger.focus({preventScroll:true});}
     };
     dialog.addEventListener('close',state.dispose);
@@ -41,7 +73,57 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     document.body.append(dialog);document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('button').focus({preventScroll:true});
     if(info.kind==='web'){
       root.EnglishAudio?.stop(false);controls.hidden=true;body.classList.add('file-preview-web');
-      body.append(h('iframe',{src:info.url,title:title||'带读资料',allow:'autoplay; fullscreen; picture-in-picture',allowfullscreen:true,sandbox:'allow-scripts allow-same-origin allow-forms allow-downloads allow-presentation',referrerpolicy:'no-referrer',onload:()=>{status.textContent='';}}));
+      const shareFrame=()=>h('iframe',{src:info.url,title:title||'带读资料',allow:'autoplay; fullscreen; picture-in-picture',allowfullscreen:true,sandbox:'allow-scripts allow-same-origin allow-forms allow-downloads allow-presentation allow-popups',referrerpolicy:'no-referrer',onload:()=>{status.textContent='';}});
+      const abort=new AbortController(),nas=nasAudio.has(info.url)&&nasClient(info.url,fetch,abort.signal);
+      if(nas){
+        state.abort=abort;state.nas=nas;controls.hidden=false;
+        const audioPane=h('div',{class:'nas-audio-browser',hidden:true}),trail=[{name:'分享',path:''}];
+        const fileTab=button('查看极空间资料目录','资料',()=>show(false)),audioTab=button('浏览并播放极空间音频','音频',()=>show(true));
+        fileTab.setAttribute('aria-pressed','true');audioTab.setAttribute('aria-pressed','false');controls.append(fileTab,audioTab);body.append(audioPane);
+        let loaded=false,revision=0,playing=0;const audioUrls=new Map();
+        function show(audio){
+          audioPane.hidden=!audio;
+          if(audio)body.querySelector('iframe')?.remove();else if(!body.querySelector('iframe'))body.append(shareFrame());
+          fileTab.setAttribute('aria-pressed',String(!audio));audioTab.setAttribute('aria-pressed',String(audio));
+          if(!audio){++playing;root.EnglishAudio?.stop(false);}
+          if(audio&&!loaded){loaded=true;load();}
+        }
+        async function load(start=0){
+          const version=++revision,currentDir=trail.at(-1),restoreFocus=audioPane.contains(document.activeElement);status.textContent='正在加载音频目录…';
+          if(!start){
+            const nav=h('div',{class:'nas-audio-path'},trail.map((item,index)=>button('打开'+item.name,item.name,()=>{trail.splice(index+1);load();})));
+            audioPane.replaceChildren(nav,h('ul',{class:'nas-audio-list'}));
+          }
+          try{
+            const result=await nas.list(currentDir.path,start);if(state.disposed||version!==revision)return;
+            const list=audioPane.querySelector('ul');audioPane.querySelector('.nas-audio-more')?.remove();
+            for(const item of result.list){
+              const directory=String(item.is_dir)==='1';if(!directory&&!/\.(mp3|wav|m4a|ogg)$/i.test(item.name))continue;
+              const entry=button((directory?'打开目录：':'播放音频：')+item.name,[h('span',{'data-audio-state-icon':!directory?'true':null,'aria-hidden':'true'},directory?'▸':'▶'),h('span',{},item.name)],async()=>{
+                if(directory){trail.push({name:item.name,path:item.path});load();return;}
+                const request=++playing;status.textContent='正在加载：'+item.name;entry.setAttribute('aria-busy','true');
+                try{
+                  const url=audioUrls.get(item.path)||await nas.audio(item.path);if(state.disposed||request!==playing)return;
+                  audioUrls.set(item.path,url);
+                  entry.dataset.tuneAudio=url;entry.dataset.tuneName=item.name;entry.dataset.audioKind='音频';
+                  const ok=await root.EnglishAudio.playSource(url,item.name,value=>value,dialog);
+                  if(!state.disposed&&request===playing)status.textContent=ok===false?'音频加载失败，请重试或在原站查看。':'';
+                }catch(error){if(!state.disposed&&request===playing)status.textContent=error.message;}
+                finally{entry.removeAttribute('aria-busy');}
+              });
+              if(!directory){entry.setAttribute('aria-pressed','false');if(audioUrls.has(item.path)){entry.dataset.tuneAudio=audioUrls.get(item.path);entry.dataset.tuneName=item.name;entry.dataset.audioKind='音频';}}
+              list.append(h('li',{},entry));
+            }
+            const next=start+result.list.length;
+            if(next<Number(result.total)&&result.list.length){const more=button('继续加载音频目录','继续查看',()=>load(next));more.className='nas-audio-more';audioPane.append(more);}
+            status.textContent=list.children.length?'':'此层没有可播放音频，可返回上层或切换“资料”查看原文件。';
+            root.EnglishAudio.refresh();
+            if(restoreFocus)audioPane.querySelector('.nas-audio-path button:last-child')?.focus({preventScroll:true});
+          }catch(error){if(!state.disposed&&version===revision){status.textContent=error.message;audioPane.append(button('重新加载音频目录','重试',()=>load(start)));}}
+        }
+      }
+      // 极空间文档通过 window.open 打开二级预览；仅允许弹出窗口，继续保留沙箱与顶层导航限制。
+      body.append(shareFrame());
       return true;
     }
     let pageInput,total,zoomOutput;
@@ -124,5 +206,5 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
   window.addEventListener('resize',()=>{if(current?.pdf)current.repaint();});
   return {open,close,describe};
 }
-const api={fileInfo,install};root.EnglishFilePreview=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+const api={fileInfo,nasClient,install};root.EnglishFilePreview=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window==='undefined'?globalThis:window);

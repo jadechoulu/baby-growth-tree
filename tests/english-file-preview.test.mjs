@@ -2,6 +2,21 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const {fileInfo}=createRequire(import.meta.url)('../english/file-preview.js');
+test('分享音频使用临时令牌和显式设备标识，不依赖第三方Cookie，保留目录分页',async()=>{
+  const {nasClient}=createRequire(import.meta.url)('../english/file-preview.js'),calls=[];
+  const client=nasClient('https://s.znas.cn/AppH5/share/?nid=device&code=public-share&mode=file',async(url,options)=>{
+    calls.push({url:new URL(url),options});
+    const data=url.includes('/token?')?{dtoken:'temporary'}:{list:[{name:'音频.mp3',path:'encrypted-file'}],total:'201'};
+    return {ok:true,json:async()=>({code:'200',data})};
+  });
+  assert.equal((await client.list('encrypted-folder',100)).total,'201');
+  const url=new URL(await client.audio('encrypted-file'));
+  assert.equal(url.origin,'https://s.znas.cn');assert.equal(url.pathname,'/share/v2/share/dlfile');assert.equal(url.searchParams.get('nid'),'device');
+  assert.equal(calls.length,2);assert.ok(calls.every(c=>c.options.credentials==='omit'));
+  assert.equal(calls[1].options.body.get('start'),'100');assert.equal(calls[1].options.body.get('path'),'encrypted-folder');
+  assert.equal(url.searchParams.get('dtoken'),'temporary');assert.equal(url.searchParams.get('path'),'encrypted-file');
+  assert.equal(nasClient('https://other.test/AppH5/share/?nid=a&code=b&mode=file'),null);
+});
 test('本站原文件路由保留部署前缀、资源路径和PDF页码',()=>{
   const base='https://example.com/baby-growth-tree/english/index.html';
   assert.deepEqual(fileInfo('assets/hello/notes/book-02.pdf#page=5',base),{kind:'pdf',path:'assets/hello/notes/book-02.pdf',url:'https://example.com/baby-growth-tree/english/assets/hello/notes/book-02.pdf#page=5',page:5});

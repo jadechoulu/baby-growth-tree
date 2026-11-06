@@ -1,7 +1,7 @@
 /* 公共书单与个人逐本事实：各路线只投影同一身份，不把合计数量摊到单册。 */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishBookProgress=api;})(typeof window==='object'?window:globalThis,function(){
 'use strict';
-const MANUAL='reading.book.v1:',EXTERNAL='reading.external.v1:';
+const MANUAL='reading.book.v1:',EXTERNAL='reading.external.v1:',INTERNALIZED='reading.internalized.v1:';
 const parse=value=>{try{return JSON.parse(value);}catch{return null;}};
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’']/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 function planForResource(data,id){return data?.plans?.find(plan=>plan.resourceId===id||plan.resourceIds?.includes(id))||null;}
@@ -20,13 +20,16 @@ function bookState(records,bookId){
   const external=externalFacts(records).filter(fact=>fact.publicBookId===bookId);
   return {done:manual||external.length>0,manual,external};
 }
-function manualUpdate(records,bookId,done){
-  if(typeof bookId!=='string'||!bookId||MANUAL.length+bookId.length>160||typeof done!=='boolean')throw new Error('单册记录标识或完成状态无效。');
-  const key=MANUAL+bookId,previous=records?.[key],meta=parse(previous?.note);
+function bookUpdate(records,prefix,bookId,done){
+  if(typeof bookId!=='string'||!bookId||prefix.length+bookId.length>160||typeof done!=='boolean')throw new Error('单册记录标识或状态无效。');
+  const key=prefix+bookId,previous=records?.[key],meta=parse(previous?.note);
   const next={status:done?'done':'not-started',note:JSON.stringify({...meta,version:1,bookId})};
   if(next.note.length>4000)throw new Error('单册记录内容过长。');
   return previous?.status===next.status&&previous?.note===next.note?{}:{[key]:next};
 }
+function manualUpdate(records,bookId,done){return bookUpdate(records,MANUAL,bookId,done);}
+function internalized(records,bookId){return records?.[INTERNALIZED+bookId]?.status==='done';}
+function internalizationUpdate(records,bookId,value){return bookUpdate(records,INTERNALIZED,bookId,value);}
 function progress(records,plan,group='all',legacy){
   const selected=books(plan,group),known=new Set(externalFacts(records).map(fact=>fact.publicBookId));
   const identifiedCompleted=selected.filter(book=>records?.[MANUAL+book.id]?.status==='done'||known.has(book.id)).length;
@@ -111,5 +114,5 @@ function applyReadSnapshot(records,data,snapshot){
   }
   return {changes,matched,unmatched,ambiguous};
 }
-return {MANUAL,EXTERNAL,normalize,planForResource,groupForStage,scopeGroup,books,bookState,manualUpdate,progress,projectQuantity,applyReadSnapshot};
+return {MANUAL,EXTERNAL,INTERNALIZED,normalize,planForResource,groupForStage,scopeGroup,books,bookState,manualUpdate,internalized,internalizationUpdate,progress,projectQuantity,applyReadSnapshot};
 });
