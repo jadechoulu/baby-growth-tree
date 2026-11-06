@@ -837,23 +837,18 @@
 .route-domain-panel{margin:0 0 14px}
 /* 先选作者与阶段；能力资料作为次级入口，能力之间不绘制晋级箭头。 */
 .route-author-picker{margin-bottom:10px;min-width:0}
-.route-author-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.route-author-options{display:grid;grid-template-columns:auto auto auto 44px 44px;align-items:center;gap:6px}
 .route-author-options>button{min-width:0;min-height:44px;padding:7px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--route);font-size:16px;overflow-wrap:anywhere}
 .route-author-options>button[aria-pressed=true]{border-color:var(--route);background:color-mix(in srgb,var(--route) 10%,white);font-weight:700}
-.mobile-comparison-tabs{display:none}
-@media(max-width:900px){
-  .mobile-comparison-tabs{display:flex;align-items:center;gap:6px;margin:0 0 8px;min-width:0}
-  .mobile-comparison-tabs>span{font-size:12px;color:var(--muted);flex:none}
-  .mobile-comparison-tabs>.route-tabs{flex:1;order:0}
-}
-.route-reading-hint{font-size:12px;color:var(--muted);margin:5px 0 0;line-height:1.6}
+.route-author-options .route-mode-toggle,.route-author-options .library-filter-button{width:44px;min-width:44px;height:44px;min-height:44px;padding:6px;color:var(--green)}
+.route-author-options .route-mode-toggle{font-size:16px}
+@media(max-width:480px){.route-author-options>[data-browse-author]{font-size:14px;padding-inline:3px}}
 .route-journey{margin:0 0 10px;min-width:0}
-.journey-label{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:5px}
-.journey-label>strong{font-size:13px}.journey-label>small{font-size:12px;color:var(--muted)}
 .route-journey>ol{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;list-style:none;padding:3px;margin:0;min-width:0}
 .route-journey li{flex:0 0 auto;min-width:0;position:relative}
-.route-journey button{width:auto;min-height:44px;padding:7px 8px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--muted);font-size:14px;text-align:left;white-space:nowrap;line-height:1.5}
-.route-journey button.active{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
+.route-journey button{width:auto;min-height:32px;padding:4px 8px;border:0;border-bottom:2px solid transparent;border-radius:4px 4px 0 0;background:transparent;color:var(--route);font-size:14px;text-align:left;white-space:nowrap;line-height:1.5}
+.route-journey button:hover{background:color-mix(in srgb,var(--route) 6%,white)}
+.route-journey button.active{background:color-mix(in srgb,var(--route) 10%,white);color:var(--route);border-bottom-color:var(--route);font-weight:600}
 .route-journey.sequential li{display:flex;align-items:stretch;gap:5px}
 .route-journey.sequential li+li::before{content:'›';flex:0 0 8px;align-self:center;text-align:center;font-size:14px;line-height:1;color:var(--muted);pointer-events:none}
 .route-journey.sequential .journey-all+li::before{content:none}
@@ -896,9 +891,8 @@
   .routes-view .roadmap-mode>.segmented{flex:1;min-width:0}
   .routes-view .roadmap-mode>.segmented>button{flex:1;padding:6px;font-size:13px}
   .route-fold-actions{gap:3px}.route-fold-actions>.button{padding:6px;font-size:12px}
-  .journey-label>small{display:none}
   .route-journey>ol{gap:5px}
-  .route-journey button{font-size:13px;padding:5px 6px}
+  .route-journey button{font-size:13px;padding:4px 6px}
   .stage-flow li,.stage-flow p{font-size:15px}
   .independent-routes .stage-list{padding:0;gap:8px}
 }
@@ -1037,7 +1031,7 @@
 .practice-percent-row .practice-unit-date{width:128px}
 .practice-count-progress .practice-percent-editor>span{flex-shrink:0;white-space:nowrap;font-size:12px}
 .practice-count-meter{display:flex;align-items:center;gap:5px;min-width:0}
-.practice-count-meter progress{flex:1;min-width:0}.practice-count-meter>span{font-size:12px;min-width:28px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.practice-count-meter progress{flex:1;min-width:0}.practice-count-meter>span{font-size:12px;min-width:30px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
 .practice-book-scope{display:inline-flex;align-items:center;gap:3px;padding:0 3px;min-height:28px;font-size:12px;color:var(--muted);border-radius:4px}
 .practice-book-scope .icon{width:14px;height:14px}.practice-book-scope:hover{color:var(--ink);background:var(--green-soft)}
 .practice-book-sources{margin-top:12px;font-size:15px;overflow-wrap:anywhere}.practice-book-sources summary{cursor:pointer}
@@ -1046,17 +1040,16 @@
 @media(max-width:375px){.practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px;column-gap:8px}}
 .practice-page .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px;gap:3px 8px;padding:5px 0}
 .practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 160px}
-.practice-page .practice-unit-progress{display:flex;align-items:center;gap:6px}
-.practice-page .practice-percent-editor{flex:0 0 auto;gap:3px}
-.practice-page .practice-percent-editor input{width:40px;height:28px;min-height:28px;padding:2px 4px;line-height:1.25}
+.practice-page .practice-unit-progress{display:grid;grid-template-columns:72px minmax(0,1fr) 14px;align-items:center;gap:4px;min-height:32px;padding:2px 4px;border:1px solid transparent;border-radius:6px;font-weight:400;font-variant-numeric:tabular-nums}
+.practice-page .practice-percent-editor{gap:3px;margin:0}
+.practice-page .practice-percent-editor input{width:32px;height:28px;min-height:28px;padding:2px;line-height:1.25;flex:0 0 32px}
 .practice-page .practice-percent-editor input::-webkit-inner-spin-button,.practice-page .practice-percent-editor input::-webkit-outer-spin-button{appearance:none;margin:0}
 .practice-page .practice-percent-editor input{appearance:textfield}
 .practice-page .practice-percent-editor input[readonly]{border-color:transparent;background:transparent;box-shadow:none;cursor:default}
 .practice-page .practice-unit-progress progress{height:3px}
 .practice-page .practice-unit-progress>progress{flex:1;min-width:12px}
-.practice-page .practice-count-meter{flex:1;gap:4px}
-.practice-page .practice-count-unknown{justify-content:flex-end}
-.practice-count-unknown .practice-book-scope{white-space:normal;text-align:left;line-height:1.3;text-decoration:underline;text-underline-offset:2px}
+.practice-page .practice-count-meter{gap:4px}
+.practice-page .practice-count-unknown{min-height:3px}
 .publication-level-count{font-size:12px;font-weight:400;line-height:1.5;overflow-wrap:anywhere}
 .publication-level-summary{min-width:0;overflow-wrap:anywhere}
 .publication-level-summary h4{margin:10px 0 3px;font-size:15px}
@@ -1070,8 +1063,6 @@
 .publication-level-grid dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
 .publication-level-grid small{grid-column:1/-1;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
 
-.practice-page .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
-.practice-song-count{flex-shrink:0;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .practice-page .practice-book-scope{min-height:20px;padding:0 2px}
 @media(max-width:480px){
   .practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px;column-gap:6px}
@@ -1503,7 +1494,7 @@
 .practice-material-children[hidden]{display:none}
 /* 行内选择方式并记录本次分钟；累计值与新增输入明确分开。 */
 .practice-qing .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 64px 194px}
-.practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px 194px}
+.practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px 194px}
 .practice-time-inline{min-width:0;margin:0}
 .practice-time-entry{display:flex;align-items:center;justify-content:flex-end;gap:3px;min-width:0}
 .practice-time-entry select{width:94px;min-width:0;height:28px;min-height:28px;padding:1px 0;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:16px}
@@ -1523,7 +1514,7 @@
 @media(max-width:600px){.practice-qing .practice-material-row.practice-books-row{column-gap:5px}}
 @media(max-width:480px){
   .practice-qing .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px}
-  .practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px}
+  .practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px}
   .practice-qing .practice-time-inline{grid-column:1/-1;display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:8px}
   .practice-time-hint{justify-content:flex-start;flex:1;min-width:0}
   .practice-time-entry{flex:none}
@@ -1942,18 +1933,27 @@
 .practice-stage-done-label{display:inline-flex;align-items:center;gap:3px;font-size:12px;color:var(--accent,#2e6954)}
 .practice-page .practice-book-progress{width:100%;min-height:32px;padding:2px 4px;border:1px solid var(--line);border-radius:6px;background:var(--paper);text-align:left;color:var(--ink);font-weight:400}
 .practice-book-progress:hover{border-color:var(--material-ink)}
-.practice-reading-quantity{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums}
-.practice-reading-completed{font-size:16px;line-height:1.25;min-width:20px;text-align:right}
+.practice-reading-quantity{display:flex;align-items:center;gap:3px;min-width:0;white-space:nowrap;font-variant-numeric:tabular-nums}
+.practice-reading-completed{box-sizing:border-box;flex:0 0 32px;padding:2px 3px;font-size:16px;line-height:1.25;text-align:right}
 .practice-reading-quantity>small{font-size:12px;color:var(--muted);font-weight:400}
 .practice-book-progress>.icon{width:14px;height:14px;flex:0 0 14px}
 
 /* 素材类型只作说明，与路线用途和个人进度分别表达。 */
 .material-type-tag{display:inline-flex;align-items:center;padding:0 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--muted);font-size:12px;font-weight:400;line-height:1.5;white-space:nowrap}
 
-.stage-material-role-group{min-width:0;margin-top:10px}
-.stage-material-role-heading{margin:0 0 4px;line-height:1.5}
-.stage-material-role-heading .material-role-key{font-size:12px;font-weight:500}
-.stage-material-role-group>.stage-resource-tags{margin-top:0}
 .stage-match-evidence>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 0;font-size:12px;font-weight:400;line-height:1.6}
 .stage-match-evidence>summary::after{content:'＋';margin-left:auto;flex-shrink:0;color:var(--green);font-size:16px;font-weight:400}
 .stage-match-evidence[open]>summary::after{content:'−'}
+
+/* 对照按正文可用宽度排三列，不借用全站目录断点。 */
+.comparison-panel{container:route-comparison / inline-size}
+.comparison-panel .complete-comparison>.comparison-head{display:none}
+.comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:minmax(0,1fr)}
+.comparison-panel .complete-comparison>.stage-comparison-row>.route-tab-inactive{display:none}
+@container route-comparison (min-width:720px){
+  .comparison-panel .complete-comparison>.comparison-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:repeat(3,minmax(0,1fr));padding:6px;gap:8px}
+  .comparison-panel .complete-comparison>.stage-comparison-row>[data-aligned-route]{display:flex;order:0}
+  .comparison-panel .complete-comparison .stage-card{padding:10px}
+  .comparison-panel .complete-comparison .stage-card h3{font-size:15px}
+}

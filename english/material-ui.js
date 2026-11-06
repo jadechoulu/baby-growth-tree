@@ -9,12 +9,8 @@ function create({h,roles,levelNodes,types={}}){
     return h('span',{class:['material-role-key','material-role-'+role.kind,extraClass].filter(Boolean).join(' '),title:[roles[role.kind],role.usage&&'原文用途：'+role.usage,role.basis].filter(Boolean).join('；')},roles[role.kind]);
   }
   function roleGroups(items,renderItem){
-    return Object.keys(roles).flatMap(kind=>{
-      const group=items.filter(item=>item.role.kind===kind);
-      return group.length?[h('section',{class:'stage-material-role-group','aria-label':roles[kind]+'素材'},
-        h('h4',{class:'stage-material-role-heading'},roleTag({kind})),
-        h('div',{class:'stage-resource-tags'},group.map(renderItem)))]:[];
-    });
+    return h('div',{class:'stage-resource-tags'},Object.keys(roles).flatMap(kind=>
+      items.filter(item=>item.role.kind===kind).map(renderItem)));
   }
   function typeTag(type){
     const label=type==='book'?'绘本':types[type]||types.other||'其他';
