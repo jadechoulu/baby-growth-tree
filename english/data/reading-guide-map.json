@@ -1,0 +1,1367 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "guide-raz-aa",
+      "title": "RAZ AA主题阅读顺序和单词表.xlsx",
+      "resourceId": "resource-1qnd5uh",
+      "level": "aa",
+      "edition": "用户主题表 · RAZ AA 103本",
+      "file": "assets/sources/reading-guides/raz-aa.xlsx",
+      "bookCount": 103,
+      "themeSheet": "阅读顺数推荐",
+      "wordSheet": "单词表",
+      "themeColumn": 4,
+      "topics": {
+        "1": [
+          "animals.farm"
+        ],
+        "2": [
+          "animals.farm",
+          "animals.pets"
+        ],
+        "3": [
+          "animals.farm",
+          "animals.wild",
+          "actions.locomotion",
+          "concepts.position"
+        ],
+        "4": [
+          "animals.pets"
+        ],
+        "5": [
+          "animals.wild"
+        ],
+        "6": [
+          "animals.wild",
+          "animals.insects"
+        ],
+        "7": [
+          "nature.ocean",
+          "animals.birds"
+        ],
+        "8": [
+          "nature.water",
+          "nature.ocean",
+          "nature.weather"
+        ],
+        "9": [
+          "nature.seasons"
+        ],
+        "10": [
+          "nature.seasons"
+        ],
+        "11": [
+          "nature.seasons"
+        ],
+        "12": [
+          "nature.seasons"
+        ],
+        "13": [
+          "nature.ocean",
+          "animals.sea"
+        ],
+        "14": [
+          "nature.plants"
+        ],
+        "15": [
+          "animals.farm",
+          "animals.birds",
+          "body.whole"
+        ],
+        "16": [
+          "animals.birds"
+        ],
+        "17": [
+          "nature.plants",
+          "nature.weather",
+          "fantasy.characters"
+        ],
+        "18": [
+          "animals.wild"
+        ],
+        "19": [
+          "animals",
+          "daily.sleep"
+        ],
+        "20": [
+          "concepts.colors"
+        ],
+        "21": [
+          "concepts.colors",
+          "clothing.clothes",
+          "clothing.accessories"
+        ],
+        "22": [
+          "concepts.colors",
+          "transport.land",
+          "transport.safety"
+        ],
+        "23": [
+          "concepts.colors",
+          "sports.playground"
+        ],
+        "24": [
+          "animals.wild",
+          "nature.plants",
+          "concepts.colors",
+          "animals.insects"
+        ],
+        "25": [
+          "nature.plants",
+          "concepts.colors",
+          "animals.insects"
+        ],
+        "26": [
+          "nature.plants",
+          "concepts.colors",
+          "food.fruit",
+          "food.vegetables"
+        ],
+        "27": [
+          "animals.sea",
+          "nature.seasons",
+          "concepts.colors",
+          "animals.wild",
+          "animals.birds"
+        ],
+        "28": [
+          "concepts.colors",
+          "clothing.clothes"
+        ],
+        "29": [
+          "concepts.counting",
+          "home.furniture",
+          "home.objects"
+        ],
+        "30": [
+          "animals",
+          "concepts.counting"
+        ],
+        "31": [
+          "animals.wild",
+          "concepts.counting"
+        ],
+        "32": [
+          "concepts.counting",
+          "transport.land",
+          "transport.water",
+          "transport.air"
+        ],
+        "33": [
+          "concepts.counting",
+          "home.objects"
+        ],
+        "34": [
+          "concepts.counting",
+          "clothing.clothes"
+        ],
+        "35": [
+          "animals",
+          "animals.insects",
+          "concepts.counting"
+        ],
+        "36": [
+          "concepts.counting",
+          "home.objects"
+        ],
+        "37": [
+          "animals.farm",
+          "concepts.counting"
+        ],
+        "38": [
+          "nature.plants",
+          "concepts.counting",
+          "food.fruit",
+          "food.vegetables"
+        ],
+        "39": [
+          "concepts.counting",
+          "festivals.parties"
+        ],
+        "40": [
+          "concepts.counting",
+          "home.objects"
+        ],
+        "41": [
+          "concepts.counting",
+          "animals.insects"
+        ],
+        "42": [
+          "concepts.counting",
+          "animals.insects",
+          "body.whole"
+        ],
+        "43": [
+          "concepts.counting",
+          "phonics.alphabet",
+          "concepts.books"
+        ],
+        "44": [
+          "transport.places",
+          "transport.land"
+        ],
+        "45": [
+          "transport.places",
+          "transport.land"
+        ],
+        "46": [
+          "transport.places",
+          "transport.land"
+        ],
+        "47": [
+          "sports.playground"
+        ],
+        "48": [
+          "festivals.christmas",
+          "food.snacks"
+        ],
+        "49": [
+          "festivals.other"
+        ],
+        "50": [
+          "food.snacks"
+        ],
+        "51": [
+          "daily.meals",
+          "daily.school",
+          "food",
+          "food.vegetables",
+          "food.snacks",
+          "food.drinks",
+          "food.staples"
+        ],
+        "52": [
+          "festivals.other"
+        ],
+        "53": [
+          "food.staples"
+        ],
+        "54": [
+          "festivals.other",
+          "family.parent-child"
+        ],
+        "55": [
+          "nature.plants",
+          "food.vegetables"
+        ],
+        "56": [
+          "sports.ball"
+        ],
+        "57": [
+          "sports.ball"
+        ],
+        "58": [
+          "transport.travel"
+        ],
+        "59": [
+          "daily.shopping",
+          "food",
+          "food.fruit",
+          "food.vegetables",
+          "food.staples"
+        ],
+        "60": [
+          "animals.wild"
+        ],
+        "61": [
+          "daily.school"
+        ],
+        "62": [
+          "daily.school",
+          "home.objects",
+          "home.furniture"
+        ],
+        "63": [
+          "nature.seasons",
+          "sports.outdoor"
+        ],
+        "64": [
+          "nature.seasons",
+          "sports.outdoor"
+        ],
+        "65": [
+          "transport.places",
+          "jobs.work"
+        ],
+        "66": [
+          "transport.places",
+          "daily.shopping"
+        ],
+        "67": [
+          "transport.air"
+        ],
+        "68": [
+          "transport.land"
+        ],
+        "69": [
+          "nature.water"
+        ],
+        "70": [
+          "nature.plants",
+          "sports.outdoor"
+        ],
+        "71": [
+          "transport.land",
+          "daily.school"
+        ],
+        "72": [
+          "clothing.clothes",
+          "daily.dress",
+          "clothing.dressing",
+          "clothing.shoes",
+          "clothing.accessories"
+        ],
+        "73": [
+          "nature.plants",
+          "food.fruit"
+        ],
+        "74": [
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories"
+        ],
+        "75": [
+          "festivals.birthday"
+        ],
+        "76": [
+          "actions.affection"
+        ],
+        "77": [
+          "home.objects",
+          "home.rooms"
+        ],
+        "78": [
+          "home.objects",
+          "daily.bath"
+        ],
+        "79": [
+          "sports.toys"
+        ],
+        "80": [
+          "jobs.work"
+        ],
+        "81": [
+          "transport.travel",
+          "sports.outdoor"
+        ],
+        "82": [
+          "sports.indoor"
+        ],
+        "83": [
+          "nature.plants"
+        ],
+        "84": [
+          "home.objects",
+          "concepts.books"
+        ],
+        "85": [
+          "festivals.easter"
+        ],
+        "86": [
+          "actions",
+          "family.parent-child"
+        ],
+        "87": [
+          "arts.film"
+        ],
+        "88": [
+          "family.members"
+        ],
+        "89": [
+          "home.objects",
+          "daily.sleep"
+        ],
+        "90": [
+          "clothing.clothes"
+        ],
+        "91": [
+          "animals",
+          "concepts.opposites"
+        ],
+        "92": [
+          "animals",
+          "concepts.opposites"
+        ],
+        "93": [
+          "home.objects",
+          "concepts.position",
+          "home.furniture"
+        ],
+        "94": [
+          "concepts.position"
+        ],
+        "95": [
+          "concepts.position"
+        ],
+        "96": [
+          "concepts.position"
+        ],
+        "97": [
+          "home.objects",
+          "concepts.position",
+          "home.furniture"
+        ],
+        "98": [
+          "home.objects",
+          "concepts.position",
+          "sports.toys"
+        ],
+        "99": [
+          "transport.places",
+          "daily.shopping",
+          "food",
+          "food.fruit",
+          "food.vegetables",
+          "food.snacks"
+        ],
+        "100": [
+          "concepts.opposites"
+        ],
+        "101": [
+          "festivals.birthday"
+        ],
+        "102": [
+          "transport.places",
+          "transport.land"
+        ],
+        "103": [
+          "jobs.people"
+        ]
+      }
+    },
+    {
+      "id": "guide-raz-a",
+      "title": "RAZ A主题、句型、单词表.xlsx",
+      "resourceId": "resource-1qnd5uh",
+      "level": "A",
+      "edition": "用户主题表 · RAZ A 100本",
+      "file": "assets/sources/reading-guides/raz-a.xlsx",
+      "bookCount": 100,
+      "themeSheet": "主题",
+      "wordSheet": "RAZ A单词表",
+      "themeColumn": 3,
+      "topics": {
+        "1": [
+          "animals",
+          "concepts.counting",
+          "nature.water",
+          "animals.birds"
+        ],
+        "2": [
+          "animals.pets",
+          "actions",
+          "actions.locomotion",
+          "actions.turn"
+        ],
+        "3": [
+          "animals.pets",
+          "actions",
+          "actions.locomotion",
+          "daily.sleep"
+        ],
+        "4": [
+          "animals.wild",
+          "nature.environment"
+        ],
+        "5": [
+          "animals",
+          "animals.wild",
+          "family.parent-child",
+          "animals.sea"
+        ],
+        "6": [
+          "animals.habitats"
+        ],
+        "7": [
+          "animals.young"
+        ],
+        "8": [
+          "nature.plants"
+        ],
+        "9": [
+          "animals.pets"
+        ],
+        "10": [
+          "animals",
+          "daily.sleep",
+          "concepts.opposites",
+          "animals.wild",
+          "concepts.attributes"
+        ],
+        "11": [
+          "animals.birds",
+          "transport.places"
+        ],
+        "12": [
+          "nature.weather",
+          "nature.seasons"
+        ],
+        "13": [
+          "food.vegetables"
+        ],
+        "14": [
+          "food.fruit",
+          "concepts.colors"
+        ],
+        "15": [
+          "animals.insects",
+          "concepts.attributes",
+          "concepts.opposites"
+        ],
+        "16": [
+          "concepts.shapes"
+        ],
+        "17": [
+          "nature.seasons"
+        ],
+        "18": [
+          "nature.weather"
+        ],
+        "19": [
+          "animals",
+          "concepts.opposites",
+          "concepts.attributes"
+        ],
+        "20": [
+          "animals.wild",
+          "concepts.colors"
+        ],
+        "21": [
+          "concepts.colors"
+        ],
+        "22": [
+          "animals.birds",
+          "concepts.colors"
+        ],
+        "23": [
+          "animals",
+          "concepts.counting",
+          "daily.sleep",
+          "animals.farm"
+        ],
+        "24": [
+          "animals",
+          "animals.pets",
+          "concepts.counting"
+        ],
+        "25": [
+          "nature.plants",
+          "food.vegetables",
+          "concepts.counting"
+        ],
+        "26": [
+          "animals.insects",
+          "concepts.attributes"
+        ],
+        "27": [
+          "festivals.halloween"
+        ],
+        "28": [
+          "food.fruit"
+        ],
+        "29": [
+          "transport.land",
+          "transport.water",
+          "transport.air"
+        ],
+        "30": [
+          "food.cooking"
+        ],
+        "31": [
+          "festivals.easter"
+        ],
+        "32": [
+          "festivals.halloween"
+        ],
+        "33": [
+          "festivals.halloween"
+        ],
+        "34": [
+          "festivals.other",
+          "food",
+          "food.staples",
+          "food.vegetables"
+        ],
+        "35": [
+          "body.senses",
+          "concepts.opposites"
+        ],
+        "36": [
+          "transport.travel"
+        ],
+        "37": [
+          "transport.land"
+        ],
+        "38": [
+          "sports.water",
+          "actions",
+          "actions.locomotion"
+        ],
+        "39": [
+          "arts.art",
+          "body.whole"
+        ],
+        "40": [
+          "food.snacks"
+        ],
+        "41": [
+          "food",
+          "body.senses",
+          "concepts.opposites"
+        ],
+        "42": [
+          "body.senses"
+        ],
+        "43": [
+          "daily.shopping"
+        ],
+        "44": [
+          "concepts.shapes",
+          "concepts.opposites",
+          "home.objects"
+        ],
+        "45": [
+          "food.cooking"
+        ],
+        "46": [
+          "actions.objects"
+        ],
+        "47": [
+          "home.buildings"
+        ],
+        "48": [
+          "animals",
+          "sports.toys"
+        ],
+        "49": [
+          "home.objects",
+          "actions.objects"
+        ],
+        "50": [
+          "body.senses",
+          "concepts.opposites"
+        ],
+        "51": [
+          "food.cooking",
+          "actions.objects"
+        ],
+        "52": [
+          "body.senses",
+          "concepts.opposites"
+        ],
+        "53": [
+          "transport.travel",
+          "transport.places"
+        ],
+        "54": [
+          "home.rooms",
+          "home.furniture"
+        ],
+        "55": [
+          "home.furniture",
+          "home.objects"
+        ],
+        "56": [
+          "sports.outdoor"
+        ],
+        "57": [
+          "transport.land",
+          "transport.water",
+          "transport.air",
+          "actions.locomotion"
+        ],
+        "58": [
+          "home.objects",
+          "daily.school"
+        ],
+        "59": [
+          "home.objects",
+          "daily.school"
+        ],
+        "60": [
+          "actions.locomotion"
+        ],
+        "61": [
+          "clothing.dressing",
+          "daily.dress",
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories"
+        ],
+        "62": [
+          "concepts.opposites",
+          "clothing.shoes"
+        ],
+        "63": [
+          "sports.outdoor"
+        ],
+        "64": [
+          "fantasy.pirates"
+        ],
+        "65": [
+          "festivals.other"
+        ],
+        "66": [
+          "daily.sleep"
+        ],
+        "67": [
+          "concepts.opposites",
+          "daily.tidy",
+          "daily.wash"
+        ],
+        "68": [
+          "sports.toys"
+        ],
+        "69": [
+          "home.buildings",
+          "home.rooms"
+        ],
+        "70": [
+          "emotions.happy"
+        ],
+        "71": [
+          "emotions.happy"
+        ],
+        "72": [
+          "home.objects",
+          "daily.meals"
+        ],
+        "73": [
+          "concepts.counting",
+          "concepts.money"
+        ],
+        "74": [
+          "body.whole"
+        ],
+        "75": [
+          "emotions.happy"
+        ],
+        "76": [
+          "concepts.colors",
+          "body.face",
+          "concepts.opposites",
+          "concepts.attributes"
+        ],
+        "77": [
+          "actions.locomotion",
+          "sports.water"
+        ],
+        "78": [
+          "actions",
+          "concepts.opposites",
+          "social.manners"
+        ],
+        "79": [
+          "daily.safety"
+        ],
+        "80": [
+          "actions",
+          "arts.dance",
+          "actions.locomotion",
+          "actions.turn",
+          "actions.stretch"
+        ],
+        "81": [
+          "actions",
+          "sports.outdoor",
+          "actions.turn",
+          "actions.locomotion",
+          "concepts.opposites"
+        ],
+        "82": [
+          "actions",
+          "family.siblings"
+        ],
+        "83": [
+          "actions.locomotion",
+          "actions.stretch",
+          "body.whole"
+        ],
+        "84": [
+          "actions",
+          "family.parent-child"
+        ],
+        "85": [
+          "actions",
+          "family.parent-child"
+        ],
+        "86": [
+          "body.face"
+        ],
+        "87": [
+          "emotions.happy",
+          "body.face",
+          "emotions.scared",
+          "emotions.sad",
+          "emotions.angry"
+        ],
+        "88": [
+          "actions",
+          "family.members"
+        ],
+        "89": [
+          "actions.clap",
+          "arts.rhythm"
+        ],
+        "90": [
+          "animals",
+          "concepts.position"
+        ],
+        "91": [
+          "concepts.position"
+        ],
+        "92": [
+          "concepts.ownership"
+        ],
+        "93": [
+          "body.senses",
+          "concepts.opposites"
+        ],
+        "94": [
+          "concepts.opposites"
+        ],
+        "95": [
+          "concepts.opposites"
+        ],
+        "96": [
+          "food.snacks",
+          "festivals.christmas"
+        ],
+        "97": [
+          "concepts.position"
+        ],
+        "98": [
+          "animals",
+          "concepts.opposites",
+          "concepts.attributes"
+        ],
+        "99": [
+          "festivals.halloween",
+          "emotions.scared"
+        ],
+        "100": [
+          "actions.objects"
+        ]
+      },
+      "patternSheet": "句型",
+      "patternColumn": 3
+    },
+    {
+      "id": "guide-pearson-basic",
+      "title": "培生基础词汇 主题、句型、单词.xlsx",
+      "resourceId": "resource-1nuqi5t",
+      "level": "",
+      "edition": "培生幼儿英语基础词汇 · 用户主题表96本",
+      "file": "assets/sources/reading-guides/pearson-basic.xlsx",
+      "bookCount": 96,
+      "themeSheet": "主题分类",
+      "wordSheet": "单词表",
+      "themeColumn": 3,
+      "topics": {
+        "1": [
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories"
+        ],
+        "2": [
+          "animals.farm"
+        ],
+        "3": [
+          "food.fruit",
+          "food.vegetables",
+          "nature.plants"
+        ],
+        "4": [
+          "animals.wild"
+        ],
+        "5": [
+          "body.whole"
+        ],
+        "6": [
+          "home.furniture",
+          "home.objects"
+        ],
+        "7": [
+          "nature.weather",
+          "science.space",
+          "concepts.time"
+        ],
+        "8": [
+          "family.members"
+        ],
+        "9": [
+          "home.buildings"
+        ],
+        "10": [
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories"
+        ],
+        "11": [
+          "animals.pets",
+          "transport.land",
+          "sports.playground"
+        ],
+        "12": [
+          "transport.land",
+          "transport.travel"
+        ],
+        "13": [
+          "concepts.colors",
+          "animals.birds"
+        ],
+        "14": [
+          "animals.farm"
+        ],
+        "15": [
+          "emotions.expression",
+          "arts.singing"
+        ],
+        "16": [
+          "clothing",
+          "clothing.accessories"
+        ],
+        "17": [
+          "jobs.people"
+        ],
+        "18": [
+          "actions.locomotion"
+        ],
+        "19": [
+          "animals.wild"
+        ],
+        "20": [
+          "family.members"
+        ],
+        "21": [
+          "animals",
+          "actions.locomotion",
+          "sports.water"
+        ],
+        "22": [
+          "animals",
+          "animals.insects",
+          "animals.pets",
+          "animals.farm",
+          "animals.birds"
+        ],
+        "23": [
+          "animals.sounds"
+        ],
+        "24": [
+          "transport.travel",
+          "actions.locomotion"
+        ],
+        "25": [
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories",
+          "home.objects"
+        ],
+        "26": [
+          "home.buildings"
+        ],
+        "27": [
+          "animals.insects",
+          "nature.plants"
+        ],
+        "28": [
+          "animals.sea",
+          "animals.birds",
+          "transport.water"
+        ],
+        "29": [
+          "animals.wild"
+        ],
+        "30": [
+          "nature",
+          "science.space"
+        ],
+        "31": [
+          "transport.places"
+        ],
+        "32": [
+          "transport.air"
+        ],
+        "33": [
+          "concepts.colors"
+        ],
+        "34": [
+          "actions.locomotion",
+          "actions.clap"
+        ],
+        "35": [
+          "clothing.clothes",
+          "clothing.accessories"
+        ],
+        "36": [
+          "food",
+          "food.vegetables",
+          "food.snacks"
+        ],
+        "37": [
+          "actions.objects"
+        ],
+        "38": [
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories"
+        ],
+        "39": [
+          "nature.environment",
+          "nature.plants",
+          "home.objects"
+        ],
+        "40": [
+          "animals.wild",
+          "actions",
+          "actions.locomotion"
+        ],
+        "41": [
+          "body.whole"
+        ],
+        "42": [
+          "nature.plants",
+          "clothing.accessories"
+        ],
+        "43": [
+          "actions.locomotion",
+          "daily.wash",
+          "food.cooking",
+          "daily.sleep",
+          "transport.water"
+        ],
+        "44": [
+          "transport.land"
+        ],
+        "45": [
+          "food.snacks"
+        ],
+        "46": [
+          "animals.wild",
+          "animals.birds"
+        ],
+        "47": [
+          "festivals.parties",
+          "fantasy.characters",
+          "jobs.people"
+        ],
+        "48": [
+          "animals",
+          "animals.birds"
+        ],
+        "49": [
+          "body.whole"
+        ],
+        "50": [
+          "festivals.parties",
+          "food",
+          "food.staples",
+          "food.snacks",
+          "food.drinks"
+        ],
+        "51": [
+          "animals.pets"
+        ],
+        "52": [
+          "transport.land",
+          "transport.air"
+        ],
+        "53": [
+          "animals.sea"
+        ],
+        "54": [
+          "animals.farm",
+          "animals.pets",
+          "daily.meals"
+        ],
+        "55": [
+          "animals.birds",
+          "animals.wild"
+        ],
+        "56": [
+          "food.fruit",
+          "daily.shopping",
+          "food.vegetables"
+        ],
+        "57": [
+          "animals.farm",
+          "animals.pets",
+          "animals.birds"
+        ],
+        "58": [
+          "home.rooms",
+          "home.buildings"
+        ],
+        "59": [
+          "animals",
+          "animals.insects"
+        ],
+        "60": [
+          "daily.shopping",
+          "food.staples",
+          "food.fruit",
+          "food.vegetables"
+        ],
+        "61": [
+          "transport.land",
+          "concepts.colors"
+        ],
+        "62": [
+          "body.whole"
+        ],
+        "63": [
+          "animals.wild",
+          "animals.birds"
+        ],
+        "64": [
+          "clothing.clothes",
+          "clothing.shoes",
+          "clothing.accessories",
+          "daily.shopping"
+        ],
+        "65": [
+          "nature.environment",
+          "nature.weather",
+          "science.space",
+          "transport.travel"
+        ],
+        "66": [
+          "sports.outdoor",
+          "festivals.parties",
+          "transport.places"
+        ],
+        "67": [
+          "clothing.shoes",
+          "clothing.accessories",
+          "home.objects"
+        ],
+        "68": [
+          "nature.water",
+          "nature.environment",
+          "transport.travel"
+        ],
+        "69": [
+          "nature.water",
+          "nature.plants",
+          "home.objects"
+        ],
+        "70": [
+          "transport.travel"
+        ],
+        "71": [
+          "nature.environment",
+          "nature.water",
+          "daily.bath"
+        ],
+        "72": [
+          "clothing.shoes",
+          "clothing.accessories",
+          "home.objects"
+        ],
+        "73": [
+          "concepts.colors",
+          "sports.outdoor"
+        ],
+        "74": [
+          "concepts.colors"
+        ],
+        "75": [
+          "animals.farm",
+          "animals.birds",
+          "concepts.position"
+        ],
+        "76": [
+          "animals.farm",
+          "animals.pets",
+          "daily.sleep"
+        ],
+        "77": [
+          "home.rooms"
+        ],
+        "78": [
+          "food.fruit",
+          "food.snacks"
+        ],
+        "79": [
+          "nature.environment",
+          "nature.plants",
+          "nature.water",
+          "transport.land",
+          "sports.outdoor"
+        ],
+        "80": [
+          "nature.plants",
+          "home.rooms",
+          "home.furniture",
+          "concepts.position"
+        ],
+        "81": [
+          "nature.environment",
+          "nature.plants",
+          "nature.water",
+          "actions.locomotion"
+        ],
+        "82": [
+          "nature.plants",
+          "nature.water",
+          "nature.environment"
+        ],
+        "83": [
+          "animals.farm",
+          "animals.birds"
+        ],
+        "84": [
+          "animals",
+          "food.fruit",
+          "food.vegetables"
+        ],
+        "85": [
+          "animals.farm",
+          "animals.pets",
+          "animals.birds",
+          "animals.insects",
+          "actions"
+        ],
+        "86": [
+          "food.cooking"
+        ],
+        "87": [
+          "concepts.colors"
+        ],
+        "88": [
+          "animals.farm",
+          "daily.meals"
+        ],
+        "89": [
+          "animals.wild"
+        ],
+        "90": [
+          "animals.insects"
+        ],
+        "91": [
+          "animals",
+          "nature.weather",
+          "animals.farm",
+          "animals.birds"
+        ],
+        "92": [
+          "animals.insects"
+        ],
+        "93": [
+          "body.whole"
+        ],
+        "94": [
+          "festivals.birthday"
+        ],
+        "95": [
+          "transport.land",
+          "concepts.position"
+        ],
+        "96": [
+          "animals"
+        ]
+      },
+      "patternSheet": "句型分类",
+      "patternColumn": 4,
+      "bookLinks": {
+        "1": "book-c32a14991351a5e4",
+        "2": "book-b30de0c24adbc74e",
+        "3": "book-b59735f4f1870500",
+        "4": "book-4573d2be2bc20fab",
+        "5": "book-1843c5b72f5fbfe2",
+        "6": "book-952f345458a00781",
+        "7": "book-6447286436b0097a",
+        "8": "book-db98393899a01cef",
+        "9": "book-13b0f18dacc5ee71",
+        "10": "book-ad92f2508610d4e1",
+        "11": "book-37b4179fbda7ed2a",
+        "12": "book-3648afdeb96fc665",
+        "13": "book-28d01919cace0b8c",
+        "14": "book-e6088a4bc92696c0",
+        "15": "book-16038c65195efac2",
+        "16": "book-685d82ef9a75bb28",
+        "17": "book-bb4f068a40586cf0",
+        "18": "book-cfa70ea07c2bf37b",
+        "19": "book-da8be3c1501f96e4",
+        "20": "book-b788b0d467b35098",
+        "21": "book-81ad478de3bb863a",
+        "22": "book-707c4f2d0a7c75b7",
+        "23": "book-11ecb49c101a1430",
+        "24": "book-e38347b4b1931c87",
+        "25": "book-aee0902b288b1851",
+        "26": "book-1a3934608bf3d3c4",
+        "27": "book-4392ff504fb9029d",
+        "28": "book-9f0e086222e962b2",
+        "29": "book-1a9ac431aef1f691",
+        "30": "book-b95d05ad98148d34",
+        "31": "book-a3a637d685ab33d6",
+        "32": "book-8869db370aa8297e",
+        "33": "book-4529d856de2a2654",
+        "34": "book-5466c0ae9fdc7056",
+        "35": "book-877ef68a42b8d67b",
+        "36": "book-005a85a44b6f7234",
+        "37": "book-03697b85a0ababc0",
+        "38": "book-8f58e2fc1df1392b",
+        "39": "book-5cf5f96031d51b37",
+        "40": "book-561bafdff965336f",
+        "41": "book-1526ade2bed21b3d",
+        "42": "book-2826cb459a938647",
+        "43": "book-8eb8dff8df1f3864",
+        "44": "book-0c5598d891b2ac4d",
+        "45": "book-21354110c6b1301d",
+        "46": "book-c7249dbaa46bd867",
+        "47": "book-e756b1ce8c362847",
+        "48": "book-6f92f666b5e5d97e",
+        "49": "book-5fa4d445ac77f5a5",
+        "50": "book-436c7b88025e5ccd",
+        "51": "book-e80fc20d13494a03",
+        "52": "book-ee39b1051769b39c",
+        "53": "book-b181db4117080fb4",
+        "54": "book-f7f3cdff940e2a65",
+        "55": "book-85d8f160896fc0a8",
+        "56": "book-e2c47a7cde1bc39e",
+        "57": "book-d200b250beebd6aa",
+        "58": "book-1548055f58ae755c",
+        "59": "book-2a75ab4a65c7e7c9",
+        "60": "book-84e0026532ab4c5e",
+        "61": "book-04ff1deb851e8ca1",
+        "62": "book-ce19da7a3282e0e8",
+        "63": "book-03c3c89a49c6744c",
+        "64": "book-a02055c16e08b70a",
+        "65": "book-015cd0f7074be3bd",
+        "66": "book-a7c9ce54fd755a57",
+        "67": "book-38c00c28045d766d",
+        "68": "book-f8d1e4f7b24b267c",
+        "69": "book-78f4a223cc9549fe",
+        "70": "book-e12d0c3dc7fd87a9",
+        "71": "book-40bb3ea5ac35c681",
+        "72": "book-7b48393ad93df409",
+        "73": "book-2e598ee4c4197a86",
+        "74": "book-f17b8ef2da20540c",
+        "75": "book-0b83fe3c2c0e3421",
+        "76": "book-51224792459693a9",
+        "77": "book-6deb7ded286b6a0f",
+        "78": "book-dfbe1d6140039505",
+        "79": "book-8adfe8ec1430dd6e",
+        "80": "book-bd6c81f03292b102",
+        "81": "book-85d40b977117fb5b",
+        "82": "book-ca84bb7c0547fbbb",
+        "83": "book-f058f468878be0d7",
+        "84": "book-bb1301eb4c59c5ab",
+        "85": "book-b94663a7d97d65d2",
+        "86": "book-2fb0e3f8a9854e07",
+        "88": "book-54ec8da961f8c123",
+        "89": "book-80c84be4d2f293d6",
+        "90": "book-9cc0f2b934cfc148",
+        "91": "book-21e86cee84b768fb",
+        "92": "book-67b032fb69b8b7fe",
+        "93": "book-72d7c22dba2e7444",
+        "94": "book-e6dbbb1b57ebe355",
+        "95": "book-25b993f27409ec47",
+        "96": "book-d6052bb89173b5e8"
+      }
+    }
+  ]
+}

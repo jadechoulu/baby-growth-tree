@@ -1904,6 +1904,13 @@
 .liao-method .small-note{font-size:12px}.liao-method .text-link{max-width:100%;white-space:normal;text-align:left;overflow-wrap:anywhere;margin-right:8px}
 /* 公共逐本阅读计划：素材及路线进度共用同一个列表。 */
 .reading-plan{min-width:0}
+.series-topic-browser{min-width:0;margin:12px 0}
+.series-topic-browser .topic-picker{margin:8px 0}
+.series-topic-browser .form-row,.series-topic-browser select{min-width:0;max-width:100%}
+.series-topic-browser .library-book-list{margin-top:10px}
+.reading-book-topics{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px}
+.book-study-guide{display:block;flex-basis:100%;min-width:0;overflow-wrap:anywhere}
+.book-study-guide>span{display:block;margin:3px 0}
 .reading-plan h2{margin:0 0 12px;overflow-wrap:anywhere}
 .reading-plan-toolbar,.reading-plan-filters,.reading-import-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .reading-plan-filters button{min-height:36px;border:1px solid var(--line,#d3ddd8);border-radius:8px;background:var(--paper,#fff);color:inherit;padding:6px 10px;font:inherit;font-size:15px}
