@@ -13,6 +13,23 @@ const entry=(bookId,title)=>({bookId,title});
 const imported=(records,items)=>B.applyReadSnapshot(records,data,snapshot(items));
 const wrap=records=>({version:1,profile:{vocabulary:0,mode:'audio'},favorites:[],records});
 
+test('明确选择小花生优先后按具体书目计算，旧合计只保留不抬升数量',()=>{
+  const old={legacy:{status:'using',note:'原合计保留'}};
+  const result=B.applyReadSnapshot(old,data,snapshot([entry('a','Example GK-01 At the market')]),{sourcePriority:true});
+  const records={...old,...result.changes};
+  assert.equal(B.progress(records,plan,'all',{completed:2}).completed,1);
+  assert.equal(B.progress(records,plan,'A',{completed:2}).completed,1);
+  assert.equal(B.progress(records,plan,'B',{completed:1}).completed,0);
+  assert.deepEqual(records.legacy,old.legacy);
+  assert.deepEqual(B.applyReadSnapshot(records,data,snapshot([entry('a','Example GK-01 At the market')]),{sourcePriority:true}).changes,{});
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records))));
+  assert.equal(B.progress(restored.records,plan,'all',{completed:2}).completed,1);
+  Object.assign(records,B.manualUpdate(records,'sample-03',true));
+  assert.equal(B.progress(records,plan).completed,2);
+  const merged=B.applyReadSnapshot(records,data,snapshot([entry('a','Example GK-01 At the market')]),{sourcePriority:false});
+  assert.equal(B.progress({...records,...merged.changes},plan,'all',{completed:3}).completed,3);
+});
+
 test('历史素材身份引用同一公共书单；阶段筛选保留原表顺序且不变更源数据',()=>{
   assert.equal(B.planForResource(data,'material-alias'),plan);
   assert.equal(B.planForResource(data,'missing'),null);
@@ -197,4 +214,180 @@ test('实际GK70书单覆盖70个稳定单册，六阶段生成的出版范围�
     assert.equal(B.projectQuantity(records,plan,scope,{completed:0}).completed,1);
     assert.equal(B.projectQuantity(records,plan,scope,{completed:0}).total,43);
   }
+});
+
+const directory={books:[
+  {id:'new-upper-one',resourceId:'series-one',edition:'New upper',level:'Upper · 1',title:'My Home',number:1},
+  {id:'new-upper-two',resourceId:'series-one',edition:'New upper',level:'Upper · 2',title:'My Garden',number:2},
+  {id:'new-lower-one',resourceId:'series-one',edition:'New lower',level:'Lower · 3',title:'My Home',number:3},
+  {id:'old-one',resourceId:'series-one',edition:'Old edition',level:'1',title:'My Home',number:1},
+  {id:'other-series-one',resourceId:'series-two',edition:'New upper',level:'Upper · 1',title:'My Home',number:1}
+],externalMatches:[
+  {resourceId:'series-one',prefixes:['Example New Upper'],directoryMatch:{edition:'New upper'},ignoreNumber:true},
+  {resourceId:'series-one',prefixes:['Example New Lower'],directoryMatch:{edition:'New lower'},ignoreNumber:true}
+]};
+const catalog={series:[{resourceId:'series-one',edition:'New selected edition',scopes:[
+  {id:'all-new',label:'Upper and lower',parts:[{label:'Upper',count:2,directoryMatch:{edition:'New upper'}},{label:'Lower',count:1,directoryMatch:{edition:'New lower'}}]},
+  {id:'upper',label:'Upper',parts:[{label:'Upper',count:2}]},
+  {id:'old',label:'Upper',edition:'Old selected edition',parts:[{label:'Upper',count:5,directoryMatch:{edition:'Old edition'}}]}
+]},{resourceId:'series-alias',catalogResourceId:'series-one'},{resourceId:'series-two',edition:'Other selected edition',scopes:[
+  {id:'other',label:'Upper',parts:[{label:'Upper',count:2,directoryMatch:{edition:'New upper'}}]}
+]}]};
+const upperScope={id:'upper-generated',label:'Upper',edition:'New selected edition',total:2,unit:'本',origin:'catalog'};
+const lowerScope={...upperScope,id:'lower-generated',label:'Lower',total:1};
+const oldQuantity={completed:2,total:2,percent:100,status:'done',unit:'本'};
+const directoryImport=(records,items,options={})=>B.applyReadSnapshot(records,{plans:[]},snapshot(items),{directory,catalog,...options});
+
+test('目录匹配限定明确版本和套系，以公共单册分项归属而非外站分包编号计算',()=>{
+  const result=directoryImport({},[entry('d1','Example New Upper: 99 My Home'),entry('d2','Example New Upper: 77 My Garden'),entry('bare','My Home')]);
+  assert.deepEqual(result.matched.map(item=>item.publicBookId),['new-upper-one','new-upper-two']);
+  assert.equal(result.unmatched.length,1);
+  const records=result.changes,scope=B.projectScopeQuantity(records,'series-one',upperScope,{completed:0},catalog);
+  assert.equal(scope.completed,2);
+  assert.equal(scope.externalCompleted,2);
+  assert.equal(scope.percent,100);
+  assert.equal(scope.sourcePriority,false);
+  assert.equal(B.projectScopeQuantity(records,'series-two',{...upperScope,edition:'Other selected edition'},oldQuantity,catalog),oldQuantity);
+  assert.equal(B.projectScopeQuantity(records,'series-one',{...upperScope,edition:'Old selected edition',total:5},oldQuantity,catalog),oldQuantity);
+  const ambiguous=structuredClone(directory);
+  ambiguous.externalMatches.push({resourceId:'series-two',prefixes:['Example New Upper'],directoryMatch:{edition:'New upper'},ignoreNumber:true});
+  const uncertain=B.applyReadSnapshot({},data,snapshot([entry('d1','Example New Upper: 99 My Home')]),{directory:ambiguous,catalog});
+  assert.equal(uncertain.matched.length,0);
+  assert.equal(uncertain.ambiguous.length,1);
+  assert.deepEqual(uncertain.changes,{});
+});
+
+test('来源优先覆盖本版全部分项，零条分项不回显旧合计；其他版本与原记录完全保留',()=>{
+  const previous={legacy:{status:'using',note:'旧数量与手记原样保留'}};
+  const result=directoryImport(previous,[entry('d1','Example New Upper: 99 My Home')],{sourcePriority:true});
+  const records={...previous,...result.changes};
+  const upper=B.projectScopeQuantity(records,'series-alias',upperScope,oldQuantity,catalog);
+  assert.equal(upper.completed,1);
+  assert.equal(upper.percent,50);
+  assert.equal(upper.externalCompleted,1);
+  assert.equal(upper.sourcePriority,true);
+  const lower=B.projectScopeQuantity(records,'series-one',lowerScope,{completed:1},catalog);
+  assert.equal(lower.completed,0);
+  assert.equal(lower.percent,0);
+  assert.equal(lower.sourcePriority,true);
+  assert.deepEqual(records.legacy,previous.legacy);
+  assert.deepEqual(previous,{legacy:{status:'using',note:'旧数量与手记原样保留'}});
+  for(const scope of [{...upperScope,edition:'Other edition'},{...upperScope,total:3},{...upperScope,origin:'personal'},{...upperScope,unit:'张'}])
+    assert.equal(B.projectScopeQuantity(records,'series-one',scope,oldQuantity,catalog),oldQuantity);
+  assert.equal(B.projectScopeQuantity(records,'missing',upperScope,oldQuantity,catalog),oldQuantity);
+  assert.equal(B.projectScopeQuantity(records,'series-one',null,oldQuantity,catalog),oldQuantity);
+  const merge=directoryImport(records,[entry('d1','Example New Upper: 99 My Home')],{sourcePriority:false});
+  assert.equal(B.projectScopeQuantity({...records,...merge.changes},'series-one',upperScope,oldQuantity,catalog).completed,2);
+});
+
+test('组合范围按分项身份及公共单册去重，重复快照幂等，缺失不清空历史事实',()=>{
+  const items=[entry('d1','Example New Upper 99 My Home'),entry('d2','Example New Upper 99 My Home'),entry('d3','Example New Lower 3 My Home')];
+  const first=directoryImport({},items,{sourcePriority:true}),records=first.changes;
+  const both={id:'combo',label:'Upper+Lower',edition:upperScope.edition,total:3,parts:[{label:'Upper',count:2},{label:'Upper',count:2},{label:'Lower',count:1}]};
+  assert.equal(B.projectScopeQuantity(records,'series-one',both,{completed:3},catalog).completed,2);
+  assert.equal(B.projectScopeQuantity(records,'series-one',both,{completed:3},catalog).total,3);
+  assert.equal(B.projectScopeQuantity(records,'series-one',both,{completed:3},catalog).externalCompleted,2);
+  assert.deepEqual(directoryImport(records,items,{sourcePriority:true}).changes,{});
+  assert.deepEqual(directoryImport(records,[],{sourcePriority:true}).changes,{});
+  const latest=directoryImport(records,[entry('d1','Example New Upper 99 My Home')],{sourcePriority:true});
+  assert.equal(B.projectScopeQuantity({...records,...latest.changes},'series-one',both,{completed:3},catalog).completed,2);
+  const overlapCatalog=structuredClone(catalog);
+  overlapCatalog.series[0].scopes[0].parts[1].directoryMatch={edition:'New upper'};
+  const overlap=directoryImport({},items.slice(0,1),{catalog:overlapCatalog,sourcePriority:true});
+  assert.equal(B.projectScopeQuantity(overlap.changes,'series-one',both,{completed:3},overlapCatalog).completed,1);
+});
+
+test('旧事实升级仅补目录范围元数据，保留来源原时点与未知字段，冲突不改已有映射',()=>{
+  const key=B.EXTERNAL+'sample-owner:d1',original={status:'done',note:JSON.stringify({version:1,sourceKind:'xiaohuasheng_bookcase_read',publicBookId:'new-upper-one',snapshotId:'previous-snapshot',observedAt:'2026-11-05T00:00:00Z',custom:'保留'})};
+  const records={[key]:original},items=[entry('d1','Example New Upper 99 My Home')];
+  const first=directoryImport(records,items),upgraded={...records,...first.changes};
+  assert.equal(B.projectScopeQuantity(upgraded,'series-one',upperScope,{completed:0},catalog).completed,1);
+  assert.equal(JSON.parse(upgraded[key].note).snapshotId,'previous-snapshot');
+  assert.equal(JSON.parse(upgraded[key].note).custom,'保留');
+  assert.deepEqual(directoryImport(upgraded,items).changes,{});
+  assert.deepEqual(records[key],original);
+  const conflict=directoryImport(records,[entry('d1','Example New Upper 99 My Garden')]);
+  assert.equal(conflict.ambiguous.length,1);
+  assert.deepEqual(conflict.changes,{});
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(upgraded))));
+  assert.deepEqual(restored.records,upgraded);
+});
+
+test('逐本计划与公共目录指向同一单册时合并匹配元数据，原计划来源优先规则继续有效',()=>{
+  const sameDirectory={books:[{id:'sample-01',resourceId:'series-one',edition:'New upper',title:'At the market',number:1}],externalMatches:[{resourceId:'series-one',prefixes:['Example GK'],directoryMatch:{edition:'New upper'}}]};
+  const result=B.applyReadSnapshot({},data,snapshot([entry('d1','Example GK 1 At the market')]),{directory:sameDirectory,catalog,sourcePriority:true});
+  assert.equal(result.matched.length,1);
+  assert.equal(result.matched[0].planId,'sample');
+  assert.equal(B.progress(result.changes,plan,'all',{completed:3}).completed,1);
+  assert.equal(B.projectScopeQuantity(result.changes,'series-one',upperScope,oldQuantity,catalog).completed,1);
+});
+
+test('公共完整目录生成逐本列表，按精确版本和级别定位，别名引用相同单册ID',()=>{
+  const before=structuredClone({directory,catalog});
+  const plan=B.planForResource({plans:[]},'series-alias',directory,catalog,upperScope);
+  assert.ok(plan.catalog);
+  const group=B.scopeGroup(plan,upperScope);
+  assert.deepEqual(B.books(plan,group).map(book=>book.id),['new-upper-one','new-upper-two']);
+  assert.deepEqual(B.books(plan).map(book=>book.id),['new-upper-one','new-upper-two','new-lower-one']);
+  const whole={edition:upperScope.edition,parts:[{label:'Upper',count:2},{label:'Lower',count:1}],total:3};
+  assert.equal(B.scopeGroup(plan,whole),'all');
+  assert.equal(B.planForResource({plans:[]},'series-one',directory,catalog,{...upperScope,edition:'Old selected edition'}),null);
+  assert.equal(B.planForResource({plans:[]},'series-one',directory,catalog,{...upperScope,total:9}),null);
+  assert.deepEqual({directory,catalog},before);
+});
+
+test('目录单册手动和外部勾选去重，刷新及跨路线范围投影一致，不能传播到其他版本',()=>{
+  const plan=B.planForResource({plans:[]},'series-one',directory,catalog,upperScope),group=B.scopeGroup(plan,upperScope);
+  let records=directoryImport({},[entry('d1','Example New Upper 99 My Home')],{sourcePriority:true}).changes;
+  assert.equal(B.progress(records,plan,group,{completed:2}).completed,1);
+  Object.assign(records,B.manualUpdate(records,'new-upper-one',true),B.manualUpdate(records,'new-upper-two',true));
+  assert.equal(B.progress(records,plan,group).completed,2);
+  assert.equal(B.projectScopeQuantity(records,'series-alias',upperScope,{completed:0},catalog,directory).completed,2);
+  assert.equal(B.progress(records,plan,B.scopeGroup(plan,lowerScope),{completed:1}).completed,0);
+  Object.assign(records,B.manualUpdate(records,'new-upper-two',false));
+  records=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records)))).records;
+  assert.equal(B.progress(records,plan,group).completed,1);
+  assert.equal(B.projectScopeQuantity(records,'series-one',upperScope,{completed:0},catalog,directory).completed,1);
+  assert.equal(B.projectScopeQuantity(records,'series-one',{...upperScope,edition:'Old selected edition',total:5},oldQuantity,catalog,directory),oldQuantity);
+  const onlyManual=B.manualUpdate({},'new-upper-two',true);
+  assert.equal(B.projectScopeQuantity(onlyManual,'series-one',upperScope,{completed:0},catalog,directory).completed,1);
+});
+
+test('目录缺册或分项重叠不生成伪完整列表，旧合计不能推断具体哪本已读',()=>{
+  const partial={...directory,books:directory.books.filter(book=>book.id!=='new-upper-two')};
+  assert.equal(B.planForResource({plans:[]},'series-one',partial,catalog,upperScope),null);
+  const overlap=structuredClone(catalog);
+  overlap.series[0].scopes[0].parts[1]={label:'Other Upper',count:2,directoryMatch:{edition:'New upper'}};
+  assert.equal(B.planForResource({plans:[]},'series-one',directory,overlap,upperScope),null);
+  const plan=B.planForResource({plans:[]},'series-one',directory,catalog,upperScope);
+  const result=B.progress({},plan,B.scopeGroup(plan,upperScope),{completed:2});
+  assert.equal(result.completed,2);
+  assert.equal(result.identifiedCompleted,0);
+  assert.ok(B.books(plan).every(book=>!B.bookState({},book.id).done));
+});
+
+test('大猫Pink各22本与培生上下各48本使用共用目录，GK原表顺序和句型不变',()=>{
+  const data=require('../data/reading-plans.json'),directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js');
+  for(const [resourceId,levels,expected] of [
+    ['resource-g7xvo5',['Pink 1A','Pink 1B'],22],
+    ['resource-1nuqi5t',['上辑','下辑'],48]
+  ])for(const level of levels){
+    const scopes=P.bookScopes(resourceId,[],catalog);
+    const parent=scopes.find(scope=>scope.parts?.some(part=>part.label===level&&part.count===expected));
+    const part=parent?.parts.find(part=>part.label===level);
+    const scope=part&&{id:'part-test',label:part.label,total:part.count,edition:parent.edition,origin:'catalog'};
+    assert.ok(scope,level);
+    const plan=B.planForResource(data,resourceId,directory,catalog,scope);
+    assert.ok(plan,level+' 应有完整公共书单');
+    const group=B.scopeGroup(plan,scope);
+    assert.equal(B.books(plan,group).length,expected);
+    const book=B.books(plan,group)[0],records=B.manualUpdate({},book.id,true);
+    assert.equal(B.progress(records,plan,group).completed,1);
+    assert.equal(B.projectScopeQuantity(records,resourceId,scope,{completed:0},catalog,directory).completed,1);
+    assert.ok(directory.books.some(item=>item.id===book.id));
+  }
+  const gk=B.planForResource(data,'resource-hojfp0',directory,catalog);
+  assert.equal(gk,data.plans[0]);
+  assert.deepEqual(B.books(gk).slice(0,7).map(book=>book.number),[1,6,7,8,29,38,45]);
+  assert.ok(B.books(gk)[0].patterns.length);
 });

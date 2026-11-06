@@ -156,7 +156,7 @@
       if (area === 'profile') return data.name;
       if (area === 'growth') return Object.values(data.records).filter(r => r.completedAt).length + ' 项完成 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
       if (area === 'health') return Object.values(data.records).filter(r => r.status === 'observed').length + ' 项已观察到 · ' + Object.values(data.records).filter(r => r.status === 'not-yet').length + ' 项暂未观察到 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
-      return data.profile.vocabulary + ' 听力词汇 · ' + data.favorites.length + ' 个收藏 · ' + Object.keys(data.records).length + ' 份素材记录';
+      return data.profile.vocabulary + ' 听力词汇 · ' + Object.keys(data.records).length + ' 份素材记录';
     }
     function sameConflict(left, right) {
       if (!left || !right) return !left && !right;

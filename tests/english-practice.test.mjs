@@ -13,6 +13,74 @@ const wrap=records=>({version:1,profile:{vocabulary:70,mode:'audio'},favorites:[
 const key=id=>P.SESSION+'qing:'+id;
 const songLibrary=JSON.parse(fs.readFileSync(new URL('../english/data/sss-songs.json',import.meta.url)));
 
+test('进度素材按分级、绘本、其他排列，同系列各级不因完成状态分散',()=>{
+  const unit=(key,resourceId,type,status)=>({key,resourceId,item:{resource:{id:resourceId,type}},status});
+  const units=[unit('song','songs','song','using'),unit('pearson-upper','pearson','reader','using'),unit('cat-pink-a','cat','reader','using'),unit('picture','picture','book','not-started'),unit('pearson-lower','pearson','reader','not-started'),unit('cat-pink-b','cat','reader','done'),unit('animation','animation','animation','using')];
+  const before=structuredClone(units);
+  assert.deepEqual(P.sortMaterialUnits(units).map(u=>u.key),['pearson-upper','pearson-lower','cat-pink-a','cat-pink-b','picture','song','animation']);
+  assert.deepEqual(units,before);
+});
+
+test('系列历史ID按公共目录归组，庆爸父子层级和组内原级别顺序保留',()=>{
+  const child={key:'cat-level-1',resourceId:'cat',item:{resource:{id:'cat',type:'reader'}}};
+  const unit=(key,resourceId,type)=>({key,resourceId,item:{resource:{id:resourceId,type}}});
+  const parent={...unit('cat-parent','cat','reader'),children:[child]};
+  const alias=unit('cat-alias','cat-legacy','reader'),other=unit('other','other','reader');
+  const volumes={series:[{resourceId:'cat',scopes:[]},{resourceId:'cat-legacy',catalogResourceId:'cat',scopes:[]}]};
+  const result=P.sortMaterialUnits([parent,other,alias],volumes);
+  assert.deepEqual(result.map(u=>u.key),['cat-parent','cat-alias','other']);
+  assert.equal(result[0],parent);assert.equal(result[0].children[0],child);
+});
+
+test('同版同级别跨阶段回读原数量，范围ID变化不清零也不重复求和',()=>{
+  const scope={id:'new-part',label:'Pink 1A',total:22,edition:'指定旧版',origin:'catalog'};
+  const old={...scope,id:'old-part'},records={
+    [P.MATERIAL+'xu:old:series:sig:part']:P.unitBookProgressUpdate(10,old),
+    [P.MATERIAL+'qing:other:series:signature']:P.unitBookProgressUpdate(7,old)
+  },before=structuredClone(records);
+  const quantity=P.sharedQuantity(records,'series',scope,'本');
+  assert.equal(quantity.completed,10);assert.equal(quantity.percent,45);
+  assert.deepEqual(records,before);
+  assert.equal(P.sharedQuantity(records,'series',{...scope,label:'Pink 1B'},'本').completed,0);
+  assert.equal(P.sharedQuantity(records,'series',{...scope,edition:'另一版'},'本').completed,0);
+  assert.equal(P.sharedQuantity(records,'other-series',scope,'本').completed,0);
+});
+
+test('共用范围修改和撤回覆盖旧数量，不让旧阶段较大值重新抬升',()=>{
+  const scope={id:'part',label:'上辑',total:48,edition:'基础词汇',origin:'catalog'};
+  const oldKey=P.MATERIAL+'xu:old:series:signature',records={[oldKey]:P.unitBookProgressUpdate(10,scope)};
+  Object.assign(records,P.sharedQuantityUpdate(records,'series',scope,2,'本'));
+  assert.equal(P.sharedQuantity(records,'series',{...scope,id:'another-reference'},'本').completed,2);
+  Object.assign(records,P.sharedQuantityUpdate(records,'series',scope,0,'本'));
+  assert.equal(P.sharedQuantity(records,'series',scope,'本').status,'not-started');
+  assert.equal(P.unitBooks(records[oldKey]).completed,10);
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records))));
+  assert.equal(P.sharedQuantity(restored.records,'series',scope,'本').completed,0);
+});
+
+test('图鉴和路线引用同一范围，整套总数不拆摊到不同级别',()=>{
+  const scope={id:'all',label:'整套',total:70,edition:'GK70',origin:'catalog'};
+  const record=P.libraryQuantityUpdate(null,scope,4,'本');
+  const records={[P.LIBRARY+'series']:record};
+  assert.equal(P.sharedQuantity(records,'series',scope,'本').completed,4);
+  assert.equal(P.sharedQuantity(records,'series',{...scope,label:'A',total:43},'本').completed,0);
+  assert.equal(P.sharedQuantityKey('series',{...scope,origin:'personal'}),null);
+});
+
+test('选读版本跨阶段共用，旧选择可回读且旧记录不改写',()=>{
+  // 使用真实出版目录形状，避免通过显示名称猜测套系。
+  const actual=JSON.parse(fs.readFileSync(new URL('../english/data/resource-volumes.json',import.meta.url)));
+  const resourceId='resource-g7xvo5',entry=M.publicationEntry(actual,resourceId),options=entry.recordingEditions;
+  const oldKey=P.MATERIAL+'xu:old:'+resourceId+':old-signature';
+  const unit={key:P.MATERIAL+'xu:new:'+resourceId+':new-signature',resourceId};
+  const records={[oldKey]:P.unitEditionUpdate(options[1].id)},before=structuredClone(records);
+  assert.equal(JSON.parse(P.sharedEditionRecord(records,unit,actual).note).recordingEdition,options[1].id);
+  Object.assign(records,P.sharedEditionUpdate(resourceId,options,options[0].id));
+  assert.equal(JSON.parse(P.sharedEditionRecord(records,unit,actual).note).recordingEdition,options[0].id);
+  assert.deepEqual(records[oldKey],before[oldKey]);
+  assert.ok(P.sharedEditionKey(resourceId,options).length<=160);
+});
+
 test('素材搜索支持简称、别名、全角和多关键词，空输入恢复全部',()=>{
   const names=['培生词汇妙趣屋 · 1辑','培生幼儿基础词汇 · 上','Pearson Vocabulary'];
   for(const query of ['培生 1','培妙屋','幼儿 上','ＰＥＡＲＳＯＮ','vocab','  '])assert.equal(P.matchesMaterialSearch(names,query),true,query);
@@ -129,9 +197,27 @@ test('素材进度键隔离路线、阶段、用途与级别，不受排序、�
 
 test('所有既有阶段记录键均唯一且符合已部署同步长度契约',()=>{
   const keys=[];
-  for(const st of catalog.stages.filter(s=>['qing','xu'].includes(s.routeId)))for(const item of M.getStageMaterials(catalog,st))keys.push(P.unitKey(st,item));
+  for(const st of catalog.stages.filter(s=>['qing','xu'].includes(s.routeId)&&!s.sourceStageIds))for(const item of M.getStageMaterials(catalog,st))keys.push(P.unitKey(st,item));
   assert.equal(new Set(keys).size,keys.length);
   assert.ok(keys.every(k=>k.length<=160));
+});
+
+test('合并词量节点逐项引用原阶段记录键，GK A与B分别保留且数量不串级',()=>{
+  for(const node of M.getRoutePlan(catalog,'xu','listening').stages){
+    for(const item of M.getStageMaterials(catalog,node)){
+      const original=catalog.stages.find(stage=>stage.id===item.material.recordStageId);
+      const source=M.getStageMaterials(catalog,original).find(candidate=>P.unitKey(original,candidate)===P.unitKey(node,item));
+      assert.ok(source,node.id+' '+item.resource.title+' 必须继续引用原记录');
+      assert.deepEqual(item.role,source.role);
+    }
+  }
+  const node=catalog.stages.find(s=>s.id==='xu-node-500');
+  assert.deepEqual(M.getStageMaterials(catalog,node).filter(item=>item.role.kind==='main').map(item=>item.material.level),['A','B']);
+  const original=catalog.stages.find(s=>s.id==='xu-3'),main=M.getStageMaterials(catalog,original).find(i=>i.role.kind==='main');
+  const key=P.unitKey(original,main),record=P.unitProgressUpdate(20);
+  const restored=Sync.normalize('english',wrap({[key]:record}));
+  const projected=M.getStageMaterials(catalog,node).find(i=>i.material.level==='A'&&i.role.kind==='main');
+  assert.equal(P.unitRecord(restored.records,P.unitKey(node,projected)).percent,20);
 });
 
 test('素材百分比保留备注并映射状态，通过原同步和备份契约往返',()=>{
@@ -787,4 +873,45 @@ test('大猫新增出版分辑只补资料，不将原级别进度改拆为分�
     const saved=P.unitUpdate('using','原级别手记','2026-09-15');
     for(const part of parts)assert.equal(P.materialRecord({[part.key]:saved},part),saved);
   }
+});
+
+test('阶段完成独立保存及撤回，不改素材数量、书目、时间或其他路线和领域',()=>{
+  const records={material:{status:'using',note:'保留12/48'},'reading.book.v1:one':{status:'done',note:'单册已读'},[P.SESSION+'sample']:P.sessionRecord(entry())};
+  const before=structuredClone(records),routeKey='xu:listening',stageId='xu-listening-300';
+  const changes=P.stageCompletionUpdate(records,routeKey,stageId,true),marked={...records,...changes};
+  assert.deepEqual(Object.keys(changes),[P.stageKey(routeKey,stageId)]);
+  assert.equal(P.stageDone(marked,routeKey,stageId),true);
+  assert.equal(P.stageDone(marked,'xu:speaking',stageId),false);
+  assert.equal(P.stageDone(marked,'qing:listening',stageId),false);
+  assert.deepEqual(records,before);
+  for(const [key,value] of Object.entries(before))assert.deepEqual(marked[key],value);
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(marked)))).records;
+  assert.equal(P.stageDone(restored,routeKey,stageId),true);
+  const reverted={...restored,...P.stageCompletionUpdate(restored,routeKey,stageId,false)};
+  assert.equal(P.stageDone(reverted,routeKey,stageId),false);
+  for(const [key,value] of Object.entries(before))assert.deepEqual(reverted[key],value);
+});
+
+test('默认阶段跳过已完成节点，优先后续进行中，无进行中选下一未完成，全完成仍可回看',()=>{
+  const stages=['300','500','800','1000','2000'].map(id=>({id})),key='xu:listening',started=stage=>['300','800'].includes(stage.id);
+  assert.equal(P.defaultStage(stages,{},key,started).id,'300');
+  let records=P.stageCompletionUpdate({},key,'300',true);
+  assert.equal(P.defaultStage(stages,records,key,started).id,'800');
+  assert.equal(P.defaultStage(stages,records,key).id,'500');
+  records={...records,...P.stageCompletionUpdate(records,key,'800',true)};
+  assert.equal(P.defaultStage(stages,records,key,started,'300').id,'1000');
+  for(const stage of stages)Object.assign(records,P.stageCompletionUpdate(records,key,stage.id,true));
+  assert.equal(P.defaultStage(stages,records,key,started).id,'2000');
+  assert.equal(P.defaultStage([],records,key),undefined);
+  assert.equal(P.defaultStage(stages,records,'xu:speaking',started).id,'300');
+});
+
+test('手动阶段完成与素材单册记录三方合并不冲突；独立完成不依赖素材完成',()=>{
+  const base=wrap({}),stage=P.stageCompletionUpdate({},'qing:listening','qing-s1',true);
+  const single={'reading.book.v1:sample':{status:'done',note:'单册'}};
+  const merged=Sync.merge(base,wrap(stage),wrap(single));
+  assert.equal(merged.conflicts.length,0);
+  assert.equal(P.stageDone(merged.snapshot.records,'qing:listening','qing-s1'),true);
+  assert.deepEqual(merged.snapshot.records['reading.book.v1:sample'],single['reading.book.v1:sample']);
+  assert.equal(P.defaultStage([{id:'qing-s1'},{id:'qing-s2'}],merged.snapshot.records,'qing:listening').id,'qing-s2');
 });

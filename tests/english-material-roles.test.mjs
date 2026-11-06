@@ -33,6 +33,22 @@ test('作者未划分主辅时不以摘要、套系共用、活动分支或整�
   assert.ok(execution.filter(i=>i.material.role==='main'||i.material.role==='core').every(i=>i.role.kind==='reference'));
 });
 
+test('原文推荐不单列特色用途，不升为主辅线或改变原引用及进度键',()=>{
+  assert.deepEqual(M.materialRoles,{main:'主线',auxiliary:'辅线',reference:'未标主辅'});
+  const stage=catalog.stages.find(s=>s.id==='xu-thousand-4'),before=structuredClone(stage);
+  const recommended=M.getStageMaterials(catalog,stage).filter(item=>item.material.role==='recommended');
+  assert.deepEqual(recommended.map(item=>item.resource.title).sort(),['汽车小镇','蝙蝠和朋友'].sort());
+  for(const item of recommended){
+    assert.equal(item.role.kind,'reference');assert.equal(item.role.label,'未标主辅');
+    assert.equal(item.role.usage,'推荐材料');assert.match(item.role.basis,/原文明确推荐/);
+    const legacy={...stage,materials:[{...item.material,roleEvidence:{status:'confirmed',kind:'featured',basis:'原表推荐'}}]};
+    const normalized=M.getStageMaterials(catalog,legacy)[0];
+    assert.equal(normalized.role.kind,'reference');assert.equal(P.unitKey(stage,normalized),P.unitKey(stage,item));
+  }
+  assert.deepEqual(stage,before);
+  for(const st of catalog.stages)assert.ok(M.getStageMaterials(catalog,st).every(item=>Object.hasOwn(M.materialRoles,item.role.kind)));
+});
+
 test('展示角色纠正不改原始引用、来源、级别或个人记录键',()=>{
   const before=structuredClone(catalog);
   for(const stage of catalog.stages){
@@ -113,7 +129,8 @@ test('六阶段路线、进度分项与图鉴共用逐项证据，移除证据�
       for(const source of evidence.sources){assert.ok(sourceIds.has(source.sourceId));assert.ok(source.quote);}
       const appearance=item.resource.appearances.find(a=>a.stageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
       assert.deepEqual(appearance.roleEvidence,evidence,'素材图鉴引用须保留同一次用途依据');
-      const usage=M.getSeriesProgression(catalog,item.resource.id).flatMap(group=>group.stages).find(a=>a.stageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
+      const node=M.getRoutePlan(catalog,'xu','listening').stages.find(s=>s.sourceStageIds.includes(stage.id));
+      const usage=M.getSeriesProgression(catalog,item.resource.id).flatMap(group=>group.stages).find(a=>a.stageId===node.id&&a.recordStageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
       assert.deepEqual(usage.roleEvidence,evidence,'路线使用明细不单独维护用途');
       const original=previous.find(i=>i.material.original===item.material.original&&i.material.role===item.material.role);
       assert.equal(original.role.kind,'reference','缺少依据时不由阶段ID或main/parallel字段补角色');

@@ -265,6 +265,33 @@
           route.summary = current.description;
         }
         var listeningPlan = (((raw.routePlan || {}).routes || {}).xu || {}).listening || {};
+        // 词量节点只组合原阶段引用；原始阶段、材料身份与个人记录键保持独立。
+        if (array(listeningPlan.stageGroups).length) {
+          var nodeVariant = { id: listeningPlan.defaultVariantId, label: '听力词量节点', stages: [], description: listeningPlan.summary };
+          listeningPlan.stageGroups.forEach(function (group, index) {
+            var members = array(group.sourceStageIds).map(function (id) { return stageIndex[id]; }).filter(Boolean);
+            if (!members.length) return;
+            var first = members[0];
+            var node = Object.assign({}, first, { id: group.id, title: group.title, shortTitle: group.title, order: index + 1,
+              variantId: nodeVariant.id, variantLabel: nodeVariant.label, sourceStageIds: group.sourceStageIds.slice(),
+              goal: group.goal || members.map(function (s) { return s.title + '：' + s.goal; }).join('；'),
+              entry: unique(members.map(function (s) { return s.entry; })).join('；'),
+              exit: members.filter(function (s) { return s.exit; }).map(function (s) { return s.title + '：' + s.exit; }).join('；'),
+              notes: unique(members.flatMap(function (s) { return s.notes; })),
+              activities: members.flatMap(function (s) { return s.activities; }).filter(function (activity, i, all) {
+                return all.findIndex(function (other) { return other.title === activity.title && other.sourceId === activity.sourceId && other.method === activity.method; }) === i;
+              }),
+              raw: Object.assign({}, first.raw, { listeningTargetWords: group.targetWords, sourceStageIds: group.sourceStageIds.slice() }),
+              materials: members.flatMap(function (s) { return s.materials.map(function (material) {
+                return Object.assign({}, material, { recordStageId: s.id });
+              }); }) });
+            node.materials.forEach(function (material) {
+              byResource[material.resourceId].appearances.push(Object.assign({}, material, { stageId: node.id, routeId: routeId, variantId: node.variantId }));
+            });
+            nodeVariant.stages.push(node); stages.push(node); stageIndex[node.id] = node;
+          });
+          route.variants.unshift(nodeVariant);
+        }
         var defaultVariant = route.variants.find(function (variant) { return variant.id === listeningPlan.defaultVariantId; });
         if (defaultVariant) {
           route.defaultVariantId = defaultVariant.id;
@@ -642,7 +669,7 @@
     return parts;
   }
 
-  var MATERIAL_ROLES = { main: '主线', featured: '特色推荐', auxiliary: '辅线', reference: '未标主辅' };
+  var MATERIAL_ROLES = { main: '主线', auxiliary: '辅线', reference: '未标主辅' };
   function materialUsageLabel(value, role) {
     // 原文证据保持原样；所有页面只在展示层统一同义用途。
     if (value === '平行拓展') return MATERIAL_ROLES.auxiliary;
@@ -667,7 +694,7 @@
     } else if (stage.routeId === 'xu') {
       // 六阶段各次引用统一读取下方 roleEvidence，不按阶段ID或整理字段补造角色。
       if (stage.variantId === 'xu-thousand' && role === 'recommended') {
-        kind = 'featured'; label = '特色推荐'; basis = '本阶段执行表原文明确推荐';
+        label = '推荐材料'; basis = '本阶段执行表原文明确推荐，未核定主辅线';
       }
     } else if (stage.routeId === 'banana') {
       label = '阶段材料'; basis = '本阶段原书单未划分主辅线，分级与故事按原方案使用';
@@ -678,7 +705,7 @@
     }
     var evidence = material.roleEvidence || null;
     if (evidence && evidence.status === 'confirmed') {
-      kind = evidence.kind;
+      kind = evidence.kind === 'featured' ? 'reference' : evidence.kind;
       label = evidence.usage || MATERIAL_ROLES[kind];
       basis = evidence.basis;
     } else if (evidence && evidence.status === 'unresolved') {
@@ -696,9 +723,41 @@
   function sortLibraryMaterials(catalog, entries, filters) {
     filters = filters || {};
     var stages = new Map(array(catalog.stages).map(function (stage) { return [stage.id, stage]; }));
-    var roles = { main: 0, featured: 1, auxiliary: 2, reference: 3 };
+    var roles = { main: 0, auxiliary: 1, reference: 2 };
+    function primaryStages(routeId) {
+      var plan = ((((catalog.raw || {}).routePlan || {}).routes || {})[routeId] || {}).listening;
+      return array(plan && plan.stageIds);
+    }
+    var resourceMap = {}, stageRanks = new Map();
+    array(catalog.resources).forEach(function (resource) { resourceMap[resource.id] = resource; });
+    var anchors = array(catalog.stages).filter(function (stage) {
+      var primary = primaryStages(stage.routeId);
+      return (!primary.length || primary.indexOf(stage.id) !== -1) && listeningComparisonBand(stage, catalog);
+    });
+    function stageRank(stage) {
+      if (stageRanks.has(stage.id)) return stageRanks.get(stage.id);
+      var primary = primaryStages(stage.routeId), index = primary.indexOf(stage.id), band = listeningComparisonBand(stage, catalog);
+      var rank;
+      // 选中路线只按其执行次序；不同作者的“第一阶段”不能直接比较。
+      if (filters.route && filters.route !== 'all' && filters.route !== 'other') rank = [index < 0 ? stage.order : index + 1, 0];
+      else if (band) rank = [band.min, band.max];
+      else if (materialComparisonEnabled(catalog, stage)) {
+        // 无词量的路线只借用素材重合度最高的阶段作排序锚点，不生成词量或能力等值。
+        var best = 0, bestBand;
+        anchors.forEach(function (anchor) {
+          if (anchor.routeId === stage.routeId) return;
+          var score = materialOverlapScore(stage, anchor, resourceMap), candidate = listeningComparisonBand(anchor, catalog);
+          if (score > best || score > 0 && score === best && (candidate.min < bestBand.min || candidate.min === bestBand.min && candidate.max < bestBand.max)) {
+            best = score; bestBand = candidate;
+          }
+        });
+        rank = bestBand ? [bestBand.min, bestBand.max] : [Infinity, stage.order];
+      } else rank = anchors.length ? [Infinity, stage.order] : [stage.order, 0];
+      stageRanks.set(stage.id, rank);
+      return rank;
+    }
     var ranks = entries.map(function (entry, index) {
-      var resource = entry.resource || entry, rank = [Infinity, Infinity, Infinity];
+      var resource = entry.resource || entry, rank = [Infinity, Infinity, Infinity, Infinity];
       var appearances = array(entry.custom ? entry.stageRefs || entry.appearances : entry.appearances).filter(function (appearance) {
         if (filters.route && filters.route !== 'all' && filters.route !== 'other' && appearance.routeId !== filters.route) return;
         if (filters.stageIds && filters.stageIds.indexOf(appearance.stageId) === -1) return;
@@ -706,8 +765,7 @@
       });
       // 各资料的“第一阶段”不等价：默认先取该路线当前执行主表，补充资料仅作兜底。
       if (!filters.stageIds) appearances = appearances.filter(function (appearance) {
-        var plan = (((catalog.raw || {}).routePlan || {}).routes || {})[appearance.routeId];
-        var primary = array(plan && plan.listening && plan.listening.stageIds);
+        var primary = primaryStages(appearance.routeId);
         return !primary.length || primary.indexOf(appearance.stageId) !== -1 || !appearances.some(function (other) {
           return other.routeId === appearance.routeId && primary.indexOf(other.stageId) !== -1;
         });
@@ -715,15 +773,19 @@
       appearances.forEach(function (appearance) {
         var stage = stages.get(appearance.stageId);
         if (!stage) return;
-        var plan = ((((catalog.raw || {}).routePlan || {}).routes || {})[appearance.routeId] || {}).listening;
-        var primary = array(plan && plan.stageIds), tier = !filters.stageIds && primary.length && primary.indexOf(stage.id) === -1 ? 1 : 0;
-        var order = stage.order, role = roles[materialRole(stage, appearance, resource).kind];
-        if (tier < rank[0] || tier === rank[0] && (order < rank[1] || order === rank[1] && role < rank[2])) rank = [tier, order, role];
+        var primary = primaryStages(appearance.routeId), tier = !filters.stageIds && primary.length && primary.indexOf(stage.id) === -1 ? 1 : 0;
+        var order = stageRank(stage), role = roles[materialRole(stage, appearance, resource).kind];
+        var candidate = [tier, order[0], order[1], role];
+        for (var i = 0; i < rank.length; i++) {
+          if (candidate[i] === rank[i]) continue;
+          if (candidate[i] < rank[i]) rank = candidate;
+          break;
+        }
       });
-      return { entry: entry, tier: rank[0], order: rank[1], role: rank[2], index: index };
+      return { entry: entry, tier: rank[0], order: rank[1], end: rank[2], role: rank[3], index: index };
     });
     return ranks.sort(function (a, b) {
-      return a.tier - b.tier || a.order - b.order || a.role - b.role || a.index - b.index;
+      return a.tier - b.tier || a.order - b.order || a.end - b.end || a.role - b.role || a.index - b.index;
     }).map(function (rank) { return rank.entry; });
   }
 
@@ -741,6 +803,7 @@
       var scales = mergeable ? unique(parts.tokens.map(function (token) { return token.scale; })).sort().join('|') : '';
       var group = mergeable && groups.find(function (item) {
         return item.mergeable && item.resource.id === resource.id && item.material.role === material.role &&
+          item.material.recordStageId === material.recordStageId &&
           item.role.kind === role.kind && item.parts.qualifier === parts.qualifier && item.scales === scales;
       });
       if (group) {
@@ -766,7 +829,7 @@
       return { material: group.material, materials: group.materials, resource: resource, role: group.role, shared: other.length > 0, overlap: overlap,
         levelSegments: levelSegmentsFromParts(group.parts, common, group.material.level, resource), originalIndex: group.originalIndex };
     }).sort(function (a, b) {
-      var ranks = { main: 0, featured: 1, auxiliary: 2, reference: 3 };
+      var ranks = { main: 0, auxiliary: 1, reference: 2 };
       return ranks[a.role.kind] - ranks[b.role.kind] || Number(b.overlap) - Number(a.overlap) || Number(b.shared) - Number(a.shared) || a.originalIndex - b.originalIndex;
     });
   }
@@ -968,6 +1031,29 @@
     });
   }
 
+  function libraryStageForRoute(catalog, selected, routeId, profile) {
+    if (selected === 'all' || selected === 'current') return selected;
+    var focus = array(catalog.stages).find(function (stage) { return selected === 'stage:' + stage.id; });
+    if (!focus || routeId === 'other') return 'all';
+    if (routeId === 'all' || routeId === focus.routeId) return selected;
+    var viewing = Object.assign({}, catalog, { routes: array(catalog.routes).map(function (route) {
+      var plan = getRoutePlan(catalog, route.id, focus.domain || 'listening', profile);
+      var stages = plan ? plan.stages : array(route.stages).filter(function (stage) { return stage.domain === focus.domain; });
+      if (route.id === focus.routeId && !stages.some(function (stage) { return stage.id === focus.id; })) stages = stages.concat(focus);
+      return Object.assign({}, route, { stages: stages });
+    }) });
+    var group = compareStages(viewing, focus.id).find(function (item) { return item.routeId === routeId; });
+    var matches = array(group && group.stageReferences).slice().sort(function (a, b) {
+      var materialDifference = ((b.materialAlignment || {}).score || 0) - ((a.materialAlignment || {}).score || 0);
+      function overlap(match) {
+        var band = match.vocabularyAlignment;
+        return band ? Math.min(band.focus.max, band.target.max) - Math.max(band.focus.min, band.target.min) : 0;
+      }
+      return materialDifference || overlap(b) - overlap(a);
+    });
+    return matches.length ? 'stage:' + matches[0].stageId : 'all';
+  }
+
   function getSeriesProgression(catalog, resourceId) {
     var resource = array(catalog.resources).find(function (item) { return item.id === resourceId; });
     if (!resource) return [];
@@ -981,7 +1067,7 @@
       }).map(function (appearance) {
         var stage = stageMap[appearance.stageId];
         return { stageId: appearance.stageId, stageTitle: stage ? stage.title : appearance.stageId, level: appearance.level,
-          role: appearance.role, page: appearance.page, original: appearance.original,
+          role: appearance.role, page: appearance.page, original: appearance.original, recordStageId: appearance.recordStageId,
           roleEvidence: appearance.roleEvidence,
           sourceId: appearance.sourceId || stage && stage.sourceId || appearance.routeId,
           variantId: appearance.variantId || stage && stage.variantId || appearance.routeId,
@@ -1106,6 +1192,7 @@
   api.materialRoles = MATERIAL_ROLES;
   api.materialUsageLabel = materialUsageLabel;
   api.sortLibraryMaterials = sortLibraryMaterials;
+  api.libraryStageForRoute = libraryStageForRoute;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

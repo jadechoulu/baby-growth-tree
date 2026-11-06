@@ -17,7 +17,7 @@ test('阶段为第一排序键，同阶段采用公共用途顺序，同序保�
     resource('early-aux',appearance('early','辅线')),resource('early-featured',appearance('early','推荐',{roleEvidence:{status:'confirmed',kind:'featured'}})),
     resource('early-main-b',appearance('early')),resource('early-main-a',appearance('early')),resource('no-stage')];
   const before=structuredClone(entries);
-  assert.deepEqual(ids(entries),['early-main-b','early-main-a','early-featured','early-aux','early-unknown','later-main','no-stage']);
+  assert.deepEqual(ids(entries),['early-main-b','early-main-a','early-aux','early-unknown','early-featured','later-main','no-stage']);
   assert.deepEqual(entries,before);
 });
 
@@ -55,4 +55,42 @@ test('默认执行主表优先于补充资料的同名序号，显式筛选补�
   entries[0].appearances=[appearance('supplement')];entries[1].appearances=[appearance('supplement'),appearance('later','辅线')];
   assert.deepEqual(M.sortLibraryMaterials(configured,entries).map(e=>e.id),['start','both','supplement']);
   assert.deepEqual(M.sortLibraryMaterials(configured,entries,{stageIds:['supplement']}).map(e=>e.id),['supplement','both','start']);
+});
+
+test('全部路线按有据听力区间排序，不把庆爸常规1排在许密杉零起步材料之前',()=>{
+  const configured={stages:[
+    {id:'xu-300',routeId:'xu',domain:'listening',variantId:'xu-current',order:1,raw:{listeningTargetWords:300}},
+    {id:'qing-1',routeId:'qing',domain:'listening',order:1,raw:{vocabularyMin:200,vocabularyMax:300}},
+    {id:'xu-500',routeId:'xu',domain:'listening',variantId:'xu-current',order:2,raw:{listeningTargetWords:500}}
+  ],raw:{routePlan:{routes:{xu:{listening:{stageIds:['xu-300','xu-500']}},qing:{listening:{stageIds:['qing-1']}}}}}};
+  const entries=[resource('qing-main',{routeId:'qing',stageId:'qing-1',role:'主线'}),
+    resource('flashcards',{routeId:'xu',stageId:'xu-300',role:'闪卡'}),
+    resource('later-main',{routeId:'xu',stageId:'xu-500',roleEvidence:{status:'confirmed',kind:'main'}}),
+    resource('start-main',{routeId:'xu',stageId:'xu-300',roleEvidence:{status:'confirmed',kind:'main'}})];
+  assert.deepEqual(M.sortLibraryMaterials(configured,entries).map(e=>e.id),['start-main','flashcards','qing-main','later-main']);
+});
+
+test('无词量路线以最强素材重合关联排序，不采用更早但重合更低的阶段',()=>{
+  const mat=id=>({resourceId:id,level:'1',role:'未定'});
+  const configured={resources:[{id:'x',title:'X',type:'reader'},{id:'y',title:'Y',type:'reader'}],stages:[
+    {id:'xu-300',routeId:'xu',domain:'listening',variantId:'xu-current',order:1,raw:{listeningTargetWords:300},materials:[mat('x'),mat('y')]},
+    {id:'qing-1',routeId:'qing',domain:'listening',order:1,raw:{vocabularyMin:200,vocabularyMax:300},materials:[mat('x')]},
+    {id:'banana-pre',routeId:'banana',domain:'listening',order:1,raw:{},materials:[mat('x')]}
+  ],raw:{routePlan:{routes:{xu:{listening:{stageIds:['xu-300']}},qing:{listening:{stageIds:['qing-1']}},banana:{listening:{stageIds:['banana-pre'],stageComparison:{strategy:'material-overlap'}}}}}}};
+  const entries=[resource('banana-book',{routeId:'banana',stageId:'banana-pre',role:'未定'}),
+    resource('flashcards',{routeId:'xu',stageId:'xu-300',role:'闪卡'}),
+    resource('qing-main',{routeId:'qing',stageId:'qing-1',role:'主线'})];
+  const before=structuredClone(configured);
+  assert.deepEqual(M.sortLibraryMaterials(configured,entries).map(e=>e.id),['flashcards','qing-main','banana-book']);
+  assert.deepEqual(configured,before);
+});
+
+test('路线筛选按执行主表真实顺序，不按其他版本的原始序号或词量替换',()=>{
+  const configured={stages:[
+    {id:'merged-start',routeId:'xu',domain:'listening',order:9,raw:{listeningTargetWords:300}},
+    {id:'merged-next',routeId:'xu',domain:'listening',order:1,raw:{listeningTargetWords:500}}
+  ],raw:{routePlan:{routes:{xu:{listening:{stageIds:['merged-start','merged-next']}}}}}};
+  const entries=[resource('next',{routeId:'xu',stageId:'merged-next',roleEvidence:{status:'confirmed',kind:'main'}}),
+    resource('start',{routeId:'xu',stageId:'merged-start',role:'未定'})];
+  assert.deepEqual(M.sortLibraryMaterials(configured,entries,{route:'xu'}).map(e=>e.id),['start','next']);
 });

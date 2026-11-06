@@ -8,19 +8,19 @@ const raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read(
 const catalog=M.normalize(raw);
 const profile={birthDate:'2024-11-24',asOf:'2026-11-03'};
 
-test('许密杉以六阶段作为唯一默认执行结构，直播用法与旧记录分别保留',()=>{
+test('许密杉以五个词量节点引用六阶段要求，原阶段与记录身份保留',()=>{
   const plan=M.getRoutePlan(catalog,'xu','listening',profile),route=catalog.routes.find(r=>r.id==='xu');
-  assert.deepEqual(plan.stageIds,['xu-1','xu-2','xu-3','xu-4','xu-5','xu-6']);
-  assert.equal(route.defaultVariantId,'xu-listening');
+  assert.deepEqual(plan.stageIds,['xu-node-300','xu-node-500','xu-node-800','xu-node-1000','xu-node-2000']);
+  assert.deepEqual(plan.stages.map(stage=>stage.title),['300词','500词','800词','1000词','2000词']);
+  assert.equal(route.defaultVariantId,'xu-word-nodes');
   assert.deepEqual(route.stages,plan.stages);
-  const flow=M.getStageFlow(catalog,'xu-1',profile);
+  const flow=M.getStageFlow(catalog,'xu-node-300',profile);
   assert.equal(flow.parallel.length,2);
   assert.ok(flow.parallel.every(item=>item.resourceIds.length>0));
   assert.deepEqual(flow.parallel.map(item=>[item.sourceId,item.page]),[['xu-live-core',2],['xu-live-notes',1]]);
-  assert.equal(flow.advance,'');
-  assert.equal(flow.nextStageId,'xu-2');
+  assert.equal(flow.nextStageId,'xu-node-500');
   assert.equal(flow.later.length,0);
-  assert.equal(plan.legacyStages.length,5,'旧范围仍可读取，不把旧整套本数分摊');
+  assert.equal(plan.legacyStages.length,0,'默认选择器不重复列出旧节点');
   assert.equal(M.getStageFlow(catalog,'xu-current-300',profile),null,'旧五节点不再重复作为执行路线');
   assert.equal(M.getStageFlow(catalog,'xu-panorama-reading-literacy',profile),null);
   for(const [id,level] of [['xu-3','A'],['xu-4','B'],['xu-5','C'],['xu-6','3-5']]){
