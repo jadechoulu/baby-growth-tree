@@ -32,8 +32,31 @@ test('加入书单只补素材与来源，不产生路线、阶段、能力对�
  const before=M.normalize(raw),after=M.normalize({...raw,liaoReading:data});
  assert.deepEqual(after.routes,before.routes);assert.deepEqual(after.stages,before.stages);assert.deepEqual(after.relationships,before.relationships);
  for(const r of before.resources)assert.deepEqual(after.resources.find(x=>x.id===r.id),r);
- const added=after.resources.filter(r=>r.liaoBookId);assert.equal(added.length,100);
+ const added=after.resources.filter(r=>r.liaoBookId);assert.equal(added.length,130);
  for(const r of added){assert.equal(r.appearances.length,0);assert.deepEqual(r.levels,[]);assert.ok(r.cover);}
+ const old=M.normalize({...raw,liaoReading:{...data,supplementaryBooks:[]}});
+ for(const r of old.resources)assert.deepEqual(after.resources.find(x=>x.id===r.id),r);
+});
+test('图示130本逐项关联100部旧书与30部补充，保留不同编号及出处',()=>{
+ const entries=data.pictureBooklist.entries;
+ assert.deepEqual(entries.map(e=>e.number),Array.from({length:130},(_,i)=>i+1));
+ assert.equal(new Set(entries.map(e=>e.bookId)).size,130);
+ assert.equal(data.supplementaryBooks.length,30);
+ assert.deepEqual(entries.slice(82,84).map(e=>e.bookId),['liao-book-084','liao-book-083']);
+ assert.deepEqual(entries.slice(103,119).map(e=>L.findBook(data,e.bookId).number),Array.from({length:16},(_,i)=>85+i));
+ assert.deepEqual(L.filter(data,{order:'picture'}).map(b=>b.id),entries.map(e=>e.bookId));
+ assert.equal(L.filter(data,{order:'picture',query:'Give Moose'}).length,1);
+ assert.equal(L.filter(data,{order:'plan',query:'Give Moose'}).length,0);
+ assert.deepEqual(L.filter(data).map(b=>b.id),data.books.map(b=>b.id));
+ for(const e of entries)assert.ok(data.sources.find(s=>s.id===e.sourceId).previews.some(p=>p.page===e.page));
+ for(const b of data.supplementaryBooks){
+  assert.deepEqual(b.references,[]);assert.deepEqual(L.reviewFor(data,b),[]);
+  assert.equal(b.stage,null);assert.equal(b.order,null);assert.equal(b.package.status,'unchecked');
+  assert.deepEqual(b.package.shares,[]);assert.deepEqual(b.media,[]);
+  assert.equal(L.packageLabel(b),'资料待核对');assert.ok(existsSync(new URL('../english/'+b.cover,import.meta.url)));
+ }
+ const grouped=data.pictureBooklist.groups.flatMap(g=>entries.filter(e=>e.number>=g.range[0]&&e.number<=g.range[1]));
+ assert.deepEqual(grouped,entries);
 });
 test('每本保留独立出处，指导书不强绑素材包分类',()=>{
  const ids=new Set(data.books.map(b=>b.id));

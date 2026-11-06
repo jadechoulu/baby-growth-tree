@@ -1805,13 +1805,13 @@
 .liao-stage[open]>summary:after{content:'−'}
 .liao-stage>summary>strong{font-size:16px}.liao-stage>summary>span{font-size:12px;color:var(--muted,#69756d)}
 .liao-review{margin:2px 0 4px;line-height:1.5}
-.liao-book-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 18px}
-.liao-book-list>li{display:flex;align-items:center;gap:6px;padding:7px 0;border-bottom:1px solid var(--line,#e5e9e3);min-width:0}
-.liao-order{width:20px;flex:none;font-size:12px;color:var(--muted,#69756d);font-variant-numeric:tabular-nums}
-.liao-book-link{flex:1;border:0;background:transparent;text-align:left;color:inherit;display:flex;align-items:center;gap:9px;width:100%;padding:0;cursor:pointer;min-width:0;font:inherit;font-size:15px;line-height:1.5}
-.liao-book-link img{width:36px;height:48px;flex:none;object-fit:contain;background:#f5f3eb;border-radius:3px}
+.liao-book-list{list-style:none;padding:0;margin:0}
+.liao-order{flex:none;font-size:12px;color:var(--muted,#69756d);font-variant-numeric:tabular-nums}
+.liao-book-link{border:0;background:transparent;text-align:left;color:inherit;display:flex;flex-direction:column;align-items:stretch;gap:6px;width:100%;padding:0;cursor:pointer;min-width:0;font:inherit;font-size:15px;line-height:1.5}
+.liao-book-link .library-book-cover{padding:4px}
 .liao-book-link>span{min-width:0;overflow-wrap:anywhere}
-.liao-book-link small{display:block;font-size:12px;color:var(--muted,#69756d);line-height:1.45;margin-top:2px}
+.liao-card-meta{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 6px;min-width:0;color:var(--muted,#69756d)}
+.liao-card-meta small{font-size:12px;line-height:1.45;overflow-wrap:anywhere}
 .liao-book-link:hover .material-name{text-decoration:underline}
 .liao-reading button:focus-visible,.liao-reading summary:focus-visible{outline:2px solid var(--accent,#2e6954);outline-offset:3px}
 .liao-more{margin:8px 0;min-height:32px;padding:5px 10px;font-size:14px}
@@ -1824,10 +1824,30 @@
 .liao-evidence-row{border-bottom:1px solid var(--line,#e5e9e3);padding:5px 0;overflow-wrap:anywhere}
 .liao-detail .small-note{line-height:1.6}
 .hello-collection-tabs{flex-wrap:wrap;gap:6px}
-@media(max-width:600px){.liao-heading{margin-top:0}.liao-book-list{grid-template-columns:1fr}}
+@media(max-width:600px){.liao-heading{margin-top:0}}
 
-.liao-row-actions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end;flex:0 0 auto;max-width:80px}
+.liao-row-actions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-start;min-width:0}
 .liao-media-button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:5px;padding:3px 5px;min-height:26px;color:var(--accent,#2e6954);font-size:12px;text-decoration:none;white-space:nowrap}
 .liao-row-actions .hello-audio-play{width:28px;height:28px;min-height:28px}
 .liao-media-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
 .liao-media-links .text-link{overflow-wrap:anywhere;white-space:normal}
+
+/* 图示编号、周计划与使用方法各自保留依据。 */
+.liao-mode-switch{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.liao-mode-button{font:inherit;font-size:15px;min-height:44px;border:1px solid var(--line,#dce6dd);border-radius:8px;padding:6px 10px;background:var(--paper,#fff);color:inherit;cursor:pointer;max-width:100%;white-space:normal}
+.liao-mode-button[aria-pressed=true]{border-color:var(--accent,#2e6954);background:var(--accent-soft,#e9f1e9);color:var(--accent,#2e6954);font-weight:700}
+.liao-method{margin:8px 0 12px;min-width:0}
+.liao-method h3{font-size:16px;margin:8px 0 4px}.liao-method>p{font-size:15px;line-height:1.65;margin:5px 0}
+.liao-method .reading-fold-body{padding-left:8px;padding-right:8px}
+.liao-mindmap{margin:12px 0;min-width:0}
+.liao-map-root{background:var(--accent-soft,#e9f1e9);border:1px solid var(--line,#dce6dd);border-radius:8px;padding:10px;margin:0;font-weight:700;text-align:center}
+.liao-mindmap>ol{list-style:none;padding:16px 0 0 18px;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:12px 18px;border-left:2px solid var(--line,#dce6dd)}
+.liao-mindmap li{position:relative;min-width:0;padding:8px 10px;border:1px solid var(--line,#dce6dd);border-radius:6px;overflow-wrap:anywhere}
+.liao-mindmap li:before{content:'';position:absolute;top:18px;left:-20px;width:18px;border-top:2px solid var(--line,#dce6dd)}
+.liao-mindmap p{margin:4px 0;line-height:1.6;font-size:15px}
+.liao-map-heading{display:flex;align-items:center;gap:6px;min-width:0}
+.liao-map-heading strong{flex:1;min-width:0}
+.liao-method .liao-map-heading .text-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:0;margin:-8px -6px -8px 0}
+.liao-method-section{margin:16px 0}.liao-method h4{font-size:16px;margin:8px 0}
+.liao-method-section ul,.liao-method-example ol{padding-left:22px;margin:6px 0}.liao-method li{font-size:15px;line-height:1.7;margin:5px 0}
+.liao-method .small-note{font-size:12px}.liao-method .text-link{max-width:100%;white-space:normal;text-align:left;overflow-wrap:anywhere;margin-right:8px}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "title": "廖彩杏 · 52周参考书单",
-  "checkedAt": "2026-11-05",
-  "scope": "52周Excel提供100部参考作品与复习安排；本地与极空间资料包另逐项核对目录及文件标题。指导PDF提供选书与聆听思路，三者不按编号或章节强行一一对应。",
+  "title": "廖彩杏 · 图示书单与52周安排",
+  "checkedAt": "2026-11-06",
+  "scope": "130本书单为出版社后续扩充版本，现有100部52周计划表对应较早版本；多出的30本标为“新增”。文章配图保留逐本顺序，指导书提供聆听方法，实际资料文件独立核对。",
   "levelNote": "四阶段只表示周次区间，不代表难度等级；本批资料没有逐册统一难度标尺。指导书章节不用于素材包分类。",
   "ageNote": "作者明确说明不标示适读年龄，不能按宝宝年龄给这100本自动分级。",
   "sources": [
@@ -24,9 +24,54 @@
           "note": "原扫描PDF第14页；不是纸页页码。"
         },
         {
+          "page": 16,
+          "path": "assets/liao/page-16.jpg",
+          "note": "原扫描PDF第16页；不是纸页页码。"
+        },
+        {
           "page": 17,
           "path": "assets/liao/page-17.jpg",
           "note": "原扫描PDF第17页；不是纸页页码。"
+        },
+        {
+          "page": 18,
+          "path": "assets/liao/page-18.jpg",
+          "note": "原扫描PDF第18页；不是纸页页码。"
+        },
+        {
+          "page": 19,
+          "path": "assets/liao/page-19.jpg",
+          "note": "原扫描PDF第19页；不是纸页页码。"
+        },
+        {
+          "page": 21,
+          "path": "assets/liao/page-21.jpg",
+          "note": "原扫描PDF第21页；不是纸页页码。"
+        },
+        {
+          "page": 25,
+          "path": "assets/liao/page-25.jpg",
+          "note": "原扫描PDF第25页；不是纸页页码。"
+        },
+        {
+          "page": 26,
+          "path": "assets/liao/page-26.jpg",
+          "note": "原扫描PDF第26页；不是纸页页码。"
+        },
+        {
+          "page": 27,
+          "path": "assets/liao/page-27.jpg",
+          "note": "原扫描PDF第27页；不是纸页页码。"
+        },
+        {
+          "page": 28,
+          "path": "assets/liao/page-28.jpg",
+          "note": "原扫描PDF第28页；不是纸页页码。"
+        },
+        {
+          "page": 33,
+          "path": "assets/liao/page-33.jpg",
+          "note": "原扫描PDF第33页；不是纸页页码。"
         },
         {
           "page": 37,
@@ -92,6 +137,75 @@
       "note": "本地整理表，非已核实的作者原版附表。书名、周次、章节与复习段逐行提取；b/p、JY/CD/m后缀未释义，不视为难度。",
       "sha256": "6a16b656dacfe4390a6bc76cb8f0205ffe65347793f18572db0577fdf1872851",
       "previews": []
+    },
+    {
+      "id": "liao-picture-source",
+      "title": "lyra麻麻《童谣也有段位？童谣分级整理(下)》正文10张配图",
+      "file": "https://xhslink.cn/o/3h9gvT8sK9i",
+      "note": "逐张按配图的1–130号核对。文章编辑显示08-01，未据此推定年份。130本与旧100部的差异为出版社后续扩充（用户确认）；图示编号不作为难度等级。",
+      "checkedAt": "2026-11-06",
+      "previews": [
+        {
+          "page": 1,
+          "path": "assets/liao/picture-list-01.webp",
+          "note": "正文配图1 · 全图概览",
+          "sha256": "9f35aa7b9bd32bbdb42e28e8041dc02a7b5b3c4023ee564b0d30354707b81efd"
+        },
+        {
+          "page": 2,
+          "path": "assets/liao/picture-list-02.webp",
+          "note": "正文配图2 · 图中编号1–15",
+          "sha256": "e131d6721842dd51eef9d75233899a47e125d49977bb26cad6d2d2cfc0667200"
+        },
+        {
+          "page": 3,
+          "path": "assets/liao/picture-list-03.webp",
+          "note": "正文配图3 · 图中编号16–30",
+          "sha256": "096a6b463e9a87f8efc51db64df5306279fcb8220a34b0b70fc1719a965019c1"
+        },
+        {
+          "page": 4,
+          "path": "assets/liao/picture-list-04.webp",
+          "note": "正文配图4 · 图中编号31–45",
+          "sha256": "379a2725ec8a44db094b0d277517afe36dcde0b5bb95d8c60bc30f1e747d1769"
+        },
+        {
+          "page": 5,
+          "path": "assets/liao/picture-list-05.webp",
+          "note": "正文配图5 · 图中编号46–60",
+          "sha256": "133834b0330dc49c3e93faf1c999f7b165f86b9d20ea540eabf8958838b640bd"
+        },
+        {
+          "page": 6,
+          "path": "assets/liao/picture-list-06.webp",
+          "note": "正文配图6 · 图中编号61–75",
+          "sha256": "3c615ce90c3a6b90f4a82e05d76c0f2c60db2ddf7e5a9eaf4ab7e5e0acdb8f9a"
+        },
+        {
+          "page": 7,
+          "path": "assets/liao/picture-list-07.webp",
+          "note": "正文配图7 · 图中编号76–90",
+          "sha256": "0c624d20af375ba7d1f46db22233e7b381503716645fabc2d8e80ce375247544"
+        },
+        {
+          "page": 8,
+          "path": "assets/liao/picture-list-08.webp",
+          "note": "正文配图8 · 图中编号91–105",
+          "sha256": "5d1954b197feefb705f02523a264e08d8c844e3f9bb842bce7734e30d16851b0"
+        },
+        {
+          "page": 9,
+          "path": "assets/liao/picture-list-09.webp",
+          "note": "正文配图9 · 图中编号106–120",
+          "sha256": "6939c6fe2d285072666e09eeeb9d5b7b3c914a06610cb6704a1dab25010101ba"
+        },
+        {
+          "page": 10,
+          "path": "assets/liao/picture-list-10.webp",
+          "note": "正文配图10 · 图中编号121–130",
+          "sha256": "719e485d4be500c9debaa228d5bf9e479b55f310a5f285d4324cd7b6e0d0bf80"
+        }
+      ]
     }
   ],
   "stages": [
@@ -9738,5 +9852,2066 @@
     "nasEmptyWorkCount": 7,
     "localMediaFileCount": 37,
     "localMediaBytes": 76789981
+  },
+  "supplementaryBooks": [
+    {
+      "id": "liao-picture-085",
+      "title": "If You Take a Mouse to the Movies",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 7,
+          "locator": "正文配图7 · 图示编号85"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-085.jpg",
+      "coverEvidence": "从正文配图7的第85号封面裁切；原图坐标833，裁切矩形[833, 580, 1017, 822]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-086",
+      "title": "If You Give a Moose a Muffin",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 7,
+          "locator": "正文配图7 · 图示编号86"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-086.jpg",
+      "coverEvidence": "从正文配图7的第86号封面裁切；原图坐标28，裁切矩形[28, 987, 212, 1210]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-087",
+      "title": "If You Give a Pig a Pancake",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 7,
+          "locator": "正文配图7 · 图示编号87"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-087.jpg",
+      "coverEvidence": "从正文配图7的第87号封面裁切；原图坐标233，裁切矩形[233, 987, 417, 1210]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-088",
+      "title": "If You Give a Cat a Cupcake",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 7,
+          "locator": "正文配图7 · 图示编号88"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-088.jpg",
+      "coverEvidence": "从正文配图7的第88号封面裁切；原图坐标431，裁切矩形[431, 987, 615, 1210]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-089",
+      "title": "Balloonia",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 7,
+          "locator": "正文配图7 · 图示编号89"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-089.jpg",
+      "coverEvidence": "从正文配图7的第89号封面裁切；原图坐标632，裁切矩形[632, 987, 816, 1210]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-090",
+      "title": "Presto Change-O",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 7,
+          "locator": "正文配图7 · 图示编号90"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-090.jpg",
+      "coverEvidence": "从正文配图7的第90号封面裁切；原图坐标833，裁切矩形[833, 987, 1017, 1210]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-091",
+      "title": "Tooth Fairy",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号91"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-091.jpg",
+      "coverEvidence": "从正文配图8的第91号封面裁切；原图坐标55，裁切矩形[55, 201, 235, 420]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-092",
+      "title": "Magic Shoelaces",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号92"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-092.jpg",
+      "coverEvidence": "从正文配图8的第92号封面裁切；原图坐标258，裁切矩形[258, 201, 438, 420]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-093",
+      "title": "Scaredy Cats",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号93"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-093.jpg",
+      "coverEvidence": "从正文配图8的第93号封面裁切；原图坐标460，裁切矩形[460, 201, 640, 420]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-094",
+      "title": "Twenty-Four Robbers",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号94"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-094.jpg",
+      "coverEvidence": "从正文配图8的第94号封面裁切；原图坐标657，裁切矩形[657, 201, 837, 420]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-095",
+      "title": "Love You Forever",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号95"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-095.jpg",
+      "coverEvidence": "从正文配图8的第95号封面裁切；原图坐标867，裁切矩形[867, 201, 1047, 420]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-096",
+      "title": "Ten, Nine, Eight",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号96"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-096.jpg",
+      "coverEvidence": "从正文配图8的第96号封面裁切；原图坐标55，裁切矩形[55, 579, 235, 830]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-097",
+      "title": "Where Does the Brown Bear Go?",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号97"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-097.jpg",
+      "coverEvidence": "从正文配图8的第97号封面裁切；原图坐标258，裁切矩形[258, 579, 438, 830]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-098",
+      "title": "On Christmas Eve",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号98"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-098.jpg",
+      "coverEvidence": "从正文配图8的第98号封面裁切；原图坐标460，裁切矩形[460, 579, 640, 830]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-099",
+      "title": "Tell Me Something Happy Before I Go to Sleep",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号99"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-099.jpg",
+      "coverEvidence": "从正文配图8的第99号封面裁切；原图坐标657，裁切矩形[657, 579, 837, 830]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-100",
+      "title": "Madeline's Christmas",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号100"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-100.jpg",
+      "coverEvidence": "从正文配图8的第100号封面裁切；原图坐标867，裁切矩形[867, 579, 1047, 830]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-101",
+      "title": "Madeline's Rescue",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号101"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-101.jpg",
+      "coverEvidence": "从正文配图8的第101号封面裁切；原图坐标55，裁切矩形[55, 953, 235, 1226]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-102",
+      "title": "Miss Nelson Is Back",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号102"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-102.jpg",
+      "coverEvidence": "从正文配图8的第102号封面裁切；原图坐标258，裁切矩形[258, 953, 438, 1226]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-103",
+      "title": "Miss Nelson Has a Field Day",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 8,
+          "locator": "正文配图8 · 图示编号103"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-103.jpg",
+      "coverEvidence": "从正文配图8的第103号封面裁切；原图坐标460，裁切矩形[460, 953, 640, 1226]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-120",
+      "title": "Handa's Hen",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 9,
+          "locator": "正文配图9 · 图示编号120"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-120.jpg",
+      "coverEvidence": "从正文配图9的第120号封面裁切；原图坐标830，裁切矩形[830, 1023, 1020, 1190]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-121",
+      "title": "Eat Your Peas",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号121"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-121.jpg",
+      "coverEvidence": "从正文配图10的第121号封面裁切；原图坐标67，裁切矩形[67, 198, 245, 465]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-122",
+      "title": "How Do Dinosaurs Say Good Night?",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号122"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-122.jpg",
+      "coverEvidence": "从正文配图10的第122号封面裁切；原图坐标270，裁切矩形[270, 198, 448, 465]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-123",
+      "title": "How Do Dinosaurs Eat Their Food?",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号123"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-123.jpg",
+      "coverEvidence": "从正文配图10的第123号封面裁切；原图坐标470，裁切矩形[470, 198, 648, 465]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-124",
+      "title": "How Do Dinosaurs Get Well Soon?",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号124"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-124.jpg",
+      "coverEvidence": "从正文配图10的第124号封面裁切；原图坐标668，裁切矩形[668, 198, 846, 465]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-125",
+      "title": "How Do Dinosaurs Go to School?",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号125"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-125.jpg",
+      "coverEvidence": "从正文配图10的第125号封面裁切；原图坐标865，裁切矩形[865, 198, 1043, 465]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-126",
+      "title": "One Gorilla",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号126"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-126.jpg",
+      "coverEvidence": "从正文配图10的第126号封面裁切；原图坐标67，裁切矩形[67, 590, 245, 815]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。",
+        "图示封面作者为Atsuko Morozumi，避免与同名作品混淆。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-127",
+      "title": "Mr Gumpy's Outing",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号127"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-127.jpg",
+      "coverEvidence": "从正文配图10的第127号封面裁切；原图坐标270，裁切矩形[270, 590, 448, 815]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-128",
+      "title": "Mr Gumpy's Motor Car",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号128"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-128.jpg",
+      "coverEvidence": "从正文配图10的第128号封面裁切；原图坐标470，裁切矩形[470, 590, 648, 815]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-129",
+      "title": "Snow",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号129"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-129.jpg",
+      "coverEvidence": "从正文配图10的第129号封面裁切；原图坐标668，裁切矩形[668, 590, 846, 815]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。",
+        "图示封面作者为Uri Shulevitz，避免与同名作品混淆。"
+      ],
+      "editionAddition": true
+    },
+    {
+      "id": "liao-picture-130",
+      "title": "The Carrot Seed",
+      "number": null,
+      "order": null,
+      "stage": null,
+      "references": [],
+      "sources": [
+        {
+          "sourceId": "liao-picture-source",
+          "page": 10,
+          "locator": "正文配图10 · 图示编号130"
+        }
+      ],
+      "cover": "assets/liao/covers/picture-130.jpg",
+      "coverEvidence": "从正文配图10的第130号封面裁切；原图坐标865，裁切矩形[865, 590, 1043, 815]。只核对书名与封面，未核版本内容。",
+      "package": {
+        "status": "unchecked",
+        "directories": [],
+        "formats": {},
+        "shares": []
+      },
+      "media": [],
+      "notes": [
+        "出版社后续扩充书单时新增；现有100部52周计划表对应较早版本，未包含本书。"
+      ],
+      "editionAddition": true
+    }
+  ],
+  "pictureBooklist": {
+    "title": "正文配图顺序 · 130本",
+    "sourceId": "liao-picture-source",
+    "entries": [
+      {
+        "number": 1,
+        "bookId": "liao-book-001",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号1"
+      },
+      {
+        "number": 2,
+        "bookId": "liao-book-002",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号2"
+      },
+      {
+        "number": 3,
+        "bookId": "liao-book-003",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号3"
+      },
+      {
+        "number": 4,
+        "bookId": "liao-book-004",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号4"
+      },
+      {
+        "number": 5,
+        "bookId": "liao-book-005",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号5"
+      },
+      {
+        "number": 6,
+        "bookId": "liao-book-006",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号6"
+      },
+      {
+        "number": 7,
+        "bookId": "liao-book-007",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号7"
+      },
+      {
+        "number": 8,
+        "bookId": "liao-book-008",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号8"
+      },
+      {
+        "number": 9,
+        "bookId": "liao-book-009",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号9"
+      },
+      {
+        "number": 10,
+        "bookId": "liao-book-010",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号10"
+      },
+      {
+        "number": 11,
+        "bookId": "liao-book-011",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号11"
+      },
+      {
+        "number": 12,
+        "bookId": "liao-book-012",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号12"
+      },
+      {
+        "number": 13,
+        "bookId": "liao-book-013",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号13"
+      },
+      {
+        "number": 14,
+        "bookId": "liao-book-014",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号14"
+      },
+      {
+        "number": 15,
+        "bookId": "liao-book-015",
+        "sourceId": "liao-picture-source",
+        "page": 2,
+        "locator": "正文配图2 · 图示编号15"
+      },
+      {
+        "number": 16,
+        "bookId": "liao-book-016",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号16"
+      },
+      {
+        "number": 17,
+        "bookId": "liao-book-017",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号17"
+      },
+      {
+        "number": 18,
+        "bookId": "liao-book-018",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号18"
+      },
+      {
+        "number": 19,
+        "bookId": "liao-book-019",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号19"
+      },
+      {
+        "number": 20,
+        "bookId": "liao-book-020",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号20"
+      },
+      {
+        "number": 21,
+        "bookId": "liao-book-021",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号21"
+      },
+      {
+        "number": 22,
+        "bookId": "liao-book-022",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号22"
+      },
+      {
+        "number": 23,
+        "bookId": "liao-book-023",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号23"
+      },
+      {
+        "number": 24,
+        "bookId": "liao-book-024",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号24"
+      },
+      {
+        "number": 25,
+        "bookId": "liao-book-025",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号25"
+      },
+      {
+        "number": 26,
+        "bookId": "liao-book-026",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号26"
+      },
+      {
+        "number": 27,
+        "bookId": "liao-book-027",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号27"
+      },
+      {
+        "number": 28,
+        "bookId": "liao-book-028",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号28"
+      },
+      {
+        "number": 29,
+        "bookId": "liao-book-029",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号29"
+      },
+      {
+        "number": 30,
+        "bookId": "liao-book-030",
+        "sourceId": "liao-picture-source",
+        "page": 3,
+        "locator": "正文配图3 · 图示编号30"
+      },
+      {
+        "number": 31,
+        "bookId": "liao-book-031",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号31"
+      },
+      {
+        "number": 32,
+        "bookId": "liao-book-032",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号32"
+      },
+      {
+        "number": 33,
+        "bookId": "liao-book-033",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号33"
+      },
+      {
+        "number": 34,
+        "bookId": "liao-book-034",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号34"
+      },
+      {
+        "number": 35,
+        "bookId": "liao-book-035",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号35"
+      },
+      {
+        "number": 36,
+        "bookId": "liao-book-036",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号36"
+      },
+      {
+        "number": 37,
+        "bookId": "liao-book-037",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号37"
+      },
+      {
+        "number": 38,
+        "bookId": "liao-book-038",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号38"
+      },
+      {
+        "number": 39,
+        "bookId": "liao-book-039",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号39"
+      },
+      {
+        "number": 40,
+        "bookId": "liao-book-040",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号40"
+      },
+      {
+        "number": 41,
+        "bookId": "liao-book-041",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号41"
+      },
+      {
+        "number": 42,
+        "bookId": "liao-book-042",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号42"
+      },
+      {
+        "number": 43,
+        "bookId": "liao-book-043",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号43"
+      },
+      {
+        "number": 44,
+        "bookId": "liao-book-044",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号44"
+      },
+      {
+        "number": 45,
+        "bookId": "liao-book-045",
+        "sourceId": "liao-picture-source",
+        "page": 4,
+        "locator": "正文配图4 · 图示编号45"
+      },
+      {
+        "number": 46,
+        "bookId": "liao-book-046",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号46"
+      },
+      {
+        "number": 47,
+        "bookId": "liao-book-047",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号47"
+      },
+      {
+        "number": 48,
+        "bookId": "liao-book-048",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号48"
+      },
+      {
+        "number": 49,
+        "bookId": "liao-book-049",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号49"
+      },
+      {
+        "number": 50,
+        "bookId": "liao-book-050",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号50"
+      },
+      {
+        "number": 51,
+        "bookId": "liao-book-051",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号51"
+      },
+      {
+        "number": 52,
+        "bookId": "liao-book-052",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号52"
+      },
+      {
+        "number": 53,
+        "bookId": "liao-book-053",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号53"
+      },
+      {
+        "number": 54,
+        "bookId": "liao-book-054",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号54"
+      },
+      {
+        "number": 55,
+        "bookId": "liao-book-055",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号55"
+      },
+      {
+        "number": 56,
+        "bookId": "liao-book-056",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号56"
+      },
+      {
+        "number": 57,
+        "bookId": "liao-book-057",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号57"
+      },
+      {
+        "number": 58,
+        "bookId": "liao-book-058",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号58"
+      },
+      {
+        "number": 59,
+        "bookId": "liao-book-059",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号59"
+      },
+      {
+        "number": 60,
+        "bookId": "liao-book-060",
+        "sourceId": "liao-picture-source",
+        "page": 5,
+        "locator": "正文配图5 · 图示编号60"
+      },
+      {
+        "number": 61,
+        "bookId": "liao-book-061",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号61"
+      },
+      {
+        "number": 62,
+        "bookId": "liao-book-062",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号62"
+      },
+      {
+        "number": 63,
+        "bookId": "liao-book-063",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号63"
+      },
+      {
+        "number": 64,
+        "bookId": "liao-book-064",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号64"
+      },
+      {
+        "number": 65,
+        "bookId": "liao-book-065",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号65"
+      },
+      {
+        "number": 66,
+        "bookId": "liao-book-066",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号66"
+      },
+      {
+        "number": 67,
+        "bookId": "liao-book-067",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号67"
+      },
+      {
+        "number": 68,
+        "bookId": "liao-book-068",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号68"
+      },
+      {
+        "number": 69,
+        "bookId": "liao-book-069",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号69"
+      },
+      {
+        "number": 70,
+        "bookId": "liao-book-070",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号70"
+      },
+      {
+        "number": 71,
+        "bookId": "liao-book-071",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号71"
+      },
+      {
+        "number": 72,
+        "bookId": "liao-book-072",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号72"
+      },
+      {
+        "number": 73,
+        "bookId": "liao-book-073",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号73"
+      },
+      {
+        "number": 74,
+        "bookId": "liao-book-074",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号74"
+      },
+      {
+        "number": 75,
+        "bookId": "liao-book-075",
+        "sourceId": "liao-picture-source",
+        "page": 6,
+        "locator": "正文配图6 · 图示编号75"
+      },
+      {
+        "number": 76,
+        "bookId": "liao-book-076",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号76"
+      },
+      {
+        "number": 77,
+        "bookId": "liao-book-077",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号77"
+      },
+      {
+        "number": 78,
+        "bookId": "liao-book-078",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号78"
+      },
+      {
+        "number": 79,
+        "bookId": "liao-book-079",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号79"
+      },
+      {
+        "number": 80,
+        "bookId": "liao-book-080",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号80"
+      },
+      {
+        "number": 81,
+        "bookId": "liao-book-081",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号81",
+        "imageTitle": "Curious George Learns the Alphabet"
+      },
+      {
+        "number": 82,
+        "bookId": "liao-book-082",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号82"
+      },
+      {
+        "number": 83,
+        "bookId": "liao-book-084",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号83"
+      },
+      {
+        "number": 84,
+        "bookId": "liao-book-083",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号84"
+      },
+      {
+        "number": 85,
+        "bookId": "liao-picture-085",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号85"
+      },
+      {
+        "number": 86,
+        "bookId": "liao-picture-086",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号86"
+      },
+      {
+        "number": 87,
+        "bookId": "liao-picture-087",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号87"
+      },
+      {
+        "number": 88,
+        "bookId": "liao-picture-088",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号88"
+      },
+      {
+        "number": 89,
+        "bookId": "liao-picture-089",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号89"
+      },
+      {
+        "number": 90,
+        "bookId": "liao-picture-090",
+        "sourceId": "liao-picture-source",
+        "page": 7,
+        "locator": "正文配图7 · 图示编号90"
+      },
+      {
+        "number": 91,
+        "bookId": "liao-picture-091",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号91"
+      },
+      {
+        "number": 92,
+        "bookId": "liao-picture-092",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号92"
+      },
+      {
+        "number": 93,
+        "bookId": "liao-picture-093",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号93"
+      },
+      {
+        "number": 94,
+        "bookId": "liao-picture-094",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号94"
+      },
+      {
+        "number": 95,
+        "bookId": "liao-picture-095",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号95"
+      },
+      {
+        "number": 96,
+        "bookId": "liao-picture-096",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号96"
+      },
+      {
+        "number": 97,
+        "bookId": "liao-picture-097",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号97"
+      },
+      {
+        "number": 98,
+        "bookId": "liao-picture-098",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号98"
+      },
+      {
+        "number": 99,
+        "bookId": "liao-picture-099",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号99"
+      },
+      {
+        "number": 100,
+        "bookId": "liao-picture-100",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号100"
+      },
+      {
+        "number": 101,
+        "bookId": "liao-picture-101",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号101"
+      },
+      {
+        "number": 102,
+        "bookId": "liao-picture-102",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号102"
+      },
+      {
+        "number": 103,
+        "bookId": "liao-picture-103",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号103"
+      },
+      {
+        "number": 104,
+        "bookId": "liao-book-085",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号104"
+      },
+      {
+        "number": 105,
+        "bookId": "liao-book-086",
+        "sourceId": "liao-picture-source",
+        "page": 8,
+        "locator": "正文配图8 · 图示编号105"
+      },
+      {
+        "number": 106,
+        "bookId": "liao-book-087",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号106"
+      },
+      {
+        "number": 107,
+        "bookId": "liao-book-088",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号107"
+      },
+      {
+        "number": 108,
+        "bookId": "liao-book-089",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号108"
+      },
+      {
+        "number": 109,
+        "bookId": "liao-book-090",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号109"
+      },
+      {
+        "number": 110,
+        "bookId": "liao-book-091",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号110"
+      },
+      {
+        "number": 111,
+        "bookId": "liao-book-092",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号111"
+      },
+      {
+        "number": 112,
+        "bookId": "liao-book-093",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号112"
+      },
+      {
+        "number": 113,
+        "bookId": "liao-book-094",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号113"
+      },
+      {
+        "number": 114,
+        "bookId": "liao-book-095",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号114"
+      },
+      {
+        "number": 115,
+        "bookId": "liao-book-096",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号115"
+      },
+      {
+        "number": 116,
+        "bookId": "liao-book-097",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号116"
+      },
+      {
+        "number": 117,
+        "bookId": "liao-book-098",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号117"
+      },
+      {
+        "number": 118,
+        "bookId": "liao-book-099",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号118"
+      },
+      {
+        "number": 119,
+        "bookId": "liao-book-100",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号119"
+      },
+      {
+        "number": 120,
+        "bookId": "liao-picture-120",
+        "sourceId": "liao-picture-source",
+        "page": 9,
+        "locator": "正文配图9 · 图示编号120"
+      },
+      {
+        "number": 121,
+        "bookId": "liao-picture-121",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号121"
+      },
+      {
+        "number": 122,
+        "bookId": "liao-picture-122",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号122"
+      },
+      {
+        "number": 123,
+        "bookId": "liao-picture-123",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号123"
+      },
+      {
+        "number": 124,
+        "bookId": "liao-picture-124",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号124"
+      },
+      {
+        "number": 125,
+        "bookId": "liao-picture-125",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号125"
+      },
+      {
+        "number": 126,
+        "bookId": "liao-picture-126",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号126"
+      },
+      {
+        "number": 127,
+        "bookId": "liao-picture-127",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号127"
+      },
+      {
+        "number": 128,
+        "bookId": "liao-picture-128",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号128"
+      },
+      {
+        "number": 129,
+        "bookId": "liao-picture-129",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号129"
+      },
+      {
+        "number": 130,
+        "bookId": "liao-picture-130",
+        "sourceId": "liao-picture-source",
+        "page": 10,
+        "locator": "正文配图10 · 图示编号130"
+      }
+    ],
+    "note": "按文章正文配图的编号排列，1–130号是图示顺序，不表示必须逐本通关、年龄等级或难度递增。出版社后续扩充的30本标为“新增”，与较早版本100部的52周安排分别浏览。",
+    "groups": [
+      {
+        "id": "liao-picture-group-1",
+        "title": "图示主题①",
+        "range": [
+          1,
+          6
+        ]
+      },
+      {
+        "id": "liao-picture-group-2",
+        "title": "图示主题②",
+        "range": [
+          7,
+          35
+        ]
+      },
+      {
+        "id": "liao-picture-group-3",
+        "title": "图示主题③",
+        "range": [
+          36,
+          72
+        ]
+      },
+      {
+        "id": "liao-picture-group-4",
+        "title": "图示主题④",
+        "range": [
+          73,
+          84
+        ]
+      },
+      {
+        "id": "liao-picture-group-5",
+        "title": "图示主题⑤",
+        "range": [
+          85,
+          94
+        ]
+      },
+      {
+        "id": "liao-picture-group-6",
+        "title": "图示主题⑥",
+        "range": [
+          95,
+          103
+        ]
+      },
+      {
+        "id": "liao-picture-group-7",
+        "title": "图示主题⑦",
+        "range": [
+          104,
+          119
+        ]
+      },
+      {
+        "id": "liao-picture-supplement",
+        "title": "新增书目",
+        "range": [
+          120,
+          130
+        ]
+      }
+    ],
+    "differences": [
+      "图示83号是Kipper’s Christmas Eve、84号是Kipper’s Monster，指导书书末编号相反，按书名关联原有稳定ID。",
+      "图示104–119号对应旧100本的85–100号；图示85–103、120–130号为出版社后续新增的30部。",
+      "配图的主题编号与指导书五章及周计划四阶段分别保留，不能换算为统一难度等级。"
+    ],
+    "editionNote": "出版社后续将书单扩充到130本；现有100部52周计划表对应较早版本，新增30本标为“新增”。",
+    "editionEvidence": {
+      "kind": "user-confirmed",
+      "checkedAt": "2026-11-06",
+      "note": "用户确认：新增的30本是出版社后续新增，之前的版本较早，数目没有现在的多。"
+    }
+  },
+  "method": {
+    "basis": "以下按本页所附《用有声书轻松听出英语力》扫描版整理。短引文保留原意，操作示例明确为本站整理；图示130本的第三方经验另列。",
+    "dailySummary": "常态：每天至少3次，每次约30分钟；起步：用几分钟的短故事，一天多次累计至少半小时，再逐步建立规律。可以边玩边听，不要求连坐90分钟。",
+    "rotationSummary": "每周选播3–4本，原则上每本听一周后轮换，之后回头复习。会哼唱是听进去的起步；愿意自然、完整讲述，才是原书打★的内化表现。轮换不以背诵通关为前提。",
+    "branches": [
+      {
+        "title": "选好书与声音",
+        "text": "高重复、押韵、好插画；从童谣韵文起步，核对音频与手头绘本版本。",
+        "page": 17
+      },
+      {
+        "title": "把聆听放进生活",
+        "text": "常态3次×约30分钟；起步短故事多次累计约30分钟，不强制坐定或看字。",
+        "page": 26
+      },
+      {
+        "title": "反复听，留出理解空间",
+        "text": "绘本放在手边，让声音、插画和情节帮助理解；不逐句翻译，不抽问。",
+        "page": 21
+      },
+      {
+        "title": "跟念与哼唱自然冒出",
+        "text": "自言自语、跟念、哼唱都是信号；可邀跟读，不纠音、不苛求流利。",
+        "page": 27
+      },
+      {
+        "title": "轮换与复习成循环",
+        "text": "一周轮换，复习旧书；52周表保留自己的具体复习周段，书号不是通关门槛。",
+        "page": 14
+      },
+      {
+        "title": "内化后继续走向阅读",
+        "text": "内化后继续重听、翻阅，从熟悉字音走向辨识字形和独立阅读；看图复述不等于认读。",
+        "page": 33
+      }
+    ],
+    "sections": [
+      {
+        "id": "liao-method-principles",
+        "title": "先建立听力：家长准备，孩子吸收",
+        "points": [
+          "原书“四不一没有”：不必先认单字、不必先学音标、不必先学文法、不必中文翻译，没有抽问考试。家长的任务是准备优质且多样的书与声音、安排规律播放，给孩子时间。",
+          "起步选简单、高重复、押韵的童谣韵文。原书明确建议Dr. Seuss先Hop On Pop、The Foot Book，再接续Green Eggs and Ham等；完整书目编号不能直接解释为难度顺序。",
+          "孩子初期是听众，听懂故事与自己阅读故事是两件事。不要求边听边看、强制指字；玩积木、画画时可播放，绘本放在容易取到的地方。",
+          "用声音、插图和情节慢慢揣摩，不急着问“懂不懂”，不逐句翻译。作者不按生理年龄标每本的适读年龄，应考虑英语接触经验；书号与周次不用于自动晋级。"
+        ],
+        "sources": [
+          {
+            "sourceId": "liao-book-source",
+            "page": 16,
+            "locator": "原书 · 纸页30–31（PDF 16）",
+            "quote": "不必先認單字……沒有抽問考試"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 17,
+            "locator": "原书 · 纸页32–33（PDF 17）",
+            "quote": "先從Hop On Pop和The Foot Book這兩本入門"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 21,
+            "locator": "原书 · 纸页40–41（PDF 21）",
+            "quote": "「聽懂故事」與「自己閱讀故事」是兩回事"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 18,
+            "locator": "原书 · 纸页34–35（PDF 18）",
+            "quote": "這個故事能否「貼近孩子的心」"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 19,
+            "locator": "原书 · 纸页36–37（PDF 19）",
+            "quote": "對「聲音」和「圖像」的體驗，可以訓練他們抓住要點、發揮聯想力"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 37,
+            "locator": "原书 · 纸页72–73（PDF 37）",
+            "quote": "我不標示適讀年齡"
+          }
+        ]
+      },
+      {
+        "id": "liao-method-daily",
+        "title": "每天多久，怎么安排",
+        "points": [
+          "原书常态建议一天至少3次，每次约30分钟，约90分钟；可放在起床后、饭前后、接送通勤、睡前等固定时段。家长不必全程陪读，质量与规律同样重要。",
+          "原书也明确给出初期方式：一个故事CD不足10分钟，一天多次，全天累计至少半小时；注意力可从3–5分钟的简短故事逐步建立。这两种时长对应起步与日常安排，不要求一开始坐满90分钟。",
+          "一周选3–4本，分散到日常播放；每次聆听时段可以包含几本短故事和重复播放，不把30分钟误当单本音轨长度。关掉电视等竞争声音，保持轻松。"
+        ],
+        "sources": [
+          {
+            "sourceId": "liao-book-source",
+            "page": 14,
+            "locator": "原书 · 纸页26–27（PDF 14）",
+            "quote": "每天至少三次，每次最少三十分鐘"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 25,
+            "locator": "原书 · 纸页48–49（PDF 25）",
+            "quote": "一天至少播放三次，每次約三十分鐘"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 26,
+            "locator": "原书 · 纸页50–51（PDF 26）",
+            "quote": "一天多次播放，整天累積聽英文的時間至少半小時"
+          }
+        ]
+      },
+      {
+        "id": "liao-method-audio",
+        "title": "音频怎样用：朗读、歌唱、回声跟念",
+        "points": [
+          "原书以JYbooks为例的录制顺序是Story Reading完整朗读 → Story Song歌唱 → Echo Chant回声跟念；这是音频呈现形式，不能要求孩子首次就跟完三轮。",
+          "先确认文件实际内容与绘本相符，轻松播放朗读或唱读；熟悉后，孩子愿意时再用Echo Chant留白跟念。初期只听也可以，愿意开口就鼓励，不立即纠音、不追求完美。",
+          "lyra麻麻的文章偏重音乐、唱读的吸引力，“先听音乐、不急讲解”属于文章作者个人经验；可用于引起兴趣，不改写为廖彩杏唯一规定。",
+          "本站每本仅精选部分音频，不保证含上述三种形式；可从“资料”弹窗按实际文件标题寻找其他版本。不同录音分别核对；纯音乐与伴奏不作为故事聆听素材。"
+        ],
+        "sources": [
+          {
+            "sourceId": "liao-book-source",
+            "page": 27,
+            "locator": "原书 · 纸页52–53（PDF 27）",
+            "quote": "先完整的朗讀一次……再以歌唱形式唱一次……當回音跟唸一次"
+          }
+        ]
+      },
+      {
+        "id": "liao-method-rotation",
+        "title": "什么时候换书，什么时候算内化",
+        "points": [
+          "轮换：原则每本播放一周，下一周换不同有声书，之后重复旧内容。不同书长短不同、孩子吸收速度不同，不计较固定遍数；可以保持弹性，不能把每周背完设成门槛。",
+          "复习：原书概述每周3–4本，每月12–16本，之后两周复播上个月；本页52周Excel有具体复习段，按原表保留，不把概述改成每一段都恰好两周。",
+          "听进去的信号：喃喃自语、有一搭没一搭地跟念、哼、唱。此时继续听、继续鼓励，不抽问词义，不靠考试判断吸收。没有马上开口也不能据此判定没学到。",
+          "完整内化：原书描述孩子愿意、自信地拿起书翻页，流畅自然、连续完整说出故事，这时可在作者播放记录单上打★；可借声音记忆和插画，不以识字、翻译或每个单词都认识为条件。",
+          "一本不是“一次读完就结束”，也不必一直卡住等到完整复述才接触新书。轮换、回访和内化分别观察；背得出故事不等于独立阅读。"
+        ],
+        "sources": [
+          {
+            "sourceId": "liao-book-source",
+            "page": 14,
+            "locator": "原书 · 纸页26–27（PDF 14）",
+            "quote": "不要計較固定次數，把握原則、保持彈性"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 27,
+            "locator": "原书 · 纸页52–53（PDF 27）",
+            "quote": "一週選播3～4本……之後兩週……重複播放"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 28,
+            "locator": "原书 · 纸页54–55（PDF 28）",
+            "quote": "憑著聲音記憶，加上故事插畫提醒……把書本的內容完整說出來"
+          }
+        ]
+      },
+      {
+        "id": "liao-method-reading",
+        "title": "长期路径：从听故事到自己阅读",
+        "points": [
+          "原书概括有声书的三阶段功效：培养听力 → 辨识单字 → 独立阅读。先通过好故事熟悉英语声音、建立兴趣，再在反复听与翻阅中，从熟悉字音逐步联系字形。",
+          "同一本好书可以在不同阶段反复使用，后来自己阅读时会发现新的细节。原书的三阶段是长期效果，不能把图示主题、周次或某一本的编号直接换算成阶段门槛。",
+          "跟音频背诵或凭插画讲出故事，说明声音与内容已熟悉；是否能自己读文字要另行观察，不因会复述就认定已经独立阅读。"
+        ],
+        "sources": [
+          {
+            "sourceId": "liao-book-source",
+            "page": 33,
+            "locator": "原书 · 纸页64–65（PDF 33）",
+            "quote": "「培養聽力、辨識單字、獨立閱讀」是有聲書所能發揮的三階段功效"
+          },
+          {
+            "sourceId": "liao-book-source",
+            "page": 28,
+            "locator": "原书 · 纸页54–55（PDF 28）",
+            "quote": "我發現他們根本還不會閱讀英文字"
+          }
+        ]
+      }
+    ],
+    "example": {
+      "title": "拿到一本素材后：以Brown Bear为例",
+      "label": "本站依原书原则整理的操作示例，不是作者逐日任务表",
+      "steps": [
+        "准备：打开Brown Bear, Brown Bear, What Do You See?详情，核对绘本与音频版本；把书放到孩子容易取到的地方。",
+        "第一次：在轻松时段播完整朗读或唱读，不先讲单词、不抽问。孩子愿意就一起看图，不愿翻书也可以先听。",
+        "这一周：和另外2–3本轮流进入固定聆听时段，反复听熟；无需每天换新书，不强制指字或跟读。",
+        "出现响应：留意孩子自发哼唱、跟念重复句，顺势回应和鼓励；有合适的Echo Chant录音且孩子愿意，再邀请跟念。",
+        "轮换与回访：原则下一周换新组合，在复习周再听旧书；若孩子愿意翻书自然讲完整故事，可视作原书所述的内化表现，仍可日后重听。"
+      ],
+      "bookId": "liao-book-025",
+      "sources": [
+        {
+          "sourceId": "liao-book-source",
+          "page": 21,
+          "locator": "原书 · 纸页40–41（PDF 21）",
+          "quote": "孩子是聽眾"
+        },
+        {
+          "sourceId": "liao-book-source",
+          "page": 27,
+          "locator": "原书 · 纸页52–53（PDF 27）",
+          "quote": "不要糾正，不要苛求"
+        },
+        {
+          "sourceId": "liao-book-source",
+          "page": 28,
+          "locator": "原书 · 纸页54–55（PDF 28）",
+          "quote": "表示孩子已完全將這個故事內化了"
+        }
+      ]
+    },
+    "dailyBrief": "起步可用短故事多次累计至少半小时；常态每天至少3次、每次约30分钟，可边玩边听。",
+    "rotationBrief": "每周选播3–4本，轮换后再复习。会哼唱是吸收起步；愿意自然完整讲述是内化表现，不必背完才换书。"
   }
 }

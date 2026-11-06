@@ -1299,7 +1299,7 @@ function librarySeriesCountSummary(resource,count){
     count.unknown.length?h('details',{class:'practice-book-sources'},h('summary',{},'路线引用中的未定范围 · '+count.unknown.length),h('p',{class:'small-note'},count.unknown.join('、'))):null);
 }
 function resourceBookCatalog(resource,expanded=false){
-  if(resource.liaoBookId)return h('p',{class:'small-note'},'52周参考书单中的单本作品；参考表收录不代表资料包齐全，目录核对见书单详情。');
+  if(resource.liaoBookId)return h('p',{class:'small-note'},'廖彩杏图示书单中的单本作品；图示与52周表分别保留，收录不代表资料齐全，目录核对见书单详情。');
   const quantity=librarySeriesCount(resource),body=librarySeriesCountSummary(resource,quantity);
   return expanded?h('div',{},h('h2',{},resource.title+' · 级别与册数'),body):readingFold('resource-books-'+resource.id,'级别与册数',body);
 }
@@ -1394,7 +1394,7 @@ function libraryCard(r){
     h('div',{class:'library-card-head'},btn(familyCover(r),'resource',{id:'library-cover-'+r.id,'data-id':r.id,'aria-label':'查看'+r.title,'aria-haspopup':'dialog',title:'查看完整详情'},'card-view-btn library-card-cover'),
       h('div',{class:'library-card-heading'},
         h('div',{class:'resource-title'},h('h3',{class:'library-series-heading'},h('a',{href:'#library',class:'card-view-btn','data-action':'resource',id:'library-title-'+r.id,'data-id':r.id,'aria-label':r.title+'完整详情','aria-haspopup':'dialog',title:'查看完整详情'},title),['book','reader'].includes(r.type)||bookCount.total?'\u00a0':null,['book','reader'].includes(r.type)||bookCount.total?btn(countLabel,'resource-books',{id:'library-count-'+r.id,'data-id':r.id,'aria-label':r.title+'当前筛选数量 · '+countLabel+'；查看各级册数、版本与来源',title:'查看各级册数、版本与来源'},'text-link library-book-link'):null)))),
-    h('div',{class:'library-card-tools'},r.liaoBookId?h('span',{class:'small-note'},'52周参考书单'):libraryReferenceCount(r.appearances.length),resourceStatusControl(r,false,true),
+    h('div',{class:'library-card-tools'},r.liaoBookId?h('span',{class:'small-note'},'廖彩杏书单'):libraryReferenceCount(r.appearances.length),resourceStatusControl(r,false,true),
       songResourceIds.has(r.id)?btn(icon('music'),'sss-songs',{id:'library-songs-'+r.id,'data-id':r.id,'aria-label':r.title+'分类歌单',title:'分类歌单'},'icon-button library-song-link'):null,
       btn(icon('heart'),'favorite',{id:'library-favorite-'+r.id,'data-id':r.id,'aria-label':(S.favorites.includes(r.id)?'取消收藏':'收藏')+r.title,title:S.favorites.includes(r.id)?'取消收藏':'收藏',style:{color:S.favorites.includes(r.id)?'#bc8664':''},'aria-pressed':S.favorites.includes(r.id)},'icon-button'),cardUsageToggle(r,usage)),usage));
 }
@@ -1634,7 +1634,7 @@ function songLibrary(){const context=S.modal.stageId?stages.get(S.modal.stageId)
 }
 function resourceDetail(r){if(!r)return h('p',{},'未找到这个素材。');
   if(r.liaoBookId&&!r.appearances.length){
-    const book=LIAO.books.find(book=>book.id===r.liaoBookId);
+    const book=window.EnglishLiao.findBook(LIAO,r.liaoBookId);
     return h('div',{},h('h2',{},materialUI.name(r.title,false)),window.EnglishLiao.detail(LIAO,book,{h,asset,sourceBtn,onResource:openLiaoResource,fold:(key,title,body)=>readingFold(key,title,body,false,'series-evidence')}),r.cover?readingFold('liao-cover-'+book.id,'单本封面与原图',h('div',{},btn(h('img',{class:'detail-preview',src:asset(r.cover),alt:book.title+' 原书书目封面缩图'}),'resource-preview',{'data-id':r.id,'aria-label':'放大查看'+book.title+'的图片'},'detail-preview-trigger'),h('p',{class:'small-note'},book.coverEvidence)),false,'series-evidence'):null);
   }
 const rel=C.relationships.filter(e=>e.from===r.id||e.to===r.id);const related=Array.from(new Set(rel.map(e=>e.from===r.id?e.to:e.from))).filter(id=>byId.has(id)&&id!==r.id);const record=S.records[r.id]||{};return h('div',{},h('div',{class:'resource-detail-heading'},
