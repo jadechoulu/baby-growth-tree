@@ -1155,6 +1155,11 @@
           "url": "https://www.yu-er.com/700/",
           "evidence": "70本目录为Getting Started1–10，A11–30，B31–50，C51–70，和国内选本分类不同。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "海尼曼 GK——句型分类 · 亲子时光",
+          "url": "https://www.zconnect.cn/home/zsviewer?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E8%8B%B1%E8%AF%AD%E5%90%AF%E8%92%99%2F%E8%AE%B8%E5%AF%86%E6%9D%89%E8%B7%AF%E7%BA%BF%2F%E6%B5%B7%E5%B0%BC%E6%9B%BCGK.pdf&name=%E6%B5%B7%E5%B0%BC%E6%9B%BCGK.pdf&readonly=1",
+          "evidence": "用户提供的3页原表逐行列出70本书号、书名、A/B/C及句型，A43、B15、C12；逐本顺序与句型维护于reading-plans.json。"
         }
       ],
       "scopes": [
@@ -1428,7 +1433,8 @@
         }
       ],
       "checkedAt": "2026-11-05",
-      "title": "海尼曼 GK70"
+      "title": "海尼曼 GK70",
+      "readingPlanId": "heinemann-gk70"
     },
     {
       "resourceId": "resource-1cn6i3m",
@@ -12651,6 +12657,21 @@
       "resourceId": "resource-zl69cf",
       "stageId": "qing-s2",
       "scopeId": "buddy-parent-d"
+    },
+    {
+      "resourceId": "resource-hojfp0",
+      "stageId": "xu-3",
+      "scopeId": "heinemann-gk70-domestic-a"
+    },
+    {
+      "resourceId": "resource-hojfp0",
+      "stageId": "xu-4",
+      "scopeId": "heinemann-gk70-domestic-b"
+    },
+    {
+      "resourceId": "resource-hojfp0",
+      "stageId": "xu-5",
+      "scopeId": "heinemann-gk70-domestic-c"
     }
   ]
 }

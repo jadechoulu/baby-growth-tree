@@ -104,7 +104,7 @@ test('词汇目标参考独立于共用书籍，不改变级别证据或原节�
 });
 
 test('年龄、阅读词数及其他许密杉版本不能自动作为听力词汇阶段对应', () => {
-  for (const id of ['banana-pre', 'xu-panorama-reading-extensive', 'xu-thousand-1', 'xu-1']) {
+  for (const id of ['banana-pre', 'xu-panorama-reading-extensive', 'xu-thousand-1']) {
     assert.ok(model.compareStages(currentCatalog, id).every(group => !group.vocabularyComparable && group.matches.every(match => !match.vocabularyAlignment)));
   }
 });
@@ -289,8 +289,8 @@ test('全部原始素材和所有阶段引用均可追溯到有效规范实体',
     }
   }
   assert.equal(catalog.routes.find(r => r.id === 'banana').stages[0].raw.order, 0);
-  assert.deepEqual(catalog.sources.map(s => s.id), ['banana', 'xu', 'qing', 'qing-xhs-20261030', 'qing-effective-time-v2', 'age', 'reading']);
-  assert.ok(catalog.sources.every(s => s.file && s.previews.length));
+  assert.deepEqual(catalog.sources.map(s => s.id), ['banana', 'xu', 'xu-live-core', 'xu-live-notes', 'qing', 'qing-xhs-20261030', 'qing-effective-time-v2', 'age', 'reading']);
+  assert.ok(catalog.sources.every(s => s.file && (s.previews.length || /^https?:/.test(s.file))));
   for (const edge of catalog.relationships) {
     assert.ok(ids.has(edge.from)); assert.ok(ids.has(edge.to));
   }
@@ -508,6 +508,8 @@ test('阶段交集计数按套系去重，起步参考之后优先级别交集�
         }
         if (index) {
           const previous = route.matches[index - 1];
+          assert.ok(Number(!!previous.vocabularyAlignment) >= Number(!!match.vocabularyAlignment));
+          if (!!previous.vocabularyAlignment !== !!match.vocabularyAlignment) continue;
           assert.ok(Number(!!previous.startingAlignment) >= Number(!!match.startingAlignment));
           if (!!previous.startingAlignment === !!match.startingAlignment) assert.ok(previous.overlapCount > match.overlapCount || previous.overlapCount === match.overlapCount &&
             (previous.exactCount > match.exactCount || previous.exactCount === match.exactCount && previous.sharedCount >= match.sharedCount));
@@ -648,16 +650,17 @@ test('素材统一名称和级别，既不重复套系标尺，也不丢失级�
 });
 
 test('阶段素材按原文主线、共用辅线、未定用途排序，同作者多版本不冒充跨路线共用', () => {
+  const roleEvidence = kind => ({ status: 'confirmed', kind, usage: kind === 'main' ? '主线' : '平行拓展', basis: '测试原表的明确用途' });
   const sample = model.normalize({
     xu: {
       resources: ['普通', '同套系异级', '同级共用', '主线', '特色', '同作者共用'].map((title, i) => ({ id: 'x' + i, title, type: 'reader' })),
       stages: [{ id: 'xu-3', materials: [
-        { resourceId: 'x0', role: 'parallel', level: '1' },
-        { resourceId: 'x1', role: 'parallel', level: '1' },
-        { resourceId: 'x2', role: 'parallel', level: '1', page: 3 },
-        { resourceId: 'x3', role: 'main', level: '1' },
+        { resourceId: 'x0', role: 'parallel', level: '1', roleEvidence: roleEvidence('auxiliary') },
+        { resourceId: 'x1', role: 'parallel', level: '1', roleEvidence: roleEvidence('auxiliary') },
+        { resourceId: 'x2', role: 'parallel', level: '1', page: 3, roleEvidence: roleEvidence('auxiliary') },
+        { resourceId: 'x3', role: 'main', level: '1', roleEvidence: roleEvidence('main') },
         { resourceId: 'x4', role: 'recommended', level: '1' },
-        { resourceId: 'x5', role: 'parallel', level: '1' }
+        { resourceId: 'x5', role: 'parallel', level: '1', roleEvidence: roleEvidence('auxiliary') }
       ] }]
     },
     qing: {
@@ -856,7 +859,8 @@ test('每位作者一条路线，领域节点与补充执行表分开，不把�
   assert.equal(unified.routes.length, 3);
   const original = JSON.stringify(unified);
   const listening = model.getRoutePlan(unified, 'xu', 'listening');
-  assert.deepEqual(listening.stages.map(s => s.id), [300,500,800,1000,2000].map(n=>'xu-current-'+n));
+  assert.deepEqual(listening.stages.map(s => s.id), [1,2,3,4,5,6].map(n=>'xu-'+n));
+  assert.equal(unified.routes.find(r=>r.id==='xu').defaultVariantId,'xu-listening');
   assert.deepEqual(listening.supportingStages.map(s=>s.id), ['xu-thousand-1']);
   for (const domain of routePlan.domains) for (const route of unified.routes) {
     const plan = model.getRoutePlan(unified, route.id, domain.id);
@@ -878,7 +882,10 @@ test('每位作者一条路线，领域节点与补充执行表分开，不把�
   assert.ok(model.getRoutePlan(unified,'banana','speaking').supportingStages.every(s=>s.schedules.some(sc=>/跟读/.test(sc.output||''))));
   assert.ok(['speaking','reading','writing'].every(domain=>model.getRoutePlan(unified,'qing',domain).stages.length===0));
   assert.equal(JSON.stringify(unified), original);
-  assert.deepEqual(model.recommend({birthDate:'2024-11-24',asOf:'2026-10-29',listeningWords:70},unified),model.recommend({birthDate:'2024-11-24',asOf:'2026-10-29',listeningWords:70},currentCatalog));
+  const recommendation=model.recommend({birthDate:'2024-11-24',asOf:'2026-10-29',listeningWords:70},unified);
+  assert.equal(recommendation.routeStages.xu,'xu-1');
+  assert.equal(recommendation.automaticPromotion,false);
+  assert.ok(recommendation.suggested.some(id=>unified.resources.find(r=>r.id===id).title==='培生词汇妙趣屋'),'直播并行起步的绘本仍可推荐');
 });
 
 test('领域对照不借用其他能力的阶段，原表与所有旧节点仍可追溯', () => {

@@ -433,7 +433,7 @@
 .reading-fold-body{min-width:0}
 .compact-stage-title small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
 .route-help .comparison-legend{display:none}
-.stage-criteria>summary{display:none}.stage-criteria{margin:0}
+.stage-criteria{margin:0}
 .mobile-type-select,.mobile-stage-picker,.mobile-relation-select,.mobile-relations{display:none}
 .library-filters>summary,.source-pages>summary,.stage-list>.reading-fold>summary{display:none}
 .library-filters{margin-bottom:12px}
@@ -615,8 +615,6 @@
 }
 
 @media(max-width:900px){
-  .stage-criteria>summary{display:flex;font-size:12px;padding:8px 10px;min-height:36px;font-weight:500}
-  .stage-criteria{margin:10px 0;background:#f6f8f3}.stage-criteria>.reading-fold-body{padding:0 10px 10px}
   .library-search input,.mobile-type-select,.library-filter-options select,.mobile-relation-select select,.mobile-stage-picker select{font-size:16px}
   .section-head>.text-link{flex:0 1 auto;white-space:normal;font-size:12px}
 }
@@ -685,7 +683,7 @@
   .origin-stage .stage-resource-tags button{font-size:13px}
   .origin-stage .stage-open{min-height:44px;margin-top:6px}
   .alignment-overview{margin:8px 0;padding:8px 10px}
-  .alignment-overview>summary,.alignment-remaining>summary,.route-help>summary,.stage-criteria>summary{min-height:44px;display:flex;align-items:center}
+  .alignment-overview>summary,.alignment-remaining>summary,.route-help>summary{min-height:44px;display:flex;align-items:center}
   .alignment-target-details>summary{padding:10px;min-height:44px;gap:6px}
   .alignment-expand{display:none}
   .mobile-baby-title{display:block;font-size:21px;margin:0 0 8px}
@@ -1851,3 +1849,26 @@
 .liao-method-section{margin:16px 0}.liao-method h4{font-size:16px;margin:8px 0}
 .liao-method-section ul,.liao-method-example ol{padding-left:22px;margin:6px 0}.liao-method li{font-size:15px;line-height:1.7;margin:5px 0}
 .liao-method .small-note{font-size:12px}.liao-method .text-link{max-width:100%;white-space:normal;text-align:left;overflow-wrap:anywhere;margin-right:8px}
+/* 公共逐本阅读计划：素材及路线进度共用同一个列表。 */
+.reading-plan{min-width:0}
+.reading-plan h2{margin:0 0 12px;overflow-wrap:anywhere}
+.reading-plan-toolbar,.reading-plan-filters,.reading-import-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.reading-plan-filters button{min-height:36px;border:1px solid var(--line,#d3ddd8);border-radius:8px;background:var(--paper,#fff);color:inherit;padding:6px 10px;font:inherit;font-size:15px}
+.reading-plan-filters button[aria-pressed="true"]{background:var(--accent,#2e6954);color:white;border-color:var(--accent,#2e6954)}
+.reading-plan-summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 12px;margin:12px 0 4px}
+.reading-plan-summary small{display:block;width:100%;font-size:12px;color:var(--muted,#64756c)}
+.reading-book-list{padding:0;margin:12px 0;list-style:none}
+.reading-book-item{min-width:0}
+.reading-pattern-heading{margin:14px 0 4px;padding:7px 0;border-bottom:1px solid var(--line,#d3ddd8);font-size:15px}
+.reading-book-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--line,#e2e8e3);min-width:0}
+.reading-book-row input[type="checkbox"]{width:20px;height:20px;flex:0 0 20px;margin:2px 0;accent-color:var(--accent,#2e6954);cursor:pointer}
+.reading-book-row input[disabled]{cursor:default;opacity:.8}
+.reading-book-row label{display:grid;gap:3px;flex:1;min-width:0;cursor:pointer}
+.reading-book-name{font-size:15px;overflow-wrap:anywhere}
+.reading-book-name small{font-size:12px;display:inline-block;min-width:53px;color:var(--muted,#64756c);margin-right:5px}
+.reading-book-patterns{display:flex;flex-wrap:wrap;gap:2px 10px;color:var(--muted,#64756c);font-size:15px;overflow-wrap:anywhere}
+.reading-import-mark{font-size:12px;flex:0 0 auto;color:var(--muted,#64756c)}
+.reading-import-toolbar{margin-top:16px}
+.reading-import-toolbar small{font-size:12px;color:var(--muted,#64756c)}
+.reading-plan button:focus-visible,.reading-book-row input:focus-visible{outline:2px solid var(--accent,#2e6954);outline-offset:3px}
+@media(max-width:390px){.reading-book-row{flex-wrap:wrap;gap:6px}.reading-book-row label{flex-basis:calc(100% - 28px)}.reading-import-mark{margin-left:26px}}
