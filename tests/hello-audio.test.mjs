@@ -63,6 +63,7 @@ function playerHarness(){
   get isConnected(){return document.body.contains(this);}
   setAttribute(name,value){this.attrs[name]=String(value);}
   getAttribute(name){return this.attrs[name]??null;}
+  querySelector(selector){return selector==='[data-audio-state-icon]'?this.children.find(child=>child.dataset?.audioStateIcon):null;}
   addEventListener(type,handler){this.listeners.set(type,handler);}
   focus(){document.activeElement=this;}
   get currentSrc(){return this.src?new URL(this.src,document.baseURI).href:'';}
@@ -93,6 +94,15 @@ test('快捷按钮自动播放并显示浮层，关闭停止并恢复入口和�
  player.focus();events.get('keydown')({target:player,key:'Escape',preventDefault(){},stopPropagation(){}});
  assert.equal(player.paused,true);assert.equal(popover.hidden,true);assert.equal(document.activeElement,first);
  await first.onclick({stopPropagation(){},preventDefault(){}});events.get('keydown')({target:first,key:'Escape',preventDefault(){},stopPropagation(){}});assert.equal(popover.hidden,true);assert.equal(player.paused,true);
+});
+
+test('带文件名的音频行只更新图标，播放暂停切歌及停止均同步且不丢失标题',async()=>{
+ const {api,document,h}=playerHarness(),first=api.audioButton('first.mp3','第一首',{h,asset:v=>v});
+ const marker=h('span',{},'▶'),label=h('span',{},'第一首.mp3');marker.dataset.audioStateIcon='true';first.append(marker,label);document.body.append(first);
+ await api.playSource('first.mp3','第一首');assert.equal(marker.textContent,'❚❚');assert.equal(first.getAttribute('aria-pressed'),'true');
+ await api.playSource('first.mp3','第一首');assert.equal(marker.textContent,'▶');assert.equal(first.getAttribute('aria-pressed'),'false');
+ await api.playSource('first.mp3','第一首');await api.playSource('second.mp3','第二首');assert.equal(marker.textContent,'▶');
+ await api.playSource('first.mp3','第一首');api.stop(false);assert.equal(marker.textContent,'▶');assert.equal(label.children[0],'第一首.mp3');assert.ok(first.children.includes(label));
 });
 
 test('切换音源复用浮层且旧失败不覆盖新音频，关闭后的迟到失败不显示错误',async()=>{

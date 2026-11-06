@@ -38,6 +38,41 @@ test('手动打勾和取消只修改同一单册身份，各阶段及套系即�
   assert.equal(B.bookState(records,'sample-01').done,false);
 });
 
+test('内化星标与完成相互独立；完成与取消不覆盖内化，不计完成数量',()=>{
+  let records={other:{status:'using',note:'保留其他记录'}};
+  assert.equal(B.internalized(records,'sample-01'),false);
+  records={...records,...B.internalizationUpdate(records,'sample-01',true)};
+  assert.equal(B.internalized(records,'sample-01'),true);
+  assert.equal(B.bookState(records,'sample-01').done,false);
+  assert.equal(B.progress(records,plan).completed,0);
+  assert.deepEqual(B.internalizationUpdate(records,'sample-01',true),{});
+  records={...records,...B.manualUpdate(records,'sample-01',true)};
+  assert.equal(B.internalized(records,'sample-01'),true);
+  records={...records,...B.internalizationUpdate(records,'sample-01',false)};
+  assert.equal(B.internalized(records,'sample-01'),false);
+  assert.equal(B.bookState(records,'sample-01').done,true);
+  records={...records,...B.internalizationUpdate(records,'sample-01',true),...B.manualUpdate(records,'sample-01',false)};
+  assert.equal(B.bookState(records,'sample-01').done,false);
+  assert.equal(B.internalized(records,'sample-01'),true);
+  assert.deepEqual(records.other,{status:'using',note:'保留其他记录'});
+  assert.throws(()=>B.internalizationUpdate(records,'',true));
+  assert.throws(()=>B.internalizationUpdate(records,'sample-01','true'));
+});
+
+test('同本完成与内化分别同步，备份往返保留星标且取消只改内化记录',()=>{
+  const completed=B.manualUpdate({},'sample-01',true),internalized=B.internalizationUpdate({},'sample-01',true);
+  const merged=Sync.merge(wrap({}),Sync.normalize('english',wrap(completed)),Sync.normalize('english',wrap(internalized)));
+  assert.equal(merged.conflicts.length,0);
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(merged.snapshot)));
+  assert.equal(B.bookState(restored.records,'sample-01').done,true);
+  assert.equal(B.internalized(restored.records,'sample-01'),true);
+  const changes=B.internalizationUpdate(restored.records,'sample-01',false);
+  assert.deepEqual(Object.keys(changes),[B.INTERNALIZED+'sample-01']);
+  const result=Sync.normalize('english',wrap({...restored.records,...changes}));
+  assert.equal(B.internalized(result.records,'sample-01'),false);
+  assert.equal(B.bookState(result.records,'sample-01').done,true);
+});
+
 test('历史聚合数量不摊派逐本，不与明确勾选相加；其他版本和未知范围保持独立',()=>{
   const records=B.manualUpdate({},'sample-01',true),legacy={completed:2,total:2,percent:100,status:'done',unit:'本'};
   assert.equal(B.progress(records,plan,'A',legacy).completed,2);
