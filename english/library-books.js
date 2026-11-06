@@ -7,6 +7,20 @@ function topics(data,custom=[]){
   return result;
 }
 function topicIds(book,data){return T.entryTopics('book',book);}
+function seriesGroup(book,data){
+  const source=data.sources.find(source=>source.id===book.studyGuide?.sourceId),level=source?.level||'';
+  return {id:JSON.stringify([book.resourceId,book.seriesTitle||'',normalize(level)]),
+    label:[book.seriesTitle||book.resource.title,level.toUpperCase()].filter(Boolean).join(' ')};
+}
+function seriesGroups(books,data){
+  const groups=new Map();
+  for(const book of books){
+    const group=seriesGroup(book,data);
+    if(!groups.has(group.id))groups.set(group.id,{...group,count:0});
+    groups.get(group.id).count++;
+  }
+  return [...groups.values()];
+}
 function seriesFilter(books,{edition='all',topic='all',subtopic='all'}={}){
   return books.filter(book=>(edition==='all'||book.edition===edition)&&T.matches(T.entryTopics('book',book),{topic,subtopic}));
 }
@@ -36,6 +50,7 @@ function filter(books,data,filters={}){
     if(filters.route&&filters.route!=='all'&&(filters.route==='other'?!book.custom:!book.appearances.some(a=>a.routeId===filters.route)))return false;
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
+    if(filters.series&&filters.series!=='all'&&seriesGroup(book,data).id!==filters.series)return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
     if(query&&!normalize([book.title,...(book.aliases||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
@@ -143,5 +158,5 @@ function levelGroups(parts){
   }
   return [...editions.values()];
 }
-return {normalize,topics,topicIds,seriesFilter,bookAppearances,entries,filter,seriesCount,levelGroups};
+return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,bookAppearances,entries,filter,seriesCount,levelGroups};
 });

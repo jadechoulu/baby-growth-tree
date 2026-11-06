@@ -90,3 +90,5 @@ RAZ AA、A与培生基础词汇的原件保存在`english/assets/sources/reading
 表格分组并非自动正确：结合本条字词句核对内容，不把句型、词性或故事角色当作主题。原表题名冲突留在来源`unmatched`，不按同号绑定另一书的进度。只支持一级的条目保留一级；旧版与新版同名不能借用二级，待核理由保存在`subtopicPending`。新增节点与逐项纠正依据见[本批审计](audits/reading-guide-topic-review.json)。
 
 系列内统一调用`seriesTopicBrowser()`与`EnglishLibraryBooks.seriesFilter()`，版本、一级、二级取交集，一级包含子级；清回“全部主题”恢复全目录。分页、返回单册、普通重绘保留本轮筛选，筛选只改变展示，不改变完整版本的进度分母、稳定书目ID或个人勾选。图鉴主题筛选读取同一逐册映射。
+
+主题筛选后的图鉴结果在筛选栏下增加一行套系Tab。`EnglishLibraryBooks.seriesGroup/seriesGroups`读取公共书目的`resourceId/seriesTitle`和来源明确的`level`归组，培生上下辑同组、RAZ AA／A分组；不按分辑册号拆套系，也不单写RAZ判断。选项本数取当前主题、路线、阶段、搜索和状态的完整交集，不受分页或当前套系选择影响。套系选择再取交集，失效时恢复全部；清除主题隐藏并清空此行。Tab支持左右方向键、Home／End及局部单行横滑，布局切换、分页、详情返回保留选择与本轮横滑位置，不进入私人记录。
