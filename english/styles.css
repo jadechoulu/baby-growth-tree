@@ -1537,6 +1537,7 @@
 
 /* Hello：按书册、场景与童谣阅读；共用筛选只改变浏览状态。 */
 .hello-collection-tabs{margin-bottom:6px}
+.hello-collection-tabs>.button{padding:6px 9px;font-size:15px;min-height:44px}
 .hello-library{--hello-tune-ink:color-mix(in srgb,var(--orange,#c77b3e) 60%,var(--ink,#243b35));--hello-tune-bg:color-mix(in srgb,var(--orange,#c77b3e) 10%,var(--paper,#fff));--hello-tune-line:color-mix(in srgb,var(--orange,#c77b3e) 35%,var(--paper,#fff));width:100%;max-width:100%;min-width:0;box-sizing:border-box;container-type:inline-size}
 .hello-library [hidden]{display:none!important}
 .hello-view-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;margin-bottom:5px;border-bottom:1px solid var(--line,#dce6dd);padding-bottom:4px}
@@ -1793,7 +1794,6 @@
 .liao-library-toolbar{display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0;margin-bottom:6px;container-type:inline-size}
 .liao-library-nav{display:flex;align-items:center;gap:4px;min-width:0}
 .liao-library-nav>.hello-collection-tabs{flex-wrap:nowrap;gap:6px;margin:0;min-width:0}
-.liao-library-nav .button{padding:6px 9px;font-size:15px;min-height:44px}
 .liao-collection-short{display:none}
 .liao-controls{display:flex;align-items:center;gap:6px;min-width:0}
 .liao-controls .library-filter-button{flex:none}
