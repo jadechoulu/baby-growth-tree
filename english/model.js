@@ -318,8 +318,8 @@
       if (found.length > 1) found.forEach(function (r) { r.details.push({ label: '关联边界', text: pair.join(' / ') + (pair[0] === '牛津自然拼读' ? ' 在两份来源中仅有中文名称或简称，未注明英文名与版本，尚无法确认同一套教材；保留独立条目。' : ' 在来源中名称或套系不同，保留独立条目，不自动判为同一素材。'), routeId: '', page: null, sourceId: '', variantId: '' }); });
     });
     // 独立书单仅补充素材实体，不创建路线、阶段或进度单位。
-    array(raw.liaoReading && raw.liaoReading.books).forEach(function (book) {
-      var resource = addResource('liao', { id: book.id, title: book.title, type: 'book', cover: book.cover }, 'liao-plan', 'liao-booklist');
+    array(raw.liaoReading && raw.liaoReading.books).concat(array(raw.liaoReading && raw.liaoReading.supplementaryBooks)).forEach(function (book) {
+      var resource = addResource('liao', { id: book.id, title: book.title, type: 'book', cover: book.cover }, book.references.length ? 'liao-plan' : 'liao-picture-source', 'liao-booklist');
       resource.liaoBookId = book.id;
       resource.aliases = unique(resource.aliases.concat(book.references.map(function (ref) { return ref.original; })));
     });
