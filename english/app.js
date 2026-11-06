@@ -487,7 +487,7 @@ function syncRouteTabs(){
   document.querySelectorAll('.complete-comparison>.stage-comparison-row>[data-aligned-route]').forEach(panel=>{
     const active=!narrow||panel.dataset.alignedRoute===S.compareRoute;
     panel.classList.toggle('route-tab-inactive',!active);
-    if(!narrow&&!readingFolds.has(panel.dataset.foldKey))panel.open=true;
+    if(active&&!readingFolds.has(panel.dataset.foldKey))panel.open=true;
     if(narrow){panel.setAttribute('role','region');panel.setAttribute('aria-labelledby','browse-author-'+panel.dataset.alignedRoute);}else{panel.removeAttribute('role');panel.removeAttribute('aria-labelledby');}
   });
 }
