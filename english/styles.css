@@ -1794,19 +1794,9 @@
 .liao-library-nav{display:flex;align-items:center;gap:4px;min-width:0}
 .liao-library-nav>.hello-collection-tabs{flex-wrap:nowrap;gap:6px;margin:0;min-width:0}
 .liao-library-nav .button{padding:6px 9px;font-size:15px;min-height:44px}
-.liao-library-nav>.library-filter-control{flex:none}
 .liao-collection-short{display:none}
 .liao-controls{display:flex;align-items:center;gap:6px;min-width:0}
 .liao-controls .library-filter-button{flex:none}
-@container(max-width:440px){
-  .liao-library-nav,.liao-controls{gap:2px}
-  .liao-library-nav>.hello-collection-tabs{gap:3px}
-  .liao-library-nav .button{padding:6px;font-size:15px}
-  .liao-collection-full{display:none}
-  .liao-collection-short{display:inline}
-  .liao-library-toolbar .library-filter-button{width:26px;min-width:26px;height:32px;min-height:32px;padding:3px}
-  .liao-library-toolbar .library-filter-button .icon{width:18px;height:18px}
-}
 .liao-reading .result-count{margin:6px 0;font-size:12px}
 .liao-plan-stage{min-width:0;border-bottom:1px solid var(--line,#dce6dd);padding:4px 0}
 .liao-plan-stage>summary{display:flex;align-items:baseline;gap:10px;list-style:none;cursor:pointer;min-height:44px;padding:8px 0;line-height:1.5}
@@ -1819,7 +1809,7 @@
 .liao-plan-stage[open]>summary::after{content:'−'}
 .liao-plan-stage-body{min-width:0;padding-bottom:8px}
 .liao-week-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:4px;margin-bottom:8px;min-width:0;padding:2px;scroll-padding:2px;overscroll-behavior-x:contain}
-.liao-week-tab{flex:none;white-space:nowrap;font:inherit;font-size:15px;min-width:44px;min-height:44px;padding:5px 8px;border:1px solid var(--line,#dce6dd);border-radius:6px;background:var(--paper,#fff);color:inherit;cursor:pointer}
+.liao-week-tab{flex:none;white-space:nowrap;font:inherit;font-size:15px;line-height:20px;min-width:44px;min-height:32px;padding:2px 8px;border:1px solid var(--line,#dce6dd);border-radius:6px;background:var(--paper,#fff);color:inherit;cursor:pointer}
 .liao-complete{display:inline-grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid var(--line,#dce6dd);border-radius:6px;background:var(--paper,#fff);color:var(--muted,#69756d);cursor:pointer}
 .liao-completion-circle{display:grid;place-items:center;width:18px;height:18px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box}
 .liao-completion-circle .icon{width:12px;height:12px;visibility:hidden}
@@ -1872,11 +1862,27 @@
 .liao-media-links .text-link{overflow-wrap:anywhere;white-space:normal}
 
 /* 图示编号、周计划与使用方法各自保留依据。 */
-.liao-mode-switch{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0}
-.liao-mode-switch>[hidden]{display:none}
-.liao-mode-button{font:inherit;font-size:15px;min-height:44px;border:1px solid var(--line,#dce6dd);border-radius:8px;padding:6px 10px;background:var(--paper,#fff);color:inherit;cursor:pointer;max-width:100%;white-space:normal}
-.liao-mode-button[aria-pressed=true]{border-color:var(--accent,#2e6954);background:var(--accent-soft,#e9f1e9);color:var(--accent,#2e6954);font-weight:700}
-@container(max-width:440px){.liao-mode-switch{gap:3px}.liao-mode-button{padding-inline:4px}.liao-mode-switch .library-filter-button{width:32px;min-width:32px;padding:5px}}
+.liao-mode-switch{display:flex;align-items:center;flex-wrap:nowrap;gap:4px 12px;margin:2px 0 8px}
+.liao-mode-tabs{display:flex;align-items:stretch;gap:12px;max-width:100%;min-width:0}
+.liao-mode-tools{display:flex;align-items:center;gap:4px;flex:none;margin-left:auto}
+.liao-mode-tools>[hidden]{display:none}
+.liao-mode-button{font:inherit;font-size:15px;min-height:44px;min-width:0;border:0;border-bottom:2px solid transparent;border-radius:0;padding:6px 2px;background:transparent;color:var(--muted,#69756d);cursor:pointer;white-space:nowrap}
+.liao-mode-button[aria-pressed=true]{border-bottom-color:var(--accent,#2e6954);color:var(--accent,#2e6954);font-weight:700}
+@container(max-width:440px){
+  .liao-mode-switch{column-gap:4px}
+  .liao-mode-tabs{gap:4px;flex:none}
+  .liao-mode-button{font-size:13px;padding-inline:1px}
+  .liao-mode-tools,.liao-controls{gap:0}
+  .liao-mode-tools .library-filter-button{width:22px;min-width:22px;height:32px;min-height:32px;padding:2px}
+  .liao-mode-tools .library-filter-button .icon{width:16px;height:16px}
+}
+@container(max-width:330px){
+  .liao-mode-switch{column-gap:2px}
+  .liao-mode-tabs{gap:2px}
+  .liao-mode-button{font-size:12px}
+  .liao-mode-tools .library-filter-button{width:18px;min-width:18px;padding:1px}
+  .liao-mode-tools .library-filter-button .icon{width:14px;height:14px}
+}
 .liao-method-fold{color:var(--muted);font-size:13px}
 .liao-method-fold>summary,.liao-method .liao-fold>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 8px;font-size:13px;font-weight:500;line-height:1.6}
 .liao-method-fold>summary::after,.liao-method .liao-fold>summary::after{content:'＋';margin-left:auto;color:var(--green);font-size:16px;font-weight:400}
