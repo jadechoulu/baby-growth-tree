@@ -192,7 +192,7 @@
           pages: pagesOf(original), preview: previewOf(original), materials: [], notes: notes(original.notes),
           schedules: array(original.schedules || original.schedule || original.dailyPlan),
           activities: array(original.activities).map(function (activity) {
-            return Object.assign({}, activity, { sourceId: sourceId, variantId: variantId,
+            return Object.assign({}, activity, { sourceId: activity.sourceId || sourceId, variantId: variantId,
               resourceIds: unique(array(activity.materials).map(function (item) { return canonicalId(routeId, typeof item === 'string' ? item : item.resourceId || item.id, sourceId); })) });
           }), raw: Object.assign({}, original, { sourceId: sourceId, variantId: variantId }) };
         if (!stage.goal && original.vocabularyMin != null) stage.goal = '积累 ' + original.vocabularyMin + (original.vocabularyMax != null ? '–' + original.vocabularyMax : '') + ' 听力词汇';
@@ -263,6 +263,13 @@
           route.defaultVariantId = current.id;
           route.stages = current.stages;
           route.summary = current.description;
+        }
+        var listeningPlan = (((raw.routePlan || {}).routes || {}).xu || {}).listening || {};
+        var defaultVariant = route.variants.find(function (variant) { return variant.id === listeningPlan.defaultVariantId; });
+        if (defaultVariant) {
+          route.defaultVariantId = defaultVariant.id;
+          route.stages = defaultVariant.stages;
+          route.summary = listeningPlan.summary || defaultVariant.description;
         }
       }
       routes.push(route);
@@ -403,7 +410,9 @@
     var resourceMap = {}; array(catalog.resources).forEach(function (r) { resourceMap[r.id] = r; });
     var suggested = [];
     selected.filter(function (stage) { return !(underThree && stage.routeId === 'qing'); }).sort(function (a, b) { return (a.routeId === 'xu' ? 0 : 1) - (b.routeId === 'xu' ? 0 : 1); }).forEach(function (stage) {
-      stage.materials.forEach(function (material) {
+      stage.materials.concat(array(stage.activities).flatMap(function (activity) {
+        return array(activity.resourceIds).map(function (id) { return { resourceId: id }; });
+      })).forEach(function (material) {
         var resource = resourceMap[material.resourceId];
         if (resource && (!underThree || resource.type !== 'animation' && resource.type !== 'other')) suggested.push(resource.id);
       });
@@ -414,10 +423,10 @@
       return priority[resourceMap[a].type] - priority[resourceMap[b].type];
     });
     return { routeStages: routeStages, reason: start
-      ? '目前约 ' + words + ' 个听力词汇，先浏览名词、动作与生活短句的起点：香蕉妈妈起步段、许密杉0–300词起步节点、庆爸常规 1。各路线词数属于积累目标，不能当作入门门槛。'
+      ? '目前约 ' + words + ' 个听力词汇，先浏览名词、动作与生活短句的起点：香蕉妈妈起步段、许密杉闪卡与闪卡式绘本、庆爸常规 1。各路线词数属于积累目标，不能当作入门门槛。'
       : '按约 ' + words + ' 个听力词汇提供浏览候选；词数属于阶段目标，不能据此判断已晋级，仍需核验实际理解、兴趣与原文准入条件。',
       underThree: underThree, level: start ? 'start' : 'browse', suggested: suggested.slice(0, 10),
-      next: (hasCurrent && start ? '闪卡与闪卡式绘本属于同一阶段，可并行使用；300词是起步积累目标。' : '') + (underThree ? '庆爸原文面向 3–4 岁，当前仅供对照。' : '') + '先选孩子能理解且愿意重复的同级材料；升档前核验实际理解。庆爸还需核验投入时间与测试 Phase，成长计划 Phase 不能替代测试。',
+      next: (start ? '直播建议闪卡与闪卡式绘本并行起步，按理解和兴趣调整。' : '') + (underThree ? '庆爸原文面向 3–4 岁，当前仅供对照。' : '') + '先选孩子能理解且愿意重复的同级材料；升档前核验实际理解。庆爸还需核验投入时间与测试 Phase，成长计划 Phase 不能替代测试。',
       age: age, vocabulary: words, automaticPromotion: false };
   }
 
@@ -656,11 +665,7 @@
       else if (role === '辅线') { kind = 'auxiliary'; label = '辅线'; basis = '本阶段原文明确列为辅线'; }
       else basis = '沿用本阶段原文“' + role + '”分组，不替换为主辅线';
     } else if (stage.routeId === 'xu') {
-      // 旧六阶段表只有后四阶段明确主线和平行拓展；其余版本的同名字段是整理标签。
-      if (stage.variantId === 'xu-listening' && ['xu-3', 'xu-4', 'xu-5', 'xu-6'].indexOf(stage.id) !== -1) {
-        if (role === 'main') { kind = 'main'; label = '主线'; basis = '本阶段六阶段原表明确标注主线'; }
-        else if (role === 'parallel') { kind = 'auxiliary'; label = '辅线'; basis = '本阶段六阶段原表标注平行拓展'; }
-      }
+      // 六阶段各次引用统一读取下方 roleEvidence，不按阶段ID或整理字段补造角色。
       if (stage.variantId === 'xu-thousand' && role === 'recommended') {
         kind = 'featured'; label = '特色推荐'; basis = '本阶段执行表原文明确推荐';
       }
@@ -686,6 +691,40 @@
     var selection = selectionMatch ? { label: selectionMatch[0], basis: selectionText } :
       role === 'optional' ? { label: '可选', basis: '原引用明确标为optional' } : null;
     return { kind: kind, label: MATERIAL_ROLES[kind], usage: materialUsageLabel(label), basis: basis, selection: selection, evidence: evidence };
+  }
+
+  function sortLibraryMaterials(catalog, entries, filters) {
+    filters = filters || {};
+    var stages = new Map(array(catalog.stages).map(function (stage) { return [stage.id, stage]; }));
+    var roles = { main: 0, featured: 1, auxiliary: 2, reference: 3 };
+    var ranks = entries.map(function (entry, index) {
+      var resource = entry.resource || entry, rank = [Infinity, Infinity, Infinity];
+      var appearances = array(entry.custom ? entry.stageRefs || entry.appearances : entry.appearances).filter(function (appearance) {
+        if (filters.route && filters.route !== 'all' && filters.route !== 'other' && appearance.routeId !== filters.route) return;
+        if (filters.stageIds && filters.stageIds.indexOf(appearance.stageId) === -1) return;
+        return true;
+      });
+      // 各资料的“第一阶段”不等价：默认先取该路线当前执行主表，补充资料仅作兜底。
+      if (!filters.stageIds) appearances = appearances.filter(function (appearance) {
+        var plan = (((catalog.raw || {}).routePlan || {}).routes || {})[appearance.routeId];
+        var primary = array(plan && plan.listening && plan.listening.stageIds);
+        return !primary.length || primary.indexOf(appearance.stageId) !== -1 || !appearances.some(function (other) {
+          return other.routeId === appearance.routeId && primary.indexOf(other.stageId) !== -1;
+        });
+      });
+      appearances.forEach(function (appearance) {
+        var stage = stages.get(appearance.stageId);
+        if (!stage) return;
+        var plan = ((((catalog.raw || {}).routePlan || {}).routes || {})[appearance.routeId] || {}).listening;
+        var primary = array(plan && plan.stageIds), tier = !filters.stageIds && primary.length && primary.indexOf(stage.id) === -1 ? 1 : 0;
+        var order = stage.order, role = roles[materialRole(stage, appearance, resource).kind];
+        if (tier < rank[0] || tier === rank[0] && (order < rank[1] || order === rank[1] && role < rank[2])) rank = [tier, order, role];
+      });
+      return { entry: entry, tier: rank[0], order: rank[1], role: rank[2], index: index };
+    });
+    return ranks.sort(function (a, b) {
+      return a.tier - b.tier || a.order - b.order || a.role - b.role || a.index - b.index;
+    }).map(function (rank) { return rank.entry; });
   }
 
   function getStageMaterials(catalog, stageId, comparisonStages) {
@@ -761,10 +800,15 @@
     if (stage.routeId === 'qing' && raw.vocabularyMin != null && raw.vocabularyMax != null) {
       return { min: raw.vocabularyMin, max: raw.vocabularyMax, label: raw.vocabularyMin + '–' + raw.vocabularyMax + '词' };
     }
-    if (stage.routeId !== 'xu' || stage.domain !== 'listening' || raw.listeningTargetWords == null) return null;
-    var target = raw.listeningTargetWords, previous = 0;
+    if (stage.routeId !== 'xu' || stage.domain !== 'listening') return null;
+    var vocabulary = raw.vocabulary || {};
+    var target = raw.listeningTargetWords != null ? raw.listeningTargetWords : vocabulary.max || vocabulary.value || vocabulary.approx;
+    if (!target) return null;
+    if (vocabulary.min != null && vocabulary.max != null) return { min: vocabulary.min, max: vocabulary.max, label: vocabulary.original + '（原表目标）' };
+    var previous = 0;
     array(catalog.stages).forEach(function (other) {
-      var words = (other.raw || {}).listeningTargetWords;
+      var otherRaw = other.raw || {}, otherVocabulary = otherRaw.vocabulary || {};
+      var words = otherRaw.listeningTargetWords != null ? otherRaw.listeningTargetWords : otherVocabulary.max || otherVocabulary.value || otherVocabulary.approx;
       if (other.variantId === stage.variantId && other.domain === 'listening' && words < target && words > previous) previous = words;
     });
     return { min: previous, max: target, label: previous + '–' + target + '词（节点间参考）' };
@@ -809,7 +853,8 @@
     if (ageSummary && context.status === 'below') ageSummary = ageSummary.replace(/^当前年龄方案：/, '原表低龄参考：');
     return Object.assign({}, plan, { domain: domain, summary: ageSummary || plan.summary,
       page: ageSummary ? context.ageCase.sourcePage : plan.page, ageCase: context,
-      stages: array(plan.stageIds).map(function (id) { return stageMap[id]; }).filter(Boolean), supportingStages: supporting });
+      stages: array(plan.stageIds).map(function (id) { return stageMap[id]; }).filter(Boolean), supportingStages: supporting,
+      legacyStages: array(plan.legacyStageIds).map(function (id) { return stageMap[id]; }).filter(Boolean) });
   }
 
   // 执行关系只读取本阶段活动、所选年龄方案和显式来源说明，不从词数推导其他能力准入。
@@ -821,7 +866,7 @@
     var config = plan.flow || {}, context = getStageSchedules(catalog, stage, profile);
     var parallel = array(config.parallel).map(function (item) { return Object.assign({ sourceId: plan.sourceId, page: plan.page }, item); });
     if (stage.activities.length > 1) parallel = parallel.concat(stage.activities.map(function (activity) {
-      return { text: activity.title, resourceIds: activity.resourceIds, sourceId: activity.sourceId, page: stage.pages[0] || 1 };
+      return { text: activity.title, resourceIds: activity.resourceIds, sourceId: activity.sourceId, page: activity.page || stage.pages[0] || 1 };
     }));
     var later = [], index = plan.stages.findIndex(function (item) { return item.id === stage.id; });
     context.schedules.forEach(function (schedule) {
@@ -929,7 +974,11 @@
     var stageMap = {};
     array(catalog.stages).forEach(function (stage) { stageMap[stage.id] = stage; });
     return array(catalog.routes).map(function (route) {
-      var stages = array(resource.appearances).filter(function (appearance) { return appearance.routeId === route.id; }).map(function (appearance) {
+      var plan = ((((catalog.raw || {}).routePlan || {}).routes || {})[route.id] || {}).listening || {};
+      var archived = array(plan.legacyStageIds).concat(array(plan.supersededStageIds));
+      var stages = array(resource.appearances).filter(function (appearance) {
+        return appearance.routeId === route.id && archived.indexOf(appearance.stageId) === -1;
+      }).map(function (appearance) {
         var stage = stageMap[appearance.stageId];
         return { stageId: appearance.stageId, stageTitle: stage ? stage.title : appearance.stageId, level: appearance.level,
           role: appearance.role, page: appearance.page, original: appearance.original,
@@ -1056,6 +1105,7 @@
   api.publicationLevelScopes = publicationLevelScopes;
   api.materialRoles = MATERIAL_ROLES;
   api.materialUsageLabel = materialUsageLabel;
+  api.sortLibraryMaterials = sortLibraryMaterials;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

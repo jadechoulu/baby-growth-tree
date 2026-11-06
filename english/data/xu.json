@@ -50,7 +50,22 @@
           "role": "core",
           "original": "时光学名词卡",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡",
+            "basis": "六阶段原表本阶段标为“闪卡”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "时光学名词卡",
+                "note": "第一阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-abubabu-verbs",
@@ -59,7 +74,22 @@
           "role": "core",
           "original": "阿布巴布动词卡",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡",
+            "basis": "六阶段原表本阶段标为“闪卡”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "阿布巴布动词卡",
+                "note": "第一阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "animations": [
@@ -70,7 +100,22 @@
           "role": "animation-companion",
           "original": "SSS 指令式儿歌",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "SSS 指令式儿歌",
+                "note": "第一阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-yakka-dee",
@@ -79,11 +124,28 @@
           "role": "animation-companion",
           "original": "Yakka Dee",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Yakka Dee",
+                "note": "第一阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "notes": [
-        "原表将 SSS 指令式儿歌列于“动画”栏。"
+        "原表将 SSS 指令式儿歌列于“动画”栏。",
+        "直播0–300词材料还列巴蒂英语、培生词汇妙趣屋、大猫预备级、启明星1级、悠游1级；这些是直播补充选材，不改六阶段原表中学乐A、书虫1等原始引用。",
+        "直播总览将0–5岁放在听力积累到1000词的规划中，列闪卡、海尼曼GK、牛津树1–3与小狐狸；这里是年龄与选材参考，六阶段保留各自原级别，不按生日或词数自动安排进度。"
       ],
       "routeId": "xu",
       "page": 1,
@@ -99,7 +161,52 @@
       "startingReference": {
         "kind": "route-start",
         "basis": "六阶段原表的首个节点为闪卡；保留原表编号，不等同于并行方案的全部起步活动。"
-      }
+      },
+      "domain": "listening",
+      "vocabularyBrowseMin": 0,
+      "referenceSources": [
+        {
+          "sourceId": "xu-live-core",
+          "page": 2,
+          "label": "直播 · 0–300词材料"
+        },
+        {
+          "sourceId": "xu-live-notes",
+          "page": 1,
+          "label": "直播起步文字笔记"
+        },
+        {
+          "sourceId": "xu-live-core",
+          "page": 1,
+          "label": "直播 · 总体规划"
+        }
+      ],
+      "activities": [
+        {
+          "title": "闪卡与闪卡式绘本并行起步",
+          "materials": [
+            "xu-shiguang-nouns",
+            "xu-abubabu-verbs",
+            "xu-pearson-vocabulary",
+            "xu-bigcat"
+          ],
+          "method": "直播把0–300词列为“闪卡＋100本闪卡式绘本”。六阶段仍将闪卡与闪卡式绘本分成第一、二阶段供细看，可以并行开展，不要求先完成词卡才读绘本。100本是直播累计阅读目标，不是每套绘本的出版总册数。",
+          "sourceId": "xu-live-core",
+          "page": 2
+        },
+        {
+          "title": "起步循环安排",
+          "materials": [
+            "xu-shiguang-nouns",
+            "xu-abubabu-verbs",
+            "xu-pearson-vocabulary"
+          ],
+          "frequency": "用户文字笔记：起步约3个月，3个大循环",
+          "method": "每次名词卡5张（不同主题）、动词卡2张、闪卡式绘本3本；笔记举时光学高级版、阿布拉布L0/L1、巴蒂英语及培生妙趣屋一个级别。保留为直播用量参考，按理解和兴趣调整，不作为完成或晋级条件。",
+          "sourceId": "xu-live-notes",
+          "page": 1
+        }
+      ]
     },
     {
       "id": "xu-2",
@@ -126,7 +233,22 @@
           "role": "core",
           "original": "培生词汇妙趣屋",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "六阶段原表本阶段标为“闪卡式绘本”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生词汇妙趣屋",
+                "note": "第二阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bigcat",
@@ -135,7 +257,22 @@
           "role": "core",
           "original": "大猫分级 预备级",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "六阶段原表本阶段标为“闪卡式绘本”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大猫分级 预备级",
+                "note": "第二阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-star",
@@ -144,7 +281,22 @@
           "role": "core",
           "original": "培生启明星 一级",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "六阶段原表本阶段标为“闪卡式绘本”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生启明星 一级",
+                "note": "第二阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-scholastic",
@@ -153,7 +305,22 @@
           "role": "core",
           "original": "学乐 A 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "六阶段原表本阶段标为“闪卡式绘本”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "学乐 A 级别",
+                "note": "第二阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bookworm",
@@ -162,7 +329,22 @@
           "role": "core",
           "original": "书虫 1 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "闪卡式绘本",
+            "basis": "六阶段原表本阶段标为“闪卡式绘本”，未明确该项的主线或辅线归属；后续阶段的同套系角色不回推至此阶段。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "书虫 1 级别",
+                "note": "第二阶段，分级与具体材料栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "animations": [
@@ -173,7 +355,22 @@
           "role": "animation-companion",
           "original": "Didi’s day",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Didi’s day",
+                "note": "第二阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-green-forest",
@@ -182,7 +379,22 @@
           "role": "animation-companion",
           "original": "绿色大森林",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "绿色大森林",
+                "note": "第二阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-twirlywoos",
@@ -191,7 +403,22 @@
           "role": "animation-companion",
           "original": "趣趣知知鸟",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "趣趣知知鸟",
+                "note": "第二阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-animal-adventure",
@@ -200,7 +427,22 @@
           "role": "animation-companion",
           "original": "动物王国大冒险",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "动物王国大冒险",
+                "note": "第二阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-little-pim",
@@ -209,7 +451,22 @@
           "role": "animation-companion",
           "original": "Little Pim",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Little Pim",
+                "note": "第二阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-timmy",
@@ -218,10 +475,27 @@
           "role": "animation-companion",
           "original": "小羊提米",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "小羊提米",
+                "note": "第二阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
-      "notes": [],
+      "notes": [
+        "直播0–300词材料还列巴蒂英语、培生词汇妙趣屋、大猫预备级、启明星1级、悠游1级；这些是直播补充选材，不改六阶段原表中学乐A、书虫1等原始引用。"
+      ],
       "routeId": "xu",
       "page": 1,
       "preview": "assets/previews/xu-01.jpg",
@@ -239,6 +513,46 @@
         "xu-animal-adventure",
         "xu-little-pim",
         "xu-timmy"
+      ],
+      "domain": "listening",
+      "vocabularyBrowseMin": 200,
+      "referenceSources": [
+        {
+          "sourceId": "xu-live-core",
+          "page": 2,
+          "label": "直播 · 0–300词材料"
+        },
+        {
+          "sourceId": "xu-live-notes",
+          "page": 1,
+          "label": "直播起步文字笔记"
+        }
+      ],
+      "activities": [
+        {
+          "title": "闪卡与闪卡式绘本并行起步",
+          "materials": [
+            "xu-shiguang-nouns",
+            "xu-abubabu-verbs",
+            "xu-pearson-vocabulary",
+            "xu-bigcat"
+          ],
+          "method": "直播把0–300词列为“闪卡＋100本闪卡式绘本”。六阶段仍将闪卡与闪卡式绘本分成第一、二阶段供细看，可以并行开展，不要求先完成词卡才读绘本。100本是直播累计阅读目标，不是每套绘本的出版总册数。",
+          "sourceId": "xu-live-core",
+          "page": 2
+        },
+        {
+          "title": "起步循环安排",
+          "materials": [
+            "xu-shiguang-nouns",
+            "xu-abubabu-verbs",
+            "xu-pearson-vocabulary"
+          ],
+          "frequency": "用户文字笔记：起步约3个月，3个大循环",
+          "method": "每次名词卡5张（不同主题）、动词卡2张、闪卡式绘本3本；笔记举时光学高级版、阿布拉布L0/L1、巴蒂英语及培生妙趣屋一个级别。保留为直播用量参考，按理解和兴趣调整，不作为完成或晋级条件。",
+          "sourceId": "xu-live-notes",
+          "page": 1
+        }
       ]
     },
     {
@@ -267,7 +581,28 @@
           "role": "main",
           "original": "海尼曼 GK70 A",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "main",
+            "usage": "主线",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "海尼曼 GK70 A",
+                "note": "第3阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bigcat",
@@ -276,7 +611,28 @@
           "role": "parallel",
           "original": "大猫分级 第 1-2 级",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大猫分级 第 1-2 级",
+                "note": "第3阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-star",
@@ -285,7 +641,28 @@
           "role": "parallel",
           "original": "培生启明星 2 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生启明星 2 级别",
+                "note": "第3阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-scholastic",
@@ -294,7 +671,28 @@
           "role": "parallel",
           "original": "学乐 B 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "学乐 B 级别",
+                "note": "第3阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bookworm",
@@ -303,7 +701,28 @@
           "role": "parallel",
           "original": "书虫 2 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "书虫 2 级别",
+                "note": "第3阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-highlight-pairs",
@@ -312,7 +731,28 @@
           "role": "parallel",
           "original": "Highlight 故事与科普配对 1",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Highlight 故事与科普配对 1",
+                "note": "第3阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         }
       ],
       "animations": [
@@ -323,7 +763,22 @@
           "role": "animation-companion",
           "original": "蝙蝠和朋友们",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "蝙蝠和朋友们",
+                "note": "第三阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-car-city",
@@ -332,7 +787,22 @@
           "role": "animation-companion",
           "original": "汽车小镇",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "汽车小镇",
+                "note": "第三阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-penelope",
@@ -341,7 +811,22 @@
           "role": "animation-companion",
           "original": "蓝色小考拉",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "蓝色小考拉",
+                "note": "第三阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-wow-english",
@@ -350,7 +835,22 @@
           "role": "animation-companion",
           "original": "Wow English 1-3",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Wow English 1-3",
+                "note": "第三阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pocoyo",
@@ -359,7 +859,22 @@
           "role": "animation-companion",
           "original": "小 P 优优",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "小 P 优优",
+                "note": "第三阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-dino-friends",
@@ -368,7 +883,22 @@
           "role": "animation-companion",
           "original": "恐龙伙伴",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "恐龙伙伴",
+                "note": "第三阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "notes": [
@@ -402,6 +932,54 @@
         "xu-wow-english",
         "xu-pocoyo",
         "xu-dino-friends"
+      ],
+      "domain": "listening",
+      "vocabularyBrowseMin": 300,
+      "referenceSources": [
+        {
+          "sourceId": "xu-live-core",
+          "page": 3,
+          "label": "直播 · 主线句型与辅线迁移"
+        },
+        {
+          "sourceId": "xu-live-notes",
+          "page": 1,
+          "label": "精听四步法文字笔记"
+        }
+      ],
+      "activities": [
+        {
+          "title": "海尼曼主线句型",
+          "materials": [
+            "xu-heinemann-gk70"
+          ],
+          "frequency": "用户文字笔记：一周一本、两个句型",
+          "method": "用主线句型带动单词。截图示例：陈述句“I can see the …”和疑问句“Can you see the …?”；家长结合画面、实物和生活场景迁移使用。",
+          "sourceId": "xu-live-core",
+          "page": 3
+        },
+        {
+          "title": "精听四步法",
+          "materials": [
+            "xu-heinemann-gk70"
+          ],
+          "method": "①家长指画面说生词；②家长说生词，孩子指画面；③家长指画面说句子；④家长说句子，孩子指画面。来自用户直播文字笔记；按当前理解练习，不把四步设为系统通过测验。",
+          "sourceId": "xu-live-notes",
+          "page": 1
+        },
+        {
+          "title": "辅线句型迁移",
+          "materials": [
+            "xu-bigcat",
+            "xu-pearson-star",
+            "xu-scholastic",
+            "xu-bookworm",
+            "xu-highlight-pairs"
+          ],
+          "method": "选择同难度、有故事的平行绘本巩固、迁移主线句型，并拓展一个句型。截图举“Is it a …?”，展示1本主线配15本平行绘本的示例；不把此示例变成每本固定配比、全套必读或进度分母。",
+          "sourceId": "xu-live-core",
+          "page": 3
+        }
       ]
     },
     {
@@ -429,7 +1007,28 @@
           "role": "main",
           "original": "海尼曼 GK70 B",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "main",
+            "usage": "主线",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "海尼曼 GK70 B",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bigcat",
@@ -438,7 +1037,28 @@
           "role": "parallel",
           "original": "大猫分级 2-3 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大猫分级 2-3 级别",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-star",
@@ -447,7 +1067,28 @@
           "role": "parallel",
           "original": "培生启明星 3 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生启明星 3 级别",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-scholastic",
@@ -456,7 +1097,28 @@
           "role": "parallel",
           "original": "学乐 C 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "学乐 C 级别",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-oxford-tree",
@@ -465,7 +1127,28 @@
           "role": "parallel",
           "original": "牛津树 1",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "牛津树 1",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-story-house",
@@ -474,7 +1157,28 @@
           "role": "parallel",
           "original": "培生亲子故事屋 基础级",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生亲子故事屋 基础级",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bookworm",
@@ -483,7 +1187,28 @@
           "role": "parallel",
           "original": "书虫 2 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "书虫 2 级别",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-highlight-pairs",
@@ -492,7 +1217,28 @@
           "role": "parallel",
           "original": "Highlight 故事与科普配对 2",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Highlight 故事与科普配对 2",
+                "note": "第4阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         }
       ],
       "animations": [
@@ -503,7 +1249,22 @@
           "role": "animation-companion",
           "original": "小鼠波波",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "小鼠波波",
+                "note": "第四阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-max-ruby",
@@ -512,7 +1273,22 @@
           "role": "animation-companion",
           "original": "Max and Ruby",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Max and Ruby",
+                "note": "第四阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bing",
@@ -521,7 +1297,22 @@
           "role": "animation-companion",
           "original": "小兔乒乓",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "小兔乒乓",
+                "note": "第四阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-daniel-tiger",
@@ -530,7 +1321,22 @@
           "role": "animation-companion",
           "original": "小老虎丹尼尔",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "小老虎丹尼尔",
+                "note": "第四阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-wow-english",
@@ -539,7 +1345,22 @@
           "role": "animation-companion",
           "original": "Wow English 4-5",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Wow English 4-5",
+                "note": "第四阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "notes": [],
@@ -562,6 +1383,56 @@
         "xu-bing",
         "xu-daniel-tiger",
         "xu-wow-english"
+      ],
+      "domain": "listening",
+      "vocabularyBrowseMin": 500,
+      "referenceSources": [
+        {
+          "sourceId": "xu-live-core",
+          "page": 3,
+          "label": "直播 · 主线句型与辅线迁移"
+        },
+        {
+          "sourceId": "xu-live-notes",
+          "page": 1,
+          "label": "精听四步法文字笔记"
+        }
+      ],
+      "activities": [
+        {
+          "title": "海尼曼主线句型",
+          "materials": [
+            "xu-heinemann-gk70"
+          ],
+          "frequency": "用户文字笔记：一周一本、两个句型",
+          "method": "用主线句型带动单词。截图示例：陈述句“I can see the …”和疑问句“Can you see the …?”；家长结合画面、实物和生活场景迁移使用。",
+          "sourceId": "xu-live-core",
+          "page": 3
+        },
+        {
+          "title": "精听四步法",
+          "materials": [
+            "xu-heinemann-gk70"
+          ],
+          "method": "①家长指画面说生词；②家长说生词，孩子指画面；③家长指画面说句子；④家长说句子，孩子指画面。来自用户直播文字笔记；按当前理解练习，不把四步设为系统通过测验。",
+          "sourceId": "xu-live-notes",
+          "page": 1
+        },
+        {
+          "title": "辅线句型迁移",
+          "materials": [
+            "xu-bigcat",
+            "xu-pearson-star",
+            "xu-scholastic",
+            "xu-oxford-tree",
+            "xu-pearson-story-house",
+            "xu-bookworm",
+            "xu-highlight-pairs"
+          ],
+          "method": "选择同难度、有故事的平行绘本巩固、迁移主线句型，并拓展一个句型。截图举“Is it a …?”，展示1本主线配15本平行绘本的示例；不把此示例变成每本固定配比、全套必读或进度分母。",
+          "sourceId": "xu-live-core",
+          "page": 3
+        }
       ]
     },
     {
@@ -591,7 +1462,28 @@
           "role": "main",
           "original": "海尼曼 GK70 C",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "main",
+            "usage": "主线",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "海尼曼 GK70 C",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bigcat",
@@ -600,7 +1492,28 @@
           "role": "parallel",
           "original": "大猫分级 3-4 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大猫分级 3-4 级别",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-star",
@@ -609,7 +1522,28 @@
           "role": "parallel",
           "original": "培生启明星 4 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生启明星 4 级别",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-story-house",
@@ -618,7 +1552,28 @@
           "role": "parallel",
           "original": "培生亲子故事屋 进阶级",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生亲子故事屋 进阶级",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-oxford-tree",
@@ -627,7 +1582,28 @@
           "role": "parallel",
           "original": "牛津树 2",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "牛津树 2",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-scholastic",
@@ -636,7 +1612,28 @@
           "role": "parallel",
           "original": "学乐 D-E",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "学乐 D-E",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bookworm",
@@ -645,7 +1642,28 @@
           "role": "parallel",
           "original": "书虫 3-4 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "书虫 3-4 级别",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-highlight-pairs",
@@ -654,7 +1672,28 @@
           "role": "parallel",
           "original": "Highlight 故事与科普配对 3-4",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第3–5阶段分级栏明确海尼曼GK70主线与平行拓展；级别仍逐阶段按原表，直播仅补充句型迁移方法。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Highlight 故事与科普配对 3-4",
+                "note": "第5阶段；主线／平行拓展归属以原表合并栏为准。"
+              },
+              {
+                "sourceId": "xu-live-core",
+                "page": 3,
+                "quote": "海尼曼 提供 主线句型给家长 一本2个",
+                "note": "补充主线句型与平行绘本迁移用法，不覆盖具体级别。"
+              }
+            ]
+          }
         }
       ],
       "animations": [
@@ -665,7 +1704,22 @@
           "role": "animation-companion",
           "original": "Peter rabbit",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Peter rabbit",
+                "note": "第五阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-littlefox",
@@ -674,7 +1728,22 @@
           "role": "animation-companion",
           "original": "以及其它小狐狸二级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "以及其它小狐狸二级别",
+                "note": "第五阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-meg-mog",
@@ -683,7 +1752,22 @@
           "role": "animation-companion",
           "original": "Meg and Mog",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Meg and Mog",
+                "note": "第五阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pip-posy",
@@ -692,7 +1776,22 @@
           "role": "animation-companion",
           "original": "Pip and posy",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "Pip and posy",
+                "note": "第五阶段，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "notes": [
@@ -716,6 +1815,56 @@
         "xu-littlefox",
         "xu-meg-mog",
         "xu-pip-posy"
+      ],
+      "domain": "listening",
+      "vocabularyBrowseMin": 500,
+      "referenceSources": [
+        {
+          "sourceId": "xu-live-core",
+          "page": 3,
+          "label": "直播 · 主线句型与辅线迁移"
+        },
+        {
+          "sourceId": "xu-live-notes",
+          "page": 1,
+          "label": "精听四步法文字笔记"
+        }
+      ],
+      "activities": [
+        {
+          "title": "海尼曼主线句型",
+          "materials": [
+            "xu-heinemann-gk70"
+          ],
+          "frequency": "用户文字笔记：一周一本、两个句型",
+          "method": "用主线句型带动单词。截图示例：陈述句“I can see the …”和疑问句“Can you see the …?”；家长结合画面、实物和生活场景迁移使用。",
+          "sourceId": "xu-live-core",
+          "page": 3
+        },
+        {
+          "title": "精听四步法",
+          "materials": [
+            "xu-heinemann-gk70"
+          ],
+          "method": "①家长指画面说生词；②家长说生词，孩子指画面；③家长指画面说句子；④家长说句子，孩子指画面。来自用户直播文字笔记；按当前理解练习，不把四步设为系统通过测验。",
+          "sourceId": "xu-live-notes",
+          "page": 1
+        },
+        {
+          "title": "辅线句型迁移",
+          "materials": [
+            "xu-bigcat",
+            "xu-pearson-star",
+            "xu-pearson-story-house",
+            "xu-oxford-tree",
+            "xu-scholastic",
+            "xu-bookworm",
+            "xu-highlight-pairs"
+          ],
+          "method": "选择同难度、有故事的平行绘本巩固、迁移主线句型，并拓展一个句型。截图举“Is it a …?”，展示1本主线配15本平行绘本的示例；不把此示例变成每本固定配比、全套必读或进度分母。",
+          "sourceId": "xu-live-core",
+          "page": 3
+        }
       ]
     },
     {
@@ -744,7 +1893,22 @@
           "role": "main",
           "original": "牛津树 3-5",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "main",
+            "usage": "主线",
+            "basis": "六阶段原表第6阶段明确牛津树主线与平行拓展，按该阶段原始级别引用。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "牛津树 3-5",
+                "note": "第6阶段分级栏；不将泛称“培生”补成启明星。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bigcat",
@@ -753,7 +1917,22 @@
           "role": "parallel",
           "original": "大猫分级 5-6 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第6阶段明确牛津树主线与平行拓展，按该阶段原始级别引用。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大猫分级 5-6 级别",
+                "note": "第6阶段分级栏；不将泛称“培生”补成启明星。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-pearson-unspecified",
@@ -762,7 +1941,22 @@
           "role": "parallel",
           "original": "培生 5-6 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第6阶段明确牛津树主线与平行拓展，按该阶段原始级别引用。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "培生 5-6 级别",
+                "note": "第6阶段分级栏；不将泛称“培生”补成启明星。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-bookworm",
@@ -771,7 +1965,22 @@
           "role": "parallel",
           "original": "书虫 5 级别",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第6阶段明确牛津树主线与平行拓展，按该阶段原始级别引用。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "书虫 5 级别",
+                "note": "第6阶段分级栏；不将泛称“培生”补成启明星。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-scholastic",
@@ -780,7 +1989,22 @@
           "role": "parallel",
           "original": "学乐 F-I",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "confirmed",
+            "kind": "auxiliary",
+            "usage": "平行拓展",
+            "basis": "六阶段原表第6阶段明确牛津树主线与平行拓展，按该阶段原始级别引用。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "学乐 F-I",
+                "note": "第6阶段分级栏；不将泛称“培生”补成启明星。"
+              }
+            ]
+          }
         }
       ],
       "animations": [
@@ -791,7 +2015,22 @@
           "role": "animation-companion",
           "original": "大马泽",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "大马泽",
+                "note": "第六阶段 1000 词，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-duggee",
@@ -800,7 +2039,22 @@
           "role": "animation-companion",
           "original": "道奇",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "道奇",
+                "note": "第六阶段 1000 词，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-wizard-cat",
@@ -809,7 +2063,22 @@
           "role": "animation-companion",
           "original": "巫师与猫",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "巫师与猫",
+                "note": "第六阶段 1000 词，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         },
         {
           "resourceId": "xu-littlefox",
@@ -818,11 +2087,29 @@
           "role": "animation-companion",
           "original": "以及小狐狸第三级别动画",
           "page": 1,
-          "preview": "assets/previews/xu-01.jpg"
+          "preview": "assets/previews/xu-01.jpg",
+          "roleEvidence": {
+            "status": "unresolved",
+            "kind": "reference",
+            "usage": "动画／儿歌",
+            "basis": "六阶段原表本阶段将该项列在“动画”栏，未明确该项的主线或辅线归属；不能由配套关系或读物的主辅线推定。",
+            "checkedAt": "2026-11-06",
+            "sources": [
+              {
+                "sourceId": "xu",
+                "page": 1,
+                "quote": "以及小狐狸第三级别动画",
+                "note": "第六阶段 1000 词，动画栏；只核定此处引用，不扩散至同套系其他阶段。"
+              }
+            ]
+          }
         }
       ],
       "notes": [
-        "第六阶段“培生 5-6 级别”未写明是哪个培生套系，保留原文，不自动归入培生启明星。"
+        "第六阶段“培生 5-6 级别”未写明是哪个培生套系，保留原文，不自动归入培生启明星。",
+        "直播后续规划：继续把听力从1000词扩展到3000词，列牛津树4–6、小狐狸3–5、小猪佩奇和桥梁书；同时在对抽象符号感兴趣时开始认单词，列自然拼读、高频词、RAZ及PU0–PU3。图上同时写6–8岁和4–5岁，保留为参考，不生成统一年龄门槛。",
+        "直播的能力衔接参考为“听力1000词引导说、听力2000词表达／认读、阅读4000词写作100词”。听力与阅读词数分别保留；这些是直播建议，不是系统自动开启口语、自读或写作的条件。",
+        "直播9–12岁段列桥梁书、初章、中章到高章的阅读发展。图中阅读词汇序列写作“1000–3000–500–8000”，其中500的含义未明确，保留原图，不擅改成5000或据此生成阶段；考试与分数为原图规划表述，不作为能力保证。"
       ],
       "routeId": "xu",
       "page": 1,
@@ -839,6 +2126,15 @@
         "xu-duggee",
         "xu-wizard-cat",
         "xu-littlefox"
+      ],
+      "domain": "listening",
+      "vocabularyBrowseMin": 800,
+      "referenceSources": [
+        {
+          "sourceId": "xu-live-core",
+          "page": 1,
+          "label": "直播 · 听说读写衔接参考"
+        }
       ]
     }
   ],
@@ -2587,7 +3883,8 @@
     "这里的配套关系是同阶段组合。原表没有给每一本分级与某一集动画建立一对一对应，也没有与其他作者路线建立精确等值。",
     "此 PDF 没有绘本封面或动画剧照；提供的是完整原页预览。套系细节仅保留原表明确的名称和级别。",
     "第二页底图全白（内嵌图像 1190×1682，所有像素 RGB=255），只有署名水印文本，没有漏录的第二页阶段。",
-    "原表英文标题的大小写、品牌拼写按可辨识内容保留，如 Highlight、Peter rabbit、Pip and posy。"
+    "原表英文标题的大小写、品牌拼写按可辨识内容保留，如 Highlight、Peter rabbit、Pip and posy。",
+    "2026-11-06按用户决定以本六阶段表作为默认听力执行结构。直播三图与文字笔记提供并行起步和句型迁移方法，不将直播目标、旧六阶段及全景图的级别差异合并为一份原表。"
   ],
   "quality": {
     "checkedVisually": true,
@@ -2602,5 +3899,33 @@
       "小狐狸二级别、三级别均为集合式指引，具体片单未列出。",
       "时光学名词卡按原表文字保留，原表没有进一步解释品牌或版本。"
     ]
-  }
+  },
+  "relatedSources": [
+    {
+      "id": "xu-live-core",
+      "title": "许密杉直播核心信息 · 用户补充三图",
+      "file": "assets/previews/xu-live-01.png",
+      "previews": [
+        {
+          "page": 1,
+          "path": "assets/previews/xu-live-01.png"
+        },
+        {
+          "page": 2,
+          "path": "assets/previews/xu-live-02.png"
+        },
+        {
+          "page": 3,
+          "path": "assets/previews/xu-live-03.png"
+        }
+      ],
+      "note": "2026-11-06逐图核对。截图有04月07日直播预告，未标年份，不推断发布时间或修订先后。六阶段作当前执行主表；直播中的材料范围与目标分别保留，不据此改原表级别。"
+    },
+    {
+      "id": "xu-live-notes",
+      "title": "直播学习方法 · 用户提供的文字笔记",
+      "file": "https://www.xiaohongshu.com/explore/698b0d2b000000000b013848",
+      "note": "2026-11-06用户提供的直播核心信息笔记：300词起步三个月安排、500词句型与精听四步法。文字笔记不是截图逐字原文；不将家长摘录当作已完整观看或逐字核验原视频。"
+    }
+  ]
 }

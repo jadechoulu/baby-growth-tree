@@ -1,0 +1,1010 @@
+{
+  "version": 1,
+  "plans": [
+    {
+      "id": "heinemann-gk70",
+      "resourceId": "resource-9fvmjt",
+      "resourceIds": [
+        "resource-9fvmjt",
+        "resource-hojfp0"
+      ],
+      "title": "海尼曼 GK70",
+      "edition": "国内 GK70 选本",
+      "scopeIds": [
+        "heinemann-gk-70",
+        "heinemann-gk70-all"
+      ],
+      "groups": [
+        {
+          "id": "A",
+          "label": "GK A",
+          "scopeIds": [
+            "heinemann-gk70-domestic-a"
+          ],
+          "edition": "国内GK70选本分级统计",
+          "parts": [
+            {
+              "label": "A",
+              "count": 43
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": "GK B",
+          "scopeIds": [
+            "heinemann-gk70-domestic-b"
+          ],
+          "edition": "国内GK70选本分级统计",
+          "parts": [
+            {
+              "label": "B",
+              "count": 15
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": "GK C",
+          "scopeIds": [
+            "heinemann-gk70-domestic-c"
+          ],
+          "edition": "国内GK70选本分级统计",
+          "parts": [
+            {
+              "label": "C",
+              "count": 12
+            }
+          ]
+        }
+      ],
+      "stageGroups": {
+        "xu-3": "A",
+        "xu-4": "B",
+        "xu-5": "C"
+      },
+      "externalMatch": {
+        "edition": "国内 GK70 选本",
+        "prefixes": [
+          "Heinemann GK",
+          "海尼曼 GK",
+          "海尼曼GK"
+        ]
+      },
+      "source": {
+        "title": "海尼曼 GK——句型分类 · 亲子时光",
+        "url": "https://www.zconnect.cn/home/zsviewer?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E8%8B%B1%E8%AF%AD%E5%90%AF%E8%92%99%2F%E8%AE%B8%E5%AF%86%E6%9D%89%E8%B7%AF%E7%BA%BF%2F%E6%B5%B7%E5%B0%BC%E6%9B%BCGK.pdf&name=%E6%B5%B7%E5%B0%BC%E6%9B%BCGK.pdf&readonly=1",
+        "pages": 3,
+        "checkedAt": "2026-11-06"
+      },
+      "note": "按原表从上到下排列，保留原书号；这是句型分类表顺序，不代表作者另行规定的逐本必读先后。第60、64、69本原表未列句型。第15本原表列在has/have组，句型栏仅写…as…，保留原文不补写。",
+      "books": [
+        {
+          "id": "heinemann-gk70-01",
+          "number": 1,
+          "title": "At the market",
+          "aliases": [],
+          "group": "A",
+          "order": 1,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "I can see the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-06",
+          "number": 6,
+          "title": "At the zoo",
+          "aliases": [],
+          "group": "A",
+          "order": 2,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "We can see a …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-07",
+          "number": 7,
+          "title": "On the way to school",
+          "aliases": [],
+          "group": "A",
+          "order": 3,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "I see the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-08",
+          "number": 8,
+          "title": "The park",
+          "aliases": [],
+          "group": "A",
+          "order": 4,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "I can see the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-29",
+          "number": 29,
+          "title": "The puppet show",
+          "aliases": [],
+          "group": "A",
+          "order": 5,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "I can see the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-38",
+          "number": 38,
+          "title": "At the pond",
+          "aliases": [],
+          "group": "A",
+          "order": 6,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "We can see a …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-45",
+          "number": 45,
+          "title": "Over the river",
+          "aliases": [],
+          "group": "B",
+          "order": 7,
+          "patternGroup": "I / we can see",
+          "patterns": [
+            "We can see a …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-02",
+          "number": 2,
+          "title": "Rex",
+          "aliases": [],
+          "group": "A",
+          "order": 8,
+          "patternGroup": "like / love",
+          "patterns": [
+            "I like to …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-14",
+          "number": 14,
+          "title": "My room",
+          "aliases": [],
+          "group": "A",
+          "order": 9,
+          "patternGroup": "like / love",
+          "patterns": [
+            "I like …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-24",
+          "number": 24,
+          "title": "Polly",
+          "aliases": [],
+          "group": "A",
+          "order": 10,
+          "patternGroup": "like / love",
+          "patterns": [
+            "… likes the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-32",
+          "number": 32,
+          "title": "At school",
+          "aliases": [],
+          "group": "A",
+          "order": 11,
+          "patternGroup": "like / love",
+          "patterns": [
+            "I like to …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-49",
+          "number": 49,
+          "title": "Playing together",
+          "aliases": [],
+          "group": "B",
+          "order": 12,
+          "patternGroup": "like / love",
+          "patterns": [
+            "We like to …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-59",
+          "number": 59,
+          "title": "Mouse",
+          "aliases": [],
+          "group": "C",
+          "order": 13,
+          "patternGroup": "like / love",
+          "patterns": [
+            "… likes …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-53",
+          "number": 53,
+          "title": "Hiding",
+          "aliases": [],
+          "group": "B",
+          "order": 14,
+          "patternGroup": "like / love",
+          "patterns": [
+            "… likes to …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-58",
+          "number": 58,
+          "title": "My big brother",
+          "aliases": [],
+          "group": "B",
+          "order": 15,
+          "patternGroup": "like / love",
+          "patterns": [
+            "… likes to …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-66",
+          "number": 66,
+          "title": "Going on a train ride",
+          "aliases": [],
+          "group": "C",
+          "order": 16,
+          "patternGroup": "like / love",
+          "patterns": [
+            "I like …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-18",
+          "number": 18,
+          "title": "My lunch",
+          "aliases": [],
+          "group": "A",
+          "order": 17,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-19",
+          "number": 19,
+          "title": "Toys",
+          "aliases": [],
+          "group": "A",
+          "order": 18,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is a …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-22",
+          "number": 22,
+          "title": "Setting the table",
+          "aliases": [],
+          "group": "A",
+          "order": 19,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-23",
+          "number": 23,
+          "title": "The flower",
+          "aliases": [],
+          "group": "A",
+          "order": 20,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-26",
+          "number": 26,
+          "title": "The pet store",
+          "aliases": [],
+          "group": "A",
+          "order": 21,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is a …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-35",
+          "number": 35,
+          "title": "The play",
+          "aliases": [],
+          "group": "A",
+          "order": 22,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-36",
+          "number": 36,
+          "title": "Making a pizza",
+          "aliases": [],
+          "group": "A",
+          "order": 23,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-47",
+          "number": 47,
+          "title": "Making soup",
+          "aliases": [],
+          "group": "B",
+          "order": 24,
+          "patternGroup": "Here is / are",
+          "patterns": [
+            "Here is the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-03",
+          "number": 3,
+          "title": "Funny things",
+          "aliases": [
+            "Funny"
+          ],
+          "group": "A",
+          "order": 25,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-16",
+          "number": 16,
+          "title": "Going sledding",
+          "aliases": [],
+          "group": "A",
+          "order": 26,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at my …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-17",
+          "number": 17,
+          "title": "Making a snowman",
+          "aliases": [],
+          "group": "A",
+          "order": 27,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-25",
+          "number": 25,
+          "title": "The sidewalk",
+          "aliases": [],
+          "group": "A",
+          "order": 28,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-30",
+          "number": 30,
+          "title": "My baby sister",
+          "aliases": [],
+          "group": "A",
+          "order": 29,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-31",
+          "number": 31,
+          "title": "The parade",
+          "aliases": [],
+          "group": "A",
+          "order": 30,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-33",
+          "number": 33,
+          "title": "Get ready",
+          "aliases": [
+            "Getting ready"
+          ],
+          "group": "A",
+          "order": 31,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at my …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-46",
+          "number": 46,
+          "title": "My big bear",
+          "aliases": [],
+          "group": "B",
+          "order": 32,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at my …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-55",
+          "number": 55,
+          "title": "Rain",
+          "aliases": [],
+          "group": "B",
+          "order": 33,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-56",
+          "number": 56,
+          "title": "So big",
+          "aliases": [],
+          "group": "B",
+          "order": 34,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at my …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-61",
+          "number": 61,
+          "title": "Play and ride",
+          "aliases": [],
+          "group": "C",
+          "order": 35,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at this …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-67",
+          "number": 67,
+          "title": "Playing with blocks",
+          "aliases": [
+            "Play with blocks"
+          ],
+          "group": "C",
+          "order": 36,
+          "patternGroup": "Look at",
+          "patterns": [
+            "Look at the …"
+          ],
+          "sourcePage": 1
+        },
+        {
+          "id": "heinemann-gk70-15",
+          "number": 15,
+          "title": "The baby",
+          "aliases": [],
+          "group": "A",
+          "order": 37,
+          "patternGroup": "has / have",
+          "patterns": [
+            "… as …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-20",
+          "number": 20,
+          "title": "Little things",
+          "aliases": [
+            "Little thing"
+          ],
+          "group": "A",
+          "order": 38,
+          "patternGroup": "has / have",
+          "patterns": [
+            "I have a little …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-21",
+          "number": 21,
+          "title": "Packing my bag",
+          "aliases": [],
+          "group": "A",
+          "order": 39,
+          "patternGroup": "has / have",
+          "patterns": [
+            "I have my …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-27",
+          "number": 27,
+          "title": "Wheels",
+          "aliases": [],
+          "group": "A",
+          "order": 40,
+          "patternGroup": "has / have",
+          "patterns": [
+            "… has …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-39",
+          "number": 39,
+          "title": "Spots",
+          "aliases": [],
+          "group": "A",
+          "order": 41,
+          "patternGroup": "has / have",
+          "patterns": [
+            "… has …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-48",
+          "number": 48,
+          "title": "My family",
+          "aliases": [],
+          "group": "B",
+          "order": 42,
+          "patternGroup": "This / here / it is",
+          "patterns": [
+            "This is …",
+            "… like / love to …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-62",
+          "number": 62,
+          "title": "What is very long?",
+          "aliases": [
+            "What is long?"
+          ],
+          "group": "C",
+          "order": 43,
+          "patternGroup": "This / here / it is",
+          "patterns": [
+            "This is …",
+            "Here is …",
+            "… has a very long …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-63",
+          "number": 63,
+          "title": "Our pet",
+          "aliases": [
+            "Our pets"
+          ],
+          "group": "C",
+          "order": 44,
+          "patternGroup": "This / here / it is",
+          "patterns": [
+            "This is …",
+            "It is …",
+            "like …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-28",
+          "number": 28,
+          "title": "The show",
+          "aliases": [],
+          "group": "A",
+          "order": 45,
+          "patternGroup": "Come and see",
+          "patterns": [
+            "Come and see …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-44",
+          "number": 44,
+          "title": "The baby animals",
+          "aliases": [],
+          "group": "B",
+          "order": 46,
+          "patternGroup": "Come and see",
+          "patterns": [
+            "Come and see …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-04",
+          "number": 4,
+          "title": "Mom",
+          "aliases": [],
+          "group": "A",
+          "order": 47,
+          "patternGroup": "is / are doing",
+          "patterns": [
+            "Mom is doing …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-05",
+          "number": 5,
+          "title": "Dad",
+          "aliases": [],
+          "group": "A",
+          "order": 48,
+          "patternGroup": "is / are doing",
+          "patterns": [
+            "Dad is doing …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-11",
+          "number": 11,
+          "title": "Baby",
+          "aliases": [],
+          "group": "A",
+          "order": 49,
+          "patternGroup": "is / are doing",
+          "patterns": [
+            "Baby is doing …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-13",
+          "number": 13,
+          "title": "Little cub",
+          "aliases": [],
+          "group": "A",
+          "order": 50,
+          "patternGroup": "is / are doing",
+          "patterns": [
+            "I am doing …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-37",
+          "number": 37,
+          "title": "Birds",
+          "aliases": [],
+          "group": "A",
+          "order": 51,
+          "patternGroup": "is / are doing",
+          "patterns": [
+            "This bird is doing …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-09",
+          "number": 9,
+          "title": "Tom",
+          "aliases": [],
+          "group": "A",
+          "order": 52,
+          "patternGroup": "can do",
+          "patterns": [
+            "Tom can …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-10",
+          "number": 10,
+          "title": "I can read",
+          "aliases": [],
+          "group": "A",
+          "order": 53,
+          "patternGroup": "can do",
+          "patterns": [
+            "I can read to …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-34",
+          "number": 34,
+          "title": "My bear",
+          "aliases": [],
+          "group": "A",
+          "order": 54,
+          "patternGroup": "can do",
+          "patterns": [
+            "… can … with …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-40",
+          "number": 40,
+          "title": "Drawing",
+          "aliases": [],
+          "group": "A",
+          "order": 55,
+          "patternGroup": "can do",
+          "patterns": [
+            "I can draw a …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-42",
+          "number": 42,
+          "title": "Painting",
+          "aliases": [],
+          "group": "A",
+          "order": 56,
+          "patternGroup": "can do",
+          "patterns": [
+            "I can paint a …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-43",
+          "number": 43,
+          "title": "Things that go fast",
+          "aliases": [],
+          "group": "A",
+          "order": 57,
+          "patternGroup": "can do",
+          "patterns": [
+            "… can go fast"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-54",
+          "number": 54,
+          "title": "Hop hop hop",
+          "aliases": [],
+          "group": "B",
+          "order": 58,
+          "patternGroup": "can do",
+          "patterns": [
+            "I can hop …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-65",
+          "number": 65,
+          "title": "Flap flap fly",
+          "aliases": [],
+          "group": "C",
+          "order": 59,
+          "patternGroup": "can do",
+          "patterns": [
+            "… can …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-68",
+          "number": 68,
+          "title": "Helping",
+          "aliases": [],
+          "group": "C",
+          "order": 60,
+          "patternGroup": "can do",
+          "patterns": [
+            "Look at …",
+            "I / we can help …"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-70",
+          "number": 70,
+          "title": "Animals that go fast",
+          "aliases": [],
+          "group": "C",
+          "order": 61,
+          "patternGroup": "can do",
+          "patterns": [
+            "This animal is a …",
+            "… can … fast"
+          ],
+          "sourcePage": 2
+        },
+        {
+          "id": "heinemann-gk70-12",
+          "number": 12,
+          "title": "Playing dress up",
+          "aliases": [],
+          "group": "A",
+          "order": 62,
+          "patternGroup": "其他",
+          "patterns": [
+            "I am a …"
+          ],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-41",
+          "number": 41,
+          "title": "Baking",
+          "aliases": [],
+          "group": "A",
+          "order": 63,
+          "patternGroup": "其他",
+          "patterns": [
+            "We baked the …"
+          ],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-50",
+          "number": 50,
+          "title": "At the farm",
+          "aliases": [],
+          "group": "B",
+          "order": 64,
+          "patternGroup": "其他",
+          "patterns": [
+            "… at the farm …"
+          ],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-51",
+          "number": 51,
+          "title": "The hat",
+          "aliases": [],
+          "group": "B",
+          "order": 65,
+          "patternGroup": "其他",
+          "patterns": [
+            "… went to the hut …"
+          ],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-52",
+          "number": 52,
+          "title": "Going on vacation",
+          "aliases": [],
+          "group": "B",
+          "order": 66,
+          "patternGroup": "其他",
+          "patterns": [
+            "We put the … in the car."
+          ],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-57",
+          "number": 57,
+          "title": "Fun at school",
+          "aliases": [],
+          "group": "B",
+          "order": 67,
+          "patternGroup": "其他",
+          "patterns": [
+            "We … at school"
+          ],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-60",
+          "number": 60,
+          "title": "Mop",
+          "aliases": [],
+          "group": "C",
+          "order": 68,
+          "patternGroup": "其他",
+          "patterns": [],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-64",
+          "number": 64,
+          "title": "A visit from aunt bee",
+          "aliases": [
+            "A visit from Aunt Bee"
+          ],
+          "group": "C",
+          "order": 69,
+          "patternGroup": "其他",
+          "patterns": [],
+          "sourcePage": 3
+        },
+        {
+          "id": "heinemann-gk70-69",
+          "number": 69,
+          "title": "Out to play",
+          "aliases": [],
+          "group": "C",
+          "order": 70,
+          "patternGroup": "其他",
+          "patterns": [],
+          "sourcePage": 3
+        }
+      ]
+    }
+  ]
+}

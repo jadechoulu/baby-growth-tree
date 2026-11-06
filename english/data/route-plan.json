@@ -24,18 +24,19 @@
   "routes": {
     "xu": {
       "listening": {
-        "summary": "闪卡与闪卡式绘本并行起步，沿300、500、800、1000、2000听力词节点查看素材。执行表是同一路线的操作补充，原表500词目标不改写为300词。",
+        "summary": "按六阶段细看：闪卡、闪卡式绘本、海尼曼GK70 A／B／C主线与辅线、牛津树3–5主线与辅线。直播补充并行起步、精听四步法与句型迁移。",
         "stageIds": [
-          "xu-current-300",
-          "xu-current-500",
-          "xu-current-800",
-          "xu-current-1000",
-          "xu-current-2000"
+          "xu-1",
+          "xu-2",
+          "xu-3",
+          "xu-4",
+          "xu-5",
+          "xu-6"
         ],
         "supportingStageIds": [
           "xu-thousand-1"
         ],
-        "sourceId": "xu-panorama",
+        "sourceId": "xu",
         "page": 1,
         "flow": {
           "laterNote": "口语可与听力并行发展；识字、自读和写作分别查阅原文安排。全景图没有把这些能力的启动绑定到某个听力词数节点。",
@@ -44,9 +45,24 @@
             "reading",
             "writing"
           ],
-          "advanceNote": "相邻词数是听力节点的浏览顺序，原图未给统一晋级测评；不据此自动启动自读或书写。",
+          "advanceNote": "按理解、句长与原文目的查看相邻阶段；词数、用量与素材完成率不触发自动晋级。",
           "laterLabel": "口语可并行，读写按条件加入"
-        }
+        },
+        "defaultVariantId": "xu-listening",
+        "legacyStageIds": [
+          "xu-current-300",
+          "xu-current-500",
+          "xu-current-800",
+          "xu-current-1000",
+          "xu-current-2000"
+        ],
+        "supersededStageIds": [
+          "xu-panorama-listening-300",
+          "xu-panorama-listening-500",
+          "xu-panorama-listening-800",
+          "xu-panorama-listening-1000",
+          "xu-panorama-listening-2000"
+        ]
       },
       "speaking": {
         "summary": "全景图把发音和表达列为口语分支：国际音标、主题背诵、外教课、动画台词扮演；与听力并行发展，不按听力阶段编号晋级。",

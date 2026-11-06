@@ -63,7 +63,7 @@ test('原图分支不生成选读要求，各路线角色共用同一分类表',
   }
 });
 
-test('默认许密杉路线的每次引用均有可追溯核查，确认角色与未核定引用分别保留',()=>{
+test('历史五节点的每次引用均有可追溯核查，确认角色与未核定引用分别保留',()=>{
   const stages=catalog.stages.filter(s=>s.variantId==='xu-current');
   const materials=stages.flatMap(stage=>M.getStageMaterials(catalog,stage));
   const sources=new Map(catalog.sources.map(source=>[source.id,source]));
@@ -95,6 +95,33 @@ test('默认许密杉路线的每次引用均有可追溯核查，确认角色�
     assert.equal(item.role.usage,'辅线');
     assert.equal(item.role.evidence.usage,'平行拓展','原始用途证据不改写');
     assert.equal(item.role.selection,null,'平行拓展不能自动生成任选或选读要求');
+  }
+});
+
+test('六阶段路线、进度分项与图鉴共用逐项证据，移除证据不再按阶段ID补主辅线',()=>{
+  const withoutEvidence=structuredClone(raw),volumes=read('resource-volumes');
+  for(const stage of withoutEvidence.xu.stages)for(const material of [...stage.materials,...stage.animations])delete material.roleEvidence;
+  const baseline=M.normalize(withoutEvidence),sourceIds=new Set(catalog.sources.map(source=>source.id));
+  for(const stage of catalog.stages.filter(stage=>stage.variantId==='xu-listening')){
+    const previous=M.getStageMaterials(baseline,stage.id);
+    for(const item of M.getStageMaterials(catalog,stage)){
+      const evidence=item.material.roleEvidence,expected=['main','parallel'].includes(item.material.role);
+      assert.ok(evidence?.basis&&evidence.checkedAt,item.material.original);
+      assert.equal(evidence.status,expected?'confirmed':'unresolved');
+      assert.equal(item.role.kind,expected?(item.material.role==='main'?'main':'auxiliary'):'reference');
+      assert.ok(evidence.sources.length>0);
+      for(const source of evidence.sources){assert.ok(sourceIds.has(source.sourceId));assert.ok(source.quote);}
+      const appearance=item.resource.appearances.find(a=>a.stageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
+      assert.deepEqual(appearance.roleEvidence,evidence,'素材图鉴引用须保留同一次用途依据');
+      const usage=M.getSeriesProgression(catalog,item.resource.id).flatMap(group=>group.stages).find(a=>a.stageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
+      assert.deepEqual(usage.roleEvidence,evidence,'路线使用明细不单独维护用途');
+      const original=previous.find(i=>i.material.original===item.material.original&&i.material.role===item.material.role);
+      assert.equal(original.role.kind,'reference','缺少依据时不由阶段ID或main/parallel字段补角色');
+      assert.equal(P.unitKey(stage,item),P.unitKey(stage,original),'补齐用途不得改变个人记录键');
+      const scopes=P.bookScopes(item.resource.id,item.materials.map(m=>m.level),volumes,stage.id);
+      const units=P.expandBookUnits({key:P.unitKey(stage,item),stageId:stage.id,item,resourceId:item.resource.id,label:item.resource.title,bookScopes:scopes},M.getMaterialLevels(item),volumes);
+      assert.ok(units.every(unit=>unit.item.role.kind===item.role.kind),'进度各级分项继承同一角色');
+    }
   }
 });
 

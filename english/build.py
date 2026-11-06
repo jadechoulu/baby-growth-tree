@@ -40,6 +40,7 @@ assert set(hello_rhyme_content) == {item['id'] for item in RAW['helloReading']['
 RAW['helloReading']['rhymes'] = [{**item, **hello_rhyme_content[item['id']]} for item in RAW['helloReading']['rhymes']]
 RAW['helloReading']['tuneAudio'] = json.loads((ROOT / 'data' / 'hello-tune-audio.json').read_text())
 RAW['helloReading']['materialCards'] = json.loads((ROOT / 'data' / 'hello-material-cards.json').read_text())
+RAW['readingPlans'] = json.loads((ROOT / 'data' / 'reading-plans.json').read_text())
 RAW['resourceBooks'] = json.loads((ROOT / 'data' / 'resource-books.json').read_text())
 RAW['filePreviewAssets'] = [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/vendor/pdfjs').rglob('*')) if path.is_file()]
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
@@ -61,7 +62,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','book-progress.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
