@@ -1,6 +1,29 @@
 {
   "version": 1,
   "checkedAt": "2026-11-04",
+  "externalMatches": [
+    {
+      "resourceId": "resource-1nuqi5t",
+      "prefixes": ["培生幼儿英语.基础词汇.上", "培生幼儿英语基础词汇.上"],
+      "directoryMatch": {"edition": "培生幼儿英语基础词汇 · 上辑（48本版）"},
+      "ignoreNumber": true,
+      "basis": "明确的基础词汇上辑前缀限定版本，再按完整单册题名核对；不与旧版词汇妙趣屋三辑互换。"
+    },
+    {
+      "resourceId": "resource-1nuqi5t",
+      "prefixes": ["培生幼儿英语.基础词汇.下", "培生幼儿英语基础词汇.下"],
+      "directoryMatch": {"edition": "培生幼儿英语基础词汇 · 下辑（48本版）"},
+      "ignoreNumber": true,
+      "basis": "明确的基础词汇下辑前缀限定版本，再按完整单册题名核对；不将上辑事实传播至下辑。"
+    },
+    {
+      "resourceId": "resource-g7xvo5",
+      "prefixes": ["Collins Big Cat Pink·Band 1", "Collins Big Cat Pink·Band 2"],
+      "directoryMatch": {"edition": "Collins原版进口 · Pink 1A＋1B（44本套装）"},
+      "ignoreNumber": true,
+      "basis": "Pink英文套系前缀与完整单册题名共同限定版本；公共目录确定Pink 1A／1B，外站分包Band编号不作为级别，不借用中文大猫选本。"
+    }
+  ],
   "topicNote": "主题依据已读取的出版社内容简介、内页或分版本分类图整理；目录收录不等于内容核对。找到资料但内容不可读时标为待核对；只有确认无内容资料且记录检索范围时才允许标注书名兜底。不同版本不自动互换主题、级别或册数。",
   "topics": [
     {

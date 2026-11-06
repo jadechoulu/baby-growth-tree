@@ -12,6 +12,34 @@ const xuCurrent = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 const currentCatalog = model.normalize({ ...raw, xuSupplements, xuCurrent });
 const sssSongs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'sss-songs.json'), 'utf8'));
 
+test('图鉴切换路线复用执行主表阶段对应，不保留旧路线阶段ID', () => {
+  const routePlan = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'route-plan.json'), 'utf8'));
+  const c = model.normalize({...raw, xuSupplements, xuCurrent, routePlan}), before = JSON.stringify(c);
+  for (const [words, qing] of [[300,1],[500,2],[800,3],[1000,4],[2000,7]]) {
+    assert.equal(model.libraryStageForRoute(c, 'stage:xu-node-'+words, 'qing'), 'stage:qing-s'+qing);
+    assert.equal(model.libraryStageForRoute(c, 'stage:qing-s'+qing, 'xu'), 'stage:xu-node-'+words);
+  }
+  assert.equal(model.libraryStageForRoute(c, 'stage:xu-node-500', 'banana'), 'stage:banana-1');
+  assert.equal(model.libraryStageForRoute(c, 'stage:banana-1', 'xu'), 'stage:xu-node-500');
+  assert.equal(model.libraryStageForRoute(c, 'stage:banana-chapter', 'xu'), 'all');
+  assert.equal(model.libraryStageForRoute(c, 'stage:xu-node-500', 'other'), 'all');
+  assert.equal(model.libraryStageForRoute(c, 'stage:missing', 'qing'), 'all');
+  for (const route of ['all', 'xu', 'qing', 'banana', 'other']) {
+    assert.equal(model.libraryStageForRoute(c, 'all', route), 'all');
+    assert.equal(model.libraryStageForRoute(c, 'current', route), 'current');
+  }
+  for (const route of ['all', 'xu']) assert.equal(model.libraryStageForRoute(c, 'stage:xu-node-500', route), 'stage:xu-node-500');
+  assert.equal(JSON.stringify(c), before, '联动只派生筛选，不改写公共阶段及资料');
+});
+
+test('同书但无阶段对应时清空筛选，不由素材同名猜阶段', () => {
+  const source = {id:'source',routeId:'xu',domain:'listening',raw:{},materials:[{resourceId:'book',level:'1'}]};
+  const target = {id:'target',routeId:'qing',domain:'listening',raw:{},materials:[{resourceId:'book',level:'1'}]};
+  const c = {stages:[source,target],resources:[{id:'book',title:'同一本书'}],routes:[{id:'xu',stages:[source]},{id:'qing',stages:[target]}]};
+  assert.equal(model.compareStages(c,'source')[0].matches.length,1);
+  assert.equal(model.libraryStageForRoute(c,'stage:source','qing'),'all');
+});
+
 test('历史好价按套系保留版本、组合与计价单位，不产生新素材或改变阶段依据', () => {
   const prices = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'resource-prices.json'), 'utf8'));
   const priced = model.normalize({...raw, xuSupplements, xuCurrent, resourcePrices: prices});
@@ -859,8 +887,8 @@ test('每位作者一条路线，领域节点与补充执行表分开，不把�
   assert.equal(unified.routes.length, 3);
   const original = JSON.stringify(unified);
   const listening = model.getRoutePlan(unified, 'xu', 'listening');
-  assert.deepEqual(listening.stages.map(s => s.id), [1,2,3,4,5,6].map(n=>'xu-'+n));
-  assert.equal(unified.routes.find(r=>r.id==='xu').defaultVariantId,'xu-listening');
+  assert.deepEqual(listening.stages.map(s => s.id), [300,500,800,1000,2000].map(n=>'xu-node-'+n));
+  assert.equal(unified.routes.find(r=>r.id==='xu').defaultVariantId,'xu-word-nodes');
   assert.deepEqual(listening.supportingStages.map(s=>s.id), ['xu-thousand-1']);
   for (const domain of routePlan.domains) for (const route of unified.routes) {
     const plan = model.getRoutePlan(unified, route.id, domain.id);
@@ -883,7 +911,7 @@ test('每位作者一条路线，领域节点与补充执行表分开，不把�
   assert.ok(['speaking','reading','writing'].every(domain=>model.getRoutePlan(unified,'qing',domain).stages.length===0));
   assert.equal(JSON.stringify(unified), original);
   const recommendation=model.recommend({birthDate:'2024-11-24',asOf:'2026-10-29',listeningWords:70},unified);
-  assert.equal(recommendation.routeStages.xu,'xu-1');
+  assert.equal(recommendation.routeStages.xu,'xu-node-300');
   assert.equal(recommendation.automaticPromotion,false);
   assert.ok(recommendation.suggested.some(id=>unified.resources.find(r=>r.id===id).title==='培生词汇妙趣屋'),'直播并行起步的绘本仍可推荐');
 });

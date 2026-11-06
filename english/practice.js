@@ -7,6 +7,20 @@ const SESSION='practice.session.v1:';
 const MATERIAL='practice.material.v1:';
 const SONG='practice.song.v1:';
 const LIBRARY='library.progress.v1:';
+const STAGE='practice.stage.v1:';
+function stageKey(routeKey,stageId){return STAGE+routeKey+':'+stageId;}
+function stageDone(records,routeKey,stageId){return records?.[stageKey(routeKey,stageId)]?.status==='done';}
+function stageCompletionUpdate(records,routeKey,stageId,done){
+  const key=stageKey(routeKey,stageId),previous=records?.[key];
+  return {[key]:{status:done?'done':'not-started',note:JSON.stringify({...json(previous?.note),version:1,completedDate:done?today():''})}};
+}
+function defaultStage(stages,records,routeKey,isStarted=()=>false,recentStageId){
+  const pending=stages.filter(stage=>!stageDone(records,routeKey,stage.id));
+  const lastDone=stages.reduce((index,stage,i)=>stageDone(records,routeKey,stage.id)?i:index,-1);
+  const next=pending.filter(stage=>stages.indexOf(stage)>lastDone);
+  const candidates=next.length?next:pending;
+  return candidates.find(stage=>stage.id===recentStageId)||candidates.find(isStarted)||candidates[0]||stages.at(-1);
+}
 function resourceProgress(entries){
   const unique=[...new Map(entries.map(entry=>[entry.key,entry])).values()];
   const done=unique.filter(entry=>entry.status==='done').length;
@@ -54,11 +68,23 @@ function unitKey(stage,item){
   const signature=JSON.stringify([item.material.role,[...new Set(item.materials.map(m=>JSON.stringify([m.sourceId,m.level])))].sort()]);
   let a=2166136261,b=5381;
   for(const c of signature){a=Math.imul(a^c.charCodeAt(0),16777619);b=Math.imul(b,33)^c.charCodeAt(0);}
-  return MATERIAL+stage.routeId+':'+stage.id+':'+item.resource.id+':'+(a>>>0).toString(36)+(b>>>0).toString(36);
+  return MATERIAL+stage.routeId+':'+(item.material.recordStageId||stage.id)+':'+item.resource.id+':'+(a>>>0).toString(36)+(b>>>0).toString(36);
 }
 function unitRecord(records,key){const r=records[key],meta=json(r?.note),status=Object.hasOwn(STATUS,r?.status)?r.status:'not-started';const percent=meta?.version===1&&Number.isInteger(meta.percent)&&meta.percent>=0&&meta.percent<=100?meta.percent:status==='done'?100:status==='using'?null:0;return {status,percent,text:meta?.version===1&&typeof meta.text==='string'?meta.text:'',date:validDate(meta?.date)?meta.date:''};}
 function sortSongsByCompletion(songs,records){
   return songs.slice().sort((a,b)=>Number(records[SONG+a.id]?.status==='done')-Number(records[SONG+b.id]?.status==='done'));
+}
+function sortMaterialUnits(units,catalog){
+  const model=typeof module==='object'&&module.exports?require('./model.js'):root.EnglishModel;
+  const groups=new Map(),typeOrder={reader:0,book:1};
+  for(const unit of units){
+    const resource=unit.item.resource,entry=model.publicationEntry(catalog,unit.resourceId);
+    const id=entry?.catalogResourceId||unit.resourceId,rank=typeOrder[resource.type]??2;
+    if(!groups.has(id))groups.set(id,{rank,index:groups.size,units:[]});
+    const group=groups.get(id);group.rank=Math.min(group.rank,rank);group.units.push(unit);
+  }
+  // 完成状态不能拆散同套系；保留系列首次出现次序、组内原级别和庆爸父子结构。
+  return [...groups.values()].sort((a,b)=>a.rank-b.rank||a.index-b.index).flatMap(group=>group.units);
 }
 function songPlaylistProgress(records,library,categoryId='essential'){
   // 只读取该歌单已有歌曲的独立记录，不把套系或旧素材百分比转为单曲完成。
@@ -107,6 +133,51 @@ function materialRecord(records,unit){
   const previous=records[unit.parentKey],books=unitBooks(previous),scope=unit.partScope;
   // 只沿用能精确归属单辑的旧记录，不拆分合并百分比或跨版本本数。
   return books?.mode==='count'&&books.label===scope.label&&books.total===scope.total&&books.edition===scope.edition?previous:undefined;
+}
+// 数量属于公共素材范围，不属于引用它的路线阶段；原键只作无损回读。
+function sharedQuantityKey(resourceId,scope,unit='个'){
+  if(!scope||scope.origin==='personal')return null;
+  return partKey('material.quantity.v1:'+resourceId,JSON.stringify([scope.edition||'',scope.label,scope.total,scope.unit||unit]));
+}
+function sharedQuantity(records,resourceId,scope,unit='个',record){
+  const baseline=quantityRecord(record,scope,unit),key=sharedQuantityKey(resourceId,scope,unit);
+  if(!key)return baseline;
+  if(Object.hasOwn(records,key))return quantityRecord(records[key],scope,unit);
+  let result=baseline;
+  for(const [id,saved] of Object.entries(records)){
+    let candidates=[];
+    if(id.startsWith(MATERIAL)&&id.split(':')[3]===resourceId)candidates=[saved];
+    else if(id===LIBRARY+resourceId)candidates=Object.values(json(saved?.note)?.quantities||{});
+    for(const candidate of candidates){
+      const quantity=quantityRecord(candidate,scope,unit);
+      if(quantity.completed>result.completed)result=quantity;
+    }
+  }
+  return result;
+}
+function sharedQuantityUpdate(records,resourceId,scope,completed,unit='个'){
+  const key=sharedQuantityKey(resourceId,scope,unit);
+  return key?{[key]:unitQuantityProgressUpdate(completed,scope,records[key],unit)}:{};
+}
+function sharedEditionKey(resourceId,options){
+  return partKey('material.edition.v1:'+resourceId,JSON.stringify(options.map(option=>option.id).sort()));
+}
+function sharedEditionUpdate(resourceId,options,editionId){
+  if(!options.some(option=>option.id===editionId))throw new Error('请选择有效的素材版本。');
+  return {[sharedEditionKey(resourceId,options)]:unitEditionUpdate(editionId)};
+}
+function sharedEditionRecord(records,unit,catalog){
+  const model=typeof module==='object'&&module.exports?require('./model.js'):root.EnglishModel;
+  const options=model.publicationEntry(catalog,unit.resourceId)?.recordingEditions||[],record=materialRecord(records,unit);
+  if(unit.parentKey||!options.length)return record;
+  let selected=json(records[sharedEditionKey(unit.resourceId,options)]?.note)?.recordingEdition;
+  if(!selected&&json(record?.note)?.recordingEdition)return record;
+  if(!selected){
+    const choices=new Set(Object.entries(records).filter(([key])=>key.startsWith(MATERIAL)&&key.split(':')[3]===unit.resourceId)
+      .map(([,value])=>json(value?.note)?.recordingEdition).filter(id=>options.some(option=>option.id===id)));
+    if(choices.size===1)selected=[...choices][0];
+  }
+  return selected&&options.some(option=>option.id===selected)?unitEditionUpdate(selected,record):record;
 }
 function unitEditionUpdate(editionId,record){const meta=json(record?.note);return {...record,status:record?.status||'not-started',note:JSON.stringify({...((meta?.version===1)?meta:{text:record?.note||''}),version:1,recordingEdition:editionId})};}
 function validBookScope(scope){return scope&&typeof scope.id==='string'&&scope.id.length<=160&&typeof scope.label==='string'&&scope.label.length<=100&&Number.isInteger(scope.total)&&scope.total>0&&scope.total<=10000;}
@@ -257,6 +328,6 @@ function trendBuckets(entries,{grain='day',anchor=today(),metric='effective',cou
   return out;
 }
 function calendarDays(month){if(!/^\d{4}-\d{2}$/.test(month)||!validDate(month+'-01'))throw new Error('月份无效。');const first=month+'-01',last=periodRange('month',first).to;return Array.from({length:Number(last.slice(8))},(_,i)=>shiftDate(first,i));}
-const api={STATUS,KINDS,SESSION,MATERIAL,SONG,LIBRARY,resourceProgress,libraryQuantity,libraryScopes,libraryQuantityUpdate,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,unitEditionUpdate,unitBooks,quantityUnit,quantityRecord,unitQuantityProgressUpdate,groupQuantity,groupQuantityUpdate,materialParentKey,materialTime,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,timeOptions,inlineSessionRecord,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
+const api={STATUS,KINDS,SESSION,MATERIAL,SONG,LIBRARY,STAGE,stageKey,stageDone,stageCompletionUpdate,defaultStage,resourceProgress,libraryQuantity,libraryScopes,libraryQuantityUpdate,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,sortMaterialUnits,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,sharedQuantityKey,sharedQuantity,sharedQuantityUpdate,sharedEditionKey,sharedEditionUpdate,sharedEditionRecord,unitEditionUpdate,unitBooks,quantityUnit,quantityRecord,unitQuantityProgressUpdate,groupQuantity,groupQuantityUpdate,materialParentKey,materialTime,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,timeOptions,inlineSessionRecord,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
 root.EnglishPractice=api;if(typeof module==='object'&&module.exports)module.exports=api;
 })(typeof window==='object'?window:globalThis);

@@ -24,14 +24,13 @@
   "routes": {
     "xu": {
       "listening": {
-        "summary": "按六阶段细看：闪卡、闪卡式绘本、海尼曼GK70 A／B／C主线与辅线、牛津树3–5主线与辅线。直播补充并行起步、精听四步法与句型迁移。",
+        "summary": "按300／500／800／1000／2000词浏览；300词并行使用闪卡与闪卡式绘本，500词保留GK A、B两组要求，800词保留GK C要求，1000词保留牛津树3–5要求，2000词沿用全景图安排。词量是路线节点，不替代具体材料、句长与理解要求。",
         "stageIds": [
-          "xu-1",
-          "xu-2",
-          "xu-3",
-          "xu-4",
-          "xu-5",
-          "xu-6"
+          "xu-node-300",
+          "xu-node-500",
+          "xu-node-800",
+          "xu-node-1000",
+          "xu-node-2000"
         ],
         "supportingStageIds": [
           "xu-thousand-1"
@@ -48,20 +47,69 @@
           "advanceNote": "按理解、句长与原文目的查看相邻阶段；词数、用量与素材完成率不触发自动晋级。",
           "laterLabel": "口语可并行，读写按条件加入"
         },
-        "defaultVariantId": "xu-listening",
-        "legacyStageIds": [
+        "defaultVariantId": "xu-word-nodes",
+        "legacyStageIds": [],
+        "supersededStageIds": [
+          "xu-1",
+          "xu-2",
+          "xu-3",
+          "xu-4",
+          "xu-5",
+          "xu-6",
           "xu-current-300",
           "xu-current-500",
           "xu-current-800",
           "xu-current-1000",
-          "xu-current-2000"
-        ],
-        "supersededStageIds": [
+          "xu-current-2000",
           "xu-panorama-listening-300",
           "xu-panorama-listening-500",
           "xu-panorama-listening-800",
           "xu-panorama-listening-1000",
           "xu-panorama-listening-2000"
+        ],
+        "stageGroups": [
+          {
+            "id": "xu-node-300",
+            "title": "300词",
+            "targetWords": 300,
+            "sourceStageIds": [
+              "xu-1",
+              "xu-2"
+            ]
+          },
+          {
+            "id": "xu-node-500",
+            "title": "500词",
+            "targetWords": 500,
+            "sourceStageIds": [
+              "xu-3",
+              "xu-4"
+            ]
+          },
+          {
+            "id": "xu-node-800",
+            "title": "800词",
+            "targetWords": 800,
+            "sourceStageIds": [
+              "xu-5"
+            ]
+          },
+          {
+            "id": "xu-node-1000",
+            "title": "1000词",
+            "targetWords": 1000,
+            "sourceStageIds": [
+              "xu-6"
+            ]
+          },
+          {
+            "id": "xu-node-2000",
+            "title": "2000词",
+            "targetWords": 2000,
+            "sourceStageIds": [
+              "xu-current-2000"
+            ]
+          }
         ]
       },
       "speaking": {

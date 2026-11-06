@@ -34,7 +34,6 @@ function filter(books,data,filters={}){
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
-    if(filters.favoriteIds&&!filters.favoriteIds.includes(resource.id))return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
     if(query&&!normalize([book.title,book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
     return true;
