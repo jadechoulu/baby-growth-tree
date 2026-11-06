@@ -31,6 +31,29 @@ test('级别范围先展开，主题与路线及阶段取同一原引用的交�
   assert.equal(B.filter([entry],data,{route:'xu',stageIds:['xu-one'],topic:'animals'}).length,0);
 });
 
+test('主题套系分组覆盖全部结果，RAZ级别分开且培生上下辑共用一个入口',()=>{
+  const books=B.entries(data,catalog.resources,M),groups=B.seriesGroups(books,data);
+  assert.equal(groups.reduce((sum,group)=>sum+group.count,0),books.length);
+  const aa=groups.find(group=>group.label==='RAZ AA'),a=groups.find(group=>group.label==='RAZ A');
+  assert.equal(aa.count,103);assert.equal(a.count,100);assert.notEqual(aa.id,a.id);
+  const pearson=groups.find(group=>group.label==='培生幼儿英语基础词汇');
+  assert.equal(pearson.count,96);
+  const selected=B.filter(books,data,{series:pearson.id});
+  assert.equal(new Set(selected.map(book=>book.edition)).size,2);
+  assert.equal(new Set(selected.map(book=>book.id)).size,96);
+});
+
+test('套系与一级二级主题、路线条件取交集，全部套系恢复完整主题结果',()=>{
+  const books=B.entries(data,catalog.resources,M),filters={topic:'animals',subtopic:'animals.birds'};
+  const matching=B.filter(books,data,filters),groups=B.seriesGroups(matching,data),a=groups.find(group=>group.label==='RAZ A');
+  assert.ok(a);
+  const selected=B.filter(books,data,{...filters,series:a.id});
+  assert.equal(selected.length,a.count);assert.equal(selected.length,3);
+  assert.ok(selected.every(book=>book.level==='A'));
+  assert.equal(B.filter(books,data,{...filters,series:a.id,route:'other'}).length,0);
+  assert.deepEqual(B.filter(books,data,{...filters,series:'all'}),matching);
+});
+
 test('异版目录不能冒充阶段版本，未分简单难度的书目不替作者分级',()=>{
   const books=B.entries(data,catalog.resources,M),pink=books.filter(b=>b.resourceId==='resource-g7xvo5'),piggie=books.filter(b=>b.resourceId==='resource-e87t8v');
   assert.ok(pink.length&&piggie.length);
