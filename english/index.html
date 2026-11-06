@@ -845,23 +845,18 @@
 .route-domain-panel{margin:0 0 14px}
 /* 先选作者与阶段；能力资料作为次级入口，能力之间不绘制晋级箭头。 */
 .route-author-picker{margin-bottom:10px;min-width:0}
-.route-author-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.route-author-options{display:grid;grid-template-columns:auto auto auto 44px 44px;align-items:center;gap:6px}
 .route-author-options>button{min-width:0;min-height:44px;padding:7px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--route);font-size:16px;overflow-wrap:anywhere}
 .route-author-options>button[aria-pressed=true]{border-color:var(--route);background:color-mix(in srgb,var(--route) 10%,white);font-weight:700}
-.mobile-comparison-tabs{display:none}
-@media(max-width:900px){
-  .mobile-comparison-tabs{display:flex;align-items:center;gap:6px;margin:0 0 8px;min-width:0}
-  .mobile-comparison-tabs>span{font-size:12px;color:var(--muted);flex:none}
-  .mobile-comparison-tabs>.route-tabs{flex:1;order:0}
-}
-.route-reading-hint{font-size:12px;color:var(--muted);margin:5px 0 0;line-height:1.6}
+.route-author-options .route-mode-toggle,.route-author-options .library-filter-button{width:44px;min-width:44px;height:44px;min-height:44px;padding:6px;color:var(--green)}
+.route-author-options .route-mode-toggle{font-size:16px}
+@media(max-width:480px){.route-author-options>[data-browse-author]{font-size:14px;padding-inline:3px}}
 .route-journey{margin:0 0 10px;min-width:0}
-.journey-label{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:5px}
-.journey-label>strong{font-size:13px}.journey-label>small{font-size:12px;color:var(--muted)}
 .route-journey>ol{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;list-style:none;padding:3px;margin:0;min-width:0}
 .route-journey li{flex:0 0 auto;min-width:0;position:relative}
-.route-journey button{width:auto;min-height:44px;padding:7px 8px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--muted);font-size:14px;text-align:left;white-space:nowrap;line-height:1.5}
-.route-journey button.active{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
+.route-journey button{width:auto;min-height:32px;padding:4px 8px;border:0;border-bottom:2px solid transparent;border-radius:4px 4px 0 0;background:transparent;color:var(--route);font-size:14px;text-align:left;white-space:nowrap;line-height:1.5}
+.route-journey button:hover{background:color-mix(in srgb,var(--route) 6%,white)}
+.route-journey button.active{background:color-mix(in srgb,var(--route) 10%,white);color:var(--route);border-bottom-color:var(--route);font-weight:600}
 .route-journey.sequential li{display:flex;align-items:stretch;gap:5px}
 .route-journey.sequential li+li::before{content:'›';flex:0 0 8px;align-self:center;text-align:center;font-size:14px;line-height:1;color:var(--muted);pointer-events:none}
 .route-journey.sequential .journey-all+li::before{content:none}
@@ -904,9 +899,8 @@
   .routes-view .roadmap-mode>.segmented{flex:1;min-width:0}
   .routes-view .roadmap-mode>.segmented>button{flex:1;padding:6px;font-size:13px}
   .route-fold-actions{gap:3px}.route-fold-actions>.button{padding:6px;font-size:12px}
-  .journey-label>small{display:none}
   .route-journey>ol{gap:5px}
-  .route-journey button{font-size:13px;padding:5px 6px}
+  .route-journey button{font-size:13px;padding:4px 6px}
   .stage-flow li,.stage-flow p{font-size:15px}
   .independent-routes .stage-list{padding:0;gap:8px}
 }
@@ -1045,7 +1039,7 @@
 .practice-percent-row .practice-unit-date{width:128px}
 .practice-count-progress .practice-percent-editor>span{flex-shrink:0;white-space:nowrap;font-size:12px}
 .practice-count-meter{display:flex;align-items:center;gap:5px;min-width:0}
-.practice-count-meter progress{flex:1;min-width:0}.practice-count-meter>span{font-size:12px;min-width:28px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.practice-count-meter progress{flex:1;min-width:0}.practice-count-meter>span{font-size:12px;min-width:30px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
 .practice-book-scope{display:inline-flex;align-items:center;gap:3px;padding:0 3px;min-height:28px;font-size:12px;color:var(--muted);border-radius:4px}
 .practice-book-scope .icon{width:14px;height:14px}.practice-book-scope:hover{color:var(--ink);background:var(--green-soft)}
 .practice-book-sources{margin-top:12px;font-size:15px;overflow-wrap:anywhere}.practice-book-sources summary{cursor:pointer}
@@ -1054,17 +1048,16 @@
 @media(max-width:375px){.practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px;column-gap:8px}}
 .practice-page .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px;gap:3px 8px;padding:5px 0}
 .practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 160px}
-.practice-page .practice-unit-progress{display:flex;align-items:center;gap:6px}
-.practice-page .practice-percent-editor{flex:0 0 auto;gap:3px}
-.practice-page .practice-percent-editor input{width:40px;height:28px;min-height:28px;padding:2px 4px;line-height:1.25}
+.practice-page .practice-unit-progress{display:grid;grid-template-columns:72px minmax(0,1fr) 14px;align-items:center;gap:4px;min-height:32px;padding:2px 4px;border:1px solid transparent;border-radius:6px;font-weight:400;font-variant-numeric:tabular-nums}
+.practice-page .practice-percent-editor{gap:3px;margin:0}
+.practice-page .practice-percent-editor input{width:32px;height:28px;min-height:28px;padding:2px;line-height:1.25;flex:0 0 32px}
 .practice-page .practice-percent-editor input::-webkit-inner-spin-button,.practice-page .practice-percent-editor input::-webkit-outer-spin-button{appearance:none;margin:0}
 .practice-page .practice-percent-editor input{appearance:textfield}
 .practice-page .practice-percent-editor input[readonly]{border-color:transparent;background:transparent;box-shadow:none;cursor:default}
 .practice-page .practice-unit-progress progress{height:3px}
 .practice-page .practice-unit-progress>progress{flex:1;min-width:12px}
-.practice-page .practice-count-meter{flex:1;gap:4px}
-.practice-page .practice-count-unknown{justify-content:flex-end}
-.practice-count-unknown .practice-book-scope{white-space:normal;text-align:left;line-height:1.3;text-decoration:underline;text-underline-offset:2px}
+.practice-page .practice-count-meter{gap:4px}
+.practice-page .practice-count-unknown{min-height:3px}
 .publication-level-count{font-size:12px;font-weight:400;line-height:1.5;overflow-wrap:anywhere}
 .publication-level-summary{min-width:0;overflow-wrap:anywhere}
 .publication-level-summary h4{margin:10px 0 3px;font-size:15px}
@@ -1078,8 +1071,6 @@
 .publication-level-grid dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
 .publication-level-grid small{grid-column:1/-1;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
 
-.practice-page .practice-song-progress{padding:0;min-height:28px;text-align:left;border:0;background:none;color:var(--ink)}
-.practice-song-count{flex-shrink:0;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .practice-page .practice-book-scope{min-height:20px;padding:0 2px}
 @media(max-width:480px){
   .practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px;column-gap:6px}
@@ -1511,7 +1502,7 @@
 .practice-material-children[hidden]{display:none}
 /* 行内选择方式并记录本次分钟；累计值与新增输入明确分开。 */
 .practice-qing .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 64px 194px}
-.practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px 194px}
+.practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px 194px}
 .practice-time-inline{min-width:0;margin:0}
 .practice-time-entry{display:flex;align-items:center;justify-content:flex-end;gap:3px;min-width:0}
 .practice-time-entry select{width:94px;min-width:0;height:28px;min-height:28px;padding:1px 0;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:16px}
@@ -1531,7 +1522,7 @@
 @media(max-width:600px){.practice-qing .practice-material-row.practice-books-row{column-gap:5px}}
 @media(max-width:480px){
   .practice-qing .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px}
-  .practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 126px}
+  .practice-qing .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 140px}
   .practice-qing .practice-time-inline{grid-column:1/-1;display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:8px}
   .practice-time-hint{justify-content:flex-start;flex:1;min-width:0}
   .practice-time-entry{flex:none}
@@ -1944,21 +1935,30 @@
 .practice-stage-done-label{display:inline-flex;align-items:center;gap:3px;font-size:12px;color:var(--accent,#2e6954)}
 .practice-page .practice-book-progress{width:100%;min-height:32px;padding:2px 4px;border:1px solid var(--line);border-radius:6px;background:var(--paper);text-align:left;color:var(--ink);font-weight:400}
 .practice-book-progress:hover{border-color:var(--material-ink)}
-.practice-reading-quantity{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums}
-.practice-reading-completed{font-size:16px;line-height:1.25;min-width:20px;text-align:right}
+.practice-reading-quantity{display:flex;align-items:center;gap:3px;min-width:0;white-space:nowrap;font-variant-numeric:tabular-nums}
+.practice-reading-completed{box-sizing:border-box;flex:0 0 32px;padding:2px 3px;font-size:16px;line-height:1.25;text-align:right}
 .practice-reading-quantity>small{font-size:12px;color:var(--muted);font-weight:400}
 .practice-book-progress>.icon{width:14px;height:14px;flex:0 0 14px}
 
 /* 素材类型只作说明，与路线用途和个人进度分别表达。 */
 .material-type-tag{display:inline-flex;align-items:center;padding:0 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--muted);font-size:12px;font-weight:400;line-height:1.5;white-space:nowrap}
 
-.stage-material-role-group{min-width:0;margin-top:10px}
-.stage-material-role-heading{margin:0 0 4px;line-height:1.5}
-.stage-material-role-heading .material-role-key{font-size:12px;font-weight:500}
-.stage-material-role-group>.stage-resource-tags{margin-top:0}
 .stage-match-evidence>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 0;font-size:12px;font-weight:400;line-height:1.6}
 .stage-match-evidence>summary::after{content:'＋';margin-left:auto;flex-shrink:0;color:var(--green);font-size:16px;font-weight:400}
 .stage-match-evidence[open]>summary::after{content:'−'}
+
+/* 对照按正文可用宽度排三列，不借用全站目录断点。 */
+.comparison-panel{container:route-comparison / inline-size}
+.comparison-panel .complete-comparison>.comparison-head{display:none}
+.comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:minmax(0,1fr)}
+.comparison-panel .complete-comparison>.stage-comparison-row>.route-tab-inactive{display:none}
+@container route-comparison (min-width:720px){
+  .comparison-panel .complete-comparison>.comparison-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:repeat(3,minmax(0,1fr));padding:6px;gap:8px}
+  .comparison-panel .complete-comparison>.stage-comparison-row>[data-aligned-route]{display:flex;order:0}
+  .comparison-panel .complete-comparison .stage-card{padding:10px}
+  .comparison-panel .complete-comparison .stage-card h3{font-size:15px}
+}
 
 .hello-graph{width:100%;max-width:100%;min-width:0;box-sizing:border-box;margin-top:5px;font-size:13px}.hello-graph-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}.hello-graph-heading>strong{font-size:14px;overflow-wrap:anywhere}.hello-graph-status{font-size:12px;color:var(--muted,#6c7e72)}.hello-graph-tools{min-width:0;max-width:100%;display:flex;gap:5px;align-items:center;margin:4px 0;flex-wrap:wrap}.hello-graph-tool{height:28px;min-width:28px;padding:1px 6px;border:1px solid var(--line,#dce6dd);border-radius:8px;background:var(--paper,#fff);color:inherit;font:inherit;cursor:pointer}.hello-graph-tool:disabled{opacity:.4;cursor:default}.hello-graph-tools select{width:auto;max-width:150px;min-width:0;min-height:28px;height:28px;font-size:13px;padding-block:2px}.site-enabled .hello-graph-tools select{font-size:13px!important}.hello-graph-canvas{overflow:hidden;min-width:0;border:1px solid var(--line,#dce6dd);border-radius:12px;background:radial-gradient(circle at 1px 1px,#b9c9c044 1px,transparent 0) 0 0/18px 18px;touch-action:pan-y}.hello-graph-canvas>svg{display:block;touch-action:none;max-width:100%}.hello-graph-node{cursor:pointer;outline:none}.hello-graph-node>rect{fill:var(--paper,#fff);stroke:#90ad9e;stroke-width:1.3}.hello-graph-node.is-focus{cursor:default}.hello-graph-node.is-focus>rect{fill:var(--green-soft,#e7f1ea);stroke:var(--green,#2e6954);stroke-width:2}.hello-graph-node.type-scene>rect{stroke:#bf9757}.hello-graph-node.type-rhyme>rect,.hello-graph-node.type-tune>rect{stroke:#9477a5}.hello-graph-node.type-resource>rect{stroke:#608da5}.hello-graph-node:hover>rect,.hello-graph-node:focus>rect{stroke:var(--green,#2e6954);stroke-width:3}.hello-graph-node-copy{font:13px/1.25 system-ui,sans-serif;color:var(--ink,#243d32);overflow-wrap:anywhere;}.hello-graph-node-copy small{display:block;font-size:12px;color:var(--muted,#6c7e72);margin-bottom:2px}.hello-graph-node-copy strong{font-weight:650;display:block}.hello-graph-edge{fill:none;stroke:#9db4a6;stroke-width:1.5}.hello-graph-relation{font:12px system-ui,sans-serif;fill:var(--muted,#6c7e72);paint-order:stroke;stroke:var(--paper,#fff);stroke-width:5px;stroke-linejoin:round}.hello-graph-list,.hello-graph-help{font-size:13px;margin-top:5px}.hello-graph-list>summary,.hello-graph-help>summary{cursor:pointer}.hello-graph-help p{font-size:12px;line-height:1.6;color:var(--muted,#6c7e72)}.hello-graph-neighbors{display:grid;gap:3px;margin-top:4px}.hello-graph-neighbor-row{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--line,#dce6dd);padding:3px 0;min-width:0}.hello-graph-neighbor-row>span,.hello-graph-neighbor-row>small{font-size:12px;color:var(--muted,#6c7e72)}.hello-graph-neighbor-row>button,.hello-graph-neighbor-row>a{font:inherit;color:var(--green,#2e6954);border:0;background:none;text-align:left;padding:0;overflow-wrap:anywhere;cursor:pointer}.hello-graph-neighbor-row>a{max-width:100%}.hello-graph-tool:focus-visible,.hello-graph-neighbor-row>button:focus-visible,.hello-graph-neighbor-row>a:focus-visible{outline:3px solid #a77637;outline-offset:2px}@media(max-width:360px){.hello-graph-tools{gap:4px}.hello-graph-tools select{max-width:115px}.hello-graph-tool{padding-inline:6px}}
 .hello-graph-tune-title{display:inline;padding:0;border:0;background:none;text-align:left;font:650 13px/1.25 system-ui,sans-serif;color:inherit;overflow-wrap:anywhere;cursor:pointer}.hello-graph-tune-title:focus-visible{outline:3px solid #a77637;outline-offset:2px}.hello-graph-heading>strong>button{margin-inline-start:6px}
@@ -4817,12 +4817,8 @@ function create({h,roles,levelNodes,types={}}){
     return h('span',{class:['material-role-key','material-role-'+role.kind,extraClass].filter(Boolean).join(' '),title:[roles[role.kind],role.usage&&'原文用途：'+role.usage,role.basis].filter(Boolean).join('；')},roles[role.kind]);
   }
   function roleGroups(items,renderItem){
-    return Object.keys(roles).flatMap(kind=>{
-      const group=items.filter(item=>item.role.kind===kind);
-      return group.length?[h('section',{class:'stage-material-role-group','aria-label':roles[kind]+'素材'},
-        h('h4',{class:'stage-material-role-heading'},roleTag({kind})),
-        h('div',{class:'stage-resource-tags'},group.map(renderItem)))]:[];
-    });
+    return h('div',{class:'stage-resource-tags'},Object.keys(roles).flatMap(kind=>
+      items.filter(item=>item.role.kind===kind).map(renderItem)));
   }
   function typeTag(type){
     const label=type==='book'?'绘本':types[type]||types.other||'其他';
@@ -6851,17 +6847,27 @@ function openBrowseStage(id){
   readingFolds.set('origin-'+id,true);readingFolds.set('stage-card-'+id,true);
   for(const routeId of ['xu','qing','banana'])readingFolds.set('target-'+id+'-'+routeId,true);
 }
-function authorPicker(){
-  const selected=browseRoute();
-  return h('section',{class:'route-author-picker','aria-label':'选择阶段基准路线'},h('div',{class:'route-author-options'},['xu','qing','banana'].map(id=>h('button',{type:'button',id:'browse-author-'+id,'data-browse-author':id,'aria-pressed':String(selected.id===id),style:{'--route':routes.get(id).color},onclick:()=>{
-    S.compareRoute=id;S.route=id;S.compareStage=null;mobileRouteTab=id;render();document.getElementById('browse-author-'+id)?.focus({preventScroll:true});
-  }},routes.get(id).name))),h('p',{class:'route-reading-hint'},S.routeDomain==='listening'?'以'+selected.name+'的听力阶段为主线，其他能力按条件并行加入。':'正在查看'+selected.name+'的能力资料；各分支不表示听力阶段的后续步骤。'));
+function selectBrowseAuthor(id){
+  const previous=browseRoute(),selected=browseStage(previous),all=!!readingFolds.get(routeExpansionKey());
+  const mapped=selected?EnglishModel.libraryStageForRoute(C,'stage:'+selected.id,id,S.profile):'all';
+  S.compareRoute=id;S.route=id;mobileRouteTab=id;
+  const next=browseRoute();S.compareStage=next.stages.find(stage=>'stage:'+stage.id===mapped)?.id||next.stages[0]?.id||null;
+  readingFolds.set(routeExpansionKey(),all);if(S.compareStage)openBrowseStage(S.compareStage);
+  render();document.getElementById('browse-author-'+id)?.focus({preventScroll:true});
+}
+function authorPicker(legend){
+  const selected=browseRoute(),comparison=S.roadmapMode==='compare',label=comparison?'当前为阶段对照，切换为独立排列':'当前为独立排列，切换为阶段对照';
+  return h('section',{class:'route-author-picker','aria-label':'选择路线与查看模式'},h('div',{class:'route-author-options',onkeydown:e=>{
+    if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)||!e.target.dataset.browseAuthor)return;
+    const tabs=Array.from(e.currentTarget.querySelectorAll('[data-browse-author]')),index=tabs.indexOf(e.target);
+    e.preventDefault();tabs[e.key==='Home'?0:e.key==='End'?tabs.length-1:(index+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length].click();
+  }},['xu','qing','banana'].map(id=>h('button',{type:'button',id:'browse-author-'+id,'data-browse-author':id,'aria-pressed':String(selected.id===id),style:{'--route':routes.get(id).color},onclick:()=>selectBrowseAuthor(id)},routes.get(id).name)),
+    btn(icon(comparison?'network':'layers'),'roadmap-mode',{'data-mode':comparison?'complete':'compare','aria-label':label,title:label,id:'route-mode-toggle'},'icon-button route-mode-toggle'),legend));
 }
 function routeJourney(route){
   if(!route.stages.length)return null;
   const selected=browseStage(route),sequential=S.routeDomain==='listening',all=!!readingFolds.get(routeExpansionKey());
-  return h('nav',{class:'route-journey'+(sequential?' sequential':''),'aria-label':sequential?'路线阶段推进':'能力分支资料'},
-    h('div',{class:'journey-label'},h('strong',{},sequential?'阶段推进':'能力分支'),h('small',{},sequential?'按原文顺序浏览，加入条件见阶段内容':'分支可交叉发展，不按编号晋级')),
+  return h('nav',{class:'route-journey'+(sequential?' sequential':''),style:{'--route':route.color},'aria-label':sequential?'路线阶段选择':'能力分支资料'},
     h('ol',{},h('li',{class:'journey-all'},h('button',{id:'stage-step-all',type:'button',class:all?'active':'','aria-label':'查看全部阶段','aria-pressed':String(all),onclick:()=>setRouteStagesOpen(true)},'全部')),route.stages.map(st=>{const target=st.raw.listeningTargetWords,label=target?(route.stages[0].id===st.id?'0–':'')+target+'词':st.title.replace(/^常规\s*(\d+)\s*·\s*积累/,'常规$1 · ').replace(/^听力节点\s*·\s*/,'');return h('li',{},btn(label,'select-compare-stage',{id:'stage-step-'+st.id,'data-id':st.id,'data-journey':true,'aria-current':!all&&st.id===selected.id?'step':null,'aria-label':st.title},!all&&st.id===selected.id?'active':''));})));
 }
 function routeSourcesPanel(){
@@ -7001,29 +7007,16 @@ function phaseOverview(route,targets){
 }
 // 小屏先呈现对应阶段，展开后保留完整卡片和关联证据。
 let mobileRouteTab=null;
-function routeTabs(columns,fallback,key,global=false){
-  const nav=h('div',{class:'route-tabs','data-global-tabs':global?'true':null,'data-fallback-route':fallback,'aria-label':global?'切换阶段对照路线':'切换路线内容',onkeydown:e=>{
-    if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
-    const tabs=Array.from(e.currentTarget.querySelectorAll('button')),index=tabs.indexOf(e.target);if(index<0)return;
-    e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(index+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
-    tabs[next].click();tabs[next].focus({preventScroll:true});
-  }},columns.map(r=>h('button',{type:'button',id:'route-tab-'+key+'-'+r.id,'data-tab-route':r.id,'aria-controls':'route-panel-'+key+'-'+r.id,style:{'--route':r.color},onclick:()=>{mobileRouteTab=r.id;syncRouteTabs();}},r.name)));
-  return nav;
-}
+let observedComparison=null;
+const routeComparisonObserver=new ResizeObserver(()=>syncRouteTabs());
 function syncRouteTabs(){
-  const narrow=window.matchMedia('(max-width:900px)').matches;
-  document.querySelectorAll('.route-tabs').forEach(nav=>{
-    const selected=mobileRouteTab||nav.dataset.fallbackRoute;
-    if(narrow)nav.setAttribute('role','tablist');else nav.removeAttribute('role');
-    nav.querySelectorAll('button').forEach(tab=>{
-      const active=tab.dataset.tabRoute===selected,panels=nav.dataset.globalTabs?Array.from(document.querySelectorAll('.complete-comparison>.stage-comparison-row>[data-aligned-route="'+tab.dataset.tabRoute+'"]')):[document.getElementById(tab.getAttribute('aria-controls'))].filter(Boolean);
-      if(nav.dataset.globalTabs)tab.setAttribute('aria-controls',panels.map(panel=>panel.id).join(' '));
-      if(narrow){tab.setAttribute('role','tab');tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;}else{tab.removeAttribute('role');tab.removeAttribute('aria-selected');tab.removeAttribute('tabindex');}
-      for(const panel of panels){
-      panel.classList.toggle('route-tab-inactive',!active);
-      if(narrow){panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',tab.id);if(active&&panel.tagName==='DETAILS'&&!readingFolds.has(panel.dataset.foldKey))panel.open=true;}else{panel.removeAttribute('role');panel.removeAttribute('aria-labelledby');}
-      }
-    });
+  const comparison=document.querySelector('.comparison-panel'),narrow=!comparison||comparison.clientWidth<720;
+  if(comparison!==observedComparison){routeComparisonObserver.disconnect();observedComparison=comparison;if(comparison)routeComparisonObserver.observe(comparison);}
+  document.querySelectorAll('.complete-comparison>.stage-comparison-row>[data-aligned-route]').forEach(panel=>{
+    const active=!narrow||panel.dataset.alignedRoute===S.compareRoute;
+    panel.classList.toggle('route-tab-inactive',!active);
+    if(!narrow&&!readingFolds.has(panel.dataset.foldKey))panel.open=true;
+    if(narrow){panel.setAttribute('role','region');panel.setAttribute('aria-labelledby','browse-author-'+panel.dataset.alignedRoute);}else{panel.removeAttribute('role');panel.removeAttribute('aria-labelledby');}
   });
 }
 window.matchMedia('(max-width:900px)').addEventListener('change',()=>{if(S.view==='routes'&&S.roadmapMode==='complete')render();else syncRouteTabs();});
@@ -7042,7 +7035,7 @@ function stageComparison(){
   const selected=route.stages.find(st=>st.id===S.compareStage)||route.stages[0];
   const rows=route.stages.map(st=>({stage:st,groups:EnglishModel.compareStages(comparisonCatalog(),st.id)}));
   const remaining=columns.map(r=>({route:r,stages:r.id===route.id?[]:r.stages.filter(st=>!rows.some(row=>primaryStageMatches(row.groups.find(g=>g.routeId===r.id)).some(m=>m.stageId===st.id)))}));
-  return h('div',{class:'comparison-panel'},h('div',{class:'mobile-comparison-tabs'},h('span',{},'对照内容'),routeTabs(columns,route.id,'comparison',true)),h('details',{class:'alignment-overview'},h('summary',{},'阶段关联速览 · 查看全部阶段对应'),phaseOverview(route,targets)),h('div',{class:'stage-comparison complete-comparison','aria-label':'三条完整路线的阶段对照'},h('div',{class:'comparison-head'},columns.map(r=>h('div',{style:{'--route':r.color}},routeChip(r.id),h('small',{},r.stages.length?r.stages.length+' 个'+(r.stages.some(st=>st.group)?'节点':'阶段')+(r.id===route.id?' · 按此顺序浏览':' · 显示关联内容'):'本领域原文方法')))),rows.map((row,index)=>{const st=row.stage;return [comparisonDomain(st,index,route.stages),h('article',{class:'stage-comparison-row '+(selected.id===st.id?'mobile-current ':'')+(S.compareStage===st.id?'comparison-focused':''),id:'compare-'+st.id,'data-stage-id':st.id,style:{'--route':route.color}},columns.map(r=>alignedRouteCell(r,st,row.groups.find(g=>g.routeId===r.id),row.groups.flatMap(g=>primaryStageMatches(g).map(m=>stages.get(m.stageId))))))];}),remaining.some(r=>r.stages.length)?h('details',{class:'alignment-remaining'},h('summary',{},'其他未关联阶段 · 展开查看'),h('p',{class:'small-note'},'以下阶段尚未建立有依据的阶段对应或起步参考，仍可按各自路线完整浏览；素材关联另行保留。'),h('div',{class:'alignment-remaining-grid'},remaining.map(({route:r,stages:list})=>h('div',{class:'aligned-route-cell','data-remaining-route':r.id},h('h3',{},routeChip(r.id)),list.length?list.map(st=>compactStage(st)):h('p',{class:'comparison-empty'},'这条路线的全部阶段已在上方展示'))))):null));
+  return h('div',{class:'comparison-panel'},h('details',{class:'alignment-overview'},h('summary',{},'阶段关联速览 · 查看全部阶段对应'),phaseOverview(route,targets)),h('div',{class:'stage-comparison complete-comparison','aria-label':'三条完整路线的阶段对照'},h('div',{class:'comparison-head'},columns.map(r=>h('div',{style:{'--route':r.color}},routeChip(r.id),h('small',{},r.stages.length?r.stages.length+' 个'+(r.stages.some(st=>st.group)?'节点':'阶段')+(r.id===route.id?' · 按此顺序浏览':' · 显示关联内容'):'本领域原文方法')))),rows.map((row,index)=>{const st=row.stage;return [comparisonDomain(st,index,route.stages),h('article',{class:'stage-comparison-row '+(selected.id===st.id?'mobile-current ':'')+(S.compareStage===st.id?'comparison-focused':''),id:'compare-'+st.id,'data-stage-id':st.id,style:{'--route':route.color}},columns.map(r=>alignedRouteCell(r,st,row.groups.find(g=>g.routeId===r.id),row.groups.flatMap(g=>primaryStageMatches(g).map(m=>stages.get(m.stageId))))))];}),remaining.some(r=>r.stages.length)?h('details',{class:'alignment-remaining'},h('summary',{},'其他未关联阶段 · 展开查看'),h('p',{class:'small-note'},'以下阶段尚未建立有依据的阶段对应或起步参考，仍可按各自路线完整浏览；素材关联另行保留。'),h('div',{class:'alignment-remaining-grid'},remaining.map(({route:r,stages:list})=>h('div',{class:'aligned-route-cell','data-remaining-route':r.id},h('h3',{},routeChip(r.id)),list.length?list.map(st=>compactStage(st)):h('p',{class:'comparison-empty'},'这条路线的全部阶段已在上方展示'))))):null));
 }
 function routeExpansionKey(){return 'route-expand-all-'+S.roadmapMode+'-'+S.routeDomain+'-'+(S.roadmapMode==='compare'?S.compareRoute:S.route);}
 function setRouteStagesOpen(open){
@@ -7063,9 +7056,7 @@ function routesView(){
   legend.querySelector('button').classList.add('button','icon-button');
   return h('div',{class:'routes-view'+(readingFolds.get(routeExpansionKey())?' routes-expanded':'')},
     heading('THE COMPLETE ROADMAP','三条完整路线',null,btn([icon('book'),'多路线共用书单'],'shared-library')),
-    authorPicker(),routeJourney(route),
-    h('div',{class:'toolbar roadmap-mode','aria-label':'完整路线查看模式'},h('div',{class:'segmented'},[['compare','阶段对照'],['complete','独立排列']].map(([id,label])=>btn(label,'roadmap-mode',{'data-mode':id,'aria-pressed':String(S.roadmapMode===id)},S.roadmapMode===id?'active':''))),
-      h('div',{class:'route-fold-actions'},legend)),
+    authorPicker(legend),routeJourney(route),
     routeDomainPanel(),comparison&&route.stages.length?stageComparison():independentRouteView(route),
     h('details',{class:'route-reference-panel'},h('summary',{},'执行方法、来源与对照说明'),domainMethodsPanel(),routeSourcesPanel(),
       h('details',{class:'route-help'},h('summary',{},'对照规则与共用素材图例'),h('div',{},h('p',{},'先核对原文阶段定义、准入与目标，再查看素材。许密杉与庆爸按听力词汇目标粗略参考；香蕉妈妈Pre仅参考起步方式，后续阶段的换算依据仍待核验。共用素材不参与阶段判定。听、说、读、写可以交叉发展，不按领域按钮的排列顺序晋级。'),materialLegend()))));
@@ -7477,7 +7468,7 @@ function practiceUnitPercent(unit){
   const readingScope=practiceBookScope(unit),plan=readingPlanForResource(unit.resourceId,readingScope);
   if(plan&&BP.scopeGroup(plan,practiceBookScope(unit))!==null){const q=practiceQuantity(unit);return btn([h('span',{class:'practice-reading-quantity'},h('span',{class:'practice-reading-completed'},q.completed),h('small',{},'/ '+q.total+' 本')),h('span',{class:'practice-count-meter'},h('progress',{max:100,value:q.percent,'aria-hidden':'true'}),h('span',{},q.percent+'%')),icon('chevron')],'reading-plan',{'data-id':unit.resourceId,'data-stage':unit.recordStageId||unit.stageId,'data-reading-scope':JSON.stringify(readingScope),id:'reading-progress-'+unit.key,'aria-label':unit.label+'已完成'+q.completed+'/'+q.total+'本，点击逐本勾选'},'practice-unit-progress practice-count-progress practice-book-progress');}
   const record=practiceUnitRecord(unit);
-  if(isXuSongUnit(unit))return btn([h('span',{class:'practice-song-count'},record.done+'/'+record.total+'首'),h('div',{class:'practice-count-meter'},h('progress',{max:100,value:record.percent,'aria-hidden':'true'}),h('span',{},record.percent+'%'))],'sss-songs',{'data-id':unit.resourceId,'data-stage':unit.stageId,'data-category':'essential',id:'song-progress-'+unit.key,'aria-label':'必备歌单已完成'+record.done+'/'+record.total+'首，'+record.percent+'%，点击勾选歌曲',title:'按必备歌单完成首数自动计算'},'practice-unit-progress practice-song-progress');
+  if(isXuSongUnit(unit))return btn([h('span',{class:'practice-reading-quantity'},h('span',{class:'practice-reading-completed'},record.done),h('small',{},'/ '+record.total+' 首')),h('div',{class:'practice-count-meter'},h('progress',{max:100,value:record.percent,'aria-hidden':'true'}),h('span',{},record.percent+'%')),icon('chevron')],'sss-songs',{'data-id':unit.resourceId,'data-stage':unit.stageId,'data-category':'essential',id:'song-progress-'+unit.key,'aria-label':'必备歌单已完成'+record.done+'/'+record.total+'首，'+record.percent+'%，点击勾选歌曲',title:'按必备歌单完成首数自动计算'},'practice-unit-progress practice-count-progress practice-book-progress practice-song-progress');
   const quantity=practiceQuantity(unit),hasTotal=quantity.total!==null,scope=unit.children?null:practiceBookScope(unit);
   const maximum=quantity.total??1000000;
   return h('div',{class:'practice-unit-progress practice-count-progress'},h('label',{class:'practice-percent-editor'},h('input',{id:'count-'+unit.key,type:'number',inputmode:'numeric',min:0,max:maximum,step:1,value:quantity.completed,readonly:quantity.sourcePriority,'aria-label':unit.label+'的已完成数量（'+(hasTotal?'共'+quantity.total:'单位：')+quantity.unit+'）'+(quantity.sourcePriority?'，由小花生已读书目自动汇总':''),title:quantity.sourcePriority?'由小花生已读书目自动汇总；原手填数量保留，不计入当前进度':unit.children?'汇总取父项记录与子项合计中的较大值；子项已记'+quantity.childCompleted+quantity.unit:'填写完成数量',oninput:e=>e.currentTarget.setCustomValidity(''),onkeydown:e=>{if(e.key==='Enter'){e.preventDefault();e.currentTarget.blur();}},onchange:e=>{
@@ -7485,7 +7476,7 @@ function practiceUnitPercent(unit){
     if(!input.checkValidity()){input.setCustomValidity('请输入0–'+maximum+'之间的整数数量。');input.reportValidity();return;}
     const updated=unit.children?P.groupQuantityUpdate(Number(input.value),practiceChildQuantities(unit),practiceRawRecord(unit)):P.unitQuantityProgressUpdate(Number(input.value),scope,practiceRawRecord(unit),quantity.unit);
     if(savePracticeRecords({[unit.key]:updated,...(!unit.children?P.sharedQuantityUpdate(S.records,unit.resourceId,scope,Number(input.value),quantity.unit):{})}))render();else input.value=quantity.completed;
-  }}),h('span',{},hasTotal?'/ '+quantity.total+' '+quantity.unit:quantity.unit)),hasTotal?h('div',{class:'practice-count-meter'},h('progress',{max:100,value:quantity.percent,'aria-label':unit.label+'的进度：'+quantity.percent+'%'}),h('span',{},quantity.percent+'%')):h('div',{class:'practice-count-meter practice-count-unknown'},practiceBookButton(unit)));
+  }}),h('span',{},hasTotal?'/ '+quantity.total+' '+quantity.unit:quantity.unit)),hasTotal?h('div',{class:'practice-count-meter'},h('progress',{max:100,value:quantity.percent,'aria-label':unit.label+'的进度：'+quantity.percent+'%'}),h('span',{},quantity.percent+'%')):h('div',{class:'practice-count-meter practice-count-unknown','aria-hidden':'true'}));
 
 }
 function practiceUnitDate(unit,record){
@@ -7587,7 +7578,7 @@ function practiceMaterialRow(st,u,toggle=null,entries){
   const scope=practiceBookScope(u),reading=readingPlanForResource(u.resourceId,scope);
   const record=practiceUnitRecord(u),time=st.routeId==='qing'?P.materialTime(S.records,u.key,u.children?.map(c=>c.key),entries):null;
   return h('article',{class:'practice-material-row practice-percent-row practice-books-row material-role-'+u.item.role.kind,'data-unit-key':u.key},
-    h('div',{class:'practice-label-shell'},h('div',{class:'practice-material-label practice-inline-label'},btn(practiceMaterialLabel(u),isXuSongUnit(u)?'sss-songs':reading?'reading-plan':'resource',{'data-stage':reading?u.recordStageId||u.stageId:u.stageId,'data-reading-scope':JSON.stringify(scope),id:'material-'+u.key,'data-id':u.resourceId,title:u.item.role.label+'；'+u.item.role.basis,...(isXuSongUnit(u)?{'data-stage':u.stageId,'data-category':'essential',id:'song-material-'+u.key}:{})},'practice-material-name'),h('div',{class:'practice-material-meta'},materialUI.typeTag(u.item.resource.type),materialUI.roleTag(u.item.role,'practice-material-role'),record.total!==null?practiceBookButton(u):null,toggle))),
+    h('div',{class:'practice-label-shell'},h('div',{class:'practice-material-label practice-inline-label'},btn(practiceMaterialLabel(u),isXuSongUnit(u)?'sss-songs':reading?'reading-plan':'resource',{'data-stage':reading?u.recordStageId||u.stageId:u.stageId,'data-reading-scope':JSON.stringify(scope),id:'material-'+u.key,'data-id':u.resourceId,title:u.item.role.label+'；'+u.item.role.basis,...(isXuSongUnit(u)?{'data-stage':u.stageId,'data-category':'essential',id:'song-material-'+u.key}:{})},'practice-material-name'),h('div',{class:'practice-material-meta'},materialUI.typeTag(u.item.resource.type),materialUI.roleTag(u.item.role,'practice-material-role'),practiceBookButton(u),toggle))),
     practiceUnitPercent(u),time?practiceInlineTime(st,u,time):null,
     record.text?h('details',{class:'practice-material-note practice-legacy-note'},h('summary',{},'既有备注'),h('p',{},record.text)):null);
 }
@@ -8359,7 +8350,7 @@ async function backup(){
   }
   const url=URL.createObjectURL(new Blob([content],{type:'application/json'}));const a=h('a',{href:url,download:filename});a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('已导出宝宝档案和素材小记录');
 }
-document.addEventListener('click',e=>{const target=e.target.closest('[data-action]');if(!target)return;const action=target.dataset.action;if(target.tagName==='A')e.preventDefault();if(action==='backdrop'){if(e.target!==target)return;closeModal();return;}if(action.startsWith('vocab-')){vocabularyAction(target);return;}const id=target.dataset.id;if(action==='reading-plan'){openModal('reading-plan',id,{stageId:target.dataset.stage,readingScope:target.dataset.readingScope?JSON.parse(target.dataset.readingScope):null});return;}if(action==='resource-progress'){openModal('resource-progress',id);return;}if(action==='library-book'){openModal('library-book',id);return;}if(action==='resource-books'){openModal('resource-books',id);return;}if(action==='custom-book-edit'){openModal('custom-book',id);return;}switch(action){case 'select-compare-stage':{const journeyScroll=target.hasAttribute('data-journey')?target.closest('ol').scrollLeft:null;if(journeyScroll!==null)setRouteStagesOpen(false);S.compareStage=id;openBrowseStage(id);render();if(journeyScroll!==null){const step=document.getElementById('stage-step-'+id);if(step){step.closest('ol').scrollLeft=journeyScroll;step.focus({preventScroll:true});}}break;}case 'library-more':S.libraryLimit+=18;render();break;case 'view':navigate(target.dataset.view);break;case 'route':S.route=target.dataset.route;mobileRouteTab=S.route==='all'?null:S.route;if(S.route!=='all')S.compareRoute=S.route;S.compareStage=null;S.view='routes';render();window.scrollTo(0,0);break;case 'route-domain':S.routeDomain=target.dataset.domain;if(target.dataset.routeContext){S.compareRoute=target.dataset.routeContext;S.route=target.dataset.routeContext;mobileRouteTab=target.dataset.routeContext;}S.compareStage=null;navigate('routes');requestAnimationFrame(()=>document.querySelector('.route-domain-options [data-domain="'+S.routeDomain+'"]')?.focus({preventScroll:true}));break;case 'roadmap-mode':{const routeId=browseRoute().id;S.route=routeId;S.compareRoute=routeId;S.roadmapMode=target.dataset.mode;render();break;}case 'compare-stage':{closeModal();const st=stages.get(id);mobileRouteTab=st.routeId;const domains=[...window.ROADMAP_RAW.routePlan.domains].sort((a,b)=>Number(b.id===S.routeDomain)-Number(a.id===S.routeDomain));const domain=domains.find(d=>EnglishModel.getRoutePlan(C,st.routeId,d.id)?.stageIds.includes(id))||domains.find(d=>EnglishModel.getRoutePlan(C,st.routeId,d.id)?.supportingStageIds.includes(id));S.routeDomain=domain?.id||st.domain||'listening';S.compareRoute=st.routeId;const plan=EnglishModel.getRoutePlan(C,st.routeId,S.routeDomain,S.profile);const node=plan.stages.find(s=>s.id===id||s.raw.sourceStageId===id||s.sourceStageIds?.includes(id));S.compareStage=node?.id||null;if(node)openBrowseStage(node.id);S.roadmapMode='compare';navigate('routes');requestAnimationFrame(()=>document.getElementById('compare-'+S.compareStage)?.scrollIntoView({block:'start',behavior:'smooth'}));break;}case 'shared-library':S.sharedOnly=true;S.search='';navigate('library');break;case 'shared-filter':S.sharedOnly=!S.sharedOnly;render();break;case 'profile':openModal('profile');break;case 'close':closeModal();break;case 'modal-back':backModal();break;case 'stage':openModal('stage',id);break;case 'resource':openModal('resource',id);break;case 'sss-songs':{const parent=S.modal;const stageId=target.dataset.stage||(parent?.kind==='stage'?parent.id:null);if(target.dataset.category){S.songCategory=target.dataset.category;S.songScene='all';S.songSearch='';S.songTopic='all';S.songSubtopic='all';S.songActivity='all';}openModal('sss-songs',id||SSS.resourceId,{stageId});break;}case 'song-category':S.songCategory=target.dataset.category;S.songScene='all';renderModal();overlay.querySelector('[data-category="'+S.songCategory+'"]')?.focus({preventScroll:true});break;case 'song-clear':S.songCategory='all';S.songScene='all';S.songSearch='';S.songTopic='all';S.songSubtopic='all';S.songActivity='all';renderModal();overlay.querySelector('#song-search-panel-toggle')?.focus({preventScroll:true});break;case 'activity':openModal('activity',id);break;case 'resource-route':openModal('resource-route',id,{routeId:target.dataset.route});break;case 'type':S.type=target.dataset.type;render();break;case 'clear-filters':S.type='all';S.route='all';S.search='';S.age='all';S.sharedOnly=false;S.materialStatus='all';S.libraryTopic='all';S.librarySubtopic='all';S.libraryBookMode=false;render();break;case 'search':S.search='';navigate('library');document.getElementById('library-search-panel')?.showPopover();document.getElementById('library-search')?.focus();break;case 'preview':showPreview(target.dataset.source,target.dataset.page);break;case 'resource-preview':showPreview(null,1,id);break;case 'hello-rhyme-preview':showPreview(null,1,null,id);break;case 'hello-material-preview':showPreview(null,1,null,null,id);break;case 'close-preview':closePreview();break;case 'preview-prev':case 'preview-next':{const source=previewSource(S.preview);const i=source.previews.findIndex(p=>p.page===S.preview.page);const n=i+(action==='preview-prev'?-1:1);if(source.previews[n]){S.preview.page=source.previews[n].page;renderPreview();}break;}case 'zoom-in':case 'zoom-out':S.preview.zoom=Math.min(250,Math.max(50,S.preview.zoom+(action==='zoom-in'?25:-25)));renderPreview();break;case 'relation-mode':S.relationMode=target.dataset.mode;S.relationPage=0;render();break;case 'age-index':S.relationMode='age';S.view='relations';render();window.scrollTo(0,0);break;case 'resource-graph':closeModal();S.relationMode='resource';S.focus=id;S.relationPage=0;S.view='relations';render();window.scrollTo(0,0);break;case 'graph-focus':S.focus=target.dataset.resource;S.relationPage=0;render();break;case 'graph-page':S.relationPage=Math.max(0,S.relationPage+Number(target.dataset.delta));render();break;case 'mode':S.profile.mode=target.dataset.mode;persist();render();break;case 'backup':backup();break;}});
+document.addEventListener('click',e=>{const target=e.target.closest('[data-action]');if(!target)return;const action=target.dataset.action;if(target.tagName==='A')e.preventDefault();if(action==='backdrop'){if(e.target!==target)return;closeModal();return;}if(action.startsWith('vocab-')){vocabularyAction(target);return;}const id=target.dataset.id;if(action==='reading-plan'){openModal('reading-plan',id,{stageId:target.dataset.stage,readingScope:target.dataset.readingScope?JSON.parse(target.dataset.readingScope):null});return;}if(action==='resource-progress'){openModal('resource-progress',id);return;}if(action==='library-book'){openModal('library-book',id);return;}if(action==='resource-books'){openModal('resource-books',id);return;}if(action==='custom-book-edit'){openModal('custom-book',id);return;}switch(action){case 'select-compare-stage':{const journeyScroll=target.hasAttribute('data-journey')?target.closest('ol').scrollLeft:null;if(journeyScroll!==null)setRouteStagesOpen(false);S.compareStage=id;openBrowseStage(id);render();if(journeyScroll!==null){const step=document.getElementById('stage-step-'+id);if(step){step.closest('ol').scrollLeft=journeyScroll;step.focus({preventScroll:true});}}break;}case 'library-more':S.libraryLimit+=18;render();break;case 'view':navigate(target.dataset.view);break;case 'route':S.route=target.dataset.route;mobileRouteTab=S.route==='all'?null:S.route;if(S.route!=='all')S.compareRoute=S.route;S.compareStage=null;S.view='routes';render();window.scrollTo(0,0);break;case 'route-domain':S.routeDomain=target.dataset.domain;if(target.dataset.routeContext){S.compareRoute=target.dataset.routeContext;S.route=target.dataset.routeContext;mobileRouteTab=target.dataset.routeContext;}S.compareStage=null;navigate('routes');requestAnimationFrame(()=>document.querySelector('.route-domain-options [data-domain="'+S.routeDomain+'"]')?.focus({preventScroll:true}));break;case 'roadmap-mode':{const routeId=browseRoute().id,all=!!readingFolds.get(routeExpansionKey());S.route=routeId;S.compareRoute=routeId;S.roadmapMode=target.dataset.mode;readingFolds.set(routeExpansionKey(),all);render();document.getElementById('route-mode-toggle')?.focus({preventScroll:true});break;}case 'compare-stage':{closeModal();const st=stages.get(id);mobileRouteTab=st.routeId;const domains=[...window.ROADMAP_RAW.routePlan.domains].sort((a,b)=>Number(b.id===S.routeDomain)-Number(a.id===S.routeDomain));const domain=domains.find(d=>EnglishModel.getRoutePlan(C,st.routeId,d.id)?.stageIds.includes(id))||domains.find(d=>EnglishModel.getRoutePlan(C,st.routeId,d.id)?.supportingStageIds.includes(id));S.routeDomain=domain?.id||st.domain||'listening';S.compareRoute=st.routeId;const plan=EnglishModel.getRoutePlan(C,st.routeId,S.routeDomain,S.profile);const node=plan.stages.find(s=>s.id===id||s.raw.sourceStageId===id||s.sourceStageIds?.includes(id));S.compareStage=node?.id||null;if(node)openBrowseStage(node.id);S.roadmapMode='compare';navigate('routes');requestAnimationFrame(()=>document.getElementById('compare-'+S.compareStage)?.scrollIntoView({block:'start',behavior:'smooth'}));break;}case 'shared-library':S.sharedOnly=true;S.search='';navigate('library');break;case 'shared-filter':S.sharedOnly=!S.sharedOnly;render();break;case 'profile':openModal('profile');break;case 'close':closeModal();break;case 'modal-back':backModal();break;case 'stage':openModal('stage',id);break;case 'resource':openModal('resource',id);break;case 'sss-songs':{const parent=S.modal;const stageId=target.dataset.stage||(parent?.kind==='stage'?parent.id:null);if(target.dataset.category){S.songCategory=target.dataset.category;S.songScene='all';S.songSearch='';S.songTopic='all';S.songSubtopic='all';S.songActivity='all';}openModal('sss-songs',id||SSS.resourceId,{stageId});break;}case 'song-category':S.songCategory=target.dataset.category;S.songScene='all';renderModal();overlay.querySelector('[data-category="'+S.songCategory+'"]')?.focus({preventScroll:true});break;case 'song-clear':S.songCategory='all';S.songScene='all';S.songSearch='';S.songTopic='all';S.songSubtopic='all';S.songActivity='all';renderModal();overlay.querySelector('#song-search-panel-toggle')?.focus({preventScroll:true});break;case 'activity':openModal('activity',id);break;case 'resource-route':openModal('resource-route',id,{routeId:target.dataset.route});break;case 'type':S.type=target.dataset.type;render();break;case 'clear-filters':S.type='all';S.route='all';S.search='';S.age='all';S.sharedOnly=false;S.materialStatus='all';S.libraryTopic='all';S.librarySubtopic='all';S.libraryBookMode=false;render();break;case 'search':S.search='';navigate('library');document.getElementById('library-search-panel')?.showPopover();document.getElementById('library-search')?.focus();break;case 'preview':showPreview(target.dataset.source,target.dataset.page);break;case 'resource-preview':showPreview(null,1,id);break;case 'hello-rhyme-preview':showPreview(null,1,null,id);break;case 'hello-material-preview':showPreview(null,1,null,null,id);break;case 'close-preview':closePreview();break;case 'preview-prev':case 'preview-next':{const source=previewSource(S.preview);const i=source.previews.findIndex(p=>p.page===S.preview.page);const n=i+(action==='preview-prev'?-1:1);if(source.previews[n]){S.preview.page=source.previews[n].page;renderPreview();}break;}case 'zoom-in':case 'zoom-out':S.preview.zoom=Math.min(250,Math.max(50,S.preview.zoom+(action==='zoom-in'?25:-25)));renderPreview();break;case 'relation-mode':S.relationMode=target.dataset.mode;S.relationPage=0;render();break;case 'age-index':S.relationMode='age';S.view='relations';render();window.scrollTo(0,0);break;case 'resource-graph':closeModal();S.relationMode='resource';S.focus=id;S.relationPage=0;S.view='relations';render();window.scrollTo(0,0);break;case 'graph-focus':S.focus=target.dataset.resource;S.relationPage=0;render();break;case 'graph-page':S.relationPage=Math.max(0,S.relationPage+Number(target.dataset.delta));render();break;case 'mode':S.profile.mode=target.dataset.mode;persist();render();break;case 'backup':backup();break;}});
 document.addEventListener('submit',async e=>{if(e.target.id.startsWith('vocabulary-')||e.target.classList.contains('vocabulary-category-row')){e.preventDefault();vocabularySubmit(e.target);return;}if(['practice-session-form','practice-note-form'].includes(e.target.id)){e.preventDefault();savePracticeForm(e.target);return;}if(e.target.id!=='profile-form')return;e.preventDefault();const f=new FormData(e.target),birth=String(f.get('birthDate'));let a=null;try{a=EnglishModel.getAge(birth);}catch{}if(!a){document.getElementById('profile-error').textContent='请检查宝宝的出生日期。';return;}try{await sharedProfile.save({name:String(f.get('name')).trim()||'宝宝',birthDate:birth},profileEditBase);S.profile=Object.assign({},S.profile,sharedProfile.get());if(!persist())return;closeModal();render();toast('已更新全站宝宝资料');}catch(error){document.getElementById('profile-error').textContent=error.message;}});
 document.addEventListener('click',e=>{
   const button=e.target.closest('[data-action]');if(!button)return;
