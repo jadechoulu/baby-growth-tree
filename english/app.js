@@ -646,7 +646,7 @@ function savePracticeRecords(changes){
   if(!persist()){S.records=previous;return false;}return true;
 }
 function liaoBookDone(id){return BP.bookState(S.records,id).done;}
-function liaoCompletionLabel(id){return (liaoBookDone(id)?'已完成，点击取消完成：':'标记完成：')+window.EnglishLiao.findBook(LIAO,id).title;}
+function liaoCompletionLabel(id){return (liaoBookDone(id)?'已阅读，点击取消已阅读：':'标记已阅读：')+window.EnglishLiao.findBook(LIAO,id).title;}
 function liaoCompletionControl(id){
   return btn(h('span',{class:'liao-completion-circle','aria-hidden':'true'},icon('check')),'liao-toggle',{'data-id':id,'aria-pressed':String(liaoBookDone(id)),'aria-label':liaoCompletionLabel(id),title:liaoCompletionLabel(id)},'liao-complete');
 }
