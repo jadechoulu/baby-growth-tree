@@ -7,6 +7,9 @@ function topics(data,custom=[]){
   return result;
 }
 function topicIds(book,data){return T.entryTopics('book',book);}
+function seriesFilter(books,{edition='all',topic='all',subtopic='all'}={}){
+  return books.filter(book=>(edition==='all'||book.edition===edition)&&T.matches(T.entryTopics('book',book),{topic,subtopic}));
+}
 function bookAppearances(book,resource,model){
   if(book.custom)return book.stageRefs||[];
   // 逐册级别来自具体版本目录；未标级别的原文只能关联套系，不能补造逐册阶段。
@@ -35,7 +38,7 @@ function filter(books,data,filters={}){
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
-    if(query&&!normalize([book.title,book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
+    if(query&&!normalize([book.title,...(book.aliases||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
     return true;
   });
 }
@@ -140,5 +143,5 @@ function levelGroups(parts){
   }
   return [...editions.values()];
 }
-return {normalize,topics,topicIds,bookAppearances,entries,filter,seriesCount,levelGroups};
+return {normalize,topics,topicIds,seriesFilter,bookAppearances,entries,filter,seriesCount,levelGroups};
 });

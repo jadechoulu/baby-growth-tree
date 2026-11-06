@@ -34,7 +34,8 @@ test('一级覆盖子级，二级精确且与所选一级保持同一路径',()=
 
 test('家居从生活场景拆出，空间位置归基础认知，不按题名追加主题',()=>{
   const home=books.books.find(b=>b.id==='book-952f345458a00781');
-  assert.deepEqual(T.entryTopics('book',home),['home.rooms']);
+  // 新增用户原表逐册内容为chair/table/bath/bed/television/mirror。
+  assert.deepEqual(T.entryTopics('book',home),['home.furniture','home.objects']);
   assert.deepEqual(T.entryTopics('book',{topics:['places']}),['concepts.position']);
   assert.deepEqual(T.entryTopics('book',{title:'Baby Shark Goes To Bed',topics:[]}),[]);
   assert.deepEqual(T.entryTopics('book',{topics:['animals']}),['animals']);
@@ -74,7 +75,7 @@ test('学校、职业与社交不按角色出现或旧标签自动继承',()=>{
   assert.equal(T.matches(topics('book-3b579d5e9eecae1f'),{topic:'social',subtopic:'social.sharing'}),false);
   assert.equal(T.matches(topics('book-3b579d5e9eecae1f'),{topic:'food',subtopic:'food.cooking'}),false);
   assert.equal(T.matches(topics('book-9e3a469a41019cb4'),{topic:'emotions',subtopic:'emotions.expression'}),false);
-  assert.deepEqual(topics('book-a40941b5e8434eb5'),[]);
+  assert.deepEqual(topics('book-a40941b5e8434eb5'),['concepts.books']);
 });
 
 test('Hello家居和道路场景不推定交通、安全或自我认知教学，农场动物逐条取证',()=>{

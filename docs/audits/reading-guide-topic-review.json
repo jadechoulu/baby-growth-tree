@@ -1,0 +1,2182 @@
+{
+  "checkedAt": "2026-11-06",
+  "scope": "三份用户原表299册逐项复核；基于原主题分组、细类、具体字词及句型，不视为逐页阅读全文。",
+  "policy": "保留表格原书号、标题、主题编排与句型。原分组有过宽或内容相矛盾时按本条内容纠正映射；不把语法词性、句型或角色身份自动当成内容主题。",
+  "nodes": [
+    {
+      "id": "animals.habitats",
+      "label": "动物与栖息地",
+      "parentId": "animals",
+      "basis": "RAZ A第6本，原表动物组、live/here及不同动物名称，指向动物在哪里生活。"
+    },
+    {
+      "id": "animals.young",
+      "label": "动物宝宝",
+      "parentId": "animals",
+      "basis": "RAZ A第7本原表动物组；calf/chick/cub/foal/kid/kitten/lamb/puppy均为幼年动物名称。"
+    },
+    {
+      "id": "animals.sounds",
+      "label": "动物叫声",
+      "parentId": "animals",
+      "basis": "培生第23本原表动物组，具体内容为quack/meow/bark/moo/squeak/gobble等叫声。"
+    },
+    {
+      "id": "actions.objects",
+      "label": "物品操作",
+      "parentId": "actions",
+      "basis": "RAZ A第46、100本原表动作组，通过bounce/roll/dump/spin及push具体物品呈现动作。"
+    },
+    {
+      "id": "actions.affection",
+      "label": "拥抱与亲吻",
+      "parentId": "actions",
+      "basis": "RAZ AA第76本原表动作细类，hug/kiss/pat等具体表达亲昵的动作。"
+    },
+    {
+      "id": "arts.film",
+      "label": "电影",
+      "parentId": "arts",
+      "basis": "RAZ AA第87本列movie/screen/ticket/seat/popcorn等观影内容。"
+    },
+    {
+      "id": "concepts.ownership",
+      "label": "所属关系",
+      "parentId": "concepts",
+      "basis": "RAZ A第92本归have/has句型组，内容围绕谁拥有它；不将人称代词词性作为主题。"
+    },
+    {
+      "id": "concepts.attributes",
+      "label": "外观与特征",
+      "parentId": "concepts",
+      "basis": "RAZ A第15、26、44、98本描述花纹、质地等特征；颜色、形状和大小反义词仍使用已有专类。"
+    },
+    {
+      "id": "festivals.parties",
+      "label": "聚会与派对",
+      "parentId": "festivals",
+      "basis": "培生第47、50本有party、礼物及派对用品，但未指明具体节日或生日。"
+    }
+  ],
+  "summary": [
+    {
+      "sourceId": "guide-raz-aa",
+      "books": 103,
+      "withSecondary": 103,
+      "parentOnly": []
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "books": 100,
+      "withSecondary": 100,
+      "parentOnly": []
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "books": 96,
+      "withSecondary": 95,
+      "parentOnly": [
+        96
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 2,
+      "title": "Go,Go,Go",
+      "before": [
+        "animals.farm"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.pets"
+      ],
+      "basis": "原动物组含cat/dog等宠物，也列农场动物；允许多主题。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 3,
+      "title": "Jump Over",
+      "before": [
+        "animals.farm"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.wild",
+        "actions.locomotion",
+        "concepts.position"
+      ],
+      "basis": "原表列cat/cow/deer/fox等混合动物，并明确jump/over，不仅限农场动物。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 6,
+      "title": "Rainforest Animals",
+      "before": [
+        "animals.wild"
+      ],
+      "topics": [
+        "animals.wild",
+        "animals.insects"
+      ],
+      "basis": "原表动物组明确列beetle/butterfly等昆虫。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 7,
+      "title": "The Coast",
+      "before": [
+        "nature.ocean"
+      ],
+      "topics": [
+        "nature.ocean",
+        "animals.birds"
+      ],
+      "basis": "原水系组同时明确列bird，按该条内容补鸟类。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 8,
+      "title": "Water",
+      "before": [
+        "nature.water"
+      ],
+      "topics": [
+        "nature.water",
+        "nature.ocean",
+        "nature.weather"
+      ],
+      "basis": "水系组具体列ocean、rain/snow，同时保留湖泊河流。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 13,
+      "title": "The Ocean",
+      "before": [
+        "nature.ocean"
+      ],
+      "topics": [
+        "nature.ocean",
+        "animals.sea"
+      ],
+      "basis": "原水系组具体列crab/starfish/fish等海洋动物。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 17,
+      "title": "Rain on fairyland",
+      "before": [
+        "nature.plants"
+      ],
+      "topics": [
+        "nature.plants",
+        "nature.weather",
+        "fantasy.characters"
+      ],
+      "basis": "原植物组还明确列rain和fairy；保留原分类并补具体内容。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 19,
+      "title": "Animals Nap",
+      "before": [
+        "animals.wild"
+      ],
+      "topics": [
+        "animals",
+        "daily.sleep"
+      ],
+      "basis": "原动物组含bat/fish/horse/dog等混合动物，nap支持睡觉，不将整组认作野生动物。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 21,
+      "title": "Purple",
+      "before": [
+        "concepts.colors"
+      ],
+      "topics": [
+        "concepts.colors",
+        "clothing.clothes",
+        "clothing.accessories"
+      ],
+      "basis": "原日常用品细类列shirt/hat/backpack等，明确衣物和配饰。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 22,
+      "title": "Yellow",
+      "before": [
+        "concepts.colors"
+      ],
+      "topics": [
+        "concepts.colors",
+        "transport.land",
+        "transport.safety"
+      ],
+      "basis": "原交通细类列bus/cab/truck及light/lines/signs/vest。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 23,
+      "title": "Blue",
+      "before": [
+        "concepts.colors"
+      ],
+      "topics": [
+        "concepts.colors",
+        "sports.playground"
+      ],
+      "basis": "原户外细类列playground/slide/swing。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 24,
+      "title": "Green",
+      "before": [
+        "animals.wild",
+        "nature.plants",
+        "concepts.colors"
+      ],
+      "topics": [
+        "animals.wild",
+        "nature.plants",
+        "concepts.colors",
+        "animals.insects"
+      ],
+      "basis": "本条动物内容明确含insect。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 25,
+      "title": "Orange",
+      "before": [
+        "nature.plants",
+        "concepts.colors"
+      ],
+      "topics": [
+        "nature.plants",
+        "concepts.colors",
+        "animals.insects"
+      ],
+      "basis": "本条明确含butterfly；不把orange一词额外猜为水果。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 26,
+      "title": "Red",
+      "before": [
+        "nature.plants",
+        "concepts.colors"
+      ],
+      "topics": [
+        "nature.plants",
+        "concepts.colors",
+        "food.fruit",
+        "food.vegetables"
+      ],
+      "basis": "本条明确列苹果、草莓等水果以及土豆、萝卜等蔬菜；不只按原植物细类归自然。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 38,
+      "title": "Ten",
+      "before": [
+        "nature.plants",
+        "concepts.counting"
+      ],
+      "topics": [
+        "nature.plants",
+        "concepts.counting",
+        "food.fruit",
+        "food.vegetables"
+      ],
+      "basis": "本条明确列苹果、草莓等水果以及土豆、萝卜等蔬菜；不只按原植物细类归自然。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 27,
+      "title": "White",
+      "before": [
+        "animals.sea",
+        "nature.seasons",
+        "concepts.colors"
+      ],
+      "topics": [
+        "animals.sea",
+        "nature.seasons",
+        "concepts.colors",
+        "animals.wild",
+        "animals.birds"
+      ],
+      "basis": "本条同时列fox/owl/seal/whale等，海洋动物并非唯一动物内容。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 29,
+      "title": "One",
+      "before": [
+        "concepts.counting"
+      ],
+      "topics": [
+        "concepts.counting",
+        "home.furniture",
+        "home.objects"
+      ],
+      "basis": "原日常用品细类明确列bed/desk、blanket/book/pillow等。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 30,
+      "title": "Two",
+      "before": [
+        "animals.farm",
+        "concepts.counting"
+      ],
+      "topics": [
+        "animals",
+        "concepts.counting"
+      ],
+      "basis": "原农场细类中含bird/bug/cat/fish等混合动物，保留动物一级及数数，不一概称农场动物。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 32,
+      "title": "Four",
+      "before": [
+        "concepts.counting"
+      ],
+      "topics": [
+        "concepts.counting",
+        "transport.land",
+        "transport.water",
+        "transport.air"
+      ],
+      "basis": "原交通细类具体列airplane/boat/bus/car/truck等三种交通方式。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 33,
+      "title": "Five",
+      "before": [
+        "concepts.counting"
+      ],
+      "topics": [
+        "concepts.counting",
+        "home.objects"
+      ],
+      "basis": "原日常用品细类列bowl/cup/fork/plate/spoon等餐厨用品。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 40,
+      "title": "Twelve",
+      "before": [
+        "concepts.counting"
+      ],
+      "topics": [
+        "concepts.counting",
+        "home.objects"
+      ],
+      "basis": "原日常用品细类列bowl/cup/fork/plate/spoon等餐厨用品。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 35,
+      "title": "Seven",
+      "before": [
+        "animals.wild",
+        "concepts.counting"
+      ],
+      "topics": [
+        "animals",
+        "animals.insects",
+        "concepts.counting"
+      ],
+      "basis": "原丛林细类实际列turtle/worm/bee/frog/ladybug/lizard/snake/spider，不将整组等同野生动物，昆虫明确。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 36,
+      "title": "Eight",
+      "before": [
+        "concepts.counting"
+      ],
+      "topics": [
+        "concepts.counting",
+        "home.objects"
+      ],
+      "basis": "原日常用品细类列backpack/bottle/chair/light等。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 39,
+      "title": "Eleven",
+      "before": [
+        "concepts.counting"
+      ],
+      "topics": [
+        "concepts.counting",
+        "festivals.parties"
+      ],
+      "basis": "原节日细类具体列balloon/card/cupcake/friend/hat/pizza/present，支持聚会而未指明生日。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 43,
+      "title": "Counting Letters",
+      "before": [
+        "concepts.counting",
+        "phonics.alphabet"
+      ],
+      "topics": [
+        "concepts.counting",
+        "phonics.alphabet",
+        "concepts.books"
+      ],
+      "basis": "Counting Letters本条除字母还列word，数数字词的内容与书本文字符号有关；不据此推定拼读训练。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 44,
+      "title": "The Street",
+      "before": [
+        "transport.places"
+      ],
+      "topics": [
+        "transport.places",
+        "transport.land"
+      ],
+      "basis": "原户外/城市组明确列bike、bus/taxi、bus/car。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 45,
+      "title": "City Street",
+      "before": [
+        "transport.places"
+      ],
+      "topics": [
+        "transport.places",
+        "transport.land"
+      ],
+      "basis": "原户外/城市组明确列bike、bus/taxi、bus/car。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 46,
+      "title": "The City",
+      "before": [
+        "transport.places"
+      ],
+      "topics": [
+        "transport.places",
+        "transport.land"
+      ],
+      "basis": "原户外/城市组明确列bike、bus/taxi、bus/car。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 51,
+      "title": "Lunch At School",
+      "before": [
+        "daily.meals",
+        "daily.school",
+        "food"
+      ],
+      "topics": [
+        "daily.meals",
+        "daily.school",
+        "food",
+        "food.vegetables",
+        "food.snacks",
+        "food.drinks",
+        "food.staples"
+      ],
+      "basis": "原食物细类明确列carrot/cookie/milk/noodle，支持多种食物二级。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 54,
+      "title": "My Gift for Mom",
+      "before": [
+        "festivals.other"
+      ],
+      "topics": [
+        "festivals.other",
+        "family.parent-child"
+      ],
+      "basis": "原节日组的本条以给妈妈礼物、hug/smile为内容，补亲子互动，不补猜具体节日。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 55,
+      "title": "The Garden",
+      "before": [
+        "nature.plants"
+      ],
+      "topics": [
+        "nature.plants",
+        "food.vegetables"
+      ],
+      "basis": "植物细类具体列bean/corn/onion/pea/potato/tomato等蔬菜。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 59,
+      "title": "The Supermarket",
+      "before": [
+        "daily.shopping",
+        "food"
+      ],
+      "topics": [
+        "daily.shopping",
+        "food",
+        "food.fruit",
+        "food.vegetables",
+        "food.staples"
+      ],
+      "basis": "原食物细类具体有bread/cereal/fruit/vegetable。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 62,
+      "title": "The Classroom",
+      "before": [
+        "daily.school",
+        "home.objects"
+      ],
+      "topics": [
+        "daily.school",
+        "home.objects",
+        "home.furniture"
+      ],
+      "basis": "课堂本条原日常用品细类明确列chair/desk。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 65,
+      "title": "The Post Office",
+      "before": [
+        "transport.places"
+      ],
+      "topics": [
+        "transport.places",
+        "jobs.work"
+      ],
+      "basis": "邮局本条明确列worker及stamp/letter/mailbox/scale，支持邮递工作内容；不把全部场所自动视为职业。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 71,
+      "title": "My School Bus",
+      "before": [
+        "transport.land"
+      ],
+      "topics": [
+        "transport.land",
+        "daily.school"
+      ],
+      "basis": "本条是上学交通，原词汇school/bus配合原书标题与交通场所细类。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 72,
+      "title": "Fido Gets Dressed",
+      "before": [
+        "clothing.clothes",
+        "daily.dress"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "daily.dress",
+        "clothing.dressing",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "basis": "明确Gets Dressed内容及boot/cape/mask/scarf/sunglasses/sweater/hat；区分穿戴动作和物品。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 73,
+      "title": "Picking Apples",
+      "before": [
+        "nature.plants"
+      ],
+      "topics": [
+        "nature.plants",
+        "food.fruit"
+      ],
+      "basis": "原植物细类明确列apple及采摘相关篮子、梯子、树。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 74,
+      "title": "My Closet",
+      "before": [
+        "clothing.clothes"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "basis": "原衣服细类列belt/shoes等。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 76,
+      "title": "Show Some Love",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.affection"
+      ],
+      "basis": "原动作细类明确hug/kiss/pat，细化为亲昵动作，不推定对象必为家人。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 87,
+      "title": "The Movie",
+      "before": [
+        "arts"
+      ],
+      "topics": [
+        "arts.film"
+      ],
+      "basis": "本条明确movie/screen/ticket/seat/popcorn，细化电影，而不是泛化音乐艺术。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 91,
+      "title": "Big",
+      "before": [
+        "animals.wild",
+        "concepts.opposites"
+      ],
+      "topics": [
+        "animals",
+        "concepts.opposites"
+      ],
+      "basis": "原动物编排例子还包括bus/car/house/plane/tree；Big不是一册野生动物专书。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 92,
+      "title": "Little",
+      "before": [
+        "animals.wild",
+        "concepts.opposites"
+      ],
+      "topics": [
+        "animals",
+        "concepts.opposites"
+      ],
+      "basis": "原动物编排例子含baby/bug/car/dog/house/plane/tree；Little不是一册野生动物专书。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 93,
+      "title": "Under",
+      "before": [
+        "home.objects",
+        "concepts.position"
+      ],
+      "topics": [
+        "home.objects",
+        "concepts.position",
+        "home.furniture"
+      ],
+      "basis": "原日常用品细类明确bed/chair/desk/table/couch。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 97,
+      "title": "Off",
+      "before": [
+        "home.objects",
+        "concepts.position"
+      ],
+      "topics": [
+        "home.objects",
+        "concepts.position",
+        "home.furniture"
+      ],
+      "basis": "原日常用品细类明确bed/chair/desk/table/couch。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 98,
+      "title": "Over",
+      "before": [
+        "home.objects",
+        "concepts.position"
+      ],
+      "topics": [
+        "home.objects",
+        "concepts.position",
+        "sports.toys"
+      ],
+      "basis": "原日常用品细类明确ball/bat/bike/doll等玩具及活动用品。"
+    },
+    {
+      "sourceId": "guide-raz-aa",
+      "number": 99,
+      "title": "The Market",
+      "before": [
+        "transport.places",
+        "daily.shopping",
+        "food"
+      ],
+      "topics": [
+        "transport.places",
+        "daily.shopping",
+        "food",
+        "food.fruit",
+        "food.vegetables",
+        "food.snacks"
+      ],
+      "basis": "原食物细类具体列fruit/vegetable/cookie/jam。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 1,
+      "title": "Pond Animals",
+      "before": [
+        "animals",
+        "concepts.counting"
+      ],
+      "topics": [
+        "animals",
+        "concepts.counting",
+        "nature.water",
+        "animals.birds"
+      ],
+      "basis": "原动物组本条为pond动物，具体列ducks/swans及pond，支持水边环境与鸟类；不误称海洋动物。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 2,
+      "title": "My Dog",
+      "before": [
+        "animals.pets",
+        "actions"
+      ],
+      "topics": [
+        "animals.pets",
+        "actions",
+        "actions.locomotion",
+        "actions.turn"
+      ],
+      "basis": "原动作组列climb/jump/run/roll等具体动作。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 3,
+      "title": "The Big Cat",
+      "before": [
+        "animals.pets",
+        "actions"
+      ],
+      "topics": [
+        "animals.pets",
+        "actions",
+        "actions.locomotion",
+        "daily.sleep"
+      ],
+      "basis": "原动物及动作组本条明确climb/run、sleep。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 5,
+      "title": "Mom and I",
+      "before": [
+        "animals",
+        "animals.wild"
+      ],
+      "topics": [
+        "animals",
+        "animals.wild",
+        "family.parent-child",
+        "animals.sea"
+      ],
+      "basis": "原动物组列Mom and I及dolphin等；不把全册统一成单一野生动物类型。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 6,
+      "title": "What Lives Here？",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.habitats"
+      ],
+      "basis": "原动物组明确live/here，内容为不同动物在哪里生活；不凭混合动物词硬分农场或宠物。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 7,
+      "title": "Baby Animals",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.young"
+      ],
+      "basis": "原动物组列calf/chick/cub/foal/kid/kitten/lamb/puppy，属于幼年动物认知。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 10,
+      "title": "Oh,Raccoon",
+      "before": [
+        "animals",
+        "daily.sleep",
+        "concepts.opposites"
+      ],
+      "topics": [
+        "animals",
+        "daily.sleep",
+        "concepts.opposites",
+        "animals.wild",
+        "concepts.attributes"
+      ],
+      "basis": "原动物/形容词组具体raccoon及messy/sneaky/cute等特征；不将这些特征一概描述为反义词对。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 11,
+      "title": "Birds Goes Home",
+      "before": [
+        "animals.birds",
+        "nature.plants"
+      ],
+      "topics": [
+        "animals.birds",
+        "transport.places"
+      ],
+      "basis": "原自然组实际列tree/farm/city/street/table/car/mountain及go/over；不能据tree一词将全册定为植物主题，保留鸟类与地点。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 15,
+      "title": "Hello, Butterfly",
+      "before": [
+        "animals.insects"
+      ],
+      "topics": [
+        "animals.insects",
+        "concepts.attributes",
+        "concepts.opposites"
+      ],
+      "basis": "原形容特征有spotted/striped以及big/small，分别归外观和大小。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 19,
+      "title": "Rabbits",
+      "before": [
+        "animals.pets",
+        "concepts.opposites"
+      ],
+      "topics": [
+        "animals",
+        "concepts.opposites",
+        "concepts.attributes"
+      ],
+      "basis": "仅凭rabbit不足确认家兔还是野兔；原形容词内容支持大小反义与fluffy等特征。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 23,
+      "title": "Bedtime Counting",
+      "before": [
+        "animals",
+        "concepts.counting",
+        "daily.sleep"
+      ],
+      "topics": [
+        "animals",
+        "concepts.counting",
+        "daily.sleep",
+        "animals.farm"
+      ],
+      "basis": "本条明确以sheep配合count数字，补农场动物。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 26,
+      "title": "This Insect",
+      "before": [
+        "animals.insects",
+        "concepts.opposites"
+      ],
+      "topics": [
+        "animals.insects",
+        "concepts.attributes"
+      ],
+      "basis": "原形容词组beautiful/furry/shiny/spotted/striped/strong/fast/skinny是外观特征列表，不是明确反义词组。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 29,
+      "title": "Going Places",
+      "before": [
+        "transport"
+      ],
+      "topics": [
+        "transport.land",
+        "transport.water",
+        "transport.air"
+      ],
+      "basis": "原户外组具体bike/bus/car/train、boat、plane，支持三类交通。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 34,
+      "title": "Smells Like Thanksgiving",
+      "before": [
+        "festivals.other",
+        "food"
+      ],
+      "topics": [
+        "festivals.other",
+        "food",
+        "food.staples",
+        "food.vegetables"
+      ],
+      "basis": "原食物/节日组列stuffing/roll/potato/yam等。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 38,
+      "title": "Fun In The Water",
+      "before": [
+        "sports.water",
+        "actions"
+      ],
+      "topics": [
+        "sports.water",
+        "actions",
+        "actions.locomotion"
+      ],
+      "basis": "原动作组具体swim/paddle/dive等水中移动，不将此归听指令TPR。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 46,
+      "title": "Move It",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.objects"
+      ],
+      "basis": "原动作组列bounce/roll/dump/spin/spray及toy，内容为物品运动与操作。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 49,
+      "title": "Write!",
+      "before": [
+        "concepts.books"
+      ],
+      "topics": [
+        "home.objects",
+        "actions.objects"
+      ],
+      "basis": "原生活组与write句型组具体列brush/computer/crayon/pen/pencil等书写工具；不将Write!当作认识书本结构。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 51,
+      "title": "Time for Eggs",
+      "before": [
+        "food",
+        "actions"
+      ],
+      "topics": [
+        "food.cooking",
+        "actions.objects"
+      ],
+      "basis": "原食物/动作组具体collect/cook/crack/clean/eat egg，细化制作与操作。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 53,
+      "title": "I Go",
+      "before": [
+        "transport",
+        "transport.travel"
+      ],
+      "topics": [
+        "transport.travel",
+        "transport.places"
+      ],
+      "basis": "原户外组列park/store/movie/zoo/library等去向，是外出场所而非交通工具认知。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 57,
+      "title": "He Runs",
+      "before": [
+        "transport"
+      ],
+      "topics": [
+        "transport.land",
+        "transport.water",
+        "transport.air",
+        "actions.locomotion"
+      ],
+      "basis": "原户外组明确boat/plane/train/bus及run，包含交通方式与走跑动作。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 60,
+      "title": "I Can",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.locomotion"
+      ],
+      "basis": "原动作组列climb/crawl/hop/jump/run，支持走跑跳爬。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 61,
+      "title": "Getting Dressed",
+      "before": [
+        "clothing.dressing"
+      ],
+      "topics": [
+        "clothing.dressing",
+        "daily.dress",
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "basis": "本条穿衣过程具体列jacket/pants/shirt、shoes/socks、belt/glasses等。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 67,
+      "title": "Clean, Not Clean",
+      "before": [
+        "concepts.opposites",
+        "daily.tidy"
+      ],
+      "topics": [
+        "concepts.opposites",
+        "daily.tidy",
+        "daily.wash"
+      ],
+      "basis": "原形容词/生活组比较clean/not clean的手、房间、食物等；手部清洁与整理分别归类。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 72,
+      "title": "I Set the Table",
+      "before": [
+        "food",
+        "home.objects",
+        "daily.meals"
+      ],
+      "topics": [
+        "home.objects",
+        "daily.meals"
+      ],
+      "basis": "原食物分类本条实际列餐具桌布等，主题为摆餐桌；不把餐具当作食物。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 76,
+      "title": "My Hair",
+      "before": [
+        "concepts.colors",
+        "body.face"
+      ],
+      "topics": [
+        "concepts.colors",
+        "body.face",
+        "concepts.opposites",
+        "concepts.attributes"
+      ],
+      "basis": "原形容词组有long/short、curly/straight及braided等头发特征。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 77,
+      "title": "Athletes",
+      "before": [
+        "actions",
+        "sports"
+      ],
+      "topics": [
+        "actions.locomotion",
+        "sports.water"
+      ],
+      "basis": "原动作组明确dive/swim/row及run/jump等运动；未列ball，不凭throw推成球类。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 78,
+      "title": "Nice, Not Nice",
+      "before": [
+        "actions",
+        "social"
+      ],
+      "topics": [
+        "actions",
+        "concepts.opposites",
+        "social.manners"
+      ],
+      "basis": "原形容词组sth be adj.及nice/not nice，动作hit/kick/pull/push用于行为好坏对比；保留社交礼貌但不推定分享或朋友。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 80,
+      "title": "You Can Dance",
+      "before": [
+        "actions",
+        "arts.dance"
+      ],
+      "topics": [
+        "actions",
+        "arts.dance",
+        "actions.locomotion",
+        "actions.turn",
+        "actions.stretch"
+      ],
+      "basis": "原动作组有bend/hop/leap/skip/spin，舞蹈与具体动作并存。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 81,
+      "title": "I Can Skate",
+      "before": [
+        "actions",
+        "sports.outdoor"
+      ],
+      "topics": [
+        "actions",
+        "sports.outdoor",
+        "actions.turn",
+        "actions.locomotion",
+        "concepts.opposites"
+      ],
+      "basis": "原动作组有spin/jump、fast/slow和forward/backward；保留滑冰户外活动。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 83,
+      "title": "Muscles",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.locomotion",
+        "actions.stretch",
+        "body.whole"
+      ],
+      "basis": "原动作组的muscle及jump/kick/lift/pull/push/run/stretch，支持运动、伸展和肌肉身体内容。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 89,
+      "title": "We Can Make Sounds",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.clap",
+        "arts.rhythm"
+      ],
+      "basis": "原动作组具体clap/slap/snap/tap/stomp等制造声音，属于拍手跺脚和节奏，不声称原活动为TPR。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 92,
+      "title": "Who Has It ?",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "concepts.ownership"
+      ],
+      "basis": "原表列have/has句型与it/he/I/she/they/we/who/you，语义是所属关系；去除无法支持的动作主题。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 98,
+      "title": "This Lizard",
+      "before": [
+        "animals",
+        "concepts.opposites"
+      ],
+      "topics": [
+        "animals",
+        "concepts.opposites",
+        "concepts.attributes"
+      ],
+      "basis": "原动物/形容词组的bumpy/smooth/spotted/plain/striped/big/small，支持特征与对比；不由lizard推定特定栖息地。"
+    },
+    {
+      "sourceId": "guide-raz-a",
+      "number": 100,
+      "title": "I Push",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.objects"
+      ],
+      "basis": "原动作组明确push baby cart/bike/door/button/swing/toy/ball等物品操作。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 1,
+      "title": "My clothes",
+      "before": [
+        "clothing"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "basis": "原衣服组列sock/boot/tie/glasses/hat/belt，分别细化衣服、鞋袜和配饰。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 6,
+      "title": "A home",
+      "before": [
+        "home.furniture",
+        "home.rooms"
+      ],
+      "topics": [
+        "home.furniture",
+        "home.objects"
+      ],
+      "basis": "本条列chair/table/bath/bed/television/mirror，内容为家具与物品；未逐一认识房间，移除房间标签。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 7,
+      "title": "The day",
+      "before": [
+        "nature"
+      ],
+      "topics": [
+        "nature.weather",
+        "science.space",
+        "concepts.time"
+      ],
+      "basis": "原自然组本条列sun/cloud/moon/star/day，支持天气、日月星体及一天时间。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 10,
+      "title": "The monster’s clothes",
+      "before": [
+        "clothing"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "basis": "原衣服组列pants/shirt/coat/sock/shoe/cap。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 11,
+      "title": "My things",
+      "before": [
+        "animals",
+        "transport"
+      ],
+      "topics": [
+        "animals.pets",
+        "transport.land",
+        "sports.playground"
+      ],
+      "basis": "原动物及出行两组本条列cat/dog、bike/skateboard/car和slide，支持宠物、陆地交通及游乐设施。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 12,
+      "title": "A ride",
+      "before": [
+        "transport"
+      ],
+      "topics": [
+        "transport.land",
+        "transport.travel"
+      ],
+      "basis": "原出行组具体car/truck/bus/bike/motorbike/skateboard及tunnel/hill/bridge等出行场景。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 15,
+      "title": "I can laugh",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "emotions.expression",
+        "arts.singing"
+      ],
+      "basis": "原动作组具体laugh/cry/sing，归情绪表达和歌唱，不强称走跑跳爬。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 18,
+      "title": "I can",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.locomotion"
+      ],
+      "basis": "原动作组具体hop/climb/fly，支持位移动作。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 21,
+      "title": "I can swim",
+      "before": [
+        "animals",
+        "actions"
+      ],
+      "topics": [
+        "animals",
+        "actions.locomotion",
+        "sports.water"
+      ],
+      "basis": "原动物及动作组具体jump/swim/run/fly/slide，动物细类不足则保留一级，移动与水中活动有据。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 22,
+      "title": "I am a bee",
+      "before": [
+        "animals.insects"
+      ],
+      "topics": [
+        "animals",
+        "animals.insects",
+        "animals.pets",
+        "animals.farm",
+        "animals.birds"
+      ],
+      "basis": "原动物组本条同时列mouse/bird/cat/dog/pig/goat/bee，不将I am a bee视为全册只讲昆虫。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 23,
+      "title": "The animals",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.sounds"
+      ],
+      "basis": "原动物组且具体为quack/meow/bark/moo/squeak/gobble等叫声，新增有据细分。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 24,
+      "title": "I like riding",
+      "before": [
+        "transport"
+      ],
+      "topics": [
+        "transport.travel",
+        "actions.locomotion"
+      ],
+      "basis": "原出行组具体ride/fly/sail/swim/walk，仅是出行方式，未指明具体交通工具型号。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 25,
+      "title": "A shoe",
+      "before": [
+        "clothing",
+        "clothing.accessories"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories",
+        "home.objects"
+      ],
+      "basis": "原衣服组同时列hat/shirt/tie/shoe/sock及bucket/box，按实际对象细化。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 28,
+      "title": "A boat",
+      "before": [
+        "animals",
+        "transport.water"
+      ],
+      "topics": [
+        "animals.sea",
+        "animals.birds",
+        "transport.water"
+      ],
+      "basis": "原动物和自然组本条列shark/dolphin、bird与boat，支持海洋动物、水上交通和鸟类。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 29,
+      "title": "The hole",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.wild",
+        "animals.pets"
+      ],
+      "basis": "原动物组明确rabbit/mouse/fox/snake/rat/mole，是混合动物；保留可确认的野生，不推定家养身份。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 29,
+      "title": "The hole",
+      "before": [
+        "animals.wild",
+        "animals.pets"
+      ],
+      "topics": [
+        "animals.wild"
+      ],
+      "basis": "原动物组列fox/snake/rat/mole等洞穴相关动物，支持野生动物；rabbit/mouse家养身份未明，不推定宠物。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 34,
+      "title": "I am jumping",
+      "before": [
+        "actions"
+      ],
+      "topics": [
+        "actions.locomotion",
+        "actions.clap"
+      ],
+      "basis": "原动作组具体jump/walk/clap/hop/run/fall。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 35,
+      "title": "The spy",
+      "before": [
+        "clothing"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.accessories",
+        "body.face"
+      ],
+      "basis": "原衣服组列glasses/hair/beard（原表bread拼写保留）/glove/hat/coat；不把误拼静默当作身体依据，body.face暂不加入。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 35,
+      "title": "The spy",
+      "before": [
+        "clothing.clothes",
+        "clothing.accessories",
+        "body.face"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.accessories"
+      ],
+      "basis": "原衣服组明确glasses/glove/hat/coat；保留bread原拼，不据疑似beard误拼补身体主题。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 36,
+      "title": "I like jam",
+      "before": [
+        "food.snacks"
+      ],
+      "topics": [
+        "food"
+      ],
+      "basis": "原食物组本条含jam/pea/bone/egg/fish/carrot等多种食物，不能只归零食；具体蔬菜有依据另加。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 36,
+      "title": "I like jam",
+      "before": [
+        "food"
+      ],
+      "topics": [
+        "food",
+        "food.vegetables",
+        "food.snacks"
+      ],
+      "basis": "本条pea/carrot和jam支持蔬菜与零食，bone/egg/fish仍由食物一级涵盖。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 37,
+      "title": "I am working",
+      "before": [
+        "actions",
+        "jobs.work"
+      ],
+      "topics": [
+        "actions.objects"
+      ],
+      "basis": "原动作组及I am doing句型具体wash/paint/write/dig/shop/cook，是日常操作，不足以认定职业工作。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 38,
+      "title": "My hat",
+      "before": [
+        "clothing",
+        "clothing.accessories"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "basis": "原衣服组列pants/shirt/sock/shoe/coat/hat。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 39,
+      "title": "I like boxes",
+      "before": [
+        "nature",
+        "nature.plants",
+        "home.objects"
+      ],
+      "topics": [
+        "nature.environment",
+        "nature.plants",
+        "home.objects"
+      ],
+      "basis": "原自然组列leaf/shell/feather/stone/flower/mud及box，保留自然环境和植物，不另建无必要材料大类。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 40,
+      "title": "Monkeys",
+      "before": [
+        "animals.wild",
+        "actions"
+      ],
+      "topics": [
+        "animals.wild",
+        "actions",
+        "actions.locomotion"
+      ],
+      "basis": "原动物及动作组明确hang/climb/swing/run/fall/slide。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 42,
+      "title": "Hats",
+      "before": [
+        "nature",
+        "nature.plants",
+        "clothing.accessories"
+      ],
+      "topics": [
+        "nature.plants",
+        "clothing.accessories"
+      ],
+      "basis": "原自然组具体flower/berry/leaf和hat/ribbon等；不重复保留无额外含义的自然根节点。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 43,
+      "title": "Sailors",
+      "before": [
+        "actions",
+        "transport.water"
+      ],
+      "topics": [
+        "actions.locomotion",
+        "daily.wash",
+        "food.cooking",
+        "daily.sleep",
+        "transport.water"
+      ],
+      "basis": "原动作组的水手内容列climb/clean/cook/wash/fish/sleep，可细分日常行为；不自动解释为职业等级。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 46,
+      "title": "The show",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.wild",
+        "animals.birds"
+      ],
+      "basis": "原动物组列snake/giraffe/crocodile/hippo/monkey和bird。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 47,
+      "title": "The presents",
+      "before": [
+        "festivals",
+        "fantasy.characters"
+      ],
+      "topics": [
+        "festivals.parties",
+        "fantasy.characters",
+        "jobs.people"
+      ],
+      "basis": "原人物组列clown/king/spy/scarecrow/robot/monster/party；职业与幻想分别依据明确角色，派对未限定生日。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 50,
+      "title": "The party",
+      "before": [
+        "festivals"
+      ],
+      "topics": [
+        "festivals.parties",
+        "food"
+      ],
+      "basis": "原生活组列pizza/drink/pie/hat/box/cake/party/balloon，是聚会饮食，不补猜具体节庆。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 50,
+      "title": "The party",
+      "before": [
+        "festivals.parties",
+        "food"
+      ],
+      "topics": [
+        "festivals.parties",
+        "food",
+        "food.staples",
+        "food.snacks",
+        "food.drinks"
+      ],
+      "basis": "聚会本条具体pizza/pie/cake/drink支持多种食物二级。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 52,
+      "title": "Wheels",
+      "before": [
+        "transport",
+        "transport.land"
+      ],
+      "topics": [
+        "transport.land",
+        "transport.air"
+      ],
+      "basis": "原出行组明确car/bike/bus/skateboard/truck及plane，不能只有陆地交通。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 54,
+      "title": "Dinner",
+      "before": [
+        "animals.farm",
+        "daily.meals"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.pets",
+        "daily.meals"
+      ],
+      "basis": "原动物组列goat/pig/hen/duck及dog/cat，明确混合农场与宠物。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 55,
+      "title": "This is for me",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.sea",
+        "animals.birds",
+        "animals.wild"
+      ],
+      "basis": "原动物组列fish/frog/duck/bird/crocodile/hippo，鱼类并非明确海洋来源，不强归海洋。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 55,
+      "title": "This is for me",
+      "before": [
+        "animals.sea",
+        "animals.birds",
+        "animals.wild"
+      ],
+      "topics": [
+        "animals.birds",
+        "animals.wild"
+      ],
+      "basis": "原动物组具体duck/bird/crocodile/hippo；fish未限定海水，不标海洋动物。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 56,
+      "title": "Going shopping",
+      "before": [
+        "food.fruit",
+        "daily.shopping"
+      ],
+      "topics": [
+        "food.fruit",
+        "daily.shopping",
+        "food.vegetables"
+      ],
+      "basis": "原食物组本条除水果还列carrot/bean。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 57,
+      "title": "Look at the animals",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.pets",
+        "animals.birds"
+      ],
+      "basis": "原动物组具体cat/dog/rabbit、hen/goat和bird，支持多个动物二级。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 59,
+      "title": "The spies",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals",
+        "animals.insects"
+      ],
+      "basis": "原动物组列mice/rabbit/spider/frog/bee/bat，明确昆虫、其他动物但不能直接全部归野生动物。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 60,
+      "title": "Shopping",
+      "before": [
+        "daily.shopping",
+        "food"
+      ],
+      "topics": [
+        "daily.shopping",
+        "food.staples",
+        "food.fruit",
+        "food.vegetables"
+      ],
+      "basis": "原食物组列bread/apple/banana/carrot等，支持购物及具体食物二级。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 61,
+      "title": "The bumper cars",
+      "before": [
+        "transport",
+        "concepts.colors",
+        "transport.land"
+      ],
+      "topics": [
+        "transport.land",
+        "concepts.colors",
+        "sports.indoor"
+      ],
+      "basis": "原出行及颜色组是bumper cars，室内/户外场所未明，不能凭名称推室内游戏。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 61,
+      "title": "The bumper cars",
+      "before": [
+        "transport.land",
+        "concepts.colors",
+        "sports.indoor"
+      ],
+      "topics": [
+        "transport.land",
+        "concepts.colors"
+      ],
+      "basis": "原出行及颜色组具体car/red/blue/yellow/green/purple/pink；不由碰碰车推定室内场所。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 63,
+      "title": "Elephant trick",
+      "before": [
+        "animals.wild"
+      ],
+      "topics": [
+        "animals.wild",
+        "animals.birds"
+      ],
+      "basis": "原动物组列tiger/lion/snake/frog/monkey与bird。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 64,
+      "title": "The market",
+      "before": [
+        "clothing",
+        "daily.shopping"
+      ],
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories",
+        "daily.shopping"
+      ],
+      "basis": "原衣服组具体hat/shoe/pants/shirt/glasses；保留购物场景。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 65,
+      "title": "My trip",
+      "before": [
+        "nature",
+        "science.space",
+        "transport.travel"
+      ],
+      "topics": [
+        "nature.environment",
+        "nature.weather",
+        "science.space",
+        "transport.travel"
+      ],
+      "basis": "原自然/户外组列beach/jungle/hill/snow/park/moon/earth；具体场景支持自然、天气、宇宙及出行。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 66,
+      "title": "Our day",
+      "before": [
+        "sports"
+      ],
+      "topics": [
+        "sports.outdoor",
+        "festivals.parties",
+        "transport.places"
+      ],
+      "basis": "原户外组本条具体game/picnic/party/barbecue/movie/doctor/hospital，支持野餐活动、聚会与公共场所，不能只归运动。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 67,
+      "title": "The snake",
+      "before": [
+        "clothing",
+        "concepts.position"
+      ],
+      "topics": [
+        "clothing.shoes",
+        "clothing.accessories",
+        "home.objects"
+      ],
+      "basis": "原衣服组明确sock/shoe/hat/purse/bag/chair/box；on/in等关系未在该条词表列明，不补猜空间位置。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 68,
+      "title": "The bears",
+      "before": [
+        "nature"
+      ],
+      "topics": [
+        "nature.water",
+        "nature.environment",
+        "transport.travel"
+      ],
+      "basis": "原自然组列river/mud/log/tent/car/cave，支持河流、自然环境及露营出行场景。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 69,
+      "title": "The bird",
+      "before": [
+        "nature",
+        "animals.birds"
+      ],
+      "topics": [
+        "nature.water",
+        "nature.plants",
+        "home.objects"
+      ],
+      "basis": "原生活/自然分类实际列tent/garden/rock/fence/gate/pond/pool，没有bird，不能只凭书名补鸟类。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 71,
+      "title": "In the mud",
+      "before": [
+        "nature"
+      ],
+      "topics": [
+        "nature.environment",
+        "nature.water",
+        "daily.bath"
+      ],
+      "basis": "原自然组列jungle/hole/pond/mud/cave/bath，具体环境、水系与洗澡用品支持这些主题。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 72,
+      "title": "The mice",
+      "before": [
+        "clothing"
+      ],
+      "topics": [
+        "clothing.shoes",
+        "clothing.accessories",
+        "home.objects"
+      ],
+      "basis": "原衣服组列box/sock/shoe/hat/bucket/cake/hood；不依据标题mice改为动物主题。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 73,
+      "title": "The kites",
+      "before": [
+        "concepts.colors"
+      ],
+      "topics": [
+        "concepts.colors",
+        "sports.outdoor"
+      ],
+      "basis": "本条原颜色组具体kite及颜色，可同时支持放风筝户外游戏。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 75,
+      "title": "The tunnel",
+      "before": [
+        "animals",
+        "concepts.position"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.birds",
+        "concepts.position"
+      ],
+      "basis": "原动物组列duck/hen/turkey/frog/rabbit/mice/snake，明确农场鸟类；tunnel对应穿入位置的原列，保留已有空间标签。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 76,
+      "title": "Going to bed",
+      "before": [
+        "animals",
+        "daily.sleep"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.pets",
+        "daily.sleep"
+      ],
+      "basis": "原动物组具体dog/hen/goat/cow/duck/horse/sheep及bed，补明确动物细类。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 78,
+      "title": "The ants",
+      "before": [
+        "food.snacks"
+      ],
+      "topics": [
+        "food.fruit",
+        "food.snacks"
+      ],
+      "basis": "原食物组具体jam/cake/cookie/apple/watermelon/ice cream，不仅零食也有水果。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 79,
+      "title": "The bike race",
+      "before": [
+        "nature",
+        "transport.land"
+      ],
+      "topics": [
+        "nature.environment",
+        "nature.plants",
+        "nature.water",
+        "transport.land",
+        "sports.outdoor"
+      ],
+      "basis": "原自然组具体mud/grass/sand/hay/pond以及bike/truck，涵盖环境、植物、水系和户外骑行。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 80,
+      "title": "Silly tricks",
+      "before": [
+        "nature"
+      ],
+      "topics": [
+        "nature.plants",
+        "home.rooms",
+        "home.furniture",
+        "concepts.position"
+      ],
+      "basis": "原自然组具体house/garden/grass/mud/tree/pool/bed，句型We go...in...强调位置；不借书名推魔术。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 81,
+      "title": "Come",
+      "before": [
+        "nature"
+      ],
+      "topics": [
+        "nature.environment",
+        "nature.plants",
+        "nature.water",
+        "actions.locomotion"
+      ],
+      "basis": "原自然组具体tree/rock/water/mud/hole/cave及come，支持自然环境、植物、水系和位移。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 82,
+      "title": "Come in the grass",
+      "before": [
+        "nature",
+        "nature.plants"
+      ],
+      "topics": [
+        "nature.plants",
+        "nature.water",
+        "nature.environment"
+      ],
+      "basis": "原自然组具体grass/flower/tree/water/mud/garden/barn。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 83,
+      "title": "The turkey",
+      "before": [
+        "animals.farm"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.birds"
+      ],
+      "basis": "原动物组明确duck/bird/turkey。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 84,
+      "title": "Zoo dinners",
+      "before": [
+        "animals",
+        "food"
+      ],
+      "topics": [
+        "animals",
+        "food.fruit",
+        "food.vegetables"
+      ],
+      "basis": "原食物组具体fish/apple/grass/banana/carrot/bone，果蔬明确；不将全部食物都说成人类膳食。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 85,
+      "title": "I can help",
+      "before": [
+        "animals",
+        "actions"
+      ],
+      "topics": [
+        "animals.farm",
+        "animals.pets",
+        "animals.birds",
+        "animals.insects",
+        "actions"
+      ],
+      "basis": "原动物组具体goat/cat/bird/bee/seagull/fish，不仅泛动物；help未给明确帮助行为，不补造动作二级。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 87,
+      "title": "The birds",
+      "before": [
+        "concepts.colors",
+        "animals.birds"
+      ],
+      "topics": [
+        "concepts.colors"
+      ],
+      "basis": "原表题名The birds与现有The Rides不一致，内容实际列red/seat/green/blue/black/orange/purple/bed，无bird，不把题名当鸟类证据，继续不绑定进度。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 91,
+      "title": "The snow",
+      "before": [
+        "animals"
+      ],
+      "topics": [
+        "animals",
+        "nature.weather",
+        "animals.farm",
+        "animals.birds"
+      ],
+      "basis": "原动物组本条明确duck/rooster/hen和snow场景，保留其他动物一级，不把整册变成纯农场动物。"
+    },
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 95,
+      "title": "The trucks",
+      "before": [
+        "transport",
+        "transport.land"
+      ],
+      "topics": [
+        "transport.land",
+        "concepts.position"
+      ],
+      "basis": "原出行组明确truck和in，支持陆地交通；位置仅保留明确in关系。"
+    }
+  ],
+  "pending": [
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 96,
+      "title": "The water",
+      "topics": [
+        "animals"
+      ],
+      "reason": "原主题表归动物，但本条只列Can/go/in/water，句型为I can go in the...；没有具体动物、栖息水域或活动情境，不能仅凭语法in和water推定二级。保留动物一级，待内页内容核对。"
+    }
+  ],
+  "unbound": [
+    {
+      "sourceId": "guide-pearson-basic",
+      "number": 87,
+      "title": "The birds",
+      "reason": "同号既有目录为The Rides；题名不同且表内内容没有bird；本轮只确认颜色主题，不将该条与旧记录绑定。"
+    }
+  ]
+}
