@@ -37,6 +37,32 @@
       },
       "ignoreNumber": true,
       "basis": "Pink英文套系前缀与完整单册题名共同限定版本；公共目录确定Pink 1A／1B，外站分包Band编号不作为级别，不借用中文大猫选本。"
+    },
+    {
+      "resourceId": "resource-1qnd5uh",
+      "prefixes": [
+        "RAZ AA",
+        "Reading A-Z AA"
+      ],
+      "directoryMatch": {
+        "edition": "用户主题表 · RAZ AA 103本",
+        "level": "aa"
+      },
+      "ignoreNumber": true,
+      "basis": "明确RAZ级别前缀与完整英文题名共同匹配用户逐册主题表，仅标记该单册；不凭外站分包编号推出版范围，不将主题表条数作为出版分母。"
+    },
+    {
+      "resourceId": "resource-1qnd5uh",
+      "prefixes": [
+        "RAZ A",
+        "Reading A-Z A"
+      ],
+      "directoryMatch": {
+        "edition": "用户主题表 · RAZ A 100本",
+        "level": "a"
+      },
+      "ignoreNumber": true,
+      "basis": "明确RAZ级别前缀与完整英文题名共同匹配用户逐册主题表，仅标记该单册；不凭外站分包编号推出版范围，不将主题表条数作为出版分母。"
     }
   ],
   "topicNote": "主题依据已读取的出版社内容简介、内页或分版本分类图整理；目录收录不等于内容核对。找到资料但内容不可读时标为待核对；只有确认无内容资料且记录检索范围时才允许标注书名兜底。不同版本不自动互换主题、级别或册数。",

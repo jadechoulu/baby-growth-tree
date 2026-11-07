@@ -120,6 +120,7 @@
     let snapshot = { navigation: [], activeId: '', title: '', ...options };
     let ownedDialog = null;
     let destroyed = false;
+    let sidebarCollapsed = false;
     const element = node('div', 'site-shell' + (home ? ' site-shell-home' : ''));
     const top = node('header', 'site-bar');
     const homeLink = node('a', 'site-brand');
@@ -150,12 +151,19 @@
     menu.setAttribute('aria-haspopup', 'dialog');
     menu.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-controls', 'site-navigation');
-    menu.addEventListener('click', () => openNavigation('directory', menu));
+    menu.addEventListener('click', () => {
+      if (narrow.matches) openNavigation('directory', menu);
+      else {
+        sidebarCollapsed = !sidebarCollapsed;
+        syncDirectory();
+      }
+    });
     const title = node('span', 'site-location');
     const actions = node('div', 'site-actions');
     const globalActions = node('div', 'site-global-actions');
     const body = node('div', 'site-body');
     const sidebar = node('aside', 'site-sidebar');
+    sidebar.id = 'site-sidebar';
     const content = node('main', 'site-main');
     content.id = 'main-content';
     content.tabIndex = -1;
@@ -255,6 +263,19 @@
       }
     }
 
+    function syncDirectory() {
+      const hidden = home || narrow.matches || sidebarCollapsed;
+      if (hidden && sidebar.contains(document.activeElement)) menu.focus({ preventScroll: true });
+      sidebar.hidden = hidden;
+      element.classList.toggle('site-sidebar-collapsed', sidebarCollapsed);
+      menu.setAttribute('aria-controls', narrow.matches ? 'site-navigation' : 'site-sidebar');
+      menu.setAttribute('aria-expanded', String(narrow.matches ? Boolean(ownedDialog) : !sidebarCollapsed));
+      menu.setAttribute('aria-label', narrow.matches ? '展开完整目录' : sidebarCollapsed ? '展开侧边目录' : '收起侧边目录');
+      menu.title = narrow.matches ? '展开完整目录' : sidebarCollapsed ? '展开侧边目录' : '收起侧边目录';
+      if (narrow.matches) menu.setAttribute('aria-haspopup', 'dialog');
+      else menu.removeAttribute('aria-haspopup');
+    }
+
     function openNavigation(mode, trigger) {
       if (destroyed) return;
       if (activeDialog) { activeDialog.querySelector('button')?.focus(); return; }
@@ -282,6 +303,7 @@
         ownedDialog = null;
         document.body.classList.remove('site-navigation-open');
         trigger?.setAttribute('aria-expanded', 'false');
+        syncDirectory();
         if (dialog.restoreFocus !== false) (trigger?.isConnected ? trigger : menu).focus({ preventScroll: true });
       }, { once: true });
       ownedDialog = activeDialog = dialog;
@@ -300,10 +322,10 @@
       bottom.replaceChildren(navigation(true));
       bottom.hidden = home || !bottom.childElementCount;
       menu.hidden = home;
-      sidebar.hidden = home;
+      syncDirectory();
     }
 
-    function onResize() { if (!narrow.matches) closeNavigation(); }
+    function onResize() { if (!narrow.matches) closeNavigation(); syncDirectory(); }
     function onKey(event) {
       if (ownedDialog && event.key === 'Escape') {
         event.preventDefault(); event.stopImmediatePropagation(); closeNavigation();
@@ -320,7 +342,10 @@
     update(snapshot);
     return {
       element, content, actions, globalActions, update, createSectionSwitch,
-      openDirectory: () => openNavigation('directory', menu), closeNavigation,
+      openDirectory: () => {
+        if (narrow.matches) openNavigation('directory', menu);
+        else { sidebarCollapsed = false; syncDirectory(); menu.focus({ preventScroll: true }); }
+      }, closeNavigation,
       createSectionCards() {
         const cards = node('section', 'site-cards');
         cards.setAttribute('aria-label', '选择启蒙分类');
