@@ -25,6 +25,13 @@ function bookState(records,bookId){
   const external=externalFacts(records).filter(fact=>fact.publicBookId===bookId);
   return {done:manual||external.length>0,manual,external};
 }
+function directoryProgress(records,directory,catalog,resourceId){
+  const canonical=catalogResource(catalog,resourceId)?.resourceId||resourceId;
+  const selected=(directory?.books||[]).filter(book=>book.resourceId===canonical);
+  const completed=new Set(selected.filter(book=>bookState(records,book.id).done).map(book=>book.id)).size;
+  // 部分目录只表示已识别的单册，不能将条目数作为整套出版分母。
+  return {completed,identifiedCompleted:completed,total:null,percent:null,unit:'本',status:completed?'using':'not-started'};
+}
 function bookUpdate(records,prefix,bookId,done){
   if(typeof bookId!=='string'||!bookId||prefix.length+bookId.length>160||typeof done!=='boolean')throw new Error('单册记录标识或状态无效。');
   const key=prefix+bookId,previous=records?.[key],meta=parse(previous?.note);
@@ -72,7 +79,7 @@ function projectQuantity(records,plan,scope,legacy){
   const result=progress(records,plan,group,legacy);
   // 同一公共范围的数量有冲突时保留原数量，不混入另一版／个人自选范围。
   if(scope.total!==undefined&&scope.total!==result.total)return legacy;
-  return {...legacy,...result,unit:'本'};
+  return {...legacy,...result,unit:'本',sourcePriority:sourcePriority(records,plan,group)};
 }
 function catalogResource(catalog,resourceId){
   const entry=catalog?.series?.find(item=>item.resourceId===resourceId);
@@ -243,5 +250,5 @@ function applyReadSnapshot(records,data,snapshot,options={}){
   }
   return {changes,matched,unmatched,ambiguous};
 }
-return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot};
+return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot};
 });

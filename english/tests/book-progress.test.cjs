@@ -13,6 +13,25 @@ const entry=(bookId,title)=>({bookId,title});
 const imported=(records,items)=>B.applyReadSnapshot(records,data,snapshot(items));
 const wrap=records=>({version:1,profile:{vocabulary:0,mode:'audio'},favorites:[],records});
 
+test('RAZ按明确级别和完整题名同步单册，部分目录不当出版分母',()=>{
+  const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json');
+  const book=directory.books.find(book=>book.resourceId==='resource-1qnd5uh'&&book.level==='aa');
+  const input=snapshot([entry('raz-one','RAZ AA: '+book.title),entry('bare',book.title)]);
+  const result=B.applyReadSnapshot({},data,input,{directory,catalog,sourcePriority:true});
+  assert.equal(result.matched.length,1);
+  assert.equal(result.matched[0].publicBookId,book.id);
+  assert.equal(result.unmatched.length,1);
+  assert.equal(B.bookState(result.changes,book.id).done,true);
+  const progress=B.directoryProgress(result.changes,directory,catalog,book.resourceId);
+  assert.equal(progress.completed,1);
+  assert.equal(progress.total,null);
+  assert.equal(progress.percent,null);
+  assert.equal(progress.status,'using');
+  const manual=B.manualUpdate({},book.id,true);
+  assert.equal(B.directoryProgress(manual,directory,catalog,book.resourceId).completed,1);
+  assert.equal(B.directoryProgress({...manual,...B.manualUpdate(manual,book.id,false)},directory,catalog,book.resourceId).completed,0);
+});
+
 test('明确选择小花生优先后按具体书目计算，旧合计只保留不抬升数量',()=>{
   const old={legacy:{status:'using',note:'原合计保留'}};
   const result=B.applyReadSnapshot(old,data,snapshot([entry('a','Example GK-01 At the market')]),{sourcePriority:true});
