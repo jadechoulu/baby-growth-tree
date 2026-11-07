@@ -121,5 +121,13 @@ test('每套查证记录可直接呈现，分类配图存在且不公开浏览�
       assert.ok(fs.existsSync(new URL('../english/'+image.path,import.meta.url)),image.path);
     }
   }
-  for(const book of data.books)if(book.cover)assert.ok(fs.existsSync(new URL('../english/'+book.cover,import.meta.url)),book.cover);
+  for(const book of data.books)if(book.cover){
+    if(/^https:\/\//.test(book.cover)){
+      const cover=new URL(book.cover);
+      assert.equal(cover.hostname,'img.xiaohuasheng.cn');
+      assert.equal(book.coverSource?.imageUrl,book.cover);
+      assert.ok(book.externalIds?.xiaohuasheng?.length,book.title);
+      assert.equal(book.coverSource.sourceUrl,'https://www.xiaohuasheng.cn/book/'+book.externalIds.xiaohuasheng[0]);
+    }else assert.ok(fs.existsSync(new URL('../english/'+book.cover,import.meta.url)),book.cover);
+  }
 });

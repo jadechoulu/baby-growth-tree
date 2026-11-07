@@ -751,8 +751,8 @@ function refreshReadingPlan(focusId){
 }
 function bookCompletionControl(book,id){
   const state=BP.bookState(S.records,book.id);
-  return h('input',{id,type:'checkbox',class:'book-completion',checked:state.done,disabled:state.external.length>0&&!state.manual,
-    'aria-label':(state.done?'已阅读：':'标记已阅读：')+book.title,
+  return h('input',{id,type:'checkbox',class:'book-completion'+(state.external.length?' is-imported':''),checked:state.done,disabled:state.external.length>0&&!state.manual,
+    'aria-label':(state.done?'已阅读：':'标记已阅读：')+book.title+(state.external.length?'（小花生同步已读）':''),
     title:state.external.length?'小花生已读已同步；原站修正后再核对来源记录':'标记／取消已读',onchange:e=>{
       if(!savePracticeRecords(BP.manualUpdate(S.records,book.id,e.target.checked))){e.target.checked=state.done;return;}
       refreshReadingPlan(id);
@@ -767,6 +767,7 @@ function readingPlanDetail(resourceId){
   const editions=plan.catalog?BP.catalogPlans(BOOKS,window.ROADMAP_RAW.resourceVolumes,resourceId):[];
   const group=m.readingGroup,progress=sharedReadingProgress(plan,group),all=sharedReadingProgress(plan);
   const visible=BP.books(plan,group);
+  const hasPatterns=visible.some(book=>plan.catalog?book.studyGuide?.patterns?.length:book.patterns.length);
   const file=h('input',{id:'reading-import-file',type:'file',accept:'.json,application/json',hidden:true,onchange:async e=>{
     const selected=e.target.files[0];if(!selected)return;
     try{
@@ -789,9 +790,12 @@ function readingPlanDetail(resourceId){
     seriesTopicBrowser(resourceId,visible,selected=>{let lastPattern;return h('ol',{class:'reading-book-list'},selected.map(book=>{
       const state=BP.bookState(S.records,book.id),section=plan.catalog?groupLabel(book.group):book.patternGroup,heading=lastPattern!==section;lastPattern=section;
       const labelId='reading-book-'+book.id;
+      const coverBook=book.cover?book:BOOKS.books.find(item=>item.id===book.id);
+      const patterns=plan.catalog?[...new Set((book.studyGuide?.patterns||[]).map(item=>item.text).filter(Boolean))]:book.patterns;
       return h('li',{class:'reading-book-item'+(state.done?' done':'')},heading?h('h3',{class:'reading-pattern-heading'},section):null,
-        h('div',{class:'reading-book-row'},bookCompletionControl(book,labelId),h('label',{for:labelId},h('span',{class:'reading-book-name'},h('small',{},'#'+String(book.number).padStart(2,'0')+' · '+groupLabel(book.group)),book.title),
-          plan.catalog?h('span',{class:'reading-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),studyGuideInfo(book)):h('span',{class:'reading-book-patterns'},book.patterns.length?book.patterns.map(pattern=>h('span',{},pattern)):h('span',{class:'small-note'},'原表未列句型'))),state.external.length?h('small',{class:'reading-import-mark'},'小花生已读'):null));
+        h('div',{class:'reading-book-row'},bookCompletionControl(book,labelId),coverBook?.cover?libraryBookCover(coverBook):null,h('label',{for:labelId},h('span',{class:'reading-book-name'},h('small',{},'#'+String(book.number).padStart(2,'0')+' · '+groupLabel(book.group)),book.title),
+          plan.catalog?h('span',{class:'reading-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),studyGuideInfo(book,{showPatterns:false})):null),
+          hasPatterns?h('div',{class:'reading-book-pattern-column'},h('small',{},'句型'),h('span',{class:'reading-book-patterns'},patterns.length?patterns.map(pattern=>h('span',{},pattern)):h('span',{class:'small-note'},'原表未列'))):null));
     }));}),
     h('div',{class:'reading-import-toolbar'},file,h('button',{id:'reading-import',type:'button',class:'button soft',onclick:()=>file.click()},'同步小花生已读清单'),h('label',{},h('input',{type:'checkbox',checked:m.readingSourcePriority,onchange:e=>{m.readingSourcePriority=e.target.checked;}}),'以小花生为准'),h('small',{},'导入已获取的“读过”清单 JSON；重复导入不重复计数，不清空手工记录。选中后旧合计保留但不计入，逐本手工勾选仍保留。')),
     m.importSummary?h('p',{role:'status',class:'small-note'},m.importSummary):null,
@@ -1074,7 +1078,7 @@ function practiceInlineTime(st,u,time){
       const mode=options.find(option=>option.id===form.elements.mode.value),value=P.inlineSessionRecord({stageId:st.id,unitKey:u.key,unitLabel:u.label,mode:mode.id,minutes:Number(input.value),createdAt:new Date().toISOString()},options);
       const key=P.SESSION+'qing:'+crypto.randomUUID();
       if(!savePracticeRecords({[key]:value}))return;
-      practiceTimeDrafts.set(u.key,{mode:mode.id,minutes:'0'});render();document.getElementById('time-'+u.key)?.focus({preventScroll:true});
+      practiceTimeDrafts.set(u.key,{mode:mode.id,minutes:'0'});render();document.getElementById('practice-time-'+u.key+'-toggle')?.focus({preventScroll:true});
       toast('已记实际 '+Number(input.value)+'分，有效 '+Number((Number(input.value)*(mode.qualified?mode.factor:0)).toFixed(1))+'分');
       const baseline=JSON.stringify(S.records[key]);document.getElementById('toast').append(h('button',{type:'button',class:'text-link',onclick:()=>{
         if(JSON.stringify(S.records[key])!==baseline){toast('该记录已更新，请在时间明细核对后修改。');return;}
@@ -1091,9 +1095,10 @@ function practiceInlineTime(st,u,time){
 function practiceMaterialRow(st,u,toggle=null,entries){
   const scope=practiceBookScope(u),reading=readingPlanForResource(u.resourceId,scope);
   const record=practiceUnitRecord(u),time=st.routeId==='qing'?P.materialTime(S.records,u.key,u.children?.map(c=>c.key),entries):null;
+  const timer=time?h('span',{class:'practice-time-control'},libraryPopover('practice-time-'+u.key,u.label+'计时 · 累计有效'+Number(time.effectiveMinutes.toFixed(1))+'分',icon('clock'),practiceInlineTime(st,u,time))):null;
   return h('article',{class:'practice-material-row practice-percent-row practice-books-row material-role-'+u.item.role.kind,'data-unit-key':u.key},
-    h('div',{class:'practice-label-shell'},h('div',{class:'practice-material-label practice-inline-label'},btn(practiceMaterialLabel(u),isXuSongUnit(u)?'sss-songs':reading?'reading-plan':'resource',{'data-stage':reading?u.recordStageId||u.stageId:u.stageId,'data-reading-scope':JSON.stringify(scope),id:'material-'+u.key,'data-id':u.resourceId,title:u.item.role.label+'；'+u.item.role.basis,...(isXuSongUnit(u)?{'data-stage':u.stageId,'data-category':'essential',id:'song-material-'+u.key}:{})},'practice-material-name'),h('div',{class:'practice-material-meta'},materialUI.typeTag(u.item.resource.type),materialUI.roleTag(u.item.role,'practice-material-role'),practiceBookButton(u),toggle))),
-    practiceUnitPercent(u),time?practiceInlineTime(st,u,time):null,
+    h('div',{class:'practice-label-shell'},h('div',{class:'practice-material-label practice-inline-label'},btn(practiceMaterialLabel(u),isXuSongUnit(u)?'sss-songs':reading?'reading-plan':'resource',{'data-stage':reading?u.recordStageId||u.stageId:u.stageId,'data-reading-scope':JSON.stringify(scope),id:'material-'+u.key,'data-id':u.resourceId,title:u.item.role.label+'；'+u.item.role.basis,...(isXuSongUnit(u)?{'data-stage':u.stageId,'data-category':'essential',id:'song-material-'+u.key}:{})},'practice-material-name'),h('div',{class:'practice-material-meta'},materialUI.typeTag(u.item.resource.type),materialUI.roleTag(u.item.role,'practice-material-role'),practiceBookButton(u),timer,toggle))),
+    practiceUnitPercent(u),
     record.text?h('details',{class:'practice-material-note practice-legacy-note'},h('summary',{},'既有备注'),h('p',{},record.text)):null);
 }
 function practiceMaterialResults(st,units){
@@ -1203,11 +1208,11 @@ function practiceView(routeId){
   const page=h('div',{class:'practice-page practice-'+routeId},heading('MY ROUTE PROGRESS',routeId==='qing'?'庆爸进度':'许密杉进度',routeId==='qing'?'按阶段记录时间与素材，回看自己的积累。':'按原路线的阶段和素材，记录进行到哪里。'));
   if(routeId==='xu')page.append(h('div',{class:'practice-domains','aria-label':'许密杉进度的能力领域'},window.ROADMAP_RAW.routePlan.domains.map(d=>btn(d.label||d.title||({listening:'听力',speaking:'口语',reading:'阅读',writing:'写作'})[d.id],'practice-domain',{'data-domain':d.id,'aria-pressed':S.practiceDomain===d.id},S.practiceDomain===d.id?'button soft':'button'))));
   if(!st){page.append(h('section',{class:'panel'},h('p',{},plan?.summary||'本领域没有独立阶段。'),btn('查看完整路线','view',{'data-view':'routes'},'text-link')));return page;}
-  page.append(h('div',{class:'practice-stage-picker'},h('label',{},h('span',{},'记录阶段'),h('select',{'aria-label':'选择记录阶段',onchange:e=>{S.practiceStages[key]=e.target.value;if(routeId==='qing'&&practiceStatState().scope==='stage')Object.assign(S.practiceStats,{group:'',focusFrom:'',focusTo:''});S.practiceLogLimit=12;render();}},plan.stages.map(s=>h('option',{value:s.id,selected:s.id===st.id},s.title+(P.stageDone(S.records,key,s.id)?' · 已完成':''))),practiceLegacyStages(plan).length?h('optgroup',{label:'原五节点记录 · 保留原范围'},practiceLegacyStages(plan).map(s=>h('option',{value:s.id,selected:s.id===st.id},s.title))):null)),h('button',{type:'button',id:'practice-stage-completion',class:'button soft practice-stage-completion','aria-pressed':String(P.stageDone(S.records,key,st.id)),'aria-label':(P.stageDone(S.records,key,st.id)?'撤回':'标记')+st.title+'阶段已完成',title:'阶段完成独立记录，不更改素材已读数量；下次进入默认打开后续未完成阶段',onclick:()=>{const completed=P.stageDone(S.records,key,st.id);if(savePracticeRecords(P.stageCompletionUpdate(S.records,key,st.id,!completed))){render();document.getElementById('practice-stage-completion')?.focus({preventScroll:true});}}},icon('check'),P.stageDone(S.records,key,st.id)?'已完成':'标完成'),routeId==='qing'?btn([icon('clock'),'记一次时间'],'practice-add',{'data-stage':st.id},'button primary'):btn(icon('info'),'stage',{'data-id':st.id,'aria-label':'阶段详解',title:'阶段详解'},'icon-button'),routeId==='qing'?btn(icon('source'),'practice-history',{'aria-label':'查看时间明细',title:'时间明细'},'icon-button'):null),
-    ...(routeId==='qing'?[h('div',{class:'practice-stage-title'},h('h2',{},st.title),btn('阶段详解','stage',{'data-id':st.id},'text-link'))]:[]));
+  page.append(h('div',{class:'practice-stage-picker'},h('label',{},h('span',{},'记录阶段'),h('select',{'aria-label':'选择记录阶段',onchange:e=>{S.practiceStages[key]=e.target.value;if(routeId==='qing'&&practiceStatState().scope==='stage')Object.assign(S.practiceStats,{group:'',focusFrom:'',focusTo:''});S.practiceLogLimit=12;render();}},plan.stages.map(s=>h('option',{value:s.id,selected:s.id===st.id},s.title.replace(' · 积累',' · ')+(P.stageDone(S.records,key,s.id)?' · 已完成':''))),practiceLegacyStages(plan).length?h('optgroup',{label:'原五节点记录 · 保留原范围'},practiceLegacyStages(plan).map(s=>h('option',{value:s.id,selected:s.id===st.id},s.title))):null)),h('button',{type:'button',id:'practice-stage-completion',class:'button soft practice-stage-completion','aria-pressed':String(P.stageDone(S.records,key,st.id)),'aria-label':(P.stageDone(S.records,key,st.id)?'撤回':'标记')+st.title+'阶段已完成',title:'阶段完成独立记录，不更改素材已读数量；下次进入默认打开后续未完成阶段',onclick:()=>{const completed=P.stageDone(S.records,key,st.id);if(savePracticeRecords(P.stageCompletionUpdate(S.records,key,st.id,!completed))){render();document.getElementById('practice-stage-completion')?.focus({preventScroll:true});}}},icon('check'),P.stageDone(S.records,key,st.id)?'已完成':'标完成'),btn(icon('info'),'stage',{'data-id':st.id,'aria-label':'阶段详解',title:'阶段详解'},'icon-button')));
   if(plan.legacyStageIds?.includes(st.id))page.append(h('p',{class:'small-note'},'原五节点记录，按原素材与版本范围回看；未拆分到六阶段的新级别。当前执行阶段请在上方选择第一至第六阶段。'));
+  page.append(practiceMaterialList(st));
   if(routeId==='qing')page.append(practiceTimeSummary(st));
-  page.append(practiceMaterialList(st),practiceOverview(routeId,plan));
+  page.append(practiceOverview(routeId,plan));
   if(routeId==='qing')page.append(readingFold('practice-qing-rules','时长折算与原文进阶要求',h('div',{},h('p',{},'时长达标和素材完成均不代表自动晋级；还需核对Phase和实际理解。400h、480h是原文累计参考。'),accounting(),st.hours?h('p',{class:'small-note'},'本阶段原文3–4岁投入参考：'+st.hours+'；当前已记有效 '+P.hours(P.summarize(S.records,st.id).effectiveMinutes)+'h。低龄不直接套用该用量。'):null,h('p',{},'本阶段原文进阶：'+st.exit),h('p',{class:'small-note'},'记录页面参考小红书随手记中的共读、动画和分类型素材；有效时间按原PDF计算。'),sourceBtn('qing-xhs-20261030',2,'查看记录方式参考图'))));
   return page;
 }
@@ -1484,12 +1489,12 @@ function resourceBookCatalog(resource,expanded=false){
   const body=resource.liaoBookId?h('p',{class:'small-note'},'廖彩杏图示书单中的单本作品；图示与52周表分别保留，收录不代表资料齐全，目录核对见书单详情。'):librarySeriesCountSummary(resource,quantity);
   return expanded?h('div',{},h('h2',{},resource.title+' · '+title),body):readingFold('resource-books-'+resource.id,title,body,false,'series-evidence resource-book-catalog');
 }
-function studyGuideInfo(book){
+function studyGuideInfo(book,{showPatterns=true}={}){
   const guide=book.studyGuide;if(!guide)return null;
   const original=[...new Set(guide.themes.map(item=>item.primary+(item.secondary&&item.secondary!==item.primary?' / '+item.secondary:'')))];
   const patterns=[...new Set(guide.patterns.map(item=>item.text).filter(Boolean))];
   return h('span',{class:'book-study-guide'},h('span',{class:'small-note'},'原表 #'+guide.number+' · '+original.join('、')),
-    patterns.length?h('span',{class:'reading-book-patterns'},patterns.join('；')):null);
+    showPatterns&&patterns.length?h('span',{class:'reading-book-patterns'},patterns.join('；')):null);
 }
 function seriesGuideSources(resourceId){
   const sources=BOOKS.sources.filter(source=>source.resourceId===resourceId&&source.kind==='user-provided-spreadsheet');

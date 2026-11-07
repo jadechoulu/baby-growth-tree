@@ -410,3 +410,71 @@ test('大猫Pink各22本与培生上下各48本使用共用目录，GK原表顺�
   assert.deepEqual(B.books(gk).slice(0,7).map(book=>book.number),[1,6,7,8,29,38,45]);
   assert.ok(B.books(gk)[0].patterns.length);
 });
+
+test('公开书目身份匹配可承受外站题名变化，重复身份不自动勾选，重复同步幂等',()=>{
+  const d=structuredClone(directory);
+  d.books[0].externalIds={xiaohuasheng:['public-one']};
+  const input=snapshot([entry('public-one','外站重新编辑过的题名')]);
+  const result=B.applyReadSnapshot({},data,input,{directory:d,catalog,sourcePriority:true});
+  assert.equal(result.matched[0].publicBookId,'new-upper-one');
+  assert.equal(B.projectScopeQuantity(result.changes,'series-alias',upperScope,{completed:0},catalog,d).completed,1);
+  assert.deepEqual(B.applyReadSnapshot(result.changes,data,input,{directory:d,catalog,sourcePriority:true}).changes,{});
+  d.books[1].externalIds={xiaohuasheng:['public-one']};
+  const duplicate=B.applyReadSnapshot({},data,input,{directory:d,catalog});
+  assert.equal(duplicate.matched.length,0);
+  assert.equal(duplicate.ambiguous.length,1);
+  assert.deepEqual(duplicate.changes,{});
+});
+
+test('目录中的历史套系ID与公共套系共用完整书单和数量，保留原单册ID',()=>{
+  const d=structuredClone(directory);
+  d.books[0].resourceId='series-alias';
+  const plan=B.planForResource({plans:[]},'series-one',d,catalog,upperScope);
+  assert.deepEqual(B.books(plan,B.scopeGroup(plan,upperScope)).map(book=>book.id),['new-upper-one','new-upper-two']);
+  const records=B.manualUpdate({},'new-upper-one',true);
+  assert.equal(B.directoryProgress(records,d,catalog,'series-alias').completed,1);
+  assert.equal(B.projectScopeQuantity(records,'series-one',upperScope,{completed:0},catalog,d).completed,1);
+});
+
+test('启明星1级44本目录连续完整，素材与两路线引用同一逐本事实',()=>{
+  const d=require('../data/resource-books.json'),c=require('../data/resource-volumes.json'),P=require('../practice.js');
+  const rid='resource-1mx6gx6',scope=P.bookScopes(rid,['1'],c).find(scope=>scope.id==='pearson-star-1-2025');
+  const plan=B.planForResource({plans:[]},rid,d,c,scope),selected=B.books(plan,B.scopeGroup(plan,scope));
+  assert.equal(selected.length,44);
+  assert.deepEqual(selected.map(book=>book.number),Array.from({length:44},(_,i)=>i+1));
+  assert.ok(selected.every(book=>book.cover.startsWith('https://img.xiaohuasheng.cn/')&&book.externalIds.xiaohuasheng.length===1));
+  let records=B.manualUpdate({},selected[0].id,true);
+  assert.equal(B.projectScopeQuantity(records,rid,scope,{completed:0},c,d).completed,1);
+  Object.assign(records,B.manualUpdate(records,selected[0].id,false));
+  assert.equal(B.progress(records,plan).completed,0);
+  const result=B.applyReadSnapshot(records,{plans:[]},snapshot([entry(selected[1].externalIds.xiaohuasheng[0],selected[1].aliases[0])]),{directory:d,catalog:c,sourcePriority:true});
+  assert.equal(result.matched.length,1);
+  assert.equal(B.progress({...records,...result.changes},plan).completed,1);
+  assert.equal(B.projectScopeQuantity({...records,...result.changes},rid,scope,{completed:30},c,d).completed,1);
+});
+
+test('学乐A与小书虫1级完整目录按明确版本共用逐本事实，不替代未核路线版本',()=>{
+  const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js');
+  for(const [rid,scopeId,total,prefix] of [
+    ['resource-1cn6i3m','flr-parent-a',25,'First Little Readers Level A'],
+    ['resource-10bn1i2','oxford-little-bookworms-1',8,'小书虫 牛津英语分级读物 1级']
+  ]){
+    const scope=P.bookScopes(rid,[],catalog).find(scope=>scope.id===scopeId);
+    assert.equal(scope.default,false,'公开目录不能指定作者所用版本');
+    const plan=B.planForResource({plans:[]},rid,directory,catalog,scope),group=B.scopeGroup(plan,scope),books=B.books(plan,group);
+    assert.equal(books.length,total);
+    const chosen=books[0],input=snapshot([entry(chosen.externalIds.xiaohuasheng[0],chosen.aliases[0])]);
+    const synced=B.applyReadSnapshot({},{plans:[]},input,{directory,catalog,sourcePriority:true});
+    assert.equal(synced.matched.length,1);
+    assert.equal(B.projectScopeQuantity(synced.changes,rid,scope,{completed:0},catalog,directory).completed,1);
+    assert.equal(B.directoryProgress(synced.changes,directory,catalog,rid).completed,1);
+    const manual=B.manualUpdate({},chosen.id,true);
+    assert.equal(B.progress(manual,plan,group).completed,1);
+    assert.equal(B.progress({...manual,...B.manualUpdate(manual,chosen.id,false)},plan,group).completed,0);
+    const titled=B.applyReadSnapshot({},{plans:[]},snapshot([entry('other-public-id',prefix+' '+chosen.title)]),{directory,catalog});
+    assert.equal(titled.matched.length,1);
+    assert.equal(titled.matched[0].publicBookId,chosen.id);
+    assert.equal(B.planForResource({plans:[]},rid,directory,catalog,{...scope,edition:'另一未核版本'}),null);
+  }
+  assert.equal(B.planForResource({plans:[]},'resource-149sp5j',directory,catalog),null,'旧英汉双语书虫不自动借用小书虫目录');
+});
