@@ -665,6 +665,12 @@
           "url": "https://book.douban.com/series/77830",
           "evidence": "实际读取第6、7、8级各18册英语绘本的独立套装书目；系列页“册数8”指8个套装条目，不是8本，不采用简介营销总量347册。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生 · 培生启明星1级44本逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+          "evidence": "三页20＋20＋4本，1–44书号连续，唯一book_id共44；目录条目与官方44册范围绑定，不引入套装作为单册。",
+          "checkedAt": "2026-11-08"
         }
       ],
       "scopes": [
@@ -675,7 +681,11 @@
           "parts": [
             {
               "label": "1级",
-              "count": 44
+              "count": 44,
+              "directoryMatch": {
+                "edition": "培生启明星 · 1级（44本）",
+                "level": "1"
+              }
             },
             {
               "label": "2级",
@@ -711,7 +721,11 @@
           "parts": [
             {
               "label": "1级",
-              "count": 44
+              "count": 44,
+              "directoryMatch": {
+                "edition": "培生启明星 · 1级（44本）",
+                "level": "1"
+              }
             },
             {
               "label": "2级",
@@ -727,7 +741,11 @@
           "parts": [
             {
               "label": "1级",
-              "count": 44
+              "count": 44,
+              "directoryMatch": {
+                "edition": "培生启明星 · 1级（44本）",
+                "level": "1"
+              }
             }
           ],
           "default": true
@@ -1505,6 +1523,12 @@
           "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
           "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生 · 英文First Little Readers A25本公共目录",
+          "url": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+          "evidence": "集合ISBN9780545231497；两页20＋5，25个不同单册书目。对应英文Parent Pack A25册；不是外研社引进版册数。",
+          "checkedAt": "2026-11-08"
         }
       ],
       "scopes": [
@@ -1517,7 +1541,11 @@
           "parts": [
             {
               "label": "A",
-              "count": 25
+              "count": 25,
+              "directoryMatch": {
+                "edition": "First Little Readers English Parent Pack",
+                "level": "A"
+              }
             }
           ],
           "default": false,
@@ -7146,9 +7174,46 @@
           "url": "https://www.fltrp.com/c/2024-07-31/523536.shtml",
           "evidence": "标题明确共6盒48本读物；简介明确14个级别共108册。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生 · 小书虫·牛津英语分级读物1级8本",
+          "url": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+          "evidence": "ISBN9787521351958；套装8册，实际系列8个唯一单册，读文手册不计。",
+          "checkedAt": "2026-11-08"
         }
       ],
       "scopes": [
+        {
+          "id": "oxford-little-bookworms-1",
+          "label": "1级",
+          "edition": "外研社小书虫·牛津英语分级读物",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级",
+              "level": "1",
+              "count": 8,
+              "directoryMatch": {
+                "edition": "外研社小书虫·牛津英语分级读物",
+                "level": "1"
+              }
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "小花生 · 小书虫·牛津英语分级读物1级8本",
+              "url": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+              "evidence": "ISBN9787521351958；套装8册，实际系列8个唯一单册，读文手册不计。",
+              "checkedAt": "2026-11-08"
+            }
+          ],
+          "includedIn": [
+            "oxford-little-bookworms-1-6",
+            "oxford-little-bookworms-1-14"
+          ]
+        },
         {
           "id": "oxford-little-bookworms-1-6",
           "label": "1–6级",

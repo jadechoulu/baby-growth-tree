@@ -27,7 +27,7 @@ function bookState(records,bookId){
 }
 function directoryProgress(records,directory,catalog,resourceId){
   const canonical=catalogResource(catalog,resourceId)?.resourceId||resourceId;
-  const selected=(directory?.books||[]).filter(book=>book.resourceId===canonical);
+  const selected=(directory?.books||[]).filter(book=>(catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId)===canonical);
   const completed=new Set(selected.filter(book=>bookState(records,book.id).done).map(book=>book.id)).size;
   // 部分目录只表示已识别的单册，不能将条目数作为整套出版分母。
   return {completed,identifiedCompleted:completed,total:null,percent:null,unit:'本',status:completed?'using':'not-started'};
@@ -111,7 +111,7 @@ function catalogPlans(directory,catalog,resourceId){
   const entry=catalogResource(catalog,resourceId),editions=new Map();
   for(const part of publicationParts(catalog,resourceId)){
     if(part.unit!=='本'||!part.total||!part.directoryMatches.length)continue;
-    const selected=[...new Map((directory.books||[]).filter(book=>book.resourceId===entry.resourceId&&part.directoryMatches.some(match=>directoryMatches(book,match))).map(book=>[book.id,book])).values()];
+    const selected=[...new Map((directory.books||[]).filter(book=>(catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId)===entry.resourceId&&part.directoryMatches.some(match=>directoryMatches(book,match))).map(book=>[book.id,book])).values()];
     if(selected.length!==part.total)continue;
     if(!editions.has(part.edition))editions.set(part.edition,[]);
     editions.get(part.edition).push({part,selected});
@@ -163,6 +163,9 @@ function projectScopeQuantity(records,resourceId,scope,legacy,catalog,directory)
 }
 function matchEntry(data,entry,directory,catalog){
   const title=normalize(entry.title),candidates=[],conflicts=[];
+  // 已核定的公开书目身份优先于外站可变题名；重复身份仍交由多候选流程拒绝。
+  const identified=(directory?.books||[]).filter(book=>book.externalIds?.xiaohuasheng?.includes(entry.bookId));
+  if(identified.length)return {candidates:identified.map(book=>({publicBookId:book.id,title:book.title,resourceId:catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId,publicationScopes:bookPublicationScopes(book,catalog)})),conflicts};
   for(const plan of data?.plans||[]){
     for(const prefix of plan.externalMatch?.prefixes||[]){
       const head=normalize(prefix);

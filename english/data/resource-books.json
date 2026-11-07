@@ -63,6 +63,39 @@
       },
       "ignoreNumber": true,
       "basis": "明确RAZ级别前缀与完整英文题名共同匹配用户逐册主题表，仅标记该单册；不凭外站分包编号推出版范围，不将主题表条数作为出版分母。"
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "prefixes": [
+        "培生启明星1级"
+      ],
+      "directoryMatch": {
+        "edition": "培生启明星 · 1级（44本）"
+      },
+      "basis": "先用公开book_id唯一关联；兼容同级前缀、原书号及完整题名，不跨启明星级别。"
+    },
+    {
+      "resourceId": "resource-1cn6i3m",
+      "prefixes": [
+        "First Little Readers Level A"
+      ],
+      "directoryMatch": {
+        "edition": "First Little Readers English Parent Pack",
+        "level": "A"
+      },
+      "basis": "明确英文Parent Pack A级及完整题名唯一匹配；不同引进版不套用。"
+    },
+    {
+      "resourceId": "resource-10bn1i2",
+      "prefixes": [
+        "小书虫 牛津英语分级读物 1级",
+        "小书虫·牛津英语分级读物1级"
+      ],
+      "directoryMatch": {
+        "edition": "外研社小书虫·牛津英语分级读物",
+        "level": "1"
+      },
+      "basis": "已核外站book_id优先；无ID时只匹配同版1级前缀与完整双语书名，不匹配旧英汉双语书虫。"
     }
   ],
   "topicNote": "主题依据已读取的出版社内容简介、内页或分版本分类图整理；目录收录不等于内容核对。找到资料但内容不可读时标为待核对；只有确认无内容资料且记录检索范围时才允许标注书名兜底。不同版本不自动互换主题、级别或册数。",
@@ -1807,6 +1840,63 @@
           "note": "原表第87本为The birds，现有上下辑目录同号为The Rides；暂不关联已读记录。"
         }
       ]
+    },
+    {
+      "id": "xhs-pearson-star-level1-20261108",
+      "resourceId": "resource-1mx6gx6",
+      "title": "小花生 · 培生启明星1级逐册目录",
+      "url": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+      "kind": "public-series-catalog",
+      "edition": "培生启明星 · 1级（44本）",
+      "bookCount": 44,
+      "checkedAt": "2026-11-08",
+      "coverage": {
+        "complete": true,
+        "uniqueBooks": 44,
+        "pageCounts": [
+          20,
+          20,
+          4
+        ],
+        "note": "实际分页1至3共44个唯一book_id；page_1为根页别名，不另计。集合页声明44册，与既有官方1级数量一致。"
+      }
+    },
+    {
+      "id": "xhs-flr-parent-a-20261108",
+      "resourceId": "resource-1cn6i3m",
+      "title": "小花生 · First Little Readers Level A 25本",
+      "url": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+      "kind": "public-series-catalog",
+      "edition": "First Little Readers English Parent Pack",
+      "bookCount": 25,
+      "checkedAt": "2026-11-08",
+      "coverage": {
+        "complete": true,
+        "uniqueBooks": 25,
+        "pageCounts": [
+          20,
+          5
+        ],
+        "note": "HTTP重试空响应后，经浏览器显示页提取；集合ISBN9780545231497，声明25册，两页25个唯一单书ID；顺序按集合介绍的25本目录核对，What Is Red以单书题名纠正集合简介拼写。"
+      }
+    },
+    {
+      "id": "xhs-little-bookworms-1-20261108",
+      "resourceId": "resource-10bn1i2",
+      "title": "小花生 · 小书虫·牛津英语分级读物1级8本",
+      "url": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+      "kind": "public-series-catalog",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "bookCount": 8,
+      "checkedAt": "2026-11-08",
+      "coverage": {
+        "complete": true,
+        "uniqueBooks": 8,
+        "pageCounts": [
+          8
+        ],
+        "note": "ISBN9787521351958；套装声明8册，实际系列页8个不同单册ID，与搜索单册身份和封面逐一核对。HTTP失败后浏览器兜底，只保存封面原URL，不含指导册，不代表作者选版已确认。"
+      }
     }
   ],
   "books": [
@@ -41343,6 +41433,2616 @@
         "provider": "Reading A-Z官方",
         "note": "Reading A-Z官网逐册资源卡实际显示图片截图裁切；为该册官方示意图，非纸质封面原图。"
       }
+    },
+    {
+      "id": "book-3a75a5949264fbe3",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Juggling",
+      "number": 1,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级01 Juggling"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "dbd5c201c6ba8156"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155808.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/dbd5c201c6ba8156",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602155808.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级01 Juggling",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-87d7447b611b0126",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Greedy Giant贪吃的巨人",
+      "number": 2,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级02-Greedy Giant贪吃的巨人"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "89b49bc10525c85d"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155819.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/89b49bc10525c85d",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602155819.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级02-Greedy Giant贪吃的巨人",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-9f0f2a519faaa432",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Curly and the cherries",
+      "number": 3,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级03 Curly and the cherries"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "4e4bf2ef61aa5da6"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160842.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/4e4bf2ef61aa5da6",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160842.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级03 Curly and the cherries",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-d162aa05a6c4374f",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Happy birthday Josie",
+      "number": 4,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级04 Happy birthday Josie"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "22a50a2d9a91567"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155855.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/22a50a2d9a91567",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602155855.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级04 Happy birthday Josie",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-46a1d77b72576b9c",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Goodnight Josie",
+      "number": 5,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级05 Goodnight Josie"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "a407a290a0a8333b"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155905.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/a407a290a0a8333b",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602155905.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级05 Goodnight Josie",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-47e9f6ca7a4d90b4",
+      "resourceId": "resource-1mx6gx6",
+      "title": "That's mine",
+      "number": 6,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级06 That's mine"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "b1caf759b6148bc"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160833.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/b1caf759b6148bc",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160833.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级06 That's mine",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-b2114304d6fac0f9",
+      "resourceId": "resource-1mx6gx6",
+      "title": "My cushion!",
+      "number": 7,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级07 My cushion!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "fea8325b3ee2714a"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155929.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/fea8325b3ee2714a",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602155929.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级07 My cushion!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-663c8a41b521c950",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Pop!",
+      "number": 8,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级08 Pop!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "ed9f6346422e93c4"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160823.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/ed9f6346422e93c4",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160823.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级08 Pop!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-5af92cc8846b7d03",
+      "resourceId": "resource-1mx6gx6",
+      "title": "I like cars",
+      "number": 9,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级09 I like cars"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "2479f7002cadc880"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155952.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/2479f7002cadc880",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602155952.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级09 I like cars",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-a6162664dd3d6b3b",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Fish Colours",
+      "number": 10,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级10-Fish Colours"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "cb2e0abcfcea64dd"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160004.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/cb2e0abcfcea64dd",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160004.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级10-Fish Colours",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-4a2dc7d29b2a0c29",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Abracadabra",
+      "number": 11,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级11 Abracadabra"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "1e5a4287dc2c2a5f"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160013.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/1e5a4287dc2c2a5f",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160013.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级11 Abracadabra",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-0c68215cbf18eda7",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Face paintings",
+      "number": 12,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级12 Face paintings"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "b3ccf4f7d22b45f9"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160025.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/b3ccf4f7d22b45f9",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160025.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级12 Face paintings",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-a402574242afe74d",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Fancy dress",
+      "number": 13,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级13 Fancy dress"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "94b4dc9db05c3a9b"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160035.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/94b4dc9db05c3a9b",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160035.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级13 Fancy dress",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-db1eb0fc950ef842",
+      "resourceId": "resource-1mx6gx6",
+      "title": "The play",
+      "number": 14,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级14 The play"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "62eb57c0075ac8e8"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160044.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/62eb57c0075ac8e8",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160044.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级14 The play",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-7e3cc361f4dbb371",
+      "resourceId": "resource-1mx6gx6",
+      "title": "The princess and the dragon",
+      "number": 15,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级15 The princess and the dragon"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "189980c5ff5d7b29"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160054.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/189980c5ff5d7b29",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160054.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级15 The princess and the dragon",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-dd1f5f4bef80ba76",
+      "resourceId": "resource-1mx6gx6",
+      "title": "The lost panda",
+      "number": 16,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级16 The lost panda"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "7b419c0b8b5ea36f"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160102.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/7b419c0b8b5ea36f",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160102.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级16 The lost panda",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-078e49c631003729",
+      "resourceId": "resource-1mx6gx6",
+      "title": "I can't find it!",
+      "number": 17,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级17 I can't find it!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "32431f44955fd438"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160113.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/32431f44955fd438",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160113.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级17 I can't find it!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-f5afd69a43968e24",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Moving day",
+      "number": 18,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级18 Moving day"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "95c834d3892ebe5c"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160812.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/95c834d3892ebe5c",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160812.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级18 Moving day",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-dce3bdec061fc0d8",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Josie and the Junk Box",
+      "number": 19,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级19 Josie and the Junk Box"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "c6b767fb522dddb8"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160141.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/c6b767fb522dddb8",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260602160141.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级19 Josie and the Junk Box",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-9df1698ce49d8802",
+      "resourceId": "resource-1mx6gx6",
+      "title": "At the Park",
+      "number": 20,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级20 At the Park"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "9982f357042bb03b"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002004.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/9982f357042bb03b",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002004.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级20 At the Park",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-e13dd2cc6f9e4203",
+      "resourceId": "resource-1mx6gx6",
+      "title": "At the Seaside",
+      "number": 21,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级-21 At the Seaside"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "d77bee6204b5afa8"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002056.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/d77bee6204b5afa8",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002056.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级-21 At the Seaside",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-8d85ca5bd378fe49",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Scaredy Cat",
+      "number": 22,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级22 Scaredy Cat"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "61ed2af75229b534"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002129.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/61ed2af75229b534",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002129.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级22 Scaredy Cat",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-6370238e24abb8b6",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Sports Day",
+      "number": 23,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级23 Sports Day"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "a1add057455e3fa9"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002148.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/a1add057455e3fa9",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002148.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级23 Sports Day",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-32c9f8c4f63da4b3",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Minibeasts",
+      "number": 24,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级24 Minibeasts"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "3d35cb1a455ce5aa"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002206.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/3d35cb1a455ce5aa",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002206.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级24 Minibeasts",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-bad2c435153ae80d",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Who Can Curly See?",
+      "number": 25,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级25 Who Can Curly See?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "e866dc2455be2cd"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002237.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/e866dc2455be2cd",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002237.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级25 Who Can Curly See?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-b9793f60d9b6e9a1",
+      "resourceId": "resource-1mx6gx6",
+      "title": "A Home for Curly",
+      "number": 26,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级26 A Home for Curly"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "1895cc347d59bd05"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002302.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/1895cc347d59bd05",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002302.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级26 A Home for Curly",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-8542e4c3293953e8",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Wings",
+      "number": 27,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级27 Wings"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "f89835a01ad8c886"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002315.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/f89835a01ad8c886",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002315.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级27 Wings",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-db2be6ef57b2f8bf",
+      "resourceId": "resource-1mx6gx6",
+      "title": "The New Pet",
+      "number": 28,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级28 The New Pet"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "82de1bb433576533"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002341.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/82de1bb433576533",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002341.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级28 The New Pet",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-4000fd67ef230321",
+      "resourceId": "resource-1mx6gx6",
+      "title": "At the Vet",
+      "number": 29,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级29 At the Vet"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "e381a0ad675669a2"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002357.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/e381a0ad675669a2",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002357.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级29 At the Vet",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-5c314a22524e9289",
+      "resourceId": "resource-1mx6gx6",
+      "title": "What Is It?",
+      "number": 30,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级30 What Is It?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "b5ff3fa065557563"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002423.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/b5ff3fa065557563",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002423.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级30 What Is It?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-7e6df65cb4958a3c",
+      "resourceId": "resource-1mx6gx6",
+      "title": "All Fall Down",
+      "number": 31,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级31 All Fall Down"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "7868a3f83554a338"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002459.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/7868a3f83554a338",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002459.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级31 All Fall Down",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-beddf9015988f2fa",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Where Is Patch?",
+      "number": 32,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级32 Where Is Patch?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "1eae4f468553dec8"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002520.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/1eae4f468553dec8",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260622002520.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级32 Where Is Patch?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-7c6bb0e25daf42fb",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Catch It!",
+      "number": 33,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级33 Catch It!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "ebc4a959e765ad57"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2489068/Book/20261017211421.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/ebc4a959e765ad57",
+        "imageUrl": "https://img.xiaohuasheng.cn/2489068/Book/20261017211421.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级33 Catch It!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-4fdad4c15ee4f4c3",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Super Car",
+      "number": 34,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级34 Super Car"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "9850bfe35ae4eeb5"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094229.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/9850bfe35ae4eeb5",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094229.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级34 Super Car",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-406735ade3460973",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Josie and the Kite",
+      "number": 35,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级35 Josie and the Kite"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "d2b1a3cc4003f50d"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094254.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/d2b1a3cc4003f50d",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094254.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级35 Josie and the Kite",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-93a202b3599bf677",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Our Five Senses",
+      "number": 36,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级36 Our Five Senses"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "26f5869dcea30432"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094330.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/26f5869dcea30432",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094330.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级36 Our Five Senses",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-3000650b8b7e5bcd",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Friends",
+      "number": 37,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级37 Friends"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "b302d60742e1c8d1"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094345.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/b302d60742e1c8d1",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094345.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级37 Friends",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-f28c6a16a06f0520",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Ned's Noise Machine",
+      "number": 38,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级38 Ned's Noise Machine"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "983d76d402e092c1"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094412.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/983d76d402e092c1",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094412.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级38 Ned's Noise Machine",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-32b63f3a64fe4b37",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Dirty Dog",
+      "number": 39,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级39 Dirty Dog"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "6781e547d2df7cf3"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094435.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/6781e547d2df7cf3",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094435.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级39 Dirty Dog",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-e4f17419fcceaf58",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Something Fishy",
+      "number": 40,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级40 Something Fishy"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "66c89f575ae48e29"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094501.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/66c89f575ae48e29",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094501.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级40 Something Fishy",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-5e1afd55e6065b0f",
+      "resourceId": "resource-1mx6gx6",
+      "title": "The Dog Show",
+      "number": 41,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级41 The Dog Show"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "82f8e4ba12dd8704"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094521.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/82f8e4ba12dd8704",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094521.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级41 The Dog Show",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-72c560df2fb025bf",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Big and Little",
+      "number": 42,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级-42 Big and Little"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "91eba45b3f6e7d2f"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094553.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/91eba45b3f6e7d2f",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094553.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级-42 Big and Little",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-f60fae015c5e1684",
+      "resourceId": "resource-1mx6gx6",
+      "title": "Big Bigger Biggest",
+      "number": 43,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级43 Big Bigger Biggest"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "bbe79164f4db56c4"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094618.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/bbe79164f4db56c4",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094618.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级43 Big Bigger Biggest",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-67a7c8423a7d80ed",
+      "resourceId": "resource-1mx6gx6",
+      "title": "The Hungry Fox",
+      "number": 44,
+      "level": "1",
+      "edition": "培生启明星 · 1级（44本）",
+      "aliases": [
+        "培生启明星1级44 The Hungry Fox"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "82eb11985ada8c6f"
+        ]
+      },
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094639.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/82eb11985ada8c6f",
+        "imageUrl": "https://img.xiaohuasheng.cn/2321485/Book/20260627094639.jpg?imageView2/1/w/216/h/288",
+        "title": "培生启明星1级44 The Hungry Fox",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/a7aa76d9cb6f4b77",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "培生启明星 · 1级（44本）"
+      }
+    },
+    {
+      "id": "book-70dd7b76b9e83b10",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Hello, Beach",
+      "number": 1,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A: Hello, Beach"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "cfab0da751f455e"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/226161/Book/20170129205453.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/cfab0da751f455e",
+        "imageUrl": "https://img.xiaohuasheng.cn/226161/Book/20170129205453.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A: Hello, Beach",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-ff87d0896cacf103",
+      "resourceId": "resource-1cn6i3m",
+      "title": "What Can I See?",
+      "number": 2,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A: What Can I See?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "8974f1e5c8e91b06"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912200849.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/8974f1e5c8e91b06",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912200849.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A: What Can I See?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-3c14856d6bcdd138",
+      "resourceId": "resource-1cn6i3m",
+      "title": "cold rose",
+      "number": 3,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-cold rose"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "a702f6e8a8c54116"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20171008174441.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/a702f6e8a8c54116",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20171008174441.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-cold rose",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-22faaba39cfc3a26",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Birthday Surprise",
+      "number": 4,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A: Birthday Surprise"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "a72b05f5e6914020"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912200931.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/a72b05f5e6914020",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912200931.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A: Birthday Surprise",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-d4f227b39625375a",
+      "resourceId": "resource-1cn6i3m",
+      "title": "fun with mud",
+      "number": 5,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:fun with mud"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "dd970794cb39ecdf"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/2152627/Book/20250715230507.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/dd970794cb39ecdf",
+        "imageUrl": "https://img.xiaohuasheng.cn/2152627/Book/20250715230507.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:fun with mud",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-d5277ec6f4d36100",
+      "resourceId": "resource-1cn6i3m",
+      "title": "I Like School!",
+      "number": 6,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A: I Like School!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "81c2bb044ccdb4da"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912210843.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/81c2bb044ccdb4da",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912210843.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A: I Like School!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-4d29b8ae40dc9b85",
+      "resourceId": "resource-1cn6i3m",
+      "title": "what is for supper?",
+      "number": 7,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-what is for supper?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "175986e2eaa80ea6"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/126381/Book/20170508093637.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/175986e2eaa80ea6",
+        "imageUrl": "https://img.xiaohuasheng.cn/126381/Book/20170508093637.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-what is for supper?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-677147be09e4265e",
+      "resourceId": "resource-1cn6i3m",
+      "title": "fun at the playground",
+      "number": 8,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-fun at the playground"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "3f8731b7d1a2fda7"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/126381/Book/20170420092831.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/3f8731b7d1a2fda7",
+        "imageUrl": "https://img.xiaohuasheng.cn/126381/Book/20170420092831.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-fun at the playground",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-e7594a286c8fd9c2",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Look What I Found!",
+      "number": 9,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-Look What I Found!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "7927a6f959e648ac"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912210912.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/7927a6f959e648ac",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912210912.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-Look What I Found!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-4526609bba97c2ed",
+      "resourceId": "resource-1cn6i3m",
+      "title": "What Shines?",
+      "number": 10,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-What Shines?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "f1f82213e1532a0d"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211128.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/f1f82213e1532a0d",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211128.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-What Shines?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-b38a21957bec172a",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Bubbles!",
+      "number": 11,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A: Bubbles!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "36c8589f746452cf"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211100.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/36c8589f746452cf",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211100.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A: Bubbles!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-c18f672be43f1042",
+      "resourceId": "resource-1cn6i3m",
+      "title": "What Do I Need?",
+      "number": 12,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-What Do I Need?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "bf1946cf3118e8af"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211440.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/bf1946cf3118e8af",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211440.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-What Do I Need?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-792bbbaf5f75b1c6",
+      "resourceId": "resource-1cn6i3m",
+      "title": "where is petey",
+      "number": 13,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-where is petey"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "c888515239fef64e"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211339.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/c888515239fef64e",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211339.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-where is petey",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-61616845fe6652ee",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Hide and Seek",
+      "number": 14,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:Hide and Seek"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "458dbb61899216ea"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211258.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/458dbb61899216ea",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211258.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:Hide and Seek",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-f4c3fb72f838b2a3",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Hats, Hats, Hats",
+      "number": 15,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-Hats, Hats, Hats"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "8015ee12bcd9c295"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/126381/Book/20170512140029.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/8015ee12bcd9c295",
+        "imageUrl": "https://img.xiaohuasheng.cn/126381/Book/20170512140029.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-Hats, Hats, Hats",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-8951b543c322d6ae",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Shapes for Lunch",
+      "number": 16,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-Shapes for Lunch"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "66afafeb7a186318"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211409.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/66afafeb7a186318",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211409.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-Shapes for Lunch",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-77b234c2d469c606",
+      "resourceId": "resource-1cn6i3m",
+      "title": "winter is here",
+      "number": 17,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-winter is here"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "dc8421b488daef14"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211200.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/dc8421b488daef14",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211200.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-winter is here",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-71485ee9ac401aee",
+      "resourceId": "resource-1cn6i3m",
+      "title": "what is red?",
+      "number": 18,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:what is red?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "8a7ff9ddd9722fe9"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/126381/Book/20170420092110.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/8a7ff9ddd9722fe9",
+        "imageUrl": "https://img.xiaohuasheng.cn/126381/Book/20170420092110.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:what is red?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-cf510aaed5f3aa9f",
+      "resourceId": "resource-1cn6i3m",
+      "title": "I Like Stripes",
+      "number": 19,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:I Like Stripes"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "2380c12734c4505b"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/1752294/Book/20221001202410.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/2380c12734c4505b",
+        "imageUrl": "https://img.xiaohuasheng.cn/1752294/Book/20221001202410.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:I Like Stripes",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-9100a0d309a078c9",
+      "resourceId": "resource-1cn6i3m",
+      "title": "When Night Comes",
+      "number": 20,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-When Night Comes"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "6fab290381eb09f"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211000.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/6fab290381eb09f",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211000.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-When Night Comes",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-dce452cdc9b0abc0",
+      "resourceId": "resource-1cn6i3m",
+      "title": "sweet treat",
+      "number": 21,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:sweet treat"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "f6dce64f398d7b37"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/126381/Book/20170420092709.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/f6dce64f398d7b37",
+        "imageUrl": "https://img.xiaohuasheng.cn/126381/Book/20170420092709.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:sweet treat",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-152e56d5ea8024f0",
+      "resourceId": "resource-1cn6i3m",
+      "title": "I Can Draw",
+      "number": 22,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:I Can Draw"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "124a6aad9447cab9"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/220979/Book/20180914105605.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/124a6aad9447cab9",
+        "imageUrl": "https://img.xiaohuasheng.cn/220979/Book/20180914105605.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:I Can Draw",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-f01ab72dfde19dc0",
+      "resourceId": "resource-1cn6i3m",
+      "title": "almost spring",
+      "number": 23,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A:almost spring"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "ee8111d3cb11682b"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20171008174341.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/ee8111d3cb11682b",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20171008174341.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A:almost spring",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-db3676619e69c432",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Hurry Up! Hurry Up!",
+      "number": 24,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-Hurry Up! Hurry Up!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "34885e0fa70df464"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211033.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/34885e0fa70df464",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211033.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-Hurry Up! Hurry Up!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-a70f2d8409967608",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Class Pets",
+      "number": 25,
+      "level": "A",
+      "edition": "First Little Readers English Parent Pack",
+      "aliases": [
+        "First Little Readers Level A-Class Pets"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "bc8863ff85db2198"
+        ]
+      },
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "小花生公开系列核对书目身份、级别及单册封面；未据题名推测主题。",
+      "cover": "https://img.xiaohuasheng.cn/188151/Book/20170912211511.jpg?imageView2/1/w/216/h/288",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/bc8863ff85db2198",
+        "imageUrl": "https://img.xiaohuasheng.cn/188151/Book/20170912211511.jpg?imageView2/1/w/216/h/288",
+        "title": "First Little Readers Level A-Class Pets",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "First Little Readers English Parent Pack"
+      }
+    },
+    {
+      "id": "book-493de294a3a621fc",
+      "resourceId": "resource-10bn1i2",
+      "title": "Apples and Bananas 跟爷爷去购物",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 Apples and Bananas 跟爷爷去购物"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "abc2f59458c4759a"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831145941.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/abc2f59458c4759a",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831145941.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 Apples and Bananas 跟爷爷去购物",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-1262a8fdc05e33f3",
+      "resourceId": "resource-10bn1i2",
+      "title": "What's This? 猜猜这是什么?",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 What's This? 猜猜这是什么?"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "e45d55f7b8c2faa2"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831150118.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/e45d55f7b8c2faa2",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831150118.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 What's This? 猜猜这是什么?",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-3b2f18337dea9f2d",
+      "resourceId": "resource-10bn1i2",
+      "title": "Spider, Spider 家有蜘蛛!",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 Spider, Spider 家有蜘蛛!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "87b80267ecc710a1"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831145650.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/87b80267ecc710a1",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831145650.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 Spider, Spider 家有蜘蛛!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-5e243d53278b4288",
+      "resourceId": "resource-10bn1i2",
+      "title": "The Picnic 去野餐!",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 The Picnic 去野餐!"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "3a13b63858c5f154"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831145803.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/3a13b63858c5f154",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831145803.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 The Picnic 去野餐!",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-d7591766322e579e",
+      "resourceId": "resource-10bn1i2",
+      "title": "Hello, Clunk 你好, 机器人",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 Hello, Clunk 你好, 机器人"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "4c43e7eaa948f379"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831145446.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/4c43e7eaa948f379",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831145446.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 Hello, Clunk 你好, 机器人",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-c139dbcd001ec79b",
+      "resourceId": "resource-10bn1i2",
+      "title": "One, Two, Three 我在公园数呀数",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 One, Two, Three 我在公园数呀数"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "a13cf04a1aca5aa8"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831145314.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/a13cf04a1aca5aa8",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831145314.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 One, Two, Three 我在公园数呀数",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-12d77e45a5577d5d",
+      "resourceId": "resource-10bn1i2",
+      "title": "At the Zoo 和爷爷去逛动物园",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 At the Zoo 和爷爷去逛动物园"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "26f986eef8cf1a0a"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831144803.jpg?imageView2/1/w/240/h/356",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/26f986eef8cf1a0a",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831144803.jpg?imageView2/1/w/240/h/356",
+        "title": "小书虫 牛津英语分级读物 1级 At the Zoo 和爷爷去逛动物园",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
+    },
+    {
+      "id": "book-5a435fb9ce3d076a",
+      "resourceId": "resource-10bn1i2",
+      "title": "Rosie's Teddy Bear 罗茜的玩具熊",
+      "level": "1",
+      "edition": "外研社小书虫·牛津英语分级读物",
+      "aliases": [
+        "小书虫 牛津英语分级读物 1级 Rosie's Teddy Bear 罗茜的玩具熊"
+      ],
+      "externalIds": {
+        "xiaohuasheng": [
+          "a1c2f59d0d0c7093"
+        ]
+      },
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "topics": [],
+      "topicStatus": "pending",
+      "topicBasis": "公开系列核对单册、级别及封面；未根据题名推测主题，列表次序不表示教学顺序。",
+      "cover": "https://img.xiaohuasheng.cn/2050675/Book/20240831145058.jpg?imageView2/1/w/240/h/360",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/a1c2f59d0d0c7093",
+        "imageUrl": "https://img.xiaohuasheng.cn/2050675/Book/20240831145058.jpg?imageView2/1/w/240/h/360",
+        "title": "小书虫 牛津英语分级读物 1级 Rosie's Teddy Bear 罗茜的玩具熊",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "seriesUrl": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+        "checkedAt": "2026-11-08",
+        "retrievedAt": "2026-11-08",
+        "edition": "外研社小书虫·牛津英语分级读物"
+      }
     }
   ],
   "coverage": [
@@ -41419,9 +44119,9 @@
     {
       "resourceId": "resource-10bn1i2",
       "title": "小书虫",
-      "status": "pending",
-      "bookCount": 0,
-      "note": "尚无可核对的逐册版本目录；不由套系名或总册数生成书名和主题。"
+      "status": "partial",
+      "bookCount": 8,
+      "note": "已核外研社小书虫1级8本；不含读文手册，未取得其余级别单册目录。"
     },
     {
       "resourceId": "resource-1mzat21",
@@ -41440,9 +44140,9 @@
     {
       "resourceId": "resource-1mx6gx6",
       "title": "培生启明星",
-      "status": "pending",
-      "bookCount": 0,
-      "note": "尚无可核对的逐册版本目录；不由套系名或总册数生成书名和主题。"
+      "status": "partial",
+      "bookCount": 44,
+      "note": "已核小花生1级44本完整目录；未取得其他级别逐册书目，不表示全套目录完整。"
     },
     {
       "resourceId": "resource-912oje",
@@ -42063,9 +44763,9 @@
     {
       "resourceId": "resource-1cn6i3m",
       "title": "学乐",
-      "status": "pending",
-      "bookCount": 0,
-      "note": "尚无可核对的逐册版本目录；不由套系名或总册数生成书名和主题。"
+      "status": "partial",
+      "bookCount": 25,
+      "note": "已核英文Parent Pack A25本；其他级别及外研社引进版保持独立，未确认路线选版。"
     },
     {
       "resourceId": "resource-149sp5j",
@@ -43583,6 +46283,54 @@
       ],
       "searchLog": [
         "用户提供RAZ AA主题阅读顺序和单词表、RAZ A主题句型单词表；逐册保留来源工作表位置。"
+      ]
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "checkedAt": "2026-11-08",
+      "scope": "培生启明星1级44本；仅核对单册身份、书号、级别与封面URL，未据题名推测主题或读法",
+      "sourceIds": [
+        "xhs-pearson-star-level1-20261108"
+      ],
+      "readingGuide": [],
+      "searchLog": [
+        {
+          "channel": "小花生公开HTTP目录",
+          "query": "培生启明星1级；系列a7aa76d9cb6f4b77及实际分页",
+          "result": "三页20＋20＋4，共44个不同book_id，书号1–44连续；保留单册原题名与原始封面URL。未读取正文，主题保留pending，不生成阅读建议。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1cn6i3m",
+      "checkedAt": "2026-11-08",
+      "scope": "英文Parent Pack A25本；不覆盖外研社引进版，不按题名推测主题",
+      "sourceIds": [
+        "xhs-flr-parent-a-20261108"
+      ],
+      "readingGuide": [],
+      "searchLog": [
+        {
+          "channel": "小花生公开页面（HTTP失败后浏览器兜底）",
+          "query": "https://www.xiaohuasheng.cn/series/53f20bdc6bc9b21",
+          "result": "集合声明25本，两页20＋5且唯一ID25；单册封面保存原URL，未读取正文，不填主题。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-10bn1i2",
+      "checkedAt": "2026-11-08",
+      "scope": "小书虫1级8本公开完整目录；不覆盖旧英汉双语书虫",
+      "sourceIds": [
+        "xhs-little-bookworms-1-20261108"
+      ],
+      "readingGuide": [],
+      "searchLog": [
+        {
+          "channel": "小花生公开页面（HTTP失败后浏览器兜底）",
+          "query": "https://www.xiaohuasheng.cn/series/62dd563d0f48858f",
+          "result": "集合8册、ISBN9787521351958、系列8个唯一单册；不据书名补主题或将读文手册计入。"
+        }
       ]
     }
   ],
