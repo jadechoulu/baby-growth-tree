@@ -551,3 +551,80 @@ test('早期阶段完整分项目录共用手工与公开身份事实，缺目�
   }
 
 });
+
+test('App完整书架派生快照按guid匹配并另存数字ID，重复导入和备份往返不重复计数',()=>{
+  const d=structuredClone(directory);
+  d.books[0].externalIds={xiaohuasheng:['sample-guid']};
+  d.books[1].externalIds={xiaohuasheng:['987654']};
+  const input=snapshot([{bookId:'sample-guid',appBookId:987654,title:'外站已更新题名'}],{
+    transport:'xiaohuasheng-app-api',predicate:'readedFlag=1',sourceUrl:'https://app.xiaohuasheng.cn//bookroom/queryBookroomBook/sample-owner/-2/-1/-1/0/30',
+    advertisedCount:1,actualUniqueCount:1
+  });
+  const result=B.applyReadSnapshot({},data,input,{directory:d,catalog,sourcePriority:true});
+  assert.equal(result.matched.length,1);
+  assert.equal(result.matched[0].publicBookId,'new-upper-one');
+  const fact=JSON.parse(result.changes[B.EXTERNAL+'sample-owner:sample-guid'].note);
+  assert.equal(fact.externalBookId,'sample-guid');
+  assert.equal(fact.appBookId,'987654');
+  assert.equal(B.bookState(result.changes,'new-upper-two').done,false,'数字ID不可冒充网页bookId参与匹配');
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(result.changes))));
+  assert.equal(B.projectScopeQuantity(restored.records,'series-one',upperScope,{completed:0},catalog,d).completed,1);
+  assert.deepEqual(B.applyReadSnapshot(restored.records,data,input,{directory:d,catalog,sourcePriority:true}).changes,{});
+});
+
+test('App来源限定本人固定全书架入口，数字身份无效或同guid冲突时整批拒绝',()=>{
+  const base='https://app.xiaohuasheng.cn//bookroom/queryBookroomBook/sample-owner/-2/-1/-1/0/30';
+  const items=[{bookId:'guid-one',appBookId:'12345',title:'Example GK-01 At the Market'}];
+  const records=B.manualUpdate({},'sample-03',true),before=structuredClone(records);
+  for(const sourceUrl of [
+    base.replace('sample-owner','other-owner'),base.replace('/-2/-1/-1/','/-6/-1/-1/'),
+    base.replace('//bookroom/','/bookroom/'),base.replace('/0/30','/30/30'),
+    base+'?token=synthetic',base+'#fragment',base.replace('https:','http:'),
+    base.replace('app.xiaohuasheng.cn','app.xiaohuasheng.cn.evil.example'),
+    base.replace('https://','https://synthetic@')
+  ])assert.throws(()=>B.applyReadSnapshot(records,data,snapshot(items,{sourceUrl,transport:'xiaohuasheng-app-api',predicate:'readedFlag=1'})));
+  for(const appBookId of ['',0,-1,1.5,'not-a-number',Number.MAX_SAFE_INTEGER+1]){
+    assert.throws(()=>B.applyReadSnapshot(records,data,snapshot([{...items[0],appBookId}],{sourceUrl:base,transport:'xiaohuasheng-app-api',predicate:'readedFlag=1'})));
+  }
+  assert.throws(()=>B.applyReadSnapshot(records,data,snapshot([items[0],{...items[0],appBookId:'67890'}],{sourceUrl:base,transport:'xiaohuasheng-app-api',predicate:'readedFlag=1'})));
+  for(const extra of [{},{transport:'xiaohuasheng-app-api'},{transport:'xiaohuasheng-app-api',predicate:'readCount>0'}])assert.throws(()=>B.applyReadSnapshot(records,data,snapshot(items,{sourceUrl:base,...extra})));
+  assert.deepEqual(records,before);
+  assert.doesNotThrow(()=>B.applyReadSnapshot(records,data,snapshot(items,{sourceUrl:'https://www.xiaohuasheng.cn/bookcase/user_123/tag_-6'})),'历史网页快照继续兼容');
+});
+
+test('App数字身份补入旧事实时保留原时点和未知字段，身份冲突不覆盖旧映射',()=>{
+  const key=B.EXTERNAL+'sample-owner:guid-one';
+  const original={status:'done',note:JSON.stringify({version:1,sourceKind:'xiaohuasheng_bookcase_read',publicBookId:'sample-01',snapshotId:'historical-snapshot',observedAt:'2026-11-05T00:00:00Z',custom:'保留原字段'})};
+  const records={[key]:original};
+  const input=snapshot([{bookId:'guid-one',appBookId:'12345',title:'Example GK-01 At the Market'}]);
+  const first=B.applyReadSnapshot(records,data,input),upgraded={...records,...first.changes};
+  assert.deepEqual(JSON.parse(upgraded[key].note),{...JSON.parse(original.note),appBookId:'12345'});
+  assert.deepEqual(B.applyReadSnapshot(upgraded,data,input).changes,{});
+  const changed=snapshot([{...input.books[0],appBookId:'67890'}]);
+  const conflict=B.applyReadSnapshot(upgraded,data,changed);
+  assert.equal(conflict.matched.length,0);
+  assert.equal(conflict.ambiguous[0].reason,'existing-app-id-conflict');
+  assert.deepEqual(conflict.changes,{});
+  assert.deepEqual(records[key],original);
+});
+
+test('新App快照缺失历史书目不清空，手工单册日期、计时和阶段完成原样保留',()=>{
+  const missing=imported({},[entry('old-guid','Example GK-02 Funny things')]).changes;
+  const manual={...B.manualUpdate({},'sample-03',true)};
+  manual[B.MANUAL+'sample-03'].note=JSON.stringify({version:1,bookId:'sample-03',completedAt:'2026-11-04',custom:'手工记录'});
+  const kept={...missing,...manual,
+    'practice.stage.v1:xu:listening:xu-3':{status:'done',note:JSON.stringify({completedAt:'2026-11-06',note:'阶段原记录'})},
+    'practice.session.v1:synthetic':{status:'using',note:JSON.stringify({date:'2026-11-06',minutes:18,note:'原计时'})},
+    'legacy-count':{status:'using',note:'旧合计原样保留'}
+  };
+  const before=structuredClone(kept);
+  const input=snapshot([{bookId:'new-guid',appBookId:'12345',title:'Example GK-01 At the Market'}],{
+    transport:'xiaohuasheng-app-api',predicate:'readedFlag=1',sourceUrl:'https://app.xiaohuasheng.cn//bookroom/queryBookroomBook/sample-owner/-2/-1/-1/0/30'
+  });
+  const result=B.applyReadSnapshot(kept,data,input,{sourcePriority:true}),merged={...kept,...result.changes};
+  for(const [key,value] of Object.entries(before))assert.deepEqual(merged[key],value,key);
+  assert.equal(B.progress(merged,plan).completed,3);
+  assert.equal(B.bookState(merged,'sample-02').done,true,'缺失历史来源事实不撤回');
+  assert.equal(B.bookState(merged,'sample-03').manual,true);
+  assert.deepEqual(kept,before,'导入模型不直接修改原记录');
+});

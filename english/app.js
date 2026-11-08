@@ -117,27 +117,39 @@ function navigateEnglish(id){
   navigate(id);
 }
 let readingSync={busy:false,result:null,error:null};
+async function backupEnglishBeforeSync(records){
+  const content=JSON.stringify({version:1,exportedAt:new Date().toISOString(),profile:S.profile,favorites:legacyFavorites,records},null,2);
+  const response=await fetch('/__local-backup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:'小芽英语-启蒙记录备份.json',content})});
+  if(!response.ok)throw new Error('同步前备份未能保存，未更新进度。请检查本机备份服务。');
+  const value=await response.json();if(!value.saved||!value.path)throw new Error('同步前备份未收到确认，未更新进度。');
+}
 async function syncXiaohuashengRead(){
   if(readingSync.busy)return;
-  readingSync={busy:true,result:null,error:null};render();
-  if(S.modal?.kind==='xhs-sync')renderModal();
+  readingSync={busy:true,result:null,error:null};render();openModal('xhs-sync');
   try{
-    const snapshot=await window.EnglishXiaohuashengSync.read();
-    const result=BP.applyReadSnapshot(S.records,READING,snapshot,{sourcePriority:true,directory:BOOKS,catalog:window.ROADMAP_RAW.resourceVolumes});
-    if(!savePracticeRecords(result.changes))throw new Error('本机未能保存，原进度保持不变，请重试。');
-    readingSync={busy:false,result:{...result,total:snapshot.books.length},error:null};
+    const result=await window.EnglishXiaohuashengSync.synchronize({location,getRecords:()=>S.records,cloud:siteSync,
+      apply:(records,snapshot)=>BP.applyReadSnapshot(records,READING,snapshot,{sourcePriority:true,directory:BOOKS,catalog:window.ROADMAP_RAW.resourceVolumes}),
+      backup:backupEnglishBeforeSync,save:savePracticeRecords});
+    readingSync={busy:false,result,error:null};
   }catch(error){readingSync={busy:false,result:null,error};}
-  render();openModal('xhs-sync');
+  render();if(S.modal?.kind==='xhs-sync')renderModal();else openModal('xhs-sync');
 }
 function readingSyncDetail(){
-  const {busy,result,error}=readingSync;
+  const {busy,result,error}=readingSync,X=window.EnglishXiaohuashengSync,local=X.localEntry(location),meta=result?.receipt||X.receipt(S.records);
+  const cloudMessages={'not-configured':'此入口尚未配置私人同步服务。','configuration-error':'私人同步配置暂不可用。','auth-required':'请使用本人 GitHub 登录私人记录同步。','connection-required':'请在记录同步中预览并连接英语记录。',conflict:'私人记录存在冲突，请核对选择后再同步。',error:'云端暂未确认，请打开记录同步重试。',pending:'本机记录已保留，仍在等待云端确认。',syncing:'私人记录仍在同步，请稍后重试。'};
   return h('div',{class:'reading-sync-detail'},h('h2',{},'同步小花生进度'),
-    busy?h('p',{role:'status'},'正在读取已登录账号的“读过”书单…'):null,
+    busy?h('p',{role:'status'},local?'正在通过本机授权读取小花生完整书架；核对后自动备份并更新…':'正在获取私人云端已保存的英语进度…'):null,
     error?h('p',{role:'alert'},error.message):null,
-    error?h('p',{class:'small-note'},'原进度已保留。可先在小花生登录，回来后再次尝试；如果仍提示连接受限，登录本身不能解除跨站访问限制。'):null,
-    result?h('p',{role:'status'},'已读取 '+result.total+' 本；匹配 '+result.matched.length+' 本，待核对 '+(result.unmatched.length+result.ambiguous.length)+' 本。各素材与路线进度已更新。'):null,
-    result&&(result.unmatched.length||result.ambiguous.length)?h('details',{},h('summary',{},'待核对书目'),h('ul',{},[...result.ambiguous,...result.unmatched].map(book=>h('li',{},book.title)))):null,
-    h('div',{class:'form-actions'},h('a',{class:'button',href:window.EnglishXiaohuashengSync.LOGIN_URL,target:'_blank',rel:'noopener noreferrer'},'前往小花生登录'),h('button',{type:'button',class:'button primary',disabled:busy,onclick:syncXiaohuashengRead},busy?'同步中…':'再次同步')));
+    error?h('p',{class:'small-note'},'未完成导入，原进度保留。'+(error.code==='AUTH_REQUIRED'?'本机 App 授权需要重新核对；登录小花生网页不能修复此授权。':'')):null,
+    result?.mode==='local'?h('p',{role:'status'},'已实时读取完整书架 '+meta.wholeBookcaseCount+' 本，其中已读 '+meta.total+' 本；匹配 '+meta.matched+' 本，待核对 '+(meta.unmatched+meta.ambiguous)+' 本。共用素材进度已保存。'):null,
+    result?.mode==='cloud'&&result.cloud.ok?h('p',{role:'status'},meta?'已获取云端快照并合入共用进度。此次未实时访问小花生。':'已完成私人记录同步，但云端尚无 App 已读快照。'):null,
+    meta?h('p',{class:'small-note'},'小花生抓取时间：'+new Date(meta.fetchedAt).toLocaleString('zh-CN')+' · 已读 '+meta.total+' 本 · 匹配 '+meta.matched+' 本'):null,
+    result?.cloud&&!result.cloud.ok?h('p',{role:'status'},cloudMessages[result.cloud.status]||'云端尚未确认，已保存的本机记录保留。'):null,
+    result?.mode==='local'&&result.cloud.ok?h('p',{class:'small-note'},'私人云端已确认，其他设备可点击同步进度获取。'):null,
+    !local?h('p',{class:'small-note'},'刷新流程：在 Mac 的小芽本机入口点击“同步进度”实时获取 → 在“记录同步”登录并连接英语记录 → 回到本设备点击“同步进度”。手机和正式站读取同一份私人记录，不能直接使用 Mac 钥匙串。'):null,
+    local?h('p',{class:'small-note'},'读取使用已授权的本机 App 会话，无需打开或登录小花生网页。失败时不会将空书单覆盖进度。'):null,
+    result?.mode==='local'&&(result.unmatched.length||result.ambiguous.length)?h('details',{},h('summary',{},'待核对书目'),h('ul',{},[...result.ambiguous,...result.unmatched].map(book=>h('li',{},book.title)))):null,
+    h('div',{class:'form-actions'},h('button',{type:'button',class:'button',disabled:busy,onclick:()=>siteSync.open()},'打开记录同步'),h('button',{type:'button',class:'button primary',disabled:busy,onclick:syncXiaohuashengRead},busy?'同步中…':local?'重新获取小花生':'获取云端进度')));
 }
 function englishActions(){return h('div',{class:'top-actions'},btn([icon('search'),h('span',{},'搜索素材、套系、动画…')],'search',{'aria-label':'搜索素材、套系、动画'},'top-search'),h('button',{id:'reading-sync',type:'button',class:'button english-reading-sync',disabled:readingSync.busy,'aria-label':'同步小花生阅读进度','aria-busy':String(readingSync.busy),onclick:syncXiaohuashengRead},readingSync.busy?'同步中…':'同步进度'));}
 function englishGlobalActions(){return window.XiaoyaSite.createActionMenu(h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('settings'),h('span',{},'宝宝资料')],'profile',{'aria-label':'编辑宝宝资料'},'icon-button'),btn([icon('download'),h('span',{},'备份')],'backup',{'aria-label':'备份英语启蒙记录'},'icon-button')));}

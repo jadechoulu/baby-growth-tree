@@ -6,6 +6,7 @@ from pathlib import Path
 import tempfile
 import threading
 import unittest
+from unittest import mock
 
 
 spec = importlib.util.spec_from_file_location(
@@ -135,6 +136,55 @@ class LocalBackupTests(unittest.TestCase):
         self.assertEqual(self.request(body=b'not json')[0], 400)
         self.assertEqual(self.request(endpoint='/__local-backup/')[0], 404)
         self.assertFalse(self.backups.exists())
+
+    def test_xhs_sync_accepts_only_same_origin_empty_request_and_fixed_command(self):
+        snapshot = {'complete': True, 'books': [{'bookId': 'public-guid', 'title': 'Book'}]}
+        result = mock.Mock(returncode=0, stdout=json.dumps(snapshot).encode(), stderr=b'not forwarded')
+        with mock.patch.object(local_server.subprocess, 'run', return_value=result) as run:
+            status, value, headers = self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}')
+        self.assertEqual(status, 200)
+        self.assertEqual(value, snapshot)
+        self.assertNotIn('Access-Control-Allow-Origin', headers)
+        self.assertEqual(run.call_args.args[0], [str(local_server.XHS_PYTHON), '-I', str(local_server.XHS_BRIDGE)])
+        self.assertEqual(run.call_args.kwargs['timeout'], 240)
+        self.assertFalse(self.backups.exists())
+
+    def test_xhs_sync_rejects_cross_site_host_override_and_request_parameters(self):
+        with mock.patch.object(local_server.subprocess, 'run') as run:
+            for headers in [{'Origin': 'https://jadechoulu.github.io'}, {'Origin': None}, {'Origin': 'null'},
+                            {'Host': 'attacker.example', 'Origin': 'http://attacker.example'}]:
+                with self.subTest(headers=headers):
+                    self.assertEqual(self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}', headers=headers)[0], 403)
+            for body in [b'{"accountId":"other"}', b'{"url":"https://other.example"}',
+                         b'{"command":"anything"}', b'{"path":"/tmp/file"}', b'[]', b'{}' + b' ' * 1024]:
+                with self.subTest(body=body[:40]):
+                    self.assertEqual(self.request(endpoint=local_server.XHS_ENDPOINT, body=body)[0], 400)
+            self.assertEqual(self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}', headers={'Content-Type': 'text/plain'})[0], 415)
+            run.assert_not_called()
+
+    def test_xhs_sync_single_task_and_safe_errors(self):
+        self.server.xhs_sync_lock.acquire()
+        try:
+            with mock.patch.object(local_server.subprocess, 'run') as run:
+                status, value, _ = self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}')
+                self.assertEqual((status, value['code']), (409, 'BUSY'))
+                run.assert_not_called()
+        finally:
+            self.server.xhs_sync_lock.release()
+        cases = [
+            (mock.Mock(returncode=1, stdout=b'{"code":"INCOMPLETE"}', stderr=b'private secret'), 502, 'INCOMPLETE'),
+            (mock.Mock(returncode=1, stdout=b'not json PRIVATE', stderr=b'private secret'), 502, 'CONNECTION_UNAVAILABLE'),
+            (local_server.subprocess.TimeoutExpired('fixed', 240), 504, 'TIMEOUT'),
+        ]
+        for result, expected_status, expected_code in cases:
+            with self.subTest(code=expected_code):
+                config = {'side_effect': result} if isinstance(result, Exception) else {'return_value': result}
+                with mock.patch.object(local_server.subprocess, 'run', **config):
+                    status, value, _ = self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}')
+                self.assertEqual((status, value['code']), (expected_status, expected_code))
+                self.assertNotIn('private', json.dumps(value).lower())
+                self.assertNotIn('secret', json.dumps(value).lower())
+                self.assertFalse(self.server.xhs_sync_lock.locked())
 
     def test_static_site_still_serves_selected_directory(self):
         connection = http.client.HTTPConnection('127.0.0.1', self.server.server_address[1], timeout=5)
