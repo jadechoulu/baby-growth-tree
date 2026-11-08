@@ -1050,6 +1050,7 @@
 .practice-page .practice-unit-progress>progress{flex:1;min-width:12px}
 .practice-page .practice-count-meter{gap:4px}
 .practice-page .practice-count-unknown{min-height:3px}
+.practice-page .practice-count-reference{grid-column:2 / -1;min-width:0;color:var(--muted);font-size:12px;line-height:1.3;text-align:right;overflow-wrap:anywhere}
 .publication-level-count{font-size:12px;font-weight:400;line-height:1.5;overflow-wrap:anywhere}
 .publication-level-summary{min-width:0;overflow-wrap:anywhere}
 .publication-level-summary h4{margin:10px 0 3px;font-size:15px}

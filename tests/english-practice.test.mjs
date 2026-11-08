@@ -13,6 +13,56 @@ const wrap=records=>({version:1,profile:{vocabulary:70,mode:'audio'},favorites:[
 const key=id=>P.SESSION+'qing:'+id;
 const songLibrary=JSON.parse(fs.readFileSync(new URL('../english/data/sss-songs.json',import.meta.url)));
 
+test('唯一有册数的匹配目录默认采用，多个候选不猜版，已有选版优先且不写记录',()=>{
+  const one={id:'only',label:'1级',total:8,edition:'参考版',unit:'本'},two={...one,id:'other',edition:'另一版'};
+  const old=P.unitQuantityProgressUpdate(3,null,P.unitUpdate('using','手记','2026-10-01'),'本');
+  const before=JSON.stringify(old),scope=P.bookScope(old,[one],'本');
+  assert.equal(scope.automaticDefault,true);
+  assert.equal(P.quantityRecord(old,scope,'本').completed,3);
+  assert.equal(P.quantityRecord(old,scope,'本').total,8);
+  assert.equal(JSON.stringify(old),before);
+  assert.equal(P.bookScope(null,[one,two],'本'),null);
+  assert.equal(P.bookScope(null,[],'本'),null);
+  const saved=P.unitBookProgressUpdate(2,two);
+  assert.equal(P.bookScope(saved,[one],'本').edition,'另一版');
+  assert.equal(P.bookScope(null,[one,{...two,default:true}],'本').id,'other');
+  assert.equal(P.libraryQuantity(null,[one],'本').total,8);
+});
+
+test('自动补唯一分母不把别的路线级别无分母数量借到当前级别',()=>{
+  const scope=P.defaultBookScope([{id:'one',label:'1级',total:8,edition:'参考版',unit:'本'}]);
+  const own=P.unitQuantityProgressUpdate(2,null,undefined,'本');
+  const other=P.unitQuantityProgressUpdate(5,null,undefined,'本');
+  const records={[P.MATERIAL+'qing:stage:r:other']:other};
+  assert.equal(P.sharedQuantity(records,'r',scope,'本',own).completed,2);
+  assert.equal(P.sharedQuantity(records,'r',scope,'本').completed,0);
+});
+
+test('原文分集补总量后沿用既有分项键与已记集数，不把季数当集数',()=>{
+  const volumes=JSON.parse(fs.readFileSync(new URL('../english/data/resource-volumes.json',import.meta.url)));
+  const item=M.getStageMaterials(catalog,'qing-s1').find(item=>item.resource.title==='Muzzy');
+  const unit={item,key:P.unitKey(catalog.stages.find(s=>s.id==='qing-s1'),item),resourceId:item.resource.id,stageId:'qing-s1',bookScopes:[]};
+  const levels=M.getMaterialLevels(item);
+  const previous=P.expandBookUnits(unit,levels,{series:[]});
+  unit.bookScopes=P.bookScopes(unit.resourceId,item.materials.map(m=>M.formatLevel(m.level,item.resource)),volumes,unit.stageId);
+  const current=P.expandBookUnits(unit,levels,volumes);
+  assert.deepEqual(current.map(u=>u.key),previous.map(u=>u.key));
+  assert.equal(current.length,6);
+  const old=P.unitQuantityProgressUpdate(1,null,undefined,'集');
+  const children=current.map(child=>{
+    const scope=child.bookScopes.find(scope=>scope.default);
+    assert.equal(scope.total,1);
+    return {key:child.key,scopeIdentity:JSON.stringify([scope.id,scope.label,scope.edition]),countOnlyCompatible:scope.countOnlyCompatible,...P.quantityRecord(child.key===current[0].key?old:null,scope,'集')};
+  });
+  assert.equal(P.groupQuantity(undefined,children).total,6);
+  assert.equal(P.groupQuantity(undefined,children).completed,1);
+  assert.equal(P.groupQuantity(undefined,children).percent,17);
+  const oldChildren=previous.map(child=>({key:child.key,total:null,completed:0,unit:'集',scopeIdentity:''}));
+  const oldParent=P.groupQuantityUpdate(3,oldChildren,undefined);
+  assert.equal(P.groupQuantity(oldParent,children).completed,3,'补分母保留原父项已记数量');
+  assert.equal(P.groupQuantity(oldParent,children).total,6);
+});
+
 test('进度素材按分级、绘本、其他排列，同系列各级不因完成状态分散',()=>{
   const unit=(key,resourceId,type,status)=>({key,resourceId,item:{resource:{id:resourceId,type}},status});
   const units=[unit('song','songs','song','using'),unit('pearson-upper','pearson','reader','using'),unit('cat-pink-a','cat','reader','using'),unit('picture','picture','book','not-started'),unit('pearson-lower','pearson','reader','not-started'),unit('cat-pink-b','cat','reader','done'),unit('animation','animation','animation','using')];

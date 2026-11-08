@@ -377,6 +377,8 @@ test('公共完整目录生成逐本列表，按精确版本和级别定位，�
   assert.equal(B.scopeGroup(plan,whole),'all');
   assert.equal(B.planForResource({plans:[]},'series-one',directory,catalog,{...upperScope,edition:'Old selected edition'}),null);
   assert.equal(B.planForResource({plans:[]},'series-one',directory,catalog,{...upperScope,total:9}),null);
+  assert.equal(B.planForResource({plans:[]},'series-one',directory,catalog,null),null,'路线未绑定范围时不能默认首个目录');
+  assert.ok(B.planForResource({plans:[]},'series-one',directory,catalog),'套系总览仍可打开公共目录');
   assert.deepEqual({directory,catalog},before);
 });
 

@@ -29,7 +29,7 @@ function resourceProgress(entries){
 }
 function libraryQuantity(record,scopes=[],unit='个',selectedScope){
   const meta=json(record?.note),saved=meta?.version===1?meta:{};
-  const scope=selectedScope!==undefined?selectedScope:Object.hasOwn(saved,'scope')?saved.scope:scopes.find(scope=>scope.default)||null;
+  const scope=selectedScope!==undefined?selectedScope:Object.hasOwn(saved,'scope')?saved.scope:defaultBookScope(scopes);
   const identity=JSON.stringify([scope?.id,scope?.label,scope?.total,scope?.edition||'',scope?.unit||unit]);
   return {...quantityRecord(saved.quantities?.[identity],scope,unit),scope,identity};
 }
@@ -110,6 +110,19 @@ function bookScopes(resourceId,levels,catalog,stageId){
   return model.publicationLevelScopes(catalog,resourceId,levels,stageId);
 }
 function unitBooks(record){const meta=json(record?.note);return meta?.version===1&&meta.books?.version===1?meta.books:null;}
+// 用户选版优先；唯一匹配的公共范围作为浏览默认，不写入私人选版或作者证据。
+function defaultBookScope(scopes=[]){
+  const selected=scopes.find(scope=>scope.default);
+  if(selected)return selected;
+  return scopes.length===1&&validBookScope(scopes[0])?{...scopes[0],automaticDefault:true}:null;
+}
+function bookScope(record,scopes=[],unit='个'){
+  const books=unitBooks(record);
+  if(books?.mode==='count'&&books.total!==null)return {...scopes.find(scope=>scope.id===books.scopeId&&scope.total===books.total&&scope.label===books.label&&scope.edition===books.edition),id:books.scopeId,label:books.label,total:books.total,edition:books.edition,origin:books.origin,unit:books.unit||unit};
+  const scope=defaultBookScope(scopes);
+  if(books?.mode==='count'&&books.total===null&&!scope?.automaticDefault&&!scope?.countOnlyCompatible)return null;
+  return scope;
+}
 function partKey(key,identity){let hash=2166136261;for(const c of identity)hash=Math.imul(hash^c.charCodeAt(0),16777619);return key+':p'+(hash>>>0).toString(36);}
 function expandBookUnits(unit,levels,catalog,record){
   const model=typeof module==='object'&&module.exports?require('./model.js'):root.EnglishModel;
@@ -119,7 +132,7 @@ function expandBookUnits(unit,levels,catalog,record){
   const editions=canChooseEdition?entry?.recordingEditions:[];
   const edition=editions?.find(e=>e.id===meta?.recordingEdition)||(old?.edition&&editions?.find(e=>{const scope=entry.scopes.find(s=>s.id===e.scopeId);return scope&&(scope.edition||entry.edition)===old.edition;}))||editions?.find(e=>e.default)||editions?.[0];
   const scope=edition?bookScopes(unit.resourceId,[],catalog,unit.stageId).find(s=>s.id===edition.scopeId):unit.bookScopes.find(s=>s.default);
-  if(scope&&(scope.parts.length>1||edition))return scope.parts.map(part=>{
+  if(scope&&!scope.recordByLevel&&(scope.parts.length>1||edition))return scope.parts.map(part=>{
     const title=scope.title||unit.item.resource.title,identity=JSON.stringify([scope.edition,part.label]);
     const partScope={id:partKey('part',identity),label:part.label,total:part.count,edition:scope.edition,origin:'catalog'};
     return {...unit,key:partKey(unit.key,identity),parentKey:unit.key,label:title+' · '+part.label,partTitle:title,partScope,editionId:edition?.id,editionOptions:editions||[],recordingNote:edition?entry.recordingNote:'',bookScopes:[]};
@@ -149,7 +162,7 @@ function sharedQuantity(records,resourceId,scope,unit='个',record){
     if(id.startsWith(MATERIAL)&&id.split(':')[3]===resourceId)candidates=[saved];
     else if(id===LIBRARY+resourceId)candidates=Object.values(json(saved?.note)?.quantities||{});
     for(const candidate of candidates){
-      const quantity=quantityRecord(candidate,scope,unit);
+      const quantity=quantityRecord(candidate,scope?.automaticDefault?{...scope,automaticDefault:false}:scope,unit);
       if(quantity.completed>result.completed)result=quantity;
     }
   }
@@ -201,7 +214,7 @@ function unitBookProgressUpdate(completed,scope,record){
 function quantityUnit(type){return ({animation:'集',song:'首',flashcard:'张',book:'本',reader:'本'})[type]||'个';}
 function quantityRecord(record,scope,unit='个'){
   const books=unitBooks(record),total=scope?.total??null;
-  const matches=books?.mode==='count'&&(scope?(books.total===total&&books.label===scope.label&&books.edition===(scope.edition||''))||(scope.countOnlyCompatible&&books.total===null&&books.unit===(scope.unit||unit)):books.total===null&&books.unit===unit);
+  const matches=books?.mode==='count'&&(scope?(books.total===total&&books.label===scope.label&&books.edition===(scope.edition||''))||((scope.countOnlyCompatible||scope.automaticDefault)&&books.total===null&&books.unit===(scope.unit||unit)):books.total===null&&books.unit===unit);
   const completed=matches&&Number.isInteger(books.completed)?books.completed:0;
   const percent=total===null?null:completed===total?100:Math.min(99,Math.round(completed/total*100));
   return {completed,total,unit:scope?.unit||unit,percent,status:total!==null&&completed===total?'done':completed>0?'using':'not-started'};
@@ -328,6 +341,6 @@ function trendBuckets(entries,{grain='day',anchor=today(),metric='effective',cou
   return out;
 }
 function calendarDays(month){if(!/^\d{4}-\d{2}$/.test(month)||!validDate(month+'-01'))throw new Error('月份无效。');const first=month+'-01',last=periodRange('month',first).to;return Array.from({length:Number(last.slice(8))},(_,i)=>shiftDate(first,i));}
-const api={STATUS,KINDS,SESSION,MATERIAL,SONG,LIBRARY,STAGE,stageKey,stageDone,stageCompletionUpdate,defaultStage,resourceProgress,libraryQuantity,libraryScopes,libraryQuantityUpdate,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,sortMaterialUnits,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,sharedQuantityKey,sharedQuantity,sharedQuantityUpdate,sharedEditionKey,sharedEditionUpdate,sharedEditionRecord,unitEditionUpdate,unitBooks,quantityUnit,quantityRecord,unitQuantityProgressUpdate,groupQuantity,groupQuantityUpdate,materialParentKey,materialTime,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,timeOptions,inlineSessionRecord,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
+const api={STATUS,KINDS,SESSION,MATERIAL,SONG,LIBRARY,STAGE,stageKey,stageDone,stageCompletionUpdate,defaultStage,resourceProgress,libraryQuantity,libraryScopes,libraryQuantityUpdate,matchesMaterialSearch,today,validDate,unitKey,unitRecord,sortSongsByCompletion,sortMaterialUnits,songPlaylistProgress,unitUpdate,unitProgressUpdate,bookScopes,expandBookUnits,materialRecord,sharedQuantityKey,sharedQuantity,sharedQuantityUpdate,sharedEditionKey,sharedEditionUpdate,sharedEditionRecord,unitEditionUpdate,unitBooks,defaultBookScope,bookScope,quantityUnit,quantityRecord,unitQuantityProgressUpdate,groupQuantity,groupQuantityUpdate,materialParentKey,materialTime,unitBookScopeUpdate,unitBookProgressUpdate,unitDateUpdate,timeOptions,inlineSessionRecord,sessionRecord,sessions,summarize,recentDays,hours,shiftDate,periodRange,groupKey,aggregate,statistics,trendBuckets,calendarDays};
 root.EnglishPractice=api;if(typeof module==='object'&&module.exports)module.exports=api;
 })(typeof window==='object'?window:globalThis);

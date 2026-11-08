@@ -28,6 +28,22 @@ test('公共出版范围在所有路线可查，默认选版仅由无数量的�
   assert.deepEqual(Object.keys(catalog.references[0]).sort(),['resourceId','scopeId','stageId']);
 });
 
+test('原文分集总量与已核书册数量独立：本册别名不丢目录，虚构子集和季数不补造总量',()=>{
+  const volumes=JSON.parse(fs.readFileSync(new URL('../english/data/resource-volumes.json',import.meta.url)));
+  for(const [level,stage] of [['第1–6集','qing-s1'],['第7–12集','qing-s2']]){
+    const [scope]=P.bookScopes('resource-17efze2',[level],volumes,stage);
+    assert.equal(scope.total,6);assert.equal(scope.unit,'集');assert.equal(scope.default,true);
+  }
+  assert.deepEqual(P.bookScopes('resource-17efze2',['橙盒'],volumes,'qing-s2'),[]);
+  assert.deepEqual(P.bookScopes('resource-ij95m4',['第1–3季'],volumes,'qing-s1'),[]);
+  const [badanamu]=P.bookScopes('resource-ckc2k',['24册'],volumes,'qing-s1');
+  assert.equal(badanamu.total,24);assert.equal(badanamu.default,false,'候选目录不自动作为作者版次');
+  assert.equal(badanamu.parts[0].directoryMatch.level,'24本');
+  const resource={id:'resource-ckc2k',title:'巴塔木口语书',type:'book',appearances:[{routeId:'qing',stageId:'qing-s1',level:'24册'}]};
+  assert.equal(B.seriesCount({books:[]},resource,M,volumes).total,24,'原文24册与公共24本别名不重复加总');
+  assert.deepEqual(P.bookScopes('resource-1qnd5uh',['AA、A · 虚构部分'],volumes,'qing-s1'),[]);
+});
+
 test('同套系的历史素材ID可引用同一出版目录而不重建个人记录键',()=>{
   const catalog={series:[{resourceId:'primary',edition:'原版',sources:[],scopes:[{id:'one',level:'1',parts:[{label:'1',count:6}],default:true}]},{resourceId:'legacy',catalogResourceId:'primary',scopes:[]}]};
   assert.equal(P.bookScopes('legacy',['1'],catalog)[0].total,6);

@@ -7,6 +7,8 @@ const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace
 function planForResource(data,id,directory,catalog,scope){
   const authored=data?.plans?.find(plan=>plan.resourceId===id||plan.resourceIds?.includes(id));
   if(authored)return authored;
+  // null 表示当前路线尚无已绑定范围；不能拿套系首个版本冒充本阶段目录。
+  if(scope===null)return null;
   const plans=catalogPlans(directory,catalog,id);
   return scope?plans.find(plan=>scopeGroup(plan,scope)!==null)||null:plans[0]||null;
 }
