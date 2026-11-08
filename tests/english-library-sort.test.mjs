@@ -12,6 +12,27 @@ const appearance=(stageId,role='主线',extra={})=>({stageId,routeId:stageId==='
 const resource=(id,...appearances)=>({id,appearances});
 const ids=(entries,filters)=>M.sortLibraryMaterials(catalog,entries,filters).map(r=>r.id);
 
+test('图鉴标题用途随阶段与路线交集变化，不把整套固定成主线',()=>{
+  const entry=resource('series',appearance('early','辅线'),appearance('later'));
+  assert.equal(M.libraryMaterialRole(catalog,entry,{stageIds:['early']}).kind,'auxiliary');
+  assert.equal(M.libraryMaterialRole(catalog,entry,{stageIds:['later'],route:'qing'}).kind,'main');
+  assert.equal(M.libraryMaterialRole(catalog,entry,{stageIds:['later'],route:'banana'}),null);
+  assert.equal(M.libraryMaterialRole(catalog,entry,{}),null);
+});
+
+test('多阶段用途冲突或尚未核定时保留中性，不借筛选外主线',()=>{
+  const entry=resource('series',appearance('early','辅线'),appearance('later'));
+  assert.equal(M.libraryMaterialRole(catalog,entry,{stageIds:['early','later']}).kind,'reference');
+  const unresolved=resource('series',appearance('early','主线',{roleEvidence:{status:'unresolved'}}));
+  assert.equal(M.libraryMaterialRole(catalog,unresolved,{stageIds:['early']}).kind,'reference');
+});
+
+test('主题单册用途只读取本册引用，不从整套借用角色',()=>{
+  const book={resource:resource('series',appearance('early')),appearances:[appearance('later','辅线')]};
+  assert.equal(M.libraryMaterialRole(catalog,book,{stageIds:['early']}),null);
+  assert.equal(M.libraryMaterialRole(catalog,book,{stageIds:['later']}).kind,'auxiliary');
+});
+
 test('阶段为第一排序键，同阶段采用公共用途顺序，同序保持原顺序',()=>{
   const entries=[resource('later-main',appearance('later')),resource('early-unknown',appearance('early','待核')),
     resource('early-aux',appearance('early','辅线')),resource('early-featured',appearance('early','推荐',{roleEvidence:{status:'confirmed',kind:'featured'}})),

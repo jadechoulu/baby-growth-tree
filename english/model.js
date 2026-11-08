@@ -720,6 +720,23 @@
     return { kind: kind, label: MATERIAL_ROLES[kind], usage: materialUsageLabel(label), basis: basis, selection: selection, evidence: evidence };
   }
 
+  function libraryMaterialRole(catalog, entry, filters) {
+    // 不给整套固定用途；只汇总当前明确选中阶段内、本条目实际具备的引用。
+    if (!filters || !array(filters.stageIds).length || entry.custom) return null;
+    var resource = entry.resource || entry;
+    var stages = new Map(array(catalog.stages).map(function (stage) { return [stage.id, stage]; }));
+    var matched = array(entry.appearances).filter(function (appearance) {
+      return filters.stageIds.indexOf(appearance.stageId) !== -1 &&
+        (!filters.route || filters.route === 'all' || appearance.routeId === filters.route);
+    }).map(function (appearance) {
+      var stage = stages.get(appearance.stageId);
+      return stage ? materialRole(stage, appearance, resource) : null;
+    }).filter(Boolean);
+    if (!matched.length) return null;
+    if (matched.every(function (role) { return role.kind === matched[0].kind; })) return matched[0];
+    return { kind: 'reference', label: MATERIAL_ROLES.reference, basis: '当前筛选范围内的用途不一致，请展开路线阶段查看各次用途' };
+  }
+
   function sortLibraryMaterials(catalog, entries, filters) {
     filters = filters || {};
     var stages = new Map(array(catalog.stages).map(function (stage) { return [stage.id, stage]; }));
@@ -1192,6 +1209,7 @@
   api.materialRoles = MATERIAL_ROLES;
   api.materialUsageLabel = materialUsageLabel;
   api.sortLibraryMaterials = sortLibraryMaterials;
+  api.libraryMaterialRole = libraryMaterialRole;
   api.libraryStageForRoute = libraryStageForRoute;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

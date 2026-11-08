@@ -48,6 +48,34 @@ function setBook(fixture,book,checked){
   const target={checked};control.props.onchange({target});return target;
 }
 
+test('未选版的阶段也能查看本级完整目录，不自动选择或修改进度',()=>{
+  const context={BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},byId:new Map()};
+  vm.createContext(context);
+  vm.runInContext(between('function practiceCatalogChoices(','function practiceCatalogLinks('),context);
+  const id='resource-1cn6i3m',resource={id,title:'学乐小读者',type:'reader'};
+  const item={resource,materials:[{level:'A'}]};
+  const before=JSON.stringify(resourceVolumes);
+  const choices=context.practiceCatalogChoices({resourceId:id,item,bookScopes:P.bookScopes(id,['A'],resourceVolumes)});
+  assert.equal(choices.length,1);
+  assert.equal(choices[0].scope.total,25);
+  assert.equal(choices[0].scope.default,false);
+  assert.equal(choices[0].resourceId,id);
+  assert.equal(JSON.stringify(resourceVolumes),before);
+});
+
+test('未确认的书虫只提供小书虫同级候选目录，不合并书目或旧记录',()=>{
+  const context={BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},byId:new Map()};
+  vm.createContext(context);
+  vm.runInContext(between('function practiceCatalogChoices(','function practiceCatalogLinks('),context);
+  const id='resource-149sp5j',resource={id,title:'书虫',type:'reader'};
+  const choices=context.practiceCatalogChoices({resourceId:id,item:{resource,materials:[{level:'1'}]},bookScopes:P.bookScopes(id,['1'],resourceVolumes)});
+  assert.equal(choices.length,1);
+  assert.equal(choices[0].alternative,true);
+  assert.equal(choices[0].resourceId,'resource-10bn1i2');
+  assert.equal(choices[0].scope.total,8);
+  assert.notEqual(BP.planForResource(READING,id,BOOKS,resourceVolumes,choices[0].scope),BP.planForResource(READING,choices[0].resourceId,BOOKS,resourceVolumes,choices[0].scope));
+});
+
 test('公共选版决定图鉴书单：默认新版、显式旧版及历史手记均不串版',()=>{
   const app=appFixture();
   assert.equal(app.readingPlanForResource(pearson).edition,editionScope(newer).edition);
@@ -118,9 +146,12 @@ test('小花生逐本事实统一进入图鉴和路线，并向数量控件返�
 test('RAZ参考目录无需完整出版计划也能逐本标记，失败不留下虚假勾选',()=>{
   const book=BOOKS.books.find(book=>book.resourceId==='resource-1qnd5uh');
   const app=appFixture();
-  assert.equal(app.readingPlanForResource(book.resourceId),null);
+  assert.equal(BP.planForResource(READING,book.resourceId,BOOKS,resourceVolumes,{edition:book.edition,label:'AA',total:103}),null);
   setBook(app,book,true);
   assert.equal(app.bookCompletionControl(book,'other-raz-entry').props.checked,true);
+  assert.equal(app.resourceProgress({id:book.resourceId,type:'reader'}).status,'using');
+  assert.equal(app.resourceProgress({id:book.resourceId,type:'reader'}).completed,1);
+  assert.equal(app.resourceProgress({id:book.resourceId,type:'reader'}).total,null);
   setBook(app,book,false);
   assert.equal(app.bookCompletionControl(book,'other-raz-entry').props.checked,false);
   app.saveAllowed=false;

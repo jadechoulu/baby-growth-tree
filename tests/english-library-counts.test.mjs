@@ -11,7 +11,7 @@ const count=(id,filters={})=>B.seriesCount(data,catalog.resources.find(r=>r.id==
 test('套系数量按版本与分项去重，不能用部分逐册目录代替总范围',()=>{
   const cat=count('resource-g7xvo5');
   assert.equal(cat.total,409);
-  assert.equal(cat.allBooks.length,44);
+  assert.equal(cat.allBooks.length,254); // 新增5–9级有据的分辑目录；不改变出版总量。
   assert.equal(cat.parts.length,36);
   assert.equal(cat.partial,true);
   assert.ok(!cat.unknown.includes('7-9'));
@@ -31,7 +31,7 @@ test('同一路线与阶段限定先取交集，再按所用级别范围累加',
   const bigcat=count('resource-g7xvo5',{route:'xu',stageIds:['xu-current-500']});
   assert.equal(bigcat.total,86);
   assert.equal(bigcat.partial,false);
-  assert.equal(bigcat.books.length,0); // 参考版Pink目录不冒充外研1–3级目录。
+  assert.equal(bigcat.books.length,86); // 外研1–3级已核目录，参考版Pink仍不混入。
   const pre=count('resource-g7xvo5',{route:'xu',stageIds:['xu-current-300']});
   assert.equal(pre.total,18);
   assert.equal(pre.parts.length,2);
@@ -75,7 +75,7 @@ test('筛选时读取进度页实际选版，切换Pink与外研预备范围即�
   assert.equal(pink.partial,false);
   const old=count(id,{route:'xu',stageIds:['xu-current-300'],selections:selected('big-cat-pre-2023')});
   assert.equal(old.total,18);
-  assert.equal(old.books.length,0);
+  assert.equal(old.books.length,18);
   assert.equal(count(id,{selections:selected('big-cat-pink-44')}).total,409); // 未筛选仍汇总各具名出版快照，不把版本合计称作故事去重总量。
   assert.equal(JSON.stringify({data,volumes,catalog}),before);
 });
@@ -115,11 +115,11 @@ test('新核对范围排除指导册，背面级别不重复累加，部分级�
   assert.equal(count('resource-mavhf5',{route:'qing',stageIds:['qing-s7']}).total,24);
   assert.equal(count('resource-1nnr59r').total,52);
   assert.equal(count('resource-1qj90tg').total,12); // 不将12练习册与5游戏书算入故事进度。
-  assert.equal(count('resource-jwq9vf',{route:'xu',stageIds:['xu-3']}).total,0);
+  assert.equal(count('resource-jwq9vf',{route:'xu',stageIds:['xu-3']}).total,24);
   const partial=count('resource-jwq9vf',{route:'xu',stageIds:['xu-5']});
-  assert.equal(partial.total,24);
-  assert.equal(partial.partial,true);
-  assert.deepEqual(partial.unknown,['3-4']);
+  assert.equal(partial.total,48);
+  assert.equal(partial.partial,false);
+  assert.deepEqual(partial.unknown,[]);
 });
 
 test('已核出版候选可供全量浏览，路线版本未定时不自动当作阶段分母',()=>{

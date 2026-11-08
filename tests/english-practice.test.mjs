@@ -802,7 +802,8 @@ test('GK采用本人确认70本，学乐仍不混用外研版与英文版分母'
   for(const level of ['A','B','C','D']){
     const scopes=scopeFor('resource-1cn6i3m',[level]);assert.equal(scopes[0].total,25);assert.ok(scopes.every(s=>!s.default));
   }
-  assert.deepEqual(scopeFor('resource-1cn6i3m',['E']),[]);
+  const e=scopeFor('resource-1cn6i3m',['E']);
+  assert.equal(e[0].total,8);assert.ok(e.every(s=>!s.default));
   assert.equal(scopeFor('resource-1cn6i3m',['A–C'])[0].total,75);
 });
 

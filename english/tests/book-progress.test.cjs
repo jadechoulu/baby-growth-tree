@@ -257,6 +257,31 @@ const lowerScope={...upperScope,id:'lower-generated',label:'Lower',total:1};
 const oldQuantity={completed:2,total:2,percent:100,status:'done',unit:'本'};
 const directoryImport=(records,items,options={})=>B.applyReadSnapshot(records,{plans:[]},snapshot(items),{directory,catalog,...options});
 
+test('同册在基础选本与完整目录共用勾选，显式子集不混入增补册或另一版',()=>{
+  const directory={books:[
+    {id:'base-a',resourceId:'same-series',edition:'原版',level:'6',title:'First',externalIds:{xiaohuasheng:['public-a']}},
+    {id:'base-b',resourceId:'same-series',edition:'原版',level:'6',title:'Second'},
+    {id:'extra',resourceId:'same-series',edition:'原版',level:'6',title:'Extra'},
+    {id:'another-edition',resourceId:'same-series',edition:'另一版',level:'6',title:'First'}
+  ]},catalog={series:[{resourceId:'same-series',unit:'本',scopes:[
+    {id:'complete',edition:'含增补的选本',parts:[{label:'6级完整',count:3,directoryMatch:{edition:'原版',level:'6'}}]},
+    {id:'base',edition:'基础选本',parts:[{label:'6级基础',count:2,directoryMatch:{edition:'原版',level:'6',bookIds:['base-a','base-b']}}]}
+  ]}]};
+  const plans=B.catalogPlans(directory,catalog,'same-series'),all=plans.find(p=>p.edition==='含增补的选本'),base=plans.find(p=>p.edition==='基础选本');
+  assert.equal(all.books.length,3);assert.deepEqual(base.books.map(b=>b.id),['base-a','base-b']);
+  let records=B.manualUpdate({},'base-a',true);
+  assert.equal(B.progress(records,all).completed,1);assert.equal(B.progress(records,base).completed,1);
+  records={...records,...B.manualUpdate(records,'extra',true)};
+  assert.equal(B.progress(records,all).completed,2);assert.equal(B.progress(records,base).completed,1);
+  records={...records,...B.manualUpdate(records,'base-a',false)};
+  assert.equal(B.progress(records,base).completed,0);
+  const result=B.applyReadSnapshot(records,{plans:[]},snapshot([entry('public-a','First')]),{directory,catalog,sourcePriority:true});
+  assert.equal(result.matched.length,1);assert.equal(result.matched[0].publicationScopes.length,2);
+  records={...records,...result.changes};
+  assert.equal(B.progress(records,base).completed,1);assert.equal(B.progress(records,all).completed,2);
+  assert.equal(B.bookState(records,'another-edition').done,false);
+});
+
 test('目录匹配限定明确版本和套系，以公共单册分项归属而非外站分包编号计算',()=>{
   const result=directoryImport({},[entry('d1','Example New Upper: 99 My Home'),entry('d2','Example New Upper: 77 My Garden'),entry('bare','My Home')]);
   assert.deepEqual(result.matched.map(item=>item.publicBookId),['new-upper-one','new-upper-two']);
@@ -477,4 +502,52 @@ test('学乐A与小书虫1级完整目录按明确版本共用逐本事实，不
     assert.equal(B.planForResource({plans:[]},rid,directory,catalog,{...scope,edition:'另一未核版本'}),null);
   }
   assert.equal(B.planForResource({plans:[]},'resource-149sp5j',directory,catalog),null,'旧英汉双语书虫不自动借用小书虫目录');
+});
+
+test('早期阶段完整分项目录共用手工与公开身份事实，缺目录级别不借用相邻级',()=>{
+  const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js');
+  for(const [rid,scopeId,total] of [
+    ['resource-1mx6gx6','pearson-star-2-2025',41],
+    ['resource-1mx6gx6','pearson-star-3-2025',42],
+    ['resource-1mx6gx6','pearson-star-4-2025',31],
+    ['resource-141vfh7','pearson-story-basic',28],
+    ['resource-141vfh7','pearson-story-advanced',28],
+    ['resource-zl69cf','buddy-parent-a',20],
+    ['resource-zl69cf','buddy-parent-b',20],
+    ['resource-zl69cf','buddy-parent-c',20],
+    ['resource-zl69cf','buddy-parent-d',20],
+    ['resource-ckc2k','badanamu-speaking-24',24],
+    ['resource-10bn1i2','oxford-little-bookworms-2',8],
+    ['resource-10bn1i2','oxford-little-bookworms-3',8],
+    ['resource-10bn1i2','oxford-little-bookworms-4',8],
+    ['resource-1yfs7b5','super-hammy-my-first-reading-15',15],
+    ['resource-1yfs7b5','super-hammy-2-15',15],
+    ['resource-1qnd5uh','xhs-raz-b99-20261108',99],
+    ['resource-1n3ix1n','ort-school-red-1',84],
+    ['resource-1n3ix1n','ort-school-red-2',48],
+    ['resource-1cn6i3m','flr-parent-b',25],
+    ['resource-1cn6i3m','flr-parent-c',25],
+    ['resource-1cn6i3m','flr-parent-d',25],
+    ['resource-1cn6i3m','flr-parent-e',8],
+    ['resource-1cn6i3m','flr-parent-f',8],
+    ['resource-1pinwiv','gyuri-rainbow-rabbit-12',12],
+    ['resource-123ikqd','qplay-main-story10',10],
+    ['resource-1qj90tg','wplay-official-storybooks-12',12]
+  ]){
+    const scope=P.bookScopes(rid,[],catalog).find(item=>item.id===scopeId);
+    const plan=B.planForResource({plans:[]},rid,directory,catalog,scope),group=B.scopeGroup(plan,scope),selected=B.books(plan,group);
+    assert.equal(selected.length,total,scopeId);
+    assert.equal(new Set(selected.map(book=>book.id)).size,total);
+    const chosen=selected[0],manual=B.manualUpdate({},chosen.id,true);
+    assert.equal(B.projectScopeQuantity(manual,rid,scope,{completed:0},catalog,directory).completed,1);
+    assert.equal(B.directoryProgress(manual,directory,catalog,rid).completed,1);
+    assert.equal(B.progress({...manual,...B.manualUpdate(manual,chosen.id,false)},plan,group).completed,0);
+    if(chosen.externalIds?.xiaohuasheng?.length){
+      const result=B.applyReadSnapshot(manual,{plans:[]},snapshot([entry(chosen.externalIds.xiaohuasheng[0],'外站题名更新')]),{directory,catalog,sourcePriority:true});
+      assert.equal(result.matched.length,1);
+      assert.equal(result.matched[0].publicBookId,chosen.id);
+      assert.equal(B.projectScopeQuantity({...manual,...result.changes},rid,scope,{completed:0},catalog,directory).completed,1,'手工和外部事实不能重复计数');
+    }
+  }
+
 });
