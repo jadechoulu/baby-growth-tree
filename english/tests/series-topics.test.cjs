@@ -31,10 +31,10 @@ test('原件与元信息逐册对齐，重复主题行不产生重复书目，�
 test('同一系列按版本与主题取交集，一级包含二级，二级不扩散其他子级',()=>{
   const books=directory.books.filter(book=>book.resourceId==='resource-1qnd5uh');
   const all=LB.seriesFilter(books),color=LB.seriesFilter(books,{topic:'concepts',subtopic:'concepts.colors'});
-  assert.equal(all.length,203);
+  assert.equal(all.length,1260); // AA–M各具名公开目录；新条目的待核主题不进入主题命中。
   assert.ok(color.length>0&&color.length<all.length);
   assert.ok(color.every(book=>T.entryTopics('book',book).includes('concepts.colors')));
-  const edition=books.find(book=>book.studyGuide.sourceId==='guide-raz-a').edition;
+  const edition=books.find(book=>book.studyGuide?.sourceId==='guide-raz-a').edition;
   assert.ok(LB.seriesFilter(books,{edition,topic:'concepts',subtopic:'concepts.colors'}).every(book=>book.edition===edition));
   assert.ok(LB.seriesFilter(books,{topic:'concepts'}).length>=color.length);
   assert.equal(LB.seriesFilter(books,{topic:'food',subtopic:'concepts.colors'}).length,0);

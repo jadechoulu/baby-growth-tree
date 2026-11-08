@@ -32,6 +32,8 @@ function bookAppearances(book,resource,model){
     if(restrictions)return restrictions.includes(a.stageId);
     if(book.editionMatch==='reference-only')return false;
     if(book.editionMatch==='unleveled-only')return !a.level&&!!book.unleveledSeries;
+    // 整级目录不证明单册属于作者指定的虚构／挑选子集。
+    if(/[（(][^）)]*(?:虚构|挑选|部分|复习|版)[^）)]*[）)]/.test(a.level||'')&&!book.qualifier)return false;
     if(!a.level&&book.unleveledSeries)return true;
     if(!book.level)return !a.level;
     const own=model.getMaterialLevels({resource,materials:[{level:book.level}]}),other=model.getMaterialLevels({resource,materials:[a]});

@@ -813,7 +813,20 @@ function libraryQuantityContext(resource){
 function resourceProgress(resource){
   if(resource.liaoBookId){const completed=liaoBookDone(resource.liaoBookId)?1:0;return {completed,total:1,percent:completed*100,status:completed?'done':'not-started',unit:'本'};}
   const plan=readingPlanForResource(resource.id);
-  if(plan)return {...sharedReadingProgress(plan),unit:'本'};
+  if(plan){
+    const progress={...sharedReadingProgress(plan),unit:'本'};
+    const publication=EnglishModel.publicationEntry(window.ROADMAP_RAW.resourceVolumes,resource.id);
+    // 没有选版时，首份完整目录不能遮住同套系其余部分目录的已读事实。
+    if(plan.catalog&&!publication?.recordingEditions?.length){
+      const directory=BP.directoryProgress(S.records,BOOKS,window.ROADMAP_RAW.resourceVolumes,resource.id);
+      const covered=new Set(plan.books.map(book=>book.id));
+      if(BOOKS.books.some(book=>book.resourceId===plan.resourceId&&!covered.has(book.id))){
+        const completed=Math.max(progress.completed,directory.completed);
+        return {...progress,completed,identifiedCompleted:directory.completed,total:null,percent:null,status:completed?'using':'not-started'};
+      }
+    }
+    return progress;
+  }
   const entries=resourceRouteEntries(resource.id);
   const quantity=entries.length?{...P.resourceProgress(entries),automatic:true}:libraryQuantityContext(resource);
   const directory=BP.directoryProgress(S.records,BOOKS,window.ROADMAP_RAW.resourceVolumes,resource.id);
@@ -1006,6 +1019,23 @@ function practiceUnitDate(unit,record){
   }});
 }
 function practiceCompletion(units){const known=units.map(practiceUnitRecord).filter(r=>r.percent!==null);return known.length?Math.round(known.reduce((total,r)=>total+r.percent,0)/known.length):null;}
+function practiceCatalogChoices(unit){
+  const catalog=window.ROADMAP_RAW.resourceVolumes,entry=EnglishModel.publicationEntry(catalog,unit.resourceId);
+  const levels=EnglishModel.getMaterialLevels(unit.item).map(level=>level.label);
+  const options=[{resourceId:unit.resourceId,scopes:unit.bookScopes},...(entry?.catalogAlternatives||[]).map(alternative=>({
+    ...alternative,alternative:true,scopes:P.bookScopes(alternative.resourceId,levels,catalog)
+  }))];
+  return options.flatMap(option=>option.scopes.filter(scope=>BP.planForResource(READING,option.resourceId,BOOKS,catalog,scope)).map(scope=>({
+    ...option,scope,title:EnglishModel.publicationEntry(catalog,option.resourceId)?.displayTitle||byId.get(option.resourceId)?.title||unit.label
+  })));
+}
+function practiceCatalogLinks(unit){
+  const choices=practiceCatalogChoices(unit);
+  return choices.length?h('div',{class:'practice-catalog-choices'},h('p',{class:'small-note'},'已收录目录；查看和逐本勾选共用素材记录，未确认版次时不代填本阶段总量。'),choices.map(choice=>
+    h('div',{},btn([choice.alternative?'候选：':'',choice.title+' · '+choice.scope.label+' · '+choice.scope.total+'本',icon('chevron')],'reading-plan',{
+      'data-id':choice.resourceId,'data-reading-scope':JSON.stringify(choice.scope),'aria-label':'查看'+choice.title+' '+choice.scope.label+'的'+choice.scope.total+'本目录'+(choice.alternative?'（候选，未绑定路线）':'')
+    },'text-link'),h('p',{class:'small-note'},choice.note||choice.scope.edition)))):null;
+}
 function practiceEditionControls(units){
   const groups=new Map();
   for(const unit of units)if(unit.editionOptions?.length&&!groups.has(unit.parentKey))groups.set(unit.parentKey,unit);
@@ -1093,11 +1123,11 @@ function practiceInlineTime(st,u,time){
   update();return form;
 }
 function practiceMaterialRow(st,u,toggle=null,entries){
-  const scope=practiceBookScope(u),reading=readingPlanForResource(u.resourceId,scope);
+  const scope=practiceBookScope(u),reading=readingPlanForResource(u.resourceId,scope),needsCatalogChoice=!scope&&practiceCatalogChoices(u).length>0;
   const record=practiceUnitRecord(u),time=st.routeId==='qing'?P.materialTime(S.records,u.key,u.children?.map(c=>c.key),entries):null;
   const timer=time?h('span',{class:'practice-time-control'},libraryPopover('practice-time-'+u.key,u.label+'计时 · 累计有效'+Number(time.effectiveMinutes.toFixed(1))+'分',icon('clock'),practiceInlineTime(st,u,time))):null;
   return h('article',{class:'practice-material-row practice-percent-row practice-books-row material-role-'+u.item.role.kind,'data-unit-key':u.key},
-    h('div',{class:'practice-label-shell'},h('div',{class:'practice-material-label practice-inline-label'},btn(practiceMaterialLabel(u),isXuSongUnit(u)?'sss-songs':reading?'reading-plan':'resource',{'data-stage':reading?u.recordStageId||u.stageId:u.stageId,'data-reading-scope':JSON.stringify(scope),id:'material-'+u.key,'data-id':u.resourceId,title:u.item.role.label+'；'+u.item.role.basis,...(isXuSongUnit(u)?{'data-stage':u.stageId,'data-category':'essential',id:'song-material-'+u.key}:{})},'practice-material-name'),h('div',{class:'practice-material-meta'},materialUI.typeTag(u.item.resource.type),materialUI.roleTag(u.item.role,'practice-material-role'),practiceBookButton(u),timer,toggle))),
+    h('div',{class:'practice-label-shell'},h('div',{class:'practice-material-label practice-inline-label'},btn(practiceMaterialLabel(u),isXuSongUnit(u)?'sss-songs':needsCatalogChoice?'practice-book-scope':reading?'reading-plan':'resource',{'data-unit':u.key,'data-stage':reading?u.recordStageId||u.stageId:u.stageId,'data-reading-scope':JSON.stringify(scope),id:'material-'+u.key,'data-id':u.resourceId,title:u.item.role.label+'；'+u.item.role.basis,...(isXuSongUnit(u)?{'data-stage':u.stageId,'data-category':'essential',id:'song-material-'+u.key}:{})},'practice-material-name'),h('div',{class:'practice-material-meta'},materialUI.typeTag(u.item.resource.type),materialUI.roleTag(u.item.role,'practice-material-role'),practiceBookButton(u),needsCatalogChoice?btn('选目录','practice-book-scope',{'data-unit':u.key,'data-stage':u.stageId,'aria-label':u.label+'选择版本并查看逐本目录'},'text-link'):null,timer,toggle))),
     practiceUnitPercent(u),
     record.text?h('details',{class:'practice-material-note practice-legacy-note'},h('summary',{},'既有备注'),h('p',{},record.text)):null);
 }
@@ -1306,8 +1336,8 @@ function practiceBookQuantityForm(){
       const update=selected?P.unitBookScopeUpdate(selected,S.records[unit.key]):P.unitQuantityProgressUpdate(P.quantityRecord(practiceRawRecord(unit),null,practiceQuantityUnit(unit)).completed,null,practiceRawRecord(unit),practiceQuantityUnit(unit));
       if(savePracticeRecords({[unit.key]:update})){form.dataset.dirty='false';closeModal();render();document.getElementById('book-scope-'+unit.key)?.focus({preventScroll:true});}
     }catch(err){error.textContent=err.message;}
-  }},h('h2',{},unit.label),h('p',{class:'small-note'},entry?.note||'按手头版本与本阶段实际选用范围填写。'),
-    h('label',{class:'form-row'},'记录方式与范围',h('select',{name:'scope','aria-label':'记录方式与选用范围'},h('option',{value:'quantity',selected:!scope},'只记完成数量（总量未定）'),unit.bookScopes.map(s=>h('option',{value:s.id,selected:matched?.id===s.id},(s.title?s.title+' · ':'')+s.label+' · '+s.total+(s.unit||practiceQuantityUnit(unit)))),h('option',{value:'custom',selected:custom},'自选范围与总数量'))),
+  }},h('h2',{},unit.label),h('p',{class:'small-note'},entry?.note||'按手头版本与本阶段实际选用范围填写。'),practiceCatalogLinks(unit),
+    h('label',{class:'form-row'},'记录方式与范围',h('select',{name:'scope','aria-label':'记录方式与选用范围'},h('option',{value:'quantity',selected:!scope},'只记完成数量（总量未定）'),unit.bookScopes.map(s=>h('option',{value:s.id,selected:matched?.id===s.id},(s.title?s.title+' · ':'')+s.label+' · '+s.total+(s.unit||practiceQuantityUnit(unit))+' · '+s.edition)),h('option',{value:'custom',selected:custom},'自选范围与总数量'))),
     h('p',{class:'small-note practice-book-selection'}),
     h('div',{class:'practice-custom-books',hidden:!custom},h('label',{class:'form-row'},'实际选用范围',h('input',{name:'range',value:custom?scope.label:'',maxlength:80,placeholder:'例如：1辑、手头版GK，或1级第1辑'})),h('label',{class:'form-row'},'总数量（'+practiceQuantityUnit(unit)+'）',h('input',{name:'total',type:'number',inputmode:'numeric',min:1,max:10000,step:1,value:custom?scope.total:'',placeholder:'不含家长指导册、卡片与光盘'}))),
     h('p',{class:'small-note'},'有总量时按完成数量计算百分比；总量未定只记数量。旧百分比保留，不反推数量。'),
@@ -1425,7 +1455,7 @@ function libraryBookCover(book){
 function bookRow(book,{detail=false}={}){
   const resource=book.resource,topicIds=LB.topicIds(book,BOOKS);
   const destinations=[...new Map(book.appearances.map(a=>[a.stageId,a])).values()];
-  return h('article',{class:'library-book-row'},libraryBookCover(book),h('div',{class:'library-book-body'},h('div',{class:'library-book-title'},h('strong',{},book.title),h('span',{class:'library-book-actions'},book.custom?null:bookCompletionControl(book,(detail?'detail-book-':'catalog-book-')+book.id),btn(icon('info'),book.custom?'custom-book-edit':'library-book',{'data-id':book.custom?resource.id:book.id,title:'版本、目录与主题依据','aria-label':book.title+'的版本、目录与主题依据'},'icon-button'))),
+  return h('article',{class:'library-book-row'},libraryBookCover(book),h('div',{class:'library-book-body'},h('div',{class:'library-book-title'},materialUI.name(book.title,false,{tag:'strong',className:'library-book-name',role:detail?null:EnglishModel.libraryMaterialRole(C,book,{route:S.route,stageIds:libraryStageIds()})}),h('span',{class:'library-book-actions'},book.custom?null:bookCompletionControl(book,(detail?'detail-book-':'catalog-book-')+book.id),btn(icon('info'),book.custom?'custom-book-edit':'library-book',{'data-id':book.custom?resource.id:book.id,title:'版本、目录与主题依据','aria-label':book.title+'的版本、目录与主题依据'},'icon-button'))),
     h('div',{class:'library-book-context'},h('span',{},(book.seriesTitle||resource.title)+(book.level?' · '+book.level:'')),h('span',{},book.edition)),
     h('div',{class:'library-book-topics'},topicIds.length?topicUI.tags(topicIds):h('span',{class:'small-note'},'主题待核对'),book.topicStatus==='title-fallback'?h('span',{class:'small-note'},'书名兜底'):null),
     destinations.length?h('details',{class:'library-book-stages',open:libraryUsageFolds.get(book.id)??false,ontoggle:e=>{if(e.target===e.currentTarget&&e.currentTarget.isConnected){libraryUsageFolds.set(book.id,e.currentTarget.open);updateLibraryUsageToggle();}}},h('summary',{},book.custom?'个人阶段参考':book.unleveledSeries?'套系使用阶段参考 · '+destinations.length:'路线使用阶段 · '+destinations.length),destinations.map(a=>btn((routes.get(a.routeId)?.name||'')+' · '+(stages.get(a.stageId)?.title||a.stageId),'stage',{'data-id':a.stageId},'text-link')),book.custom?h('p',{class:'small-note'},'个人选用，不代表作者书单。'):null):null));
@@ -1610,7 +1640,7 @@ function customBookForm(){
 }
 function libraryCard(r){
   if(r.custom)return customLibraryCard(r);
-  const title=materialUI.name(r.title,sharedRoutes(r).length>1,{className:'library-series-name'});
+  const title=materialUI.name(r.title,sharedRoutes(r).length>1,{className:'library-series-name',role:EnglishModel.libraryMaterialRole(C,r,{route:S.route,stageIds:libraryStageIds()})});
   const usage=cardUsage(r);
   return h('article',{class:'resource-card library-card'+(sharedRoutes(r).length>1?' shared':'')},h('div',{class:'resource-body'},
     h('div',{class:'library-card-head'},btn(familyCover(r),'resource',{id:'library-cover-'+r.id,'data-id':r.id,'aria-label':'查看'+r.title,'aria-haspopup':'dialog',title:'查看完整详情'},'card-view-btn library-card-cover'),
@@ -1687,7 +1717,7 @@ function libraryView(){
       h('select',{id:'library-status-filter',class:'library-filter-select'+(S.materialStatus!=='all'?' active':''),'aria-label':'按套系状态筛选',title:'阅读状态：'+(P.STATUS[S.materialStatus]||'全部状态'),onchange:e=>libraryFilterApply('materialStatus',e.target.value,'library-status-filter')},[['all','全部状态'],...Object.entries(P.STATUS)].map(([value,label])=>h('option',{value,selected:S.materialStatus===value},label))),
       btn([icon('network'),h('span',{class:'library-filter-text'},'多路线共用')],'shared-filter',{id:'library-shared-filter','aria-label':'仅看多路线共用','aria-pressed':String(S.sharedOnly),title:'仅看多路线共用'},'library-filter-button'+(S.sharedOnly?' active':'')),
       libraryPopover('library-search-panel','搜索素材',icon('search'),h('div',{class:'library-search-box'},searchInput),!!S.search),usage,
-      libraryPopover('library-info','素材图例与说明',icon('info'),h('div',{},h('p',{},h('span',{class:'library-series-name shared-material'},'共用套系名称'),'加粗；单条路线独有的套系名称使用正常字重。图鉴按该套系全部路线判断，阶段对照只按当前同排关联阶段判断；单本标题的粗体仅表示标题层级。卡片边框不表示主辅线。'),materialLegend(),h('p',{},'册数在点击标题或封面后的详情中，通过“册数信息”一行查看；数量沿用当前筛选范围，版本、统计范围、目录完整性与来源保留在展开内容中。'),h('p',{},'以上颜色用于展开后的具体路线与阶段用途；同一套系在不同路线中可以有不同用途。路线名旁的色点只区分作者。'),h('p',{},libraryReferenceCount(22),' 表示原书单有22处阶段引用，非册数或已完成数；数字图标仅作信息。带边框及右箭头的状态按钮可点击查看进展，普通文字及数字标记不可点击。'),h('p',{},'许密杉、庆爸素材的状态由各路线阶段记录自动汇总，点击可查看明细；其他素材按记录的完成数量计算。状态色只表示未开始、进行中或已完成，与主辅线无关。列表与封面视图共用全部图例、筛选和记录。'),h('p',{},'路线、阶段和主题可组合筛选到具体书名；类型和套系阅读状态紧跟主题，直接在工具栏选择。主题依已读取的内容简介、内页或分类图核对，待核对书目不参与主题匹配；一本书可有多个主题，不改变原作者阶段要求。'),topicUI.legend(),bookCoverage(),btn([icon('calendar'),'年龄关联索引'],'age-index',{},'text-link'),btn('清除全部筛选','clear-filters',{},'text-link')))),libraryResults());
+      libraryPopover('library-info','素材图例与说明',icon('info'),h('div',{},h('p',{},h('span',{class:'library-series-name shared-material'},'共用套系名称'),'加粗；单条路线独有的套系名称使用正常字重。图鉴按该套系全部路线判断，阶段对照只按当前同排关联阶段判断；单本标题的粗体仅表示标题层级。卡片边框不表示主辅线。'),materialLegend(),h('p',{},'册数在点击标题或封面后的详情中，通过“册数信息”一行查看；数量沿用当前筛选范围，版本、统计范围、目录完整性与来源保留在展开内容中。'),h('p',{},'选定阶段后，素材标题按当前阶段用途着色；未选阶段保留默认色，用途冲突时使用中性色，展开可看各次用途。同一套系在不同路线中可以有不同用途。路线名旁的色点只区分作者。'),h('p',{},libraryReferenceCount(22),' 表示原书单有22处阶段引用，非册数或已完成数；数字图标仅作信息。带边框及右箭头的状态按钮可点击查看进展，普通文字及数字标记不可点击。'),h('p',{},'许密杉、庆爸素材的状态由各路线阶段记录自动汇总，点击可查看明细；其他素材按记录的完成数量计算。状态色只表示未开始、进行中或已完成，与主辅线无关。列表与封面视图共用全部图例、筛选和记录。'),h('p',{},'路线、阶段和主题可组合筛选到具体书名；类型和套系阅读状态紧跟主题，直接在工具栏选择。主题依已读取的内容简介、内页或分类图核对，待核对书目不参与主题匹配；一本书可有多个主题，不改变原作者阶段要求。'),topicUI.legend(),bookCoverage(),btn([icon('calendar'),'年龄关联索引'],'age-index',{},'text-link'),btn('清除全部筛选','clear-filters',{},'text-link')))),libraryResults());
   updateLibraryUsageToggle(usage);
   return result;
 }

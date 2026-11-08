@@ -1269,8 +1269,9 @@
 .resource-book-catalog>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 8px;font-size:14px;font-weight:500;line-height:1.6}
 .resource-book-catalog>summary::after{content:'＋';margin-left:auto;color:var(--green);font-size:16px;font-weight:400}
 .resource-book-catalog[open]>summary::after{content:'−'}
-.library-card .library-series-name,.library-popover .library-series-name{color:var(--ink);font-weight:400}
-.library-card .library-series-name.shared-material,.library-popover .library-series-name.shared-material{color:var(--ink);font-weight:750}
+.library-card .library-series-name,.library-popover .library-series-name{color:var(--material-ink,var(--ink));font-weight:400}
+.library-card .library-series-name.shared-material,.library-popover .library-series-name.shared-material{font-weight:750}
+.library-book-name{color:var(--material-ink,var(--ink))}
 .library-card-tools{display:flex;align-items:center;justify-content:flex-end;gap:4px;min-width:0}
 .library-card-tools .material-status-control{flex:0 0 auto;min-width:0;justify-content:flex-start;gap:0;margin:0}
 .library-card-tools .material-status-control>span{display:none}

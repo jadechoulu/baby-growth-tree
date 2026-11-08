@@ -29,6 +29,9 @@ test('级别范围先展开，主题与路线及阶段取同一原引用的交�
   assert.equal(B.filter([entry],data,{route:'xu',stageIds:['xu-one'],topic:'transport'}).length,1);
   assert.equal(B.filter([entry],data,{route:'xu',stageIds:['qing-one'],topic:'transport'}).length,0);
   assert.equal(B.filter([entry],data,{route:'xu',stageIds:['xu-one'],topic:'animals'}).length,0);
+  const selection={...resource,appearances:[{routeId:'qing',stageId:'fiction-only',level:'2（虚构部分）'}]};
+  assert.deepEqual(B.bookAppearances(book,selection,M),[],'整级目录不冒充虚构选本');
+  assert.equal(B.bookAppearances({...book,qualifier:'虚构'},selection,M).length,1,'逐本有据的限定选本仍可关联');
 });
 
 test('主题套系分组覆盖全部结果，RAZ级别分开且培生上下辑共用一个入口',()=>{
@@ -55,7 +58,7 @@ test('套系与一级二级主题、路线条件取交集，全部套系恢复�
 });
 
 test('异版目录不能冒充阶段版本，未分简单难度的书目不替作者分级',()=>{
-  const books=B.entries(data,catalog.resources,M),pink=books.filter(b=>b.resourceId==='resource-g7xvo5'),piggie=books.filter(b=>b.resourceId==='resource-e87t8v');
+  const books=B.entries(data,catalog.resources,M),pink=books.filter(b=>b.resourceId==='resource-g7xvo5'&&b.editionMatch==='reference-only'),piggie=books.filter(b=>b.resourceId==='resource-e87t8v');
   assert.ok(pink.length&&piggie.length);
   assert.ok(pink.every(b=>b.editionMatch==='reference-only'&&b.appearances.length===0));
   assert.ok(piggie.every(b=>b.editionMatch==='reference-only'&&b.appearances.length===0));
@@ -124,10 +127,20 @@ test('每套查证记录可直接呈现，分类配图存在且不公开浏览�
   for(const book of data.books)if(book.cover){
     if(/^https:\/\//.test(book.cover)){
       const cover=new URL(book.cover);
-      assert.equal(cover.hostname,'img.xiaohuasheng.cn');
       assert.equal(book.coverSource?.imageUrl,book.cover);
-      assert.ok(book.externalIds?.xiaohuasheng?.length,book.title);
-      assert.equal(book.coverSource.sourceUrl,'https://www.xiaohuasheng.cn/book/'+book.externalIds.xiaohuasheng[0]);
+      if(cover.hostname==='img.xiaohuasheng.cn'){
+        const publicId=book.externalIds?.xiaohuasheng?.[0]||book.catalogMetadata?.sourcePublicGuid;
+        assert.ok(publicId,book.title);
+        assert.equal(book.coverSource.sourceUrl,'https://www.xiaohuasheng.cn/book/'+publicId);
+        if(!book.externalIds?.xiaohuasheng?.length){
+          assert.ok(book.catalogIdentityNote,book.title);
+          assert.ok(data.books.some(other=>other.id!==book.id&&other.externalIds?.xiaohuasheng?.includes(publicId)),book.title);
+        }
+      }else{
+        assert.equal(cover.hostname,'public.lovereadingbooks.com');
+        assert.ok(book.externalIds?.piyo?.length,book.title);
+        assert.ok(book.coverSource.sourceUrl.startsWith('https://piyopen.lovereadingbooks.com/content/'));
+      }
     }else assert.ok(fs.existsSync(new URL('../english/'+book.cover,import.meta.url)),book.cover);
   }
 });

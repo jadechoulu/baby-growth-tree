@@ -87,7 +87,8 @@ function catalogResource(catalog,resourceId){
 }
 const scopeIdentity=scope=>JSON.stringify([scope.resourceId,scope.edition,scope.label,scope.total,scope.unit||'本']);
 function directoryMatches(book,match){
-  return !!match&&['edition','level'].every(key=>match[key]===undefined||book[key]===match[key]);
+  return !!match&&['edition','level'].every(key=>match[key]===undefined||book[key]===match[key])&&
+    (match.bookIds===undefined||match.bookIds.includes(book.id));
 }
 function publicationParts(catalog,resourceId){
   const entry=catalogResource(catalog,resourceId),parts=new Map();

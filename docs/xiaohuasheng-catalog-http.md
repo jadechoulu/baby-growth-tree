@@ -4,11 +4,36 @@
 
 ## 默认方式与图片规则
 
-优先使用直接 HTTP 请求，解析服务器返回的 HTML 或 JSON 内的 HTML 片段，无须启动浏览器或执行页面 JavaScript。目前未验证完全不含 HTML 的全量结构化图书接口。
+本机已授权macOS钥匙串可用时，搜索、套装完整目录、单册详情及本人书架优先使用[App API动态签名CLI](xiaohuasheng-app-api.md)，已验证可独立生成新时间戳／路径／关键词签名，不再默认使用桌面HTML慢抓。CLI、本机钥匙串及本人认证不进入公开站点，本文原有匿名接口仍保留为无会话／公开采集的候选兼容路径，不表示已失效。
+
+使用兼容路径时仍优先直接HTTP读取服务器HTML或JSON，无须执行页面JavaScript：移动公开JSON适合结构化目录，桌面HTTP保留搜索与详情／系列分页。下列早期实测与失败记录保留为历史，不覆盖同日新增的App独立读取证据；不为文档更新重新抓取完整书架。
 
 **封面、图片只保存小花生提供的原始 URL 元数据，保留查询参数，不下载图片、不复制进项目静态资源、不上传到自己的存储。** 源站链接失效时重新查询 URL 或显示缺图，不自动镜像；需核对题名、级别与版次，不能用套装图冒充单册。此规则用于后续采集，不批量改写既有素材、稳定ID或个人记录。
 
 每条书目保留 URL 中的`book_id`、原题名、详情URL、封面URL、来源URL、所属系列及采集时间；有依据时补ISBN、出版社、级别和版本，缺失字段留空。`book_id`与详情中的数字`hidBookId`不是同一标识，不得互换。
+
+## 2026-11-08补充：移动公开JSON接口
+
+桌面站超时或空响应后，实际读取移动站公开客户端`https://m.xiaohuasheng.cn/assets/js/app.b64f1f0c.js`确认以下路径并成功请求，无Cookie或账号凭据：
+
+```text
+POST https://m.xiaohuasheng.cn/api/mobileSite/searchBook/
+Content-Type: application/json
+{"search":"关键词","offset":0,"limit":20}
+
+GET https://m.xiaohuasheng.cn/api/mobileSite/viewBook/{guid}
+GET https://m.xiaohuasheng.cn/api/mobileSite/getBooksInTaoxi/{collectionGuid}/{page}
+```
+
+系列分页从1开始，读取`recordCount/pageCount/recordCountOfOnePage/currentPageData`。逐页记录实际数量，并核对`guid`去重数、合集总量和所有声明页；例：RAZ B99五页20＋20＋20＋20＋19；Buddy D20一页；小书虫2级8一页。分页终点以声明页和数量交叉核对，不无限猜页。重试失败不是空书单。沿用有限低并发、401／403／429停止规则。
+
+搜索结果仍混合套装与单册；`viewBook`中`bookType/bookCount/taoxi`及实际出版字段用于核对。详情还返回读者评论、孩子和打卡统计，采集仅提取公共书目元信息，不输出或提交这些无关个人字段。`guid`是公开身份，数字`pk`不作为单册同步ID。
+
+`frontCover`若为相对路径，按公开客户端的图片域名补全`https://img.xiaohuasheng.cn/`，原有参数完整保留；不请求图片下载或保存副本。API可匿名读取公开目录，不继承浏览器登录，也不证明个人已读接口可用。
+
+本次五阶段目录结果及不同版本边界见[覆盖矩阵](audits/early-stage-catalogs-20261108.md)。移动接口成功是同日追加的在线验证，不覆盖下面早期桌面失败及部分分页记录。
+
+后续庆爸常规3至准桥梁、许密杉1000词的目录追加结果见[剩余阶段覆盖核对](audits/remaining-stage-catalogs-20261108.md)。公开集合存在错误归类、成员错级、合集被标成单本、练习册混入等情况，不能仅凭`bookType`或条数接入；逐项保留成员筛选依据。出版简介仅列中文目录时，目录来源使用套装详情，单册外部身份和封面留空；不使用套装`guid`作为每本同步ID。基础故事／分辑与完整目录共用单册ID，以`directoryMatch.bookIds`显式绑定有据子集，不复制书目。
 
 ## 获取路径
 

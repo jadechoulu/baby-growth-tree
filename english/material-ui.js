@@ -2,8 +2,9 @@
 'use strict';
 // 所有英语素材页面共用的展示组件；角色判定由 model.js 提供，不在视图重判。
 function create({h,roles,levelNodes,types={}}){
-  function name(value,shared,{tag='span',className='material-name'}={}){
-    return h(tag,{class:className+(shared?' shared-material':'')},value);
+  function name(value,shared,{tag='span',className='material-name',role}={}){
+    return h(tag,{class:className+(shared?' shared-material':'')+(role?' material-role-'+role.kind:''),
+      title:role?[role.label,role.basis].filter(Boolean).join('；'):null},value);
   }
   function roleTag(role,extraClass=''){
     return h('span',{class:['material-role-key','material-role-'+role.kind,extraClass].filter(Boolean).join(' '),title:[roles[role.kind],role.usage&&'原文用途：'+role.usage,role.basis].filter(Boolean).join('；')},roles[role.kind]);
