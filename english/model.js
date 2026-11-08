@@ -1110,14 +1110,14 @@
   function filterSongs(library, filters) {
     filters = filters || {};
     var category = array(library.categories).find(function (item) { return item.id === filters.category; });
-    var songs = category ? category.songIds.map(function (id) { return library.songs.find(function (song) { return song.id === id; }); }).filter(Boolean) : array(library.songs);
+    var songs = filters.category === 'soundBook' ? array(library.soundBook && library.soundBook.songs) : category ? category.songIds.map(function (id) { return library.songs.find(function (song) { return song.id === id; }); }).filter(Boolean) : array(library.songs);
     function searchKey(value) { return String(value || '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9\u4e00-\u9fff#]+/g, ' ').trim(); }
     var query = searchKey(filters.query);
     return songs.filter(function (song) {
       return (!filters.scene || filters.scene === 'all' || song.scene === filters.scene) &&
         TOPICS.matches(TOPICS.entryTopics('song', song), { topic: filters.topic || 'all', subtopic: filters.subtopic || 'all' }) &&
         (!filters.activity || filters.activity === 'all' || TOPICS.entryActivities('song', song).includes(filters.activity)) &&
-        (!query || searchKey(song.title + ' ' + song.scene + ' ' + TOPICS.labels(TOPICS.expand(TOPICS.entryTopics('song', song))).join(' ')).includes(query));
+        (!query || searchKey(song.title + ' ' + (song.originalTitle || '') + ' ' + (song.page || '') + ' ' + (song.scene || '') + ' ' + TOPICS.labels(TOPICS.expand(TOPICS.entryTopics('song', song))).join(' ')).includes(query));
     });
   }
 
