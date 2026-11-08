@@ -1,6 +1,7 @@
 (function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./topics.js'):root.EnglishTopics);if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishLibraryBooks=api;})(typeof window==='object'?window:globalThis,function(T){
 'use strict';
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9\u4e00-\u9fff]+/g,' ').trim();
+const qualified=level=>/虚构|挑选|部分|复习|版/.test(level||'');
 function topics(data,custom=[]){
   const result=T.roots().map(t=>({...t}));
   for(const book of custom)for(const id of topicIds(book,data))if(!T.node(id)&&!result.some(t=>t.id===id))result.push({id,label:id});
@@ -9,7 +10,7 @@ function topics(data,custom=[]){
 function topicIds(book,data){return T.entryTopics('book',book);}
 function seriesGroup(book,data){
   const source=data.sources.find(source=>source.id===book.studyGuide?.sourceId),level=source?.level||'';
-  return {id:JSON.stringify([book.resourceId,book.seriesTitle||'',normalize(level)]),
+  return {id:JSON.stringify([book.resource?.id||book.resourceId,book.seriesTitle||'',normalize(level)]),
     label:[book.seriesTitle||book.resource.title,level.toUpperCase()].filter(Boolean).join(' ')};
 }
 function seriesGroups(books,data){
@@ -27,28 +28,73 @@ function seriesFilter(books,{edition='all',topic='all',subtopic='all'}={}){
 // 参考目录只按当前引用的公共级别取候选，不据此绑定版次、虚构子集或阶段分母。
 function referenceBooks(books,resource,model,materials){
   const levels=model.getMaterialLevels({resource,materials});
-  return books.filter(book=>book.resourceId===resource.id&&(!levels.length||model.getMaterialLevels({resource,materials:[{level:book.level}]}).some(level=>levels.some(own=>own.id===level.id))));
+  return books.filter(book=>(book.resourceIds||[book.resourceId]).includes(resource.id)&&(!levels.length||model.getMaterialLevels({resource,materials:[{level:book.level}]}).some(level=>levels.some(own=>own.id===level.id))));
 }
-function bookAppearances(book,resource,model){
+// 数量参考只说明已核出版信息，不能把整级或另一版的数量当作路线选材分母。
+function quantityReference(data,resource,model,catalog,materials){
+  const restricted=(materials||[]).some(material=>qualified(material.level));
+  const plain=(materials||[]).map(material=>String(material.level||'').replace(/[（(][^）)]*[）)]/g,'').trim()).filter(Boolean);
+  const matching=model.publicationLevelScopes(catalog,resource.id,plain);
+  const summarize=scopes=>levelGroups(scopes.flatMap(scope=>scope.parts.map(part=>({...part,edition:scope.edition,unit:scope.unit||'本'}))));
+  const groups=summarize(matching);
+  if(groups.length){
+    const totals=[...new Set(groups.map(group=>group.total))];
+    return {label:(restricted?'整级':'已核')+totals.join('／')+'本',note:groups.map(group=>group.edition+'：'+group.groups.map(part=>part.label+' '+part.count+'本').join('、')).join('；')+'。'+(restricted?'本阶段只取其中子集，逐册范围尚未对应；整级数量不计作进度分母。':'原路线级别与出版目录尚未绑定，不计作进度分母。'),gap:restricted?'子集待对应':'级别待对应'};
+  }
+  const books=referenceBooks(data.books,resource,model,materials);
+  if(books.length)return {label:'已收录'+books.length+'本',note:'当前对应级别的参考书目收录数；尚未核定出版全集与本阶段选材范围，不是进度分母。',gap:restricted?'子集待对应':'选本待对应'};
+  const publications=summarize(model.publicationScopes(catalog,resource.id));
+  if(publications.length){
+    const totals=[...new Set(publications.map(group=>group.total))];
+    return {label:publications.length===1?'套装'+totals[0]+'本':totals.length===1?publications.length+'套各'+totals[0]+'本':totals.join('／')+'本（不同套装）',note:publications.map(group=>group.edition+'：'+group.total+'本').join('；')+'。已核套装册数，尚缺原路线级别与这些目录的逐册对应，不计作阶段进度分母。',gap:'级别待对应'};
+  }
+  return {label:'总册数待补',note:'尚未取得该引用范围可核实的册数，不将级别、季数或其他版本换算为本阶段总数。',gap:''};
+}
+const membershipCache=new WeakMap();
+function explicitMembership(book,resource,appearance,model,volumes){
+  if(!volumes)return null;
+  let cache=membershipCache.get(volumes);
+  if(!cache){cache=new Map();membershipCache.set(volumes,cache);}
+  const key=JSON.stringify([resource.id,appearance.stageId,appearance.level]);
+  if(!cache.has(key)){
+    const levels=[appearance.level,...model.getMaterialLevels({resource,materials:[appearance]}).map(level=>level.label)];
+    cache.set(key,levels.flatMap(level=>model.publicationLevelScopes(volumes,resource.id,[level],appearance.stageId)).flatMap(scope=>scope.parts.map(part=>part.directoryMatch).filter(match=>match?.bookIds)));
+  }
+  const matches=cache.get(key);
+  return matches.length?matches.some(match=>['edition','level'].every(field=>match[field]===undefined||book[field]===match[field])&&match.bookIds.includes(book.id)):null;
+}
+function bookAppearances(book,resource,model,volumes){
   if(book.custom)return book.stageRefs||[];
   // 逐册级别来自具体版本目录；未标级别的原文只能关联套系，不能补造逐册阶段。
   const restrictions=book.stageIds;
   return (resource?.appearances||[]).filter(a=>{
     if(restrictions)return restrictions.includes(a.stageId);
+    // 已核具名目录的显式成员优先；原表参考标记不能挡住后续补证的同一单册。
+    const member=explicitMembership(book,resource,a,model,volumes);
+    if(member!==null)return member;
     if(book.editionMatch==='reference-only')return false;
     if(book.editionMatch==='unleveled-only')return !a.level&&!!book.unleveledSeries;
     // 整级目录不证明单册属于作者指定的虚构／挑选子集。
-    if(/[（(][^）)]*(?:虚构|挑选|部分|复习|版)[^）)]*[）)]/.test(a.level||'')&&!book.qualifier)return false;
+    if(qualified(a.level)&&!book.qualifier)return false;
     if(!a.level&&book.unleveledSeries)return true;
     if(!book.level)return !a.level;
     const own=model.getMaterialLevels({resource,materials:[{level:book.level}]}),other=model.getMaterialLevels({resource,materials:[a]});
     return own.length>0&&other.some(t=>own.some(o=>o.id===t.id))&&(!book.qualifier||String(a.level).includes(book.qualifier));
   });
 }
-function entries(data,resources,model){
-  const byId=new Map(resources.map(r=>[r.id,r]));
-  return data.books.filter(book=>byId.has(book.resourceId)).map(book=>({...book,resource:byId.get(book.resourceId),appearances:bookAppearances(book,byId.get(book.resourceId),model)}))
-    .concat(resources.filter(r=>r.custom&&['book','reader'].includes(r.type)).map(r=>({id:r.id,resourceId:r.id,title:r.title,custom:true,resource:r,topics:r.topics,edition:'个人新增',level:'',appearances:r.stageRefs||[],sourceIds:[]})));
+function entries(data,resources,model,volumes){
+  const identity=id=>model.publicationEntry(volumes,id)?.catalogResourceId||id,bySeries=new Map();
+  for(const resource of resources){
+    const id=identity(resource.id);
+    if(!bySeries.has(id))bySeries.set(id,[]);
+    bySeries.get(id).push(resource);
+  }
+  // 同一公共目录只生成一条单册；别名入口共享身份、引用和完成记录。
+  return data.books.filter(book=>bySeries.has(identity(book.resourceId))).map(book=>{
+    const references=bySeries.get(identity(book.resourceId)),resource=references.find(r=>r.id===book.resourceId)||references[0];
+    return {...book,resource,resourceIds:[...new Set(references.flatMap(r=>[r.id,...(r.mergedResourceIds||[])]))],appearances:references.flatMap(r=>bookAppearances(book,r,model,volumes))};
+  })
+    .concat(resources.filter(r=>r.custom&&['book','reader'].includes(r.type)).map(r=>({id:r.id,resourceId:r.id,resourceIds:[r.id],title:r.title,custom:true,resource:r,topics:r.topics,edition:'个人新增',level:'',appearances:r.stageRefs||[],sourceIds:[]})));
 }
 function filter(books,data,filters={}){
   const query=normalize(filters.query);
@@ -68,11 +114,10 @@ function seriesCount(data,resource,model,volumes,filters={}){
   const route=filters.route,stageIds=filters.stageIds;
   const narrowed=!!(route&&route!=='all'||stageIds);
   const appearances=(resource.appearances||[]).filter(a=>(!route||route==='all'||a.routeId===route)&&(!stageIds||stageIds.includes(a.stageId)));
-  const allBooks=entries(data,[resource],model);
+  const allBooks=entries(data,[resource],model,volumes);
   let books=filter(allBooks,data,{route,stageIds});
   const entry=model.publicationEntry(volumes,resource.id),unit=entry?.unit||(['book','reader'].includes(resource.type)?'本':resource.type==='animation'?'集':resource.type==='song'?'首':resource.type==='flashcard'?'张':'个');
   const levels=level=>model.getMaterialLevels({resource,materials:[{level}]}).map(x=>x.id);
-  const qualified=level=>/[（(][^）)]*(?:虚构|挑选|部分|复习|版)[^）)]*[）)]/.test(level||'');
   const parts=new Map(),covered=new Set(),selectionByAppearance=new Map();
   if(narrowed)for(const selection of filters.selections||[])for(const a of appearances){
     if(a.routeId===selection.routeId&&a.stageId===selection.stageId)selectionByAppearance.set(a,selection);
@@ -92,8 +137,8 @@ function seriesCount(data,resource,model,volumes,filters={}){
         if(selectionByAppearance.has(a))continue;
         if(!a.level){matching.push(a);continue;}
         // 原文只挑虚构或某个子集时，不能借整级册数充当该子集总量。
-        if(qualified(a.level)&&normalize(a.level)!==scopeLevel)continue;
         const own=levels(a.level),exact=normalize(a.level)===scopeLevel||(scope.levelAliases||[]).some(alias=>normalize(alias)===normalize(a.level));
+        if(qualified(a.level)&&!exact)continue;
         const tokens=partTokens.length?partTokens:scopeTokens;
         if(exact||own.length&&tokens.length&&tokens.every(t=>own.includes(t))){matching.push(a);}
       }
@@ -121,7 +166,7 @@ function seriesCount(data,resource,model,volumes,filters={}){
         const key=JSON.stringify([part.edition,normalize(part.label),part.unit||unit]);
         parts.set(key,{...part,unit:part.unit||unit,source:'selection',levelIds:[],sourceIds:[],sources:entry?.sources||[]});
         if(part.directoryMatch)for(const book of allBooks){
-          if(book.edition===part.directoryMatch.edition&&(!part.directoryMatch.level||book.level===part.directoryMatch.level))selectedBooks.add(book);
+          if(['edition','level'].every(key=>part.directoryMatch[key]===undefined||book[key]===part.directoryMatch[key])&&(!part.directoryMatch.bookIds||part.directoryMatch.bookIds.includes(book.id)))selectedBooks.add(book);
         }
       }
     }
@@ -165,5 +210,5 @@ function levelGroups(parts){
   }
   return [...editions.values()];
 }
-return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,referenceBooks,bookAppearances,entries,filter,seriesCount,levelGroups};
+return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,referenceBooks,quantityReference,bookAppearances,entries,filter,seriesCount,levelGroups};
 });

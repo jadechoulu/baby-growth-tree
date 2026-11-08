@@ -27,6 +27,9 @@ test('唯一有册数的匹配目录默认采用，多个候选不猜版，已�
   assert.equal(P.bookScope(saved,[one],'本').edition,'另一版');
   assert.equal(P.bookScope(null,[one,{...two,default:true}],'本').id,'other');
   assert.equal(P.libraryQuantity(null,[one],'本').total,8);
+  const unknown={id:'unknown',label:'未核目录',total:null,edition:'另一版',default:true};
+  assert.equal(P.bookScope(null,[unknown,one],'本').id,'only','无分母候选不能挡住唯一完整目录');
+  assert.equal(P.bookScope(null,[unknown],'本'),null);
 });
 
 test('自动补唯一分母不把别的路线级别无分母数量借到当前级别',()=>{

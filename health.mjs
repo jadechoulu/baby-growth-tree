@@ -57,7 +57,7 @@ function saveView() {
   history.replaceState(null, '', '#' + params);
 }
 function navigate(id) {
-  if (id === 'mao') { location.href = './index.html'; return; }
+  if (id === 'mao') { location.href = './index.html?area=growth'; return; }
   if (id === 'source') { openSource(); return; }
   if (id === 'backup') { openBackup(); return; }
   if (id === 'profile') { openProfile(); return; }
