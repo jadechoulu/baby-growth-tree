@@ -153,7 +153,12 @@
           "scattered-pages"
         ],
         "sssSongId": "sss-rain-rain-go-away",
-        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "cover": "assets/sss/sss-rain-rain-go-away.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rain-rain-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/rain-rain-go-away/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p003",
@@ -163,7 +168,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p003.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2017/01/songs_applesandbananas_thumbnail_supersimpleapp_en-1200w-blog.jpg",
+        "coverPageUrl": "https://supersimple.com/song/apples-and-bananas/",
+        "coverNote": "同曲目其他演唱版本的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p004",
@@ -176,7 +186,12 @@
         "pageSourceId": "user-page-list",
         "sssSongId": "sss-row-row-row-your-boat",
         "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
-        "liaoBookId": "liao-book-071"
+        "liaoBookId": "liao-book-071",
+        "cover": "assets/sss/sss-row-row-row-your-boat.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/row-row-row-your-boat-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/row-row-row-your-boat/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p005",
@@ -188,7 +203,12 @@
         ],
         "pageSourceId": "user-page-list",
         "sssSongId": "sss-bingo",
-        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "cover": "assets/sss/sss-bingo.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2011/09/songs_bingo_thumbnail_supersimpleapp_en-1200w-blog-300x169.jpg",
+        "coverPageUrl": "https://supersimple.com/song/bingo/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p006",
@@ -208,7 +228,12 @@
               "mary-adaptation"
             ]
           }
-        ]
+        ],
+        "cover": "assets/manhulu/p006.jpg",
+        "coverSourceUrl": "https://mothergooseclub.com/wp-content/uploads/2015/08/20150722_Mary-Had-A-Little-Lamb_MGC1.jpg",
+        "coverPageUrl": "https://mothergooseclub.com/videos/mary-had-a-little-lamb-nursery-rhyme/",
+        "coverNote": "同曲目其他演唱版本的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p007",
@@ -218,7 +243,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p007.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/images/penny.gif",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2009/who-has-a-penny.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p008",
@@ -238,7 +268,12 @@
               "twinkle-shared-tune"
             ]
           }
-        ]
+        ],
+        "cover": "assets/manhulu/p008.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/baa-baa-black-sheep.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/baa-baa-black-sheep.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p009",
@@ -253,7 +288,12 @@
           "twinkle-page"
         ],
         "sssSongId": "sss-twinkle-twinkle-little-star",
-        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "cover": "assets/sss/sss-twinkle-twinkle-little-star.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/twinkle-twinkle-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/twinkle-twinkle-little-star/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p010",
@@ -264,7 +304,11 @@
           "user-page-list"
         ],
         "pageSourceId": "user-page-list",
-        "liaoBookId": "liao-book-070"
+        "liaoBookId": "liao-book-070",
+        "cover": "assets/liao/covers/070.jpg",
+        "coverPageUrl": "assets/liao/listening-book.pdf",
+        "coverNote": "复用廖彩杏书目中同传统曲目的绘本封面，不表示本书内页或录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p011",
@@ -274,7 +318,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p011.jpg",
+        "coverSourceUrl": "https://jbrary.com/wp-content/uploads/2018/02/20180203_164358-768x432.jpg",
+        "coverPageUrl": "https://jbrary.com/flannel-friday-two-little-blackbirds/",
+        "coverNote": "对应歌曲活动／插图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p012",
@@ -290,7 +339,12 @@
         ],
         "sssSongId": "sss-five-little-ducks",
         "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
-        "liaoBookId": "liao-book-061"
+        "liaoBookId": "liao-book-061",
+        "cover": "assets/sss/sss-five-little-ducks.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/five-little-ducks-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/five-little-ducks/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p013",
@@ -302,7 +356,12 @@
         ],
         "pageSourceId": "user-page-list",
         "sssSongId": "sss-five-little-speckled-frogs",
-        "matchNote": "Five Green / Little Speckled Frogs为同一传统曲目的标题变体；不认定相同录音。"
+        "matchNote": "Five Green / Little Speckled Frogs为同一传统曲目的标题变体；不认定相同录音。",
+        "cover": "assets/sss/sss-five-little-speckled-frogs.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/five-little-speckled-frogs-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/five-little-speckled-frogs/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p014",
@@ -312,7 +371,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p014.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/media/tang_yellow.jpg",
+        "coverPageUrl": "https://www.nancymusic.com/Fishiesplay.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p015",
@@ -322,7 +386,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p015.jpg",
+        "coverSourceUrl": "https://nancymusic.com/images/circle4.gif",
+        "coverPageUrl": "https://nancymusic.com/Sitcircleplay.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p016",
@@ -342,7 +411,12 @@
               "twinkle-shared-tune"
             ]
           }
-        ]
+        ],
+        "cover": "assets/manhulu/p016.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/alphabet-song.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/alphabet-song.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p017",
@@ -362,7 +436,12 @@
               "snowman-tune"
             ]
           }
-        ]
+        ],
+        "cover": "assets/manhulu/p017.jpg",
+        "coverSourceUrl": "https://wfl.cdn.ngo/media/images/Im_a_little_tea_pot.2e16d0ba.fill-728x464.jpg",
+        "coverPageUrl": "https://wordsforlife.org.uk/activities/im-a-little-teapot-nursery-rhyme/",
+        "coverNote": "对应歌曲页插图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p018",
@@ -374,7 +453,12 @@
         ],
         "pageSourceId": "user-page-list",
         "sssSongId": "sss-head-shoulders-knees-toes-sing-it",
-        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "cover": "assets/sss/sss-head-shoulders-knees-toes-sing-it.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/head-shoulders-knees-and-toessing-it-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/head-shoulders-knees-toes-sing-it/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p019",
@@ -394,7 +478,18 @@
               "walking-tune"
             ]
           }
-        ]
+        ],
+        "cover": "assets/manhulu/p019.jpg",
+        "coverSourceUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/uQFTKdyhdRR30XWc6laeOQ.jpg",
+        "coverPageUrl": "https://product.suning.com/0071615541/000000012446600887.html",
+        "coverNote": "商品图中对应歌曲的书内插图裁切。",
+        "coverCrop": [
+          240,
+          690,
+          470,
+          900
+        ],
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p020",
@@ -404,7 +499,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p020.jpg",
+        "coverSourceUrl": "https://wfl.cdn.ngo/media/images/Shell_be_coming_round_the_mountain.2e16d0ba.fill-728x464.jpg",
+        "coverPageUrl": "https://wordsforlife.org.uk/activities/shell-be-coming-round-the-mountain-when-she-comes/",
+        "coverNote": "对应歌曲页插图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p021",
@@ -416,7 +516,12 @@
         ],
         "pageSourceId": "user-page-list",
         "sssSongId": "sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets",
-        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "cover": "assets/sss/sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/IfYoureHappyandYouKnowIt-featSSPuppets-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/if-youre-happy-and-you-know-it-ft-super-simple-puppets/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p022",
@@ -426,7 +531,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p022.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/the-more-we-get-together-1080-740.jpg",
+        "coverPageUrl": "https://supersimple.com/song/more-we-get-together/",
+        "coverNote": "同曲目其他演唱版本的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p023",
@@ -441,7 +551,12 @@
         "matchNote": "Super Simple官方说明Mr. Golden Sun就是Mr. Sun song；按传统曲目别名对应。",
         "matchSourceIds": [
           "mr-sun-alias"
-        ]
+        ],
+        "cover": "assets/sss/sss-mr-golden-sun.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/mr-golden-sun-1080-740-300x206.jpg",
+        "coverPageUrl": "https://supersimple.com/song/mr-golden-sun/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p024",
@@ -451,7 +566,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p024.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/images/duck_stand_md_wht.gif",
+        "coverPageUrl": "https://www.nancymusic.com/Ducksplay.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p025",
@@ -461,7 +581,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p025.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/a-sailor-went-to-sea.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/a-sailor-went-to-sea.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p026",
@@ -471,7 +596,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p026.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/SOM/2012/apple%2011.jpg",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2012/farmers-apple-tree.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p027",
@@ -491,7 +621,12 @@
               "hickory-adaptation"
             ]
           }
-        ]
+        ],
+        "cover": "assets/manhulu/p027.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/hickory-dickory-dock.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/hickory-dickory-dock.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p028",
@@ -501,7 +636,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p028.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/animations/bird%20fly%20blue.gif",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2009/bluebird-through-my-window.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p029",
@@ -511,7 +651,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p029.jpg",
+        "coverSourceUrl": "https://nancymusic.com/SOM/2016/dt-dump-truck.gif",
+        "coverPageUrl": "https://nancymusic.com/SOM/2016/ill-drive-a-dump-truck.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p030",
@@ -522,7 +667,11 @@
           "user-page-list"
         ],
         "pageSourceId": "user-page-list",
-        "liaoBookId": "liao-book-058"
+        "liaoBookId": "liao-book-058",
+        "cover": "assets/liao/covers/058.jpg",
+        "coverPageUrl": "assets/liao/listening-book.pdf",
+        "coverNote": "复用廖彩杏书目中同传统曲目的绘本封面，不表示本书内页或录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p031",
@@ -532,7 +681,18 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p031.jpg",
+        "coverSourceUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/-VYaIvU4bUIbJ8DUpehVdA.jpg",
+        "coverPageUrl": "https://product.suning.com/0071615541/000000012446600887.html",
+        "coverNote": "商品图中对应歌曲的书内插图裁切。",
+        "coverCrop": [
+          517,
+          1125,
+          706,
+          1290
+        ],
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p032",
@@ -543,7 +703,12 @@
           "user-page-list"
         ],
         "pageSourceId": "user-page-list",
-        "titleNote": "手录为The Old Gray Cats，保留复数；常见曲名为The Old Gray Cat，待原页确认。"
+        "titleNote": "手录为The Old Gray Cats，保留复数；常见曲名为The Old Gray Cat，待原页确认。",
+        "cover": "assets/manhulu/p032.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/SOM/2010/old-grey-cat-02.jpg",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2010/the-old-grey-cats.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p033",
@@ -553,7 +718,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p033.jpg",
+        "coverSourceUrl": "https://playbees.firstcry.com/blog/wp-content/uploads/2026/01/Do-Your-Ears-Hang-Low-Rhyme-With-Lyrics.jpg",
+        "coverPageUrl": "https://playbees.firstcry.com/blog/do-your-ears-hang-low-nursery-rhyme-with-lyrics-1161/",
+        "coverNote": "对应歌曲活动／插图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p034",
@@ -563,7 +733,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p034.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/the-muffin-man.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/the-muffin-man.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p035",
@@ -592,7 +767,11 @@
               "mulberry-lyrics"
             ]
           }
-        ]
+        ],
+        "cover": "assets/liao/covers/059.jpg",
+        "coverPageUrl": "assets/liao/listening-book.pdf",
+        "coverNote": "复用廖彩杏书目中同传统曲目的绘本封面，不表示本书内页或录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p036",
@@ -602,7 +781,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p036.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/SOM/2013/dog-bone-3.gif",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2013/digger-dog.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p037",
@@ -613,7 +797,11 @@
           "user-page-list"
         ],
         "pageSourceId": "user-page-list",
-        "liaoBookId": "liao-book-072"
+        "liaoBookId": "liao-book-072",
+        "cover": "assets/liao/covers/072.jpg",
+        "coverPageUrl": "assets/liao/listening-book.pdf",
+        "coverNote": "复用廖彩杏书目中同传统曲目的绘本封面，不表示本书内页或录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p038",
@@ -623,7 +811,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p038.jpg",
+        "coverSourceUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0252893375b5cd6b1e1a1ac489",
+        "coverPageUrl": "https://open.spotify.com/track/2KW4nwL5aPqNxQAlkJo9vH",
+        "coverNote": "The Kiboomers同曲目演唱版本的专辑封面，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p039",
@@ -636,7 +829,12 @@
         "pageSourceId": "user-page-list",
         "titleSourceIds": [
           "noble-duke-title"
-        ]
+        ],
+        "cover": "assets/manhulu/p039.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/grand-old-duke-of-york.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/the-grand-old-duke-of-york.html",
+        "coverNote": "传统曲目网页配图，不表示本书内页；Noble／Grand Old为该传统歌的题名变体。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p040",
@@ -646,7 +844,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p040.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/pop-goes-the-weasel.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/pop-goes-the-weasel.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p041",
@@ -656,7 +859,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p041.jpg",
+        "coverSourceUrl": "https://i.ytimg.com/vi/186GHEDK0tU/mqdefault.jpg",
+        "coverPageUrl": "https://kcls.org/content/shoo-fly-dont-bother-me/",
+        "coverNote": "King County Library System同曲目演示视频预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p042",
@@ -666,7 +874,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p042.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/SOM/2009/market-pig.jpg",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2009/to%20market%20to%20market.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p043",
@@ -676,7 +889,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p043.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/the-bear-went-over-the-mountain.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/the-bear-went-over-the-mountain.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p044",
@@ -690,7 +908,12 @@
         "titleNote": "show fast song按常见曲名纠正为Slow Fast Song；尚未核对本书录音。",
         "titleSourceIds": [
           "slow-fast-title"
-        ]
+        ],
+        "cover": "assets/manhulu/p044.jpg",
+        "coverSourceUrl": "https://www.nancymusic.com/SOM/2012/slow-fast-6.gif",
+        "coverPageUrl": "https://www.nancymusic.com/SOM/2012/slow-fast-song.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p045",
@@ -700,7 +923,18 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p045.jpg",
+        "coverSourceUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/uQFTKdyhdRR30XWc6laeOQ.jpg",
+        "coverPageUrl": "https://product.suning.com/0071615541/000000012446600887.html",
+        "coverNote": "商品图中对应歌曲的书内插图裁切。",
+        "coverCrop": [
+          585,
+          558,
+          790,
+          760
+        ],
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p046",
@@ -713,7 +947,12 @@
         "pageSourceId": "user-page-list",
         "sssSongId": "sss-wheels-on-the-bus",
         "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
-        "liaoBookId": "liao-book-055"
+        "liaoBookId": "liao-book-055",
+        "cover": "assets/sss/sss-wheels-on-the-bus.jpg",
+        "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2014/08/songs_thewheelsonthebus-puppets_thumbnail_supersimpleapp-sss_en_01-1200w-300x169.jpg",
+        "coverPageUrl": "https://supersimple.com/song/wheels-on-the-bus/",
+        "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p047",
@@ -723,7 +962,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p047.jpg",
+        "coverSourceUrl": "https://i.ytimg.com/vi/u22EU10pljs/mqdefault.jpg",
+        "coverPageUrl": "https://www.scottish-country-dancing-dictionary.com/video/z-scotlands-burning.html",
+        "coverNote": "Scotland’s Burning合唱演示预览图，不表示本书录音。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p048",
@@ -733,7 +977,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p048.jpg",
+        "coverSourceUrl": "https://songworkseducatorsassociation.com/wp-content/uploads/2023/08/Sally-Round-1024x759.jpg",
+        "coverPageUrl": "https://songworkseducatorsassociation.com/playing-with-sally/",
+        "coverNote": "Sally Go Round the Sun圆圈活动图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p049",
@@ -743,7 +992,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p049.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/hush-little-baby.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/hush-little-baby.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p050",
@@ -753,7 +1007,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p050.jpg",
+        "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/i-ve-been-working-on-the-railroad.jpg",
+        "coverPageUrl": "https://www.nurseryrhymes.org/i-ve-been-working-on-the-railroad.html",
+        "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
+        "coverCheckedAt": "2026-11-09"
       },
       {
         "id": "manhulu-9787533574901-p051",
@@ -763,7 +1022,12 @@
         "sourceIds": [
           "user-page-list"
         ],
-        "pageSourceId": "user-page-list"
+        "pageSourceId": "user-page-list",
+        "cover": "assets/manhulu/p051.jpg",
+        "coverSourceUrl": "https://nancymusic.com/SOM/2016/wishy-washy-washboard.jpg",
+        "coverPageUrl": "https://nancymusic.com/SOM/2016/wishy-washy.htm",
+        "coverNote": "对应歌曲网页插图，仅作曲目配图，不表示本书录音或内页。",
+        "coverCheckedAt": "2026-11-09"
       }
     ],
     "catalogSourceId": "user-page-list"
