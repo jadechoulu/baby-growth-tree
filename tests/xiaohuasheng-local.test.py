@@ -29,6 +29,24 @@ def fixture(count=31):
 
 
 class DerivationTests(unittest.TestCase):
+    def test_detail_identity_failure_keeps_raw_evidence_and_never_caches_wrong_book(self):
+        data = fixture(1)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            out = root / 'attempt'
+            out.mkdir()
+
+            def save(path, value):
+                path.write_text(json.dumps(value))
+
+            def detail(_book_id):
+                return {'pk': 1, 'guid': 'different-book', 'name': 'Wrong book', 'language': '英文'}, {'status': 200, 'M': '1001'}
+
+            with mock.patch.object(bridge, 'TOOL_ROOT', root), self.assertRaises(bridge.SyncFailure):
+                bridge.shelf_catalog(data, out, detail, save)
+            self.assertTrue((out / 'details/1.json').is_file())
+            self.assertFalse((root / 'private/shelf-metadata-v1/1.json').exists())
+
     def test_real_source_guid_numeric_identity_and_readed_predicate(self):
         data = fixture()
         result = bridge.derive_snapshot(data, 'owner')
@@ -107,14 +125,24 @@ class DerivationTests(unittest.TestCase):
             private_json=private_json, validate_read_queries=lambda value: calls.append(value['basePath']),
         )
         signing_module = SimpleNamespace(refresh_own_token=lambda: {'success': True, 'httpStatus': 200, 'M': '1001'})
+        details_called = []
+
+        def detail(book_id):
+            details_called.append(book_id)
+            return {'pk': book_id, 'guid': 'guid-' + str(book_id), 'name': 'Book ' + str(book_id),
+                    'language': '英文', 'frontCover': '1/Book/test.jpg', 'readingChildCount': 100,
+                    'privateCommunityData': 'never browser'}, {'status': 200, 'M': '1001'}
+
+        catalog_module = SimpleNamespace(detail_value=detail, collection_books=lambda *_args, **_kwargs: None)
         original_path = list(sys.path)
         try:
             with tempfile.TemporaryDirectory() as directory:
                 with mock.patch.object(bridge, 'TOOL_ROOT', Path(directory)), mock.patch.dict(sys.modules, {
                     'xhs_standalone_bookcase': bookcase_module, 'xhs_request_signing': signing_module,
+                    'xhs_catalog_client': catalog_module,
                 }):
                     first, second = bridge.run(), bridge.run()
-                history = list((Path(directory) / 'private').iterdir())
+                history = list((Path(directory) / 'private').glob('local-sync-*'))
                 self.assertEqual(len(history), 2)
                 for attempt in history:
                     self.assertEqual((attempt.stat().st_mode & 0o777), 0o700)
@@ -124,6 +152,10 @@ class DerivationTests(unittest.TestCase):
                     self.assertIn('offset', (attempt / 'page-events.jsonl').read_text())
                 self.assertEqual(first, second)
                 self.assertEqual(calls.count(True), 2)
+                self.assertEqual(len(details_called), 31)
+                self.assertEqual(first['shelfCatalog']['total'], 31)
+                self.assertNotIn('privateCommunityData', json.dumps(first))
+                self.assertFalse(first['shelfCatalog']['books'][1]['read'])
         finally:
             sys.path[:] = original_path
 

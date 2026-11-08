@@ -7038,5 +7038,17 @@
       "mp3",
       "m4a"
     ]
+  },
+  "externalIds": {
+    "xiaohuashengSeries": [
+      "1992f0d764b464d1"
+    ]
+  },
+  "externalIdentityEvidence": {
+    "url": "https://www.xiaohuasheng.cn/series/1992f0d764b464d1",
+    "appBookId": "2555414",
+    "title": "Highlights Hello Library 24期杂志合集",
+    "checkedAt": "2026-11-09",
+    "basis": "App单册详情明确列出taoxiId、taoxiGuid、taoxiName；用于书架套系去重，不绑定个人完成。"
   }
 }

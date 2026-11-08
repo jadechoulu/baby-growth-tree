@@ -116,8 +116,8 @@ function receipt(records){
 function requireOwner(records,accountId){
   const owners=new Set();
   const last=receipt(records);if(last)owners.add(String(last.accountId));
-  for(const [key,record] of Object.entries(records||{}))if(key.startsWith('reading.external.v1:')){
-    try{const fact=JSON.parse(record.note);if(fact.sourceKind==='xiaohuasheng_bookcase_read'&&fact.accountId&&fact.accountId!=='default')owners.add(String(fact.accountId));}catch{/* 非外部事实不参与本人身份判定。 */}
+  for(const [key,record] of Object.entries(records||{}))if(key.startsWith('reading.external.v1:')||key.startsWith('reading.shelf.v1:')){
+    try{const fact=JSON.parse(record.note);if((fact.sourceKind==='xiaohuasheng_bookcase_read'||key.startsWith('reading.shelf.v1:'))&&fact.accountId&&fact.accountId!=='default')owners.add(String(fact.accountId));}catch{/* 非外部事实不参与本人身份判定。 */}
   }
   if([...owners].some(owner=>owner!==String(accountId)))fail('ACCOUNT_MISMATCH','本机授权的小花生账号与已有已读记录不一致，未导入。请先核对本人账号，不会自动切换。');
 }
@@ -131,7 +131,7 @@ async function synchronize(options){
   const result=options.apply(base,snapshot);
   const previous=receipt(base);
   if(previous&&Date.parse(previous.fetchedAt)>Date.parse(snapshot.fetchedAt))fail('STALE_SNAPSHOT','本次书架早于已同步快照，未覆盖更新的进度。');
-  const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length};
+  const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length,...(result.shelf?{shelf:result.shelf}:{})};
   // 先保存当前完整英语备份；在备份往返期间有新编辑时不以旧状态覆盖。
   await options.backup(base);
   if(options.getRecords()!==base)fail('RECORDS_CHANGED','备份期间记录有新变化，已保留新编辑，请再次同步。');

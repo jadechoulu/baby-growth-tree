@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import sys
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 
 
 TOOL_ROOT = Path('/Users/zhoulu/Documents/生活/育儿/codex/xiaohuasheng-apk-investigation-20261108')
@@ -17,6 +18,99 @@ class SyncFailure(Exception):
     def __init__(self, code):
         self.code = code
         super().__init__(code)
+
+
+def catalog_metadata(value):
+    """仅保留公开书目字段；language原值是英文版本判断依据。"""
+    if not isinstance(value, dict):
+        raise SyncFailure('INCOMPLETE')
+    app_id, guid = str(value.get('pk', '')), value.get('guid')
+    if not re.fullmatch(r'[1-9][0-9]*', app_id) or not isinstance(guid, str) or not re.fullmatch(r'[a-zA-Z0-9_-]{1,80}', guid):
+        raise SyncFailure('INCOMPLETE')
+    title = value.get('name')
+    if not isinstance(title, str) or not title.strip() or len(title) > 1000:
+        raise SyncFailure('INCOMPLETE')
+    # @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 外站详情仅按白名单派生，不把社区、本人状态或未知字段交给网页。
+    result = {'bookId': guid, 'appBookId': app_id, 'title': title.strip(),
+              'language': value.get('language') if isinstance(value.get('language'), str) else ''}
+    cover = value.get('frontCover')
+    if isinstance(cover, str) and cover and len(cover) <= 1500:
+        if not cover.startswith(('http:', 'https:', '//')):
+            cover = 'https://img.xiaohuasheng.cn/' + cover.lstrip('/')
+        if cover.startswith('https://img.xiaohuasheng.cn/'):
+            result['cover'] = cover
+    for source, target in [('isbn13', 'isbn'), ('author', 'author'), ('press', 'publisher')]:
+        text = value.get(source)
+        if isinstance(text, str) and len(text) <= 300:
+            result[target] = text
+    series_id, series_guid, series_title = value.get('taoxiId'), value.get('taoxiGuid'), value.get('taoxiName')
+    if (re.fullmatch(r'[1-9][0-9]*', str(series_id)) and isinstance(series_guid, str)
+            and re.fullmatch(r'[a-zA-Z0-9_-]{1,80}', series_guid) and isinstance(series_title, str)
+            and 0 < len(series_title.strip()) <= 500):
+        result['series'] = {'id': series_guid, 'appBookId': str(series_id), 'title': series_title.strip()}
+    return result
+
+
+def shelf_catalog(bookcase, out, fetch_detail, private_json, fetch_collection=None):
+    """书架目录与已读一次同步；公共元信息按单册缓存，失败不能清空旧目录。"""
+    cache = TOOL_ROOT / 'private' / 'shelf-metadata-v1'
+    cache.mkdir(mode=0o700, parents=True, exist_ok=True)
+    rows = bookcase['books']
+
+    def one(row):
+        app_id, guid = str(row['bookId']), row['guid']
+        path = cache / (app_id + '.json')
+        metadata = None
+        if path.is_file():
+            saved = json.loads(path.read_text(encoding='utf-8'))
+            if saved.get('bookId') == guid and saved.get('appBookId') == app_id:
+                metadata = saved
+        if metadata is None:
+            raw, response = fetch_detail(int(app_id))
+            details = out / 'details'
+            details.mkdir(mode=0o700, exist_ok=True)
+            private_json(details / (app_id + '.json'), {'response': response, 'book': raw})
+            if response.get('status') != 200 or response.get('M') != '1001':
+                raise SyncFailure('INCOMPLETE')
+            metadata = catalog_metadata(raw)
+            if metadata['bookId'] != guid or metadata['appBookId'] != app_id:
+                raise SyncFailure('INCOMPLETE')
+            # 缓存只存上述白名单；逐次书架原值与派生目录另存不可覆盖的历史。
+            if not path.exists():
+                private_json(path, metadata)
+        return {**metadata, 'read': row['readedFlag'] == 1, 'isCollection': row.get('isTaoxi') == 1}
+
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        books = list(pool.map(one, rows))
+    collections = []
+    for parent in books:
+        if not parent['isCollection'] or parent['language'] != '英文':
+            continue
+        if fetch_collection is None:
+            raise SyncFailure('INCOMPLETE')
+        path = cache / ('collection-' + parent['appBookId'] + '.json')
+        if path.is_file():
+            collection = json.loads(path.read_text(encoding='utf-8'))
+        else:
+            directory = out / ('collection-' + parent['appBookId'])
+            summary = fetch_collection(int(parent['appBookId']), directory, with_details=True, concurrency=4)
+            if summary.get('complete') is not True or summary.get('detailsComplete') is not True:
+                raise SyncFailure('INCOMPLETE')
+            raw = json.loads((directory / 'details/books.json').read_text(encoding='utf-8'))['books']
+            children = [catalog_metadata(row) for row in raw]
+            collection = {'parentId': parent['bookId'], 'appBookId': parent['appBookId'], 'title': parent['title'],
+                          'total': summary['declaredBooks'], 'complete': True, 'books': children}
+            if len(children) != collection['total'] or len({row['bookId'] for row in children}) != len(children):
+                raise SyncFailure('INCOMPLETE')
+            private_json(path, collection)
+        # 套装本身已读不扩散到单册；只按全书架中该单册的readedFlag同步。
+        read_ids = {book['bookId'] for book in books if book['read']}
+        collections.append({**collection, 'books': [{**book, 'read': book['bookId'] in read_ids, 'isCollection': False,
+                             'series': {'id': parent['bookId'], 'appBookId': parent['appBookId'], 'title': parent['title']}}
+                            for book in collection['books']]})
+    result = {'version': 1, 'complete': True, 'total': len(books), 'books': books, 'collections': collections}
+    private_json(out / 'shelf-catalog.json', result)
+    return result
 
 
 def derive_snapshot(bookcase, owner):
@@ -96,6 +190,7 @@ def run():
             keychain, private_json, validate_read_queries,
         )
         from xhs_request_signing import refresh_own_token
+        from xhs_catalog_client import detail_value, collection_books
     except ImportError:
         raise SyncFailure('LOCAL_UNAVAILABLE') from None
     try:
@@ -132,6 +227,8 @@ def run():
             raise SyncFailure('AUTH_REQUIRED')
         bookcase = json.loads((out / 'bookcase/bookcase.json').read_text(encoding='utf-8'))
         snapshot = derive_snapshot(bookcase, owner)
+        with contextlib.redirect_stdout(sys.stderr):
+            snapshot['shelfCatalog'] = shelf_catalog(bookcase, out, detail_value, private_json, collection_books)
         private_json(out / 'read-snapshot.json', snapshot)
         return snapshot
     except SyncFailure:

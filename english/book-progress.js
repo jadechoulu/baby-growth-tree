@@ -264,14 +264,21 @@ function applyReadSnapshot(records,data,snapshot,options={}){
   const {owner,entries}=validateSnapshot(snapshot),changes={},matched=[],unmatched=[],ambiguous=[];
   for(const entry of entries){
     const {candidates,conflicts}=matchEntry(data,entry,options.directory,options.catalog);
+    if(!candidates.length&&!conflicts.length&&options.shelfMatches?.has(entry.bookId))candidates.push(options.shelfMatches.get(entry.bookId));
     if(candidates.length!==1){
       if(candidates.length>1||conflicts.length)ambiguous.push({...entry,candidates:candidates.length?candidates:conflicts,reason:conflicts.length?'number-conflict':'multiple-books'});
       else unmatched.push({...entry,reason:'no-exact-edition-match'});
       continue;
     }
     const match=candidates[0],key=EXTERNAL+owner+':'+entry.bookId,existing=records?.[key],previous=parse(existing?.note);
-    if(previous?.publicBookId&&previous.publicBookId!==match.publicBookId){ambiguous.push({...entry,candidates:[{publicBookId:previous.publicBookId},match],reason:'existing-mapping-conflict'});continue;}
     if(previous?.appBookId!==undefined&&entry.appBookId!==undefined&&String(previous.appBookId)!==entry.appBookId){ambiguous.push({...entry,candidates:[match],reason:'existing-app-id-conflict'});continue;}
+    if(previous?.publicBookId&&previous.publicBookId!==match.publicBookId){
+      // 同一外站身份后来进入公共目录时沿用其记录；只迁接精确的私人书目ID，不按题名跨版。
+      if(previous.publicBookId==='shelf-book-'+owner+'-'+entry.bookId){
+        const manual=records?.[MANUAL+previous.publicBookId];
+        if(manual&&!records?.[MANUAL+match.publicBookId])changes[MANUAL+match.publicBookId]={...manual};
+      }else{ambiguous.push({...entry,candidates:[{publicBookId:previous.publicBookId},match],reason:'existing-mapping-conflict'});continue;}
+    }
     matched.push({...entry,...match});
     // 已有单册映射不重建；首次升级时仅补目录范围和App数字身份，保留来源原时点及未知字段。
     if(existing?.status==='done'&&previous?.publicBookId===match.publicBookId){
@@ -302,5 +309,5 @@ function applyReadSnapshot(records,data,snapshot,options={}){
   }
   return {changes,matched,unmatched,ambiguous};
 }
-return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot};
+return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
 });
