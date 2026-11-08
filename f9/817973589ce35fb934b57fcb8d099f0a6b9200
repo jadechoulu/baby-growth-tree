@@ -1,0 +1,36 @@
+AGENTS.md
+  h_c836a884b9f50f 43-44
+docs/architecture.md
+  h_c836a884b9f50f 929-933
+docs/xiaohuasheng-app-api.md
+  h_c836a884b9f50f 60
+docs/xiaohuasheng-read-sync.md
+  h_c836a884b9f50f 27-34
+english/app.js
+  h_c836a884b9f50f 684,779-782,828,1488,1490,1762,1770,1989
+english/book-progress.js
+  h_c836a884b9f50f 39-41,258,261-262,270-277,285,297,303
+english/index.html
+  h_c836a884b9f50f 1386-1390,5403-5405,5622,5625-5626,5634-5641,5649,5661,5667,7030,7809,7904-7907,7953,8613,8615,8887,8895,9114
+english/liao-reading.js
+  h_c836a884b9f50f 54
+english/styles.css
+  h_c836a884b9f50f 1378-1382
+english/tests/book-progress.test.cjs
+  h_c836a884b9f50f 66,680-734
+scripts/xiaohuasheng-local.py
+  h_c836a884b9f50f 170-173
+tests/xiaohuasheng-local.test.py
+  h_c836a884b9f50f 59,62,88-92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f9817973589ce35fb934b57fcb8d099f0a6b9200",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
