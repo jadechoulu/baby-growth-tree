@@ -208,6 +208,57 @@ test('SSS 分类与场景和关键词叠加筛选，生活歌单按原图顺序'
   assert.equal(model.filterSongs(sssSongs, {}).length, 42);
 });
 
+test('慢葫芦完整逐页目录、显式对应与改编依据保持可追溯', () => {
+  const book=sssSongs.soundBook,sourceIds=new Set(book.sources.map(source=>source.id));
+  const liao=JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','liao-reading.json'),'utf8'));
+  assert.equal(book.isbn,'9787533574901');
+  assert.equal(book.catalogComplete,true);
+  assert.equal(book.songs.length,50);
+  assert.deepEqual(book.songs.map(song=>song.page),Array.from({length:50},(_,i)=>i+2));
+  assert.equal(new Set(book.songs.map(song=>song.id)).size,50);
+  assert.equal(book.songs.filter(song=>song.sssSongId).length,10);
+  assert.equal(book.songs.filter(song=>song.liaoBookId).length,7);
+  assert.equal(book.songs.flatMap(song=>song.sssRelated||[]).length,8);
+  for(const song of book.songs){
+    assert.ok(!sssSongs.songs.some(existing=>existing.id===song.id),'发声书使用独立记录身份');
+    assert.ok(song.originalTitle);
+    assert.ok(song.sourceIds.length&&song.sourceIds.every(id=>sourceIds.has(id)));
+    assert.ok(sourceIds.has(song.pageSourceId));
+    if(song.sssSongId)assert.ok(sssSongs.songs.some(existing=>existing.id===song.sssSongId));
+    if(song.liaoBookId)assert.ok(liao.books.some(existing=>existing.id===song.liaoBookId));
+    for(const match of song.sssRelated||[]){
+      assert.ok(sssSongs.songs.some(existing=>existing.id===match.songId));
+      assert.ok(['adaptation','tune'].includes(match.kind));
+      assert.ok(match.note&&match.sourceIds.length&&match.sourceIds.every(id=>sourceIds.has(id)));
+    }
+  }
+  assert.deepEqual(book.songs.filter(song=>song.visualPageSourceIds).map(song=>song.page),[2,9,12]);
+  assert.equal(book.songs.find(song=>song.page===6).sssSongId,undefined);
+  assert.deepEqual(book.songs.filter(song=>song.sssRelated?.some(match=>match.songId==='sss-twinkle-twinkle-little-star')).map(song=>song.page),[8,16]);
+  assert.equal(book.songs.find(song=>song.page===6).sssRelated[0].songId,'sss-mary-had-a-kangaroo');
+  assert.equal(book.songs.find(song=>song.page===27).sssRelated[0].songId,'sss-hickory-dickory-crash');
+  assert.ok(book.songs.find(song=>song.page===32).titleNote);
+  assert.equal(book.songs.find(song=>song.page===44).title,'Slow Fast Song');
+  assert.equal(book.songs.find(song=>song.page===44).originalTitle,'show fast song');
+});
+
+test('慢葫芦筛选与勾选独立，不混入SSS全部及原分类进度',()=>{
+  const practice=require('../practice.js'),book=sssSongs.soundBook;
+  assert.equal(model.filterSongs(sssSongs,{category:'soundBook'}).length,50);
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',query:'show fast'}).map(song=>song.page),[44]);
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',query:'51'}).map(song=>song.page),[51]);
+  assert.equal(model.filterSongs(sssSongs,{category:'all'}).length,42);
+  for(const [id,count] of [['essential',10],['recommended',30],['older',12],['day',8]]){
+    assert.equal(model.filterSongs(sssSongs,{category:id}).length,count);
+  }
+  const records=Object.fromEntries(book.songs.map(song=>[practice.SONG+song.id,{status:'done'}]));
+  assert.equal(practice.songPlaylistProgress(records,sssSongs).done,0);
+  assert.equal(practice.songPlaylistProgress(records,sssSongs).total,10);
+  assert.equal(records[practice.SONG+book.songs[0].sssSongId],undefined);
+  records[practice.SONG+sssSongs.categories.find(category=>category.id==='essential').songIds[0]]={status:'done'};
+  assert.equal(practice.songPlaylistProgress(records,sssSongs).done,1);
+});
+
 test('SSS 补充歌单同时关联许密杉和庆爸的独立素材与真实阶段', () => {
   const linked = model.getSongResources(extendedCatalog, sssSongs);
   assert.equal(linked.length, 2);

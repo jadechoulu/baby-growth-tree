@@ -1,6 +1,9 @@
 {
   "resourceId": "resource-1bry08c",
-  "routeResourceIds": ["xu-sss", "qing-r043"],
+  "routeResourceIds": [
+    "xu-sss",
+    "qing-r043"
+  ],
   "title": "SSS 儿歌歌单",
   "attribution": "分类与顺序按用户提供的“小萌芽”歌单截图整理；“大童”为截图中的歌单名称。歌曲链接与预览图来自 Super Simple 官方目录，同名歌曲以链接中的官方版本为准。",
   "verifiedAt": "2026-10-28",
@@ -36,6 +39,734 @@
       }
     ],
     "note": "6张用户提供的歌单截图，整理为必备10首、推荐30首、大童12首、一天8首；去重共42首。分类是歌单选曲，不作为路线阶段或年龄门槛。"
+  },
+  "soundBook": {
+    "id": "manhulu-9787533574901",
+    "title": "慢葫芦发声书：听儿歌学英语",
+    "isbn": "9787533574901",
+    "publisher": "福建科学技术出版社",
+    "pageCount": 52,
+    "advertisedSongCount": 50,
+    "verifiedAt": "2026-11-09",
+    "catalogComplete": true,
+    "note": "用户逐页手录提供完整50首与2–51页对应；已逐页检查连续性，原先图片核实的2、9、12页与手录一致。常见拼写与标点已规范化，保留手录原文；少数题名仅按常见曲名纠正，不表示已核对发声书录音。传统曲目对应不等于相同歌词改编或录音版本。",
+    "sources": [
+      {
+        "id": "selection",
+        "url": "https://product.suning.com/0071615541/000000012446600887.html",
+        "imageUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/-VYaIvU4bUIbJ8DUpehVdA.jpg",
+        "note": "商品图列出20首选目及两首火车儿歌内页，不是完整50首目录。"
+      },
+      {
+        "id": "scattered-pages",
+        "url": "https://product.suning.com/0071615541/000000012446600887.html",
+        "imageUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/fg7HviZNj1QNhbV_vS4N2g.jpg",
+        "note": "散页中Rain Rain Go Away页脚印刷02、Five Little Ducks页脚印刷12。"
+      },
+      {
+        "id": "twinkle-page",
+        "url": "https://product.suning.com/0071615541/000000012446600887.html",
+        "imageUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/bLAFeHRQUHn6LJZNQH15QQ.jpg",
+        "note": "下方展开内页Twinkle Twinkle Little Star右下角印刷09。"
+      },
+      {
+        "id": "detail-pages",
+        "url": "https://m.xrkmm.com/c/1000033677192121",
+        "imageUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/uQFTKdyhdRR30XWc6laeOQ.jpg",
+        "note": "内页展示Are You Sleeping及Sticky Bubblegum。"
+      },
+      {
+        "id": "edition",
+        "url": "https://m.xrkmm.com/c/1000033677192121",
+        "imageUrl": "https://uimgproxy.suning.cn/uimg1/sop/commodity/eF-FBPKJB_0pUsLhGdaglA.jpg",
+        "note": "商品文字确认ISBN；规格图确认福建科学技术出版社、52页。封面标注50首儿歌。"
+      },
+      {
+        "id": "user-page-list",
+        "kind": "user-transcription",
+        "title": "用户手录慢葫芦／青葫芦发声书50首页码表",
+        "receivedAt": "2026-11-09",
+        "note": "用户直接提供第2–51页逐页曲目，作为本版完整目录及页码依据；原始手录保存在各项originalTitle。"
+      },
+      {
+        "id": "slow-fast-title",
+        "url": "https://nancymusic.com/SOM/2012/slow-fast-song.htm",
+        "note": "Nancy Stewart本人歌曲页确认常见曲名Slow Fast Song；用于纠正show拼写，未据此认定本书录音。"
+      },
+      {
+        "id": "mr-sun-alias",
+        "url": "https://supersimple.com/song/mr-golden-sun/",
+        "note": "Super Simple官方将Mr. Golden Sun说明为Mr. Sun song，支持Oh, Mr. Sun的传统曲目别名对应。"
+      },
+      {
+        "id": "noble-duke-title",
+        "url": "https://www.songsforteaching.com/folk/nobledukeofyork.php",
+        "note": "The Noble Duke of York为实际传统曲名，保留Noble，不擅自替换为Grand Old。"
+      },
+      {
+        "id": "old-gray-cat-title",
+        "url": "https://www.bethsnotesplus.com/2016/03/old-gray-cat.html",
+        "note": "常见曲名Old Gray Cat为单数；手录第32页为cats，当前保留原复数，待原页确认。"
+      },
+      {
+        "id": "mary-adaptation",
+        "url": "https://supersimple.com/song/mary-had-a-kangaroo/",
+        "note": "SSS官网明确说明是Mary Had a Little Lamb的趣味改编。"
+      },
+      {
+        "id": "hickory-adaptation",
+        "url": "https://supersimple.com/song/hickory-dickory-crash/",
+        "note": "SSS官网明确说明是Hickory Dickory Dock的Super Simple版本。"
+      },
+      {
+        "id": "mulberry-lyrics",
+        "url": "https://www.songsforteaching.com/nurseryrhymes/themulberrybush-lyrics.php",
+        "note": "传统Mulberry Bush歌词含This is the way与get dressed段落；SSS日常动作歌按改编／同曲调关联，不认定同文。"
+      },
+      {
+        "id": "snowman-tune",
+        "url": "https://christmas-specials.fandom.com/wiki/I%27m_A_Little_Snowman",
+        "note": "曲目资料明确将SSS的I’m a Little Snowman关联I’m a Little Teapot曲调，歌词与SSS版一致；仅作曲调关联。"
+      },
+      {
+        "id": "walking-tune",
+        "url": "https://alugha.com/videos/5cbde4a0-1932-11eb-8efa-bf26c8f0f1d8?lang=eng",
+        "note": "SSS Walking Walking视频转载的说明列出Frere Jacques／Are You Sleeping曲调标签；仅作曲调关联，非书内录音核验。"
+      },
+      {
+        "id": "twinkle-shared-tune",
+        "url": "https://www.britannica.com/topic/Twinkle-Twinkle-Little-Star",
+        "note": "传统Twinkle、Alphabet Song及Baa Baa Black Sheep共用Ah, vous dirai-je, Maman曲调；仅作传统曲调关联，不代表发声书采用相同编曲。"
+      }
+    ],
+    "songs": [
+      {
+        "id": "manhulu-9787533574901-p002",
+        "title": "Rain Rain Go Away",
+        "originalTitle": "rain rain go away",
+        "page": 2,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "visualPageSourceIds": [
+          "scattered-pages"
+        ],
+        "sssSongId": "sss-rain-rain-go-away",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+      },
+      {
+        "id": "manhulu-9787533574901-p003",
+        "title": "Apples and Bananas",
+        "originalTitle": "appples and bananas",
+        "page": 3,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p004",
+        "title": "Row Row Row Your Boat",
+        "originalTitle": "row row row your boat",
+        "page": 4,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-row-row-row-your-boat",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "liaoBookId": "liao-book-071"
+      },
+      {
+        "id": "manhulu-9787533574901-p005",
+        "title": "Bingo",
+        "originalTitle": "bingo",
+        "page": 5,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-bingo",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+      },
+      {
+        "id": "manhulu-9787533574901-p006",
+        "title": "Mary Had a Little Lamb",
+        "originalTitle": "marry had a little lamb",
+        "page": 6,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssRelated": [
+          {
+            "songId": "sss-mary-had-a-kangaroo",
+            "kind": "adaptation",
+            "note": "SSS以Mary Had a Little Lamb为基础，增加袋鼠等动物与描述词。",
+            "sourceIds": [
+              "mary-adaptation"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p007",
+        "title": "Who Has a Penny",
+        "originalTitle": "who has a penny",
+        "page": 7,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p008",
+        "title": "Baa Baa Black Sheep",
+        "originalTitle": "baa baa black sheep",
+        "page": 8,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssRelated": [
+          {
+            "songId": "sss-twinkle-twinkle-little-star",
+            "kind": "tune",
+            "note": "Baa Baa Black Sheep与Twinkle Twinkle Little Star常见版本共用传统曲调，歌词不同；未核对发声书编曲。",
+            "sourceIds": [
+              "twinkle-shared-tune"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p009",
+        "title": "Twinkle Twinkle Little Star",
+        "originalTitle": "twinkle twinkle little star",
+        "page": 9,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "visualPageSourceIds": [
+          "twinkle-page"
+        ],
+        "sssSongId": "sss-twinkle-twinkle-little-star",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+      },
+      {
+        "id": "manhulu-9787533574901-p010",
+        "title": "The Itsy Bitsy Spider",
+        "originalTitle": "the itsy bitsy spider",
+        "page": 10,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "liaoBookId": "liao-book-070"
+      },
+      {
+        "id": "manhulu-9787533574901-p011",
+        "title": "Two Little Black Birds",
+        "originalTitle": "two little black birds",
+        "page": 11,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p012",
+        "title": "Five Little Ducks",
+        "originalTitle": "five little ducks",
+        "page": 12,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "visualPageSourceIds": [
+          "scattered-pages"
+        ],
+        "sssSongId": "sss-five-little-ducks",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "liaoBookId": "liao-book-061"
+      },
+      {
+        "id": "manhulu-9787533574901-p013",
+        "title": "Five Green and Speckled Frogs",
+        "originalTitle": "five green and speckled frogs",
+        "page": 13,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-five-little-speckled-frogs",
+        "matchNote": "Five Green / Little Speckled Frogs为同一传统曲目的标题变体；不认定相同录音。"
+      },
+      {
+        "id": "manhulu-9787533574901-p014",
+        "title": "Fishes",
+        "originalTitle": "fishes",
+        "page": 14,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p015",
+        "title": "Can You Sit in a Circle",
+        "originalTitle": "can you sit in a circle",
+        "page": 15,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p016",
+        "title": "The Alphabet Song",
+        "originalTitle": "the alphabet song",
+        "page": 16,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssRelated": [
+          {
+            "songId": "sss-twinkle-twinkle-little-star",
+            "kind": "tune",
+            "note": "The Alphabet Song与Twinkle Twinkle Little Star常见版本共用传统曲调，歌词不同；未核对发声书编曲。",
+            "sourceIds": [
+              "twinkle-shared-tune"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p017",
+        "title": "I'm a Little Teapot",
+        "originalTitle": "im a little teapot",
+        "page": 17,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssRelated": [
+          {
+            "songId": "sss-im-a-little-snowman",
+            "kind": "tune",
+            "note": "SSS雪人歌采用I’m a Little Teapot的曲调，歌词不同。",
+            "sourceIds": [
+              "snowman-tune"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p018",
+        "title": "Head, Shoulders, Knees and Toes",
+        "originalTitle": "head shoulders knoees and toes",
+        "page": 18,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-head-shoulders-knees-toes-sing-it",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+      },
+      {
+        "id": "manhulu-9787533574901-p019",
+        "title": "Are You Sleeping?",
+        "originalTitle": "are you sleeping",
+        "page": 19,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssRelated": [
+          {
+            "songId": "sss-walking-walking",
+            "kind": "tune",
+            "note": "Walking Walking与Are You Sleeping／Frère Jacques关联同一传统曲调，歌词不同。",
+            "sourceIds": [
+              "walking-tune"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p020",
+        "title": "She'll Be Coming 'Round the Mountain",
+        "originalTitle": "she'll be caring round the mountain",
+        "page": 20,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p021",
+        "title": "If You're Happy and You Know It",
+        "originalTitle": "if youre happy and you know it",
+        "page": 21,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-if-youre-happy-and-you-know-it-ft-super-simple-puppets",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。"
+      },
+      {
+        "id": "manhulu-9787533574901-p022",
+        "title": "The More We Get Together",
+        "originalTitle": "the more we get together",
+        "page": 22,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p023",
+        "title": "Oh, Mr. Sun",
+        "originalTitle": "oh mr. sun",
+        "page": 23,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-mr-golden-sun",
+        "matchNote": "Super Simple官方说明Mr. Golden Sun就是Mr. Sun song；按传统曲目别名对应。",
+        "matchSourceIds": [
+          "mr-sun-alias"
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p024",
+        "title": "When Ducks Get Up",
+        "originalTitle": "when ducks get up",
+        "page": 24,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p025",
+        "title": "A Sailor Went to Sea",
+        "originalTitle": "a sailor went to sea",
+        "page": 25,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p026",
+        "title": "Oh, the Farmer's Apple Tree",
+        "originalTitle": "oh the farmers apple tree",
+        "page": 26,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p027",
+        "title": "Hickory Dickory Dock",
+        "originalTitle": "hickory dickory dock",
+        "page": 27,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssRelated": [
+          {
+            "songId": "sss-hickory-dickory-crash",
+            "kind": "adaptation",
+            "note": "SSS改编Hickory Dickory Dock，增加动物并改变结尾。",
+            "sourceIds": [
+              "hickory-adaptation"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p028",
+        "title": "Bluebird Through My Window",
+        "originalTitle": "bluebird through my window",
+        "page": 28,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p029",
+        "title": "I'll Drive a Dump Truck",
+        "originalTitle": "ill drive a dump truck",
+        "page": 29,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p030",
+        "title": "Down by the Station",
+        "originalTitle": "down by the station",
+        "page": 30,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "liaoBookId": "liao-book-058"
+      },
+      {
+        "id": "manhulu-9787533574901-p031",
+        "title": "Here Is a Choo-Choo Train",
+        "originalTitle": "here is a choo-choo",
+        "page": 31,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p032",
+        "title": "The Old Gray Cats",
+        "originalTitle": "the old gray cats",
+        "page": 32,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "titleNote": "手录为The Old Gray Cats，保留复数；常见曲名为The Old Gray Cat，待原页确认。"
+      },
+      {
+        "id": "manhulu-9787533574901-p033",
+        "title": "Do Your Ears Hang Low?",
+        "originalTitle": "do your ears hang low",
+        "page": 33,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p034",
+        "title": "Do You Know the Muffin Man?",
+        "originalTitle": "do you konw the muffin man",
+        "page": 34,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p035",
+        "title": "Here We Go Round the Mulberry Bush",
+        "originalTitle": "here we go around the mulberyy bush",
+        "page": 35,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "liaoBookId": "liao-book-059",
+        "sssRelated": [
+          {
+            "songId": "sss-this-is-the-way",
+            "kind": "adaptation",
+            "note": "传统Mulberry Bush的This is the way句式与曲调，SSS改写为洗脸、梳头、刷牙等日常动作。",
+            "sourceIds": [
+              "mulberry-lyrics"
+            ]
+          },
+          {
+            "songId": "sss-this-is-the-way-we-get-dressed",
+            "kind": "adaptation",
+            "note": "传统Mulberry Bush含get dressed段落，SSS改写为穿衣动作。",
+            "sourceIds": [
+              "mulberry-lyrics"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p036",
+        "title": "Digger Dog",
+        "originalTitle": "digger dog",
+        "page": 36,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p037",
+        "title": "Over in the Meadow",
+        "originalTitle": "over in the meadow",
+        "page": 37,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "liaoBookId": "liao-book-072"
+      },
+      {
+        "id": "manhulu-9787533574901-p038",
+        "title": "Clap, Clap, Clap Your Hands",
+        "originalTitle": "clap clap clap your hands",
+        "page": 38,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p039",
+        "title": "The Noble Duke of York",
+        "originalTitle": "the noble duke of york",
+        "page": 39,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "titleSourceIds": [
+          "noble-duke-title"
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p040",
+        "title": "Pop! Goes the Weasel",
+        "originalTitle": "pop!goes the ease",
+        "page": 40,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p041",
+        "title": "Shoo Fly, Don't Bother Me",
+        "originalTitle": "shoo fly dont bother me",
+        "page": 41,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p042",
+        "title": "To Market, To Market",
+        "originalTitle": "to market, to market",
+        "page": 42,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p043",
+        "title": "The Bear Went Over the Mountain",
+        "originalTitle": "the bear went over the mountain",
+        "page": 43,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p044",
+        "title": "Slow Fast Song",
+        "originalTitle": "show fast song",
+        "page": 44,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "titleNote": "show fast song按常见曲名纠正为Slow Fast Song；尚未核对本书录音。",
+        "titleSourceIds": [
+          "slow-fast-title"
+        ]
+      },
+      {
+        "id": "manhulu-9787533574901-p045",
+        "title": "Sticky Bubblegum",
+        "originalTitle": "sticky bubllegum",
+        "page": 45,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p046",
+        "title": "The Wheels on the Bus",
+        "originalTitle": "wheels on the bus",
+        "page": 46,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list",
+        "sssSongId": "sss-wheels-on-the-bus",
+        "matchNote": "传统曲目对应；未核实发声书录音与本站官方链接为同一版本。",
+        "liaoBookId": "liao-book-055"
+      },
+      {
+        "id": "manhulu-9787533574901-p047",
+        "title": "Scotland's Burning",
+        "originalTitle": "scotlands burning",
+        "page": 47,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p048",
+        "title": "Sally Go Round the Sun",
+        "originalTitle": "sally go round the sun",
+        "page": 48,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p049",
+        "title": "Hush, Little Baby",
+        "originalTitle": "hush little baby",
+        "page": 49,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p050",
+        "title": "I've Been Working on the Railroad",
+        "originalTitle": "ive been working on the railroad",
+        "page": 50,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      },
+      {
+        "id": "manhulu-9787533574901-p051",
+        "title": "Wishy Washy Washer Woman",
+        "originalTitle": "wishy washy washer woman",
+        "page": 51,
+        "sourceIds": [
+          "user-page-list"
+        ],
+        "pageSourceId": "user-page-list"
+      }
+    ],
+    "catalogSourceId": "user-page-list"
   },
   "categories": [
     {
