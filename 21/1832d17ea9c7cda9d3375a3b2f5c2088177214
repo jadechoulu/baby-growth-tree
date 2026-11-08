@@ -1,0 +1,14 @@
+docs/audits/manhulu-songs-20261109.md
+  h_c836a884b9f50f 116-120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "211832d17ea9c7cda9d3375a3b2f5c2088177214",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
