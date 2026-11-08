@@ -64,7 +64,7 @@
       const nav = document.createElement('nav');
       nav.className = 'growth-versions';
       nav.setAttribute('aria-label', '成长内容版本');
-      for (const [id, label, entry] of [['mao', '毛老师版', './index.html'], ['health', '卫健委版', './health.html']]) {
+      for (const [id, label, entry] of [['mao', '毛老师版', './index.html?area=growth'], ['health', '卫健委版', './health.html']]) {
         const tab = document.createElement('span'); tab.className = 'growth-version-tab';
         const link = document.createElement('a'); link.href = entry; link.setAttribute('aria-label', label);
         const full = document.createElement('span'); full.className = 'growth-version-full'; full.textContent = label;

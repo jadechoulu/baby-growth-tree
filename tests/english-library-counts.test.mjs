@@ -6,7 +6,7 @@ const require=createRequire(import.meta.url),B=require('../english/library-books
 const read=id=>JSON.parse(fs.readFileSync(new URL('../english/data/'+id+'.json',import.meta.url)));
 const data=read('resource-books'),volumes=read('resource-volumes');
 const catalog=M.normalize({banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan'),resourceVolumes:volumes});
-const count=(id,filters={})=>B.seriesCount(data,catalog.resources.find(r=>r.id===id),M,volumes,filters);
+const count=(id,filters={})=>B.seriesCount(data,catalog.resources.find(r=>r.id===id||r.mergedResourceIds?.includes(id)),M,volumes,filters);
 
 test('套系数量按版本与分项去重，不能用部分逐册目录代替总范围',()=>{
   const cat=count('resource-g7xvo5');
@@ -123,10 +123,10 @@ test('新核对范围排除指导册，背面级别不重复累加，部分级�
 });
 
 test('已核出版候选可供全量浏览，路线版本未定时不自动当作阶段分母',()=>{
-  assert.equal(count('resource-fkl6xf').total,132); // 英文A–D各25、E&F16、G&H16；联合级不均分。
+  assert.equal(count('resource-fkl6xf').total,414); // 历史名称回到同一个学乐素材，英文132与外研282仍分版本。
   assert.equal(count('resource-1cn6i3m').total,414); // 英文132与外研社2025A–J282为不同出版范围。
   for(const id of ['resource-fkl6xf','resource-nqvpg2','resource-19jrpig']){
-    const resource=catalog.resources.find(r=>r.id===id);
+    const resource=catalog.resources.find(r=>r.id===id||r.mergedResourceIds?.includes(id));
     for(const a of resource.appearances){
       assert.equal(count(id,{route:a.routeId,stageIds:[a.stageId]}).total,0);
     }
@@ -165,4 +165,13 @@ test('补齐其它套系级别，数量使用具名出版范围且不均摊组�
   assert.ok(!oxford.parts.some(p=>p.edition==='国内学校版6–9基础64册选本'));
   const school=oxford.parts.filter(p=>p.edition==='国内红标/无标选本');
   assert.deepEqual(school.filter(p=>/^([6-9])级（含DD）$/.test(p.label)).map(p=>p.count),[27,25,18,18]);
+});
+
+test('未知路线子集显示具名出版总量参考，不能将其变成阶段分母',()=>{
+  const reference=(id,level)=>B.quantityReference(data,catalog.resources.find(r=>r.id===id),M,volumes,[{level}]);
+  const cat=reference('resource-g7xvo5','1（虚构部分）');
+  assert.equal(cat.label,'整级30本');assert.equal(cat.gap,'子集待对应');
+  assert.equal(count('resource-g7xvo5',{route:'qing',stageIds:['qing-s1']}).total,0);
+  assert.equal(reference('resource-1yfs7b5','A、B').label,'2套各15本');
+  assert.equal(reference('resource-1pinwiv','1、2').label,'2套各12本');
 });

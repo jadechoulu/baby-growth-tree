@@ -96,7 +96,12 @@
   function normalize(raw) {
     raw = raw || {};
     var resources = [], routes = [], stages = [], sources = [], relationships = [];
-    var byIdentity = {}, byResource = {}, stageIndex = {}, rawToCanonical = {}, legacyResourceIds = {};
+    var byResource = {}, stageIndex = {}, rawToCanonical = {}, legacyResourceIds = {};
+    var publications = array(raw.resourceVolumes && raw.resourceVolumes.series), recordResourceIds = {}, recordResourceTitles = {};
+    function sharedId(id) {
+      var entry = publications.find(function (item) { return item.resourceId === id; });
+      return entry && entry.catalogResourceId ? sharedId(entry.catalogResourceId) : id;
+    }
 
     function addResource(routeId, resource, sourceId, variantId) {
       sourceId = sourceId || resource.sourceId || routeId;
@@ -105,15 +110,19 @@
       var title = canonicalName(originalTitle);
       var type = mediaType(resource);
       var identity = type + ':' + key(title);
-      var target = byIdentity[identity];
+      var recordId = 'resource-' + hash(identity), id = sharedId(recordId);
+      var target = byResource[id];
       if (!target) {
-        target = { id: 'resource-' + hash(identity), title: title, type: type, levels: [], appearances: [],
+        target = { id: id, title: title, type: type, levels: [], appearances: [], mergedResourceIds: [],
           preview: previewOf(resource), cover: coverOf(resource),
           aliases: [], details: [], raw: [] };
-        byIdentity[identity] = target;
         byResource[target.id] = target;
         resources.push(target);
       }
+      target.mergedResourceIds = unique(target.mergedResourceIds.concat(recordId));
+      if (recordId === id) { target.title = title; target.type = type; }
+      recordResourceIds[sourceId + ':' + resource.id] = recordId;
+      recordResourceTitles[sourceId + ':' + resource.id] = title;
       // 已核实的庆爸别名归并后，迁移既有收藏/记录使用的旧实体 ID。
       if (routeId === 'qing' && LEGACY_QING_SERIES.indexOf(originalTitle) !== -1) {
         legacyResourceIds['resource-' + hash(type + ':' + key(originalTitle))] = target.id;
@@ -151,6 +160,15 @@
       var role = material.role || (rawResource && rawResource.role) || '素材';
       var original = material.original || material.label || (rawResource && (rawResource.label || rawResource.title || rawResource.name)) || byResource[resourceId].title;
       var item = { resourceId: resourceId, level: level, role: role, page: page, original: original, sourceId: sourceId, variantId: stage.variantId };
+      var recordId = recordResourceIds[sourceId + ':' + (material.resourceId || (rawResource && rawResource.id))];
+      if (recordId && recordId !== resourceId) item.recordResourceId = recordId;
+      var sourceTitle = recordResourceTitles[sourceId + ':' + (material.resourceId || (rawResource && rawResource.id))];
+      // 原素材名隐含的分套标尺移入级别，统一名称后仍不混淆GK70与LLI字母级。
+      if (recordId !== resourceId && /GK70\s*$/i.test(sourceTitle || '') && /^[A-Z](?:[、&/-][A-Z])*$/i.test(level)) {
+        item.recordLevel = level;
+        item.level = 'GK70 ' + level;
+        level = item.level;
+      }
       if (material.roleEvidence) item.roleEvidence = material.roleEvidence;
       // 同一素材在同一阶段的不同级别/角色都保留，重复的引用只展示一次。
       var signature = [resourceId, level, role, page, original, sourceId].join('|');
@@ -365,7 +383,7 @@
         resource.aliases = unique(resource.aliases.concat(array(publication.aliases), publication.displayTitle ? [resource.title] : []));
         if (publication.displayTitle) resource.title = publication.displayTitle;
       }
-      resource.referencePrices = array(raw.resourcePrices && raw.resourcePrices.quotes).filter(function (quote) { return quote.resourceId === resource.id; });
+      resource.referencePrices = array(raw.resourcePrices && raw.resourcePrices.quotes).filter(function (quote) { return sharedId(quote.resourceId) === resource.id; });
       var image = raw.resourceCovers && raw.resourceCovers[resource.id];
       if (!resource.cover && image) {
         resource.cover = image.path;
@@ -821,6 +839,7 @@
       var group = mergeable && groups.find(function (item) {
         return item.mergeable && item.resource.id === resource.id && item.material.role === material.role &&
           item.material.recordStageId === material.recordStageId &&
+          item.material.recordResourceId === material.recordResourceId &&
           item.role.kind === role.kind && item.parts.qualifier === parts.qualifier && item.scales === scales;
       });
       if (group) {
@@ -1131,7 +1150,11 @@
   }
   function publicationBindings(catalog, resourceId, scopeId) {
     var entry = publicationEntry(catalog, resourceId);
-    return array(catalog && catalog.references).filter(function (ref) { return (ref.resourceId === resourceId || entry && ref.resourceId === entry.catalogResourceId) && ref.scopeId === scopeId; });
+    var identity = entry && entry.catalogResourceId || resourceId;
+    return array(catalog && catalog.references).filter(function (ref) {
+      var publication = publicationEntry(catalog, ref.resourceId);
+      return (publication && publication.catalogResourceId || ref.resourceId) === identity && ref.scopeId === scopeId;
+    });
   }
   function publicationScopes(catalog, resourceId, stageId) {
     var entry = publicationEntry(catalog, resourceId);
@@ -1161,7 +1184,7 @@
       exactKeys.add(key); return true;
     });
     var entry = publicationEntry(catalog, resourceId);
-    var resource = { title: entry && (entry.displayTitle || entry.title) || '' };
+    var resource = { title: entry && (entry.title || entry.displayTitle) || '' };
     var own = selected.map(function (level) { return levelParts(level, resource); });
     if (own.some(function (part) { return !part || part.qualifier || part.quantities.length; })) return exact;
     var ids = unique(own.flatMap(function (part) { return part.tokens.map(function (token) { return token.id; }); }));

@@ -10,7 +10,18 @@ function planForResource(data,id,directory,catalog,scope){
   // null 表示当前路线尚无已绑定范围；不能拿套系首个版本冒充本阶段目录。
   if(scope===null)return null;
   const plans=catalogPlans(directory,catalog,id);
-  return scope?plans.find(plan=>scopeGroup(plan,scope)!==null)||null:plans[0]||null;
+  if(!scope)return plans[0]||null;
+  const direct=plans.find(plan=>scopeGroup(plan,scope)!==null);
+  if(direct)return direct;
+  // 同版的任意多个完整分项也可组成选读范围；不只支持单级或整套。
+  for(const plan of plans){
+    if(plan.edition!==scope.edition||!scope.parts?.length)continue;
+    const groups=plan.groups.filter(group=>group.parts.every(part=>scope.parts.some(selected=>selected.label===part.label&&selected.count===part.count)));
+    if(groups.length!==scope.parts.length||groups.reduce((sum,group)=>sum+group.publicationScope.total,0)!==scope.total)continue;
+    const ids=new Set(groups.map(group=>group.id));
+    return {...plan,scopeIds:[scope.id],groups,books:plan.books.filter(book=>ids.has(book.group))};
+  }
+  return null;
 }
 function groupForStage(plan,stageId){return plan?.stageGroups?.[stageId]||'all';}
 function books(plan,group='all'){
@@ -29,8 +40,8 @@ function bookState(records,bookId){
 }
 function directoryProgress(records,directory,catalog,resourceId){
   const canonical=catalogResource(catalog,resourceId)?.resourceId||resourceId;
-  const selected=(directory?.books||[]).filter(book=>(catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId)===canonical);
-  const completed=new Set(selected.filter(book=>bookState(records,book.id).done).map(book=>book.id)).size;
+  const selected=directoryIndex(directory,catalog).byResource.get(canonical)||[],known=new Set(externalFacts(records).map(fact=>fact.publicBookId));
+  const completed=new Set(selected.filter(book=>records?.[MANUAL+book.id]?.status==='done'||known.has(book.id)).map(book=>book.id)).size;
   // 部分目录只表示已识别的单册，不能将条目数作为整套出版分母。
   return {completed,identifiedCompleted:completed,total:null,percent:null,unit:'本',status:completed?'using':'not-started'};
 }
@@ -83,9 +94,30 @@ function projectQuantity(records,plan,scope,legacy){
   if(scope.total!==undefined&&scope.total!==result.total)return legacy;
   return {...legacy,...result,unit:'本',sourcePriority:sourcePriority(records,plan,group)};
 }
+const publicationIndex=new WeakMap(),directoryIndexes=new WeakMap(),publicationPartCache=new WeakMap();
 function catalogResource(catalog,resourceId){
-  const entry=catalog?.series?.find(item=>item.resourceId===resourceId);
+  if(!catalog)return undefined;
+  let index=publicationIndex.get(catalog);
+  if(!index){index=new Map((catalog.series||[]).map(item=>[item.resourceId,item]));publicationIndex.set(catalog,index);}
+  const entry=index.get(resourceId);
   return entry?.catalogResourceId?catalogResource(catalog,entry.catalogResourceId):entry;
+}
+// 公共目录在页面生命周期内不变；只缓存书目索引，个人事实每次读取，保留原对象内修改的即时性。
+function directoryIndex(directory,catalog){
+  if(!directory||!catalog)return {byResource:new Map(),byId:new Map()};
+  let indexes=directoryIndexes.get(directory);
+  if(!indexes){indexes=new WeakMap();directoryIndexes.set(directory,indexes);}
+  let index=indexes.get(catalog);
+  if(!index){
+    index={byResource:new Map(),byId:new Map()};
+    for(const book of directory.books||[]){
+      const id=catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId;
+      if(!index.byResource.has(id))index.byResource.set(id,[]);
+      index.byResource.get(id).push(book);index.byId.set(book.id,book);
+    }
+    indexes.set(catalog,index);
+  }
+  return index;
 }
 const scopeIdentity=scope=>JSON.stringify([scope.resourceId,scope.edition,scope.label,scope.total,scope.unit||'本']);
 function directoryMatches(book,match){
@@ -94,13 +126,15 @@ function directoryMatches(book,match){
 }
 function publicationParts(catalog,resourceId){
   const entry=catalogResource(catalog,resourceId),parts=new Map();
+  if(!entry)return [];
+  if(publicationPartCache.has(entry))return publicationPartCache.get(entry);
   for(const scope of entry?.scopes||[])for(const part of scope.parts||[]){
     const value={resourceId:entry.resourceId,edition:scope.edition||entry.edition||'',label:part.label,total:part.count,unit:scope.unit||entry.unit||'本'};
     const key=scopeIdentity(value),previous=parts.get(key)||{...value,directoryMatches:[]};
     if(part.directoryMatch&&!previous.directoryMatches.some(match=>JSON.stringify(match)===JSON.stringify(part.directoryMatch)))previous.directoryMatches.push(part.directoryMatch);
     parts.set(key,previous);
   }
-  return [...parts.values()];
+  const result=[...parts.values()];publicationPartCache.set(entry,result);return result;
 }
 // 仅完整目录可生成逐本进度；版本与分项来自公共出版映射，不再维护第二份书目。
 const catalogPlanCache=new WeakMap();
@@ -114,7 +148,7 @@ function catalogPlans(directory,catalog,resourceId){
   const entry=catalogResource(catalog,resourceId),editions=new Map();
   for(const part of publicationParts(catalog,resourceId)){
     if(part.unit!=='本'||!part.total||!part.directoryMatches.length)continue;
-    const selected=[...new Map((directory.books||[]).filter(book=>(catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId)===entry.resourceId&&part.directoryMatches.some(match=>directoryMatches(book,match))).map(book=>[book.id,book])).values()];
+    const selected=[...new Map((directoryIndex(directory,catalog).byResource.get(entry.resourceId)||[]).filter(book=>part.directoryMatches.some(match=>directoryMatches(book,match))).map(book=>[book.id,book])).values()];
     if(selected.length!==part.total)continue;
     if(!editions.has(part.edition))editions.set(part.edition,[]);
     editions.get(part.edition).push({part,selected});
@@ -158,7 +192,11 @@ function projectScopeQuantity(records,resourceId,scope,legacy,catalog,directory)
   const identities=new Set(selected.map(scopeIdentity)),facts=externalFacts(records).filter(fact=>fact.publicationScopes?.some(part=>identities.has(scopeIdentity(part))));
   const priority=selected.every(part=>scopeAuthority(records,part));
   const completedIds=new Set(facts.map(fact=>fact.publicBookId));
-  for(const book of directory?.books||[])if(records?.[MANUAL+book.id]?.status==='done'&&bookPublicationScopes(book,catalog).some(part=>identities.has(scopeIdentity(part))))completedIds.add(book.id);
+  const index=directoryIndex(directory,catalog);
+  for(const [key,record] of Object.entries(records||{}))if(key.startsWith(MANUAL)&&record?.status==='done'){
+    const book=index.byId.get(key.slice(MANUAL.length));
+    if(book&&bookPublicationScopes(book,catalog).some(part=>identities.has(scopeIdentity(part))))completedIds.add(book.id);
+  }
   if(!completedIds.size&&!priority)return legacy;
   const externalCompleted=new Set(facts.map(fact=>fact.publicBookId)).size,legacyCompleted=Number.isSafeInteger(legacy?.completed)&&legacy.completed>=0?legacy.completed:0;
   const completed=Math.min(total,Math.max(completedIds.size,priority?0:legacyCompleted)),percent=total?(completed===total?100:Math.min(99,Math.round(completed/total*100))):0;

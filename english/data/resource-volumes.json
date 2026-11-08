@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "checkedAt": "2026-11-08",
+  "checkedAt": "2026-11-09",
   "unit": "本读物",
   "policy": "册数属于公共套系、版本和级别；路线只引用scopeId。仅计本范围中的读物；不同版本分别列明，包含关系不重复加总；未选版不生成实际完成百分比。",
   "series": [
@@ -1236,7 +1236,7 @@
       "resourceId": "resource-29ukn0",
       "edition": "悠游阅读·成长计划第一级（外研社，60本读物）",
       "unit": "本",
-      "note": "仅按所列版本与范围核算；数量不作为作者的阶段完成条件。",
+      "note": "仅按所列版本与范围核算；数量不作为作者的阶段完成条件。 同一外研社悠游阅读成长计划统一到公共素材；旧ID仅用于历史引用和记录兼容。",
       "sources": [
         {
           "title": "外研社Unischool官方配套微课",
@@ -1244,21 +1244,9 @@
           "evidence": "专题简介明确第一级60本读物及配套60个动画故事；不计指导册与光盘。"
         }
       ],
-      "scopes": [
-        {
-          "id": "resource-29ukn0-count-20261104",
-          "label": "1级",
-          "level": "1",
-          "parts": [
-            {
-              "label": "1级",
-              "count": 60
-            }
-          ],
-          "default": true
-        }
-      ],
-      "title": "悠游"
+      "scopes": [],
+      "title": "悠游",
+      "catalogResourceId": "resource-7vimum"
     },
     {
       "resourceId": "resource-1u3sl6e",
@@ -1326,6 +1314,12 @@
           "title": "Bloomsbury官方：House Editions Box Sets",
           "url": "https://www.bloomsbury.com/au/discover/superpages/harry-potter/harry-potter-house-editions-box-sets/",
           "evidence": "出版方明确包含all seven novels；不含The Cursed Child剧本与衍生作品。"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/d687ba1f92eb5f70",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得7个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -1336,7 +1330,18 @@
           "parts": [
             {
               "label": "七部小说",
-              "count": 7
+              "count": 7,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-8e6443789118f29d",
+                  "book-0b3d50b77c94e3a1",
+                  "book-9d1c9ed6c267c188",
+                  "book-458af95ffca8d2c5",
+                  "book-715982fb1c14f905",
+                  "book-15dcc774067c639b",
+                  "book-d43a2b4582a759f1"
+                ]
+              }
             }
           ],
           "default": true
@@ -1590,6 +1595,9 @@
           ],
           "includedIn": [
             "heinemann-gk-70"
+          ],
+          "levelAliases": [
+            "GK70 A"
           ]
         },
         {
@@ -1622,6 +1630,9 @@
           ],
           "includedIn": [
             "heinemann-gk-70"
+          ],
+          "levelAliases": [
+            "GK70 B"
           ]
         },
         {
@@ -1654,6 +1665,9 @@
           ],
           "includedIn": [
             "heinemann-gk-70"
+          ],
+          "levelAliases": [
+            "GK70 C"
           ]
         },
         {
@@ -1775,7 +1789,8 @@
       ],
       "checkedAt": "2026-11-05",
       "title": "海尼曼 GK70",
-      "readingPlanId": "heinemann-gk70"
+      "readingPlanId": "heinemann-gk70",
+      "displayTitle": "海尼曼"
     },
     {
       "resourceId": "resource-1cn6i3m",
@@ -1884,6 +1899,40 @@
           "evidence": "1764749明确标题Guided reading level E，8 volumes、列出从Crabby crab至Stone stew前8；1764750为F，8 volumes、列出Biggy the bunny至Too many unicorns后8。直读正文当前为空，本次证据是搜索索引，未冒称全文核验。",
           "checkedAt": "2026-11-08",
           "verification": "search-index"
+        },
+        {
+          "title": "First Little Readers · 英文Parent Pack Level B（25本） · 原页核查",
+          "url": "https://americanbookworm.com/products/first-little-readers-guided-reading-level-b-parent-pack-25-books-box-set-by-liza-charlesworth-ages-0-5-paperback",
+          "evidence": "实际读取书商原页25册完整目录、Includes 25 full color 8-page books；另附4页parent guide不计读物。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574） · 原页核查",
+          "url": "https://www.walmart.com/ip/First-Little-Readers-First-Little-Readers-Guided-Reading-Levels-E-F-Parent-Pack-16-Irresistible-Books-Just-Right-Level-for-Paperback-9781338256574/992123247",
+          "evidence": "Walmart原页商品完整标题明确16 Irresistible Books、ISBN 9781338256574；只采用出版标题册数，不采用页面AI生成内容。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+          "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+          "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers D",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
+          "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "Scholastic StoryPlus · First Little Readers GH",
+          "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+          "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -1922,7 +1971,7 @@
               }
             }
           ],
-          "default": false,
+          "default": true,
           "referenceOnly": true,
           "sources": [
             {
@@ -2117,6 +2166,144 @@
             "flr-parent-ef"
           ],
           "checkedAt": "2026-11-08"
+        },
+        {
+          "id": "audit-20261105-fkl6xf-19-1",
+          "label": "B",
+          "level": "B",
+          "edition": "First Little Readers · 英文Parent Pack Level B（25本）",
+          "parts": [
+            {
+              "label": "B",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "displayEdition": "First Little Readers · 英文Parent Pack",
+          "includedIn": [
+            "flr-parent-b"
+          ]
+        },
+        {
+          "id": "audit-20261105-fkl6xf-20-1",
+          "label": "E&F",
+          "level": "E&F",
+          "edition": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574）",
+          "parts": [
+            {
+              "label": "E&F",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "displayEdition": "First Little Readers · 英文Parent Pack",
+          "includedIn": [
+            "flr-parent-ef"
+          ]
+        },
+        {
+          "id": "flr-parent-reference-a",
+          "label": "A",
+          "level": "A",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "A",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
+              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
+              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack",
+          "includedIn": [
+            "flr-parent-a"
+          ]
+        },
+        {
+          "id": "flr-parent-reference-c",
+          "label": "C",
+          "level": "C",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "C",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
+              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
+              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack",
+          "includedIn": [
+            "flr-parent-c"
+          ]
+        },
+        {
+          "id": "flr-parent-reference-d",
+          "label": "D",
+          "level": "D",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "D",
+              "count": 25
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers D",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
+              "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack",
+          "includedIn": [
+            "flr-parent-d"
+          ]
+        },
+        {
+          "id": "flr-parent-reference-gh",
+          "label": "G&H",
+          "level": "G&H",
+          "edition": "First Little Readers English Parent Pack",
+          "parts": [
+            {
+              "label": "G&H",
+              "count": 16
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Scholastic StoryPlus · First Little Readers GH",
+              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
+              "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "displayEdition": "First Little Readers · 英文Parent Pack",
+          "includedIn": [
+            "flr-parent-gh"
+          ]
         }
       ],
       "checkedAt": "2026-11-05",
@@ -2922,6 +3109,12 @@
           "evidence": "系列目录逐项列 Book 1–19，止于 Attack of the 50-Foot Fly Guy!；页面21 primary与25 total含其它分支／合订口径。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/5d2e6dc93e330300",
+          "checkedAt": "2026-11-09",
+          "evidence": "19本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -2933,7 +3126,30 @@
           "parts": [
             {
               "label": "Fly Guy 英文编号主故事 1–19",
-              "count": 19
+              "count": 19,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-56ec9fa1bf95aaf9",
+                  "book-91b6e91b8aedd5c6",
+                  "book-63947fef5385c865",
+                  "book-78f233b14dfb7859",
+                  "book-2a29792a85bf7a70",
+                  "book-4c7dc843d5ddcf4e",
+                  "book-f2212b432b5a5d2c",
+                  "book-617ba1b1633d9b59",
+                  "book-117c1bc35fa334b8",
+                  "book-febdcf7f10f9b4b7",
+                  "book-ea98afb58ae5832a",
+                  "book-236c227be95a1023",
+                  "book-a2771a2d701a9f40",
+                  "book-bc2b1ce351575f0b",
+                  "book-b897cebb2183ac64",
+                  "book-edfb95b135e07043",
+                  "book-5734c387a53c473b",
+                  "book-f66ae4cd6eff3b08",
+                  "book-4de87890ea21d58b"
+                ]
+              }
             }
           ],
           "default": false,
@@ -2961,7 +3177,7 @@
       "resourceId": "resource-11wr0uz",
       "edition": "Eve Bunting Frog and Friends英文8册",
       "unit": "本",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。 同系列统一到公共素材；旧ID与scope仅作原记录兼容，不单独展示素材。",
       "sources": [
         {
           "title": "公开检索线索（版本与范围待核验）",
@@ -2981,44 +3197,15 @@
           "checkedAt": "2026-11-05"
         }
       ],
-      "scopes": [
-        {
-          "id": "frog-friends-bunting8",
-          "label": "英文8册",
-          "edition": "Eve Bunting Frog and Friends",
-          "level": "",
-          "parts": [
-            {
-              "label": "英文8册",
-              "level": "",
-              "count": 8
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "Amazon系列条目",
-              "url": "https://www.amazon.com/Outdoor-Surprises-AM-READER-Friends-ebook/dp/B00P1IYVP6",
-              "evidence": "搜索显示Eve Bunting系列8 books；中文16册套装包含8英文+8中文，不能当16英文。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "完整书目索引",
-              "url": "https://www.kidsbookseries.com/frog-and-friends/",
-              "evidence": "检索列出Frog and Friends出版顺序，网页抓取正文不可读，仅辅助身份。",
-              "checkedAt": "2026-11-05"
-            }
-          ]
-        }
-      ],
+      "scopes": [],
       "checkedAt": "2026-11-05",
       "catalogAudit": {
         "status": "confirmed-publication-ranges",
         "checkedAt": "2026-11-05",
         "reason": "公共版本册数已有来源；路线是否采用该版本独立核定。"
       },
-      "title": "蛙小弟"
+      "title": "蛙小弟",
+      "catalogResourceId": "resource-xqapbe"
     },
     {
       "resourceId": "resource-1hwirew",
@@ -4474,6 +4661,1203 @@
             }
           ],
           "note": "独立公开快照，不覆盖OneOne纸书版85，不直接等同作者虚构选本。"
+        },
+        {
+          "id": "xhs-raz-aa-100-20261109",
+          "label": "AA",
+          "level": "AA",
+          "edition": "小花生公开RAZ AA 100册具名目录（2026-11-09快照）",
+          "parts": [
+            {
+              "label": "AA",
+              "count": 100,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-guide-raz-aa-058",
+                  "book-guide-raz-aa-032",
+                  "book-guide-raz-aa-068",
+                  "book-guide-raz-aa-063",
+                  "book-guide-raz-aa-085",
+                  "book-guide-raz-aa-074",
+                  "book-guide-raz-aa-089",
+                  "book-guide-raz-aa-081",
+                  "book-guide-raz-aa-027",
+                  "book-guide-raz-aa-095",
+                  "book-guide-raz-aa-051",
+                  "book-guide-raz-aa-097",
+                  "book-guide-raz-aa-075",
+                  "book-guide-raz-aa-078",
+                  "book-guide-raz-aa-069",
+                  "book-guide-raz-aa-091",
+                  "book-guide-raz-aa-041",
+                  "book-guide-raz-aa-043",
+                  "book-guide-raz-aa-001",
+                  "book-guide-raz-aa-090",
+                  "book-guide-raz-aa-002",
+                  "book-guide-raz-aa-003",
+                  "book-guide-raz-aa-088",
+                  "book-guide-raz-aa-098",
+                  "book-guide-raz-aa-096",
+                  "book-guide-raz-aa-004",
+                  "book-guide-raz-aa-053",
+                  "book-guide-raz-aa-042",
+                  "book-guide-raz-aa-094",
+                  "book-guide-raz-aa-011",
+                  "book-guide-raz-aa-054",
+                  "book-guide-raz-aa-056",
+                  "book-guide-raz-aa-071",
+                  "book-guide-raz-aa-055",
+                  "book-guide-raz-aa-007",
+                  "book-guide-raz-aa-062",
+                  "book-guide-raz-aa-046",
+                  "book-guide-raz-aa-084",
+                  "book-guide-raz-aa-070",
+                  "book-guide-raz-aa-013",
+                  "book-guide-raz-aa-059",
+                  "book-guide-raz-aa-061",
+                  "book-guide-raz-aa-064",
+                  "book-guide-raz-aa-010",
+                  "book-guide-raz-aa-009",
+                  "book-guide-raz-aa-076",
+                  "book-guide-raz-aa-072",
+                  "book-guide-raz-aa-014",
+                  "book-guide-raz-aa-080",
+                  "book-guide-raz-aa-093",
+                  "book-guide-raz-aa-079",
+                  "book-guide-raz-aa-050",
+                  "book-guide-raz-aa-060",
+                  "book-guide-raz-aa-092",
+                  "book-guide-raz-aa-012",
+                  "book-guide-raz-aa-008",
+                  "book-guide-raz-aa-020",
+                  "book-guide-raz-aa-029",
+                  "book-guide-raz-aa-044",
+                  "book-guide-raz-aa-082",
+                  "book-guide-raz-aa-038",
+                  "book-guide-raz-aa-037",
+                  "book-guide-raz-aa-036",
+                  "book-guide-raz-aa-035",
+                  "book-guide-raz-aa-034",
+                  "book-guide-raz-aa-033",
+                  "book-guide-raz-aa-031",
+                  "book-guide-raz-aa-030",
+                  "book-guide-raz-aa-040",
+                  "book-guide-raz-aa-039",
+                  "book-guide-raz-aa-023",
+                  "book-guide-raz-aa-024",
+                  "book-guide-raz-aa-025",
+                  "book-guide-raz-aa-006",
+                  "book-guide-raz-aa-015",
+                  "book-guide-raz-aa-045",
+                  "book-guide-raz-aa-073",
+                  "book-guide-raz-aa-077",
+                  "book-guide-raz-aa-016",
+                  "book-guide-raz-aa-026",
+                  "book-guide-raz-aa-047",
+                  "book-guide-raz-aa-021",
+                  "book-guide-raz-aa-005",
+                  "book-guide-raz-aa-049",
+                  "book-guide-raz-aa-052",
+                  "book-guide-raz-aa-022",
+                  "book-guide-raz-aa-083",
+                  "book-guide-raz-aa-048",
+                  "book-guide-raz-aa-057",
+                  "book-guide-raz-aa-028",
+                  "book-guide-raz-aa-066",
+                  "book-guide-raz-aa-018",
+                  "book-guide-raz-aa-017",
+                  "book-guide-raz-aa-065",
+                  "book-guide-raz-aa-019",
+                  "book-guide-raz-aa-087",
+                  "book-guide-raz-aa-067",
+                  "book-guide-raz-aa-086",
+                  "book-guide-raz-aa-100",
+                  "book-guide-raz-aa-099"
+                ]
+              }
+            }
+          ],
+          "referenceOnly": true,
+          "note": "按小花生明确RAZ级别、完整题名对应既有单册；100册为该公开集合，非主题表全部条数。",
+          "sources": [
+            {
+              "title": "小花生RAZ AA100册集合",
+              "url": "https://www.xiaohuasheng.cn/book/c734f72b105f11d0",
+              "evidence": "App套系完整100册目录与100册详情逐项核对；相同系列、级别与完整题名对应既有单册ID，未新建重复书目。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "xhs-raz-a-100-20261109",
+          "label": "A",
+          "level": "A",
+          "edition": "小花生公开RAZ A 100册具名目录（2026-11-09快照）",
+          "parts": [
+            {
+              "label": "A",
+              "count": 100,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-guide-raz-a-013",
+                  "book-guide-raz-a-002",
+                  "book-guide-raz-a-044",
+                  "book-guide-raz-a-054",
+                  "book-guide-raz-a-057",
+                  "book-guide-raz-a-007",
+                  "book-guide-raz-a-090",
+                  "book-guide-raz-a-060",
+                  "book-guide-raz-a-086",
+                  "book-guide-raz-a-074",
+                  "book-guide-raz-a-061",
+                  "book-guide-raz-a-089",
+                  "book-guide-raz-a-095",
+                  "book-guide-raz-a-006",
+                  "book-guide-raz-a-063",
+                  "book-guide-raz-a-012",
+                  "book-guide-raz-a-094",
+                  "book-guide-raz-a-087",
+                  "book-guide-raz-a-073",
+                  "book-guide-raz-a-014",
+                  "book-guide-raz-a-004",
+                  "book-guide-raz-a-009",
+                  "book-guide-raz-a-048",
+                  "book-guide-raz-a-019",
+                  "book-guide-raz-a-018",
+                  "book-guide-raz-a-021",
+                  "book-guide-raz-a-062",
+                  "book-guide-raz-a-016",
+                  "book-guide-raz-a-022",
+                  "book-guide-raz-a-003",
+                  "book-guide-raz-a-008",
+                  "book-guide-raz-a-023",
+                  "book-guide-raz-a-065",
+                  "book-guide-raz-a-080",
+                  "book-guide-raz-a-015",
+                  "book-guide-raz-a-092",
+                  "book-guide-raz-a-078",
+                  "book-guide-raz-a-055",
+                  "book-guide-raz-a-093",
+                  "book-guide-raz-a-064",
+                  "book-guide-raz-a-079",
+                  "book-guide-raz-a-032",
+                  "book-guide-raz-a-030",
+                  "book-guide-raz-a-083",
+                  "book-guide-raz-a-043",
+                  "book-guide-raz-a-082",
+                  "book-guide-raz-a-010",
+                  "book-guide-raz-a-081",
+                  "book-guide-raz-a-040",
+                  "book-guide-raz-a-031",
+                  "book-guide-raz-a-075",
+                  "book-guide-raz-a-056",
+                  "book-guide-raz-a-042",
+                  "book-guide-raz-a-050",
+                  "book-guide-raz-a-041",
+                  "book-guide-raz-a-051",
+                  "book-guide-raz-a-011",
+                  "book-guide-raz-a-076",
+                  "book-guide-raz-a-091",
+                  "book-guide-raz-a-001",
+                  "book-guide-raz-a-024",
+                  "book-guide-raz-a-025",
+                  "book-guide-raz-a-005",
+                  "book-guide-raz-a-072",
+                  "book-guide-raz-a-069",
+                  "book-guide-raz-a-039",
+                  "book-guide-raz-a-029",
+                  "book-guide-raz-a-037",
+                  "book-guide-raz-a-038",
+                  "book-guide-raz-a-059",
+                  "book-guide-raz-a-058",
+                  "book-guide-raz-a-020",
+                  "book-guide-raz-a-047",
+                  "book-guide-raz-a-034",
+                  "book-guide-raz-a-068",
+                  "book-guide-raz-a-077",
+                  "book-guide-raz-a-096",
+                  "book-guide-raz-a-067",
+                  "book-guide-raz-a-084",
+                  "book-guide-raz-a-066",
+                  "book-guide-raz-a-085",
+                  "book-guide-raz-a-017",
+                  "book-guide-raz-a-070",
+                  "book-guide-raz-a-035",
+                  "book-guide-raz-a-026",
+                  "book-guide-raz-a-097",
+                  "book-guide-raz-a-036",
+                  "book-guide-raz-a-088",
+                  "book-guide-raz-a-033",
+                  "book-guide-raz-a-027",
+                  "book-guide-raz-a-099",
+                  "book-guide-raz-a-052",
+                  "book-guide-raz-a-049",
+                  "book-guide-raz-a-045",
+                  "book-guide-raz-a-071",
+                  "book-guide-raz-a-046",
+                  "book-guide-raz-a-053",
+                  "book-guide-raz-a-028",
+                  "book-guide-raz-a-098",
+                  "book-guide-raz-a-100"
+                ]
+              }
+            }
+          ],
+          "referenceOnly": true,
+          "note": "按小花生明确RAZ级别、完整题名对应既有单册；100册为该公开集合，非主题表全部条数。",
+          "sources": [
+            {
+              "title": "小花生RAZ A100册集合",
+              "url": "https://www.xiaohuasheng.cn/book/cc94227eac3fd3f0",
+              "evidence": "App套系完整100册目录与100册详情逐项核对；相同系列、级别与完整题名对应既有单册ID，未新建重复书目。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-aa-100-20261109-aa",
+          "label": "AA · 虚构",
+          "level": "AA（虚构部分）",
+          "levelAliases": [
+            "AA · 虚构部分",
+            "AA（虚构）",
+            "AA · 虚构"
+          ],
+          "edition": "小花生公开RAZ AA 100册具名目录（2026-11-09快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "AA · 虚构",
+              "count": 18,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-guide-raz-aa-002",
+                  "book-guide-raz-aa-005",
+                  "book-guide-raz-aa-006",
+                  "book-guide-raz-aa-009",
+                  "book-guide-raz-aa-010",
+                  "book-guide-raz-aa-020",
+                  "book-guide-raz-aa-051",
+                  "book-guide-raz-aa-054",
+                  "book-guide-raz-aa-068",
+                  "book-guide-raz-aa-070",
+                  "book-guide-raz-aa-071",
+                  "book-guide-raz-aa-072",
+                  "book-guide-raz-aa-075",
+                  "book-guide-raz-aa-078",
+                  "book-guide-raz-aa-089",
+                  "book-guide-raz-aa-094",
+                  "book-guide-raz-aa-096",
+                  "book-guide-raz-aa-098"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-aa-100-20261109"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录100本已逐册核完虚构字段，其中虚构18本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-a-100-20261109-a",
+          "label": "A · 虚构",
+          "level": "A（虚构部分）",
+          "levelAliases": [
+            "A · 虚构部分",
+            "A（虚构）",
+            "A · 虚构"
+          ],
+          "edition": "小花生公开RAZ A 100册具名目录（2026-11-09快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "A · 虚构",
+              "count": 42,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-guide-raz-a-002",
+                  "book-guide-raz-a-009",
+                  "book-guide-raz-a-023",
+                  "book-guide-raz-a-027",
+                  "book-guide-raz-a-031",
+                  "book-guide-raz-a-032",
+                  "book-guide-raz-a-033",
+                  "book-guide-raz-a-035",
+                  "book-guide-raz-a-040",
+                  "book-guide-raz-a-041",
+                  "book-guide-raz-a-042",
+                  "book-guide-raz-a-047",
+                  "book-guide-raz-a-050",
+                  "book-guide-raz-a-051",
+                  "book-guide-raz-a-052",
+                  "book-guide-raz-a-053",
+                  "book-guide-raz-a-054",
+                  "book-guide-raz-a-055",
+                  "book-guide-raz-a-058",
+                  "book-guide-raz-a-062",
+                  "book-guide-raz-a-063",
+                  "book-guide-raz-a-064",
+                  "book-guide-raz-a-065",
+                  "book-guide-raz-a-066",
+                  "book-guide-raz-a-067",
+                  "book-guide-raz-a-068",
+                  "book-guide-raz-a-070",
+                  "book-guide-raz-a-071",
+                  "book-guide-raz-a-076",
+                  "book-guide-raz-a-078",
+                  "book-guide-raz-a-079",
+                  "book-guide-raz-a-080",
+                  "book-guide-raz-a-081",
+                  "book-guide-raz-a-082",
+                  "book-guide-raz-a-090",
+                  "book-guide-raz-a-091",
+                  "book-guide-raz-a-092",
+                  "book-guide-raz-a-093",
+                  "book-guide-raz-a-095",
+                  "book-guide-raz-a-097",
+                  "book-guide-raz-a-099",
+                  "book-guide-raz-a-100"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-a-100-20261109"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录100本已逐册核完虚构字段，其中虚构42本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-b99-20261108-b",
+          "label": "B · 虚构",
+          "level": "B（虚构部分）",
+          "levelAliases": [
+            "B · 虚构部分",
+            "B（虚构）",
+            "B · 虚构"
+          ],
+          "edition": "小花生公开RAZ B 99册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "B · 虚构",
+              "count": 57,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-a219ea09fac74d2b",
+                  "book-2424784bfed50e27",
+                  "book-9c471ea7b854feb1",
+                  "book-86e373e9a4b679c6",
+                  "book-1660d34cd87f2c04",
+                  "book-26ccd3210c7b21eb",
+                  "book-d6cab681a1f64b0c",
+                  "book-0d9e780f7356ab32",
+                  "book-efbe933f1d77a4cc",
+                  "book-c0e6110407ac8b6d",
+                  "book-333740fba81cb930",
+                  "book-df13371b587f6e80",
+                  "book-c3910cd02f983147",
+                  "book-fba856c53a5c3c3f",
+                  "book-df57ece982a521ca",
+                  "book-d38c6ad4b58f4751",
+                  "book-1bcf92cf60a6a4ed",
+                  "book-5a59e41ca1c0867a",
+                  "book-d1af6037a56d2b3a",
+                  "book-c018489c73d937e2",
+                  "book-34b7eb0493770722",
+                  "book-406c1109f4b2c649",
+                  "book-19370076495605bf",
+                  "book-dea5b6f32c666765",
+                  "book-6cd1d8c376172284",
+                  "book-225fe344041bd1a8",
+                  "book-341467070a857a06",
+                  "book-65a64ee59c070e35",
+                  "book-7d6d7cd7843d3a73",
+                  "book-1f4fa5f2d238a52c",
+                  "book-f6e5c0ab452f21ce",
+                  "book-afb58a25efe293ff",
+                  "book-ed45598ecce3ac6d",
+                  "book-d5b890205e9f8537",
+                  "book-ae54c9077f3cce9d",
+                  "book-d2110ca9c3566586",
+                  "book-360eff4cb39d4535",
+                  "book-42580580a037b416",
+                  "book-96a50acb6dcfe955",
+                  "book-22dfc6b668b590eb",
+                  "book-6c0faa986b669ed7",
+                  "book-a024daedfc356a20",
+                  "book-f956e02211677d13",
+                  "book-7829893e7e9c58f1",
+                  "book-9b570bf5d7cc26d5",
+                  "book-af8bbbd551f31db4",
+                  "book-964c4f6f50484123",
+                  "book-0ad81971c1b0df92",
+                  "book-c9a32273fba954bd",
+                  "book-5e472ff2365b657c",
+                  "book-11b78c27bec30d42",
+                  "book-8c4bf7922dbe746e",
+                  "book-4cd7bfbe85feaea7",
+                  "book-81618fed8f08658d",
+                  "book-947f2a82ef79614b",
+                  "book-e99c087a945c61dc",
+                  "book-d2724f673dfad8ee"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-b99-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录99本已逐册核完虚构字段，其中虚构57本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-c-103-20261108-c",
+          "label": "C · 虚构",
+          "level": "C（虚构部分）",
+          "levelAliases": [
+            "C · 虚构部分",
+            "C（虚构）",
+            "C · 虚构"
+          ],
+          "edition": "小花生公开RAZ C 103册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "C · 虚构",
+              "count": 51,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-e2c94bf2b8a23a6b",
+                  "book-ad464760f32a947d",
+                  "book-c3aa3350c2a882c7",
+                  "book-d34c73ff1930b893",
+                  "book-7465074072090d80",
+                  "book-cb0db9095a72c8b8",
+                  "book-746110bcf0521f7c",
+                  "book-8fcc836d53acd007",
+                  "book-ce66ee37a514647a",
+                  "book-d3888d7e7f7b5fc7",
+                  "book-75132a01e7d73f05",
+                  "book-8094ef87f46f7442",
+                  "book-18eb5c4003d28bd1",
+                  "book-fb1106c13298d022",
+                  "book-95c8c23ddbcd050c",
+                  "book-136b815ccfd44f81",
+                  "book-2aa0744f11e949fd",
+                  "book-1ac4c4d24698cb71",
+                  "book-220321696dcad090",
+                  "book-99af95acdf4dc858",
+                  "book-3b274d87bf3b1f78",
+                  "book-3a1fc8f7d2841a63",
+                  "book-b61be8d3da5133ee",
+                  "book-aba98746ba49f4b1",
+                  "book-723a945ab3c808a1",
+                  "book-8f1f7aa7264e1566",
+                  "book-49cd6fcaa01aadf3",
+                  "book-26db1b5471c1efb9",
+                  "book-880722fde3464718",
+                  "book-52074e1f7b796d5c",
+                  "book-e54378e8105f1359",
+                  "book-d53d1d1dbd55948a",
+                  "book-046d3592fdae05b1",
+                  "book-0da74cf9fedc3412",
+                  "book-46cf7d4297b548d9",
+                  "book-fe7f8b0f475163f7",
+                  "book-f9c64e95be038ea9",
+                  "book-517b22f4b742e1e4",
+                  "book-c7c6c8960112a157",
+                  "book-226a2827b72ffe73",
+                  "book-9d64234936a97438",
+                  "book-0480eeb121b2ca0e",
+                  "book-fa3a74e3cc0991f6",
+                  "book-dd7b755b427c2336",
+                  "book-71da93fecfb0e4b3",
+                  "book-81b7bb40e4c880fe",
+                  "book-4346987a8177d771",
+                  "book-cba55e18822799e0",
+                  "book-7faead08c4d2f804",
+                  "book-d7eed1fb42521005",
+                  "book-cb92f7713431810b"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-c-103-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录103本已逐册核完虚构字段，其中虚构51本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-d-92-20261108-d",
+          "label": "D · 虚构",
+          "level": "D（虚构部分）",
+          "levelAliases": [
+            "D · 虚构部分",
+            "D（虚构）",
+            "D · 虚构"
+          ],
+          "edition": "小花生公开RAZ D 92册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "D · 虚构",
+              "count": 43,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-b259e438be7d11e4",
+                  "book-697c2b833e2b4e94",
+                  "book-3119f5f05e6bf217",
+                  "book-2efb80a48d1facab",
+                  "book-be88d8bd0aeb3545",
+                  "book-3770d91420283529",
+                  "book-ceb3f0e4af8252ac",
+                  "book-660d28e971189513",
+                  "book-ff697168c0cafbe4",
+                  "book-eb23fdc3c7409789",
+                  "book-d2fe71fc44e9075c",
+                  "book-d3c096e0c42bf005",
+                  "book-a6713e676ebdc798",
+                  "book-e00748ffa3857774",
+                  "book-23a61e7a35bd1d4a",
+                  "book-7f19d61e68ba0781",
+                  "book-b473ea49f1c19f5b",
+                  "book-b14ee5bc568ad1ee",
+                  "book-01e7e8446081ca88",
+                  "book-d5b3f52dba4b0e38",
+                  "book-216c1f10439ff759",
+                  "book-4e44a91c4158c410",
+                  "book-61f5a61f59d00a01",
+                  "book-b755a7029c0a9789",
+                  "book-4c50e07824c96d95",
+                  "book-ff7e847399f0452e",
+                  "book-aa797c52e0f400f3",
+                  "book-782862c5e14ba388",
+                  "book-c6fa009746db51d6",
+                  "book-c1e575970394e3f1",
+                  "book-505d5bc8e84cbc07",
+                  "book-702ac09736d1874d",
+                  "book-3100341b82fdcf8b",
+                  "book-26e37c58d2410637",
+                  "book-b9c86f2f9f4e76de",
+                  "book-f5533abbc1cfaf9b",
+                  "book-9a9e99fc17fe5012",
+                  "book-9077d76423dcce18",
+                  "book-bb9cfe7c0828e301",
+                  "book-db5f92f57efe108d",
+                  "book-7effc95015f68c7f",
+                  "book-ac92d4e3ef4ae121",
+                  "book-0587be6142bb4c86"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-d-92-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录92本已逐册核完虚构字段，其中虚构43本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-e-92-20261108-e",
+          "label": "E · 虚构",
+          "level": "E（虚构部分）",
+          "levelAliases": [
+            "E · 虚构部分",
+            "E（虚构）",
+            "E · 虚构"
+          ],
+          "edition": "小花生公开RAZ E 92册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "E · 虚构",
+              "count": 44,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-45c4f5226776b1b1",
+                  "book-af64e83a8e9fb52a",
+                  "book-0149564aec12f93e",
+                  "book-2933fe0307a6cf2b",
+                  "book-526d13601a635ff7",
+                  "book-c6892e578c694bc7",
+                  "book-16a7af8d732b38ef",
+                  "book-6185d72f9913af52",
+                  "book-86919f905ab025b5",
+                  "book-01321ad06b39fc11",
+                  "book-9037f3663cf1452f",
+                  "book-fe6d008c4971eea3",
+                  "book-29ce2452403792bf",
+                  "book-49fd45bfd77f2214",
+                  "book-4fb1eda808918bf7",
+                  "book-e3a6087e43547a1b",
+                  "book-d75c3dadee1a2d21",
+                  "book-b1c34393763c27e0",
+                  "book-98e8dc8b6b7dd802",
+                  "book-95db8fc79362f593",
+                  "book-e91cb891868a0fb2",
+                  "book-988ab2bbe467e239",
+                  "book-6c9c638ab3e96092",
+                  "book-fd5bc16a2b827c74",
+                  "book-b2ac81c9dcfc7435",
+                  "book-7d5c161c05bb3dce",
+                  "book-2ae35dbf742cf795",
+                  "book-7d18d8d8d7f1a6c0",
+                  "book-8c3441caa0d2a9b1",
+                  "book-4c3264fb424de449",
+                  "book-af8094f97aabffa8",
+                  "book-a5f240b79b067434",
+                  "book-1ebcacaaf9bd36c3",
+                  "book-c3889988a10924e5",
+                  "book-916c4ce2b9df9933",
+                  "book-123bcaac90053e5d",
+                  "book-7a8633dcd320bce1",
+                  "book-1c279f21e38d58cc",
+                  "book-2f8d26c0b8c68c2a",
+                  "book-651ed826dedb2f54",
+                  "book-ca2de2aa21bb9575",
+                  "book-b051462ccfc7f454",
+                  "book-02b06e51348e3182",
+                  "book-4190dcbadd968aac"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-e-92-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录92本已逐册核完虚构字段，其中虚构44本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-f-89-20261108-f",
+          "label": "F · 虚构",
+          "level": "F（虚构部分）",
+          "levelAliases": [
+            "F · 虚构部分",
+            "F（虚构）",
+            "F · 虚构"
+          ],
+          "edition": "小花生公开RAZ F 89册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "F · 虚构",
+              "count": 41,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-3a67a7ff19109870",
+                  "book-5191f55306a89885",
+                  "book-5ec18f963a22aa26",
+                  "book-98160f85d4eb4837",
+                  "book-6f88dea4fd29ae9f",
+                  "book-2b55be811009ca15",
+                  "book-b96e25e8147faeab",
+                  "book-1e0eae355abbb8a1",
+                  "book-6596e03303ce3e1d",
+                  "book-610159759a3dea00",
+                  "book-350b8b10f2fe1569",
+                  "book-7b5766bb134ca950",
+                  "book-c9a6c5153116ae32",
+                  "book-b76980fe839a79c3",
+                  "book-c042f4449ef81593",
+                  "book-b07375cc04351c5f",
+                  "book-dc5cb533509e732d",
+                  "book-358f8310c1deadca",
+                  "book-54f73d68e0112bd8",
+                  "book-118ebb2b084c79e4",
+                  "book-47039ba31654bd2b",
+                  "book-e6cc5911372dd6b4",
+                  "book-d64111d50c4c817c",
+                  "book-06a525f432fe4b09",
+                  "book-5155d42905c8e656",
+                  "book-6f80cf8d2b8cb065",
+                  "book-74e7e0c849d00305",
+                  "book-919f446f8255525d",
+                  "book-7fdc44ec2fece304",
+                  "book-004ae5a38c7e2fec",
+                  "book-998003ab6460ba46",
+                  "book-45266e824bd78805",
+                  "book-905ecb3db69f1b40",
+                  "book-f11e478f0946d97b",
+                  "book-d921a602bfed85a1",
+                  "book-20dbdaff9f7bae12",
+                  "book-46e23fdc766d5081",
+                  "book-ed655fe4ffb2d435",
+                  "book-b9b9fb33a7cb4993",
+                  "book-458602905fa658b2",
+                  "book-5c44707e503a9492"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-f-89-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录89本已逐册核完虚构字段，其中虚构41本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-g-86-20261108-g",
+          "label": "G · 虚构",
+          "level": "G（虚构部分）",
+          "levelAliases": [
+            "G · 虚构部分",
+            "G（虚构）",
+            "G · 虚构"
+          ],
+          "edition": "小花生公开RAZ G 86册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "G · 虚构",
+              "count": 37,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-fc0ea48b08d3b141",
+                  "book-5d3e6067ffde1ed0",
+                  "book-11350f03baea5269",
+                  "book-c05eaac6d4b20f4f",
+                  "book-c79ed83f88ca4279",
+                  "book-9bf9d91a7b4be74a",
+                  "book-162b5d8d8c24b4f7",
+                  "book-9b28ea2d3c23b184",
+                  "book-a6c21ffa2f26dee2",
+                  "book-e817cac4cda85180",
+                  "book-fb5e050583660eeb",
+                  "book-caf40c21b9c770cc",
+                  "book-913702ac05fceb93",
+                  "book-7e9e4a8a63652dfc",
+                  "book-7c82b10159260671",
+                  "book-7938dc1555145336",
+                  "book-e35718581179426c",
+                  "book-828ed0d7c2648232",
+                  "book-1d291997cf8a6bd1",
+                  "book-bc9ccca773d0f8da",
+                  "book-706aba3ecaf3e1fc",
+                  "book-0cc479a25c8f8051",
+                  "book-51485ddc3e6345f9",
+                  "book-190ced70e67bb981",
+                  "book-122a766461af7362",
+                  "book-2cc9cd7203e9f6ce",
+                  "book-3d3d53e6450147e1",
+                  "book-bc9ce231b25ea405",
+                  "book-9251d764d63df9e3",
+                  "book-caa6b120e3f3024b",
+                  "book-e47b0947aa5cfcf9",
+                  "book-dee4110fea530e4e",
+                  "book-48c23e96191c9681",
+                  "book-64115fa41ce1996c",
+                  "book-a548328880fb4431",
+                  "book-81a667a57f2340ae",
+                  "book-8879f63265c8fa9f"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-g-86-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录86本已逐册核完虚构字段，其中虚构37本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-h-81-20261108-h",
+          "label": "H · 虚构",
+          "level": "H（虚构部分）",
+          "levelAliases": [
+            "H · 虚构部分",
+            "H（虚构）",
+            "H · 虚构"
+          ],
+          "edition": "小花生公开RAZ H 81册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "H · 虚构",
+              "count": 34,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-a497482a0bfa8f16",
+                  "book-a7943fec3b0b2aaa",
+                  "book-834ec394524e3b7f",
+                  "book-1dd4db75f5986305",
+                  "book-5c82d0a820f00813",
+                  "book-851382a0334b0be4",
+                  "book-8c3c25aaaf0a6203",
+                  "book-567df1e8ff9b5c07",
+                  "book-53db6e3571397abe",
+                  "book-0212816a8e1937ba",
+                  "book-1ea3c17f8265b2c6",
+                  "book-5300f0591d71bfe7",
+                  "book-a70d032a2821ca6a",
+                  "book-a574d73de8203746",
+                  "book-96e99c3c463a7079",
+                  "book-ae32e94206bd7682",
+                  "book-2b3add8b83ab5a2b",
+                  "book-de1e9fd07271d14a",
+                  "book-393e073559eaa1ee",
+                  "book-ea777393a62fcdec",
+                  "book-7a4ebb8b0d62bc5a",
+                  "book-c46fc447189d2342",
+                  "book-8365ebaf60a8c386",
+                  "book-e65e28908f071bcf",
+                  "book-20a41e0ab2cb6ea1",
+                  "book-283378a086ade33a",
+                  "book-267738d6210e1583",
+                  "book-4c7049ee050cd3e1",
+                  "book-184045b6293e66dc",
+                  "book-216c501b8a6805cf",
+                  "book-c434a69e347ad834",
+                  "book-f8340d69c9ed2ec2",
+                  "book-6dfa2fdd82c4886d",
+                  "book-4e58d632dc1bc2fd"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-h-81-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录81本已逐册核完虚构字段，其中虚构34本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-j-83-20261108-j",
+          "label": "J · 虚构",
+          "level": "J（虚构部分）",
+          "levelAliases": [
+            "J · 虚构部分",
+            "J（虚构）",
+            "J · 虚构"
+          ],
+          "edition": "小花生公开RAZ J 83册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "J · 虚构",
+              "count": 37,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-76addba327a34d4e",
+                  "book-332876b6ebcbb50b",
+                  "book-2aa3d11bba330c03",
+                  "book-aca1bae01ff385c7",
+                  "book-592bfe199683ee0f",
+                  "book-c9c7bb0cc8431d12",
+                  "book-cbe32df47a2437c5",
+                  "book-374911f17ef681fa",
+                  "book-0e0dc6196d4e0a16",
+                  "book-2efd83cfea512eda",
+                  "book-bf26f0a1fe11a5f0",
+                  "book-6fad0de2ef0ebda3",
+                  "book-bf802e48c9480382",
+                  "book-b949e58681c1ab71",
+                  "book-ec680d3f764295aa",
+                  "book-0c80bf002c412b7a",
+                  "book-9590eeb9f82544ef",
+                  "book-bc38fb0e9371731c",
+                  "book-aaa340d672d2d1be",
+                  "book-b8bcfef128b61eab",
+                  "book-fa0053693b1d067e",
+                  "book-7130a6551a3a994c",
+                  "book-49f852e87e65ecd8",
+                  "book-fa51d6c7b3d12923",
+                  "book-e7bd4ee78f582c6d",
+                  "book-f044e53ba8d1bc40",
+                  "book-0bf9a8063c810c00",
+                  "book-bb70f3b9a25991e9",
+                  "book-7b85826acbd8ca1a",
+                  "book-7ee1cb1d9ef2034b",
+                  "book-1b27a9baa100e7b2",
+                  "book-1b598c5d3b59c564",
+                  "book-f46a9ec022299378",
+                  "book-c0351c6b76a169fd",
+                  "book-278349c763e32282",
+                  "book-54d01d0d3d7f0901",
+                  "book-b49ecc14c64c2642"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-j-83-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录83本已逐册核完虚构字段，其中虚构37本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-k-80-20261108-k",
+          "label": "K · 虚构",
+          "level": "K（虚构部分）",
+          "levelAliases": [
+            "K · 虚构部分",
+            "K（虚构）",
+            "K · 虚构"
+          ],
+          "edition": "小花生公开RAZ K 80册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "K · 虚构",
+              "count": 31,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-b06a0eb7ce4e5161",
+                  "book-41c2f4644d1f7baa",
+                  "book-3f3cb16e24fc3525",
+                  "book-a4644fd5a37fb122",
+                  "book-0b8901edd6909f9d",
+                  "book-127ca02795b56a85",
+                  "book-9d9aee52e5f45584",
+                  "book-252ba39b5f0e3721",
+                  "book-9e52f6c44ad38012",
+                  "book-744ac6528bedc600",
+                  "book-6ed49f963730a986",
+                  "book-0ee3d0868490d893",
+                  "book-2e54db98a4723edd",
+                  "book-f473eb53e66ac68a",
+                  "book-2310129fe7c5f86a",
+                  "book-14c4c91d448b97f9",
+                  "book-69b9c74b9f4ab8e3",
+                  "book-6cb2c8c923050b1a",
+                  "book-af680fc23511bcd9",
+                  "book-d0c9816fdda303ad",
+                  "book-de8882a185c842a7",
+                  "book-e815ca1f923ab98e",
+                  "book-9221980a84a03faa",
+                  "book-d6e69912dc9560f7",
+                  "book-4ddb994d77e7c2c0",
+                  "book-91b13a9db6954814",
+                  "book-a0708aef68703f48",
+                  "book-3bee17afe4f195e4",
+                  "book-132edc303d3b1e9d",
+                  "book-5b05e53c712d9fc1",
+                  "book-6c70689311136242"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-k-80-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录80本已逐册核完虚构字段，其中虚构31本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-m-82-20261108-m",
+          "label": "M · 虚构",
+          "level": "M（虚构部分）",
+          "levelAliases": [
+            "M · 虚构部分",
+            "M（虚构）",
+            "M · 虚构"
+          ],
+          "edition": "小花生公开RAZ M 82册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "M · 虚构",
+              "count": 33,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-32bcbdc6551bdbc0",
+                  "book-5613bcf72be058fe",
+                  "book-055c4157c7ba306d",
+                  "book-90dc97cb01489e15",
+                  "book-057a69d7f15a0e96",
+                  "book-8490da656f01d252",
+                  "book-70cf86c96bae955d",
+                  "book-c2a4bb0a4fb0aa08",
+                  "book-36012c5c7da4f268",
+                  "book-086f8de160966ffc",
+                  "book-9d3194bf096f4dd5",
+                  "book-0c48d98d6637873f",
+                  "book-58d824cc4aad1b17",
+                  "book-073aebbd5ed50fc6",
+                  "book-a02596699e4d16c6",
+                  "book-a5fbee39cbccfd70",
+                  "book-f43a514e3cd78f55",
+                  "book-62916c5c43ece5eb",
+                  "book-e7bee4973c5259f6",
+                  "book-998fc99a0ee42c43",
+                  "book-037194ded31af8f1",
+                  "book-a18c19c36cb63541",
+                  "book-cac5dbb95b4a3268",
+                  "book-9c426a0b20541252",
+                  "book-44dbefcc653dae2f",
+                  "book-53da4279774277d4",
+                  "book-46d3b587695833e3",
+                  "book-11d0d001e4d77123",
+                  "book-7029765320d51f05",
+                  "book-665a007fb5290d64",
+                  "book-5d15d34d8232556c",
+                  "book-db02b3ae5aacc46c",
+                  "book-536c7d0cc6016b74"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-m-82-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录82本已逐册核完虚构字段，其中虚构33本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
+        },
+        {
+          "id": "fiction-xhs-raz-i-85-20261108-i",
+          "label": "I · 虚构",
+          "level": "I（虚构部分）",
+          "levelAliases": [
+            "I · 虚构部分",
+            "I（虚构）",
+            "I · 虚构"
+          ],
+          "edition": "小花生公开RAZ I 85册目录（2026-11-08快照） · 虚构选本",
+          "parts": [
+            {
+              "label": "I · 虚构",
+              "count": 35,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-0c5d6f09b3e00be6",
+                  "book-e4b916539a48dc86",
+                  "book-b57ae50905e151d7",
+                  "book-6cfc895a3a38bf9d",
+                  "book-363bb19a342f5e20",
+                  "book-043cafbe13ef306e",
+                  "book-2657caaa196bee3e",
+                  "book-a6ec57ed80cc99fa",
+                  "book-ad562f55e892fce7",
+                  "book-e3cb93313ba33b5d",
+                  "book-99e511145de229b0",
+                  "book-77e938adea593c6d",
+                  "book-64fd8d8c7a0971ee",
+                  "book-e306433356d43605",
+                  "book-f389cd97e4e1e05b",
+                  "book-6215f5de7f670d16",
+                  "book-63d14439ab8b348d",
+                  "book-d50430a3c78bfe3b",
+                  "book-0012091fb317858b",
+                  "book-c0a7657e7f9346fe",
+                  "book-5bd28f97e7ffea0d",
+                  "book-245b6e6f4e4981d4",
+                  "book-4d76e19947b99b02",
+                  "book-a40f263ac04f45b8",
+                  "book-2f17ea52ec572b30",
+                  "book-f484470e872e1635",
+                  "book-0830fcbb9b8aa7dd",
+                  "book-b15eba761b51ca3c",
+                  "book-7a96751119d95ec3",
+                  "book-14e098bd8972d8a1",
+                  "book-2d674a42a8f98dfe",
+                  "book-2859a1a2c4729afb",
+                  "book-0686387f69e453c5",
+                  "book-173d655262ba514b",
+                  "book-94c3241dc8c7ab49"
+                ]
+              }
+            }
+          ],
+          "includedIn": [
+            "xhs-raz-i-85-20261108"
+          ],
+          "referenceOnly": true,
+          "note": "逐册采用小花生公开虚构标注；分母仅覆盖所列具名目录的虚构成员，非所有版次的固定虚构册数。",
+          "sources": [
+            {
+              "title": "小花生公开逐册分类",
+              "url": "https://www.xiaohuasheng.cn/",
+              "evidence": "原目录85本已逐册核完虚构字段，其中虚构35本；成员、逐册来源与分类保存在公共目录，不按题名猜测。",
+              "checkedAt": "2026-11-09"
+            }
+          ]
         }
       ],
       "checkedAt": "2026-11-05",
@@ -4683,6 +6067,12 @@
           "evidence": "官方Titles in Order最高Book40 Sea Otter Sunrise，并明确Merlin Missions、Fact Trackers、Graphic Novels为独立分支及2017重编号。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/81f9f75c983337a1",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得28个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -4706,6 +6096,52 @@
               "evidence": "官方Titles in Order最高Book40 Sea Otter Sunrise，并明确Merlin Missions、Fact Trackers、Graphic Novels为独立分支及2017重编号。",
               "checkedAt": "2026-11-05",
               "status": "original-page-read"
+            }
+          ]
+        },
+        {
+          "id": "resource-1mnq6y8-xhs-28-20261109",
+          "label": "28本选集（原主系列40本范围另列）",
+          "edition": "Magic Tree House 神奇树屋 · 小花生28本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "28本选集",
+              "count": 28,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-687682fffce7bf1a",
+                  "book-e0084bf0da236896",
+                  "book-8ec6d8b86ba51600",
+                  "book-cbe4c3092a257cef",
+                  "book-a77fe6da16fa4d05",
+                  "book-3c7fcd89c4139057",
+                  "book-194f328b4c6a0871",
+                  "book-357e83da9cb768a8",
+                  "book-9da776042f1e7f53",
+                  "book-36c429f0dc939587",
+                  "book-56f902ce5571677f",
+                  "book-03da994d3d01af57",
+                  "book-f65bc631d70db908",
+                  "book-f36d83c08b6d2220",
+                  "book-ebfec58071d1807d",
+                  "book-ae4601a6b2cc8b15",
+                  "book-647463092ffd7589",
+                  "book-f3a36bc17f3fa1b4",
+                  "book-7946b69a58d16224",
+                  "book-ba035634599b4056",
+                  "book-9a7d739459ea2bd1",
+                  "book-053a18ad59577f87",
+                  "book-0519bc56ef694a68",
+                  "book-f04d26cd93af76e1",
+                  "book-578cb463ef7234f2",
+                  "book-86c9de6e8b6ab0fd",
+                  "book-e8376aee10b4bb5f",
+                  "book-7dbd43f4ce56e73a"
+                ]
+              }
             }
           ]
         }
@@ -4825,6 +6261,12 @@
           "title": "Scholastic：Captain Underpants Book12",
           "evidence": "Book12为Captain Underpants and the Sensational Saga of Sir Stinks-A-Lot。",
           "verification": "fulltext"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/925de02116204520",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得12个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -4835,7 +6277,23 @@
           "parts": [
             {
               "label": "Captain Underpants 原小说 #1–12",
-              "count": 12
+              "count": 12,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-8e5ae39b8a05c193",
+                  "book-d16f401b702bd74e",
+                  "book-8c02c5fc3da7d7ec",
+                  "book-0d5c20b3e873dcea",
+                  "book-91d30b9e4a230eea",
+                  "book-55c9f6aef244cc66",
+                  "book-4a3f9a4b28c835f1",
+                  "book-ad94eb45ddb3daf3",
+                  "book-ceb49eccf6401e40",
+                  "book-b628a8ad57cf31cc",
+                  "book-7e335ca03f301f17",
+                  "book-ede36c65761cc4d2"
+                ]
+              }
             }
           ]
         }
@@ -5290,6 +6748,29 @@
           "default": false,
           "countOnlyCompatible": true,
           "referenceOnly": true
+        },
+        {
+          "id": "pig-fox-bilingual-4",
+          "label": "全套",
+          "edition": "小彼恩小猪和狐狸双语4册版",
+          "level": "全套",
+          "parts": [
+            {
+              "label": "全套",
+              "level": "全套",
+              "count": 4
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "小彼恩官方",
+              "url": "https://www.xiaobien.com/product/detail/diandubao-17966",
+              "evidence": "官方标题4册装；正文每本3个故事，按4本而非12故事计数。",
+              "checkedAt": "2026-11-05"
+            }
+          ]
         }
       ],
       "edition": "庆爸3-4岁2.0版原稿所列选本",
@@ -5305,9 +6786,16 @@
           "url": "https://www.xiaohuasheng.cn/series/9a6003402fffb038",
           "evidence": "公开集合声明4条，完整分页[4]；本分项核定4本。湖南少儿双语绘本4册ISBN9787556281947；公开成员用原英文记录，不改作者4册范围。",
           "checkedAt": "2026-11-08"
+        },
+        {
+          "title": "小彼恩官方",
+          "url": "https://www.xiaobien.com/product/detail/diandubao-17966",
+          "evidence": "官方标题4册装；正文每本3个故事，按4本而非12故事计数。",
+          "checkedAt": "2026-11-05"
         }
       ],
-      "title": "小猪和狐狸"
+      "title": "小猪和狐狸",
+      "displayTitle": "小猪和狐狸"
     },
     {
       "resourceId": "resource-1xt8nl",
@@ -5522,6 +7010,12 @@
           "title": "Scholastic Parents：Eerie Elementary Branches",
           "evidence": "官方可读正文确认作者系列属于Branches、三位主人公及适读说明；数量由独立阅读目录逐本核对，不用官方商店模板充当正文。",
           "verification": "fulltext"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/9c10065346828240",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得9个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -5533,6 +7027,33 @@
             {
               "label": "Eerie Elementary 原版主系列 #1–10",
               "count": 10
+            }
+          ]
+        },
+        {
+          "id": "resource-nxe263-xhs-9-20261109",
+          "label": "9本选集（原主系列10本范围另列）",
+          "edition": "Eerie elementary 怪诞小学 · 小花生9本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "9本选集",
+              "count": 9,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-b28da7c8444681a7",
+                  "book-237d03f7dbc3087c",
+                  "book-46a80c1cf8d733fb",
+                  "book-909f78e9e55a1939",
+                  "book-441d16a4088ebf84",
+                  "book-dcab36746e3db3ae",
+                  "book-8bbf136d1d6654be",
+                  "book-f36c575ab7f7d744",
+                  "book-4b4a6b8fa5d86c15"
+                ]
+              }
             }
           ]
         }
@@ -5561,6 +7082,12 @@
           "title": "PRH：A to Z Mysteries Series",
           "evidence": "官方按 Book 26 至原系列 Book 1 编号；字母全集从A至Z。",
           "verification": "fulltext"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/51d367b76b2c1770",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得26个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -5571,7 +7098,37 @@
           "parts": [
             {
               "label": "A to Z Mysteries 原系列 A–Z",
-              "count": 26
+              "count": 26,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-cd2176803d02675c",
+                  "book-f39134ac7d1ec32b",
+                  "book-e81269af8f3c8985",
+                  "book-832257a588733ec5",
+                  "book-844e0e0d995c6cef",
+                  "book-f82b0f80855fa93f",
+                  "book-d6a1dc738c6b610d",
+                  "book-3f352c204e647acf",
+                  "book-f94b88dacc22a928",
+                  "book-49947bd025f75a1d",
+                  "book-2085148044c3a416",
+                  "book-4d3bbfdbcd05ea00",
+                  "book-8f11983d994f69bb",
+                  "book-5ab5662460db8a7d",
+                  "book-485d622f399251b9",
+                  "book-419f67c1e0b824d5",
+                  "book-65ca96d61f3592da",
+                  "book-e9272f8a44f52dc5",
+                  "book-eeaeff5a7019118e",
+                  "book-7a0b6b07546e08f5",
+                  "book-f3ce640a6b42c19c",
+                  "book-b32dbc1ded48e5b3",
+                  "book-0ad2fac7458473c2",
+                  "book-29afbbc674a678d4",
+                  "book-c3cc765d996b4832",
+                  "book-47df3413a647bd8d"
+                ]
+              }
             }
           ]
         }
@@ -5598,6 +7155,12 @@
           "title": "HarperCollins：The Wayside School 4-Book Collection",
           "evidence": "All four books；明确列 Sideways Stories, Is Falling Down, Gets a Little Stranger, Beneath the Cloud of Doom。",
           "verification": "fulltext"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/b3c7777ff3f84650",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得3个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -5609,6 +7172,27 @@
             {
               "label": "Wayside School 四部小说",
               "count": 4
+            }
+          ]
+        },
+        {
+          "id": "resource-1whu8ta-xhs-3-20261109",
+          "label": "3本选集（原主系列4本范围另列）",
+          "edition": "Wayside School 歪歪路小学 · 小花生3本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "3本选集",
+              "count": 3,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-5073ff92a352239c",
+                  "book-758577a9ddf34b8a",
+                  "book-99e9bcbfcb8cc45a"
+                ]
+              }
             }
           ]
         }
@@ -5636,6 +7220,12 @@
           "title": "OverDrive：Lotus Lane Collection",
           "evidence": "Books 1-4；Read all four diaries。",
           "verification": "fulltext"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/a04d8cfba3a93880",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得4个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -5646,7 +7236,15 @@
           "parts": [
             {
               "label": "Lotus Lane Diaries #1–4",
-              "count": 4
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-38fb46db902a8d9f",
+                  "book-068b275d2093ae4f",
+                  "book-167ea55cb63f86fb",
+                  "book-49bd8dbe88457fd5"
+                ]
+              }
             }
           ]
         }
@@ -5711,6 +7309,12 @@
           "title": "PRH：Andrew Lost Series",
           "evidence": "官方 Titles in Order 列 Book18 With the Frogs 至较早编号，Amazon系列目录另确认18 book series。",
           "verification": "fulltext"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/f2bb2e161b87c710",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得18个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -5721,7 +7325,29 @@
           "parts": [
             {
               "label": "Andrew Lost 原系列 #1–18",
-              "count": 18
+              "count": 18,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-0d3621465bfa0fa2",
+                  "book-107cd239a72e4ce9",
+                  "book-5c178910e2694f35",
+                  "book-150e637fc9d11f8d",
+                  "book-8af8f52db85b4c60",
+                  "book-de7795fb49de23e2",
+                  "book-f34dc9695f016092",
+                  "book-c6577fbe751323fa",
+                  "book-e79ee9d6223b55b6",
+                  "book-01edeea5e0882ba2",
+                  "book-7d31abba73ce750e",
+                  "book-ed933292df978cf3",
+                  "book-b2628296026725a4",
+                  "book-41668f6de47b811d",
+                  "book-c06e1a9bfce0d5fa",
+                  "book-5cd7d6baaef6bb0c",
+                  "book-87743caa1ff71a3c",
+                  "book-10b24f3691b0da67"
+                ]
+              }
             }
           ]
         }
@@ -5804,6 +7430,18 @@
           "url": "https://www.xiaohuasheng.cn/series/776f52b1d5019a5c",
           "evidence": "公开集合声明20条，完整分页[20]；本分项核定20本。",
           "checkedAt": "2026-11-08"
+        },
+        {
+          "title": "当当出版标题",
+          "url": "http://product.m.dangdang.com/29197882.html",
+          "evidence": "搜索索引明确合辑40册。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "上辑出版标题",
+          "url": "https://www.amazon.fr/dp/7556074056",
+          "evidence": "搜索索引明确上辑全20册。下20由合辑40减上20，需在来源中说明计算。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -5836,6 +7474,70 @@
               }
             }
           ]
+        },
+        {
+          "id": "pearson-speaking400-upper",
+          "label": "上",
+          "edition": "培生上下合辑40册",
+          "level": "上",
+          "parts": [
+            {
+              "label": "上",
+              "level": "上",
+              "count": 20
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "当当出版标题",
+              "url": "http://product.m.dangdang.com/29197882.html",
+              "evidence": "搜索索引明确合辑40册。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "上辑出版标题",
+              "url": "https://www.amazon.fr/dp/7556074056",
+              "evidence": "搜索索引明确上辑全20册。下20由合辑40减上20，需在来源中说明计算。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "pearson-400-upper"
+          ]
+        },
+        {
+          "id": "pearson-speaking400-lower",
+          "label": "下",
+          "edition": "培生上下合辑40册",
+          "level": "下",
+          "parts": [
+            {
+              "label": "下",
+              "level": "下",
+              "count": 20
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "当当出版标题",
+              "url": "http://product.m.dangdang.com/29197882.html",
+              "evidence": "搜索索引明确合辑40册。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "上辑出版标题",
+              "url": "https://www.amazon.fr/dp/7556074056",
+              "evidence": "搜索索引明确上辑全20册。下20由合辑40减上20，需在来源中说明计算。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "pearson-400-lower"
+          ]
         }
       ],
       "checkedAt": "2026-11-05",
@@ -5850,7 +7552,8 @@
         "reason": "上辑20册；两辑总40册，下辑因此20册。sails完整品牌并非本套范围。",
         "checkedAt": "2026-11-05"
       },
-      "title": "培生400句"
+      "title": "培生400句",
+      "displayTitle": "培生儿童英语情境口语400句"
     },
     {
       "resourceId": "resource-xqapbe",
@@ -5862,6 +7565,23 @@
           "title": "Sleeping Bear Press：Frog and Friends",
           "evidence": "All 8 titles found；Eve Bunting原系列。",
           "verification": "fulltext"
+        },
+        {
+          "title": "公开检索线索（版本与范围待核验）",
+          "url": "https://www.taobao.com/list/product/froggy%E7%BB%98%E6%9C%AC.htm",
+          "evidence": "仅作查找版本的线索，不据此设定本阶段总量。"
+        },
+        {
+          "title": "Amazon系列条目",
+          "url": "https://www.amazon.com/Outdoor-Surprises-AM-READER-Friends-ebook/dp/B00P1IYVP6",
+          "evidence": "搜索显示Eve Bunting系列8 books；中文16册套装包含8英文+8中文，不能当16英文。",
+          "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "完整书目索引",
+          "url": "https://www.kidsbookseries.com/frog-and-friends/",
+          "evidence": "检索列出Frog and Friends出版顺序，网页抓取正文不可读，仅辅助身份。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -5879,6 +7599,38 @@
               }
             }
           ]
+        },
+        {
+          "id": "frog-friends-bunting8",
+          "label": "英文8册",
+          "edition": "Eve Bunting Frog and Friends",
+          "level": "",
+          "parts": [
+            {
+              "label": "英文8册",
+              "level": "",
+              "count": 8
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Amazon系列条目",
+              "url": "https://www.amazon.com/Outdoor-Surprises-AM-READER-Friends-ebook/dp/B00P1IYVP6",
+              "evidence": "搜索显示Eve Bunting系列8 books；中文16册套装包含8英文+8中文，不能当16英文。",
+              "checkedAt": "2026-11-05"
+            },
+            {
+              "title": "完整书目索引",
+              "url": "https://www.kidsbookseries.com/frog-and-friends/",
+              "evidence": "检索列出Frog and Friends出版顺序，网页抓取正文不可读，仅辅助身份。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "includedIn": [
+            "verified-xqapbe-main"
+          ]
         }
       ],
       "checkedAt": "2026-11-05",
@@ -5891,7 +7643,8 @@
         "reason": "与Frog and Toad、A Frog and Dog是不同套系，不合并。",
         "checkedAt": "2026-11-05"
       },
-      "title": "Frog and Friends"
+      "title": "Frog and Friends",
+      "displayTitle": "Frog and Friends 蛙小弟"
     },
     {
       "resourceId": "resource-1u6no5j",
@@ -6178,7 +7931,8 @@
         "reason": "每级8册故事，1册学习指导不计读物；保留原路线背面级别对照，不重写稳定ID。",
         "checkedAt": "2026-11-05"
       },
-      "title": "丽声冒险岛"
+      "title": "丽声冒险岛",
+      "displayTitle": "丽声冒险故事岛"
     },
     {
       "resourceId": "resource-1daz61h",
@@ -6477,6 +8231,12 @@
           "url": "https://www.scholastic.com/site/acorn/moby-shinobi-and-toby-too.html",
           "evidence": "实际读取出版社逐册标题与简介：Surf's Up!；Take a Hike!；Ready, Set, Go!。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/4c8e7e34042fc263",
+          "checkedAt": "2026-11-09",
+          "evidence": "3本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -6488,7 +8248,14 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 3
+              "count": 3,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-d84fa3709b9e4588",
+                  "book-67049712481b23b9",
+                  "book-3aa3a88e6fd54198"
+                ]
+              }
             }
           ],
           "default": true
@@ -6516,6 +8283,12 @@
           "url": "https://www.scholastic.com/site/acorn/fairylight-friends.html",
           "evidence": "实际读取出版社逐册标题与简介：A Magic Spark；Time to Shine；Full Moon Party。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/b7326e50386f0b69",
+          "checkedAt": "2026-11-09",
+          "evidence": "3本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -6527,7 +8300,14 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 3
+              "count": 3,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-792899c01532a8ef",
+                  "book-4567d767669cdb7a",
+                  "book-2f66a1248e01ddb4"
+                ]
+              }
             }
           ],
           "default": true
@@ -6555,6 +8335,12 @@
           "url": "https://www.scholastic.com/site/branches/missys-super-duper-royal-deluxe.html",
           "evidence": "实际读取出版社逐册标题与简介：Picture Day；Class Pets；School Play；Field Trip。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/94a80b8029db9ac0",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得4个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -6566,7 +8352,15 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 4
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-21200675a4edae6f",
+                  "book-cfafe3a00f181061",
+                  "book-43fff39f23be0627",
+                  "book-83b98b581c3aeb93"
+                ]
+              }
             }
           ],
           "default": true
@@ -6594,6 +8388,12 @@
           "url": "https://www.scholastic.com/site/branches/haggis-and-tank-unleashed.html",
           "evidence": "实际读取出版社逐册标题与简介：All Paws on Deck；Digging for Dinos；Howl at the Moon。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/45200546939f1f0",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得3个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -6605,7 +8405,14 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 3
+              "count": 3,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-6fb94d6f7340316d",
+                  "book-6db73900461e8499",
+                  "book-c2f1d3423f6842ca"
+                ]
+              }
             }
           ],
           "default": true
@@ -6633,6 +8440,12 @@
           "url": "https://www.scholastic.com/site/branches/layla-and-the-bots.html",
           "evidence": "实际读取出版社逐册标题与简介：Built for Speed；Cupcake Fix；Happy Paws；Making Waves。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/9c41a5473e3acbf9",
+          "checkedAt": "2026-11-09",
+          "evidence": "4本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -6644,7 +8457,15 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 4
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-2a425e6bfc210914",
+                  "book-0fd59e483cf358c8",
+                  "book-c7b54657412a3104",
+                  "book-f43b8881cbc65aeb"
+                ]
+              }
             }
           ],
           "default": true
@@ -6715,6 +8536,12 @@
           "url": "https://www.scholastic.com/site/branches/princess-pink-and-the-land-of-fake-believe.html",
           "evidence": "实际读取出版社逐册标题与简介：Moldylocks and the Three Beards；Little Red Quacking Hood；Three Little Pugs；Jack and the Snackstalk。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/cfd801f6b4ea3e70",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得4个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -6726,7 +8553,15 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 4
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-65d3e611de8ff289",
+                  "book-d45002d67b3a6a69",
+                  "book-455ace6b19d12944",
+                  "book-e0fb36ec2730d377"
+                ]
+              }
             }
           ],
           "default": true
@@ -6754,6 +8589,12 @@
           "url": "https://www.scholastic.com/site/branches/olive-and-beatrix.html",
           "evidence": "实际读取出版社逐册标题与简介：Not-So Itty-Bitty Spiders, The；Super-Smelly Moldy Blob, The。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/c7b5c254dc01f820",
+          "checkedAt": "2026-11-09",
+          "evidence": "2本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -6765,7 +8606,13 @@
           "parts": [
             {
               "label": "官网所列主系列读物",
-              "count": 2
+              "count": 2,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-3579ffde84b5c5b3",
+                  "book-5aade68d8769d911"
+                ]
+              }
             }
           ],
           "default": true
@@ -6786,7 +8633,7 @@
       "resourceId": "resource-9d0yj6",
       "edition": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列",
       "unit": "本",
-      "note": "仅核定本来源所列英文读物范围，不追加作者必读要求。",
+      "note": "仅核定本来源所列英文读物范围，不追加作者必读要求。 同系列统一到公共素材；旧ID与scope仅作原记录兼容，不单独展示素材。",
       "sources": [
         {
           "title": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列 · 原页核查",
@@ -6795,21 +8642,7 @@
           "checkedAt": "2026-11-05"
         }
       ],
-      "scopes": [
-        {
-          "id": "audit-20261105-9d0yj6-9-1",
-          "label": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列",
-          "level": "",
-          "edition": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列",
-          "parts": [
-            {
-              "label": "Books 1–8",
-              "count": 8
-            }
-          ],
-          "default": true
-        }
-      ],
+      "scopes": [],
       "catalogAudit": {
         "status": "confirmed-scope",
         "queries": [
@@ -6819,7 +8652,8 @@
         "checkedAt": "2026-11-05"
       },
       "checkedAt": "2026-11-05",
-      "title": "A Jack Book 淘气兔子杰克"
+      "title": "A Jack Book 淘气兔子杰克",
+      "catalogResourceId": "resource-zs4dhg"
     },
     {
       "resourceId": "resource-18dli54",
@@ -6832,6 +8666,12 @@
           "url": "https://www.penguinrandomhouse.com/series/MRV/marvin-redpost/",
           "evidence": "企鹅兰登出版社目录完整列出Book 8至Book 1，逐项共8本。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/f3eac892237db270",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得8个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -6843,7 +8683,19 @@
           "parts": [
             {
               "label": "Books 1–8",
-              "count": 8
+              "count": 8,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-3c0fc2ea2e1dd416",
+                  "book-e007ff9d5a64c691",
+                  "book-ab5f34b19a189e17",
+                  "book-f0ce95fba5151dc1",
+                  "book-8511c7831b0e1d85",
+                  "book-bb90f7cf80eba23d",
+                  "book-9453f6673ec3fec8",
+                  "book-50a91b1ce4008028"
+                ]
+              }
             }
           ],
           "default": true
@@ -6877,6 +8729,12 @@
           "url": "https://www.goodreads.com/series/55846-zack-files",
           "evidence": "Goodreads原页明确30 primary works、31 total works，排除合订/附加条目；企鹅兰登官方原页确认Book 30及连续编号30至16。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/c3e946278e312b30",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得29个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -6892,6 +8750,53 @@
             }
           ],
           "default": true
+        },
+        {
+          "id": "resource-13sgknh-xhs-29-20261109",
+          "label": "29本选集（原主系列30本范围另列）",
+          "edition": "The Zack Files 扎克档案 · 小花生29本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "29本选集",
+              "count": 29,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-1962a6c199a9e584",
+                  "book-1fb99b368acafa16",
+                  "book-dcfdb99278fc37ae",
+                  "book-f00112801efca570",
+                  "book-8539b343a3b5c26e",
+                  "book-0fcd4b16a682c526",
+                  "book-e7aa11ec9b647166",
+                  "book-e4722acc4f92a735",
+                  "book-b9f997c86e5328d0",
+                  "book-3cc93329f5a7e6db",
+                  "book-932c8d0a5880598a",
+                  "book-63a3489cbdd263e5",
+                  "book-c84890fd528a95db",
+                  "book-abba2cee36f7b7f8",
+                  "book-f6c9cdf13361d40b",
+                  "book-791bf833db254213",
+                  "book-dbe25330381c6752",
+                  "book-6ea8f2e144610edd",
+                  "book-dc96eaa94f4cdfc2",
+                  "book-1de4005c6d156dca",
+                  "book-1df7adbdc615d86e",
+                  "book-704e71f70cfe382a",
+                  "book-2017e83e621155b5",
+                  "book-1fc18701201a96d5",
+                  "book-a1e22cc74748ca64",
+                  "book-382b074d1ae7b4c8",
+                  "book-d194ca7f30fc3a96",
+                  "book-b32d06ba5d6afdba",
+                  "book-eb9fc40047bb53ee"
+                ]
+              }
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -6916,6 +8821,12 @@
           "url": "https://www.penguinrandomhouseretail.com/book/?isbn=9781101938591",
           "evidence": "出版社原页明确complete collection of all 28 paperback chapter books；不计巴士收纳盒。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/3828f53a80948430",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得28个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -6927,7 +8838,39 @@
           "parts": [
             {
               "label": "Books 1–28",
-              "count": 28
+              "count": 28,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-a750e13892b9ae1f",
+                  "book-efbc44a8e210a94d",
+                  "book-3d4cd37563edd538",
+                  "book-9ebde7cc1fec8ea2",
+                  "book-10482190717f5ccc",
+                  "book-8f9f212cb88f1241",
+                  "book-1b377a90cbc95efa",
+                  "book-ac5ccd936fda885e",
+                  "book-01c56e4b1ef74d4a",
+                  "book-16e4faef6d9a69e2",
+                  "book-5b208a08ea1b8423",
+                  "book-742843f9c7dd3f7d",
+                  "book-18e1789351327ec8",
+                  "book-026568b6f6e5b128",
+                  "book-bde9f8779aaba4c9",
+                  "book-ecff88b73cad403a",
+                  "book-f459bbe2bcadbda1",
+                  "book-f85818cbe3ebf550",
+                  "book-8bfe1d878b814616",
+                  "book-96edb9f2144b8786",
+                  "book-f67e026de2d4f1f8",
+                  "book-d8c949c20d89c2c6",
+                  "book-4dc1505a5d5a4278",
+                  "book-33ac295a272c76c8",
+                  "book-56ea4fd002f3a956",
+                  "book-bdc3a81402b0b7d3",
+                  "book-67d29e39df39ef1d",
+                  "book-c44f0ec951c2bcb2"
+                ]
+              }
             }
           ],
           "default": true
@@ -6970,6 +8913,52 @@
             }
           ],
           "default": true
+        },
+        {
+          "id": "henry-mudge-xhs20-20261109",
+          "label": "20册选集（非28本主系列全量）",
+          "level": "",
+          "edition": "Henry and Mudge · 小花生20册选集（2026-11-09目录）",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "20册选集",
+              "count": 20,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-4595dbf6922008b0",
+                  "book-1d22872c85163612",
+                  "book-5bca929e54490cf8",
+                  "book-de78008c665da52b",
+                  "book-5cc1159d1963c5e3",
+                  "book-af7697fce9995b16",
+                  "book-027651ca7c9beaa3",
+                  "book-98d7bed7b0862e23",
+                  "book-81bd06d06ae947f2",
+                  "book-79506f7643320008",
+                  "book-fb23d12a1e183173",
+                  "book-2b07f4c3b8fa7ccb",
+                  "book-02bd2d3f216d8b64",
+                  "book-26f26ab9b39e0adc",
+                  "book-d8fb6c2b6e1f994f",
+                  "book-82364cd4441f65fd",
+                  "book-6a44e19ae85dadeb",
+                  "book-56994805c7ccfa0b",
+                  "book-d26e698209716d12",
+                  "book-aae1d0531e6e22d5"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "title": "小花生20册合集",
+              "url": "https://www.xiaohuasheng.cn/series/9895bef1585416b0",
+              "checkedAt": "2026-11-09",
+              "evidence": "合集声明20本，完整20个唯一成员；与28本主系列范围不同，不替换原分母。"
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -6994,6 +8983,12 @@
           "url": "https://bookroo.com/books/series/croc-and-ally",
           "evidence": "Bookroo原页明确Book Series · 4 Books，逐册列Fun Fun Fun、Friends Forever、A Lot to Like!、The Best in the World。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/16a0e301c2c5a4f",
+          "checkedAt": "2026-11-09",
+          "evidence": "4本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -7005,7 +9000,15 @@
           "parts": [
             {
               "label": "主系列",
-              "count": 4
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-8405892654726e8b",
+                  "book-8098051eb43119d6",
+                  "book-f38f329f9e779db1",
+                  "book-e8aff1efcc2e1f2e"
+                ]
+              }
             }
           ],
           "default": true
@@ -7372,7 +9375,7 @@
       "resourceId": "resource-fkl6xf",
       "edition": "First Little Readers · 已核英文Parent Pack分版本范围",
       "unit": "本",
-      "note": "英文First Little Readers Parent Pack公共范围A/B/C/D各25，E&F16、G&H16；仅作具名出版参考，不套用到外研社2025 A–J282本版，不推断I&J。已有B和E&F scope ID、edition保持原值。",
+      "note": "英文First Little Readers Parent Pack公共范围A/B/C/D各25，E&F16、G&H16；仅作具名出版参考，不套用到外研社2025 A–J282本版，不推断I&J。已有B和E&F scope ID、edition保持原值。 同系列统一到公共素材；旧ID与scope仅作原记录兼容，不单独展示素材。",
       "sources": [
         {
           "title": "First Little Readers · 英文Parent Pack Level B（25本） · 原页核查",
@@ -7409,128 +9412,7 @@
           "checkedAt": "2026-11-05"
         }
       ],
-      "scopes": [
-        {
-          "id": "audit-20261105-fkl6xf-19-1",
-          "label": "B",
-          "level": "B",
-          "edition": "First Little Readers · 英文Parent Pack Level B（25本）",
-          "parts": [
-            {
-              "label": "B",
-              "count": 25
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "displayEdition": "First Little Readers · 英文Parent Pack"
-        },
-        {
-          "id": "audit-20261105-fkl6xf-20-1",
-          "label": "E&F",
-          "level": "E&F",
-          "edition": "First Little Readers · 英文Parent Pack E&F（ISBN 9781338256574）",
-          "parts": [
-            {
-              "label": "E&F",
-              "count": 16
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "displayEdition": "First Little Readers · 英文Parent Pack"
-        },
-        {
-          "id": "flr-parent-reference-a",
-          "label": "A",
-          "level": "A",
-          "edition": "First Little Readers English Parent Pack",
-          "parts": [
-            {
-              "label": "A",
-              "count": 25
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "First Little Readers: Guided Reading Level A 25 Book Set (with Parent Guide)",
-              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-A-25-Book-Set-with-Parent-Guide-Deborah-Schecter-9780545231497",
-              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
-            }
-          ],
-          "displayEdition": "First Little Readers · 英文Parent Pack"
-        },
-        {
-          "id": "flr-parent-reference-c",
-          "label": "C",
-          "level": "C",
-          "edition": "First Little Readers English Parent Pack",
-          "parts": [
-            {
-              "label": "C",
-              "count": 25
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "First Little Readers: Guided Reading Level C 25 Book Set (with Parent Guide)",
-              "url": "https://shop.scholastic.co.uk/products/First-Little-Readers-First-Little-Readers-Guided-Reading-Level-C-25-Book-Set-with-Parent-Guide-Liza-Charlesworth-9780545231510",
-              "evidence": "25 full colour, 8-page books / 4-page parent guide with supporting notes for before, during and after reading"
-            }
-          ],
-          "displayEdition": "First Little Readers · 英文Parent Pack"
-        },
-        {
-          "id": "flr-parent-reference-d",
-          "label": "D",
-          "level": "D",
-          "edition": "First Little Readers English Parent Pack",
-          "parts": [
-            {
-              "label": "D",
-              "count": 25
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "Scholastic StoryPlus · First Little Readers D",
-              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-d-kr/",
-              "evidence": "25 motivating storybooks correlated with Guided Reading Level D.",
-              "checkedAt": "2026-11-05"
-            }
-          ],
-          "displayEdition": "First Little Readers · 英文Parent Pack"
-        },
-        {
-          "id": "flr-parent-reference-gh",
-          "label": "G&H",
-          "level": "G&H",
-          "edition": "First Little Readers English Parent Pack",
-          "parts": [
-            {
-              "label": "G&H",
-              "count": 16
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "Scholastic StoryPlus · First Little Readers GH",
-              "url": "http://storyplus.scholasticinternational.com/first-little-readers-level-gh-kr/",
-              "evidence": "Inside this sturdy storage box, you’ll find 16 original titles plus a tip-filled parent guide. G与H合计16，指导册不计。",
-              "checkedAt": "2026-11-05"
-            }
-          ],
-          "displayEdition": "First Little Readers · 英文Parent Pack"
-        }
-      ],
+      "scopes": [],
       "catalogAudit": {
         "status": "referenceOnly",
         "queries": [
@@ -7541,7 +9423,8 @@
       },
       "checkedAt": "2026-11-05",
       "countOnlyReason": "已确认所查英文Parent Pack／Single-Copy Set的出版数量，但尚未确认该英文版本与原路线实际选本一致；仅作referenceOnly版本候选，不自动用作路线分母。已读原页确认本次提案中的限定版本与范围；其余级别或版次不外推。已读取来源，确认限定版本/级别与数量；见proposals，未把版本范围外推为作者必读要求。",
-      "title": "学乐小读者"
+      "title": "学乐小读者",
+      "catalogResourceId": "resource-1cn6i3m"
     },
     {
       "resourceId": "resource-nqvpg2",
@@ -7578,6 +9461,36 @@
           "url": "https://www.amazon.com/Guided-Science-Readers-Parent-Pack/dp/1338091182",
           "evidence": "实际读取正文Spark reading success with 12 exciting books...guided reading levels E–F；16-page是页数，不是16本。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/d3bdda43a46fc250",
+          "checkedAt": "2026-11-09",
+          "evidence": "16本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/df888a3c35d66220",
+          "checkedAt": "2026-11-09",
+          "evidence": "16本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/3cb0adfdcf03e70",
+          "checkedAt": "2026-11-09",
+          "evidence": "16本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/7fa2c2610c2d9c60",
+          "checkedAt": "2026-11-09",
+          "evidence": "16本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/a9dc2ef16725e0",
+          "checkedAt": "2026-11-09",
+          "evidence": "12本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -7589,7 +9502,27 @@
           "parts": [
             {
               "label": "A",
-              "count": 16
+              "count": 16,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-8313df56893e3462",
+                  "book-b6c37c5d7cc77cba",
+                  "book-3a077a71d949313a",
+                  "book-c4ebd3a8ce4e6274",
+                  "book-b5913922d0c36a80",
+                  "book-1f6b7e2c4c1ff882",
+                  "book-c4b874ad3e8d4206",
+                  "book-a8da22da8a4900b3",
+                  "book-80056b7d45a6ef34",
+                  "book-9f11e6ee05c37dde",
+                  "book-2372ee8f9fbd9996",
+                  "book-65c65f2353716552",
+                  "book-4b3bfd1e18c84e45",
+                  "book-72be49037f399d77",
+                  "book-e29caf4219b8e20b",
+                  "book-cdc03696b1efd2de"
+                ]
+              }
             }
           ],
           "default": false,
@@ -7604,7 +9537,27 @@
           "parts": [
             {
               "label": "B",
-              "count": 16
+              "count": 16,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-62eaabc64d1c41c2",
+                  "book-cce547e5af4d674b",
+                  "book-d1f16e750307208e",
+                  "book-730f14bb0e7b5dc2",
+                  "book-6c532f2378a6fa97",
+                  "book-a09b7ec0592822bf",
+                  "book-c7e0cf14fb0b7340",
+                  "book-0cd8189fb3eb08a4",
+                  "book-976b51ec5ff4370f",
+                  "book-0298c849068297c4",
+                  "book-f5ff59fdcb14fb25",
+                  "book-e6b4e5a500d03ff6",
+                  "book-8c29f575bc355757",
+                  "book-c2743d12a2310b08",
+                  "book-45e1a8a28767af4f",
+                  "book-08ebdb2797c97284"
+                ]
+              }
             }
           ],
           "default": false,
@@ -7627,7 +9580,27 @@
           "parts": [
             {
               "label": "C",
-              "count": 16
+              "count": 16,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-4f5e2168e64b04dd",
+                  "book-b0b70cd235bd1986",
+                  "book-599d107f46feb8e8",
+                  "book-897397c56eec16b1",
+                  "book-0d9b760c9b807565",
+                  "book-354a1e5dc6b2e591",
+                  "book-bca79bc87a17cee9",
+                  "book-5017c91b41e5b46c",
+                  "book-281821537a46c5e5",
+                  "book-cb1a9e8d9a4046d2",
+                  "book-295cbb39f274544c",
+                  "book-9f3acb7bee078d90",
+                  "book-39d23bf34e470cb7",
+                  "book-b5ea35a4ee44c24e",
+                  "book-7dcc916b5b48f7f7",
+                  "book-3b38e30b60628ec4"
+                ]
+              }
             }
           ],
           "default": false,
@@ -7650,7 +9623,27 @@
           "parts": [
             {
               "label": "D",
-              "count": 16
+              "count": 16,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-b85109b1bbfc8530",
+                  "book-39b1122c6c6b81d8",
+                  "book-1e07646f9d6d0de3",
+                  "book-80166970d5226390",
+                  "book-6e81af122d72cb8f",
+                  "book-84c27fb236acbaaa",
+                  "book-42a5d40af3478dd5",
+                  "book-7bd2a2d5c7f5092f",
+                  "book-2ee17d10af843efa",
+                  "book-f2562811419d5c99",
+                  "book-4533585f7284e38f",
+                  "book-ae8e5d55bf47225d",
+                  "book-07896cb997109cc9",
+                  "book-31cb5d5e5ce9ab92",
+                  "book-a284af07fd99ee16",
+                  "book-7ae7fbff49bb3671"
+                ]
+              }
             }
           ],
           "default": false,
@@ -7673,7 +9666,23 @@
           "parts": [
             {
               "label": "E&F",
-              "count": 12
+              "count": 12,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-f43f811220ddaded",
+                  "book-125f2be0982ed8d7",
+                  "book-0bf21a6f9c4d4dae",
+                  "book-5757cee412b648e6",
+                  "book-8e7f9feba16163e2",
+                  "book-ce39d7b8bbb5298b",
+                  "book-1280355bd4f13070",
+                  "book-dd679febcd72578e",
+                  "book-ca587742ea4151f3",
+                  "book-10ec71db38c3b1f2",
+                  "book-e1d4668f9a65269b",
+                  "book-afc7fd1fabee5351"
+                ]
+              }
             }
           ],
           "default": false,
@@ -7809,6 +9818,12 @@
           "url": "https://www.scholastic.com/site/branches/the-notebook-of-doom.html",
           "evidence": "出版社逐册正文目录从Rise of the Balloon Goons到Battle of the Boss-Monster共13本；另有Monster Notebook互动资料册不计正文。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/687f3fae28834920",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得13个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -7820,7 +9835,24 @@
           "parts": [
             {
               "label": "Books 1–13故事正文",
-              "count": 13
+              "count": 13,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-91418e68bf07fb7f",
+                  "book-c3365e5594392810",
+                  "book-bff62884f653e837",
+                  "book-45607913bf120bd9",
+                  "book-0043f6f3f94e4bfd",
+                  "book-a07a666beacb233c",
+                  "book-f9e399dfb64956c2",
+                  "book-6bb181d9c0bd35fa",
+                  "book-9cdee053bcfb1661",
+                  "book-e2e4b4d9bb736b09",
+                  "book-0261730b3d97a20e",
+                  "book-8f65a245841424ea",
+                  "book-97641657d6d8afe2"
+                ]
+              }
             }
           ],
           "default": true
@@ -9923,6 +11955,17 @@
           "url": "https://www.fltrp.com/c/2021-10-28/507297.shtml",
           "evidence": "官方确认10级成长计划，2021网页当时出版1–5级，不作为2026出版完成范围。",
           "checkedAt": "2026-11-05"
+        },
+        {
+          "title": "外研社Unischool官方配套微课",
+          "url": "https://weike.unischool.cn/unischool/microlesson/video-detail?ID=160992&SiteID=48&CatalogID=24568",
+          "evidence": "专题简介明确第一级60本读物及配套60个动画故事；不计指导册与光盘。"
+        },
+        {
+          "title": "明确出版选本",
+          "url": "https://www.amazon.com/dp/990041442X",
+          "evidence": "悠游阅读.成长计划(第四级1-5)(套装共30册)(专供网店)；外语教学与研究出版社2019年11月。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -9959,6 +12002,9 @@
               "evidence": "官方确认10级成长计划，2021网页当时出版1–5级，不作为2026出版完成范围。",
               "checkedAt": "2026-11-05"
             }
+          ],
+          "includedIn": [
+            "resource-29ukn0-count-20261104"
           ]
         },
         {
@@ -9995,6 +12041,45 @@
               "checkedAt": "2026-11-05"
             }
           ]
+        },
+        {
+          "id": "resource-29ukn0-count-20261104",
+          "label": "1级",
+          "level": "1",
+          "parts": [
+            {
+              "label": "1级",
+              "count": 60
+            }
+          ],
+          "default": true
+        },
+        {
+          "id": "youyou-reading-level4-packs1-5-30",
+          "label": "悠游第四级第1–5辑30本读物",
+          "edition": "外研社悠游阅读成长计划2019第四级1–5",
+          "level": "第四级第1–5辑",
+          "parts": [
+            {
+              "label": "第四级第1–5辑",
+              "count": 30
+            }
+          ],
+          "unit": "本",
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "明确出版选本",
+              "url": "https://www.amazon.com/dp/990041442X",
+              "evidence": "悠游阅读.成长计划(第四级1-5)(套装共30册)(专供网店)；外语教学与研究出版社2019年11月。",
+              "checkedAt": "2026-11-05"
+            }
+          ],
+          "note": "不是整个第四级永久总量；其他级现有10辑，每辑6读物，不能将1–5五辑选本当全级。指导手册与CD不计。",
+          "includedIn": [
+            "reading-journey-level4-full60"
+          ]
         }
       ],
       "catalogAudit": {
@@ -10004,7 +12089,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "悠游阅读",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "displayTitle": "悠游阅读成长计划"
     },
     {
       "resourceId": "resource-1pinwiv",
@@ -10027,6 +12113,12 @@
           "url": "https://www.xiaobien.com/product/detail/diandubao-15514",
           "evidence": "2026-11-08重读官方页面，声明12册并列出Hello至Who Are You完整12个点读书目；不下载点读包。",
           "checkedAt": "2026-11-08"
+        },
+        {
+          "title": "小彼恩官方：古力与朋友们12册",
+          "url": "https://www.xiaobien.com/product/detail/diandubao-17592",
+          "checkedAt": "2026-11-09",
+          "note": "官方正文声明12册，点读目录列出全部12个故事；只核书目，不下载点读包。"
         }
       ],
       "scopes": [
@@ -10047,13 +12139,56 @@
             }
           ],
           "default": false,
-          "referenceOnly": true,
+          "referenceOnly": false,
           "sources": [
             {
               "title": "小彼恩官方商品目录",
               "url": "https://www.xiaobien.com/product/detail/diandubao-15514",
               "evidence": "商品标题明确套装12册，内容围绕5个朋友与Gyuri。",
               "checkedAt": "2026-11-05"
+            }
+          ],
+          "levelAliases": [
+            "1"
+          ],
+          "title": "古力小超人",
+          "displayLevel": "",
+          "note": "庆爸PDF常规1的古力小超人1；补充原图第3图并列古力小超人与古力与朋友们，对应此12册具名目录。"
+        },
+        {
+          "id": "gyuri-friends-12",
+          "label": "古力与朋友们12册",
+          "title": "古力与朋友们",
+          "displayLevel": "",
+          "level": "古力与朋友们",
+          "levelAliases": [
+            "2"
+          ],
+          "edition": "彩虹兔古力与朋友们12册套装",
+          "parts": [
+            {
+              "label": "古力与朋友们",
+              "level": "古力与朋友们",
+              "count": 12,
+              "directoryMatch": {
+                "edition": "彩虹兔古力与朋友们12册套装",
+                "level": "古力与朋友们"
+              }
+            }
+          ],
+          "default": false,
+          "referenceOnly": false,
+          "sources": [
+            {
+              "title": "小彼恩官方：古力与朋友们12册",
+              "url": "https://www.xiaobien.com/product/detail/diandubao-17592",
+              "checkedAt": "2026-11-09",
+              "evidence": "官方12册逐题名与小花生公开套装6877767的12个唯一guid对照；声明与实际数量均12。"
+            },
+            {
+              "title": "庆爸常规1补充原图第3图",
+              "url": "https://xhslink.cn/o/8GSQa99cIIr",
+              "evidence": "第一阶段并列古力小超人与古力与朋友们；原PDF称古力小超人1、2。WPlay在常规2另列。"
             }
           ]
         }
@@ -10065,7 +12200,11 @@
       },
       "checkedAt": "2026-11-05",
       "title": "古力小超人",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "常规1的古力1、2按补充原图分别对应古力小超人与古力与朋友们，各12册；WPlay仍为另一个具名素材，不与古力2混用。",
+      "aliases": [
+        "古力与朋友们",
+        "Gyuri and Friends"
+      ]
     },
     {
       "resourceId": "resource-123ikqd",
@@ -10370,31 +12509,7 @@
           "checkedAt": "2026-11-05"
         }
       ],
-      "scopes": [
-        {
-          "id": "pig-fox-bilingual-4",
-          "label": "全套",
-          "edition": "小彼恩小猪和狐狸双语4册版",
-          "level": "全套",
-          "parts": [
-            {
-              "label": "全套",
-              "level": "全套",
-              "count": 4
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "小彼恩官方",
-              "url": "https://www.xiaobien.com/product/detail/diandubao-17966",
-              "evidence": "官方标题4册装；正文每本3个故事，按4本而非12故事计数。",
-              "checkedAt": "2026-11-05"
-            }
-          ]
-        }
-      ],
+      "scopes": [],
       "catalogAudit": {
         "status": "confirmed-publication-ranges",
         "checkedAt": "2026-11-05",
@@ -10402,7 +12517,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "猪和狐狸",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。 同系列统一到公共素材；旧ID与scope仅作原记录兼容，不单独展示素材。",
+      "catalogResourceId": "resource-hlfpbh"
     },
     {
       "resourceId": "resource-1wpc6vb",
@@ -10458,66 +12574,7 @@
           "checkedAt": "2026-11-05"
         }
       ],
-      "scopes": [
-        {
-          "id": "pearson-speaking400-upper",
-          "label": "上",
-          "edition": "培生上下合辑40册",
-          "level": "上",
-          "parts": [
-            {
-              "label": "上",
-              "level": "上",
-              "count": 20
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "当当出版标题",
-              "url": "http://product.m.dangdang.com/29197882.html",
-              "evidence": "搜索索引明确合辑40册。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "上辑出版标题",
-              "url": "https://www.amazon.fr/dp/7556074056",
-              "evidence": "搜索索引明确上辑全20册。下20由合辑40减上20，需在来源中说明计算。",
-              "checkedAt": "2026-11-05"
-            }
-          ]
-        },
-        {
-          "id": "pearson-speaking400-lower",
-          "label": "下",
-          "edition": "培生上下合辑40册",
-          "level": "下",
-          "parts": [
-            {
-              "label": "下",
-              "level": "下",
-              "count": 20
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "当当出版标题",
-              "url": "http://product.m.dangdang.com/29197882.html",
-              "evidence": "搜索索引明确合辑40册。",
-              "checkedAt": "2026-11-05"
-            },
-            {
-              "title": "上辑出版标题",
-              "url": "https://www.amazon.fr/dp/7556074056",
-              "evidence": "搜索索引明确上辑全20册。下20由合辑40减上20，需在来源中说明计算。",
-              "checkedAt": "2026-11-05"
-            }
-          ]
-        }
-      ],
+      "scopes": [],
       "catalogAudit": {
         "status": "confirmed-publication-ranges",
         "checkedAt": "2026-11-05",
@@ -10525,7 +12582,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "儿童英语情境口语400句",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。 同系列统一到公共素材；旧ID与scope仅作原记录兼容，不单独展示素材。",
+      "catalogResourceId": "resource-166ekar"
     },
     {
       "resourceId": "resource-197hwlb",
@@ -10684,31 +12742,7 @@
           "status": "original-page-read"
         }
       ],
-      "scopes": [
-        {
-          "id": "resource-1b758sx-verified-20261105",
-          "label": "Clifford Ultimate Red Box · ISBN 9789810906429",
-          "edition": "Clifford Ultimate Red Box · ISBN 9789810906429",
-          "level": "",
-          "parts": [
-            {
-              "label": "Clifford Ultimate Red Box · ISBN 9789810906429",
-              "count": 10
-            }
-          ],
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "Clifford Ultimate Red Box · ISBN 9789810906429",
-              "url": "https://buybookbook.com/products/clifford-ultimate-red-box-10-books",
-              "evidence": "原页明确10 book collection，并列We Love You、Happy Mother's Day、Small Red Puppy、Keeps Cool、Kitten、Class Trip、Big Storm、Pals、To the Rescue、Sports Day。",
-              "checkedAt": "2026-11-05",
-              "status": "original-page-read"
-            }
-          ]
-        }
-      ],
+      "scopes": [],
       "catalogAudit": {
         "status": "confirmed-publication-ranges",
         "checkedAt": "2026-11-05",
@@ -10716,7 +12750,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "Clifford Ultimate Red 大红狗克里弗",
-      "note": "明确10本选集，不等于Clifford品牌全部故事。"
+      "note": "明确10本选集，不等于Clifford品牌全部故事。 同系列统一到公共素材；旧ID与scope仅作原记录兼容，不单独展示素材。",
+      "catalogResourceId": "resource-1l68zks"
     },
     {
       "resourceId": "resource-1dwbb86",
@@ -10956,6 +12991,12 @@
           "evidence": "原页9 Books Set及九本目录，包含第7 Uranium Unicorns from Uranus，末两本Neptune和Pluto。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/70303c6ed2d07c2b",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得9个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -10967,7 +13008,20 @@
           "parts": [
             {
               "label": "Ricky Ricotta's Mighty Robot 9本 · ISBN 9789124192013",
-              "count": 9
+              "count": 9,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-7317fdd54b3a89bb",
+                  "book-331188b0b6507a78",
+                  "book-ca8fb36bcd950e92",
+                  "book-c4b63b8e0cb14c8e",
+                  "book-578c69bd5ef04f12",
+                  "book-07b2991043a0d747",
+                  "book-06fd23aa564887d8",
+                  "book-5161368d00a8a081",
+                  "book-a15dcd4e729b640f"
+                ]
+              }
             }
           ],
           "default": false,
@@ -11009,6 +13063,12 @@
           "evidence": "ISBN9781803705613；六本为Camping、Halloween、School Trip、Go Green、Christmas、Seaside。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/e25253ba41cc47dd",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得15个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -11020,7 +13080,26 @@
           "parts": [
             {
               "label": "Billy and the Mini Monsters 编号1–15",
-              "count": 15
+              "count": 15,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-a1df9421b44276de",
+                  "book-9542fb23860fa885",
+                  "book-e125c54f0a3d23a5",
+                  "book-b75e2365a201d968",
+                  "book-4f14336bdb1ede01",
+                  "book-2a6a81cb4b5c5ab8",
+                  "book-b8e59703630267c8",
+                  "book-420e42e6d9dc3148",
+                  "book-09da0381b8ce3807",
+                  "book-0ba708c56c8664c4",
+                  "book-55b974583233d7ef",
+                  "book-8b917acbd98fc35a",
+                  "book-85cd2dc06f45b6d3",
+                  "book-a9eb26459ba29ed0",
+                  "book-33ea7c7d59101166"
+                ]
+              }
             }
           ],
           "default": false,
@@ -11168,6 +13247,12 @@
           "evidence": "列出Let's Get Cracking、Bok Bok Boom、Birdy Snatchers、Heroes on Side、Jurassic Peck五本。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/8ecd4e34c03423b0",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得4个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -11193,6 +13278,28 @@
               "status": "original-page-read"
             }
           ]
+        },
+        {
+          "id": "resource-6ze03a-xhs-4-20261109",
+          "label": "4本选集（原主系列5本范围另列）",
+          "edition": "Kung Pow Chicken 宫保鸡丁 · 小花生4本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "4本选集",
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-aa104094ce93d7d6",
+                  "book-f2b8cb5b4106d0af",
+                  "book-e557e24b23ec830b",
+                  "book-edbdfe786410290c"
+                ]
+              }
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -11214,6 +13321,12 @@
           "evidence": "列Golden Monkey、Pet Show、New Neighbor、School Ghost四本。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生同系列逐册目录",
+          "url": "https://www.xiaohuasheng.cn/series/9c95f16adf58cd30",
+          "checkedAt": "2026-11-09",
+          "evidence": "4本逐册身份与原具名分项相符；仅补目录，不改变作者选版或原数量。"
         }
       ],
       "scopes": [
@@ -11225,7 +13338,15 @@
           "parts": [
             {
               "label": "Monkey Me 主系列1–4",
-              "count": 4
+              "count": 4,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-349accd5166b5362",
+                  "book-cc9d55cbe6023948",
+                  "book-6d478748759d8071",
+                  "book-899d08870f996053"
+                ]
+              }
             }
           ],
           "default": false,
@@ -11260,6 +13381,12 @@
           "evidence": "原页六本及ISBN；This Lake is Fake、Rabbit's Bad Habits、Pest in Nest、Attack Snack、Bite Night、Bad King。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/9ca67627ded881d1",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得6个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -11271,7 +13398,17 @@
           "parts": [
             {
               "label": "Rabbit & Bear 六本选集 · ISBN 9781444987126",
-              "count": 6
+              "count": 6,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-7e03c9a89b4f03f5",
+                  "book-b1434c51bc63b532",
+                  "book-30d5baa2ebb70e86",
+                  "book-29a1c5e28c35c99c",
+                  "book-a0a436a65ca71ffb",
+                  "book-9d9726ef49899bb0"
+                ]
+              }
             }
           ],
           "default": false,
@@ -11462,6 +13599,12 @@
           "evidence": "12 primary works，逐本到#12 The Shadow Returns（2023）。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/c71d7050bd1bb490",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得12个唯一书目；与原具名范围一致。"
         }
       ],
       "scopes": [
@@ -11473,7 +13616,23 @@
           "parts": [
             {
               "label": "The Last Firehawk 编号1–12",
-              "count": 12
+              "count": 12,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-67ece69ace2cc3a4",
+                  "book-a81a473473d6e49a",
+                  "book-958f1728f1e3a818",
+                  "book-aa4d5b7b1a128cf4",
+                  "book-734a3b95194991fa",
+                  "book-407e7da58135af57",
+                  "book-ccc0fc76814ea84e",
+                  "book-7697db5fa3d4c941",
+                  "book-c0f7875d52f7170c",
+                  "book-6c3e341dcfcb2642",
+                  "book-0b65bf73eeebfe8d",
+                  "book-96d0353fcdbbea6c"
+                ]
+              }
             }
           ],
           "default": false,
@@ -11508,6 +13667,12 @@
           "evidence": "实际读取系列14本逐项目录；末#14 Stink and the Big Bad Badgers。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/bc4bdcb5fbc8a00",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得12个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -11533,6 +13698,36 @@
               "status": "original-page-read"
             }
           ]
+        },
+        {
+          "id": "resource-9ub1k4-xhs-12-20261109",
+          "label": "12本选集（原主系列14本范围另列）",
+          "edition": "Stink 朱迪弟弟系列 · 小花生12本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "12本选集",
+              "count": 12,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-811a21ab794619f1",
+                  "book-a4f71d515ffddeff",
+                  "book-d119610125ce1707",
+                  "book-92d320ffb8b821c4",
+                  "book-411996a36223cd10",
+                  "book-f959a133b6d31877",
+                  "book-db30539b2230d0fe",
+                  "book-b176dd8a0094bb4a",
+                  "book-e8daf58142684976",
+                  "book-3a56f101ed724b4c",
+                  "book-a7f22ab44d94e2bd",
+                  "book-dd9e05f89611b046"
+                ]
+              }
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -11554,6 +13749,12 @@
           "evidence": "官方Titles in Order由Book17 Sunny-Side Up开始，逐编号列主系列。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/cc4d6b1aad181880",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得16个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -11577,6 +13778,40 @@
               "evidence": "官方Titles in Order由Book17 Sunny-Side Up开始，逐编号列主系列。",
               "checkedAt": "2026-11-05",
               "status": "original-page-read"
+            }
+          ]
+        },
+        {
+          "id": "resource-1mu8hkl-xhs-16-20261109",
+          "label": "16本选集（原主系列17本范围另列）",
+          "edition": "Judy Moody 稀奇古怪小朱迪 · 小花生16本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "16本选集",
+              "count": 16,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-862afdab65720274",
+                  "book-5b326d77c636d9e5",
+                  "book-6c9406f3ea514029",
+                  "book-f764c1eb7cd6cab3",
+                  "book-92b53a126643af73",
+                  "book-7372457a8f7c07c1",
+                  "book-1865cfb7481f12a0",
+                  "book-1603adec556e551a",
+                  "book-baa51974fc8df263",
+                  "book-9d276b90bdd88a98",
+                  "book-6e52aaafd489f42d",
+                  "book-40dcf63a1713781e",
+                  "book-e70e699094e53f79",
+                  "book-c8b3b30e2d4f488e",
+                  "book-2f4c189ae95e50c0",
+                  "book-b753cbdc5266f168"
+                ]
+              }
             }
           ]
         }
@@ -11614,6 +13849,12 @@
           "evidence": "Dawn of Axolotl Book9，August4 2026。",
           "checkedAt": "2026-11-05",
           "status": "search-result-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/6dac83d6143d2d30",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得5个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -11653,6 +13894,29 @@
               "status": "search-result-read"
             }
           ]
+        },
+        {
+          "id": "resource-12jlik8-xhs-5-20261109",
+          "label": "5本选集（原主系列9本范围另列）",
+          "edition": "Pets rule! 萌宠当家 · 小花生5本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "5本选集",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-5e3d0c05bada045d",
+                  "book-0e43c6ef50518c3b",
+                  "book-be0af6637d8c3c68",
+                  "book-296419ea9cc1b66f",
+                  "book-3437c8d156d0e627"
+                ]
+              }
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -11674,6 +13938,12 @@
           "evidence": "作者官方写Book14 Trap Snacks，OUT OCT27th2026，Hardie Grant，ISBN9781761211577。",
           "checkedAt": "2026-11-05",
           "status": "original-page-read"
+        },
+        {
+          "title": "小花生具名合集逐册成员",
+          "url": "https://www.xiaohuasheng.cn/series/5aaae295cc117cbd",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整取得5个唯一书目；少于原主系列范围，仅作为部分选集，不覆盖原出版全集数量。"
         }
       ],
       "scopes": [
@@ -11697,6 +13967,29 @@
               "evidence": "作者官方写Book14 Trap Snacks，OUT OCT27th2026，Hardie Grant，ISBN9781761211577。",
               "checkedAt": "2026-11-05",
               "status": "original-page-read"
+            }
+          ]
+        },
+        {
+          "id": "resource-19sq4gs-xhs-5-20261109",
+          "label": "5本选集（原主系列14本范围另列）",
+          "edition": "Real Pigeons 鸽子侦探 · 小花生5本目录选集（2026-11-09）",
+          "level": "",
+          "referenceOnly": true,
+          "default": false,
+          "parts": [
+            {
+              "label": "5本选集",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-9ac3f40b3086365a",
+                  "book-9f6f1d12e495ccd6",
+                  "book-1ca9e1a1a0a165cd",
+                  "book-e0e1fd6a0ab044a0",
+                  "book-9fbbda14036e68c5"
+                ]
+              }
             }
           ]
         }
@@ -13833,6 +16126,12 @@
           "url": "https://www.xiaohuasheng.cn/series/2ab79095798496ac",
           "evidence": "公开集合声明8条，完整分页[8]；本分项核定8本。具名读物集合与现有出版分项核对，不计指导册，不改变作者用途。",
           "checkedAt": "2026-11-08"
+        },
+        {
+          "title": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列 · 原页核查",
+          "url": "https://www.penguinrandomhouse.com/series/JB1/a-jack-book/",
+          "evidence": "企鹅兰登出版社系列目录完整列出Book 8至Book 1，逐项共8本。",
+          "checkedAt": "2026-11-05"
         }
       ],
       "scopes": [
@@ -13863,6 +16162,19 @@
             }
           ],
           "note": "搜索索引提供完整产品正文；原页fetch遇访问异常。"
+        },
+        {
+          "id": "audit-20261105-9d0yj6-9-1",
+          "label": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列",
+          "level": "",
+          "edition": "A Jack Book · Mac Barnett/Greg Pizzoli英文主系列",
+          "parts": [
+            {
+              "label": "Books 1–8",
+              "count": 8
+            }
+          ],
+          "default": true
         }
       ],
       "catalogAudit": {
@@ -13872,7 +16184,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "淘气兔子",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "displayTitle": "淘气兔子杰克"
     },
     {
       "resourceId": "resource-127dfoe",
@@ -14285,6 +16598,13 @@
           "url": "https://www.xiaohuasheng.cn/series/fd0d716ee1ef9e6b",
           "evidence": "公开集合声明10条，完整分页[10]；本分项核定10本。10册Big Red Box公开目录，与既有Big Red Friend Story Box六册独立，不互换分母。",
           "checkedAt": "2026-11-08"
+        },
+        {
+          "title": "Clifford Ultimate Red Box · ISBN 9789810906429",
+          "url": "https://buybookbook.com/products/clifford-ultimate-red-box-10-books",
+          "evidence": "原页明确10 book collection，并列We Love You、Happy Mother's Day、Small Red Puppy、Keeps Cool、Kitten、Class Trip、Big Storm、Pals、To the Rescue、Sports Day。",
+          "checkedAt": "2026-11-05",
+          "status": "original-page-read"
         }
       ],
       "scopes": [
@@ -14339,6 +16659,29 @@
             }
           ],
           "note": "10册Big Red Box公开目录，与既有Big Red Friend Story Box六册独立，不互换分母。"
+        },
+        {
+          "id": "resource-1b758sx-verified-20261105",
+          "label": "Clifford Ultimate Red Box · ISBN 9789810906429",
+          "edition": "Clifford Ultimate Red Box · ISBN 9789810906429",
+          "level": "",
+          "parts": [
+            {
+              "label": "Clifford Ultimate Red Box · ISBN 9789810906429",
+              "count": 10
+            }
+          ],
+          "default": false,
+          "referenceOnly": true,
+          "sources": [
+            {
+              "title": "Clifford Ultimate Red Box · ISBN 9789810906429",
+              "url": "https://buybookbook.com/products/clifford-ultimate-red-box-10-books",
+              "evidence": "原页明确10 book collection，并列We Love You、Happy Mother's Day、Small Red Puppy、Keeps Cool、Kitten、Class Trip、Big Storm、Pals、To the Rescue、Sports Day。",
+              "checkedAt": "2026-11-05",
+              "status": "original-page-read"
+            }
+          ]
         }
       ],
       "catalogAudit": {
@@ -14348,7 +16691,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "大红狗",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。",
+      "displayTitle": "大红狗 Clifford"
     },
     {
       "resourceId": "resource-13d4vi4",
@@ -14683,32 +17027,7 @@
           "checkedAt": "2026-11-05"
         }
       ],
-      "scopes": [
-        {
-          "id": "youyou-reading-level4-packs1-5-30",
-          "label": "悠游第四级第1–5辑30本读物",
-          "edition": "外研社悠游阅读成长计划2019第四级1–5",
-          "level": "第四级第1–5辑",
-          "parts": [
-            {
-              "label": "第四级第1–5辑",
-              "count": 30
-            }
-          ],
-          "unit": "本",
-          "default": false,
-          "referenceOnly": true,
-          "sources": [
-            {
-              "title": "明确出版选本",
-              "url": "https://www.amazon.com/dp/990041442X",
-              "evidence": "悠游阅读.成长计划(第四级1-5)(套装共30册)(专供网店)；外语教学与研究出版社2019年11月。",
-              "checkedAt": "2026-11-05"
-            }
-          ],
-          "note": "不是整个第四级永久总量；其他级现有10辑，每辑6读物，不能将1–5五辑选本当全级。指导手册与CD不计。"
-        }
-      ],
+      "scopes": [],
       "catalogAudit": {
         "status": "confirmed-publication-ranges",
         "checkedAt": "2026-11-05",
@@ -14716,7 +17035,8 @@
       },
       "checkedAt": "2026-11-05",
       "title": "悠游阅读成长计划",
-      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。"
+      "note": "已核实以下具名出版范围；未绑定的版本供选择，不代表路线指定版次或必读量。 同一外研社悠游阅读成长计划统一到公共素材；旧ID仅用于历史引用和记录兼容。",
+      "catalogResourceId": "resource-7vimum"
     },
     {
       "resourceId": "resource-a3pj5d",
@@ -15244,6 +17564,563 @@
           "recordByLevel": true
         }
       ]
+    },
+    {
+      "resourceId": "resource-afwa0g",
+      "title": "Bumble and Bee",
+      "edition": "英文原版 · 出版社已列书目",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-afwa0g-directory-20261109",
+          "label": "3册套装",
+          "level": "",
+          "edition": "英文原版 · 出版社已列书目",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "3册套装",
+              "count": 3,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-f5dc53b70be34d5f",
+                  "book-c624d012524e8137",
+                  "book-de311c8fdb6167ed"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Bumble and Bee · 学乐逐册简介",
+          "url": "https://www.scholastic.com/site/acorn/bumble-and-bee.html",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际读取页面正文，依剧情整理主题，不将主角动物身份、标题中的自然词或出版适读年龄直接当主题或路线标准。 Let's Play Make Bee-lieve的系列栏误标Dog Man，未沿用该系列标签/年龄；具体书名、作者及剧情仍吻合。"
+        },
+        {
+          "title": "小花生3册套装完整成员",
+          "url": "https://www.xiaohuasheng.cn/series/9c662b940ef41e8e",
+          "checkedAt": "2026-11-09",
+          "evidence": "完整3册与既有三本英文题名逐一对应。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-qckpg5",
+      "title": "Maisy初体验",
+      "edition": "Walker Books · First Experiences Set 1",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-qckpg5-directory-20261109",
+          "label": "First Experiences Set 1 · 12册",
+          "level": "",
+          "edition": "Walker Books · First Experiences Set 1",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "First Experiences Set 1 · 12册",
+              "count": 12,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-cd75d4fd529615f9",
+                  "book-a0585bfb3ba6e14c",
+                  "book-a85f9c1a4cb764ab",
+                  "book-904a02a7aa605845",
+                  "book-bac8c5ad2de8e6b5",
+                  "book-520c9c211d0d058f",
+                  "book-2ab161b017457bac",
+                  "book-75f888c051a51d9c",
+                  "book-4456d1e13da1163c",
+                  "book-9c00d4dbcb6e5ed1",
+                  "book-25dde54746124cf1",
+                  "book-aba1f3434e3a585c"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Maisy First Experiences (Set 1) By Lucy Cousins 12 Books Children Collection Set",
+          "url": "https://americanbookworm.com/products/maisy-first-experiences-set-1-by-lucy-cousins-12-books-children-collection-set-ages-2-5-paperback",
+          "checkedAt": "2026-11-04",
+          "evidence": "实际读取完整12册目录和每册剧情简介；部分简介是节录，未逐页阅读全文。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-sfumgq",
+      "title": "Press Start! 方块兔",
+      "edition": "英文原版 · 出版社已列书目",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-sfumgq-directory-20261109",
+          "label": "官网已核目录19本（非全系列声明）",
+          "level": "",
+          "edition": "英文原版 · 出版社已列书目",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "官网已核目录19本（非全系列声明）",
+              "count": 19,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-98768e43f272b243",
+                  "book-0802fa2ba758e993",
+                  "book-73edd49f46a1591e",
+                  "book-9e5be9a10d6314d4",
+                  "book-11ca159e75574339",
+                  "book-5cb47bcbfde582ae",
+                  "book-7bb99f8c80d7447c",
+                  "book-bed80085a57fa130",
+                  "book-6cce8549efc9c825",
+                  "book-0a26e024f131ce19",
+                  "book-9cf9c12227fcc2ef",
+                  "book-3ebb977e39d74a77",
+                  "book-3aa8d28cd557226e",
+                  "book-1944f962fcbf0179",
+                  "book-ac3ad7e30364635d",
+                  "book-f68c2912cadde768",
+                  "book-a2c1b2de13d2ef74",
+                  "book-bde225a6e4b3404a",
+                  "book-39106ff349ed2095"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "方块兔 · 学乐逐册简介",
+          "url": "https://www.scholastic.com/site/branches/press-start.html",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际读取页面正文，依剧情整理主题，不将主角动物身份、标题中的自然词或出版适读年龄直接当主题或路线标准。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-cy521f",
+      "title": "Mercy Watson 小猪梅西",
+      "edition": "Mercy Watson · 英文主系列",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-cy521f-directory-20261109",
+          "label": "原主系列6册",
+          "level": "",
+          "edition": "Mercy Watson · 英文主系列",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "原主系列6册",
+              "count": 6,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-23b15805a7ff6ba9",
+                  "book-f54a53d0649ba45d",
+                  "book-36da83a9b6fc9626",
+                  "book-56c3057af50b1f0c",
+                  "book-b228c86558f37926",
+                  "book-91fe26b11674584b"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Mercy Watson · 6本主系列目录与简介",
+          "url": "https://toppsta.com/books/series/24905/mercy-watson",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "Mercy Watson Series · 原六册逐册简介",
+          "url": "https://www.penguinrandomhouse.com/series/MER/mercy-watson/",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-152pfrt",
+      "title": "Owl Diaries 猫头鹰日记",
+      "edition": "Owl Diaries · 英文原版（官网已列书目）",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-152pfrt-directory-20261109",
+          "label": "官网已核目录24本（非全系列声明）",
+          "level": "",
+          "edition": "Owl Diaries · 英文原版（官网已列书目）",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "官网已核目录24本（非全系列声明）",
+              "count": 24,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-9409cfd7425e1802",
+                  "book-8535a6965f073b6c",
+                  "book-5cb30c3b3d86af08",
+                  "book-9e3a469a41019cb4",
+                  "book-1fd3e4a00c24e100",
+                  "book-7df28a53e3a99b19",
+                  "book-3b579d5e9eecae1f",
+                  "book-f7ea01570814a6e7",
+                  "book-88a56fc134d3f071",
+                  "book-843f79223ef0e173",
+                  "book-b10938bac27e4c59",
+                  "book-5778eb98b46b99cd",
+                  "book-b10f2e6c24e88a20",
+                  "book-c28f261d7b36a718",
+                  "book-2968ad0c891ed676",
+                  "book-c6553f652cea4b38",
+                  "book-364c0e6a9cc04b7c",
+                  "book-5c3dd9c70c187672",
+                  "book-e3463944bdb89047",
+                  "book-c26bad8f9e27defd",
+                  "book-843d62bc516651e0",
+                  "book-a24f725d60d4a204",
+                  "book-d7ed9e532c20ce39",
+                  "book-6e20eed942fed0e5"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "猫头鹰日记 · 学乐官方逐册简介",
+          "url": "https://www.scholastic.com/site/branches/owl-diaries.html",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际读取页面正文，依剧情整理主题，不将主角动物身份、标题中的自然词或出版适读年龄直接当主题或路线标准。 当前网页第18与第21处存在跨系列标题/作者元数据错误，这两本改用独立可读来源，未沿用错误块。"
+        },
+        {
+          "title": "The Nature Club: A Branches Book (Owl Diaries #18) · Synopsis",
+          "url": "https://www.abebooks.com/9781338745474/Nature-Club-Branches-Book-Owl-1338745476/plp",
+          "checkedAt": "2026-11-04",
+          "evidence": "实际读取与标题及ISBN9781338745474吻合的剧情。页面注明synopsis可能属于其他装帧版本，故仅用作故事内容主题，不用来核定当前装帧和册数。"
+        },
+        {
+          "title": "Eva and the New Teacher: A Branches Book (Owl Diaries #21) · Book overview",
+          "url": "https://www.amazon.com/Eva-New-Teacher-Diaries-Book/dp/B0F9BD868G",
+          "checkedAt": "2026-11-04",
+          "evidence": "实际读取独立同名音频商品简介，人物和艺术课剧情与出版社串标题页面正文一致，仅核对同名故事内容；不据音频商品推装帧、版本等价或附带音频。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-156rqb1",
+      "title": "The Princess in Black 黑衣公主",
+      "edition": "The Princess in Black",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-156rqb1-directory-20261109",
+          "label": "已收录第1–11本（非全系列声明）",
+          "level": "",
+          "edition": "The Princess in Black",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "已收录第1–11本（非全系列声明）",
+              "count": 11,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-c5b1311909c322c3",
+                  "book-aa4352ebf74585a7",
+                  "book-2257c1cce79d87d4",
+                  "book-6d59f2de0326a77f",
+                  "book-d64fd40a72137847",
+                  "book-5a9df54756344f58",
+                  "book-1e63b03aa381815e",
+                  "book-fff26bdf13a0cec5",
+                  "book-ff7b9855bcfdcf5c",
+                  "book-1b64af5b6c9182df",
+                  "book-96c673ea1c3621cf"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Princess in Black · 系列书目与简介",
+          "url": "https://toppsta.com/books/series/22330/princess-in-black",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "Princess in Black Series · 第5–12册内容简介",
+          "url": "https://www.penguinrandomhouse.com/series/PIB/princess-in-black/",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "The Princess in Black · Product description",
+          "url": "https://www.amazon.com/Princess-Black-Shannon-Hale/dp/0763678880",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "The Princess In Black And The Perfect Princess Party · Description",
+          "url": "https://www.booksource.com/products/princess-in-black-and-the-perfect-princess-party--the__9780763687588.aspx",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "The Princess in Black and the Hungry Bunny Horde · 书评",
+          "url": "https://www.sonderbooks.com/Childrens_Fiction/hungry_bunny_horde.html",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "The Princess in Black Takes a Vacation · Parents Guide",
+          "url": "https://www.commonsensemedia.org/book-reviews/the-princess-in-black-takes-a-vacation",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-4meiec",
+      "title": "Dragon Masters 驯龙大师",
+      "edition": "Dragon Masters · 英文原版（官网已列书目）",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-4meiec-directory-20261109",
+          "label": "官网已核目录33本（非全系列声明）",
+          "level": "",
+          "edition": "Dragon Masters · 英文原版（官网已列书目）",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "官网已核目录33本（非全系列声明）",
+              "count": 33,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-01d9a0be48adba66",
+                  "book-ac3872db28f9729f",
+                  "book-463ee7fe16039855",
+                  "book-dd015939e7f034ea",
+                  "book-c974f3b1de30db3c",
+                  "book-00395ee8d7afbf45",
+                  "book-cc62e3d62b993874",
+                  "book-4583bfd4a9a31b23",
+                  "book-fd94dc193fd121c6",
+                  "book-eaf771d774a87747",
+                  "book-16c9ca54d7b6963e",
+                  "book-af350f1f828a7399",
+                  "book-e1116a710ba1d8d1",
+                  "book-01b4578b16f9e5df",
+                  "book-e25e87912c41302c",
+                  "book-b5d35113cbd23501",
+                  "book-4e0809337772c8fa",
+                  "book-03f13c9e76f089af",
+                  "book-d64efe654feba11e",
+                  "book-27ff18c5ccbe677d",
+                  "book-1cc1f6aea5f9591e",
+                  "book-97201f2ce16e87e9",
+                  "book-cf820cacc74efc79",
+                  "book-41d69ea6b542c61a",
+                  "book-a152412311997708",
+                  "book-03c5877807b0c829",
+                  "book-f6ca0ac080b66c3c",
+                  "book-a262fb04c19e1460",
+                  "book-946d21f6820628f6",
+                  "book-cd1ec1b90370f43f",
+                  "book-a0ebf00e95ff7c92",
+                  "book-c31cfbd2a7c128f9",
+                  "book-66de54c644413962"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "驯龙大师 · 学乐官方逐册简介",
+          "url": "https://www.scholastic.com/site/branches/dragon-masters.html",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际读取页面正文，依剧情整理主题，不将主角动物身份、标题中的自然词或出版适读年龄直接当主题或路线标准。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-o2t6vh",
+      "title": "波西与皮普",
+      "edition": "Pip and Posy",
+      "unit": "本",
+      "note": "只表示上述有据目录的有限收录范围，不把持续出版系列的目录条数称为出版全集；逐册记录与各路线共用。经典故事10本、场景认知1本、毡布翻翻1本，不能标为同版12册盒装。",
+      "checkedAt": "2026-11-09",
+      "scopes": [
+        {
+          "id": "resource-o2t6vh-directory-20261109",
+          "label": "已收录12本（混合子系列，非盒装全集）",
+          "level": "",
+          "edition": "Pip and Posy",
+          "default": false,
+          "referenceOnly": true,
+          "parts": [
+            {
+              "label": "已收录12本（混合子系列，非盒装全集）",
+              "count": 12,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-9875063f8237d59e",
+                  "book-fa2fd016c5ab9abb",
+                  "book-d7eb924a497aa7a2",
+                  "book-6ad11bee30449e0c",
+                  "book-62b6e4134c5cb223",
+                  "book-e064cabab47d64fd",
+                  "book-ca436736a3daea8f",
+                  "book-223f5f0c0bac01d9",
+                  "book-64d522c014f328b3",
+                  "book-3fef1c86956d9e07",
+                  "book-f5856a3306826cd1",
+                  "book-292bbd6b02d94056"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Pip and Posy · 综合系列书目与节录简介",
+          "url": "https://toppsta.com/books/series/5327/pip-and-posy",
+          "checkedAt": "2026-11-04",
+          "evidence": "实际读取33条混合子系列目录；不是固定12册套装清单。"
+        },
+        {
+          "title": "Series: Pip and Posy",
+          "url": "https://bookhero.co.nz/collections/series-pip-and-posy",
+          "checkedAt": "2026-11-04",
+          "evidence": "实际读取多种装帧与子系列的逐册节录简介，不据在售商品数量推全套册数。"
+        },
+        {
+          "title": "Pip and Posy: Look and Say · Key item features",
+          "url": "https://www.walmart.com/ip/Pip-and-Posy-Look-and-Say-9780857634030/909870194",
+          "checkedAt": "2026-11-04",
+          "evidence": "既有逐册目录及内容来源。"
+        },
+        {
+          "title": "Pip and Posy: The Super Scooter",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-super-scooter",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Big Balloon",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-big-balloon",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Snowy Day",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-snowy-day",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Scary Monster",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-scary-monster",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Bedtime Frog",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-bedtime-frog",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The New Friend",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-new-friend",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Christmas Tree",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-christmas-tree",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Friendly Snail",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-friendly-snail",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        },
+        {
+          "title": "Pip and Posy: The Little Puddle",
+          "url": "https://axelscheffler.com/toddler-books/pip-and-posy-the-little-puddle",
+          "checkedAt": "2026-11-04",
+          "evidence": "已实际通过webFetch读取原站正文。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-4oyfst",
+      "title": "心智麦田轻科普绘本",
+      "unit": "本",
+      "edition": "庆爸常规6原稿11本选本",
+      "scopes": [
+        {
+          "id": "qing-mindfield-science-11",
+          "label": "轻科普绘本11本选本",
+          "level": "11本",
+          "parts": [
+            {
+              "label": "轻科普绘本11本选本",
+              "count": 11
+            }
+          ],
+          "countOnlyCompatible": true,
+          "referenceOnly": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "庆爸3–4岁常规路径2.0版第6页",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "心智麦田轻科普绘本（11本）；仅此阶段原文选本数量，不代表全部系列。",
+          "checkedAt": "2026-11-09"
+        }
+      ]
     }
   ],
   "references": [
@@ -15308,6 +18185,11 @@
       "stageId": "qing-s2",
       "scopeId": "muzzy-qing-episodes-7-12",
       "basis": "原表明确本阶段分集范围；版次未标明，不关联其他出版目录。"
+    },
+    {
+      "resourceId": "resource-4oyfst",
+      "stageId": "qing-s6",
+      "scopeId": "qing-mindfield-science-11"
     }
   ]
 }
