@@ -24,6 +24,11 @@ function seriesGroups(books,data){
 function seriesFilter(books,{edition='all',topic='all',subtopic='all'}={}){
   return books.filter(book=>(edition==='all'||book.edition===edition)&&T.matches(T.entryTopics('book',book),{topic,subtopic}));
 }
+// 参考目录只按当前引用的公共级别取候选，不据此绑定版次、虚构子集或阶段分母。
+function referenceBooks(books,resource,model,materials){
+  const levels=model.getMaterialLevels({resource,materials});
+  return books.filter(book=>book.resourceId===resource.id&&(!levels.length||model.getMaterialLevels({resource,materials:[{level:book.level}]}).some(level=>levels.some(own=>own.id===level.id))));
+}
 function bookAppearances(book,resource,model){
   if(book.custom)return book.stageRefs||[];
   // 逐册级别来自具体版本目录；未标级别的原文只能关联套系，不能补造逐册阶段。
@@ -83,12 +88,12 @@ function seriesCount(data,resource,model,volumes,filters={}){
     for(const part of scope.parts){
       const partTokens=levels(part.level||part.label),matching=[];
       for(const a of appearances){
-        if(scope.referenceOnly&&!references.some(ref=>ref.stageId===a.stageId))continue;
+        if(scope.referenceOnly&&narrowed&&!references.some(ref=>ref.stageId===a.stageId))continue;
         if(selectionByAppearance.has(a))continue;
         if(!a.level){matching.push(a);continue;}
         // 原文只挑虚构或某个子集时，不能借整级册数充当该子集总量。
         if(qualified(a.level)&&normalize(a.level)!==scopeLevel)continue;
-        const own=levels(a.level),exact=normalize(a.level)===scopeLevel;
+        const own=levels(a.level),exact=normalize(a.level)===scopeLevel||(scope.levelAliases||[]).some(alias=>normalize(alias)===normalize(a.level));
         const tokens=partTokens.length?partTokens:scopeTokens;
         if(exact||own.length&&tokens.length&&tokens.every(t=>own.includes(t))){matching.push(a);}
       }
@@ -99,7 +104,7 @@ function seriesCount(data,resource,model,volumes,filters={}){
       component.levelIds=[...new Set(component.levelIds.concat(partTokens.length?partTokens:scopeTokens.length===1?scopeTokens:[]))];
       for(const a of matching){
         const own=levels(a.level);
-        if(!a.level||normalize(a.level)===scopeLevel)covered.add(a);
+        if(!a.level||normalize(a.level)===scopeLevel||(scope.levelAliases||[]).some(alias=>normalize(alias)===normalize(a.level)))covered.add(a);
         else if(own.length&&own.every(t=>[...parts.values()].some(p=>p.edition===edition&&levels(p.label).includes(t))))covered.add(a);
       }
     }
@@ -160,5 +165,5 @@ function levelGroups(parts){
   }
   return [...editions.values()];
 }
-return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,bookAppearances,entries,filter,seriesCount,levelGroups};
+return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,referenceBooks,bookAppearances,entries,filter,seriesCount,levelGroups};
 });

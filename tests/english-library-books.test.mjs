@@ -46,6 +46,23 @@ test('主题套系分组覆盖全部结果，RAZ级别分开且培生上下辑�
   assert.equal(new Set(selected.map(book=>book.id)).size,96);
 });
 
+test('阶段参考目录保留当前级别，既有单册身份不变且不冒充虚构子集',()=>{
+  const resource=catalog.resources.find(r=>r.id==='resource-1qnd5uh');
+  const before=structuredClone(data.books);
+  const selected=B.referenceBooks(data.books,resource,M,[{level:'AA、A（虚构部分）'}]);
+  assert.equal(selected.length,203);
+  assert.deepEqual([...new Set(selected.map(b=>b.level))],['aa','A']);
+  assert.ok(selected.every(b=>data.books.includes(b)),'复用公共单册与进度身份');
+  assert.ok(selected.every(b=>B.bookAppearances(b,{...resource,appearances:[{routeId:'qing',stageId:'fiction-only',level:'AA、A（虚构部分）'}]},M).length===0));
+  const later=B.referenceBooks(data.books,resource,M,[{level:'C、D（虚构）'}]);
+  assert.equal(later.length,195);
+  assert.ok(later.every(b=>['C','D'].includes(b.level)));
+  const other={id:'another-series',title:'其他分级',appearances:[]};
+  const books=[{id:'one',resourceId:other.id,level:'1'},{id:'two',resourceId:other.id,level:'2'},{id:'three',resourceId:other.id,level:'3'}];
+  assert.deepEqual(B.referenceBooks(books,other,M,[{level:'1–2'}]).map(b=>b.id),['one','two']);
+  assert.deepEqual(data.books,before);
+});
+
 test('套系与一级二级主题、路线条件取交集，全部套系恢复完整主题结果',()=>{
   const books=B.entries(data,catalog.resources,M),filters={topic:'animals',subtopic:'animals.birds'};
   const matching=B.filter(books,data,filters),groups=B.seriesGroups(matching,data),a=groups.find(group=>group.label==='RAZ A');

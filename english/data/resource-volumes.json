@@ -14864,7 +14864,10 @@
               "checkedAt": "2026-11-08"
             }
           ],
-          "note": "确认具名24册出版范围；作者原表未列ISBN，不据此扩写其他版次。"
+          "note": "确认具名24册出版范围；作者原表未列ISBN，不据此扩写其他版次。",
+          "levelAliases": [
+            "24册"
+          ]
         }
       ],
       "catalogAudit": {
@@ -15122,6 +15125,125 @@
           ]
         }
       ]
+    },
+    {
+      "resourceId": "resource-17efze2",
+      "title": "Muzzy",
+      "unit": "集",
+      "edition": "庆爸原表Muzzy分集选用范围（版次未注明）",
+      "checkedAt": "2026-11-08",
+      "note": "原表明确两段各6集；橙盒未列具体集数，继续保留总量待核。分集引用不等于Muzzy所有出版／播放版本全集。",
+      "sources": [
+        {
+          "title": "庆爸常规路径2.0原表，第3–4页",
+          "sourceId": "qing-source",
+          "url": "assets/sources/qing.pdf",
+          "evidence": "第3页明确Muzzy(1–6集)，第4页明确Muzzy(7–12集)；只计本阶段列出的6集，不据此认定全系列总集数或纸书册数。",
+          "checkedAt": "2026-11-08"
+        }
+      ],
+      "scopes": [
+        {
+          "id": "muzzy-qing-episodes-1-6",
+          "level": "1–6集",
+          "label": "第1–6集",
+          "parts": [
+            {
+              "label": "第1集",
+              "level": "第1集",
+              "count": 1
+            },
+            {
+              "label": "第2集",
+              "level": "第2集",
+              "count": 1
+            },
+            {
+              "label": "第3集",
+              "level": "第3集",
+              "count": 1
+            },
+            {
+              "label": "第4集",
+              "level": "第4集",
+              "count": 1
+            },
+            {
+              "label": "第5集",
+              "level": "第5集",
+              "count": 1
+            },
+            {
+              "label": "第6集",
+              "level": "第6集",
+              "count": 1
+            }
+          ],
+          "default": false,
+          "countOnlyCompatible": true,
+          "sources": [
+            {
+              "title": "庆爸常规路径2.0原表，第3–4页",
+              "sourceId": "qing-source",
+              "url": "assets/sources/qing.pdf",
+              "evidence": "第3页明确Muzzy(1–6集)，第4页明确Muzzy(7–12集)；只计本阶段列出的6集，不据此认定全系列总集数或纸书册数。",
+              "checkedAt": "2026-11-08",
+              "page": 3
+            }
+          ],
+          "recordByLevel": true
+        },
+        {
+          "id": "muzzy-qing-episodes-7-12",
+          "level": "7–12集",
+          "label": "第7–12集",
+          "parts": [
+            {
+              "label": "第7集",
+              "level": "第7集",
+              "count": 1
+            },
+            {
+              "label": "第8集",
+              "level": "第8集",
+              "count": 1
+            },
+            {
+              "label": "第9集",
+              "level": "第9集",
+              "count": 1
+            },
+            {
+              "label": "第10集",
+              "level": "第10集",
+              "count": 1
+            },
+            {
+              "label": "第11集",
+              "level": "第11集",
+              "count": 1
+            },
+            {
+              "label": "第12集",
+              "level": "第12集",
+              "count": 1
+            }
+          ],
+          "default": false,
+          "countOnlyCompatible": true,
+          "sources": [
+            {
+              "title": "庆爸常规路径2.0原表，第3–4页",
+              "sourceId": "qing-source",
+              "url": "assets/sources/qing.pdf",
+              "evidence": "第3页明确Muzzy(1–6集)，第4页明确Muzzy(7–12集)；只计本阶段列出的6集，不据此认定全系列总集数或纸书册数。",
+              "checkedAt": "2026-11-08",
+              "page": 4
+            }
+          ],
+          "recordByLevel": true
+        }
+      ]
     }
   ],
   "references": [
@@ -15174,6 +15296,18 @@
       "resourceId": "resource-hojfp0",
       "stageId": "xu-5",
       "scopeId": "heinemann-gk70-domestic-c"
+    },
+    {
+      "resourceId": "resource-17efze2",
+      "stageId": "qing-s1",
+      "scopeId": "muzzy-qing-episodes-1-6",
+      "basis": "原表明确本阶段分集范围；版次未标明，不关联其他出版目录。"
+    },
+    {
+      "resourceId": "resource-17efze2",
+      "stageId": "qing-s2",
+      "scopeId": "muzzy-qing-episodes-7-12",
+      "basis": "原表明确本阶段分集范围；版次未标明，不关联其他出版目录。"
     }
   ]
 }
