@@ -167,7 +167,10 @@ def derive_snapshot(bookcase, owner):
         if not isinstance(title, str) or not title.strip() or len(title) > 1000:
             raise SyncFailure('INCOMPLETE')
         # @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 明确选取浏览器所需身份与已读字段，完整书架其他原值仅留本机私有历史。
-        selected.append({'bookId': guid, 'appBookId': str(app_id), 'title': title.strip()})
+        count = row.get('readCount')
+        if type(count) is not int or not 0 <= count <= 9007199254740991:
+            raise SyncFailure('INCOMPLETE')
+        selected.append({'bookId': guid, 'appBookId': str(app_id), 'title': title.strip(), 'readCount': count})
     if not selected:
         raise SyncFailure('EMPTY')
     return {

@@ -57,7 +57,7 @@ tools/mitmproxy-venv/bin/python xhs_catalog_client.py detail 694453 --out privat
 - 每次先保存原始JSON、CSV、时间、请求范围、分页数量和失败证据，再生成派生已读列表和差异；不覆盖上一份完整快照。分页漂移、服务端数量变化须保留异常，不能为凑旧计数重抓或改写原值。
 - 本人书架JSON保留当前全部16原字段及以后新增字段；CSV只是当前字段索引，JSON为完整依据。字段为`bookId/guid/pk/syncFlag/name/bookNameFromServer/frontCover/frontCoverWidth/frontCoverHeight/myStar/readFlag/readedFlag/readCount/isTaoxi/bookCount/notBorrowFlag`。
 - 旧网页`bookId`逐字对应App`guid`，历史113／113已核对；App数字`bookId`另存，不能填进原网页身份字段。既有公共单册稳定ID、出版版本及个人进度键不改，不按书名或序号跨版硬绑。重复导入仍按公共单册去重。
-- 已读依据全书架`readedFlag=1`，保留全部原字段。本批与`readCount>0`全量一致只是观察结果，不能改成永久规则；`readFlag`本批全0，不能用来判已读。`readCount`不直接解释为真实打卡次数，不生成阅读日期、时长或掌握程度。App“读过”筛选92本是另一参数范围，不替代全书架状态。
+- 已读依据全书架`readedFlag=1`，保留全部原字段。本批与`readCount>0`全量一致只是观察结果，不能改成永久规则；`readFlag`本批全0，不能用来判已读。`readCount`经已保存手机9本样本核对，可作为App书架“读过／2次／3次”徽标原值同步；它不代表已核实的逐条打卡日志，不生成阅读日期、时长或掌握程度。已读仍只看`readedFlag`。App“读过”筛选92本是另一参数范围，不替代全书架状态。
 - 封面只保留原始路径／URL与来源，不下载或镜像；相对路径原值独立保留，展示补域须按对应已验证客户端规则，不凭空造URL。详情仍是书目信息，不是整书正文、逐页图片或整套电子书。
 - 单册详情导出保留书目与公共聚合字段及逐册observed／preserved／omitted字段名清单，排除社区用户、孩子、评论、阅读动态字段。CLI详情原始导出可能含本人状态，进入公共书目库前仍须只选公共元信息；私有书架、认证、手机截图与原始私有响应不进入Git或`dist/site`。
 

@@ -56,10 +56,10 @@ class DerivationTests(unittest.TestCase):
         self.assertEqual(result['wholeBookcaseCount'], 31)
         self.assertEqual(result['advertisedCount'], 16)
         self.assertEqual(result['actualUniqueCount'], 16)
-        self.assertEqual(result['books'][0], {'bookId': 'guid-1', 'appBookId': '1', 'title': 'Book 1'})
+        self.assertEqual(result['books'][0], {'bookId': 'guid-1', 'appBookId': '1', 'title': 'Book 1', 'readCount': 3})
         self.assertEqual(len(result['books']), 16)
         self.assertNotIn('futurePrivateField', str(result))
-        self.assertNotIn('readCount', str(result))
+        self.assertTrue(all(book['readCount'] == 3 for book in result['books']))
         self.assertEqual(result['fetchedAt'], data['fetchedAt'])
         self.assertEqual(data, fixture())
 
@@ -85,6 +85,11 @@ class DerivationTests(unittest.TestCase):
             lambda data: data['books'][0].update(readedFlag=True),
             lambda data: data['books'][0].update(readedFlag='1'),
             lambda data: data['books'][0].pop('readedFlag'),
+            lambda data: data['books'][0].update(readCount=-1),
+            lambda data: data['books'][0].update(readCount=1.5),
+            lambda data: data['books'][0].update(readCount='3'),
+            lambda data: data['books'][0].update(readCount=True),
+            lambda data: data['books'][0].pop('readCount'),
             lambda data: data['books'][0].update(name=''),
         ]
         for mutate in mutations:

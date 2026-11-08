@@ -63,7 +63,7 @@ test('历史素材身份引用同一公共书单；阶段筛选保留原表顺�
 test('手动打勾和取消只修改同一单册身份，各阶段及套系即时投影数量与百分比',()=>{
   let records={};
   records={...records,...B.manualUpdate(records,'sample-01',true)};
-  assert.deepEqual(B.bookState(records,'sample-01'),{done:true,manual:true,external:[]});
+  assert.deepEqual(B.bookState(records,'sample-01'),{done:true,manual:true,external:[],readCount:null});
   assert.deepEqual(B.progress(records,plan,'A'),{completed:1,total:2,percent:50,status:'using',identifiedCompleted:1,legacyCompleted:0});
   assert.equal(B.progress(records,plan,'all').completed,1);
   assert.equal(B.progress(records,plan,'B').completed,0);
@@ -676,4 +676,59 @@ test('目录索引复用后，原记录对象内的手工撤回和来源修正�
   assert.equal(B.directoryProgress(records,directory,catalog,'canonical').completed,2);
   records[B.MANUAL+'one'].status='not-started';records[B.EXTERNAL+'test:two'].status='not-started';
   assert.equal(B.directoryProgress(records,directory,catalog,'canonical').completed,0);
+});
+
+test('逐本阅读次数随同一外部事实更新，幂等、降次和旧快照兼容，不累加完成本数',()=>{
+  const item={...entry('times','Example GK-01 At the market'),readCount:3};
+  const first=B.applyReadSnapshot({},data,snapshot([item]));
+  let records=first.changes;
+  assert.equal(B.bookState(records,'sample-01').readCount,3);
+  assert.equal(B.progress(records,plan).completed,1);
+  assert.deepEqual(B.applyReadSnapshot(records,data,snapshot([item])).changes,{});
+  Object.assign(records,B.manualUpdate(records,'sample-01',true));
+  assert.equal(B.bookState(records,'sample-01').readCount,3);
+  const newer=snapshot([{...item,readCount:2}],{snapshotId:'newer',fetchedAt:'2026-11-07T00:00:00Z'});
+  Object.assign(records,B.applyReadSnapshot(records,data,newer).changes);
+  assert.equal(B.bookState(records,'sample-01').readCount,2);
+  assert.deepEqual(B.applyReadSnapshot(records,data,snapshot([item])).changes,{});
+  assert.deepEqual(B.applyReadSnapshot(records,data,snapshot([entry('times',item.title)])).changes,{});
+  const restored=Sync.normalize('english',JSON.parse(JSON.stringify(wrap(records))));
+  assert.equal(B.bookState(restored.records,'sample-01').readCount,2);
+  assert.equal(B.progress(restored.records,plan).completed,1);
+  const latest=snapshot([{...item,readCount:1}],{fetchedAt:'2026-11-08T00:00:00Z'});
+  Object.assign(records,B.applyReadSnapshot(records,data,latest).changes);
+  assert.equal(B.bookState(records,'sample-01').readCount,1);
+  assert.equal(B.bookState(records,'sample-01').done,true);
+});
+
+test('阅读次数只取有效单册来源，不合并重复身份或推测手工次数，冲突和非法次数拒绝导入',()=>{
+  const a={...entry('a','Example GK-01 At the market'),readCount:2};
+  const b={...entry('b',a.title),readCount:3};
+  const records=B.applyReadSnapshot({},data,snapshot([a,b])).changes;
+  assert.equal(B.bookState(records,'sample-01').readCount,3);
+  assert.equal(B.progress(records,plan).completed,1);
+  assert.equal(B.bookState(B.manualUpdate({},'sample-01',true),'sample-01').readCount,null);
+  for(const readCount of [-1,1.5,'3',true,null,Number.MAX_SAFE_INTEGER+1]){
+    assert.throws(()=>B.applyReadSnapshot(records,data,snapshot([{...a,readCount}])));
+  }
+  assert.throws(()=>B.applyReadSnapshot(records,data,snapshot([a,{...a,readCount:4}])));
+  const zero=B.applyReadSnapshot({},data,snapshot([{...a,readCount:0}])).changes;
+  assert.equal(B.bookState(zero,'sample-01').readCount,0);
+  assert.equal(B.bookState(zero,'sample-01').done,true);
+});
+
+test('既有精确外站身份可刷新次数，目录映射冲突不重绑、不丢旧完成，App身份冲突不更新',()=>{
+  const item={...entry('times','Example GK-01 At the market'),appBookId:'123',readCount:3};
+  const first=B.applyReadSnapshot({},data,snapshot([item])).changes;
+  const changed={...data,plans:[{...plan,books:plan.books.map(book=>({...book,id:'new-'+book.id}))}]};
+  const newer=snapshot([{...item,readCount:4}],{fetchedAt:'2026-11-07T00:00:00Z'});
+  const result=B.applyReadSnapshot(first,changed,newer);
+  const saved={...first,...result.changes};
+  assert.equal(result.ambiguous.length,1);
+  assert.equal(B.bookState(saved,'sample-01').readCount,4);
+  assert.equal(B.bookState(saved,'new-sample-01').done,false);
+  assert.equal(B.progress(saved,plan).completed,1);
+  const conflict=B.applyReadSnapshot(first,data,snapshot([{...item,appBookId:'456',readCount:5}]));
+  assert.deepEqual(conflict.changes,{});
+  assert.equal(conflict.ambiguous.length,1);
 });

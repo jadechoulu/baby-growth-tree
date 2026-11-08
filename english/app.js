@@ -681,7 +681,7 @@ function seriesProgression(r){
       })),false,'series-route-use')):h('p',{class:'small-note'},'此素材仅见于补充图，三条原路线中未见明确阶段引用。'));
 }
 
-function familyCover(r){const div=h('div',{class:'resource-cover cover-type-'+r.type});if(r.cover){div.append(h('img',{src:asset(r.cover),alt:r.title+'，'+coverLabel(r),loading:'lazy'}),h('span',{class:'cover-caption'},coverLabel(r)));}else{div.append(h('span',{class:'generated-cover','aria-hidden':'true'},icon(r.type==='animation'?'play':r.type==='song'?'music':'book'),h('b',{},r.title),h('small',{},'LITTLE LEAF LIBRARY')),h('span',{class:'cover-caption'},'图示 · 点开可看原页'));}return div;}
+function familyCover(r){const div=h('div',{class:'resource-cover cover-type-'+r.type});if(r.cover){div.append(h('img',{src:asset(r.cover),alt:r.title+'，'+coverLabel(r),loading:'lazy'}),h('span',{class:'cover-caption'},coverLabel(r)));}else{div.append(h('span',{class:'generated-cover','aria-hidden':'true'},icon(r.type==='animation'?'play':r.type==='song'?'music':'book'),h('b',{},r.title),h('small',{},'LITTLE LEAF LIBRARY')),h('span',{class:'cover-caption'},'图示 · 点开可看原页'));}if(r.liaoBookId){const badge=bookReadCountBadge(r.liaoBookId);if(badge)div.append(badge);}return div;}
 window.matchMedia('(min-width:901px)').addEventListener('change',()=>{if(S.view==='library')render();});
 function savePracticeRecords(changes){
   const previous=S.records;S.records={...previous,...changes};
@@ -776,6 +776,10 @@ function refreshReadingPlan(focusId){
   render();renderModal();overlay.querySelector('.detail')?.scrollTo(0,scroll);
   document.getElementById(focusId)?.focus({preventScroll:true});
 }
+function bookReadCountBadge(bookId,inline=false){
+  const count=BP.bookState(S.records,bookId).readCount;
+  return count>1?h('span',{class:'book-read-count'+(inline?' book-read-count-inline':''),'aria-label':'小花生阅读 '+count+' 次',title:'小花生阅读 '+count+' 次'},count+'次'):null;
+}
 function bookCompletionControl(book,id){
   const state=BP.bookState(S.records,book.id);
   return h('input',{id,type:'checkbox',class:'book-completion'+(state.external.length?' is-imported':''),checked:state.done,disabled:state.external.length>0&&!state.manual,
@@ -821,7 +825,7 @@ function readingPlanDetail(resourceId){
       const coverBook=book.cover?book:BOOKS.books.find(item=>item.id===book.id);
       const patterns=plan.catalog?[...new Set((book.studyGuide?.patterns||[]).map(item=>item.text).filter(Boolean))]:book.patterns;
       return h('li',{class:'reading-book-item'+(state.done?' done':'')},heading?h('h3',{class:'reading-pattern-heading'},section):null,
-        h('div',{class:'reading-book-row'},bookCompletionControl(book,labelId),coverBook?.cover?libraryBookCover(coverBook):null,h('label',{for:labelId},h('span',{class:'reading-book-name'},h('small',{},'#'+String(book.number).padStart(2,'0')+' · '+groupLabel(book.group)),book.title),
+        h('div',{class:'reading-book-row'},bookCompletionControl(book,labelId),coverBook?.cover?libraryBookCover(coverBook):bookReadCountBadge(book.id,true),h('label',{for:labelId},h('span',{class:'reading-book-name'},h('small',{},'#'+String(book.number).padStart(2,'0')+' · '+groupLabel(book.group)),book.title),
           plan.catalog?h('span',{class:'reading-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),studyGuideInfo(book,{showPatterns:false})):null),
           hasPatterns?h('div',{class:'reading-book-pattern-column'},h('small',{},'句型'),h('span',{class:'reading-book-patterns'},patterns.length?patterns.map(pattern=>h('span',{},pattern)):h('span',{class:'small-note'},'原表未列'))):null));
     }));}),
@@ -1481,8 +1485,9 @@ function libraryBookCover(book){
     frame.title=book.title+' · 单册图片待补';
     frame.classList.add('library-cover-fallback');
     frame.replaceChildren(h('span',{class:'library-book-placeholder','aria-label':book.title+'单册图片待补'},icon('book')));
+    const badge=bookReadCountBadge(book.id);if(badge)frame.append(badge);
   };
-  if(book.cover)frame.append(h('img',{src:asset(book.cover),alt:book.title+' · '+label,title:book.title+' · '+label,loading:'lazy',onerror:fallback}));
+  if(book.cover){frame.append(h('img',{src:asset(book.cover),alt:book.title+' · '+label,title:book.title+' · '+label,loading:'lazy',onerror:fallback}));const badge=bookReadCountBadge(book.id);if(badge)frame.append(badge);}
   else fallback();
   return frame;
 }
@@ -1754,7 +1759,7 @@ function shelfSeriesDetail(id){
 function otherShelfResults(){
   const words=otherShelfState.query.trim().toLowerCase().split(/\s+/).filter(Boolean),all=shelfGroups();
   const groups=all.filter(group=>(otherShelfState.status==='all'||group.status===otherShelfState.status)&&words.every(word=>[group.title,...group.books.map(book=>book.title)].join(' ').toLowerCase().includes(word)));
-  return h('div',{id:'other-shelf-results'},h('p',{class:'result-count',role:'status'},groups.length+' 个套系／单本 · '+groups.reduce((sum,group)=>sum+group.total,0)+' 本'),groups.length?h('div',{class:'resource-grid library-grid library-cover-grid other-shelf-grid'},groups.slice(0,otherShelfState.limit).map(group=>h('article',{class:'library-card shelf-card'},h('button',{type:'button',class:'shelf-open',onclick:()=>openModal('shelf-series',group.id),'aria-label':'查看'+group.title+'全部书目与阅读状态'},libraryBookCover({...group,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),h('strong',{},group.title)),h('div',{class:'shelf-card-progress'},h('span',{},'书架 '+group.completed+'／'+group.total+'本'),h('span',{},P.STATUS[group.status])),h('progress',{max:group.total,value:group.completed,'aria-label':group.title+'已阅读 '+group.completed+'／'+group.total+' 本'})))):h('div',{class:'empty'},all.length?'没有匹配的书目。':'同步进度后，这里展示书架中未收录在路线或廖彩杏书单的英文套系和单本。'),groups.length>otherShelfState.limit?h('button',{type:'button',class:'button',onclick:()=>{otherShelfState.limit+=18;document.getElementById('other-shelf-results')?.replaceWith(otherShelfResults());}},'再看 18 个'):null);
+  return h('div',{id:'other-shelf-results'},h('p',{class:'result-count',role:'status'},groups.length+' 个套系／单本 · '+groups.reduce((sum,group)=>sum+group.total,0)+' 本'),groups.length?h('div',{class:'resource-grid library-grid library-cover-grid other-shelf-grid'},groups.slice(0,otherShelfState.limit).map(group=>h('article',{class:'library-card shelf-card'},h('button',{type:'button',class:'shelf-open',onclick:()=>openModal('shelf-series',group.id),'aria-label':'查看'+group.title+'全部书目与阅读状态'},libraryBookCover({...group,id:group.series?null:group.books[0].id,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),h('strong',{},group.title)),h('div',{class:'shelf-card-progress'},h('span',{},'书架 '+group.completed+'／'+group.total+'本'),h('span',{},P.STATUS[group.status])),h('progress',{max:group.total,value:group.completed,'aria-label':group.title+'已阅读 '+group.completed+'／'+group.total+' 本'})))):h('div',{class:'empty'},all.length?'没有匹配的书目。':'同步进度后，这里展示书架中未收录在路线或廖彩杏书单的英文套系和单本。'),groups.length>otherShelfState.limit?h('button',{type:'button',class:'button',onclick:()=>{otherShelfState.limit+=18;document.getElementById('other-shelf-results')?.replaceWith(otherShelfResults());}},'再看 18 个'):null);
 }
 function otherLibraryView(){
   function refresh(){otherShelfState.limit=18;document.getElementById('other-shelf-results')?.replaceWith(otherShelfResults());}
@@ -1762,7 +1767,7 @@ function otherLibraryView(){
 }
 function libraryCollectionTabs(compact=false){return h('div',{class:'toolbar hello-collection-tabs'+(compact?' liao-collection-tabs':''),role:'group','aria-label':'素材集合'},[['all','全部素材'],['hello','Hello 杂志'],['liao','廖彩杏'],['other','其他']].map(([id,label])=>h('button',{type:'button',class:'button'+(libraryCollection===id?' primary':''),'aria-pressed':String(libraryCollection===id),onclick:()=>{libraryCollection=id;history.replaceState(null,'','#library'+(id==='all'?'':'?collection='+id));render();document.querySelector('.hello-collection-tabs [aria-pressed="true"]')?.focus({preventScroll:true});},'aria-label':label},compact?[h('span',{class:'liao-collection-full'},label),h('span',{class:'liao-collection-short','aria-hidden':'true'},id==='all'?'全部':id==='hello'?'Hello':label)]:label)));}
 function libraryView(){
-  if(libraryCollection==='liao')return h('div',{class:'library-view'},window.EnglishLiao.render(LIAO,{h,asset,icon,collectionTabs:libraryCollectionTabs(true),onMethod:()=>openModal('liao-method'),onSoundBook:openSoundBook,soundBookBadges:id=>SSS.soundBook.songs.filter(entry=>entry.liaoBookId===id).map(entry=>soundBookBadge(entry,null,'liao-'+id)),soundBookLegend,popover:libraryPopover,sourceBtn,name:label=>materialUI.name(label,false),onResource:openLiaoResource,isDone:liaoBookDone,completionButton:liaoBookStatusControls}));
+  if(libraryCollection==='liao')return h('div',{class:'library-view'},window.EnglishLiao.render(LIAO,{h,asset,icon,collectionTabs:libraryCollectionTabs(true),onMethod:()=>openModal('liao-method'),onSoundBook:openSoundBook,soundBookBadges:id=>SSS.soundBook.songs.filter(entry=>entry.liaoBookId===id).map(entry=>soundBookBadge(entry,null,'liao-'+id)),soundBookLegend,popover:libraryPopover,sourceBtn,name:label=>materialUI.name(label,false),onResource:openLiaoResource,isDone:liaoBookDone,completionButton:liaoBookStatusControls,readCountBadge:bookReadCountBadge}));
   if(libraryCollection==='other')return otherLibraryView();
   if(libraryCollection==='hello')return h('div',{class:'library-view'},libraryCollectionTabs(),window.EnglishHello.render(window.ROADMAP_RAW.helloReading,{h,asset,onRhymePreview:id=>showPreview(null,1,null,id),onMaterialPreview:id=>showPreview(null,1,null,null,id)}));
   const options=(key,entries,id)=>h('div',{class:'library-filter-choices'},entries.map(([value,label])=>h('button',{type:'button','aria-pressed':String(S[key]===value),onclick:()=>libraryFilterApply(key,value,id+'-toggle')},label)));
@@ -1981,7 +1986,7 @@ function resourceDetail(r,withoutReading=false,{bookCatalog=true}={}){if(!r)retu
   if(!withoutReading&&!unit&&readingPlanForResource(r.id))return readingPlanDetail(r.id);
   if(r.liaoBookId&&!r.appearances.length){
     const book=window.EnglishLiao.findBook(LIAO,r.liaoBookId);
-    return h('div',{},h('div',{class:'liao-detail-heading'},h('h2',{},materialUI.name(r.title,false)),liaoBookStatusControls(book.id)),bookCatalog?resourceBookCatalog(r):null,window.EnglishLiao.detail(LIAO,book,{h,asset,sourceBtn,onResource:openLiaoResource,fold:(key,title,body)=>readingFold(key,title,body,false,'series-evidence')}),r.cover?readingFold('liao-cover-'+book.id,'单本封面与原图',h('div',{},btn(h('img',{class:'detail-preview',src:asset(r.cover),alt:book.title+' 原书书目封面缩图'}),'resource-preview',{'data-id':r.id,'aria-label':'放大查看'+book.title+'的图片'},'detail-preview-trigger'),h('p',{class:'small-note'},book.coverEvidence)),false,'series-evidence'):null);
+    return h('div',{},h('div',{class:'liao-detail-heading'},h('h2',{},materialUI.name(r.title,false)),liaoBookStatusControls(book.id),bookReadCountBadge(book.id,true)),bookCatalog?resourceBookCatalog(r):null,window.EnglishLiao.detail(LIAO,book,{h,asset,sourceBtn,onResource:openLiaoResource,fold:(key,title,body)=>readingFold(key,title,body,false,'series-evidence')}),r.cover?readingFold('liao-cover-'+book.id,'单本封面与原图',h('div',{},btn(h('img',{class:'detail-preview',src:asset(r.cover),alt:book.title+' 原书书目封面缩图'}),'resource-preview',{'data-id':r.id,'aria-label':'放大查看'+book.title+'的图片'},'detail-preview-trigger'),h('p',{class:'small-note'},book.coverEvidence)),false,'series-evidence'):null);
   }
 const rel=C.relationships.filter(e=>e.from===r.id||e.to===r.id);const related=Array.from(new Set(rel.map(e=>e.from===r.id?e.to:e.from))).filter(id=>byId.has(id)&&id!==r.id);const record=S.records[r.id]||(r.mergedResourceIds||[]).map(id=>S.records[id]).find(Boolean)||{};return h('div',{},h('div',{class:'resource-detail-heading'},
     r.cover?h('div',{class:'resource-detail-cover'},btn(h('img',{class:'detail-preview',src:asset(r.cover),alt:r.title+'，'+coverLabel(r)}),'resource-preview',{id:'resource-preview-'+r.id,'data-id':r.id,'aria-label':'放大查看'+r.title+'的图片','aria-haspopup':'dialog',title:'点击放大查看'},'detail-preview-trigger')):null,

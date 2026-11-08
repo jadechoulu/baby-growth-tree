@@ -1375,6 +1375,11 @@
 .book-completion:checked{border-color:var(--book-completion-color);background-color:var(--book-completion-color);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 10 4 4 8-9' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-position:center;background-repeat:no-repeat;background-size:18px 18px}
 .book-completion[disabled]{cursor:default;opacity:1}
 .book-completion:focus-visible{outline:2px solid var(--accent,#2e6954);outline-offset:3px}
+.library-book-cover{position:relative}
+.book-read-count{position:absolute;top:3px;right:3px;z-index:1;display:inline-block;padding:1px 4px;border-radius:3px;background:#d7514c;color:#fff;font-size:12px;line-height:18px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;pointer-events:none}
+.book-read-count-inline{position:static;align-self:center;flex:none}
+.reading-book-row>.library-book-cover>.book-read-count{top:0;right:0;padding-inline:2px}
+.liao-card-cover:has(>.sound-book-badge)>.book-read-count{right:auto;left:3px}
 .library-book-title .icon-button{flex:none;width:26px;height:26px!important;min-width:26px;min-height:26px!important;padding:4px}
 .library-book-context{display:flex;flex-wrap:wrap;gap:1px 8px;color:var(--muted);font-size:12px;line-height:1.5}
 .library-book-topics{display:flex;flex-wrap:wrap;gap:3px;margin:3px 0}

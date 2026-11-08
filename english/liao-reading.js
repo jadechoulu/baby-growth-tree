@@ -51,7 +51,7 @@ function render(data,ui){
     const chapters=entry?entry.references.map(ref=>ref.chapter).filter(Boolean):null;
     const subtitle=entry?(entry.review?'复习':'本周引入')+(chapters.length?' · 第'+chapters.join('、')+'章':''):book.references.length?'第'+book.references[0].week+'周'+(book.references.length>1?'起，分3章':''): '新增';
     return h('li',{class:'library-book-row liao-book-card','data-liao-id':book.id},
-      h('div',{class:'liao-card-cover'},button(book.cover?h('span',{class:'library-book-cover'},h('img',{src:asset(book.cover),alt:'',loading:'lazy'})):null,()=>onResource(book.id),{class:'liao-book-link','aria-label':'通过封面查看'+book.title,'aria-haspopup':'dialog'}),ui.completionButton?.(book.id),ui.soundBookBadges?.(book.id)),
+      h('div',{class:'liao-card-cover'},button(book.cover?h('span',{class:'library-book-cover'},h('img',{src:asset(book.cover),alt:'',loading:'lazy'})):null,()=>onResource(book.id),{class:'liao-book-link','aria-label':'通过封面查看'+book.title,'aria-haspopup':'dialog'}),ui.readCountBadge?.(book.id),ui.completionButton?.(book.id),ui.soundBookBadges?.(book.id)),
       button(h('span',{},ui.name(book.title)),()=>onResource(book.id),{class:'liao-book-link',id:'liao-open-'+book.id,'aria-label':'查看'+book.title+'的书单与资料核对','aria-haspopup':'dialog'}),
       h('div',{class:'liao-card-meta'},h('span',{class:'liao-order',title:picture?'文章配图编号':'参考表首次引入顺序'},String(number).padStart(2,'0')),h('small',{},subtitle+(book.package.status!=='unchecked'&&(book.package.shares||[]).every(share=>share.empty)?' · 暂无资料':''))),mediaLinks(book,{h,asset,compact:true,chapters}));
   }
