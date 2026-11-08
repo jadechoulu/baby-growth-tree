@@ -20,6 +20,11 @@ class LocalBackupTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
+        executor = self.root / 'fixed-test-python'
+        executor.write_text('测试执行器占位，子进程调用由 mock 接管', encoding='utf-8')
+        runtime_patch = mock.patch.object(local_server, 'XHS_PYTHON', executor)
+        runtime_patch.start()
+        self.addCleanup(runtime_patch.stop)
         self.site = self.root / 'site'
         self.site.mkdir()
         (self.site / 'index.html').write_text('<h1>本机预览</h1>', encoding='utf-8')
@@ -161,6 +166,14 @@ class LocalBackupTests(unittest.TestCase):
                     self.assertEqual(self.request(endpoint=local_server.XHS_ENDPOINT, body=body)[0], 400)
             self.assertEqual(self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}', headers={'Content-Type': 'text/plain'})[0], 415)
             run.assert_not_called()
+
+    def test_xhs_sync_missing_runtime_preserves_records_without_running_command(self):
+        local_server.XHS_PYTHON.unlink()
+        with mock.patch.object(local_server.subprocess, 'run') as run:
+            status, value, _ = self.request(endpoint=local_server.XHS_ENDPOINT, body=b'{}')
+            self.assertEqual((status, value['code']), (503, 'LOCAL_UNAVAILABLE'))
+            run.assert_not_called()
+        self.assertFalse(self.backups.exists())
 
     def test_xhs_sync_single_task_and_safe_errors(self):
         self.server.xhs_sync_lock.acquire()
