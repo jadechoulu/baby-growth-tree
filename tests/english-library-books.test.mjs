@@ -34,6 +34,19 @@ test('级别范围先展开，主题与路线及阶段取同一原引用的交�
   assert.equal(B.bookAppearances({...book,qualifier:'虚构'},selection,M).length,1,'逐本有据的限定选本仍可关联');
 });
 
+test('显式选本只关联列出的单册，参考标记可由有据成员补齐，整级及增补册不能混入',()=>{
+  const resource={id:'subset',title:'选本',type:'reader',appearances:[{routeId:'qing',stageId:'stage',level:'A · 虚构部分'}]};
+  const books=['fiction','nonfiction','extra'].map(id=>({id,resourceId:'subset',title:id,edition:'原目录',level:'A',topics:[],editionMatch:'reference-only'}));
+  const volumes={series:[{resourceId:'subset',scopes:[{id:'fiction',level:'A（虚构部分）',levelAliases:['A · 虚构部分'],edition:'虚构选集',parts:[{label:'A（虚构部分）',count:1,directoryMatch:{edition:'原目录',level:'A',bookIds:['fiction']}}]}]}]};
+  const entries=B.entries({books},[resource],M,volumes);
+  assert.deepEqual(entries.filter(b=>b.appearances.length).map(b=>b.id),['fiction']);
+  const selected=B.seriesCount({books},resource,M,volumes,{route:'qing',selections:[{routeId:'qing',stageId:'stage',parts:[{label:'A（虚构部分）',count:1,edition:'虚构选集',directoryMatch:{edition:'原目录',level:'A',bookIds:['fiction']}}]}]});
+  assert.deepEqual(selected.books.map(book=>book.id),['fiction']);
+  assert.equal(selected.total,1);
+  const unknown={...resource,appearances:[{routeId:'qing',stageId:'unmatched',level:'A · 虚构部分'}]};
+  assert.deepEqual(B.bookAppearances({...books[1],editionMatch:undefined},unknown,M),[]);
+});
+
 test('主题套系分组覆盖全部结果，RAZ级别分开且培生上下辑共用一个入口',()=>{
   const books=B.entries(data,catalog.resources,M),groups=B.seriesGroups(books,data);
   assert.equal(groups.reduce((sum,group)=>sum+group.count,0),books.length);

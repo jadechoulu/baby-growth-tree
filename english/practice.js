@@ -65,10 +65,10 @@ function validDate(value){return typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.
 function json(note){try{return JSON.parse(note);}catch{return null;}}
 function unitKey(stage,item){
   // 标签的排列、共用加粗及其他路线素材变动不能改变个人记录键。
-  const signature=JSON.stringify([item.material.role,[...new Set(item.materials.map(m=>JSON.stringify([m.sourceId,m.level])))].sort()]);
+  const signature=JSON.stringify([item.material.role,[...new Set(item.materials.map(m=>JSON.stringify([m.sourceId,m.recordLevel??m.level])))].sort()]);
   let a=2166136261,b=5381;
   for(const c of signature){a=Math.imul(a^c.charCodeAt(0),16777619);b=Math.imul(b,33)^c.charCodeAt(0);}
-  return MATERIAL+stage.routeId+':'+(item.material.recordStageId||stage.id)+':'+item.resource.id+':'+(a>>>0).toString(36)+(b>>>0).toString(36);
+  return MATERIAL+stage.routeId+':'+(item.material.recordStageId||stage.id)+':'+(item.material.recordResourceId||item.resource.id)+':'+(a>>>0).toString(36)+(b>>>0).toString(36);
 }
 function unitRecord(records,key){const r=records[key],meta=json(r?.note),status=Object.hasOwn(STATUS,r?.status)?r.status:'not-started';const percent=meta?.version===1&&Number.isInteger(meta.percent)&&meta.percent>=0&&meta.percent<=100?meta.percent:status==='done'?100:status==='using'?null:0;return {status,percent,text:meta?.version===1&&typeof meta.text==='string'?meta.text:'',date:validDate(meta?.date)?meta.date:''};}
 function sortSongsByCompletion(songs,records){
@@ -112,9 +112,10 @@ function bookScopes(resourceId,levels,catalog,stageId){
 function unitBooks(record){const meta=json(record?.note);return meta?.version===1&&meta.books?.version===1?meta.books:null;}
 // 用户选版优先；唯一匹配的公共范围作为浏览默认，不写入私人选版或作者证据。
 function defaultBookScope(scopes=[]){
-  const selected=scopes.find(scope=>scope.default);
+  const valid=scopes.filter(validBookScope);
+  const selected=valid.find(scope=>scope.default);
   if(selected)return selected;
-  return scopes.length===1&&validBookScope(scopes[0])?{...scopes[0],automaticDefault:true}:null;
+  return valid.length===1?{...valid[0],automaticDefault:true}:null;
 }
 function bookScope(record,scopes=[],unit='个'){
   const books=unitBooks(record);
@@ -152,15 +153,19 @@ function sharedQuantityKey(resourceId,scope,unit='个'){
   if(!scope||scope.origin==='personal')return null;
   return partKey('material.quantity.v1:'+resourceId,JSON.stringify([scope.edition||'',scope.label,scope.total,scope.unit||unit]));
 }
-function sharedQuantity(records,resourceId,scope,unit='个',record){
+function sharedQuantity(records,resourceId,scope,unit='个',record,resourceIds=[resourceId]){
   const baseline=quantityRecord(record,scope,unit),key=sharedQuantityKey(resourceId,scope,unit);
   if(!key)return baseline;
   if(Object.hasOwn(records,key))return quantityRecord(records[key],scope,unit);
   let result=baseline;
+  for(const id of resourceIds){
+    const previous=records[sharedQuantityKey(id,scope,unit)];
+    if(previous){const quantity=quantityRecord(previous,scope,unit);if(quantity.completed>result.completed)result=quantity;}
+  }
   for(const [id,saved] of Object.entries(records)){
     let candidates=[];
-    if(id.startsWith(MATERIAL)&&id.split(':')[3]===resourceId)candidates=[saved];
-    else if(id===LIBRARY+resourceId)candidates=Object.values(json(saved?.note)?.quantities||{});
+    if(id.startsWith(MATERIAL)&&resourceIds.includes(id.split(':')[3]))candidates=[saved];
+    else if(resourceIds.some(resourceId=>id===LIBRARY+resourceId))candidates=Object.values(json(saved?.note)?.quantities||{});
     for(const candidate of candidates){
       const quantity=quantityRecord(candidate,scope?.automaticDefault?{...scope,automaticDefault:false}:scope,unit);
       if(quantity.completed>result.completed)result=quantity;

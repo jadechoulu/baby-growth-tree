@@ -412,6 +412,41 @@ test('目录缺册或分项重叠不生成伪完整列表，旧合计不能推�
   assert.ok(B.books(plan).every(book=>!B.bookState({},book.id).done));
 });
 
+test('同版三个级别中选两个共用原单册事实，撤回与未选级别隔离，缺册不生成完整范围',()=>{
+  const directory={books:['A','B','C'].map(level=>({id:'subset-'+level,resourceId:'subset',edition:'同版',level,title:level}))};
+  const catalog={series:[{resourceId:'subset',scopes:[{id:'full',edition:'同版',parts:['A','B','C'].map(level=>({label:level,count:1,directoryMatch:{edition:'同版',level}}))}]}]};
+  const scope={id:'ab',edition:'同版',total:2,parts:[{label:'A',count:1},{label:'B',count:1}]};
+  const plan=B.planForResource({plans:[]},'subset',directory,catalog,scope);
+  assert.equal(B.scopeGroup(plan,scope),'all');
+  assert.deepEqual(B.books(plan).map(b=>b.id),['subset-A','subset-B']);
+  let records={...B.manualUpdate({},'subset-A',true),...B.manualUpdate({},'subset-C',true)};
+  assert.equal(B.projectQuantity(records,plan,scope).completed,1);
+  Object.assign(records,B.manualUpdate(records,'subset-A',false));
+  assert.equal(B.projectQuantity(records,plan,scope).completed,0);
+  const partial={books:directory.books.filter(b=>b.level!=='B')};
+  assert.equal(B.planForResource({plans:[]},'subset',partial,catalog,scope),null);
+  assert.equal(B.planForResource({plans:[]},'subset',directory,catalog,{...scope,edition:'另一版'}),null);
+});
+
+test('RAZ庆爸虚构选本按公共成员生成分母与逐本进度，同一本跨总览及路线共用事实',()=>{
+  const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js');
+  for(const [level,total]of [['AA',18],['A',42],['B',57],['C',51],['D',43],['E',44],['F',41],['G',37],['H',34],['I',35],['J',37],['K',31],['M',33]]){
+    const scope=P.bookScope(undefined,P.bookScopes('resource-1qnd5uh',[level+' · 虚构部分'],catalog));
+    assert.equal(scope.total,total,level);
+    const plan=B.planForResource({plans:[]},'resource-1qnd5uh',directory,catalog,scope),group=B.scopeGroup(plan,scope),books=B.books(plan,group);
+    assert.equal(books.length,total,level);assert.ok(books.every(book=>book.genre==='fiction'));
+    const book=books[0],records=B.manualUpdate({},book.id,true);
+    assert.equal(B.projectQuantity(records,plan,scope).completed,1);
+    assert.equal(B.directoryProgress(records,directory,catalog,'resource-1qnd5uh').completed,1);
+    const nonmember=directory.books.find(b=>b.resourceId==='resource-1qnd5uh'&&b.level.toUpperCase()===level&&b.genre==='nonfiction');
+    Object.assign(records,B.manualUpdate(records,nonmember.id,true));
+    assert.equal(B.projectQuantity(records,plan,scope).completed,1);
+    Object.assign(records,B.manualUpdate(records,book.id,false));
+    assert.equal(B.projectQuantity(records,plan,scope).completed,0);
+  }
+  assert.equal(P.bookScopes('resource-1qnd5uh',['L · 虚构'],catalog).length,0,'分类未完整的L级不能生成完整虚构分母');
+});
+
 test('大猫Pink各22本与培生上下各48本使用共用目录，GK原表顺序和句型不变',()=>{
   const data=require('../data/reading-plans.json'),directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js');
   for(const [resourceId,levels,expected] of [
@@ -629,4 +664,16 @@ test('新App快照缺失历史书目不清空，手工单册日期、计时和�
   assert.equal(B.bookState(merged,'sample-02').done,true,'缺失历史来源事实不撤回');
   assert.equal(B.bookState(merged,'sample-03').manual,true);
   assert.deepEqual(kept,before,'导入模型不直接修改原记录');
+});
+
+test('目录索引复用后，原记录对象内的手工撤回和来源修正仍即时生效',()=>{
+  const catalog={series:[{resourceId:'canonical',scopes:[]},{resourceId:'old',catalogResourceId:'canonical'}]};
+  const directory={books:[{id:'one',resourceId:'old'},{id:'two',resourceId:'canonical'}]},records={};
+  assert.equal(B.directoryProgress(records,directory,catalog,'canonical').completed,0);
+  records[B.MANUAL+'one']={status:'done'};
+  assert.equal(B.directoryProgress(records,directory,catalog,'old').completed,1);
+  records[B.EXTERNAL+'test:two']={status:'done',note:JSON.stringify({version:1,sourceKind:'xiaohuasheng_bookcase_read',publicBookId:'two'})};
+  assert.equal(B.directoryProgress(records,directory,catalog,'canonical').completed,2);
+  records[B.MANUAL+'one'].status='not-started';records[B.EXTERNAL+'test:two'].status='not-started';
+  assert.equal(B.directoryProgress(records,directory,catalog,'canonical').completed,0);
 });

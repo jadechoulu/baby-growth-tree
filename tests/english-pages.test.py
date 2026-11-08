@@ -17,6 +17,7 @@ class EnglishPagesTests(unittest.TestCase):
         cls.html = (cls.output / 'index.html').read_text()
         match = re.search(r'window\.ROADMAP_RAW=(.*?);window\.ROADMAP_ASSETS=', cls.html)
         cls.data = json.loads(match.group(1))
+        cls.directory = json.loads((cls.output / 'data/resource-books.json').read_text())
 
     def test_fixed_birthday_uses_shared_service_without_browser_records(self):
         self.assertNotIn('2020-11-24', self.html)
@@ -36,12 +37,15 @@ class EnglishPagesTests(unittest.TestCase):
             elif isinstance(value, str) and value.startswith('assets/'):
                 paths.add(value)
         collect(self.data)
+        collect(self.directory)
         self.assertGreater(len(paths), 30)
         for path in paths:
             with self.subTest(path=path):
                 self.assertEqual((self.output / path).read_bytes(), (ROOT / 'english' / path).read_bytes())
         actual = {path.relative_to(self.output).as_posix() for path in self.output.rglob('*') if path.is_file()}
-        self.assertEqual(actual, paths | {'index.html', '.nojekyll'})
+        self.assertEqual(actual, paths | {'index.html', '.nojekyll', 'data/resource-books.json'})
+        self.assertEqual(self.data['resourceBooks']['books'], [])
+        self.assertGreater(len(self.directory['books']), 3000)
 
     def test_all_three_routes_and_xu_supplements_are_preserved(self):
         for route in ['banana', 'xu', 'qing']:

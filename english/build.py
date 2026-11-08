@@ -1,6 +1,6 @@
 """从已核对的资料数据生成可直接打开的 HTML；不依赖构建工具或网络。"""
 from pathlib import Path
-import argparse, json, base64, mimetypes, re, shutil
+import argparse, json, base64, mimetypes, re, shutil, hashlib
 
 ROOT = Path(__file__).resolve().parent
 RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','editorial']}
@@ -62,7 +62,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','book-progress.js','xiaohuasheng-sync.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','book-progress.js','catalog-loader.js','xiaohuasheng-sync.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
@@ -79,14 +79,19 @@ BASE='''<!doctype html>
 <div id="app"><div class="loading">正在展开启蒙小地图…</div></div>
 <div id="overlay"></div><div id="preview"></div>
 <script>window.XIAOYA_SITE_SECTIONS=__SECTIONS__;window.XIAOYA_SITE_ROOT=__ROOT__;</script>
-<script>window.ROADMAP_SITE=__SITE__;window.ROADMAP_RAW=__RAW__;window.ROADMAP_ASSETS=__ASSETS__;</script>
+<script>window.ROADMAP_SITE=__SITE__;window.ROADMAP_RAW=__RAW__;window.ROADMAP_ASSETS=__ASSETS__;window.ROADMAP_BOOKS_URL=__BOOKS_URL__;</script>
 <script>__JS__</script>
 </body>
 </html>'''
 
 def write(path, assets, raw=RAW, script=js, site=None):
     site = site or {'home':'../home.html','growth':'../index.html'}
-    html=BASE.replace('__SECTIONS__',inline_json(sections)).replace('__ROOT__',inline_json(site['home'].removesuffix('home.html'))).replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__JS__',script)
+    books_url = None
+    if not assets:
+        digest = hashlib.sha256(inline_json(raw['resourceBooks']).encode()).hexdigest()[:16]
+        books_url = 'data/resource-books.json?v=' + digest
+        raw = {**raw, 'resourceBooks': {'books': [], 'sources': []}}
+    html=BASE.replace('__SECTIONS__',inline_json(sections)).replace('__ROOT__',inline_json(site['home'].removesuffix('home.html'))).replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__BOOKS_URL__',inline_json(books_url)).replace('__JS__',script)
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(html)
     print(str(path), f'{path.stat().st_size / 1024 / 1024:.1f} MB')
@@ -124,6 +129,8 @@ def build_pages():
     if output.exists(): shutil.rmtree(output)
     output.mkdir(parents=True)
     write(output / 'index.html', {}, raw, public_js)
+    (output / 'data').mkdir()
+    (output / 'data/resource-books.json').write_text(inline_json(raw['resourceBooks']))
     for relative in sorted(paths):
         target = output / relative
         target.parent.mkdir(parents=True, exist_ok=True)

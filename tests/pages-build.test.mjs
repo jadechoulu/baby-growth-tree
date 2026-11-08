@@ -114,7 +114,7 @@ test('统一发布包保留两边入口，子路径互跳和运行时引用完�
     assert.ok(files.has(url.pathname.replace('/baby-growth-tree/', '')));
   }
   const config = await readFile(path.join(outputDir, 'shared/site-config.js'), 'utf8');
-  assert.ok(config.includes('english/index.html#routes'));
+  assert.ok(config.includes('english/index.html#baby'));
   assert.ok(config.includes('成长技能树'));
   assert.ok(english.includes('XiaoyaSite.createShell'));
   assert.ok((await readFile(path.join(outputDir, 'app.mjs'), 'utf8')).includes('XiaoyaSite.createShell'));

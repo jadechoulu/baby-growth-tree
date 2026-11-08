@@ -4,6 +4,18 @@
 
 ## 当前状态
 
+### 2026-11-09：默认英语宝宝页与目录按需加载
+
+根入口和`home.html`无参数／片段时，经共享`default-entry.js`读取分类注册表进入`english/index.html#baby`；成长分类及版本入口使用`index.html?area=growth`，已有技能深链接保留。英语不再因没有档案改为路线页。
+
+普通与Pages英语入口将`resourceBooks`从首屏内联拆为同源公共JSON，URL携带内容摘要；宝宝页不发书目请求，需要目录的视图／详情先加载并复用同一目标对象，失败支持重试。已读导入等待完整目录，避免空目录造成未匹配。离线单文件仍完整内嵌，源码数据、逐册ID与进度键不变。公共出版、分项和书目索引复用；个人事实实时读取，不按对象身份永久缓存。图鉴宽窄屏均每批18项，重复档案通知不再触发无变化重绘。
+
+同机Node公开数据基准（3804本、132条合成已读）全套系目录计算热运行约406ms降至16ms；首次生成可勾书单约272ms降至29ms。普通英语HTML由约8.7MB降至约3.2MB，目录改为按需加载而非删减。以上不是手机实机网络或LCP成绩。具体庆爸册数仍区分出版整级与路线子集，见[缺口说明](audits/material-identity-catalogs-20261109.md#庆爸阶段册数的剩余缺口)。本节记录源码实现，发布状态以对应GitHub Actions部署记录为准。
+
+### 2026-11-09：统一素材实体与补充逐册目录
+
+公共模型按显式`catalogResourceId`归并14个已核重复入口，图鉴、主题套系筛选及路线共用统一名称和素材，版本在内部区分。旧素材／单册ID及阶段记录键保留，历史数量不重复相加；GK70标尺显式保留。新增415本公共目录，并接通8套既有目录的120本具名范围；启明星3／4级73本封面改为原始单册URL。公开采集未刷新本人书架，不代表所有目录已齐全。范围及缺口见[本批核对](audits/material-identity-catalogs-20261109.md)。
+
 ### 2026-11-08：同步按钮功能接入
 
 本机环回HTTP入口通过同源`POST /__xiaohuasheng-sync`调用固定Python执行器及已授权App CLI；服务验证Host／Origin，仅接受空JSON，不提供CORS或通用代理。钥匙串、token和签名只在本机。完整全书架逐页核对HTTP200／M1001、连续offset、合法末页及双ID唯一后，只以`readedFlag=1`派生已读；`guid`沿用旧网页身份，数字ID另存`appBookId`。
@@ -747,7 +759,7 @@ PDF.js 6.5.438按需加载，模块、worker、字符映射、标准字体与许
 
 30个资料包MP4已创建极空间180天、无密码、1000次分享，并保存短链、解析后的长链及实际文件名。19条按逐册阅读指引明确关联Part，其余11条只归册；套唱示范与拓展视频分别保留，不据拓展反写原童谣曲调。书册可查全部配套视频，场景／Part及童谣仅显示有依据的关系，图谱与实时筛选共用同一数据。视频沿用当前页分享弹窗。1号`hair cut.mp4`从百度补齐完整文件并完整解码、核对SHA256后上传极空间，原残片保留历史，不作为当前播放入口。
 
-`I Love You Through and Through`、`Zoom Zoom Zoom We’re Going to the Moon`按笔记与歌词交叉核对，改用资料包完整MP3。`Apple Red Apple Round`、`听妈妈的话`缺少可确认的参考录音，改为“参考音源待补”；对应Hello演唱仍可播放，不把Hello改编演唱自动认作经典原曲。相关测试及本地验收记录见`.rich-harness/tasks/internal-file-preview/package-audit-20261105.md`。本批未提交或发布。
+`I Love You Through and Through`、`Zoom Zoom Zoom We’re Going to the Moon`按笔记与歌词交叉核对，改用资料包完整MP3。`Apple Red Apple Round`、`听妈妈的话`缺少可确认的参考录音，改为“参考音源待补”；对应Hello演唱仍可播放，不把Hello改编演唱自动认作经典原曲。相关测试及本地验收记录见`.rich-harness/tasks/internal-file-preview/package-audit-20261105.md`。本节记录源码实现，发布状态以对应GitHub Actions部署记录为准。
 
 ### Hello原声音频按内容接入（2026-11-05，本地实现）
 

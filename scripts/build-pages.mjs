@@ -20,6 +20,7 @@ export const PUBLIC_FILES = Object.freeze([
   'home.html',
   'site.css',
   'shared/site-config.js',
+  'shared/default-entry.js',
   'shared/site-shell.js',
   'shared/site-home.js',
   'app.mjs',
