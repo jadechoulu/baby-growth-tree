@@ -200,18 +200,22 @@ function matchEntry(data,entry,directory,catalog){
 function validateSnapshot(snapshot){
   if(snapshot?.schemaVersion!==1||snapshot.sourceKind!=='xiaohuasheng_bookcase_read'||snapshot.complete!==true||snapshot.authenticated!==true||!Array.isArray(snapshot.books))throw new Error('只可导入已登录且完整核对的书架“读过”快照；失败或缺页不能更新进度。');
   if(typeof snapshot.snapshotId!=='string'||!snapshot.snapshotId||snapshot.snapshotId.length>160||typeof snapshot.fetchedAt!=='string'||!Number.isFinite(Date.parse(snapshot.fetchedAt)))throw new Error('已读快照标识或获取时间无效。');
-  if(snapshot.sourceUrl){
-    let url;try{url=new URL(snapshot.sourceUrl);}catch{throw new Error('已读快照来源无效。');}
-    if(url.protocol!=='https:'||!['www.xiaohuasheng.cn','xiaohuasheng.cn'].includes(url.hostname)||!/^\/bookcase\/user_\d+\/tag_-6(?:\/page_\d+)?\/?$/.test(url.pathname))throw new Error('快照必须来自小花生书架“读过”分类。');
-  }
   const owner=String(snapshot.accountId??'default');
   if(!/^[a-zA-Z0-9_-]{1,40}$/.test(owner))throw new Error('已读快照账号标识无效。');
+  if(snapshot.sourceUrl){
+    let url;try{url=new URL(snapshot.sourceUrl);}catch{throw new Error('已读快照来源无效。');}
+    const web=['www.xiaohuasheng.cn','xiaohuasheng.cn'].includes(url.hostname)&&/^\/bookcase\/user_\d+\/tag_-6(?:\/page_\d+)?\/?$/.test(url.pathname);
+    // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: App快照仅接受本人固定全书架查询来源，不接收其他账号、筛选或任意接口。
+    const app=snapshot.transport==='xiaohuasheng-app-api'&&snapshot.predicate==='readedFlag=1'&&url.origin==='https://app.xiaohuasheng.cn'&&!url.username&&!url.password&&!url.search&&!url.hash&&url.pathname==='//bookroom/queryBookroomBook/'+owner+'/-2/-1/-1/0/30';
+    if(url.protocol!=='https:'||(!web&&!app))throw new Error('快照必须来自小花生完整已读书架，或本人App全书架的已读状态。');
+  }
   const entries=new Map();
   for(const entry of snapshot.books){
     if(!entry||typeof entry.bookId!=='string'||!/^[a-zA-Z0-9_-]{1,80}$/.test(entry.bookId)||typeof entry.title!=='string'||!entry.title.trim()||entry.title.length>1000)throw new Error('已读快照含无效书目，未更新任何记录。');
+    if(entry.appBookId!==undefined&&!(typeof entry.appBookId==='string'&&/^[1-9]\d{0,19}$/.test(entry.appBookId)||Number.isSafeInteger(entry.appBookId)&&entry.appBookId>0))throw new Error('App数字书目标识无效，未更新任何记录。');
     const previous=entries.get(entry.bookId);
-    if(previous&&previous.title!==entry.title)throw new Error('同一小花生书目出现不同标题，请先核对快照。');
-    entries.set(entry.bookId,entry);
+    if(previous&&(previous.title!==entry.title||previous.appBookId!==undefined&&entry.appBookId!==undefined&&previous.appBookId!==String(entry.appBookId)))throw new Error('同一小花生书目出现不同标题或App身份，请先核对快照。');
+    entries.set(entry.bookId,{...entry,...(entry.appBookId!==undefined?{appBookId:String(entry.appBookId)}:previous?.appBookId!==undefined?{appBookId:previous.appBookId}:{})});
   }
   if(['actualUniqueCount','advertisedCount'].some(key=>snapshot[key]!==undefined&&snapshot[key]!==entries.size))throw new Error('快照书目数与已核对总数不一致，未更新进度。');
   return {owner,entries:[...entries.values()]};
@@ -227,13 +231,17 @@ function applyReadSnapshot(records,data,snapshot,options={}){
     }
     const match=candidates[0],key=EXTERNAL+owner+':'+entry.bookId,existing=records?.[key],previous=parse(existing?.note);
     if(previous?.publicBookId&&previous.publicBookId!==match.publicBookId){ambiguous.push({...entry,candidates:[{publicBookId:previous.publicBookId},match],reason:'existing-mapping-conflict'});continue;}
+    if(previous?.appBookId!==undefined&&entry.appBookId!==undefined&&String(previous.appBookId)!==entry.appBookId){ambiguous.push({...entry,candidates:[match],reason:'existing-app-id-conflict'});continue;}
     matched.push({...entry,...match});
-    // 已有单册映射不重建；首次升级目录投影时仅补范围元数据，缺失书目不撤销事实。
+    // 已有单册映射不重建；首次升级时仅补目录范围和App数字身份，保留来源原时点及未知字段。
     if(existing?.status==='done'&&previous?.publicBookId===match.publicBookId){
-      if(match.publicationScopes?.length&&JSON.stringify(previous.publicationScopes)!==JSON.stringify(match.publicationScopes))changes[key]={...existing,note:JSON.stringify({...previous,publicationScopes:match.publicationScopes})};
+      const additions={};
+      if(match.publicationScopes?.length&&JSON.stringify(previous.publicationScopes)!==JSON.stringify(match.publicationScopes))additions.publicationScopes=match.publicationScopes;
+      if(entry.appBookId!==undefined&&previous.appBookId===undefined)additions.appBookId=entry.appBookId;
+      if(Object.keys(additions).length)changes[key]={...existing,note:JSON.stringify({...previous,...additions})};
       continue;
     }
-    changes[key]={status:'done',note:JSON.stringify({version:1,sourceKind:snapshot.sourceKind,accountId:owner,externalBookId:entry.bookId,publicBookId:match.publicBookId,...(match.planId?{planId:match.planId}:{}),...(match.publicationScopes?{publicationScopes:match.publicationScopes}:{}),title:entry.title,snapshotId:snapshot.snapshotId,observedAt:snapshot.fetchedAt})};
+    changes[key]={status:'done',note:JSON.stringify({version:1,sourceKind:snapshot.sourceKind,accountId:owner,externalBookId:entry.bookId,...(entry.appBookId!==undefined?{appBookId:entry.appBookId}:{}),publicBookId:match.publicBookId,...(match.planId?{planId:match.planId}:{}),...(match.publicationScopes?{publicationScopes:match.publicationScopes}:{}),title:entry.title,snapshotId:snapshot.snapshotId,observedAt:snapshot.fetchedAt})};
   }
   if(Object.hasOwn(options,'sourcePriority'))for(const planId of new Set(matched.map(item=>item.planId).filter(Boolean))){
     const key=AUTHORITY+planId,priority=options.sourcePriority===true;

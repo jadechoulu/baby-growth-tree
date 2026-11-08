@@ -8,11 +8,24 @@ import os
 from pathlib import Path
 import re
 import socket
+import subprocess
+import threading
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BACKUP_DIRECTORY = Path('/Users/zhoulu/Documents/生活/育儿/codex')
 BACKUP_ENDPOINT = '/__local-backup'
+XHS_ENDPOINT = '/__xiaohuasheng-sync'
+XHS_PYTHON = Path('/Users/zhoulu/Documents/生活/育儿/codex/xiaohuasheng-apk-investigation-20261108/tools/mitmproxy-venv/bin/python')
+XHS_BRIDGE = PROJECT_ROOT / 'scripts/xiaohuasheng-local.py'
+XHS_ERRORS = {
+    'AUTH_REQUIRED': (401, '本机小花生授权不可用，请重新取得 App 授权；登录网页不能恢复本机 App 会话。'),
+    'LOCAL_UNAVAILABLE': (503, '本机小花生同步执行器尚未配置，请在已配置的 Mac 本地入口同步。'),
+    'INCOMPLETE': (502, '本次小花生书架分页或身份核对不完整，未更新进度。'),
+    'EMPTY': (422, '本次书架或已读清单为空，未更新进度，请核对本人账号。'),
+    'CONNECTION_UNAVAILABLE': (502, '本机未能完整读取小花生 App 接口，原进度保留，请稍后重试。'),
+    'TIMEOUT': (504, '本机读取小花生超时，未更新进度，请稍后重试。'),
+}
 BACKUP_NAME = re.compile(
     r'(?P<stem>小芽(?:成长记录|旧本机记录|卫健委观察)_[0-9]{4}-[0-9]{2}-[0-9]{2}'
     r'|小芽英语-启蒙记录备份)(?: \([0-9]+\))?\.json'
@@ -167,7 +180,7 @@ class BackupHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_POST(self):
-        if self.path != BACKUP_ENDPOINT:
+        if self.path not in (BACKUP_ENDPOINT, XHS_ENDPOINT):
             self.json_response(404, {'error': '没有此本机接口'})
             return
         # @CfSecAICode 遵循消费金融安全编码 FE-CSRF-001 规范: 本机无 Cookie 会话接口同时严格校验监听 Host、同源 Origin 及 JSON 类型，不允许跨站表单或跨域调用，不启用 CORS。
@@ -184,10 +197,17 @@ class BackupHandler(SimpleHTTPRequestHandler):
             length_headers = self.headers.get_all('Content-Length', [])
             if len(length_headers) != 1 or not re.fullmatch(r'[0-9]+', length_headers[0]) or self.headers.get('Transfer-Encoding'):
                 raise ValueError('备份请求缺少有效的 Content-Length')
+            if self.path == XHS_ENDPOINT and int(length_headers[0]) > 1024:
+                raise ValueError('同步接口只接受空 JSON 对象')
             body = self.rfile.read(int(length_headers[0]))
             payload = json.loads(body.decode('utf-8'))
             if not isinstance(payload, dict):
                 raise ValueError('备份请求必须为 JSON 对象')
+            if self.path == XHS_ENDPOINT:
+                if payload:
+                    raise ValueError('同步接口只接受空 JSON 对象，不接受账号、地址、命令或路径')
+                self.sync_xiaohuasheng()
+                return
             result = save_backup(payload.get('filename'), payload.get('content'), self.server.backup_directory)
         except (ValueError, UnicodeError, RecursionError) as error:
             self.json_response(400, {'error': str(error) or '备份请求格式无效'})
@@ -196,6 +216,36 @@ class BackupHandler(SimpleHTTPRequestHandler):
             self.json_response(500, {'error': '备份未能写入育儿目录，请保留网页并重试'})
             return
         self.json_response(201, result)
+
+    def sync_xiaohuasheng(self):
+        if not self.server.xhs_sync_lock.acquire(blocking=False):
+            self.json_response(409, {'code': 'BUSY', 'error': '本机正在同步小花生，请等待本次读取完成。'})
+            return
+        try:
+            if not XHS_PYTHON.is_file() or not XHS_BRIDGE.is_file():
+                code = 'LOCAL_UNAVAILABLE'
+            else:
+                try:
+                    # @CfSecAICode 遵循消费金融安全编码 BE-EXEC-001 规范: 固定执行器和脚本，无shell及客户端参数；超时终止进程，不转发stderr。
+                    result = subprocess.run(
+                        [str(XHS_PYTHON), '-I', str(XHS_BRIDGE)],
+                        capture_output=True, timeout=240, check=False,
+                    )
+                    value = json.loads(result.stdout)
+                    if result.returncode == 0 and isinstance(value, dict) and value.get('complete') is True:
+                        self.json_response(200, value)
+                        return
+                    code = value.get('code') if isinstance(value, dict) else None
+                    if code not in XHS_ERRORS:
+                        code = 'CONNECTION_UNAVAILABLE'
+                except subprocess.TimeoutExpired:
+                    code = 'TIMEOUT'
+                except (ValueError, UnicodeError, OSError):
+                    code = 'CONNECTION_UNAVAILABLE'
+            status, message = XHS_ERRORS[code]
+            self.json_response(status, {'code': code, 'error': message})
+        finally:
+            self.server.xhs_sync_lock.release()
 
 
 def create_server(bind='127.0.0.1', port=5317, directory=PROJECT_ROOT, *, backup_directory=BACKUP_DIRECTORY):
@@ -209,6 +259,7 @@ def create_server(bind='127.0.0.1', port=5317, directory=PROJECT_ROOT, *, backup
     host = '[' + bind + ']' if ':' in bind else bind
     server.backup_host = host + ':' + str(server.server_address[1])
     server.backup_directory = Path(backup_directory)
+    server.xhs_sync_lock = threading.Lock()
     return server
 
 

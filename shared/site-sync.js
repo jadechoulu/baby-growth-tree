@@ -113,7 +113,7 @@
         sessionKey = 'xiaoya-cloud-session-v2:' + apiBase;
         try { token = sessionStorage.getItem(sessionKey) || ''; } catch { /* 会话存储不可用时保留内存会话。 */ }
         if (apiBase && token) await authenticate();
-      } catch (error) { configurationError = error.message; }
+      } catch (error) { if (error.code !== 'AUTH_REQUIRED') configurationError = error.message; }
       initialized = true; updateButtons();
     }
     async function authenticate() {
@@ -242,6 +242,23 @@
       channel?.postMessage({ area });
       updateButtons();
     }
+    function areaState(area) {
+      if (!Object.hasOwn(names, area)) throw new Error('未知记录分类。');
+      const state = engine?.states()[area] || {};
+      const status = configurationError ? 'configuration-error' : !apiBase ? 'not-configured' : !user ? 'auth-required' : !state.enabled ? 'connection-required' : state.conflict ? 'conflict' : state.error ? 'error' : state.syncing ? 'syncing' : state.pending ? 'pending' : 'synced';
+      return { ...state, status, configured: !!apiBase, authenticated: !!user, ok: status === 'synced', ...(configurationError ? { error: configurationError } : {}) };
+    }
+    async function getState(area) { await ready; return areaState(area); }
+    async function sync(area) {
+      await ready;
+      const before = areaState(area);
+      // 未登录或未确认连接时不擅自迁入；调用方可打开原同步面板继续原有确认流程。
+      if (['configuration-error', 'not-configured', 'auth-required', 'connection-required'].includes(before.status)) return before;
+      await engine.sync(area);
+      updateButtons();
+      // 引擎将网络错误与冲突保存在分类状态中；Promise结束不代表同步成功。
+      return areaState(area);
+    }
     function resume() { if (engine && user) for (const area of Object.keys(names)) void engine.sync(area); }
     root.addEventListener('online', resume);
     root.addEventListener('focus', resume);
@@ -252,7 +269,7 @@
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
-      ready, open, changed, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
+      ready, open, changed, sync, getState, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
       createButton() {
         const button = element('button', undefined, 'site-sync-button'); button.type = 'button';
         button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 7h-6m6 0V1M4 17h6m-6 0v6M5 8a8 8 0 0 1 14-3l1 2M4 17l1 2a8 8 0 0 0 14-3"/></svg><span></span>';

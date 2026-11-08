@@ -34,6 +34,8 @@ jobs:
         run: |
           node --test tests/*.test.mjs english/tests/*.test.cjs
           python3 tests/english-pages.test.py
+          python3 tests/local-server.test.py
+          python3 tests/xiaohuasheng-local.test.py
       - name: 构建统一白名单站点
         env:
           XIAOYA_API_BASE: ${{ vars.XIAOYA_API_BASE }}
