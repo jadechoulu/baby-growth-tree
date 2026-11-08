@@ -1,0 +1,40 @@
+AGENTS.md
+  h_c836a884b9f50f 41-46
+docs/architecture.md
+  h_c836a884b9f50f 7-12
+docs/xiaohuasheng-read-sync.md
+  h_c836a884b9f50f 3-10
+english/app.js
+  h_c836a884b9f50f 145,158,1742-1763,1766,1992,2098
+english/book-progress.js
+  h_c836a884b9f50f 267,275-281,312
+english/build.py
+  h_c836a884b9f50f 65
+english/data/hello-reading.json
+  h_c836a884b9f50f 7041-7052
+english/index.html
+  h_c836a884b9f50f 1888-1896,2378,5617,5625-5631,5662-5774,5915-5916,5930,7244,7257,8841-8862,8865,9091,9197
+english/shelf-library.js
+  h_c836a884b9f50f 1-111
+english/styles.css
+  h_c836a884b9f50f 1880-1888
+english/tests/shelf-library.test.cjs
+  h_c836a884b9f50f 1-77
+english/xiaohuasheng-sync.js
+  h_c836a884b9f50f 119-120,134
+scripts/xiaohuasheng-local.py
+  h_c836a884b9f50f 10,23-115,193,230-231
+tests/xiaohuasheng-local.test.py
+  h_c836a884b9f50f 32-49,128-136,142,145,155-158
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a522a15fbfae4f2ca3101e00048b327297806f92",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
