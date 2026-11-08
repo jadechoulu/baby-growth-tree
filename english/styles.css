@@ -1410,13 +1410,22 @@
 .song-library .song-row{flex-wrap:nowrap;gap:8px;padding:10px 0}
 .song-library .song-info{flex:1 1 0;min-width:0}
 .song-library .song-info h3{margin-bottom:4px}
-.sound-book-page{display:inline-block;position:relative;width:28px;height:30px;vertical-align:middle;color:#236b44;font-weight:700;line-height:1}
-.sound-book-page svg{display:block;width:100%;height:100%;fill:#e2f1d9;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.sound-book-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 8px}
+.sound-book-heading>.eyebrow{grid-column:1/-1}
+.sound-book-heading h2{margin:0}
+.sound-book-heading>.song-filter-row{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;margin:0}
+.song-library .sound-book-heading>.song-filter-row .library-filter-button,.song-library .sound-book-heading>.song-filter-row>.icon-button{display:grid;place-items:center;width:28px;height:28px;min-width:28px;min-height:28px;padding:3px;border:1px solid var(--line);border-radius:5px;background:var(--paper,#fffdf7)}
+.sound-book-heading .icon{width:18px;height:18px}
+.sound-book-row .song-cover{object-fit:contain;background:#fff}
+.sound-book-page{display:grid;place-items:center;position:relative;width:22px;height:22px;vertical-align:middle;color:#236b44;font-weight:700;line-height:1}
+.sound-book-page svg{position:absolute;inset:0;width:100%;height:100%;fill:#b9dba8;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:.28}
 .sound-book-page.is-related{color:#984400}
 .sound-book-page.is-related svg{fill:#ffdfab}
-.sound-book-page>span{position:absolute;left:0;right:0;top:16px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums}
-.sound-book-badge{display:inline-flex;vertical-align:middle}
-.sound-book-badge>.library-filter-button{display:grid;place-items:center;width:30px;height:32px;min-width:30px;min-height:32px;padding:0;border:1px solid var(--line);border-radius:5px;background:var(--paper,#fffdf7);cursor:pointer}
+.sound-book-page>span{position:relative;text-align:center;font-size:13px;font-variant-numeric:tabular-nums;z-index:1}
+.sound-book-badge{display:inline-flex;align-self:center;vertical-align:middle}
+.sound-book-badge>.library-filter-button{display:grid;place-items:center;width:22px;height:22px;min-width:22px;min-height:22px;padding:0;border:0;border-radius:4px;background:transparent;cursor:pointer}
+.liao-card-cover>.sound-book-badge{position:absolute;top:4px;right:4px;z-index:1}
+.liao-card-cover>.sound-book-badge>.library-filter-button{background:#ffffffe0}
 .sound-book-badge>.library-filter-button:hover{background:var(--green-soft)}
 .sound-book-badge>.library-filter-button:focus-visible,.sound-book-liao-link:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .sound-book-legend{font-size:12px;line-height:1.6;border-top:1px solid var(--line);margin-top:8px;padding-top:4px}
