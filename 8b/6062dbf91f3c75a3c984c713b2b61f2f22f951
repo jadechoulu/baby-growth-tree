@@ -1,0 +1,14 @@
+tests/local-server.test.py
+  h_c836a884b9f50f 23-27,170-177
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "8b6062dbf91f3c75a3c984c713b2b61f2f22f951",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
