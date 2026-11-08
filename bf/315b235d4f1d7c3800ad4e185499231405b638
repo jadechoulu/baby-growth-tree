@@ -1,0 +1,34 @@
+AGENTS.md
+  h_c836a884b9f50f 53-61
+docs/architecture.md
+  h_c836a884b9f50f 536-537
+docs/audits/manhulu-songs-20261109.md
+  h_c836a884b9f50f 1-105
+docs/material-tags.md
+  h_c836a884b9f50f 51-52
+english/app.js
+  h_c836a884b9f50f 17,1698,1728,1856-1858,1860,1862-1895,1902,1909,1919,1925,1929,1932-1933,1936,1938,1954,2016,2033
+english/data/sss-songs.json
+  h_c836a884b9f50f 3-6,43-770
+english/index.html
+  h_c836a884b9f50f 1398,1421-1435,2369,4811,4818,6805,6857,8538,8568,8696-8698,8700,8702-8735,8742,8749,8759,8765,8769,8772-8773,8776,8778,8794,8856,8873
+english/liao-reading.js
+  h_c836a884b9f50f 114
+english/model.js
+  h_c836a884b9f50f 1113,1120
+english/styles.css
+  h_c836a884b9f50f 1390,1413-1427
+english/tests/model.test.cjs
+  h_c836a884b9f50f 211-261
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "bf315b235d4f1d7c3800ad4e185499231405b638",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
