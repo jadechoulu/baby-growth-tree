@@ -1133,7 +1133,8 @@
     function searchKey(value) { return String(value || '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9\u4e00-\u9fff#]+/g, ' ').trim(); }
     var query = searchKey(filters.query);
     return songs.filter(function (song) {
-      return (!filters.scene || filters.scene === 'all' || song.scene === filters.scene) &&
+      return (filters.category !== 'soundBook' || !filters.overlap || filters.overlap === 'all' || (filters.overlap === 'sss' ? !!song.sssSongId || array(song.sssRelated).length > 0 : filters.overlap === 'liao' && !!song.liaoBookId)) &&
+        (!filters.scene || filters.scene === 'all' || song.scene === filters.scene) &&
         TOPICS.matches(TOPICS.entryTopics('song', song), { topic: filters.topic || 'all', subtopic: filters.subtopic || 'all' }) &&
         (!filters.activity || filters.activity === 'all' || TOPICS.entryActivities('song', song).includes(filters.activity)) &&
         (!query || searchKey(song.title + ' ' + (song.originalTitle || '') + ' ' + (song.page || '') + ' ' + (song.scene || '') + ' ' + TOPICS.labels(TOPICS.expand(TOPICS.entryTopics('song', song))).join(' ')).includes(query));
