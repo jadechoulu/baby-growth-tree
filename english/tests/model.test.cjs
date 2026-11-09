@@ -245,6 +245,11 @@ test('慢葫芦完整逐页目录、显式对应与改编依据保持可追溯',
 test('慢葫芦筛选与勾选独立，不混入SSS全部及原分类进度',()=>{
   const practice=require('../practice.js'),book=sssSongs.soundBook;
   assert.equal(model.filterSongs(sssSongs,{category:'soundBook'}).length,50);
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',overlap:'sss'}).map(song=>song.page),[2,4,5,6,8,9,12,13,16,17,18,19,21,23,27,35,46]);
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',overlap:'liao'}).map(song=>song.page),[4,10,12,30,35,37,46]);
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',overlap:'sss',query:'mary'}).map(song=>song.page),[6]);
+  assert.equal(model.filterSongs(sssSongs,{category:'soundBook',overlap:'liao',query:'mary'}).length,0);
+  assert.equal(model.filterSongs(sssSongs,{category:'all',overlap:'liao'}).length,42);
   assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',query:'show fast'}).map(song=>song.page),[44]);
   assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',query:'51'}).map(song=>song.page),[51]);
   assert.equal(model.filterSongs(sssSongs,{category:'all'}).length,42);

@@ -1421,6 +1421,10 @@
 .sound-book-heading>.song-filter-row{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;margin:0}
 .song-library .sound-book-heading>.song-filter-row .library-filter-button,.song-library .sound-book-heading>.song-filter-row>.icon-button{display:grid;place-items:center;width:28px;height:28px;min-width:28px;min-height:28px;padding:3px;border:1px solid var(--line);border-radius:5px;background:var(--paper,#fffdf7)}
 .sound-book-heading .icon{width:18px;height:18px}
+.sound-book-overlap-filters{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.sound-book-overlap-filters button{font:inherit;font-size:13px;min-height:28px;padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper,#fffdf7);color:var(--green);cursor:pointer}
+.sound-book-overlap-filters button[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green)}
+.sound-book-overlap-filters button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .sound-book-row .song-cover{object-fit:contain;background:#fff}
 .sound-book-page{display:grid;place-items:center;position:relative;width:22px;height:22px;vertical-align:middle;color:#236b44;font-weight:700;line-height:1}
 .sound-book-page svg{position:absolute;inset:0;width:100%;height:100%;fill:#b9dba8;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:.28}
