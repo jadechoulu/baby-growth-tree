@@ -1,0 +1,48 @@
+AGENTS.md
+  h_c836a884b9f50f 8
+docs/architecture.md
+  h_c836a884b9f50f 942-953
+docs/audits/manhulu-songs-20261109.md
+  h_c836a884b9f50f 135-157
+docs/material-tags.md
+  h_c836a884b9f50f 150-151
+english/app.js
+  h_c836a884b9f50f 31-32,170-171,173,176,1785,1924-1926,1928,1931,1939-1942,2014,2128-2129,2149-2150
+english/build.py
+  h_c836a884b9f50f 95-119
+english/catalog-loader.js
+  h_c836a884b9f50f 4-5,10-13,17-18,24
+english/data/sss-songs.json
+  h_c836a884b9f50f 140-151,173-185,218-230,272-284,324-337,357-369,420-432,504-517,542-554,602-625,807-819,1100-1112
+english/hello-reading.js
+  h_c836a884b9f50f 25,140,142-143,156,164,169,233-238,241-243,245-246,251,265,268
+english/index.html
+  h_c836a884b9f50f 9,12-15,19-21
+english/runtime/app.6210be255542c258.js
+  h_c836a884b9f50f 1-6929
+english/runtime/data.1dee6fbf84443649.js
+  h_c836a884b9f50f 1
+english/runtime/styles.9fef8eba1f64fda6.css
+  h_c836a884b9f50f 1-2387
+english/styles.css
+  h_c836a884b9f50f 1738-1740
+tests/english-catalog-loader.test.mjs
+  h_c836a884b9f50f 4-16
+tests/english-pages.test.py
+  h_c836a884b9f50f 17-20,48,57-62
+tests/hello-reading.test.mjs
+  h_c836a884b9f50f 7-24
+tests/pages-build.test.mjs
+  h_c836a884b9f50f 107-110,113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "3a27120714f39b06eb7970d383850a43a65d343d",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
