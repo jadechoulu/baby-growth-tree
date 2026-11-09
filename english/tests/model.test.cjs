@@ -250,6 +250,13 @@ test('慢葫芦筛选与勾选独立，不混入SSS全部及原分类进度',()=
   assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',overlap:'sss',query:'mary'}).map(song=>song.page),[6]);
   assert.equal(model.filterSongs(sssSongs,{category:'soundBook',overlap:'liao',query:'mary'}).length,0);
   assert.equal(model.filterSongs(sssSongs,{category:'all',overlap:'liao'}).length,42);
+  for(const [category,count] of [['all',16],['essential',5],['recommended',14],['older',0],['day',4]]){
+    assert.equal(model.filterSongs(sssSongs,{category,soundBookOnly:true}).length,count);
+  }
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'all',soundBookOnly:true,query:'twinkle'}).map(song=>song.id),['sss-twinkle-twinkle-little-star']);
+  assert.deepEqual(model.filterSongs(sssSongs,{category:'all',soundBookOnly:true,query:'kangaroo'}).map(song=>song.id),['sss-mary-had-a-kangaroo']);
+  assert.equal(model.filterSongs(sssSongs,{category:'essential',soundBookOnly:true,query:'old macdonald'}).length,0);
+  assert.equal(model.filterSongs(sssSongs,{category:'soundBook',soundBookOnly:true}).length,50);
   assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',query:'show fast'}).map(song=>song.page),[44]);
   assert.deepEqual(model.filterSongs(sssSongs,{category:'soundBook',query:'51'}).map(song=>song.page),[51]);
   assert.equal(model.filterSongs(sssSongs,{category:'all'}).length,42);
