@@ -94,6 +94,16 @@ function cookieValue(request, name) {
   return request.headers.get('Cookie')?.split(';').map((part) => part.trim()).find((part) => part.startsWith(`${name}=`))?.slice(name.length + 1) || '';
 }
 
+function allowedFrontendOrigin(origin, config) {
+  if (config.origins.has(origin)) return true;
+  if (config.DEV_FRONTEND_ANY_PORT !== 'true' || typeof origin !== 'string') return false;
+  try {
+    const url = new URL(origin);
+    // @CfSecAICode 遵循消费金融安全编码 FE-CSRF-001 规范: 开发入口仅允许规范化的HTTP回环来源，端口不限；回执仍绑定实际发起来源，不使用CORS通配符。
+    return url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname) && url.origin === origin;
+  } catch { return false; }
+}
+
 const clearCookie = `${COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`;
 
 function responseHeaders(response, origin) {
@@ -225,7 +235,7 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
     const requestNonce = url.searchParams.get('request') || '';
     if (!REQUEST_NONCE.test(requestNonce)) throw new HttpError(400, 'INVALID_LOGIN_REQUEST', '登录请求无效，请从页面重新登录。');
     const frontendOrigin = url.searchParams.get('origin') || config.frontend.origin;
-    if (!config.origins.has(frontendOrigin)) throw new HttpError(400, 'ORIGIN_NOT_ALLOWED', '请从受信页面发起登录。');
+    if (!allowedFrontendOrigin(frontendOrigin, config)) throw new HttpError(400, 'ORIGIN_NOT_ALLOWED', '请从受信页面发起登录。');
     const state = randomNonce();
     const browser = randomNonce();
     // @CfSecAICode 遵循消费金融安全编码 GO-OAUTH-001 规范: state 与浏览器、客户端和固定回调绑定，十分钟过期且仅消费一次。
@@ -244,7 +254,7 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
       // @CfSecAICode 遵循消费金融安全编码 GO-OAUTH-001 规范: 在交换 code 前常量时间校验绑定，并原子消费一次性 state。
       const matches = NONCE.test(state) && NONCE.test(browser) && constantEqual(state, cookieState);
       if (NONCE.test(state)) pending = await stateStore(config, 'consume', 'state', await digest(state));
-      if (!matches || !pending || !constantEqual(pending.browserHash, await digest(browser)) || pending.clientId !== config.GITHUB_CLIENT_ID || pending.callback !== config.callback || !config.origins.has(pending.frontendOrigin)) throw new HttpError(400, 'INVALID_OAUTH_STATE', '登录请求无效或已过期，请重新登录。');
+      if (!matches || !pending || !constantEqual(pending.browserHash, await digest(browser)) || pending.clientId !== config.GITHUB_CLIENT_ID || pending.callback !== config.callback || !allowedFrontendOrigin(pending.frontendOrigin, config)) throw new HttpError(400, 'INVALID_OAUTH_STATE', '登录请求无效或已过期，请重新登录。');
       const code = url.searchParams.get('code');
       if (!code || code.length > 512 || url.searchParams.has('error')) throw new HttpError(400, 'OAUTH_CANCELLED', 'GitHub 登录未完成。');
       let exchange;
@@ -276,8 +286,8 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
         if (url.pathname === '/auth/callback' && request.method === 'GET') return responseHeaders(await callback(request, url, config));
         if (!url.pathname.startsWith('/api/')) throw new HttpError(404, 'NOT_FOUND', '接口不存在。');
         const requestOrigin = request.headers.get('Origin');
-        // @CfSecAICode 遵循消费金融安全编码 FE-CSRF-001 规范: 私有 API 同时校验固定来源和显式 Bearer，不以 CORS 或 cookie 代替鉴权。
-        if (!config.origins.has(requestOrigin)) throw new HttpError(403, 'ORIGIN_NOT_ALLOWED', '此页面来源无权访问个人记录。');
+        // @CfSecAICode 遵循消费金融安全编码 FE-CSRF-001 规范: 私有 API 同时校验允许的来源和显式 Bearer，不以 CORS 或 cookie 代替鉴权。
+        if (!allowedFrontendOrigin(requestOrigin, config)) throw new HttpError(403, 'ORIGIN_NOT_ALLOWED', '此页面来源无权访问个人记录。');
         origin = requestOrigin;
         if (request.method === 'OPTIONS') return responseHeaders(new Response(null, { status: 204, headers: { 'Access-Control-Allow-Methods': 'GET, PUT, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Authorization, Content-Type', 'Access-Control-Max-Age': '600' } }), origin);
         const current = await session(request, config);

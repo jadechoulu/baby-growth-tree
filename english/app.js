@@ -160,10 +160,11 @@ async function syncXiaohuashengRead(){
     readingSync={busy:false,result,error:null};
   }catch(error){readingSync={busy:false,result:null,error};}
   render();if(S.modal?.kind==='xhs-sync')renderModal();else openModal('xhs-sync');
+  if(readingSync.result?.mode==='cloud'&&['auth-required','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
 }
 function readingSyncDetail(){
   const {busy,result,error}=readingSync,X=window.EnglishXiaohuashengSync,local=X.localEntry(location),meta=result?.receipt||X.receipt(S.records);
-  const cloudMessages={'not-configured':'此入口尚未配置私人同步服务。','configuration-error':'私人同步配置暂不可用。','auth-required':'请使用本人 GitHub 登录私人记录同步。','connection-required':'请在记录同步中预览并连接英语记录。',conflict:'私人记录存在冲突，请核对选择后再同步。',error:'云端暂未确认，请打开记录同步重试。',pending:'本机记录已保留，仍在等待云端确认。',syncing:'私人记录仍在同步，请稍后重试。'};
+  const cloudMessages={'not-configured':'此入口尚未配置私人同步服务。','configuration-error':'私人同步配置暂不可用。','auth-required':'请先在记录同步中登录本人 GitHub，完成后返回此处重新获取小花生。','connection-required':'请先在记录同步中预览并连接英语记录，完成后返回此处重新获取小花生。',conflict:'私人记录存在冲突，请核对选择后再重新获取小花生。',error:'云端暂未确认，请打开记录同步重试。',pending:'本机记录已保留，仍在等待云端确认。',syncing:'私人记录仍在同步，请稍后重试。'};
   const progress=readingSync.progress,phase=progress?.phase;
   const progressText=phase==='local'?'正在通过本机授权读取小花生完整书架…':phase==='bookcase'?'云端正在读取书架，已取得 '+progress.books+' 本…':phase==='catalog'?'云端正在核对书目 '+progress.resolved+'／'+progress.total+' 本…':phase==='collections'?'云端正在核对套系 '+progress.resolved+'／'+progress.total+'…':phase==='queued'?'云端正在准备读取小花生完整书架…':'正在准备同步进度…';
   return h('div',{class:'reading-sync-detail'},h('h2',{},'同步小花生进度'),
@@ -180,20 +181,25 @@ function readingSyncDetail(){
     h('div',{class:'form-actions'},h('button',{type:'button',class:'button',disabled:busy,onclick:()=>siteSync.open()},'打开记录同步'),h('button',{type:'button',class:'button primary',disabled:busy,onclick:syncXiaohuashengRead},busy?'同步中…':'重新获取小花生')));
 }
 function focusEnglishSearch(){document.getElementById('library-search')?.focus();}
+function askEnglishSearch(event){
+  if(event?.isComposing||event?.keyCode===229||(event?.key&&event.key!=='Enter'))return;
+  event?.preventDefault();
+  window.XiaoyaSiteSearch.open({query:document.getElementById('library-search')?.value||S.search,submit:true,focus:document.getElementById('library-search')});
+}
 function applyEnglishSearch(event){
   if(event.isComposing)return;
   S.search=event.target.value;
   if(S.view!=='library'||libraryCollection!=='all'){navigate('library');focusEnglishSearch();return;}
   document.querySelector('.library-results')?.replaceWith(libraryResults());updateLibraryUsageToggle();
 }
-function englishActions(){return h('div',{class:'top-actions'},h('label',{class:'english-site-search'},icon('search'),h('input',{id:'library-search',type:'search',value:S.search,placeholder:'搜索素材、套系、动画…','aria-label':'搜索素材、套系、动画',oninput:applyEnglishSearch,oncompositionend:applyEnglishSearch})),h('button',{id:'reading-sync',type:'button',class:'button english-reading-sync',disabled:!profileReady||readingSync.busy,'aria-label':readingSync.busy?'正在同步小花生阅读进度':'同步小花生阅读进度',title:readingSync.busy?'正在同步小花生阅读进度':'同步小花生阅读进度','aria-busy':String(readingSync.busy),onclick:syncXiaohuashengRead},icon('sync')));}
+function englishActions(){return h('div',{class:'top-actions'},h('label',{class:'english-site-search'},icon('search'),h('input',{id:'library-search',type:'search',value:S.search,placeholder:'找素材，提问后按回车…','aria-label':'搜索素材或输入问题后按回车',oninput:applyEnglishSearch,oncompositionend:applyEnglishSearch,onkeydown:askEnglishSearch})),h('button',{id:'reading-sync',type:'button',class:'button english-reading-sync',disabled:!profileReady||readingSync.busy,'aria-label':readingSync.busy?'正在同步小花生阅读进度':'同步小花生阅读进度',title:readingSync.busy?'正在同步小花生阅读进度':'同步小花生阅读进度','aria-busy':String(readingSync.busy),onclick:syncXiaohuashengRead},icon('sync')));}
 function englishGlobalActions(){return window.XiaoyaSite.createActionMenu(h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('settings'),h('span',{},'宝宝资料')],'profile',{'aria-label':'编辑宝宝资料',disabled:!profileReady},'icon-button'),btn([icon('download'),h('span',{},'备份')],'backup',{'aria-label':'备份英语启蒙记录'},'icon-button')));}
 function footer(){return h('footer',{class:'page-foot'},h('span',{},'根据 '+C.sources.length+' 份来源资料整理 · '+C.stages.length+' 个阶段 / 节点 · '+C.resources.length+' 个素材系列'),h('span',{},'陪伴有节奏，成长不赶路。'));}
 let renderMemo=null;
 function renderValue(key,read){if(!renderMemo)return read();if(!renderMemo.has(key))renderMemo.set(key,read());return renderMemo.get(key);}
 function render(){renderMemo=new Map();try{renderContent();}finally{renderMemo=null;}}
 function renderContent(){const active=document.activeElement;const id=active?.id;const pos=active?.selectionStart;const x=window.scrollX,y=window.scrollY;const content=!bookLoader.ready&&window.EnglishCatalogLoader.needsBooks(S.view,libraryCollection)?(S.view==='library'?h('div',{class:'library-view'},libraryCollectionTabs(),bookLoadingContent()):bookLoadingContent()):({baby:babyView,'qing-progress':()=>practiceView('qing'),'xu-progress':()=>practiceView('xu'),routes:routesView,library:libraryView,relations:relationsView,sources:sourcesView})[S.view]();organizePage(content);
-if(!siteShell){siteShell=window.XiaoyaSite.createShell({sectionId:'english',siteRoot:window.XIAOYA_SITE_ROOT,onNavigate:navigateEnglish});el.replaceChildren(siteShell.element);}
+if(!siteShell){siteShell=window.XiaoyaSite.createShell({sectionId:'english',siteRoot:window.XIAOYA_SITE_ROOT,onNavigate:navigateEnglish,getSearchQuery:()=>S.search});el.replaceChildren(siteShell.element);}
 siteShell.update({navigation:englishNavigation(),activeId:S.view,title:NAV.find(x=>x[0]===S.view)?.[1]||''});
 siteShell.globalActions.replaceChildren(englishGlobalActions());siteShell.actions.replaceChildren(englishActions());siteShell.content.replaceChildren(h('div',{class:'content'},content,footer()));clearTimeout(window.EnglishStartupTimer);syncRouteTabs();if(S.view==='baby')syncVocabularyFoldToggle();
 if(lastFocus?.id&&!lastFocus.isConnected)lastFocus=document.getElementById(lastFocus.id)||lastFocus;
@@ -1781,7 +1787,7 @@ function libraryResults(){
   if(key!==S.libraryKey){S.libraryKey=key;S.libraryLimit=18;}
   const visible=rr.slice(0,S.libraryLimit);
   return h('div',{class:'library-results'},h('div',{class:'library-results-head'},h('p',{class:'result-count',role:'status'},rr.length+' 个素材 · '+rr.filter(r=>sharedRoutes(r).length>1).length+' 个多路线共用'+(rr.some(r=>r.custom)?' · '+rr.filter(r=>r.custom).length+' 个个人新增':'')),libraryLayoutToggle()),
-    rr.length?h('div',{class:'resource-grid library-grid'+(S.libraryLayout==='covers'?' library-cover-grid':'')},visible.map(libraryCard)):h('div',{class:'empty'},h('p',{},S.route==='other'?'这里显示已有的个人素材，试试调整筛选条件。':'没有匹配的素材，换个关键词或筛选条件试试。'),btn('清除筛选','clear-filters',{},'button soft')),
+    rr.length?h('div',{class:'resource-grid library-grid'+(S.libraryLayout==='covers'?' library-cover-grid':'')},visible.map(libraryCard)):h('div',{class:'empty'},h('p',{},S.route==='other'?'这里显示已有的个人素材，试试调整筛选条件。':'没有匹配的素材，换个关键词或筛选条件试试。'),S.search.trim()?h('p',{class:'small-note'},'这里仅筛选素材；查路线或问推荐，可按回车或打开小芽助手。'):null,S.search.trim()?h('button',{type:'button',class:'button primary',onclick:()=>askEnglishSearch()},'带着问题打开小芽助手'):null,btn('清除筛选','clear-filters',{},'button soft')),
     visible.length<rr.length?h('div',{class:'load-more'},h('p',{role:'status'},'已显示 '+visible.length+' / '+rr.length+' 个素材'),btn('再看 18 个素材','library-more',{},'button')):null);
 }
 let libraryCollection='all';

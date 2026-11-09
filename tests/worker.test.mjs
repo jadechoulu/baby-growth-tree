@@ -40,6 +40,28 @@ test('本机 OAuth 结果只发往 state 中绑定的显式允许来源，任意
   assert.equal((await app.api('/api/data/growth', token, { headers: { Origin: 'http://127.0.0.1:9999' } })).status, 403);
 });
 
+test('启用本机任意端口后，登录回执仍绑定实际来源且API仍需本人会话，外站及伪造本机地址拒绝', async () => {
+  const app = setup({ DEV_FRONTEND_ANY_PORT: 'true' });
+  for (const origin of ['http://127.0.0.1:5326', 'http://localhost:54321', 'http://[::1]:55555']) {
+    const start = await app.request(`/auth/login?request=${CLIENT_NONCE}&origin=${encodeURIComponent(origin)}`);
+    assert.equal(start.status, 302);
+    const flow = { cookie: start.headers.get('Set-Cookie').split(';')[0], state: new URL(start.headers.get('Location')).searchParams.get('state') };
+    const html = await (await app.finish(flow)).text();
+    assert.ok(html.includes(JSON.stringify(origin)), '回执只投递给当前端口');
+    const token = /"token":"([A-Za-z0-9_-]{43})"/.exec(html)[1];
+    assert.equal((await app.api('/api/session', undefined, { headers: { Origin: origin } })).status, 401);
+    const session = await app.api('/api/session', token, { headers: { Origin: origin } });
+    assert.equal(session.status, 200); assert.equal(session.headers.get('Access-Control-Allow-Origin'), origin);
+    for (const denied of ['https://evil.example', 'http://127.0.0.1.evil.example:5326', 'http://localhost.evil.example:5326', 'http://192.168.1.1:5326', 'http://user@localhost:5326', 'http://localhost:5326/path', 'http://localhost:5326?x=1', 'http://localhost:5326#x', 'null']) {
+      assert.equal((await app.request(`/auth/login?request=${CLIENT_NONCE}&origin=${encodeURIComponent(denied)}`)).status, 400, denied);
+      assert.equal((await app.api('/api/session', token, { headers: { Origin: denied } })).status, 403, denied);
+    }
+    assert.equal((await app.finish(flow)).status, 400, '已消费的state不能重放');
+  }
+  const disabled = setup();
+  assert.equal((await disabled.request(`/auth/login?request=${CLIENT_NONCE}&origin=${encodeURIComponent('http://127.0.0.1:5326')}`)).status, 400);
+});
+
 const ORIGIN = 'https://example.github.io';
 const WORKER = 'https://growth.example.workers.dev';
 const SHA_A = 'a'.repeat(40);

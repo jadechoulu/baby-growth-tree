@@ -22,7 +22,8 @@
   }
   function intent(query, mode = 'auto') {
     if (mode === 'chat') return 'answer';
-    return /推荐|怎么|如何|为什么|计划|安排|路线|阶段|总结|复盘|下一步|适合|偏好|喜欢|不喜欢|根据|比较|区别|每天|本周/.test(query) ? 'answer' : 'results';
+    const routeComparison = /许密杉/.test(query) && /庆爸/.test(query) && /和|与|还是|vs\b/i.test(query);
+    return routeComparison || /推荐|怎么|如何|为什么|计划|安排|路线|阶段|总结|复盘|下一步|适合|偏好|喜欢|不喜欢|根据|比较|对比|区别|哪个好|哪个更|哪条|每天|本周/.test(query) ? 'answer' : 'results';
   }
   function personalEntries(records = {}) {
     return Object.entries(records).flatMap(([id, record]) => {
