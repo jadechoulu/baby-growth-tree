@@ -102,3 +102,25 @@ test('本地导入成功但云端未连接时保留本地成功及独立云端�
   const h=syncHarness({cloud:{sync:async()=>({ok:false,status:'auth-required'})}}),result=await X.synchronize(h.options);
   assert.equal(result.mode,'local');assert.equal(result.cloud.ok,false);assert.equal(B.bookState(h.records,'one').done,true);
 });
+test('云端实时读取复用原单册导入和次数；先连接、完整取数、私有备份，再保存和同步',async()=>{
+  for(const location of [onlineLocation,localLocation]){
+    const h=syncHarness({location});
+    h.options.cloud={getState:async()=>({authenticated:true,enabled:true}),sync:async()=>{h.events.push('cloud');return {ok:true,status:'synced'};},readXiaohuasheng:async()=>{h.events.push('cloud-read');return {...appSnapshot(),books:appSnapshot().books.map(book=>({...book,readCount:3}))};}};
+    h.options.cloudBackup=async()=>h.events.push('cloud-backup');
+    const result=await X.synchronize(h.options);
+    assert.equal(result.mode,'cloud-live');assert.equal(B.bookState(h.records,'one').readCount,3);
+    assert.deepEqual(h.events,['cloud','cloud-read','cloud-backup','save','cloud']);
+  }
+});
+test('云端未连接、抓取失败、备份失败、账号冲突和备份期间新编辑均不覆盖个人记录',async()=>{
+  for(const kind of ['unconnected','fetch','backup','owner','concurrent']){
+    const h=syncHarness({location:onlineLocation}),before=structuredClone(h.records);
+    h.options.cloud={sync:async()=>({ok:kind!=='unconnected',status:kind==='unconnected'?'auth-required':'synced'}),readXiaohuasheng:async()=>{if(kind==='fetch')throw Error('抓取失败');return {...appSnapshot(),...(kind==='owner'?{accountId:'99'}:{})};}};
+    if(kind==='owner')h.records[X.RECEIPT]={status:'done',note:JSON.stringify({version:1,transport:'xiaohuasheng-app-api',predicate:'readedFlag=1',fetchedAt:'2026-11-07T00:00:00Z',total:1,accountId:'42'})};
+    h.options.cloudBackup=async()=>{if(kind==='backup')throw Error('备份失败');if(kind==='concurrent')h.edit();};
+    if(kind==='unconnected')assert.equal((await X.synchronize(h.options)).cloud.ok,false);
+    else await assert.rejects(X.synchronize(h.options));
+    assert.equal(h.events.includes('save'),false);
+    assert.deepEqual(h.records.manual,before.manual);assert.deepEqual(h.records.timer,before.timer);
+  }
+});

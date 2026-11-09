@@ -122,22 +122,27 @@ function requireOwner(records,accountId){
   if([...owners].some(owner=>owner!==String(accountId)))fail('ACCOUNT_MISMATCH','本机授权的小花生账号与已有已读记录不一致，未导入。请先核对本人账号，不会自动切换。');
 }
 async function synchronize(options){
-  if(!localEntry(options.location||globalThis.location)){
+  const local=localEntry(options.location||globalThis.location),state=await options.cloud.getState?.('english');
+  const remote=typeof options.cloud.readXiaohuasheng==='function'&&(!local||state?.authenticated&&state?.enabled);
+  if(!local||remote){
     const cloud=await options.cloud.sync('english');
-    return {mode:'cloud',cloud,receipt:cloud.ok?receipt(options.getRecords()):null};
+    if(!cloud.ok||!remote)return {mode:'cloud',cloud,receipt:cloud.ok?receipt(options.getRecords()):null};
   }
-  const snapshot=await (options.read||read)(),base=options.getRecords();
+  options.onProgress?.({phase:remote?'queued':'local'});
+  const snapshot=remote?await options.cloud.readXiaohuasheng({onProgress:options.onProgress}):await (options.read||read)();
+  if(snapshot?.transport!=='xiaohuasheng-app-api'||snapshot.predicate!=='readedFlag=1'||snapshot.complete!==true||snapshot.authenticated!==true||!Array.isArray(snapshot.books)||!snapshot.books.length)fail('INCOMPLETE','未收到完整且非空的小花生已读快照，原进度保留。');
+  const base=options.getRecords();
   requireOwner(base,snapshot.accountId);
   const result=options.apply(base,snapshot);
   const previous=receipt(base);
   if(previous&&Date.parse(previous.fetchedAt)>Date.parse(snapshot.fetchedAt))fail('STALE_SNAPSHOT','本次书架早于已同步快照，未覆盖更新的进度。');
   const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length,...(result.shelf?{shelf:result.shelf}:{})};
   // 先保存当前完整英语备份；在备份往返期间有新编辑时不以旧状态覆盖。
-  await options.backup(base);
+  await (remote?options.cloudBackup:options.backup)(base);
   if(options.getRecords()!==base)fail('RECORDS_CHANGED','备份期间记录有新变化，已保留新编辑，请再次同步。');
   if(!options.save({...result.changes,[RECEIPT]:{status:'done',note:JSON.stringify(meta)}}))fail('SAVE_FAILED','本机保存失败，原记录已保留，请重试。');
   let cloud;try{cloud=await options.cloud.sync('english');}catch{cloud={ok:false,status:'error'};}
-  return {mode:'local',...result,receipt:meta,cloud};
+  return {mode:remote?'cloud-live':'local',...result,receipt:meta,cloud};
 }
 return {LOGIN_URL,SyncError,parsePage,readWebLegacy,read,localEntry,receipt,synchronize,RECEIPT};
 });

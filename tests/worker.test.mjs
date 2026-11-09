@@ -312,3 +312,22 @@ test('预检只给固定来源，API cookie 不足以读取私有资料', async 
   assert.equal(response.headers.get('Access-Control-Allow-Credentials'), null);
   assert.equal((await app.api('/api/records', null, { headers: { Cookie: 'session=forged' } })).status, 401);
 });
+
+
+test('云端小花生沿本人会话及来源鉴权，拒绝客户端账号；备份必须为合法英语快照', async () => {
+  const calls = [], app = setup({ XIAOHUASHENG_SYNC: async (action, snapshot) => { calls.push({ action, snapshot }); return { ok: true, value: action === 'backup' ? { saved: true } : { status: 'queued' } }; } });
+  const route = '/api/xiaohuasheng/sync';
+  assert.equal((await app.api(route)).status, 401); assert.equal(calls.length, 0);
+  const token = await app.login();
+  assert.equal((await app.api(route, token, { headers: { Origin: 'https://evil.example' } })).status, 403);
+  assert.equal((await app.api(route, token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ accountId: '99' }) })).status, 400);
+  assert.equal(calls.length, 0);
+  assert.equal((await app.api(route, token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })).status, 200);
+  assert.equal(calls.at(-1).action, 'start');
+  assert.equal((await app.api(route, token)).status, 200); assert.equal(calls.at(-1).action, 'status');
+  const snapshot = { version: 1, profile: { vocabulary: 0, mode: 'audio' }, favorites: [], records: {} };
+  const backup = await app.api('/api/xiaohuasheng/backup', token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot }) });
+  assert.equal(backup.status, 200); assert.deepEqual(calls.at(-1), { action: 'backup', snapshot });
+  const bad = await app.api('/api/xiaohuasheng/backup', token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: { ...snapshot, token: 'not-allowed' } }) });
+  assert.equal(bad.status, 400);
+});

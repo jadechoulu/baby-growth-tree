@@ -21,6 +21,8 @@ export const NETLIFY_BACKEND_FILES = Object.freeze([
   ['backend/netlify/netlify.toml', 'netlify.toml'],
   ['backend/netlify/functions/sync.mjs', 'functions/sync.mjs'],
   ['backend/netlify/functions/auth-cleanup.mjs', 'functions/auth-cleanup.mjs'],
+  ['backend/netlify/functions/xiaohuasheng-background.mjs', 'functions/xiaohuasheng-background.mjs'],
+  ['backend/xiaohuasheng.mjs', 'backend/xiaohuasheng.mjs'],
   ['backend/netlify-handler.mjs', 'backend/netlify-handler.mjs'],
   ['backend/netlify-auth.mjs', 'backend/netlify-auth.mjs'],
   ...BACKEND_FILES.filter(([source]) => /^(worker|shared|lib|data)\//.test(source)),

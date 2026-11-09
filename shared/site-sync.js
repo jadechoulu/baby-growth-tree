@@ -27,7 +27,7 @@
     async function request(area, method, body) {
       if (!token) throw Object.assign(new Error('请登录本人 GitHub 账号后同步。'), { code: 'AUTH_REQUIRED' });
       let response;
-      const path = ['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area;
+      const path = { 'xhs-sync': '/api/xiaohuasheng/sync', 'xhs-backup': '/api/xiaohuasheng/backup' }[area] || (['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area);
       try {
         // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 只有短期会话令牌进入固定 API 授权头，GitHub 密钥不进入前端。
         response = await fetch(apiBase + path, { method, redirect: 'error', cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json', Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(25000) });
@@ -259,6 +259,24 @@
       // 引擎将网络错误与冲突保存在分类状态中；Promise结束不代表同步成功。
       return areaState(area);
     }
+    async function readXiaohuasheng({ onProgress = () => {} } = {}) {
+      await ready;
+      let job = await request('xhs-sync', 'POST', {});
+      const deadline = Date.now() + 16 * 60_000;
+      while (['queued', 'running'].includes(job.status)) {
+        onProgress(job.progress || { phase: 'queued' });
+        if (Date.now() >= deadline) throw Object.assign(new Error('云端读取仍在进行，请稍后再次同步；原进度保留。'), { code: 'XHS_TIMEOUT' });
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        job = await request('xhs-sync', 'GET');
+      }
+      if (job.status !== 'complete' || !job.snapshot) throw Object.assign(new Error(job.message || '云端未返回完整小花生书架，原进度保留。'), { code: job.code || 'XHS_INCOMPLETE' });
+      return job.snapshot;
+    }
+    async function backupEnglish(snapshot) {
+      await ready;
+      const result = await request('xhs-backup', 'POST', { snapshot });
+      if (result.saved !== true) throw new Error('云端备份未确认，未更新进度。');
+    }
     function resume() { if (engine && user) for (const area of Object.keys(names)) void engine.sync(area); }
     root.addEventListener('online', resume);
     root.addEventListener('focus', resume);
@@ -269,7 +287,7 @@
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
-      ready, open, changed, sync, getState, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
+      ready, open, changed, sync, getState, readXiaohuasheng, backupEnglish, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
       createButton() {
         const button = element('button', undefined, 'site-sync-button'); button.type = 'button';
         button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 7h-6m6 0V1M4 17h6m-6 0v6M5 8a8 8 0 0 1 14-3l1 2M4 17l1 2a8 8 0 0 0 14-3"/></svg><span></span>';

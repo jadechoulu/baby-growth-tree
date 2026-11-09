@@ -11,12 +11,21 @@ test('英文版本按真实套系归组，中文、双语、未知语言与廖�
   assert.equal(BP.bookState(r.changes,'shelf-book-owner-a').external.length,1);
   assert.ok(!JSON.stringify(r.changes).includes('Book c'));
 });
-test('公共路线单册身份排除整个套系，目录来源身份排除尚未匹配的套系',()=>{
+test('公共单册只排除本册，明确路线套系身份才排除整个套系',()=>{
   const series={id:'set',appBookId:'901',title:'Set'},snap=snapshot([book('a',{series}),book('b',{series})]);
   const config={...options,directory:{books:[{id:'public-a',resourceId:'r',title:'Public A',externalIds:{xiaohuasheng:['a']}}]}};
-  assert.equal(Shelf.groups(Shelf.apply({},snap,config).changes,config).length,0);
+  const remaining=Shelf.groups(Shelf.apply({},snap,config).changes,config);
+  assert.equal(remaining.length,1);assert.deepEqual(remaining[0].books.map(b=>b.bookId),['b']);
   const source={...options,resources:[{id:'r',title:'Other name',appearances:[{}]}],catalog:{series:[{resourceId:'r',sources:[{url:'https://www.xiaohuasheng.cn/series/set'}]}]}};
   assert.equal(Shelf.groups(Shelf.apply({},snap,source).changes,source).length,0);
+});
+test('有内容专区但没有公共单册完成映射的套系仍保留书架与阅读状态',()=>{
+  const series={id:'hello-set',appBookId:'901',title:'Magazine Collection'};
+  const config={...options,collections:[{externalIds:{xiaohuashengSeries:['hello-set']}}]};
+  const saved=Shelf.apply({},snapshot([book('a',{series,read:true}),book('b',{series})]),config).changes;
+  const groups=Shelf.groups(saved,config);
+  assert.equal(groups.length,1);assert.equal(groups[0].total,2);assert.equal(groups[0].completed,1);
+  assert.equal(BP.bookState(saved,'shelf-book-owner-a').done,true);
 });
 test('同名不同外部身份不硬绑；无套系依据保留独立单本',()=>{
   const snap=snapshot([book('a',{title:'Same'}),book('b',{title:'Same'})]);

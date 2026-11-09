@@ -6,7 +6,7 @@ import vm from 'node:vm';
 const source = await readFile(new URL('../shared/site-sync.js', import.meta.url), 'utf8');
 
 // 只模拟依赖边界，验证调用方可等待的结果，不模拟同步面板或布局。
-function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, initial = { enabled: true, pending: false, error: null, conflict: null } } = {}) {
+function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], initial = { enabled: true, pending: false, error: null, conflict: null } } = {}) {
   let state = structuredClone(initial), action = async () => {}, calls = 0;
   const storage = new Map(loggedIn ? [['xiaoya-cloud-session-v2:' + apiBase, 'test-session']] : []);
   const engine = {
@@ -20,23 +20,28 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
     XiaoyaSyncEngine: { createJournal: () => ({}), createEngine: () => engine },
     navigator: { locks: { request: (_, callback) => callback() } },
   });
+  const requests = [];
   const context = {
     window, document: new EventTarget(), URL, AbortSignal, crypto: { randomUUID: () => 'test-request' },
     location: { protocol: 'https:', hostname: 'pages.example.test' },
-    fetch: async url => {
+    fetch: async (url, options) => {
       if (url.endsWith('cloud-config.json')) {
         if (configurationFails) throw new Error('配置读取失败');
         return { ok: true, json: async () => ({ apiBase }) };
+      }
+      if (url.startsWith(apiBase + '/api/xiaohuasheng/')) {
+        requests.push({ url, options });
+        return { ok: true, status: 200, json: async () => url.endsWith('/backup') ? { saved: true } : xhsJobs.shift() };
       }
       assert.equal(url, apiBase + '/api/session');
       return expired ? { status: 401 } : { status: 200, ok: true, json: async () => ({ user: { id: 1, login: 'test-user' } }) };
     },
     sessionStorage: { getItem: key => storage.get(key), removeItem: key => storage.delete(key) },
-    setInterval() {}, setTimeout() {}, clearTimeout() {},
+    setInterval() {}, setTimeout(callback) { queueMicrotask(callback); }, clearTimeout() {},
   };
   vm.runInNewContext(source, context);
   const client = window.XiaoyaSync.createClient({ profileClient: { subscribe() {} } });
-  return { client, calls: () => calls, setState(value) { state = structuredClone(value); }, onSync(value) { action = value; } };
+  return { client, requests, calls: () => calls, setState(value) { state = structuredClone(value); }, onSync(value) { action = value; } };
 }
 
 test('手动分类同步区别未配置、配置失败、需登录和首次连接，均不伪造成功或自动迁入', async () => {
@@ -90,4 +95,22 @@ test('分类状态快照不能修改引擎内部状态，未知分类明确拒�
   assert.equal((await h.client.getState('english')).enabled, true);
   await assert.rejects(h.client.sync('other'), /未知记录分类/);
   await assert.rejects(h.client.getState('other'), /未知记录分类/);
+});
+
+test('云端书架任务只发固定本人授权请求，等完整结果后返回；失败和未登录不伪造成功', async () => {
+  const snapshot = { complete: true, books: [{ bookId: 'fake-book' }] }, progress = [];
+  const h = harness({ xhsJobs: [{ status: 'queued' }, { status: 'running', progress: { phase: 'catalog', resolved: 20 } }, { status: 'complete', snapshot }] });
+  assert.deepEqual(await h.client.readXiaohuasheng({ onProgress: value => progress.push(value) }), snapshot);
+  assert.equal(progress.length, 2);
+  assert.equal(h.requests[0].url, 'https://sync.example.test/api/xiaohuasheng/sync');
+  assert.equal(h.requests[0].options.body, '{}'); assert.equal(h.requests[0].options.credentials, 'omit');
+  assert.equal(h.requests[0].options.headers.Authorization, 'Bearer test-session');
+  assert.equal(h.requests[1].options.method, 'GET');
+  await h.client.backupEnglish({ version: 1, records: {} });
+  assert.equal(h.requests.at(-1).url, 'https://sync.example.test/api/xiaohuasheng/backup');
+  const bad = harness({ xhsJobs: [{ status: 'failed', code: 'XHS_INCOMPLETE', message: '缺页' }] });
+  await assert.rejects(bad.client.readXiaohuasheng(), { code: 'XHS_INCOMPLETE' });
+  const anonymous = harness({ loggedIn: false });
+  await assert.rejects(anonymous.client.readXiaohuasheng(), { code: 'AUTH_REQUIRED' });
+  assert.equal(anonymous.requests.length, 0);
 });
