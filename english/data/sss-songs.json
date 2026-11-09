@@ -137,6 +137,18 @@
         "id": "twinkle-shared-tune",
         "url": "https://www.britannica.com/topic/Twinkle-Twinkle-Little-Star",
         "note": "传统Twinkle、Alphabet Song及Baa Baa Black Sheep共用Ah, vous dirai-je, Maman曲调；仅作传统曲调关联，不代表发声书采用相同编曲。"
+      },
+      {
+        "id": "hello-tune-index",
+        "file": "data/hello-tune-audio.json",
+        "note": "Hello现有38项套唱参考曲目索引；与hello-reading.json逐首建议及拓展曲调核对。对应只表示参考曲目，不代表Hello原声采用此曲调。",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "id": "thumbkin-shared-tune",
+        "url": "https://en.wikipedia.org/wiki/Where_is_Thumbkin%3F",
+        "note": "正文明确Where Is Thumbkin使用Frère Jacques曲调；Are You Sleeping为该曲调英语版本，仅关联旋律，不认定歌词或录音相同。",
+        "checkedAt": "2026-11-09"
       }
     ],
     "songs": [
@@ -158,7 +170,19 @@
         "coverSourceUrl": "https://supersimple.com/wp-content/uploads/rain-rain-1080-740-300x206.jpg",
         "coverPageUrl": "https://supersimple.com/song/rain-rain-go-away/",
         "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Rain Rain Go Away",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p003",
@@ -191,7 +215,19 @@
         "coverSourceUrl": "https://supersimple.com/wp-content/uploads/row-row-row-your-boat-1080-740-300x206.jpg",
         "coverPageUrl": "https://supersimple.com/song/row-row-row-your-boat/",
         "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Row Row Row Your Boat",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p005",
@@ -233,7 +269,19 @@
         "coverSourceUrl": "https://mothergooseclub.com/wp-content/uploads/2015/08/20150722_Mary-Had-A-Little-Lamb_MGC1.jpg",
         "coverPageUrl": "https://mothergooseclub.com/videos/mary-had-a-little-lamb-nursery-rhyme/",
         "coverNote": "同曲目其他演唱版本的预览图，不表示本书录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Mary Had a Little Lamb",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p007",
@@ -273,7 +321,20 @@
         "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/baa-baa-black-sheep.jpg",
         "coverPageUrl": "https://www.nurseryrhymes.org/baa-baa-black-sheep.html",
         "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Twinkle Twinkle Little Star",
+            "kind": "same-tune",
+            "note": "与Twinkle Twinkle Little Star共用传统曲调；本页歌词不同，仅作同曲调关联。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index",
+              "twinkle-shared-tune"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p009",
@@ -293,7 +354,19 @@
         "coverSourceUrl": "https://supersimple.com/wp-content/uploads/twinkle-twinkle-1080-740-300x206.jpg",
         "coverPageUrl": "https://supersimple.com/song/twinkle-twinkle-little-star/",
         "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Twinkle Twinkle Little Star",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p010",
@@ -344,7 +417,19 @@
         "coverSourceUrl": "https://supersimple.com/wp-content/uploads/five-little-ducks-1080-740-300x206.jpg",
         "coverPageUrl": "https://supersimple.com/song/five-little-ducks/",
         "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Five Little Ducks",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p013",
@@ -416,7 +501,20 @@
         "coverSourceUrl": "https://www.nurseryrhymes.org/nursery-rhymes-styles/images/alphabet-song.jpg",
         "coverPageUrl": "https://www.nurseryrhymes.org/alphabet-song.html",
         "coverNote": "对应传统曲目的网页配图，不表示本书内页。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Twinkle Twinkle Little Star",
+            "kind": "same-tune",
+            "note": "与Twinkle Twinkle Little Star共用传统曲调；本页歌词不同，仅作同曲调关联。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index",
+              "twinkle-shared-tune"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p017",
@@ -441,7 +539,19 @@
         "coverSourceUrl": "https://wfl.cdn.ngo/media/images/Im_a_little_tea_pot.2e16d0ba.fill-728x464.jpg",
         "coverPageUrl": "https://wordsforlife.org.uk/activities/im-a-little-teapot-nursery-rhyme/",
         "coverNote": "对应歌曲页插图，不表示本书内页。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "I’m a Little Teapot",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p018",
@@ -489,7 +599,30 @@
           470,
           900
         ],
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Are You Sleeping?",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          },
+          {
+            "name": "Where Is Thumbkin?",
+            "kind": "same-tune",
+            "note": "Where Is Thumbkin与Are You Sleeping共用Frère Jacques曲调；手指游戏歌词不同。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index",
+              "thumbkin-shared-tune"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p020",
@@ -671,7 +804,19 @@
         "cover": "assets/liao/covers/058.jpg",
         "coverPageUrl": "assets/liao/listening-book.pdf",
         "coverNote": "复用廖彩杏书目中同传统曲目的绘本封面，不表示本书内页或录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "Down by the Station",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p031",
@@ -952,7 +1097,19 @@
         "coverSourceUrl": "https://supersimple.com/wp-content/uploads/2014/08/songs_thewheelsonthebus-puppets_thumbnail_supersimpleapp-sss_en_01-1200w-300x169.jpg",
         "coverPageUrl": "https://supersimple.com/song/wheels-on-the-bus/",
         "coverNote": "复用现有SSS同曲目的预览图，不表示本书录音。",
-        "coverCheckedAt": "2026-11-09"
+        "coverCheckedAt": "2026-11-09",
+        "helloTunes": [
+          {
+            "name": "The Wheels on the Bus",
+            "kind": "same-song",
+            "note": "Hello套唱参考曲目与本页对应同一曲目；未核实为同一编曲或录音。",
+            "sourceIds": [
+              "user-page-list",
+              "hello-tune-index"
+            ],
+            "checkedAt": "2026-11-09"
+          }
+        ]
       },
       {
         "id": "manhulu-9787533574901-p047",

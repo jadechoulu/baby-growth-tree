@@ -4,6 +4,24 @@ import {createRequire} from 'node:module';
 import {readFileSync,existsSync} from 'node:fs';
 const require=createRequire(import.meta.url),H=require('../english/hello-reading.js');
 const data=JSON.parse(readFileSync(new URL('../english/data/hello-reading.json',import.meta.url)));
+test('慢葫芦按显式Hello曲调关联保留多页码与关系类型，不借用SSS改编关系',()=>{
+ const soundBook=JSON.parse(readFileSync(new URL('../english/data/sss-songs.json',import.meta.url))).soundBook;
+ const matches=name=>H.soundBookMatches(soundBook,name).map(({entry,match})=>[entry.page,match.kind]);
+ assert.deepEqual(matches('Twinkle Twinkle Little Star'),[[8,'same-tune'],[9,'same-song'],[16,'same-tune']]);
+ assert.deepEqual(matches('Mary Had a Little Lamb'),[[6,'same-song']]);
+ assert.deepEqual(matches('I’m a Little Teapot'),[[17,'same-song']]);
+ assert.deepEqual(matches('Where Is Thumbkin?'),[[19,'same-tune']]);
+ assert.deepEqual(matches('Walking Walking on Halloween'),[]);
+ assert.deepEqual(matches('Rain Rain'),[]);
+ const names=new Set(optionsTunes()),sources=new Set(soundBook.sources.map(source=>source.id));
+ for(const entry of soundBook.songs)for(const match of entry.helloTunes||[]){
+  assert.ok(names.has(match.name));assert.ok(['same-song','same-tune'].includes(match.kind));
+  assert.ok(match.note);assert.ok(match.checkedAt);assert.ok(match.sourceIds.length);
+  for(const id of match.sourceIds)assert.ok(sources.has(id));
+ }
+ assert.equal(new Set(soundBook.songs.flatMap(entry=>(entry.helloTunes||[]).map(match=>match.name))).size,10);
+ function optionsTunes(){return data.rhymes.flatMap(r=>r.tunes.concat(r.extensions.map(e=>e.tune)));}
+});
 test('原书入口只读取明确原书角色，不把资料包首个活动PDF当作原书',()=>{
  for(const book of data.books){
   assert.equal(book.resources.filter(resource=>resource.role==='original-book').length,1);
