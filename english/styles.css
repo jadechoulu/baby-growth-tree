@@ -1041,6 +1041,10 @@
 .practice-page .practice-material-row.practice-percent-row{grid-template-columns:minmax(0,1fr) 104px;gap:3px 8px;padding:5px 0}
 .practice-page .practice-material-row.practice-books-row{grid-template-columns:minmax(0,1fr) 160px}
 .practice-page .practice-unit-progress{display:grid;grid-template-columns:72px minmax(0,1fr) 14px;align-items:center;gap:4px;min-height:32px;padding:2px 4px;border:1px solid transparent;border-radius:6px;font-weight:400;font-variant-numeric:tabular-nums}
+.practice-page .practice-count-known{border-color:var(--line);background:var(--paper)}
+.practice-page .practice-count-progress:not(.practice-book-progress) .practice-count-meter{grid-column:2 / -1;padding-right:18px}
+.practice-page .practice-count-progress .practice-percent-editor input{height:24px;min-height:24px;border-color:transparent;background:transparent}
+.practice-page .practice-count-progress .practice-percent-editor input:not([readonly]):hover,.practice-page .practice-count-progress .practice-percent-editor input:not([readonly]):focus-visible{border-color:var(--line);background:var(--paper)}
 .practice-page .practice-percent-editor{gap:3px;margin:0}
 .practice-page .practice-percent-editor input{width:32px;height:28px;min-height:28px;padding:2px;line-height:1.25;flex:0 0 32px}
 .practice-page .practice-percent-editor input::-webkit-inner-spin-button,.practice-page .practice-percent-editor input::-webkit-outer-spin-button{appearance:none;margin:0}

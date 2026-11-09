@@ -37,11 +37,20 @@ test('同一路线与阶段限定先取交集，再按所用级别范围累加',
   assert.equal(pre.parts.length,2);
 });
 
-test('虚构子集未知时不借整级数量，无来源的范围不回退成其他版目录44本',()=>{
+test('已核虚构书目保留作者选版边界，采用公共范围后图鉴与阶段同为22本',()=>{
   const fiction=count('resource-g7xvo5',{route:'qing',stageIds:['qing-s1']});
-  assert.equal(fiction.total,0);
+  assert.equal(fiction.total,0,'公共选本不冒称作者指定版次');
   assert.deepEqual(fiction.unknown,['1（虚构部分）']);
-  assert.equal(fiction.books.length,0);
+  assert.equal(fiction.books.length,22);
+  const scope=M.publicationLevelScopes(volumes,'resource-g7xvo5',['1（虚构部分）'])[0];
+  const selected=count('resource-g7xvo5',{route:'qing',stageIds:['qing-s1'],selections:[{routeId:'qing',stageId:'qing-s1',parts:scope.parts.map(part=>({...part,edition:scope.edition,unit:'本'}))}]});
+  assert.equal(selected.total,22);
+  assert.equal(selected.books.length,22);
+  assert.deepEqual(selected.unknown,[]);
+  const unresolved=count('resource-g7xvo5',{route:'qing',stageIds:['qing-s2']});
+  assert.equal(unresolved.total,0);
+  assert.deepEqual(unresolved.unknown,['2（虚构部分）']);
+  assert.equal(unresolved.books.length,0);
   const partial=count('resource-1mx6gx6',{route:'qing'});
   assert.equal(partial.total,187);
   assert.equal(partial.partial,true);
@@ -169,9 +178,9 @@ test('补齐其它套系级别，数量使用具名出版范围且不均摊组�
 
 test('未知路线子集显示具名出版总量参考，不能将其变成阶段分母',()=>{
   const reference=(id,level)=>B.quantityReference(data,catalog.resources.find(r=>r.id===id),M,volumes,[{level}]);
-  const cat=reference('resource-g7xvo5','1（虚构部分）');
-  assert.equal(cat.label,'整级30本');assert.equal(cat.gap,'子集待对应');
-  assert.equal(count('resource-g7xvo5',{route:'qing',stageIds:['qing-s1']}).total,0);
-  assert.equal(reference('resource-1yfs7b5','A、B').label,'2套各15本');
+  const cat=reference('resource-g7xvo5','2（虚构部分）');
+  assert.equal(cat.label,'整级31本');assert.equal(cat.gap,'子集待对应');
+  assert.equal(count('resource-g7xvo5',{route:'qing',stageIds:['qing-s2']}).total,0);
+  assert.equal(reference('resource-1yfs7b5','E、F').gap,'级别待对应');
   assert.equal(reference('resource-1pinwiv','1、2').label,'2套各12本');
 });

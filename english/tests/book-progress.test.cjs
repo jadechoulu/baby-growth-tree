@@ -732,3 +732,41 @@ test('既有精确外站身份可刷新次数，目录映射冲突不重绑、�
   assert.deepEqual(conflict.changes,{});
   assert.equal(conflict.ambiguous.length,1);
 });
+
+test('Super Hammy按出版社逐册A–D分级组成阶段目录，沿用套装单册完成身份',()=>{
+  const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js');
+  const id='resource-1yfs7b5';
+  const ranges=[['A','B'],['C','D']].map(levels=>{
+    const scope=P.bookScope(undefined,P.bookScopes(id,levels,catalog));
+    assert.equal(scope.total,10);
+    const plan=B.planForResource({plans:[]},id,directory,catalog,scope);
+    const selected=B.books(plan,B.scopeGroup(plan,scope));
+    assert.equal(selected.length,10);
+    assert.ok(selected.every(book=>levels.includes(book.readingLevel.level)));
+    assert.equal(new Set(selected.map(book=>book.id)).size,10);
+    const record=B.manualUpdate({},selected[0].id,true);
+    assert.equal(B.progress(record,plan,'all').completed,1);
+    const original=P.bookScopes(id,[],catalog).find(item=>item.id===(selected[0].edition==='DC Canada My First Reading Series'?'super-hammy-my-first-reading-15':'super-hammy-2-15'));
+    const whole=B.planForResource({plans:[]},id,directory,catalog,original);
+    assert.equal(B.progress(record,whole,B.scopeGroup(whole,original)).completed,1);
+    return new Set(selected.map(book=>book.id));
+  });
+  assert.equal([...ranges[0]].some(id=>ranges[1].has(id)),false);
+  assert.equal(P.bookScopes(id,['E'],catalog).length,0,'未逐册核齐的E级不能按套装总数补猜');
+});
+
+test('大猫1级虚构范围排除8册信息读物，以22册原书目共用勾选与图鉴关联',()=>{
+  const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json'),P=require('../practice.js'),M=require('../model.js'),L=require('../library-books.js');
+  const id='resource-g7xvo5',level='1 · 虚构部分',scope=P.bookScope(undefined,P.bookScopes(id,[level],catalog));
+  assert.equal(scope.total,22);
+  const plan=B.planForResource({plans:[]},id,directory,catalog,scope),selected=B.books(plan,B.scopeGroup(plan,scope));
+  assert.equal(selected.length,22);assert.ok(selected.every(book=>book.genre==='fiction'));
+  assert.ok(selected.some(book=>book.title==='Fly Away Home'));
+  assert.equal(selected.some(book=>book.title.includes('I Can Do It')),false);
+  const records=B.manualUpdate({},selected[0].id,true);
+  assert.equal(B.progress(records,plan,'all').completed,1);
+  const resource={id,title:'大猫分级',appearances:[{stageId:'qing-s1',level}]};
+  const nonfiction=directory.books.find(book=>book.resourceId===id&&book.level==='1'&&book.title.includes('I Can Do It'));
+  assert.equal(L.bookAppearances(nonfiction,resource,M,catalog).length,0);
+  assert.equal(L.bookAppearances(selected[0],resource,M,catalog).length,1);
+});

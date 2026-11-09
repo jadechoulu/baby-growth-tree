@@ -1032,21 +1032,32 @@ function practiceQuantityReference(unit){
   if(!unit.bookEligible)return {label:'总'+practiceQuantityUnit(unit)+'数待补',note:'当前引用尚未取得可核实的总量，不把季数或级别当作集数。'};
   return LB.quantityReference(BOOKS,unit.item.resource,EnglishModel,window.ROADMAP_RAW.resourceVolumes,unit.partLevel?[{level:unit.partLevel.label}]:unit.item.materials);
 }
+// 两路线、逐本／歌曲与数量汇总共用同一进度控件；仅数字编辑或打开清单的动作不同。
+function practiceProgressControl(quantity,{editor,action,attrs={},reference}={}){
+  const {completed,total,unit,percent}=quantity,hasTotal=total!==null;
+  const counter=editor?h('label',{class:'practice-percent-editor'},editor,h('span',{},hasTotal?'/ '+total+' '+unit:unit)):
+    h('span',{class:'practice-reading-quantity'},h('span',{class:'practice-reading-completed'},completed),h('small',{},'/ '+total+' '+unit));
+  const meter=hasTotal?h('span',{class:'practice-count-meter'},h('progress',{max:100,value:percent,'aria-hidden':'true'}),h('span',{},percent+'%')):
+    h('span',{class:'practice-count-reference',title:[reference?.label,reference?.note].filter(Boolean).join('；')},reference?.gap?'范围待核':reference?.label);
+  const className='practice-unit-progress practice-count-progress'+(hasTotal?' practice-count-known':'')+(action?' practice-book-progress':'');
+  const children=[counter,meter,action?icon('chevron'):null];
+  return action?btn(children,action,attrs,className):h('div',{...attrs,class:className},children);
+}
 function practiceUnitPercent(unit){
   const readingScope=practiceBookScope(unit),plan=readingPlanForResource(unit.resourceId,readingScope);
-  if(plan&&BP.scopeGroup(plan,practiceBookScope(unit))!==null){const q=practiceQuantity(unit);return btn([h('span',{class:'practice-reading-quantity'},h('span',{class:'practice-reading-completed'},q.completed),h('small',{},'/ '+q.total+' 本')),h('span',{class:'practice-count-meter'},h('progress',{max:100,value:q.percent,'aria-hidden':'true'}),h('span',{},q.percent+'%')),icon('chevron')],'reading-plan',{'data-id':unit.resourceId,'data-stage':unit.recordStageId||unit.stageId,'data-reading-scope':JSON.stringify(readingScope),id:'reading-progress-'+unit.key,'aria-label':unit.label+'已完成'+q.completed+'/'+q.total+'本，点击逐本勾选'},'practice-unit-progress practice-count-progress practice-book-progress');}
+  if(plan&&BP.scopeGroup(plan,readingScope)!==null){const q=practiceQuantity(unit);return practiceProgressControl(q,{action:'reading-plan',attrs:{'data-id':unit.resourceId,'data-stage':unit.recordStageId||unit.stageId,'data-reading-scope':JSON.stringify(readingScope),id:'reading-progress-'+unit.key,'aria-label':unit.label+'已完成'+q.completed+'/'+q.total+'本，点击逐本勾选'}});}
   const record=practiceUnitRecord(unit);
-  if(isXuSongUnit(unit))return btn([h('span',{class:'practice-reading-quantity'},h('span',{class:'practice-reading-completed'},record.done),h('small',{},'/ '+record.total+' 首')),h('div',{class:'practice-count-meter'},h('progress',{max:100,value:record.percent,'aria-hidden':'true'}),h('span',{},record.percent+'%')),icon('chevron')],'sss-songs',{'data-id':unit.resourceId,'data-stage':unit.stageId,'data-category':'essential',id:'song-progress-'+unit.key,'aria-label':'必备歌单已完成'+record.done+'/'+record.total+'首，'+record.percent+'%，点击勾选歌曲',title:'按必备歌单完成首数自动计算'},'practice-unit-progress practice-count-progress practice-book-progress practice-song-progress');
+  if(isXuSongUnit(unit))return practiceProgressControl({completed:record.done,total:record.total,percent:record.percent,unit:'首'},{action:'sss-songs',attrs:{'data-id':unit.resourceId,'data-stage':unit.stageId,'data-category':'essential',id:'song-progress-'+unit.key,'aria-label':'必备歌单已完成'+record.done+'/'+record.total+'首，'+record.percent+'%，点击勾选歌曲',title:'按必备歌单完成首数自动计算'}});
   const quantity=practiceQuantity(unit),hasTotal=quantity.total!==null,scope=unit.children?null:practiceBookScope(unit);
   const maximum=quantity.total??1000000;
   const reference=hasTotal?null:practiceQuantityReference(unit);
-  return h('div',{class:'practice-unit-progress practice-count-progress'},h('label',{class:'practice-percent-editor'},h('input',{id:'count-'+unit.key,type:'number',inputmode:'numeric',min:0,max:maximum,step:1,value:quantity.completed,readonly:quantity.sourcePriority,'aria-label':unit.label+'的已完成数量（'+(hasTotal?'共'+quantity.total:'单位：')+quantity.unit+'）'+(quantity.sourcePriority?'，由小花生已读书目自动汇总':''),title:quantity.sourcePriority?'由小花生已读书目自动汇总；原手填数量保留，不计入当前进度':unit.children?'汇总取父项记录与子项合计中的较大值；子项已记'+quantity.childCompleted+quantity.unit:'填写完成数量',oninput:e=>e.currentTarget.setCustomValidity(''),onkeydown:e=>{if(e.key==='Enter'){e.preventDefault();e.currentTarget.blur();}},onchange:e=>{
+  const editor=h('input',{id:'count-'+unit.key,type:'number',inputmode:'numeric',min:0,max:maximum,step:1,value:quantity.completed,readonly:quantity.sourcePriority,'aria-label':unit.label+'的已完成数量（'+(hasTotal?'共'+quantity.total:'单位：')+quantity.unit+'）'+(quantity.sourcePriority?'，由小花生已读书目自动汇总':''),title:quantity.sourcePriority?'由小花生已读书目自动汇总；原手填数量保留，不计入当前进度':unit.children?'汇总取父项记录与子项合计中的较大值；子项已记'+quantity.childCompleted+quantity.unit:'填写完成数量',oninput:e=>e.currentTarget.setCustomValidity(''),onkeydown:e=>{if(e.key==='Enter'){e.preventDefault();e.currentTarget.blur();}},onchange:e=>{
     const input=e.currentTarget;
     if(!input.checkValidity()){input.setCustomValidity('请输入0–'+maximum+'之间的整数数量。');input.reportValidity();return;}
     const updated=unit.children?P.groupQuantityUpdate(Number(input.value),practiceChildQuantities(unit),practiceRawRecord(unit)):P.unitQuantityProgressUpdate(Number(input.value),scope,practiceRawRecord(unit),quantity.unit);
     if(savePracticeRecords({[unit.key]:updated,...(!unit.children?P.sharedQuantityUpdate(S.records,unit.resourceId,scope,Number(input.value),quantity.unit):{})}))render();else input.value=quantity.completed;
-  }}),h('span',{},hasTotal?'/ '+quantity.total+' '+quantity.unit:quantity.unit)),hasTotal?h('div',{class:'practice-count-meter'},h('progress',{max:100,value:quantity.percent,'aria-label':unit.label+'的进度：'+quantity.percent+'%'}),h('span',{},quantity.percent+'%')):h('span',{class:'practice-count-reference',title:reference.note},reference.label));
-
+  }});
+  return practiceProgressControl(quantity,{editor,reference});
 }
 function practiceUnitDate(unit,record){
   if(!record.date)return null;
