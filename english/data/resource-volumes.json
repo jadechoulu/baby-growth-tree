@@ -822,6 +822,63 @@
           "includedIn": [
             "big-cat-4-5-2023"
           ]
+        },
+        {
+          "id": "bigcat-fltrp-1-fiction-20261109",
+          "label": "1 · 虚构",
+          "level": "1（虚构部分）",
+          "levelAliases": [
+            "1 · 虚构部分",
+            "1（虚构）",
+            "1 · 虚构"
+          ],
+          "edition": "外研社大猫 · 预备至4级（2023目录对应选本） · 虚构选本",
+          "parts": [
+            {
+              "label": "1 · 虚构",
+              "count": 22,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-5bcadc845b924cee",
+                  "book-335f8d1279127a1d",
+                  "book-c1571f076e39f6c8",
+                  "book-c0e14b1ff17d7a47",
+                  "book-e324fc1bfa3b107a",
+                  "book-4ecb187dc4387bfd",
+                  "book-f0274c33df3a60b3",
+                  "book-0d23445368974f1b",
+                  "book-a2d5414efedcd1f3",
+                  "book-82734865a93be226",
+                  "book-a063715375654a51",
+                  "book-bafe6d13fe0ba68f",
+                  "book-d4546b53ac0cfc79",
+                  "book-d8d90e004e9cfa62",
+                  "book-dc4af30c4657c748",
+                  "book-c9d9ecd42ee129bc",
+                  "book-ae140788aaee266b",
+                  "book-a7f802d901ab547d",
+                  "book-e7cd594ddce239f1",
+                  "book-e61c11f847eba397",
+                  "book-d50731c5c73d9356",
+                  "book-670c90049583f34a"
+                ]
+              }
+            }
+          ],
+          "unit": "本",
+          "referenceOnly": true,
+          "includedIn": [
+            "big-cat-1-3-2023"
+          ],
+          "sources": [
+            {
+              "title": "大猫1级逐册文体核对",
+              "url": "https://collins.co.uk/products/9780007185443",
+              "evidence": "完整目录30册均已有逐册虚构／非虚构依据；28册沿用小花生公开字段，缺失两册据Collins同名Pink 1B原作文体补齐，虚构22册。",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "note": "仅覆盖当前具名外研1级目录的虚构单册，不冒称全部版次或作者逐册指定；原单册ID与完成事实共用。"
         }
       ],
       "versionNote": "外研社引进版与柯林斯英版使用不同的分级和选书范围。英版粉色44本套装按Pink 1A、1B各22本记录；不表示外研社预备级1、2与Pink 1A、1B逐项等价。 沿用2019年英版套装资料，不采用现售Band Set数量更新；红色2级44本仅记录有据组合，不均分2A、2B。外研社各级仍按2023目录快照单列，版本之间不互相等价。",
@@ -15239,6 +15296,306 @@
             }
           ],
           "note": "第二套15册的具名出版集合；不将集合编号2当成路线C-D或正式阅读难度级别。"
+        },
+        {
+          "id": "super-hammy-fp-a-5",
+          "label": "F&P A",
+          "level": "A",
+          "edition": "DC Canada 英文版 · Fountas and Pinnell分级选本",
+          "parts": [
+            {
+              "label": "A",
+              "level": "A",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-d04142f6837f668d",
+                  "book-fdc171a43f46c832",
+                  "book-db27b12c8aafa101",
+                  "book-765bf05d6655d42e",
+                  "book-0c2d7c600c2a4430"
+                ]
+              }
+            }
+          ],
+          "unit": "本",
+          "referenceOnly": true,
+          "includedIn": [
+            "super-hammy-my-first-reading-15"
+          ],
+          "sources": [
+            {
+              "title": "DC Canada · Here Comes Super Hammy",
+              "url": "https://dc-canada.ca/products/super-hammy-my-first-reading-series-here-comes-super-hammy",
+              "evidence": "This book is Fountas and Pinnell level A.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy and His Car",
+              "url": "https://dc-canada.ca/products/super-hammy-and-his-car",
+              "evidence": "This book is Fountas and Pinnell level A.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Loves Cheese",
+              "url": "https://dc-canada.ca/products/super-hammy-loves-cheese",
+              "evidence": "This book is Fountas and Pinnell level A.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy and the Slippery Soap",
+              "url": "https://dc-canada.ca/products/super-hammy-and-the-slippery-soap",
+              "evidence": "This book is Fountas and Pinnell level A.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy's Birthday Party",
+              "url": "https://dc-canada.ca/products/super-hammys-birthday-party",
+              "evidence": "This book is Fountas and Pinnell level A.",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "note": "按出版社逐册Fountas and Pinnell分级组成选本，保留原英文册与两套目录身份；不按套号或平均册数推算字母等级。"
+        },
+        {
+          "id": "super-hammy-fp-b-5",
+          "label": "F&P B",
+          "level": "B",
+          "edition": "DC Canada 英文版 · Fountas and Pinnell分级选本",
+          "parts": [
+            {
+              "label": "B",
+              "level": "B",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-f8ce83cd02e4bc3a",
+                  "book-17b8e2d389339899",
+                  "book-9c817524a402226a",
+                  "book-d1b66aae3ab82122",
+                  "book-c9217cdcadf33ab8"
+                ]
+              }
+            }
+          ],
+          "unit": "本",
+          "referenceOnly": true,
+          "includedIn": [
+            "super-hammy-my-first-reading-15"
+          ],
+          "sources": [
+            {
+              "title": "DC Canada · Super Hammy and The Big Fish",
+              "url": "https://dc-canada.ca/products/super-hammy-and-the-big-fish",
+              "evidence": "This book is Fountas and Pinnell level B.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy is Cooking",
+              "url": "https://dc-canada.ca/products/super-hammy-is-cooking",
+              "evidence": "This book is Fountas and Pinnell level B.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy And Little Mouse Go!",
+              "url": "https://dc-canada.ca/products/super-hammy-and-little-mouse-go",
+              "evidence": "This book is Fountas and Pinnell level B.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Washes his Clothes",
+              "url": "https://dc-canada.ca/products/super-hammy-washes-his-clothes",
+              "evidence": "This book is Fountas and Pinnell level B.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy's Halloween",
+              "url": "https://dc-canada.ca/products/super-hammys-halloween",
+              "evidence": "This book is Fountas and Pinnell level B.",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "note": "按出版社逐册Fountas and Pinnell分级组成选本，保留原英文册与两套目录身份；不按套号或平均册数推算字母等级。"
+        },
+        {
+          "id": "super-hammy-fp-c-5",
+          "label": "F&P C",
+          "level": "C",
+          "edition": "DC Canada 英文版 · Fountas and Pinnell分级选本",
+          "parts": [
+            {
+              "label": "C",
+              "level": "C",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-6ebb63cbd94a8dcc",
+                  "book-d80286027722effd",
+                  "book-9c742fabe9aa0315",
+                  "book-a710f47da3551637",
+                  "book-76cd3414b5599ffe"
+                ]
+              }
+            }
+          ],
+          "unit": "本",
+          "referenceOnly": true,
+          "includedIn": [
+            "super-hammy-my-first-reading-15"
+          ],
+          "sources": [
+            {
+              "title": "DC Canada · Super Hammy Helps Little Mouse",
+              "url": "https://dc-canada.ca/products/super-hammy-helps-little-mouse",
+              "evidence": "This book is Fountas and Pinnell level C.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Goes For a Drive",
+              "url": "https://dc-canada.ca/products/super-hammy-goes-for-a-drive",
+              "evidence": "This book is Fountas and Pinnell level C.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Makes a Snowman",
+              "url": "https://dc-canada.ca/products/super-hammy-goes-for-a-drive-copy",
+              "evidence": "This book is Fountas and Pinnell level C.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Saves the Cheese",
+              "url": "https://dc-canada.ca/products/super-hammy-saves-the-cheese",
+              "evidence": "This book is Fountas and Pinnell level C.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Saves Little Mouse",
+              "url": "https://dc-canada.ca/products/super-hammy-saves-little-mouse",
+              "evidence": "This book is Fountas and Pinnell level C.",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "note": "按出版社逐册Fountas and Pinnell分级组成选本，保留原英文册与两套目录身份；不按套号或平均册数推算字母等级。"
+        },
+        {
+          "id": "super-hammy-fp-d-5",
+          "label": "F&P D",
+          "level": "D",
+          "edition": "DC Canada 英文版 · Fountas and Pinnell分级选本",
+          "parts": [
+            {
+              "label": "D",
+              "level": "D",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-c8c756d96b115ddd",
+                  "book-5db1138b4f64bbcc",
+                  "book-630c9081f97b7712",
+                  "book-a93ff26dbb749053",
+                  "book-1a050cfa2ad190a4"
+                ]
+              }
+            }
+          ],
+          "unit": "本",
+          "referenceOnly": true,
+          "includedIn": [
+            "super-hammy-2-15"
+          ],
+          "sources": [
+            {
+              "title": "DC Canada · Super Hammy can't Find his Hat",
+              "url": "https://dc-canada.ca/products/super-hammy-cant-find-his-hat",
+              "evidence": "This book is Fountas and Pinnell level D.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Meets Baby Hammy",
+              "url": "https://dc-canada.ca/products/super-hammy-meets-baby-hammy",
+              "evidence": "This book is Fountas and Pinnell level D.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Dances with Donna Dog",
+              "url": "https://dc-canada.ca/products/super-hammy-dances-with-donna-dog",
+              "evidence": "This book is Fountas and Pinnell level D.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Runs a Big Race",
+              "url": "https://dc-canada.ca/products/super-hammy-runs-a-big-race",
+              "evidence": "This book is Fountas and Pinnell level D.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Goes Camping",
+              "url": "https://dc-canada.ca/products/super-hammy-goes-camping",
+              "evidence": "This book is Fountas and Pinnell level D.",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "note": "按出版社逐册Fountas and Pinnell分级组成选本，保留原英文册与两套目录身份；不按套号或平均册数推算字母等级。"
+        },
+        {
+          "id": "super-hammy-fp-f-5",
+          "label": "F&P F",
+          "level": "F",
+          "edition": "DC Canada 英文版 · Fountas and Pinnell分级选本",
+          "parts": [
+            {
+              "label": "F",
+              "level": "F",
+              "count": 5,
+              "directoryMatch": {
+                "bookIds": [
+                  "book-f1ae4cdcf8d77074",
+                  "book-d9659056a8d557af",
+                  "book-cfb823948e1c600f",
+                  "book-9583886b00d60c24",
+                  "book-3c58b5b0b80ee391"
+                ]
+              }
+            }
+          ],
+          "unit": "本",
+          "referenceOnly": true,
+          "includedIn": [
+            "super-hammy-2-15"
+          ],
+          "sources": [
+            {
+              "title": "DC Canada · Super Hammy Makes a New Friend",
+              "url": "https://dc-canada.ca/products/super-hammy-makes-a-new-friend",
+              "evidence": "This book is Fountas and Pinnell level F.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · super hammy swims with sharks",
+              "url": "https://dc-canada.ca/products/super-hammy-swims-with-sharks",
+              "evidence": "This book is Fountas and Pinnell level F.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · Super Hammy Flies to the Moon",
+              "url": "https://dc-canada.ca/products/super-hammy-flies-to-the-moon",
+              "evidence": "This book is Fountas and Pinnell level F.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · super hammy goes sledding",
+              "url": "https://dc-canada.ca/products/super-hammy-goes-sledding",
+              "evidence": "This book is Fountas and Pinnell level F.",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "title": "DC Canada · super hammy's christmas day",
+              "url": "https://dc-canada.ca/products/super-hammys-christmas-day",
+              "evidence": "This book is Fountas and Pinnell level F.",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "note": "按出版社逐册Fountas and Pinnell分级组成选本，保留原英文册与两套目录身份；不按套号或平均册数推算字母等级。"
         }
       ],
       "catalogAudit": {
