@@ -1,0 +1,96 @@
+.gitignore
+  h_c836a884b9f50f 21-27
+AGENTS.md
+  h_c836a884b9f50f 262-263
+app.mjs
+  h_c836a884b9f50f 1066-1068
+backend/assistant-knowledge.mjs
+  h_c836a884b9f50f 1-28
+backend/assistant-memory.mjs
+  h_c836a884b9f50f 1-57
+backend/assistant-model.mjs
+  h_c836a884b9f50f 1-56
+backend/assistant-usage.mjs
+  h_c836a884b9f50f 1-31
+backend/assistant-web.mjs
+  h_c836a884b9f50f 1-16
+backend/assistant.mjs
+  h_c836a884b9f50f 1-156
+backend/netlify-handler.mjs
+  h_c836a884b9f50f 3-7,13-14,21-28
+docs/architecture.md
+  h_c836a884b9f50f 17-20,978-979
+docs/site-assistant.md
+  h_c836a884b9f50f 1-106
+english/app.js
+  h_c836a884b9f50f 2155-2169
+english/build.py
+  h_c836a884b9f50f 3,6,66,150-151
+english/hello-reading.js
+  h_c836a884b9f50f 268
+health.html
+  h_c836a884b9f50f 18-21
+health.mjs
+  h_c836a884b9f50f 656-658
+home.html
+  h_c836a884b9f50f 17-19
+index.html
+  h_c836a884b9f50f 21-23
+scripts/build-pages.mjs
+  h_c836a884b9f50f 4,26-31,101
+scripts/build-search-index.mjs
+  h_c836a884b9f50f 1-60
+scripts/build-site.mjs
+  h_c836a884b9f50f 1,31-32
+scripts/build-sync-backend.mjs
+  h_c836a884b9f50f 5-6,28-39,46
+shared/assistant-context.js
+  h_c836a884b9f50f 1-65
+shared/assistant-workflow.js
+  h_c836a884b9f50f 1-22
+shared/search-core.js
+  h_c836a884b9f50f 1-41
+shared/site-search.js
+  h_c836a884b9f50f 1-239
+shared/site-shell.js
+  h_c836a884b9f50f 195
+shared/site-sync.js
+  h_c836a884b9f50f 30,33-34,38,122,229,290-296
+site.css
+  h_c836a884b9f50f 342-362
+tests/assistant-knowledge.test.mjs
+  h_c836a884b9f50f 1-62
+tests/assistant-memory.test.mjs
+  h_c836a884b9f50f 1-47
+tests/assistant-model.test.mjs
+  h_c836a884b9f50f 1-77
+tests/assistant-usage.test.mjs
+  h_c836a884b9f50f 1-37
+tests/assistant.test.mjs
+  h_c836a884b9f50f 1-181
+tests/site-search-access.test.mjs
+  h_c836a884b9f50f 1-92
+tests/site-sync-client.test.mjs
+  h_c836a884b9f50f 9,36-40,65-82
+tests/worker.test.mjs
+  h_c836a884b9f50f 3,102-111,345-395
+vendor/minisearch/LICENSE.txt
+  h_c836a884b9f50f 1-7
+vendor/minisearch/README.md
+  h_c836a884b9f50f 1-9
+vendor/minisearch/index.cjs
+  h_c836a884b9f50f 1-2007
+worker/index.mjs
+  h_c836a884b9f50f 52,54,63,174-197,289-298
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1fe7bcdcb10bf5fa346d0d8428141cdf70c598d5",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
