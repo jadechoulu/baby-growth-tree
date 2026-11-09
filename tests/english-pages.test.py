@@ -14,8 +14,10 @@ class EnglishPagesTests(unittest.TestCase):
     def setUpClass(cls):
         subprocess.run([sys.executable, 'english/build.py', '--pages'], cwd=ROOT, check=True, capture_output=True)
         cls.output = ROOT / 'dist' / 'english-pages'
-        cls.html = (cls.output / 'index.html').read_text()
-        match = re.search(r'window\.ROADMAP_RAW=(.*?);window\.ROADMAP_ASSETS=', cls.html)
+        cls.entry = (cls.output / 'index.html').read_text()
+        cls.runtime = set(re.findall(r'(?:src|href)="\./(runtime/[^\"]+)"', cls.entry))
+        cls.html = cls.entry + '\n' + '\n'.join((cls.output / name).read_text() for name in sorted(cls.runtime))
+        match = re.search(r'window\.ROADMAP_RAW=(.*?);\n', cls.html)
         cls.data = json.loads(match.group(1))
         cls.directory = json.loads((cls.output / 'data/resource-books.json').read_text())
 
@@ -43,7 +45,7 @@ class EnglishPagesTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertEqual((self.output / path).read_bytes(), (ROOT / 'english' / path).read_bytes())
         actual = {path.relative_to(self.output).as_posix() for path in self.output.rglob('*') if path.is_file()}
-        self.assertEqual(actual, paths | {'index.html', '.nojekyll', 'data/resource-books.json'})
+        self.assertEqual(actual, paths | self.runtime | {'index.html', '.nojekyll', 'data/resource-books.json'})
         self.assertEqual(self.data['resourceBooks']['books'], [])
         self.assertGreater(len(self.directory['books']), 3000)
 
@@ -52,6 +54,12 @@ class EnglishPagesTests(unittest.TestCase):
             self.assertIn(route, self.data)
         self.assertEqual(len(self.data['xuSupplements']), 2)
 
+    def test_entry_keeps_small_and_runtime_files_match_their_content(self):
+        import hashlib
+        self.assertLess(len(self.entry.encode()), 6000)
+        self.assertEqual(len(self.runtime), 3)
+        for name in self.runtime:
+            self.assertIn(hashlib.sha256((self.output / name).read_bytes()).hexdigest()[:16], name)
 
 if __name__ == '__main__':
     unittest.main()

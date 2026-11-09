@@ -91,8 +91,32 @@ def write(path, assets, raw=RAW, script=js, site=None):
         digest = hashlib.sha256(inline_json(raw['resourceBooks']).encode()).hexdigest()[:16]
         books_url = 'data/resource-books.json?v=' + digest
         raw = {**raw, 'resourceBooks': {'books': [], 'sources': []}}
-    html=BASE.replace('__SECTIONS__',inline_json(sections)).replace('__ROOT__',inline_json(site['home'].removesuffix('home.html'))).replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__BOOKS_URL__',inline_json(books_url)).replace('__JS__',script)
     path.parent.mkdir(parents=True,exist_ok=True)
+    if not assets:
+        # 普通入口只保留启动页；内容、代码与样式独立并行下载，内容不变时复用浏览器缓存。
+        runtime = path.parent / 'runtime'
+        runtime.mkdir(exist_ok=True)
+        payload = 'window.ROADMAP_RAW=' + inline_json(raw) + ';\n'
+        files = {}
+        for name, suffix, content in [('data', 'js', payload), ('app', 'js', script), ('styles', 'css', css)]:
+            digest = hashlib.sha256(content.encode()).hexdigest()[:16]
+            relative = 'runtime/' + name + '.' + digest + '.' + suffix
+            (path.parent / relative).write_text(content)
+            files[name] = relative
+        for previous in runtime.iterdir():
+            if previous.is_file() and re.fullmatch(r'(data|app|styles)\.[0-9a-f]{16}\.(js|css)', previous.name) and previous.as_posix() not in {str(path.parent / value) for value in files.values()}:
+                previous.unlink()
+        template = BASE.replace('<style>__CSS__</style>', '<link rel="stylesheet" href="./' + files['styles'] + '">')
+        template = template.replace('<script>__JS__</script>', '<script id="english-data" src="./' + files['data'] + '" defer onerror="EnglishStartupFailed()"></script>\n<script src="./' + files['app'] + '" defer onerror="EnglishStartupFailed()"></script>')
+        template = template.replace('window.ROADMAP_RAW=__RAW__;', '')
+        startup = '''<script>
+window.EnglishStartupFailed=function(){const box=document.querySelector('#app>.loading');if(!box)return;box.replaceChildren(document.createTextNode('页面暂时未能加载。'));const retry=document.createElement('button');retry.type='button';retry.textContent='重新加载';retry.onclick=function(){location.reload();};box.append(retry);};
+window.EnglishStartupTimer=setTimeout(window.EnglishStartupFailed,20000);
+</script>'''
+        template = template.replace('<div id="app">', startup + '\n<div id="app">')
+    else:
+        template = BASE
+    html=template.replace('__SECTIONS__',inline_json(sections)).replace('__ROOT__',inline_json(site['home'].removesuffix('home.html'))).replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__BOOKS_URL__',inline_json(books_url)).replace('__JS__',script)
     path.write_text(html)
     print(str(path), f'{path.stat().st_size / 1024 / 1024:.1f} MB')
 

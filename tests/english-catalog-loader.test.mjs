@@ -1,7 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-const require=createRequire(import.meta.url),{create}=require('../english/catalog-loader.js');
+const require=createRequire(import.meta.url),{create,needsBooks}=require('../english/catalog-loader.js');
+
+test('独立素材与资料页不等待全库，依赖逐册数量的视图仍先读取目录',()=>{
+  for(const [view,collection] of [['baby'],['sources'],['library','hello'],['library','liao']])assert.equal(needsBooks(view,collection),false);
+  for(const [view,collection] of [['routes'],['qing-progress'],['xu-progress'],['library','all'],['library','other']])assert.equal(needsBooks(view,collection),true);
+});
+test('超时终止慢请求，迟到结果不污染目录，下一次可以重试',async()=>{
+  const target={books:[],sources:[]};let resolveRead,calls=0,signal;
+  const loader=create(target,'books.json',async(url,options)=>{signal=options.signal;if(++calls===1)return new Promise(resolve=>{resolveRead=resolve;});return {ok:true,json:async()=>({books:[{id:'retry'}],sources:[]})};},{timeout:10});
+  await assert.rejects(loader.load(),/超时/);assert.equal(signal.aborted,true);assert.equal(loader.ready,false);
+  resolveRead({ok:true,json:async()=>({books:[{id:'late'}],sources:[]})});await Promise.resolve();await Promise.resolve();
+  assert.deepEqual(target.books,[]);await loader.load();assert.equal(target.books[0].id,'retry');
+});
 
 test('宝宝页不请求目录，并发请求共用一次读取且保留目标对象身份',async()=>{
   const target={books:[],sources:[]};let calls=0;
