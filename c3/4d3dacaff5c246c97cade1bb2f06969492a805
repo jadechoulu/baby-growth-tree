@@ -1,0 +1,16 @@
+docs/architecture.md
+  h_c836a884b9f50f 17,19
+docs/site-assistant.md
+  h_c836a884b9f50f 3-13,100,114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c34d3dacaff5c246c97cade1bb2f06969492a805",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
