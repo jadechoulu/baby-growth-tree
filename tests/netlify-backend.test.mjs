@@ -4,8 +4,12 @@ import { mkdtemp, readdir, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { createNetlifyAuth, cleanupNetlifyAuth } from '../backend/netlify-auth.mjs';
-import { createNetlifyHandler } from '../backend/netlify-handler.mjs';
 import { buildSyncBackend, NETLIFY_BACKEND_FILES } from '../scripts/build-sync-backend.mjs';
+import { writeSearchIndex } from '../scripts/build-search-index.mjs';
+
+// 干净检出也先生成运行期索引，不依赖上次本机构建残留文件。
+await writeSearchIndex();
+const { createNetlifyHandler } = await import('../backend/netlify-handler.mjs');
 
 const NOW = Date.parse('2026-10-29T10:00:00Z');
 const KEY = 'a'.repeat(64);
