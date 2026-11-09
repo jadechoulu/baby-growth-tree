@@ -1,0 +1,196 @@
+AGENTS.md
+  h_c836a884b9f50f 8
+docs/architecture.md
+  h_c836a884b9f50f 7-16
+english/app.js
+  h_c836a884b9f50f 10-18,82-85,185-188,367-368,538,573,575,584,586,614-616,978-979,995-996,1005-1006,1302,1806,1851,2035-2037
+english/build.py
+  h_c836a884b9f50f 87-112,122-123,127-132,134,139-141
+english/catalog-loader.js
+  h_c836a884b9f50f 4-5,16,19,24-36
+english/index.html
+  h_c836a884b9f50f 10,20-22
+english/runtime/app.722394ba3f7e68ca.js
+  h_c836a884b9f50f 3439-3440,3451,3454,3459-3471,4801-4809,4873-4876,4976-4979,5158-5159,5329,5364,5366,5375,5377,5405-5407,5769-5770,5786-5787,5796-5797,6093,6597,6642,6826-6828
+english/runtime/book-details.03bfb1f25f2a35da.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.05b7492de3abbe03.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.07e5874889db4f11.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.0838f1388edf5df5.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.0c09589774e6932c.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.129fc1bf95e9dbb0.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.1529c6143bf9eab8.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.15f266b776f579e2.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.18e98e981803dd7c.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.1e3ff76f95e6daba.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.1f7a7b25e618bae8.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.28d864721218eda6.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.2a65b594cca05adc.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.2ac1f1bd150281e0.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.2b45046870bdd131.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.2d6c9d81436006b6.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.3681a121acbbe322.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.3cf53cdf9ecf411d.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.3e82f01f75a124e1.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.3f52ff8f77922e90.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.40ed918a674b9f3c.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.479895baa60cc42e.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.47cc06f49cb156bf.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.4a4a4f9cca0283f7.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.584457ab246d73ec.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.589b6cd2fb89c4ef.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.58a1dc3a9ae4e125.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.5a3227617f713a33.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.61ee60ff351a88f8.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.6544aece386fd55e.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.6822433c8d44c865.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.6df2a1121be8abe1.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.701b62d1ed63e389.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.716f71b252f2de79.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.7810918ef6245b5c.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.78ee6d9bd23bef0e.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.7d0100cc729e74fd.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.7feb60243ecf76a2.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.8149d75c00064ff6.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.84b41409b87cbaf6.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.86a1a4ed661ff510.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.89312a327e8201b1.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.8d110d040fa2de25.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.8d8638f01f5dc3e8.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.8e635c804ff90215.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.8f155a440d839b11.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.979f8da29291a3eb.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.99a754ae78f5ee13.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.9b8b9afe463ae417.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.9cfd20a9f70db580.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.9d03cb7283846eae.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.9ee4751358061fb8.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.a15fec96c13a8096.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.a4062407b2cf2f68.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.a5c329c98deddd03.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.a7b2ce7bb3227e02.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.aa9e509e3c52d602.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.b8847f4e2267ebbe.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.bac9645b051b35b5.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.bbf4b7a495ade808.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.c277f1edd2f221f5.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.c7b71e5e80555d55.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.c88848e486a16682.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.cd1ced66a47c4b73.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.ce3095f34a3353f9.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.cfdc3494d9c0c53e.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.d1140b9a15498f3a.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.d340962c97d2107f.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.d3789b459d895074.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.de0866da891c41e6.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.df14ba64b33cd89e.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.e09215e960a4c313.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.e237ce7d36dccc46.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.e979aa38026fff35.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.eb0ba52248696f7e.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.ebc602dde4524bfe.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.ee06af2ba6aa15d0.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.ee485ca79771cc03.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.fa0a1e62bc5262f0.json
+  h_c836a884b9f50f 1
+english/runtime/book-details.fc65352b2cc33a8a.json
+  h_c836a884b9f50f 1
+english/runtime/books.900a441083c30643.json
+  h_c836a884b9f50f 1
+english/runtime/data.3e81e53ce362d24e.js
+  h_c836a884b9f50f 1-2
+english/runtime/hello.de905b7c59dc26cd.json
+  h_c836a884b9f50f 1
+tests/english-catalog-loader.test.mjs
+  h_c836a884b9f50f 4,7-8,36-48
+tests/english-pages.test.py
+  h_c836a884b9f50f 22-25,46,52,61-76,84-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e5e9a8a00749ceeb2c1513e7d47650f38f6c0642",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
