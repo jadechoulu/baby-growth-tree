@@ -27,7 +27,7 @@ function metadata(records){
   });
 }
 function exclusions(books,options){
-  const publicIds=new Set(),seriesIds=new Set((options.collections||[]).flatMap(item=>item.externalIds?.xiaohuashengSeries||[])),names=new Set((options.liao?.books||[]).concat(options.liao?.supplementaryBooks||[]).map(b=>BP.normalize(b.title)));
+  const publicIds=new Set(),seriesIds=new Set(),names=new Set((options.liao?.books||[]).concat(options.liao?.supplementaryBooks||[]).map(b=>BP.normalize(b.title)));
   for(const resource of options.resources||[])if(resource.appearances?.length||resource.liaoBookId){
     for(const title of [resource.title,...(resource.aliases||[])])if(typeof title==='string')names.add(BP.normalize(title));
   }
@@ -39,7 +39,7 @@ function exclusions(books,options){
   for(const book of books){
     const match=BP.matchEntry(options.plans,book,options.directory,options.catalog);
     if(match.candidates.length||match.conflicts.length||names.has(BP.normalize(book.title))){
-      publicIds.add(book.bookId);if(book.series)seriesIds.add(book.series.id);
+      publicIds.add(book.bookId);
     }
   }
   return book=>publicIds.has(book.bookId)||book.series&&(seriesIds.has(book.series.id)||names.has(BP.normalize(book.series.title)));

@@ -262,6 +262,22 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
           await stateStore(config, 'delete', 'session', current.hash);
           return responseHeaders(json({ ok: true, revoked: true }), origin);
         }
+        if (['/api/xiaohuasheng/sync', '/api/xiaohuasheng/backup'].includes(url.pathname)) {
+          if (typeof config.XIAOHUASHENG_SYNC !== 'function') throw new HttpError(503, 'XHS_NOT_CONFIGURED', '此后端尚未配置云端小花生读取。');
+          const backup = url.pathname.endsWith('/backup');
+          if (backup ? request.method !== 'POST' : !['GET', 'POST'].includes(request.method)) throw new HttpError(405, 'METHOD_NOT_ALLOWED', '请求方法不支持。');
+          let snapshot;
+          if (request.method === 'POST') {
+            const raw = await readJson(request);
+            if (backup) {
+              try { snapshot = SyncModel.normalize('english', raw.snapshot, VALID_IDS); }
+              catch { throw new HttpError(400, 'INVALID_SNAPSHOT', '英语备份格式无效，未更新任何记录。'); }
+              if (!snapshot) throw new HttpError(400, 'INVALID_SNAPSHOT', '不能保存空备份。');
+            } else if (!raw || typeof raw !== 'object' || Array.isArray(raw) || Object.keys(raw).length) throw new HttpError(400, 'INVALID_REQUEST', '同步不接受客户端账号或地址。');
+          }
+          const result = await config.XIAOHUASHENG_SYNC(backup ? 'backup' : request.method === 'GET' ? 'status' : 'start', snapshot);
+          return responseHeaders(json(result.ok ? result.value : { code: result.code, message: result.message }, result.ok ? 200 : 503), origin);
+        }
         const area = url.pathname === '/api/records' ? 'legacy' : /^\/api\/data\/(profile|growth|health|english)$/.exec(url.pathname)?.[1];
         if (!area) throw new HttpError(404, 'NOT_FOUND', '接口不存在。');
         if (!['GET', 'PUT'].includes(request.method)) throw new HttpError(405, 'METHOD_NOT_ALLOWED', '请求方法不支持。');

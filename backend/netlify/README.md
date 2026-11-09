@@ -1,5 +1,7 @@
 # Netlify 私人同步接口
 
+2026-11-09本地新增：[小花生云端实时读取](../../docs/xiaohuasheng-cloud-sync.md)。新后台函数与原同步函数一同进入白名单部署包；用户已明确许可；生产秘密已配置，后端部署`6af144ee924a463ac3877c4a`已上线，已通过正常本人OAuth页面完成真实云端抓取、备份、导入及私人保存回执，手机实机尚未验证。生产secret使用Free平台官方默认`builds/functions/runtime` scope，仅白名单无构建部署。原OAuth与记录主库不变，首次启用的秘密保管许可和验收要求见该文档。
+
 更新：2026-10-30。本人 CLI 授权已完成，免费团队 `lu-chou` 下已部署 `xiaoya-jadechoulu-sync`。GitHub 应用与最小私有仓凭据已配置，线上健康接口返回 `provider: netlify, ready: true`。本人已实际登录、预览确认并上传原 5317 的 155 项成长记录；GitHub API 独立核对保存结果通过。本批网页已获提交合并授权，按 main 工作流发布，以正式入口与 Actions 核对部署结果；真实跨设备验收仍待完成。
 
 接口地址：<https://xiaoya-jadechoulu-sync.netlify.app>。网页继续由 GitHub Pages 发布，记录仍在私有仓 `jadechoulu/baby-growth-records`。Netlify Blobs 仅存短期登录状态，不保存宝宝记录。真实状态库已验证并发仅一次消费、重放拒绝和注销即时生效，测试状态已删除。
