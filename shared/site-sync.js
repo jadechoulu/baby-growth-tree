@@ -27,15 +27,15 @@
     async function request(area, method, body) {
       if (!token) throw Object.assign(new Error('请登录本人 GitHub 账号后同步。'), { code: 'AUTH_REQUIRED' });
       let response;
-      const path = { 'xhs-sync': '/api/xiaohuasheng/sync', 'xhs-backup': '/api/xiaohuasheng/backup' }[area] || (['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area);
+      const path = { 'assistant': '/api/assistant', 'assistant-search': '/api/assistant/search', 'assistant-memory': '/api/assistant/memory', 'xhs-sync': '/api/xiaohuasheng/sync', 'xhs-backup': '/api/xiaohuasheng/backup' }[area] || (['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area);
       try {
         // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 只有短期会话令牌进入固定 API 授权头，GitHub 密钥不进入前端。
-        response = await fetch(apiBase + path, { method, redirect: 'error', cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json', Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(25000) });
-      } catch { throw new Error('云端连接失败，记录已保存在本机，将自动重试。'); }
+        response = await fetch(apiBase + path + (area === 'assistant-memory' && method === 'GET' && body?.conversationId ? '?conversationId=' + encodeURIComponent(body.conversationId) : ''), { method, redirect: 'error', cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json', Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body && method !== 'GET' ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(area.startsWith('assistant') ? 40000 : 25000) });
+      } catch { throw new Error(area.startsWith('assistant') ? '智能服务连接未完成，已保留站内结果；不会自动重试。' : '云端连接失败，记录已保存在本机，将自动重试。'); }
       if (response.status === 401) {
         token = ''; user = null; engine?.authenticate(false);
         try { sessionStorage.removeItem(sessionKey); } catch { /* 已清除内存会话；受限存储不影响本机记录。 */ }
-        updateButtons();
+        updateButtons(); emit('auth');
         throw Object.assign(new Error('登录已过期，本机记录保留，重新登录后继续。'), { code: 'AUTH_REQUIRED' });
       }
       let value;
@@ -119,7 +119,7 @@
     async function authenticate() {
       const result = await request('session', 'GET');
       if (!Number.isSafeInteger(result.user?.id) || typeof result.user.login !== 'string') throw new Error('登录身份响应无效。');
-      user = result.user; engine.authenticate(true); updateButtons();
+      user = result.user; engine.authenticate(true); updateButtons(); emit('auth');
     }
     function login() {
       if (!apiBase) return;
@@ -226,7 +226,7 @@
         body.append(action('退出登录（保留本机记录）', async () => {
           await request('logout', 'POST'); token = ''; user = null; engine.authenticate(false);
           try { sessionStorage.removeItem(sessionKey); } catch { /* 受限存储不阻止退出内存会话。 */ }
-          updateButtons(); await open();
+          updateButtons(); emit('auth'); await open();
         }));
       }
       dialog.append(header, body); document.body.append(dialog);
@@ -287,7 +287,13 @@
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
-      ready, open, changed, sync, getState, readXiaohuasheng, backupEnglish, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
+      ready, open, changed, sync, getState,
+      async askAssistant(question) { await ready; return request('assistant', 'POST', question); },
+      async searchAssistant(question) { await ready; return request('assistant-search', 'POST', question); },
+      async assistantMemory(conversationId) { await ready; return request('assistant-memory', 'GET', { conversationId }); },
+      async forgetAssistantMemory(change) { await ready; return request('assistant-memory', 'POST', change); },
+      async assistantStatus() { await ready; return request('assistant', 'GET'); },
+      async readAssistantRecords(onlyArea) { await ready; return Object.fromEntries(await Promise.all(Object.entries(adapters).filter(([area]) => area !== 'profile' && (!onlyArea || area === onlyArea)).map(async ([area, adapter]) => [area, await adapter.read()]))); }, readXiaohuasheng, backupEnglish, subscribe(callback) { listeners.add(callback); return () => listeners.delete(callback); },
       createButton() {
         const button = element('button', undefined, 'site-sync-button'); button.type = 'button';
         button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 7h-6m6 0V1M4 17h6m-6 0v6M5 8a8 8 0 0 1 14-3l1 2M4 17l1 2a8 8 0 0 0 14-3"/></svg><span></span>';

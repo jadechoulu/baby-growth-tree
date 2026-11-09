@@ -1,0 +1,93 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { webcrypto } from 'node:crypto';
+import vm from 'node:vm';
+import Search from '../shared/search-core.js';
+
+const source = await readFile(new URL('../shared/site-search.js', import.meta.url), 'utf8');
+const settle = async () => { for (let n = 0; n < 12; n++) await new Promise(resolve => setImmediate(resolve)); };
+const deferred = () => { let resolve; const promise = new Promise(done => { resolve = done; }); return { promise, resolve }; };
+
+// 只模拟DOM事件边界，验证鉴权、私人读取顺序与退出时迟到请求的业务行为。
+function harness({ authenticated = true, search, memory, ask } = {}) {
+  const elements = [], calls = [], asked = deferred();
+  class Element extends EventTarget {
+    constructor(tag) { super(); this.tag = tag; this.children = []; this.value = ''; elements.push(this); }
+    set textContent(value) { this.children = [String(value)]; }
+    get textContent() { return this.children.map(child => typeof child === 'string' ? child : child.textContent).join(''); }
+    append(...children) { this.children.push(...children); }
+    replaceChildren(...children) { this.children = children; }
+    setAttribute() {}
+    focus() {}
+    showModal() { this.open = true; }
+    close() { this.open = false; this.dispatchEvent(new Event('close')); }
+  }
+  const document = Object.assign(new EventTarget(), { createElement: tag => new Element(tag), body: new Element('body'), head: new Element('head') });
+  const storage = new Map();
+  let authListener;
+  const client = {
+    getState: async () => ({ authenticated }),
+    subscribe(callback) { authListener = callback; },
+    async searchAssistant(payload) { calls.push('search'); return search ? search(payload) : { sources: [{ id: 'public', title: '动物绘本', kind: 'book', section: 'english', href: 'english/index.html#library', keywords: '动物', text: '' }] }; },
+    async readAssistantRecords() { calls.push('records'); return { english: { records: { 'library.custom.v1:test': { note: JSON.stringify({ version: 1, title: '动物私人书' }) } } } }; },
+    async assistantStatus() { calls.push('status'); return {}; },
+    async assistantMemory() { calls.push('memory'); return memory ? memory() : { messages: [], facts: [] }; },
+    async askAssistant() { calls.push('ask'); asked.resolve(); return ask(); },
+  };
+  const window = { XiaoyaSync: { createClient: () => client }, XiaoyaSite: { icon: () => new Element('svg') }, XiaoyaSearchCore: Search, XiaoyaAssistantWorkflow: { officialAllowances: { tavily: {} } }, XiaoyaAssistantContext: { collect: () => ({ records: '当前摘要' }) }, XIAOYA_ASSISTANT_DATA: {}, XIAOYA_SEARCH_INDEX: { entries: [] } };
+  vm.runInNewContext(source, { window, document, crypto: webcrypto, TextEncoder, URL, Event, setTimeout, clearTimeout, localStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) }, sessionStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value), removeItem: key => storage.delete(key) } });
+  window.XiaoyaSiteSearch.create({ profileClient: { get: () => ({}) } });
+  const byClass = cls => elements.find(el => el.className?.split(' ').includes(cls));
+  const input = elements.find(el => el.tag === 'input');
+  const scope = elements.find(el => el.tag === 'select'); scope.value = 'all';
+  return { calls, input, byClass, asked: asked.promise, async submit(query) { input.value = query; byClass('site-search-form').dispatchEvent(new Event('submit')); await settle(); }, logout() { authenticated = false; authListener('auth'); } };
+}
+
+test('匿名的普通搜索与强制AI均不请求服务、不读取私人书架或记忆', async () => {
+  const h = harness({ authenticated: false }); await settle();
+  await h.submit('动物');
+  h.byClass('site-search-ai').dispatchEvent(new Event('click')); await settle();
+  h.byClass('site-search-memory').open = true;
+  h.byClass('site-search-memory').dispatchEvent(new Event('toggle')); await settle();
+  assert.deepEqual(h.calls, []);
+  assert.match(h.byClass('site-search-status').textContent, /仅限本人 GitHub/);
+});
+
+test('本人先获得服务端检索授权，再临时合并本机书架，不发模型调用', async () => {
+  const h = harness(); await settle(); h.calls.length = 0;
+  await h.submit('动物');
+  assert.deepEqual(h.calls, ['search', 'records']);
+  assert.match(h.byClass('site-search-results').textContent, /动物绘本/);
+  assert.match(h.byClass('site-search-results').textContent, /动物私人书/);
+});
+
+test('服务端拒绝旧会话后不退回本机检索或读取私人数据', async () => {
+  const h = harness({ search: async () => { throw Object.assign(new Error('登录已过期'), { code: 'AUTH_REQUIRED' }); } });
+  await settle(); h.calls.length = 0; await h.submit('动物');
+  assert.deepEqual(h.calls, ['search']); assert.equal(h.byClass('site-search-results').textContent, '');
+  assert.match(h.byClass('site-search-status').textContent, /登录本人 GitHub/);
+});
+
+test('退出后拒绝迟到搜索结果，且不继续读取私人书架', async () => {
+  const pending = deferred(), h = harness({ search: () => pending.promise });
+  await settle(); h.calls.length = 0; await h.submit('动物'); h.logout();
+  pending.resolve({ sources: [{ id: 'late', title: '动物迟到结果' }] }); await settle();
+  assert.deepEqual(h.calls, ['search']); assert.equal(h.byClass('site-search-results').textContent, '');
+});
+
+test('退出立即清空私人结果，迟到记忆与AI回答不能恢复展示', { timeout: 5000 }, async () => {
+  const remembered = deferred(), answered = deferred();
+  const h = harness({ memory: () => remembered.promise, ask: () => answered.promise });
+  await settle(); await h.submit('动物');
+  assert.match(h.byClass('site-search-results').textContent, /动物私人书/);
+  h.byClass('site-search-memory').open = true; h.byClass('site-search-memory').dispatchEvent(new Event('toggle'));
+  h.input.value = '推荐动物'; h.byClass('site-search-ai').dispatchEvent(new Event('click')); await settle();
+  await h.asked;
+  assert.ok(h.calls.includes('ask')); h.logout();
+  remembered.resolve({ messages: [{ role: 'assistant', content: '私人历史回答' }], facts: [{ quote: '私人偏好' }] });
+  answered.resolve({ mode: 'answer', answer: '私人迟到回答', sources: [] }); await settle();
+  assert.equal(h.byClass('site-search-results').textContent, '');
+  assert.equal(h.byClass('site-search-answer').textContent, '');
+  assert.equal(h.byClass('site-search-memory').textContent, '对话与记忆');
+});

@@ -1,6 +1,7 @@
 import { copyFile, mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeSearchIndex } from './build-search-index.mjs';
 import { buildSiteConfig } from './build-site-config.mjs';
 
 const PROJECT_ROOT = fileURLToPath(new URL('../', import.meta.url));
@@ -22,6 +23,12 @@ export const PUBLIC_FILES = Object.freeze([
   'shared/site-config.js',
   'shared/default-entry.js',
   'shared/site-shell.js',
+  'shared/search-core.js',
+  'shared/assistant-workflow.js',
+  'shared/site-search.js',
+  'shared/search-index.json',
+  'shared/assistant-runtime.js',
+  'shared/assistant-data.json',
   'shared/site-home.js',
   'app.mjs',
   'shared/baby-profile.js',
@@ -91,6 +98,7 @@ export async function buildPages({ sourceRoot = PROJECT_ROOT, outputDir = path.j
   }
   const publicApi = normalizeApiBase(configuredApi, { allowLocalApi });
   await checkPublicProfile(sourcePath);
+  if (sourcePath === path.resolve(PROJECT_ROOT)) await writeSearchIndex();
   await buildSiteConfig(sourcePath);
   for (const relative of PUBLIC_FILES) {
     if (!(await stat(path.join(sourcePath, relative))).isFile()) throw new Error(`缺少网页运行文件：${relative}`);

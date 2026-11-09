@@ -2152,7 +2152,21 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshAge
 window.addEventListener('focus',refreshAgeCases);
 window.addEventListener('pageshow',refreshAgeCases);
 sharedProfile.subscribe((profile,error)=>{if(error){toast(error.message);return;}if(Object.entries(profile).every(([key,value])=>S.profile[key]===value))return;Object.assign(S.profile,profile);visibleAgeCaseKey=ageCaseKey();render();if(S.modal?.kind==='stage')renderModal();else refreshResourceProgressModal();});
-window.EnglishApp={catalog:C,state:S,render,asset};render();
+async function openSearchResult(entry){
+  if(closeModal()===false)return;
+  const params=new URLSearchParams(entry.href.split('?').slice(1).join('?'));
+  const book=params.get('book'),resource=params.get('resource'),stage=params.get('stage'),song=params.get('song'),hello=params.get('hello'),custom=params.get('custom'),shelf=params.get('shelf');
+  if(book){await bookLoader.load();S.view='library';render();openModal('library-book',book);}
+  else if(resource){S.view='library';render();openModal('resource',resource);}
+  else if(stage){S.view='routes';render();openModal('stage',stage);}
+  else if(song){S.songCategory=SSS.soundBook.songs.some(item=>item.id===song)?'soundBook':'all';S.soundBookOverlap='all';S.songSearch=findSong(song)?.title||'';S.songTopic='all';S.songSubtopic='all';S.songScene='all';openModal('sss-songs',SSS.resourceId);}
+  else if(params.get('method')==='liao'){libraryCollection='liao';S.view='library';render();openModal('liao-method');}
+  else if(hello){await helloLoader.load();libraryCollection='hello';S.view='library';window.EnglishHello.selectBook(hello);render();}
+  else if(custom){libraryCollection='other';S.view='library';render();openModal('custom-book',custom);}
+  else if(shelf){await bookLoader.load();const group=shelfGroups().find(item=>item.books.some(book=>book.bookId===shelf));libraryCollection='other';S.view='library';render();if(group)openModal('shelf-series',group.id);else{const entry=window.EnglishShelfLibrary.metadata(S.records).find(book=>book.bookId===shelf),match=entry&&BP.matchEntry(READING,entry,BOOKS,window.ROADMAP_RAW.resourceVolumes).candidates[0];if(match){const resource=C.resources.find(item=>item.liaoBookId===match.publicBookId);openModal(resource?'resource':'library-book',resource?.id||match.publicBookId);}else{const sameTitle=entry&&C.resources.filter(item=>[item.title,...(item.aliases||[])].some(title=>BP.normalize(title)===BP.normalize(entry.title)));if(sameTitle?.length===1){openModal('resource',sameTitle[0].id);toast('打开同名公共资料，请核对版本；未更改阅读记录。');}else toast('当前记录未找到此书，请确认已同步。');}}}
+}
+window.EnglishApp={catalog:C,state:S,render,asset,openSearchResult};render();
+if(['book','resource','stage','song','hello','custom','shelf','method'].some(key=>new URLSearchParams(hashQuery).has(key)))void openSearchResult({href:'?'+hashQuery}).catch(error=>toast(error.message));
 try{await sharedProfileReady;}catch(error){toast(error.message);}profileReady=true;
 siteSync=window.XiaoyaSync.createClient({siteRoot:window.XIAOYA_SITE_ROOT,profileClient:sharedProfile});
 siteSync.subscribe(area=>{

@@ -653,6 +653,9 @@ function modal(title, { stack = false } = {}) {
   document.body.classList.add('health-modal-open');
   dialog.showModal(); return { dialog, body };
 }
+window.addEventListener('xiaoya:search-result', event => {
+  if (event.detail?.kind === 'health') openItem(event.detail.id.slice('growth:health:'.length));
+});
 function protectForm(form, dialog) {
   const value = () => [...form.querySelectorAll('input,select,textarea')].map(input => [input.type, input.value, input.checked]);
   const initial = JSON.stringify(value());

@@ -49,9 +49,9 @@ function decodeContent(content) {
   catch { throw new HttpError(502, 'INVALID_CLOUD_DATA', '云端记录格式异常，请保留本机记录并检查仓库文件。'); }
 }
 
-async function readJson(request) {
+async function readJson(request, maxBytes = MAX_BYTES) {
   if (!request.headers.get('Content-Type')?.toLowerCase().startsWith('application/json')) throw new HttpError(415, 'JSON_REQUIRED', '请求需要使用 JSON。');
-  if (Number(request.headers.get('Content-Length')) > MAX_BYTES) throw new HttpError(413, 'BODY_TOO_LARGE', '记录文件不能超过 1 MiB。');
+  if (Number(request.headers.get('Content-Length')) > maxBytes) throw new HttpError(413, 'BODY_TOO_LARGE', maxBytes === MAX_BYTES ? '记录文件不能超过 1 MiB。' : '提问内容不能超过16 KiB。');
   const reader = request.body?.getReader();
   if (!reader) throw new HttpError(400, 'INVALID_JSON', '请求内容无效。');
   let bytes = 0;
@@ -60,7 +60,7 @@ async function readJson(request) {
     const { value, done } = await reader.read();
     if (done) break;
     bytes += value.length;
-    if (bytes > MAX_BYTES) { await reader.cancel(); throw new HttpError(413, 'BODY_TOO_LARGE', '记录文件不能超过 1 MiB。'); }
+    if (bytes > maxBytes) { await reader.cancel(); throw new HttpError(413, 'BODY_TOO_LARGE', maxBytes === MAX_BYTES ? '记录文件不能超过 1 MiB。' : '提问内容不能超过16 KiB。'); }
     chunks.push(value);
   }
   const combined = new Uint8Array(bytes);
@@ -171,6 +171,30 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
     if (repo.private !== true) throw new HttpError(503, 'PRIVATE_REPO_REQUIRED', '记录仓库必须为私有仓库。');
   }
 
+  function assistantRepository(config) {
+    let verified;
+    const check = () => verified ||= privateRepo(config);
+    const path = `${repoPath(config)}/contents/assistant/memory-v1.json`;
+    return {
+      async read() {
+        await check();
+        const response = await github(config, path + '?ref=' + encodeURIComponent(config.GITHUB_DATA_BRANCH));
+        if (response.status === 404) return { data: null, revision: null };
+        if (!response.ok) throw new Error('MEMORY_READ_FAILED');
+        const file = await response.json();
+        if (!SHA.test(file.sha) || file.encoding !== 'base64') throw new Error('MEMORY_INVALID');
+        return { data: JSON.parse(decodeContent(file.content)), revision: file.sha };
+      },
+      async write(data, revision) {
+        await check();
+        const response = await github(config, path, { method: 'PUT', body: JSON.stringify({ message: '更新小芽助手私人记忆', branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(data))), ...(revision ? { sha: revision } : {}) }), headers: { 'Content-Type': 'application/json' } });
+        if ([409, 422].includes(response.status)) return false;
+        if (!response.ok) throw new Error('MEMORY_WRITE_FAILED');
+        return true;
+      },
+    };
+  }
+
   async function loadRecords(config, area) {
     const response = await github(config, `${contentPath(config, area)}?ref=${encodeURIComponent(config.GITHUB_DATA_BRANCH)}`);
     if (response.status === 404) return { snapshot: null, revision: null, savedAt: null };
@@ -261,6 +285,16 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
         if (url.pathname === '/api/logout' && request.method === 'POST') {
           await stateStore(config, 'delete', 'session', current.hash);
           return responseHeaders(json({ ok: true, revoked: true }), origin);
+        }
+        if (['/api/assistant', '/api/assistant/memory', '/api/assistant/search'].includes(url.pathname)) {
+          // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 全站检索、模型及记忆均通过同一固定本人numeric ID会话校验，客户端不能选择账号。
+          const search = url.pathname.endsWith('/search');
+          if (search ? request.method !== 'POST' : !['GET', 'POST'].includes(request.method)) throw new HttpError(405, 'METHOD_NOT_ALLOWED', '请求方法不支持。');
+          if (typeof config.ASSISTANT !== 'function') throw new HttpError(503, 'AI_NOT_CONFIGURED', '全站搜索与智能服务尚未启用。');
+          const memory = url.pathname.endsWith('/memory');
+          const payload = request.method === 'POST' ? await readJson(request, 16_384) : memory ? { conversationId: url.searchParams.get('conversationId') || '' } : undefined;
+          const result = await config.ASSISTANT(search ? 'search' : memory ? request.method === 'GET' ? 'remember' : 'forget' : request.method === 'GET' ? 'status' : 'ask', payload, assistantRepository(config));
+          return responseHeaders(json(result.value || { code: result.code, message: result.message }, result.status || 200), origin);
         }
         if (['/api/xiaohuasheng/sync', '/api/xiaohuasheng/backup'].includes(url.pathname)) {
           if (typeof config.XIAOHUASHENG_SYNC !== 'function') throw new HttpError(503, 'XHS_NOT_CONFIGURED', '此后端尚未配置云端小花生读取。');

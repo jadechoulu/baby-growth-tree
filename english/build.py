@@ -1,8 +1,9 @@
 """从已核对的资料数据生成可直接打开的 HTML；不依赖构建工具或网络。"""
 from pathlib import Path
-import argparse, json, base64, mimetypes, re, shutil, hashlib
+import argparse, json, base64, mimetypes, re, shutil, hashlib, subprocess
 
 ROOT = Path(__file__).resolve().parent
+subprocess.run(['node', str(ROOT.parent / 'scripts/build-search-index.mjs')], check=True)
 RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','editorial']}
 RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read_text())
 RAW['resourcePrices'] = json.loads((ROOT / 'data' / 'resource-prices.json').read_text())
@@ -62,7 +63,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','book-progress.js','shelf-library.js','catalog-loader.js','xiaohuasheng-sync.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/assistant-workflow.js').read_text()+'\n'+(ROOT.parent/'shared/search-core.js').read_text()+'\n'+(ROOT.parent/'shared/site-search.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['topics.js','topic-ui.js','model.js','material-ui.js','practice.js','book-progress.js','shelf-library.js','catalog-loader.js','xiaohuasheng-sync.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','../shared/assistant-context.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
@@ -146,6 +147,8 @@ window.EnglishStartupTimer=setTimeout(window.EnglishStartupFailed,20000);
         template = template.replace('<div id="app">', startup + '\n<div id="app">')
     else:
         template = BASE
+        script = 'window.XIAOYA_ASSISTANT_DATA=' + inline_json(json.loads((ROOT.parent / 'shared/assistant-data.json').read_text())) + ';\n' + script
+        script = 'window.XIAOYA_SEARCH_INDEX=' + inline_json(json.loads((ROOT.parent / 'shared/search-index.json').read_text())) + ';\n' + script
     html=template.replace('__SECTIONS__',inline_json(sections)).replace('__ROOT__',inline_json(site['home'].removesuffix('home.html'))).replace('__CSS__',css).replace('__SITE__',inline_json(site)).replace('__RAW__',inline_json(raw)).replace('__ASSETS__',inline_json(assets)).replace('__BOOKS_URL__',inline_json(books_url)).replace('__JS__',script)
     path.write_text(html)
     print(str(path), f'{path.stat().st_size / 1024 / 1024:.1f} MB')

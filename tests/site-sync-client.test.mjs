@@ -6,7 +6,7 @@ import vm from 'node:vm';
 const source = await readFile(new URL('../shared/site-sync.js', import.meta.url), 'utf8');
 
 // 只模拟依赖边界，验证调用方可等待的结果，不模拟同步面板或布局。
-function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], initial = { enabled: true, pending: false, error: null, conflict: null } } = {}) {
+function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], assistantResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null } } = {}) {
   let state = structuredClone(initial), action = async () => {}, calls = 0;
   const storage = new Map(loggedIn ? [['xiaoya-cloud-session-v2:' + apiBase, 'test-session']] : []);
   const engine = {
@@ -33,6 +33,11 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
         requests.push({ url, options });
         return { ok: true, status: 200, json: async () => url.endsWith('/backup') ? { saved: true } : xhsJobs.shift() };
       }
+      if (url.startsWith(apiBase + '/api/assistant')) {
+        requests.push({ url, options });
+        const result = assistantResponses.shift() || { status: 200, value: { sources: [] } };
+        return { ok: result.status === 200, status: result.status, json: async () => result.value };
+      }
       assert.equal(url, apiBase + '/api/session');
       return expired ? { status: 401 } : { status: 200, ok: true, json: async () => ({ user: { id: 1, login: 'test-user' } }) };
     },
@@ -55,6 +60,24 @@ test('手动分类同步区别未配置、配置失败、需登录和首次连�
     const h = harness(options), result = await h.client.sync('english');
     assert.equal(result.status, status); assert.equal(result.ok, false); assert.equal(h.calls(), 0);
   }
+});
+
+test('全站搜索走固定带Bearer接口，失效会话通知清理且不再发送后续搜索', async () => {
+  const h = harness({ assistantResponses: [{ status: 200, value: { sources: [] } }, { status: 401 }] });
+  await h.client.ready;
+  const changes = []; h.client.subscribe(area => changes.push(area));
+  await h.client.searchAssistant({ query: '动物', section: 'all' });
+  assert.equal(h.requests[0].url, 'https://sync.example.test/api/assistant/search');
+  assert.equal(h.requests[0].options.method, 'POST'); assert.equal(h.requests[0].options.headers.Authorization, 'Bearer test-session');
+  assert.equal(h.requests[0].options.cache, 'no-store'); assert.equal(h.requests[0].options.credentials, 'omit');
+  assert.deepEqual(JSON.parse(h.requests[0].options.body), { query: '动物', section: 'all' });
+  await assert.rejects(h.client.searchAssistant({ query: '动物', section: 'all' }), { code: 'AUTH_REQUIRED' });
+  assert.equal((await h.client.getState('english')).authenticated, false); assert.deepEqual(changes, ['auth']);
+  await assert.rejects(h.client.searchAssistant({ query: '动物', section: 'all' }), { code: 'AUTH_REQUIRED' });
+  assert.equal(h.requests.length, 2);
+  const anonymous = harness({ loggedIn: false });
+  await assert.rejects(anonymous.client.searchAssistant({ query: '动物', section: 'all' }), { code: 'AUTH_REQUIRED' });
+  assert.equal(anonymous.requests.length, 0);
 });
 
 test('手动同步等待分类引擎完成后才返回成功及服务端确认时间', async () => {

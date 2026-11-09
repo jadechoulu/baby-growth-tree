@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, rm } from 'node:fs/promises';
+import { cp, mkdir, readdir, rm, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
@@ -28,7 +28,8 @@ export async function buildSite({ apiBase, allowLocalApi = false } = {}) {
   await cp(growth.outputDir, outputDir, { recursive: true });
   await cp(path.join(ROOT, 'dist/english-pages'), path.join(outputDir, 'english'), { recursive: true });
   await cp(path.join(ROOT, 'deploy/site-README.md'), path.join(outputDir, 'README.md'));
-  await cp(path.join(ROOT, '.gitignore'), path.join(outputDir, '.gitignore'));
+  // 生成索引在源码中忽略，但属于公开运行包的显式产物。
+  await writeFile(path.join(outputDir, '.gitignore'), (await readFile(path.join(ROOT, '.gitignore'), 'utf8')).replace(/^shared\/(?:search-index\.json|assistant-runtime\.js|assistant-data\.json)\n/gm, '').trimEnd() + '\n');
   return { outputDir, files: await filesIn(outputDir), cloudConfigured: growth.cloudConfigured };
 }
 

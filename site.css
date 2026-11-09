@@ -339,3 +339,24 @@ body.site-navigation-open{overflow:hidden}
  .site-actions:has(>.growth-versions)>.topbar-actions :is(.site-sync-button,.icon-button,.health-icon){width:36px;min-width:36px;flex:0 0 36px;padding:7px}
  .site-actions:has(>.growth-versions) .save-status{padding:4px}
 }
+/* 全站检索与助手共用入口；领域内容仍在各自页面查看。 */
+.site-search-trigger{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:10px;border:1px solid var(--site-line,#dce4d8);border-radius:10px;background:var(--site-surface,#fffdf7);color:var(--site-ink,#2e6954);cursor:pointer}
+.site-search-dialog{width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:0;border:1px solid #d6dfd1;border-radius:16px;background:#fffdf7;color:#304f42;box-shadow:0 16px 80px #18332640;font:15px/1.6 system-ui,sans-serif;overflow:auto;overscroll-behavior:contain}
+.site-search-dialog::backdrop{background:#20372e70}
+.site-search-dialog header{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#fffdf7;border-bottom:1px solid #dce4d8}
+.site-search-dialog h2{margin:0;font-size:20px}.site-search-close{font-size:24px!important;min-width:44px}
+.site-search-dialog button,.site-search-dialog select,.site-search-dialog input,.site-search-dialog textarea{font:inherit;color:inherit}
+.site-search-dialog button,.site-search-dialog select{min-height:44px;padding:7px 12px;border:1px solid #ccd9c6;border-radius:9px;background:#f1f5e9;cursor:pointer}
+.site-search-dialog button:disabled{opacity:.55;cursor:wait}.site-search-dialog :focus-visible,.site-search-trigger:focus-visible{outline:3px solid #649e80;outline-offset:2px}
+.site-search-form{display:flex;gap:8px;padding:16px 20px 8px;flex-wrap:nowrap}
+.site-search-form input{flex:1 1 0;min-width:0;min-height:44px;padding:9px 12px;border:1px solid #cbd9c6;border-radius:9px;background:#fff;font-size:16px}
+.site-search-form .site-search-action{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:10px}.site-search-action svg{width:22px;height:22px}.site-search-form .site-search-ai{font-weight:700;background:#2e6954;color:white;border-color:#2e6954}
+.site-search-filters{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0 20px 8px;font-size:12px;color:#60745f}
+.site-search-status{margin:10px 20px;font-size:12px;color:#60745f;overflow-wrap:anywhere}.site-search-status button{font-size:13px}
+.site-search-answer{margin:12px 20px;padding:15px;border:1px solid #d6e2cd;border-radius:12px;background:#eff5e9;overflow-wrap:anywhere}.site-search-answer small{font-size:12px;color:#60745f}.site-search-answer p{white-space:pre-wrap;margin:8px 0 0}
+.site-search-results{display:grid;gap:8px;padding:0 20px 16px}.site-search-result{display:grid;gap:3px;padding:12px;border:1px solid #dce4d8;border-radius:10px;background:#fff;color:inherit;text-decoration:none;overflow-wrap:anywhere;min-width:0}.site-search-result:hover{border-color:#679174}.site-search-result strong{font-size:15px}.site-search-result small,.site-search-result span{font-size:12px;color:#60745f}
+.site-search-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;border-top:1px solid #dce4d8}.site-search-dialog footer small{font-size:12px}.site-search-dialog footer button{flex-shrink:0}
+.site-search-dialog>label{display:flex;gap:8px;align-items:center;margin:0 20px;min-height:44px;font-size:12px}.site-search-usage{display:grid;gap:3px;overflow-wrap:anywhere}.site-search-usage a{color:inherit;text-decoration:underline}.site-search-external{margin:0 20px;font-size:12px;overflow-wrap:anywhere}.site-search-external a{display:block;margin:6px 0;color:#2e6954}
+@media(max-width:600px){.site-search-dialog header{padding:10px 12px}.site-search-form{padding:12px 12px 8px;gap:6px}.site-search-filters{padding:0 12px 8px;gap:8px}.site-search-status{margin:10px 12px}.site-search-results{padding:0 12px 12px}.site-search-answer{margin:12px}.site-search-dialog footer{padding:10px 12px}.site-search-trigger{width:40px;height:44px;flex-basis:40px;padding:9px}}
+
+.site-search-memory{margin:0 20px 12px;font-size:12px;overflow-wrap:anywhere}.site-search-memory summary{cursor:pointer;min-height:44px;display:flex;align-items:center}.site-search-memory button{margin:3px;font-size:12px}.site-search-memory p{margin:6px 0}
