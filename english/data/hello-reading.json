@@ -10,8 +10,9 @@
       "id": "scenes",
       "title": "Hello杂志全套场景汇总",
       "file": "assets/hello/scenes.pdf",
-      "url": "https://t3.znas.cn/urz19N4PL78",
-      "expiresAfterDays": 180
+      "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6uV2SLbgiS7o7dHZ3PdTPTTm3V8E5LrWGNTqzbFhtdH0&mode=file&display=list&advancedmode=0",
+      "expiresAfterDays": 180,
+      "shortUrl": "https://t3.znas.cn/urz19N4PL78"
     },
     {
       "id": "rhymes",
@@ -96,24 +97,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/JN2x5pzVsEh",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D1Xf7i6bm3vjL86dkpdfJ0lwYgAJcqYcJgClARpP1x68a&mode=file&display=list&advancedmode=0",
           "sourceFile": "1号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/JN2x5pzVsEh"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/tZGPIm6lmwb",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyXNiDxTZm3d5J9gIJGpTclFFpUIN0GBfFCIubuadVJm3r&mode=file&display=list&advancedmode=0",
           "sourceFile": "1.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/tZGPIm6lmwb"
         },
         {
           "id": "hello-01-asset-1ad09abf3f89ad06",
@@ -237,7 +240,7 @@
       "cover": "assets/hello/covers/hello-01.jpg",
       "coverSource": {
         "type": "video-frame",
-        "url": "https://t3.znas.cn/tZGPIm6lmwb",
+        "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyXNiDxTZm3d5J9gIJGpTclFFpUIN0GBfFCIubuadVJm3r&mode=file&display=list&advancedmode=0",
         "videoTimeSeconds": 1.5,
         "cropPixels": [
           593,
@@ -247,7 +250,8 @@
         ],
         "label": "官方1号书带读视频起始画面中的本册封面",
         "note": "原书PDF未含封皮，从对应官方带读资源画面裁取；保留画面已有标记。",
-        "checkedAt": "2026-11-04"
+        "checkedAt": "2026-11-04",
+        "shortUrl": "https://t3.znas.cn/tZGPIm6lmwb"
       }
     },
     {
@@ -326,24 +330,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/YdLnuc48OPb",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6q0kF3qTubf0grECd5G59DsoMoBm2ERkqcwRrA21SMwf&mode=file&display=list&advancedmode=0",
           "sourceFile": "2号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/YdLnuc48OPb"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/EASlwDqVpOk",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D682i2pKgQSKzfXeqUlSDAm2BgjFm3qu5uWtkMKcRdCm1Pe&mode=file&display=list&advancedmode=0",
           "sourceFile": "2.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/EASlwDqVpOk"
         },
         {
           "id": "hello-02-asset-918d5daf95406198",
@@ -578,24 +584,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/2JBRIIW5FVc",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DxQjnG2rkMm2bR2bxNXuPNcwjDJ3SOyfF4hA36AVUrI2f&mode=file&display=list&advancedmode=0",
           "sourceFile": "3号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/2JBRIIW5FVc"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/mVlW1ab4LU6",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D1MD6lLOkskBKyLACGEgzUw6p17tWnTkx9gtbZZ69TVm2&mode=file&display=list&advancedmode=0",
           "sourceFile": "3.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/mVlW1ab4LU6"
         },
         {
           "id": "hello-03-asset-0453260c02807a50",
@@ -827,24 +835,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/5kQ3zngHCD1",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D0CzcUj3Vf5HPAA5AkDZ7i2yQCunKU14y7fVSjrtBS7i&mode=file&display=list&advancedmode=0",
           "sourceFile": "4号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/5kQ3zngHCD1"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/9dZehE5UEz3",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6ZiKCTm2URS3yV3aUuGT58BaM3l3CbP4DaVm24VuMrez3&mode=file&display=list&advancedmode=0",
           "sourceFile": "4.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/9dZehE5UEz3"
         },
         {
           "id": "hello-04-asset-9ed43d7b2f76dece",
@@ -1084,24 +1094,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/Yn4OWcITaya",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DzUT4m1SaIwhNcBS4ic3w3cpiam24J5dekzPLm2Jnm3esRdS&mode=file&display=list&advancedmode=0",
           "sourceFile": "5号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/Yn4OWcITaya"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/Ltygo5R8iX2",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dw4Zj0EYrFJpb1nsm1UBohetQcSk5hvZ3HOkqRIv5dNAs&mode=file&display=list&advancedmode=0",
           "sourceFile": "5.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/Ltygo5R8iX2"
         },
         {
           "id": "hello-05-asset-f915db8cedda9586",
@@ -1362,24 +1374,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/MqCbc5Qn3O1",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dz9m3o0637zm2YPm2m23N4JGuQViseAWwcPfIR6gdTtzswey&mode=file&display=list&advancedmode=0",
           "sourceFile": "6号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/MqCbc5Qn3O1"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/dt7NHx1j0F6",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6Rm1xfYsMTDwR8Sm13SvvVlEpGteK633MYkPioq7PY99P&mode=file&display=list&advancedmode=0",
           "sourceFile": "6.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/dt7NHx1j0F6"
         },
         {
           "id": "hello-06-asset-ce8dc51ece73667c",
@@ -1661,24 +1675,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/HzKiIJWipE",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DySFXCVm3m18GvXZx9ZIkWS6MeYyqrhIAQW7CXVm3ZPQdO3&mode=file&display=list&advancedmode=0",
           "sourceFile": "7号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/HzKiIJWipE"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/s84KOjLeehe",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyS1qW8tHqiqjm2F1e8CQbeiLSYZm1WECDn7bw3wJ5m1nYM&mode=file&display=list&advancedmode=0",
           "sourceFile": "7.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/s84KOjLeehe"
         },
         {
           "id": "hello-07-asset-6c867fcd2f44801d",
@@ -1979,24 +1995,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/ZUgpvlrYLR9",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dm2zxiGPi4wLzuMm1lsFm2M7M0o6xk3W2UIhlLm3YbzQLqTl&mode=file&display=list&advancedmode=0",
           "sourceFile": "8号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/ZUgpvlrYLR9"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/8AhyWvqbgl5",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5pfMm2PjRm3xNxRbZliHwHnKHLsQYtSoqA63QyozBEt1A&mode=file&display=list&advancedmode=0",
           "sourceFile": "8.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/8AhyWvqbgl5"
         },
         {
           "id": "hello-08-asset-b6e4861f809c7f48",
@@ -2202,24 +2220,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/a71uo6b9B47",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D90yKryzVZDKaoApm1GyDx758K9113Wu2ccrf06dHm2G92&mode=file&display=list&advancedmode=0",
           "sourceFile": "9号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/a71uo6b9B47"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/ouKnXsVLr3",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyBBfqZ3DEhFUzUW4J5em1EliAhVJTWxLgZUuVWpe3ekZ&mode=file&display=list&advancedmode=0",
           "sourceFile": "9.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/ouKnXsVLr3"
         },
         {
           "id": "hello-09-asset-75a63fd3e4604ba9",
@@ -2440,7 +2460,7 @@
       "cover": "assets/hello/covers/hello-09.jpg",
       "coverSource": {
         "type": "video-frame",
-        "url": "https://t3.znas.cn/ouKnXsVLr3",
+        "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyBBfqZ3DEhFUzUW4J5em1EliAhVJTWxLgZUuVWpe3ekZ&mode=file&display=list&advancedmode=0",
         "videoTimeSeconds": 0.5,
         "cropPixels": [
           196,
@@ -2450,7 +2470,8 @@
         ],
         "label": "官方9号书带读视频起始画面中的本册封面",
         "note": "原书PDF未含封皮；从视频中9号书页面的同册视频封面裁取，已与页面上方编号9的封皮核对。",
-        "checkedAt": "2026-11-04"
+        "checkedAt": "2026-11-04",
+        "shortUrl": "https://t3.znas.cn/ouKnXsVLr3"
       }
     },
     {
@@ -2529,24 +2550,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/RBAKCMK5LZ5",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D54QJyFHKU1z6nx3uqr1bn3iW0RKq7MY1C7oFZbdg5vS&mode=file&display=list&advancedmode=0",
           "sourceFile": "10号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/RBAKCMK5LZ5"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/o8wHu5HPfc",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D1kbrxYCO7xZdsqoQInR53JWxP0kom3Sxxn6ZnR4McuRn&mode=file&display=list&advancedmode=0",
           "sourceFile": "10.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/o8wHu5HPfc"
         },
         {
           "id": "hello-10-asset-72466c328a0056ca",
@@ -2691,24 +2714,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/5ObsNbEOtZ7",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D6Om2d2uvKSEtHOIcvf3m3voSYcuUkdUFhT26qZFGbBjh6&mode=file&display=list&advancedmode=0",
           "sourceFile": "11号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/5ObsNbEOtZ7"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/t0hAXoVaEZe",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D3es9Z9wBQrpapm2aCm2thyuATlFI6bSKD1oVp7RnVklCR&mode=file&display=list&advancedmode=0",
           "sourceFile": "11.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/t0hAXoVaEZe"
         },
         {
           "id": "hello-11-asset-4501d399b670dbe4",
@@ -2963,24 +2988,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/fAyUS8MeXGi",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dzi8OfY48PtRAvSm1H0n97tlE8HqcQWwNcuPSwgCK4Knw&mode=file&display=list&advancedmode=0",
           "sourceFile": "12号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/fAyUS8MeXGi"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/G23XIsNvOfb",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5U3PRhAMzMT91cm2LgIQ2J7IBUhiGBGP8nzDxHqm2jFo9&mode=file&display=list&advancedmode=0",
           "sourceFile": "12.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/G23XIsNvOfb"
         },
         {
           "id": "hello-12-asset-0cd647dbb3f653c0",
@@ -3127,24 +3154,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/M5ovKlyj2bl",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D1wQYsbCxbx5k11h09MoZalRUCAjH9IZpIX7pm24uFqjB&mode=file&display=list&advancedmode=0",
           "sourceFile": "13号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/M5ovKlyj2bl"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/VtjaHV8N9A1",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dx1m1tik9B555ifV8X9rVGCEWXOsXQOVC2dDuYPwJaLlu&mode=file&display=list&advancedmode=0",
           "sourceFile": "13.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/VtjaHV8N9A1"
         },
         {
           "id": "hello-13-asset-46c389fb9bf3d406",
@@ -3344,24 +3373,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/xDNmC8G61Ia",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D0iq9swusGym2qAsBWkAZ2GyaCZam1Vrux3Lm2v2f9qihIu&mode=file&display=list&advancedmode=0",
           "sourceFile": "14号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/xDNmC8G61Ia"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/Wi5Ap2upYqj",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5NdnacFm1e1QacZGKokhvyUKfm2dhEQDRkXOc5m3MAVTyC&mode=file&display=list&advancedmode=0",
           "sourceFile": "14.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/Wi5Ap2upYqj"
         },
         {
           "id": "hello-14-asset-904939835d405eb2",
@@ -3599,24 +3630,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/h7hc76ba3B7",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D0MZ2oMqDLypssp2tDelm1MnVYCQwBxm1jm2VhUTkHbSVHR&mode=file&display=list&advancedmode=0",
           "sourceFile": "15号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/h7hc76ba3B7"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/oIqDU57QwOj",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D65m1q1fgnLRldH9KZYRCiRLJwHp3zMyi8w5m3uS8Tyq9N&mode=file&display=list&advancedmode=0",
           "sourceFile": "15.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/oIqDU57QwOj"
         },
         {
           "id": "hello-15-asset-61e414d669f0eab9",
@@ -3827,24 +3860,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/QCknIIlXnw1",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dwy81De4rCqQ18Bo0qpZFiRPxOfYlw5fjfBurYwtNAyM&mode=file&display=list&advancedmode=0",
           "sourceFile": "16号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/QCknIIlXnw1"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/7p9DRMDGEK1",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dx5Og8Tm1gzm1iADx9pAVStlVkvJnm2eOadG7JcWXPIHm2wi&mode=file&display=list&advancedmode=0",
           "sourceFile": "16.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/7p9DRMDGEK1"
         },
         {
           "id": "hello-16-asset-948db88c48733be2",
@@ -4052,24 +4087,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/HLQLFb0ll19",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DziTilFsm25X2bqCm3ycKu91QnWCZ1LZG6Ujx3Pk5a17Nv&mode=file&display=list&advancedmode=0",
           "sourceFile": "17号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/HLQLFb0ll19"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/uJINfEzrgH",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D8gm3xKIjm2HU4kXzQEBjXfm3hnYLcHc4q4JTbtD6ko6sSV&mode=file&display=list&advancedmode=0",
           "sourceFile": "17.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/uJINfEzrgH"
         },
         {
           "id": "hello-17-asset-86b39b5f2928e0ab",
@@ -4258,24 +4295,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/IfRgg4loPQ8",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5RYZ7JFzZI69Q3Im2fPCm2WCm3Zm1YFUX7RtLY1CJm1t4VHq&mode=file&display=list&advancedmode=0",
           "sourceFile": "18号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/IfRgg4loPQ8"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/SLlV6XqrxUb",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5xq5asKQOwpxgsqosas7jum3uUtRc1YZNIKeeVwI61GB&mode=file&display=list&advancedmode=0",
           "sourceFile": "18.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/SLlV6XqrxUb"
         },
         {
           "id": "hello-18-asset-226fe31a478c4347",
@@ -4501,24 +4540,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/1GdTmKYo0F8",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dm2aG9GUqBYDlvuQ3m1HKfXSQK7Powm1F3ZHym1HqgaMahaB&mode=file&display=list&advancedmode=0",
           "sourceFile": "19号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/1GdTmKYo0F8"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/7cBx5OVNgh5",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5nh4xZ5LjSajTMBLlC2lVMm2vjTABgFzcwA26lSZPJTE&mode=file&display=list&advancedmode=0",
           "sourceFile": "19.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/7cBx5OVNgh5"
         },
         {
           "id": "hello-19-asset-08d17a6a07044604",
@@ -4714,24 +4755,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/RiO1SHxjI0h",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dxxm3BMhO96Cm3523ENnsYp0lkrHTvj82jShZm1Rbb4eYiC&mode=file&display=list&advancedmode=0",
           "sourceFile": "20号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/RiO1SHxjI0h"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/T9BmxMq5Gvd",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D4kCm1vlybGB3NQ5ukSu24m3nsSDgAm1H9ewAvm1B9tISdy2&mode=file&display=list&advancedmode=0",
           "sourceFile": "20.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/T9BmxMq5Gvd"
         },
         {
           "id": "hello-20-asset-e10d8f33bd17eecb",
@@ -4957,24 +5000,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/IwxxU4na6pa",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyTCbQp4oDxfZm2Vq8wfTshnw3EM6m18hkhcm3kpZzpbvwh&mode=file&display=list&advancedmode=0",
           "sourceFile": "21号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/IwxxU4na6pa"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/5Lj3iAPz98c",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D3FiABTY7URhU1S0ghcG5PjKHUb1m3MnR0m3TXSELzIhHE&mode=file&display=list&advancedmode=0",
           "sourceFile": "21.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/5Lj3iAPz98c"
         },
         {
           "id": "hello-21-asset-15db322e8dc60b82",
@@ -5138,24 +5183,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/5RSzH3DW9I8",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D4vxzwAm1oWWO3sm1KPkLm2lm1m1yrzO473m2VZCjOPdO82pYH&mode=file&display=list&advancedmode=0",
           "sourceFile": "22号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/5RSzH3DW9I8"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/073bTSnkbf",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5DyW2Em3F9swehXCbm2rm2m1Ix9hWkQp6nvZzRYw5PxUE90Tx&mode=file&display=list&advancedmode=0",
           "sourceFile": "22.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/073bTSnkbf"
         },
         {
           "id": "hello-22-asset-c36f11195847343b",
@@ -5424,24 +5471,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/NRt3FM19DM6",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5Dw2gNy5qm16tEHFBf7cx4hRBqSm1VLvHViEMm2r3W5YUcdE&mode=file&display=list&advancedmode=0",
           "sourceFile": "23号书_20260418092115.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/NRt3FM19DM6"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/cEx6E9ocXJ9",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D7LpGZN3BEm2wJt7zvLR3Opm2Jfx0JlKhNyqm2GIva0aF5P&mode=file&display=list&advancedmode=0",
           "sourceFile": "23.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/cEx6E9ocXJ9"
         },
         {
           "id": "hello-23-asset-ec8455f596adb155",
@@ -5703,24 +5752,26 @@
         {
           "kind": "erin",
           "label": "松果妈妈带读",
-          "url": "https://t3.znas.cn/OZ67g2jb2F3",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D5S9s1NAn4Fm1EWDSm2m2Mm3vXAEAarb1gEim1Kum1sUOMWm1m1v&mode=file&display=list&advancedmode=0",
           "sourceFile": "24号书.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/OZ67g2jb2F3"
         },
         {
           "kind": "official",
           "label": "官方带读",
-          "url": "https://t3.znas.cn/yiUhtGmCCFa",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D2m2sY1d3ZcCPvk7xk0Debj1IBMpCWZ1uJ7gteApuMnu3&mode=file&display=list&advancedmode=0",
           "sourceFile": "24.mp4",
           "createdAt": "2026-11-04",
           "expiresAfterDays": 180,
           "password": false,
           "maxVisits": 1000,
-          "mappingBasis": "来源目录中的同号文件"
+          "mappingBasis": "来源目录中的同号文件",
+          "shortUrl": "https://t3.znas.cn/yiUhtGmCCFa"
         },
         {
           "id": "hello-24-asset-c2a1e4a479af29f9",
@@ -7016,9 +7067,10 @@
     {
       "kind": "official-intro",
       "label": "官方引言",
-      "url": "https://t3.znas.cn/Cy8Mo7IbU88",
+      "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=5KlqWCqm3pYrJAHdDzwO5D4Wwrut6Df6YdggRgdUbwD0JP0odxQ4km3WDacsm2o8m1m1t&mode=file&display=list&advancedmode=0",
       "expiresAfterDays": 180,
-      "createdAt": "2026-11-04"
+      "createdAt": "2026-11-04",
+      "shortUrl": "https://t3.znas.cn/Cy8Mo7IbU88"
     }
   ],
   "assetInventory": {

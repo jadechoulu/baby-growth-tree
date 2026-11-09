@@ -1,7 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-const {fileInfo}=createRequire(import.meta.url)('../english/file-preview.js');
+const {fileInfo,nasShare,nasFileKind,nasClient}=createRequire(import.meta.url)('../english/file-preview.js');
+test('共用分享识别不按套系白名单，拒绝伪造来源，格式决定播放或查看动作',()=>{
+  assert.ok(nasShare('https://s.znas.cn/AppH5/share/?nid=example&code=example&mode=file'));
+  for(const url of ['invalid','http://s.znas.cn/AppH5/share/?nid=a&code=b&mode=file','https://s.znas.cn.evil.test/AppH5/share/?nid=a&code=b&mode=file','https://user@s.znas.cn/AppH5/share/?nid=a&code=b&mode=file','https://s.znas.cn/AppH5/share/?nid=a&code=b&mode=album','https://s.znas.cn/AppH5/share/?nid=a&mode=file'])assert.equal(nasShare(url),null);
+  for(const [name,kind] of [['a.MP3','audio'],['a.flac','audio'],['a.pdf','pdf'],['a.mp4','video'],['a.JPG','image'],['a.wma','file']])assert.equal(nasFileKind({name}),kind);
+  assert.equal(nasFileKind({name:'directory.mp3',is_dir:1}),'directory');
+});
+test('分享令牌失败可重试，目录缺页与错误结果不冒充完整列表',async()=>{
+  let tokens=0,badList=false;
+  const client=nasClient('https://s.znas.cn/AppH5/share/?nid=example&code=example&mode=file',async url=>({ok:true,json:async()=>{
+    if(url.includes('/token?'))return ++tokens===1?{code:401,msg:'分享暂不可用'}:{code:200,data:{dtoken:'test-only'}};
+    return {code:200,data:badList?{total:1,list:[]}:{total:1,list:[{name:'a.mp3',path:'file'}]}};
+  }}));
+  await assert.rejects(client.list(),/分享暂不可用/);
+  assert.equal((await client.list()).list.length,1);assert.equal(tokens,2);
+  badList=true;await assert.rejects(client.list(),/目录读取不完整/);
+});
 test('分享音频使用临时令牌和显式设备标识，不依赖第三方Cookie，保留目录分页',async()=>{
   const {nasClient}=createRequire(import.meta.url)('../english/file-preview.js'),calls=[];
   const client=nasClient('https://s.znas.cn/AppH5/share/?nid=device&code=public-share&mode=file',async(url,options)=>{
