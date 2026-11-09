@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { createAssistantMemory } from '../backend/assistant-memory.mjs';
 import { AuthState, createWorker } from '../worker/index.mjs';
 
 test('四类记录固定私有文件独立读写；两成长版本互不覆盖，英语不包含姓名生日', async () => {
@@ -97,6 +98,16 @@ function setup(overrides = {}) {
         return Response.json({ content: { sha: file.sha } }, { status: 201 });
       }
       return file ? Response.json({ sha: file.sha, encoding: 'base64', content: Buffer.from(JSON.stringify(file.raw)).toString('base64') }) : Response.json({}, { status: 404 });
+    }
+    if (url.startsWith('https://api.github.com/repos/example/private-records/contents/assistant/memory-v1.json')) {
+      const current = documents.get('assistant');
+      if (options.method === 'PUT') {
+        const incoming = JSON.parse(options.body);
+        if ((incoming.sha || null) !== (current?.sha || null)) return Response.json({}, { status: 409 });
+        documents.set('assistant', { sha: current?.sha === SHA_A ? SHA_B : SHA_A, raw: JSON.parse(Buffer.from(incoming.content, 'base64').toString('utf8')) });
+        return Response.json({}, { status: 201 });
+      }
+      return current ? Response.json({ sha: current.sha, encoding: 'base64', content: Buffer.from(JSON.stringify(current.raw)).toString('base64') }) : Response.json({}, { status: 404 });
     }
     const match = /^https:\/\/api\.github\.com\/repos\/example\/private-records\/contents\/records\/(profile|growth|health|english)\.json/.exec(url);
     if (match) {
@@ -330,4 +341,55 @@ test('云端小花生沿本人会话及来源鉴权，拒绝客户端账号；�
   assert.equal(backup.status, 200); assert.deepEqual(calls.at(-1), { action: 'backup', snapshot });
   const bad = await app.api('/api/xiaohuasheng/backup', token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: { ...snapshot, token: 'not-allowed' } }) });
   assert.equal(bad.status, 400);
+});
+
+test('全站检索入口只接受本人固定ID会话和允许来源，其他账号及退出会话不执行检索', async () => {
+  const calls = [];
+  const app = setup({ ASSISTANT: async (action, payload) => { calls.push({ action, payload }); return { value: { sources: [] } }; } });
+  const route = '/api/assistant/search', options = { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: '动物', section: 'english' }) };
+  assert.equal((await app.api(route, undefined, options)).status, 401); assert.equal(calls.length, 0);
+  const token = await app.login();
+  assert.equal((await app.api(route, token, { ...options, headers: { ...options.headers, Origin: 'https://evil.example' } })).status, 403);
+  assert.equal((await app.api(route, token)).status, 405); assert.equal(calls.length, 0);
+  assert.equal((await app.api(route, token, options)).status, 200);
+  assert.deepEqual(calls, [{ action: 'search', payload: { query: '动物', section: 'english' } }]);
+  app.env.GITHUB_ALLOWED_USER_ID = '99';
+  assert.equal((await app.api(route, token, options)).status, 401); assert.equal(calls.length, 1);
+  app.env.GITHUB_ALLOWED_USER_ID = '42';
+  app.identity({ id: 99, login: 'example' });
+  const rejected = await app.finish(await app.begin());
+  assert.equal(rejected.status, 400); assert.match(await rejected.text(), /IDENTITY_NOT_ALLOWED/); assert.equal(calls.length, 1);
+  await app.api('/api/logout', token, { method: 'POST' });
+  assert.equal((await app.api(route, token, options)).status, 401); assert.equal(calls.length, 1);
+});
+
+test('智能入口必须经过本人会话、固定Origin和小请求限制，匿名不触发模型', async () => {
+  let calls = 0;
+  const app = setup({ ASSISTANT: async () => { calls++; return { value: { enabled: false } }; } });
+  assert.equal((await app.api('/api/assistant')).status, 401);
+  assert.equal(calls, 0);
+  const token = await app.login();
+  assert.equal((await app.api('/api/assistant', token, { headers: { Origin: 'https://evil.example' } })).status, 403);
+  assert.equal(calls, 0);
+  assert.equal((await app.api('/api/assistant', token)).status, 200);
+  assert.equal(calls, 1);
+  assert.equal((await app.api('/api/assistant', token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: 'a'.repeat(17000) }) })).status, 413);
+  assert.equal(calls, 1);
+});
+
+
+test('助手记忆复用本人鉴权与固定私有文件，不写入原英语档案，公开仓拒绝', async () => {
+  let calls = 0;
+  const app = setup({ ASSISTANT: async (action, payload, repository) => {
+    calls++; const memory = createAssistantMemory({ repository });
+    return { value: await (action === 'remember' ? memory.inspect(payload) : memory.forget(payload)) };
+  } });
+  assert.equal((await app.api('/api/assistant/memory')).status, 401); assert.equal(calls, 0);
+  const token = await app.login();
+  assert.equal((await app.api('/api/assistant/memory', token, { headers: { Origin: 'https://evil.example' } })).status, 403); assert.equal(calls, 0);
+  const empty = await app.api('/api/assistant/memory', token); assert.equal(empty.status, 200); assert.deepEqual((await empty.json()).facts, []);
+  const cleared = await app.api('/api/assistant/memory', token, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{"all":true}' });
+  assert.equal(cleared.status, 200);
+  const original = await app.api('/api/data/english', token); assert.equal((await original.json()).snapshot, null);
+  app.private(false); assert.equal((await app.api('/api/assistant/memory', token)).status, 503);
 });

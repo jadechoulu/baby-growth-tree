@@ -1063,6 +1063,9 @@ function openDetail(id) {
   dialog.dataset.skillId = id;
   updateSaveStatus();
 }
+window.addEventListener('xiaoya:search-result', event => {
+  if (event.detail?.kind === 'skill') openDetail(event.detail.id.slice('growth:skill:'.length));
+});
 
 function openProfile() {
   if (!requireEditable(false)) return;
