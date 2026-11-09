@@ -2026,7 +2026,19 @@
 }
 
 /* 英语分类栏的书单同步是领域动作，与设置中的私人记录同步区分。 */
-.site-actions .english-reading-sync{min-height:44px;padding:6px 10px;font-size:15px;flex:none}
+.site-actions .english-reading-sync{width:44px;min-width:44px;height:44px;min-height:44px;padding:10px;flex:none}
+.english-reading-sync .icon{width:20px;height:20px}
+.english-reading-sync[aria-busy="true"] .icon{animation:english-sync-turn 1.2s linear infinite}
+@keyframes english-sync-turn{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.english-reading-sync[aria-busy="true"] .icon{animation:none}}
 .site-actions .top-actions:has(.english-reading-sync){width:100%;gap:8px}
 .site-actions .top-actions:has(.english-reading-sync) .top-search{min-width:44px;overflow:hidden}
 .site-actions .top-actions:has(.english-reading-sync) .top-search span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* 分类栏搜索直接输入，图鉴不再复制全局搜索浮层。 */
+.site-actions .english-site-search{display:flex;align-items:center;gap:8px;flex:1;min-width:0;max-width:520px;height:44px;padding:0 10px;border:1px solid var(--site-border);border-radius:7px;background:var(--paper);color:var(--muted)}
+.english-site-search>.icon{width:16px;height:16px;flex:none}
+.english-site-search input{width:100%;min-width:0;border:0;background:transparent;outline:none;font:inherit;font-size:16px;color:var(--ink)}
+.english-site-search input:focus-visible{outline:none}
+.english-site-search:focus-within{outline:2px solid var(--green);outline-offset:2px}
+@media(max-width:420px){.site-actions .english-site-search{padding:0 6px;gap:4px}}
