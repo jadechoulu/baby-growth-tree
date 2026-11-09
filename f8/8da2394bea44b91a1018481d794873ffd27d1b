@@ -1,0 +1,14 @@
+tests/site-search-access.test.mjs
+  h_c836a884b9f50f 47,51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f88da2394bea44b91a1018481d794873ffd27d1b",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
