@@ -34,6 +34,8 @@
 
 ## 仍有缺口
 
+后续核对：下文大猫1级虚构分类及Super Hammy A–D映射缺口，已由[本轮逐册证据](progress-quantity-20261109.md)补齐；保留以下原核对过程，不再以旧缺口作为当前结论。其余未核范围仍独立保留。
+
 本批不代表所有素材已补全。红火箭、Jump、部分丽声及First Little Comics等仍缺对应版次的完整逐册目录；学乐高频词不能直接替代Sight Word Stories或First Little Readers。书虫、部分Highlights及牛津拼读简称的实际版本仍未核定，不因名字接近合并。海尼曼GK70使用原独立70本阅读计划，不因公共`resource-books.json`中无目录而视作缺少逐本功能。
 
 ## 验证
