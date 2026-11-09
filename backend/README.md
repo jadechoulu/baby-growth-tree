@@ -36,6 +36,7 @@ npx --yes vercel@65.5.0 blob create-store xiaoya-auth --cwd dist/sync-backend --
 | `GITHUB_DATA_BRANCH` | `main` |
 | `GITHUB_DATA_PATH` | `records/xiaoya.json`，兼容旧接口 |
 | `DEV_FRONTEND_ORIGINS` | `["http://127.0.0.1:5317","http://127.0.0.1:5318"]` |
+| `DEV_FRONTEND_ANY_PORT` | 可选`true`，仅允许HTTP本机回环地址使用任意端口；仍校验本人会话，OAuth回执绑定实际Origin；默认关闭 |
 | `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | GitHub OAuth App；回调为实际固定来源加 `/auth/callback`，仅申请 `read:user` |
 | `GITHUB_DATA_TOKEN` | 单独 fine-grained token，仅私有数据仓 Contents read/write；不能复用 gh 全局令牌 |
 | `BLOB_STORE_ID` / `VERCEL_OIDC_TOKEN` 或 `BLOB_READ_WRITE_TOKEN` | 连接私有 Blob 后的平台身份或专用凭据；不导出到网页 |

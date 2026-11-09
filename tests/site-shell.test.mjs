@@ -85,8 +85,12 @@ test('成长及英语共用侧栏开合，重绘与宽窄往返保留选择，�
   const source = await readFile(new URL('../shared/site-shell.js', import.meta.url), 'utf8');
   for (const sectionId of ['growth', 'english']) {
     const { document, window, narrow } = navigationDOM();
+    let searchOptions;
+    const getSearchQuery = sectionId === 'english' ? () => '当前英语关键词' : undefined;
+    window.XiaoyaSiteSearch = { create(options) { searchOptions = options; return document.createElement('button'); } };
     vm.runInNewContext(source, { window, document, console });
-    const shell = window.XiaoyaSite.createShell({ sectionId, sections: [{ id: sectionId, title: sectionId, entry: 'index.html', theme: sectionId }], navigation: [{ title: '目录', items: [{ id: 'baby', label: '宝宝', shortcut: true }] }] });
+    const shell = window.XiaoyaSite.createShell({ sectionId, getSearchQuery, sections: [{ id: sectionId, title: sectionId, entry: 'index.html', theme: sectionId }], navigation: [{ title: '目录', items: [{ id: 'baby', label: '宝宝', shortcut: true }] }] });
+    assert.equal(searchOptions.getQuery, getSearchQuery);
     document.body.append(shell.element);
     const find = (parent, className) => parent.classList.contains(className) ? parent : parent.children.map(child => find(child, className)).find(Boolean);
     const menu = find(shell.element, 'site-directory-button'), sidebar = find(shell.element, 'site-sidebar');

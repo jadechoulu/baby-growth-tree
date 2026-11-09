@@ -192,7 +192,7 @@
     top.append(homeLink, baby, categories, globalActions);
     pageHeading.append(title);
     pageBar.append(pageHeading, menu, actions);
-    if (root.XiaoyaSiteSearch) { const search = root.XiaoyaSiteSearch.create({ siteRoot, profileClient }); if (home) top.append(search); else pageBar.append(search); }
+    if (root.XiaoyaSiteSearch) { const search = root.XiaoyaSiteSearch.create({ siteRoot, profileClient, getQuery: options.getSearchQuery }); if (home) top.append(search); else pageBar.append(search); }
     body.append(sidebar, content);
     page.append(pageBar, body, bottom);
     element.append(skip, top, page);

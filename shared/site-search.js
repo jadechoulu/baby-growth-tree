@@ -5,9 +5,9 @@
   const node = (tag, text, cls) => { const n = document.createElement(tag); if (text !== undefined) n.textContent = text; if (cls) n.className = cls; return n; };
   const button = (label, action, cls) => { const n = node('button', label, cls); n.type = 'button'; n.addEventListener('click', action); return n; };
   const labels = { personal: '本机书架／个人素材', book: '单册', resource: '素材', route: '路线依据', stage: '路线阶段', method: '使用方法', song: '儿歌', hello: 'Hello', rhyme: '童谣', skill: '成长技能', health: '卫健委观察' };
-  function create({ siteRoot = './', profileClient }) {
+  function create({ siteRoot = './', profileClient, getQuery }) {
     if (!instance) instance = build({ siteRoot, profileClient });
-    const trigger = button('', () => instance.open(trigger), 'site-search-trigger');
+    const trigger = button('', () => { const query = getQuery?.(); instance.open(trigger, { query, submit: Boolean(query?.trim()) }); }, 'site-search-trigger');
     trigger.append(root.XiaoyaSite.icon('search'));
     trigger.title = '全站搜索与智能对话'; trigger.setAttribute('aria-label', trigger.title);
     return trigger;
@@ -34,7 +34,9 @@
     const filters = node('div', undefined, 'site-search-filters');
     const section = node('select'); section.setAttribute('aria-label', '搜索范围');
     for (const [value, label] of [['all', '全站内容'], ['english', '英语启蒙'], ['growth', '成长技能']]) { const option = node('option', label); option.value = value; section.append(option); }
-    const hint = node('span', '先找站内内容，按需智能回答'); filters.append(section, hint);
+    const activity = node('strong', '站内检索 · 未调用AI', 'site-search-mode'); activity.setAttribute('role', 'status');
+    function showMode(state, text) { activity.setAttribute('data-state', state); activity.textContent = text; }
+    const hint = node('span', '输入时只查站内；点击搜索按需使用AI'); filters.append(section, activity, hint);
     const online = node('input'); online.type = 'checkbox';
     const onlineLabel = node('label'); onlineLabel.append(online, node('span', '联网补充：优先小红书等国内网站'));
     const status = node('p', '输入书名、主题或技能名开始查找。', 'site-search-status'); status.setAttribute('role', 'status');
@@ -66,10 +68,13 @@
         if (epoch !== accessEpoch) return;
         if (!state.authenticated) { if (request === usageRequest) showUsage(null, '全站搜索与智能对话仅限本人 GitHub 账号。'); return; }
         const response = await sync().assistantStatus();
-        if (request === usageRequest) showUsage(response.usage, response.enabled ? '用量暂不可读取' : 'AI尚未启用；暂无用量统计。', response.platformUsage, response.model);
+        if (request === usageRequest) {
+          showUsage(response.usage, response.enabled ? '用量暂不可读取' : 'AI尚未启用；暂无用量统计。', response.platformUsage, response.model);
+          if (!response.enabled && !query.value.trim() && !busy && answer.hidden) showMode('unavailable', 'AI未启用 · 可检索站内');
+        }
       } catch { if (request === usageRequest) showUsage(null, '用量暂不可读取，请确认本人登录状态。'); }
     }
-    const footer = node('footer'); footer.append(usage, button('新对话', () => { if (busy) return; selectConversation(crypto.randomUUID()); answer.hidden = true; answer.replaceChildren(); external.replaceChildren(); status.textContent = '已开始新对话，保留长期记忆。'; }));
+    const footer = node('footer'); footer.append(usage, button('新对话', () => { if (busy) return; selectConversation(crypto.randomUUID()); answer.hidden = true; answer.replaceChildren(); external.replaceChildren(); showMode('search', '站内检索 · 未调用AI'); status.textContent = '已开始新对话，保留长期记忆。'; }));
     const external = node('div', undefined, 'site-search-external');
     const memoryPanel = node('details', undefined, 'site-search-memory');
     memoryPanel.append(node('summary', '对话与记忆'));
@@ -115,10 +120,12 @@
     function requireLogin() {
       results.replaceChildren(); answer.hidden = true; answer.replaceChildren(); external.replaceChildren(); memoryBody.replaceChildren(); history = [];
       status.textContent = '全站搜索与智能对话仅限本人 GitHub 账号。';
+      showMode('unavailable', '请先登录 · 未调用AI');
       status.append(' ', button('登录本人 GitHub', () => { dialog.close(); void sync().open(); }));
     }
     async function localSearch(force = false) {
       if (busy && !force) return null;
+      if (!force) { answer.hidden = true; external.replaceChildren(); showMode('search', '站内检索 · 未调用AI'); }
       const epoch = accessEpoch, request = ++searchRequest, q = query.value.trim(), scope = section.value;
       const current = () => epoch === accessEpoch && request === searchRequest && q === query.value.trim() && scope === section.value;
       try {
@@ -152,6 +159,7 @@
       const q = query.value.trim(), epoch = accessEpoch, wantAI = root.XiaoyaSearchCore.intent(q, mode) === 'answer';
       if (!wantAI) { answer.hidden = true; await localSearch(); return; }
       busy = true; submit.disabled = chat.disabled = true; query.readOnly = true;
+      showMode('preparing', 'AI准备中 · 先检索站内');
       answer.hidden = true; external.replaceChildren();
       try {
         if (await localSearch(true) === null || epoch !== accessEpoch) return;
@@ -164,21 +172,29 @@
         const requestId = pending?.signature === signature ? pending.requestId : crypto.randomUUID();
         if (epoch !== accessEpoch) return;
         try { sessionStorage.setItem(pendingKey, JSON.stringify({ signature, requestId })); } catch { /* 受限存储仍可提问。 */ }
+        showMode('answering', 'AI回答中…');
         const result = await sync().askAssistant({ ...payload, requestId });
         if (epoch !== accessEpoch) return;
         try { sessionStorage.removeItem(pendingKey); } catch { /* 对话正文仅保存在私人仓。 */ }
         if (result.sources.length) showResults(result.sources);
         if (result.mode === 'answer') {
+          showMode('answer', result.cached ? 'AI历史回答 · 本次未调用模型' : 'AI已回答');
           answer.hidden = false; answer.replaceChildren(node('small', result.cached ? '小芽助手 · 复用本轮回答' : '小芽助手'), node('p', result.answer));
           history = [...history, { role: 'user', content: q }, { role: 'assistant', content: result.answer }].slice(-4);
-        } else answer.hidden = true;
+        } else {
+          answer.hidden = true;
+          showMode('search', result.cached ? 'AI历史判断 · 展示站内内容' : result.usage?.modelCalls ? 'AI已判断 · 展示站内内容' : '站内检索 · 未调用AI');
+        }
         if (result.webNotice) external.append(node('p', result.webNotice));
         for (const source of result.webSources || []) {
           const link = node('a', source.title); link.href = source.href; link.target = '_blank'; link.rel = 'noopener noreferrer'; external.append(link);
         }
         if (result.memory?.saved === false) answer.append(node('small', result.memory.notice));
         status.textContent = result.mode === 'results' ? '已找到相关站内内容，可直接打开查看。' : '回答基于本次检索资料与记录摘要，请结合孩子反应调整。';
-      } catch (error) { if (epoch === accessEpoch) { if (error.code === 'AUTH_REQUIRED') requireLogin(); else status.textContent = error.message; } }
+      } catch (error) { if (epoch === accessEpoch) { if (error.code === 'AUTH_REQUIRED') requireLogin(); else {
+        showMode('unavailable', error.code === 'AI_NOT_CONFIGURED' ? 'AI未启用 · 展示站内结果' : 'AI未完成 · 展示站内结果');
+        status.textContent = '本次未生成AI回答。' + error.message;
+      } } }
       finally { if (epoch === accessEpoch) { busy = false; submit.disabled = chat.disabled = false; query.readOnly = false; void refreshUsage(); } }
     }
     form.addEventListener('submit', event => { event.preventDefault(); void run('auto'); });
@@ -197,7 +213,7 @@
         if (!history.length && saved.messages?.length) {
           history = saved.messages;
           const last = history.filter(item => item.role === 'assistant').at(-1);
-          if (last) { answer.hidden = false; answer.replaceChildren(node('small', '小芽助手 · 上次对话'), node('p', last.content)); }
+          if (last && !query.value.trim()) { showMode('answer', 'AI历史回答 · 本次未调用模型'); answer.hidden = false; answer.replaceChildren(node('small', '小芽助手 · 上次对话'), node('p', last.content)); }
         }
         if (!showList) return;
         memoryBody.replaceChildren(node('p', '记忆只保存在私人记录仓。忘记会清空近期对话摘要，Git 历史仍可恢复。'));
@@ -206,7 +222,7 @@
           row.append(' ', button('忘记', () => void forget({ factId: item.id }))); memoryBody.append(row);
         }
         if (!saved.facts?.length) memoryBody.append(node('p', '暂无跨对话记忆。'));
-        for (const item of (saved.conversations || []).slice(0, 12)) memoryBody.append(button('继续 ' + new Date(item.updatedAt).toLocaleString(), () => { if (busy) return; selectConversation(item.id); answer.hidden = true; void restoreMemory(true); }));
+        for (const item of (saved.conversations || []).slice(0, 12)) memoryBody.append(button('继续 ' + new Date(item.updatedAt).toLocaleString(), () => { if (busy) return; selectConversation(item.id); query.value = ''; results.replaceChildren(); external.replaceChildren(); answer.hidden = true; void restoreMemory(true); }));
         memoryBody.append(button('清空全部对话与记忆', () => void forget({ all: true })));
       } catch { if (current() && showList) memoryBody.replaceChildren(node('p', '私人记忆暂不可读取，未覆盖已有内容。')); }
     }
@@ -231,9 +247,21 @@
       if (state.authenticated) status.textContent = '已登录本人账号，输入书名、主题或技能名开始查找。';
       if (dialog.open) { void refreshUsage(); void restoreMemory(memoryPanel.open); }
     });
-    function open(focus) { returnFocus = focus; if (!dialog.open) dialog.showModal(); query.focus(); void refreshUsage(); if (!history.length) void restoreMemory(); }
+    function open(focus, { query: initialQuery, submit: shouldSubmit = false } = {}) {
+      returnFocus = focus;
+      if (!busy && typeof initialQuery === 'string') {
+        clearTimeout(timer); searchRequest++;
+        query.value = initialQuery.slice(0, query.maxLength);
+        answer.hidden = true; external.replaceChildren(); results.replaceChildren();
+        showMode('search', '站内检索 · 未调用AI');
+        status.textContent = '输入书名、主题或技能名开始查找。';
+      }
+      if (!dialog.open) dialog.showModal(); query.focus();
+      void refreshUsage(); if (!history.length) void restoreMemory();
+      if (shouldSubmit && !busy) void run('auto');
+    }
     void refreshUsage(); // 页面刷新也更新统计；未登录时不请求平台。
     return { open };
   }
-  root.XiaoyaSiteSearch = { create };
+  root.XiaoyaSiteSearch = { create, open: options => instance?.open(options?.focus || document.activeElement, options) };
 })(typeof window === 'object' ? window : globalThis);

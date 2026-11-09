@@ -6,23 +6,43 @@ import vm from 'node:vm';
 const source = await readFile(new URL('../shared/site-sync.js', import.meta.url), 'utf8');
 
 // 只模拟依赖边界，验证调用方可等待的结果，不模拟同步面板或布局。
-function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], assistantResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null } } = {}) {
-  let state = structuredClone(initial), action = async () => {}, calls = 0;
+function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], assistantResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null }, areas } = {}) {
+  let states = structuredClone(areas || { english: initial }), action = async () => {}, calls = 0;
+  const syncedAreas = [];
+  const previewedAreas = [], enabledAreas = [];
   const storage = new Map(loggedIn ? [['xiaoya-cloud-session-v2:' + apiBase, 'test-session']] : []);
   const engine = {
     async register() {}, async changed() {}, authenticate() {},
-    states: () => ({ english: structuredClone(state) }),
-    async sync(area) { assert.equal(area, 'english'); calls++; await action(); },
+    states: () => structuredClone(states),
+    async sync(area) { assert.ok(Object.hasOwn(states, area)); calls++; syncedAreas.push(area); await action(area); },
+    async preview(area) { previewedAreas.push(area); return { local: null, remote: { snapshot: null, revision: null, savedAt: null }, conflicts: [] }; },
+    async enable(area, reviewed) { assert.ok(reviewed.remote); enabledAreas.push(area); states[area] = { enabled: true, pending: false }; },
   };
+  class Element extends EventTarget {
+    constructor(tag) { super(); this.tag = tag; this.children = []; this.dataset = {}; }
+    append(...children) { for (const child of children) { child.parent = this; this.children.push(child); } }
+    set textContent(value) { this.text = String(value); }
+    get textContent() { return (this.text || '') + this.children.map(child => child.textContent).join(''); }
+    setAttribute() {}
+    querySelectorAll(selector) { return this.children.flatMap(child => [...(selector.startsWith('[data-') && Object.hasOwn(child.dataset, selector.slice(6, -1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())) || selector.startsWith('.') && child.className === selector.slice(1) ? [child] : []), ...child.querySelectorAll(selector)]); }
+    querySelector(selector) { return this.querySelectorAll(selector)[0] || null; }
+    after(node) { const at = this.parent.children.indexOf(this); node.parent = this.parent; this.parent.children.splice(at + 1, 0, node); }
+    remove() { if (this.parent) this.parent.children.splice(this.parent.children.indexOf(this), 1); }
+    showModal() { this.open = true; }
+    close() { this.open = false; this.dispatchEvent(new Event('close')); }
+    focus() {}
+    scrollIntoView() {}
+  }
+  const document = Object.assign(new EventTarget(), { createElement: tag => new Element(tag), body: new Element('body') });
   const window = Object.assign(new EventTarget(), {
     XiaoyaSyncModel: { equal: (a, b) => JSON.stringify(a) === JSON.stringify(b) },
-    XiaoyaSyncAdapters: { createAdapters: () => ({ english: {} }) },
+    XiaoyaSyncAdapters: { createAdapters: () => Object.fromEntries(Object.keys(states).map(area => [area, {}])) },
     XiaoyaSyncEngine: { createJournal: () => ({}), createEngine: () => engine },
     navigator: { locks: { request: (_, callback) => callback() } },
   });
   const requests = [];
   const context = {
-    window, document: new EventTarget(), URL, AbortSignal, crypto: { randomUUID: () => 'test-request' },
+    window, document, URL, AbortSignal, crypto: { randomUUID: () => 'test-request' },
     location: { protocol: 'https:', hostname: 'pages.example.test' },
     fetch: async (url, options) => {
       if (url.endsWith('cloud-config.json')) {
@@ -46,8 +66,59 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
   };
   vm.runInNewContext(source, context);
   const client = window.XiaoyaSync.createClient({ profileClient: { subscribe() {} } });
-  return { client, requests, calls: () => calls, setState(value) { state = structuredClone(value); }, onSync(value) { action = value; } };
+  return { client, document, previewedAreas, enabledAreas, requests, syncedAreas, calls: () => calls, setState(value, area = 'english') { states[area] = structuredClone(value); }, onSync(value) { action = value; } };
 }
+
+test('全未连接时顶部动作先预览四类记录，明确确认后才连接并执行一键同步', async () => {
+  const h = harness({ areas: Object.fromEntries(['profile', 'growth', 'health', 'english'].map(area => [area, { enabled: false }])) });
+  await h.client.open();
+  const trigger = h.document.body.querySelector('[data-sync-all]');
+  assert.equal(trigger.textContent, '连接并同步'); trigger.dispatchEvent(new Event('click'));
+  for (let i = 0; i < 8; i++) await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(h.previewedAreas, ['profile', 'growth', 'health', 'english']);
+  assert.deepEqual(h.enabledAreas, []); assert.equal(h.calls(), 0);
+  const preview = h.document.body.querySelector('[data-sync-connect-all]');
+  const confirm = preview.children.find(child => child.tag === 'button');
+  assert.equal(confirm.textContent, '确认连接全部并同步'); confirm.dispatchEvent(new Event('click'));
+  for (let i = 0; i < 8; i++) await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(h.enabledAreas, ['profile', 'growth', 'health', 'english']);
+  assert.deepEqual(h.syncedAreas, h.enabledAreas);
+  assert.equal(h.document.body.querySelector('[data-sync-all]').textContent, '一键同步');
+});
+
+test('一键同步只处理已连接分类，逐项等待真实结果；失败和冲突不妨碍其余分类', async () => {
+  const h = harness({ areas: { profile: { enabled: true }, growth: { enabled: true }, health: { enabled: false }, english: { enabled: true } } });
+  h.onSync(async area => {
+    if (area === 'profile') h.setState({ enabled: true, pending: false }, area);
+    if (area === 'growth') h.setState({ enabled: true, conflict: { conflicts: [{ key: 'a' }] } }, area);
+    if (area === 'english') throw Error('网络失败');
+  });
+  const result = await h.client.syncAll();
+  assert.equal(result.ok, false);
+  assert.deepEqual(h.syncedAreas, ['profile', 'growth', 'english']);
+  assert.deepEqual(Array.from(result.results, item => item.status), ['synced', 'conflict', 'error']);
+  assert.deepEqual(Array.from(result.skipped), ['health']);
+  assert.equal((await h.client.getState('health')).enabled, false);
+});
+
+test('一键同步重复点击复用在途任务，完成后允许重试；不触发外站抓取', async () => {
+  const h = harness(); let release, entered;
+  const started = new Promise(resolve => { entered = resolve; });
+  h.onSync(async () => { entered(); await new Promise(resolve => { release = resolve; }); });
+  const first = h.client.syncAll(), second = h.client.syncAll();
+  assert.equal(first, second); await started; assert.equal(h.calls(), 1);
+  release(); assert.equal((await first).ok, true);
+  h.onSync(async () => {}); assert.equal((await h.client.syncAll()).ok, true);
+  assert.equal(h.calls(), 2); assert.equal(h.requests.length, 0);
+});
+
+test('一键同步未登录不发送记录请求，全未连接不能误报全部成功', async () => {
+  const anonymous = harness({ loggedIn: false });
+  assert.equal((await anonymous.client.syncAll()).results[0].status, 'auth-required');
+  assert.equal(anonymous.calls(), 0);
+  const disconnected = harness({ initial: { enabled: false } });
+  assert.equal((await disconnected.client.syncAll()).ok, false); assert.equal(disconnected.calls(), 0);
+});
 
 test('手动分类同步区别未配置、配置失败、需登录和首次连接，均不伪造成功或自动迁入', async () => {
   for (const [options, status] of [

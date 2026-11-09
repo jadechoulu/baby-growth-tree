@@ -14,6 +14,8 @@
     if (singleton) return singleton;
     let apiBase = '', token = '', user = null, configurationError = '', dialog, popup, nonce, authTimer, engine, sessionKey;
     let initialized = false;
+    let allSyncTask;
+    let allSync = { busy: false, results: [], skipped: [] };
     const applying = new Set();
     const buttons = new Set(), listeners = new Set();
     const renderedConflicts = new WeakMap();
@@ -55,6 +57,16 @@
       return '已同步';
     }
     function updateButtons() {
+      const syncAllButton = dialog?.querySelector('[data-sync-all]');
+      if (syncAllButton) {
+        syncAllButton.disabled = allSync.busy || !user;
+        syncAllButton.textContent = allSync.busy ? '同步中…' : user && !Object.values(engine?.states() || {}).some(state => state.enabled) ? '连接并同步' : '一键同步';
+      }
+      const syncAllStatus = dialog?.querySelector('[data-sync-all-status]');
+      if (syncAllStatus) {
+        const labels = { synced: '已同步', conflict: '有冲突，请核对', error: '失败，请重试', pending: '等待云端确认', syncing: '仍在同步', 'auth-required': '请重新登录', 'connection-required': '尚未连接', 'configuration-error': '配置异常', 'not-configured': '服务未配置' };
+        syncAllStatus.textContent = user && !Object.values(engine?.states() || {}).some(state => state.enabled) ? '首次使用此浏览器，请点击“连接并同步”预览全部记录，确认后开始同步。' : (allSync.busy ? '正在同步已连接记录… ' : '') + allSync.results.map(({ area, status }) => names[area] + '：' + (labels[status] || '未完成')).join('；') + (!allSync.busy && allSync.skipped.length ? '。未连接或已暂停的记录未同步。' : '');
+      }
       for (const button of buttons) {
         if (!button.isConnected) { buttons.delete(button); continue; }
         button.title = label(); button.setAttribute('aria-label', '记录同步：' + label());
@@ -204,6 +216,26 @@
       renderedConflicts.set(card, state.conflict || null);
       return card;
     }
+    async function previewAllConnections() {
+      const target = dialog;
+      const previews = [];
+      const status = target.querySelector('[data-sync-all-status]');
+      status.textContent = '正在读取本机与云端记录，尚未连接或写入…';
+      target.querySelector('[data-sync-connect-all]')?.remove();
+      for (const area of Object.keys(names)) {
+        if (!engine.states()[area]?.enabled) previews.push({ area, preview: await engine.preview(area) });
+      }
+      if (target !== dialog || !target.open || !user) return;
+      const panel = element('section', undefined, 'site-sync-card'); panel.dataset.syncConnectAll = '';
+      panel.append(element('h3', '连接全部记录前，请核对'), element('p', '确认后合并无冲突的记录；有差异的字段仍需逐项选择，不自动覆盖。'));
+      for (const { area, preview } of previews) panel.append(element('h4', names[area]), element('p', '本机：' + summary(area, preview.local)), element('p', '云端：' + summary(area, preview.remote.snapshot)), element('p', preview.conflicts.length ? preview.conflicts.length + ' 项差异，连接后继续核对。' : '无字段冲突，可合并。'));
+      panel.append(action('确认连接全部并同步', async () => {
+        for (const { area, preview } of previews) if (!engine.states()[area]?.enabled) await engine.enable(area, preview);
+        await syncAll(); await open();
+      }));
+      status.textContent = '已读取全部记录，尚未连接；请核对下方摘要后确认。';
+      status.after(panel); panel.tabIndex = -1; panel.focus(); panel.scrollIntoView({ block: 'nearest' });
+    }
     async function open() {
       if (!initialized) await ready;
       if (dialog?.open) dialog.close();
@@ -212,10 +244,13 @@
       const header = element('header');
       const title = element('h2', '记录同步与迁移'); title.id = 'site-sync-title'; dialog.setAttribute('aria-labelledby', title.id);
       const close = action('关闭', () => dialog.close()); close.setAttribute('aria-label', '关闭同步面板');
-      header.append(title, action('刷新', open), close);
+      const syncAllButton = action('一键同步', () => Object.values(engine?.states() || {}).some(state => state.enabled) ? syncAll() : previewAllConnections()); syncAllButton.dataset.syncAll = '';
+      header.append(title, syncAllButton, close);
       const body = element('div', undefined, 'site-sync-body');
       const errorNode = element('p', configurationError, 'site-sync-error'); errorNode.dataset.syncError = ''; errorNode.setAttribute('role', 'alert');
       body.append(element('p', '修改先保存在本机。连接后自动同步到 GitHub 私有仓库；断网可继续记录。'), errorNode);
+      body.append(element('p', '一键同步已连接的档案与记录；重新抓取小花生书架请使用“小花生同步”。'));
+      const syncAllStatus = element('p'); syncAllStatus.dataset.syncAllStatus = ''; syncAllStatus.setAttribute('role', 'status'); body.append(syncAllStatus);
       if (!apiBase) body.append(element('p', '同步服务尚未配置，当前仅保存在此浏览器。请继续保留 JSON 备份。'));
       else if (!user) body.append(action('使用本人 GitHub 登录', login));
       else {
@@ -259,6 +294,25 @@
       // 引擎将网络错误与冲突保存在分类状态中；Promise结束不代表同步成功。
       return areaState(area);
     }
+    function syncAll() {
+      if (allSyncTask) return allSyncTask;
+      allSyncTask = (async () => {
+        await ready;
+        const connected = Object.keys(names).filter(area => engine?.states()[area]?.enabled);
+        allSync = { busy: true, results: [], skipped: Object.keys(names).filter(area => !connected.includes(area)) };
+        updateButtons();
+        try {
+          for (const area of connected) {
+            let result;
+            try { result = await sync(area); }
+            catch (error) { result = { ok: false, status: 'error', error: error.message }; }
+            allSync.results.push({ area, ...result }); updateButtons();
+          }
+          return { ok: connected.length > 0 && allSync.results.every(result => result.ok), results: allSync.results, skipped: allSync.skipped };
+        } finally { allSync.busy = false; allSyncTask = null; updateButtons(); }
+      })();
+      return allSyncTask;
+    }
     async function readXiaohuasheng({ onProgress = () => {} } = {}) {
       await ready;
       let job = await request('xhs-sync', 'POST', {});
@@ -287,7 +341,7 @@
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
-      ready, open, changed, sync, getState,
+      ready, open, changed, sync, syncAll, getState,
       async askAssistant(question) { await ready; return request('assistant', 'POST', question); },
       async searchAssistant(question) { await ready; return request('assistant-search', 'POST', question); },
       async assistantMemory(conversationId) { await ready; return request('assistant-memory', 'GET', { conversationId }); },
