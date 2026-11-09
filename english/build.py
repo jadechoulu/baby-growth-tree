@@ -84,31 +84,61 @@ BASE='''<!doctype html>
 </body>
 </html>'''
 
+def split_runtime_data(raw, store):
+    """索引保留筛选、身份与进度字段；逐册证据只在查看该册时读取。"""
+    raw = {**raw}
+    hello = raw['helloReading']
+    hello_url = store('hello', 'json', inline_json(hello))
+    # 初始仅保留跨素材身份和已配置外站入口，详情按需加载，仍复用原对象。
+    raw['helloReading'] = {key: value for key, value in hello.items() if key not in ('books', 'rhymes', 'tuneAudio', 'materialCards')}
+    raw['helloReading']['books'] = [{key: value for key, value in book.items() if key in ('id', 'externalIds')} | {'resources': [{'url': item['url']} for item in book['resources'] if item.get('url')]} for book in hello['books']]
+    taxonomy = raw['topicTaxonomy']
+    raw['topicTaxonomy'] = {**taxonomy, 'bookOverrides': {key: {field: value for field, value in item.items() if field in ('topics', 'replaceLegacy')} for key, item in taxonomy['bookOverrides'].items()}}
+    directory = raw['resourceBooks']
+    detail_fields = {'coverSource', 'previousCoverSource', 'catalogMetadata', 'topicBasis', 'topicEvidence', 'genreEvidence', 'titleEvidence', 'catalogNote', 'catalogIdentityNote'}
+    books, detail_files = [], []
+    for offset in range(0, len(directory['books']), 48):
+        batch = directory['books'][offset:offset + 48]
+        details = {'books': [{key: value for key, value in book.items() if key == 'id' or key in detail_fields} for book in batch], 'topics': {book['id']: taxonomy['bookOverrides'][book['id']] for book in batch if book['id'] in taxonomy['bookOverrides']}}
+        detail_files.append(store('book-details', 'json', inline_json(details)))
+        for book in batch:
+            index = {key: value for key, value in book.items() if key not in detail_fields}
+            if book.get('coverSource'):
+                index['coverSource'] = {'kind': book['coverSource'].get('kind')}
+            books.append({**index, 'detailChunk': len(detail_files) - 1})
+    books_url = store('books', 'json', inline_json({**directory, 'books': books, 'detailFiles': detail_files}))
+    raw['resourceBooks'] = {'books': [], 'sources': []}
+    return raw, books_url, {'helloReading': hello_url}
+
 def write(path, assets, raw=RAW, script=js, site=None):
     site = site or {'home':'../home.html','growth':'../index.html'}
     books_url = None
-    if not assets:
-        digest = hashlib.sha256(inline_json(raw['resourceBooks']).encode()).hexdigest()[:16]
-        books_url = 'data/resource-books.json?v=' + digest
-        raw = {**raw, 'resourceBooks': {'books': [], 'sources': []}}
     path.parent.mkdir(parents=True,exist_ok=True)
     if not assets:
         # 普通入口只保留启动页；内容、代码与样式独立并行下载，内容不变时复用浏览器缓存。
         runtime = path.parent / 'runtime'
         runtime.mkdir(exist_ok=True)
-        payload = 'window.ROADMAP_RAW=' + inline_json(raw) + ';\n'
         files = {}
-        for name, suffix, content in [('data', 'js', payload), ('app', 'js', script), ('styles', 'css', css)]:
+        generated = set()
+        def store(name, suffix, content):
             digest = hashlib.sha256(content.encode()).hexdigest()[:16]
             relative = 'runtime/' + name + '.' + digest + '.' + suffix
             (path.parent / relative).write_text(content)
-            files[name] = relative
+            generated.add(relative)
+            return relative
+        raw, books_url, chunks = split_runtime_data(raw, store)
+        payload = 'window.ROADMAP_RAW=' + inline_json(raw) + ';\nwindow.ROADMAP_CHUNKS=' + inline_json(chunks) + ';\n'
+        for name, suffix, content in [('data', 'js', payload), ('app', 'js', script), ('styles', 'css', css)]:
+            files[name] = store(name, suffix, content)
         for previous in runtime.iterdir():
-            if previous.is_file() and re.fullmatch(r'(data|app|styles)\.[0-9a-f]{16}\.(js|css)', previous.name) and previous.as_posix() not in {str(path.parent / value) for value in files.values()}:
+            if previous.is_file() and re.fullmatch(r'(data|app|styles|hello|books|book-details)\.[0-9a-f]{16}\.(js|css|json)', previous.name) and 'runtime/' + previous.name not in generated:
                 previous.unlink()
         template = BASE.replace('<style>__CSS__</style>', '<link rel="stylesheet" href="./' + files['styles'] + '">')
         template = template.replace('<script>__JS__</script>', '<script id="english-data" src="./' + files['data'] + '" defer onerror="EnglishStartupFailed()"></script>\n<script src="./' + files['app'] + '" defer onerror="EnglishStartupFailed()"></script>')
         template = template.replace('window.ROADMAP_RAW=__RAW__;', '')
+        # 深链接在解析HTML时并行读取当前页必需的目录或Hello资料，消除脚本后的串行等待。
+        preload = '<script>{const [view,query=""]=location.hash.slice(1).split("?"),collection=new URLSearchParams(query).get("collection"),url=["qing-progress","xu-progress"].includes(view)||(view==="library"&&!["hello","liao"].includes(collection))?' + inline_json(books_url) + ':view==="library"&&collection==="hello"?' + inline_json(chunks['helloReading']) + ':null;if(url){const link=document.createElement("link");link.rel="preload";link.as="fetch";link.crossOrigin="anonymous";link.href=url;document.head.append(link);}}</script>'
+        template = template.replace('</head>', preload + '\n</head>')
         startup = '''<script>
 window.EnglishStartupFailed=function(){const box=document.querySelector('#app>.loading');if(!box)return;box.replaceChildren(document.createTextNode('页面暂时未能加载。'));const retry=document.createElement('button');retry.type='button';retry.textContent='重新加载';retry.onclick=function(){location.reload();};box.append(retry);};
 window.EnglishStartupTimer=setTimeout(window.EnglishStartupFailed,20000);
@@ -153,8 +183,6 @@ def build_pages():
     if output.exists(): shutil.rmtree(output)
     output.mkdir(parents=True)
     write(output / 'index.html', {}, raw, public_js)
-    (output / 'data').mkdir()
-    (output / 'data/resource-books.json').write_text(inline_json(raw['resourceBooks']))
     for relative in sorted(paths):
         target = output / relative
         target.parent.mkdir(parents=True, exist_ok=True)
