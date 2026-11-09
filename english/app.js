@@ -62,7 +62,7 @@ function btn(label,action,attrs={},cls='button'){return h('button',Object.assign
 function routeChip(id){return h('span',{class:'chip '+id},routes.get(id)?.name||id);}
 function src(id){return C.sources.find(x=>x.id===id);}
 function asset(path){if(!path)return '';const item=window.ROADMAP_ASSETS?.[path];if(!item)return path;if(!item.startsWith('data:application/pdf'))return item;if(!blobs[path]){const data=atob(item.slice(item.indexOf(',')+1));const b=new Uint8Array(data.length);for(let i=0;i<data.length;i++)b[i]=data.charCodeAt(i);blobs[path]=URL.createObjectURL(new Blob([b],{type:'application/pdf'}));}return blobs[path];}
-window.EnglishFilePreview=window.EnglishFilePreview.install({h,asset,nasAudioUrls:LIAO.books.flatMap(book=>book.package.shares||[]).map(share=>share.url),externalUrls:[...window.ROADMAP_RAW.helloReading.books.flatMap(book=>book.resources),...(window.ROADMAP_RAW.helloReading.supplements||[]),...LIAO.books.flatMap(book=>book.package.shares||[])].map(item=>item.url).filter(Boolean),originalPath:href=>{
+window.EnglishFilePreview=window.EnglishFilePreview.install({h,asset,externalUrls:[...window.ROADMAP_RAW.helloReading.books.flatMap(book=>book.resources),...(window.ROADMAP_RAW.helloReading.supplements||[]),...LIAO.books.flatMap(book=>book.package.shares||[])].map(item=>item.url).filter(Boolean),originalPath:href=>{
   const [url,hash]=href.split('#'),path=Object.keys(blobs).find(path=>blobs[path]===url)||Object.keys(window.ROADMAP_ASSETS||{}).find(path=>window.ROADMAP_ASSETS[path]===url);
   return path?path+(hash?'#'+hash:''):null;
 }});
