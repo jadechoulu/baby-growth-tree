@@ -1769,7 +1769,7 @@ function libraryCollectionTabs(compact=false){return h('div',{class:'toolbar hel
 function libraryView(){
   if(libraryCollection==='liao')return h('div',{class:'library-view'},window.EnglishLiao.render(LIAO,{h,asset,icon,collectionTabs:libraryCollectionTabs(true),onMethod:()=>openModal('liao-method'),onSoundBook:openSoundBook,soundBookBadges:id=>SSS.soundBook.songs.filter(entry=>entry.liaoBookId===id).map(entry=>soundBookBadge(entry,null,'liao-'+id)),soundBookLegend,popover:libraryPopover,sourceBtn,name:label=>materialUI.name(label,false),onResource:openLiaoResource,isDone:liaoBookDone,completionButton:liaoBookStatusControls,readCountBadge:bookReadCountBadge}));
   if(libraryCollection==='other')return otherLibraryView();
-  if(libraryCollection==='hello')return h('div',{class:'library-view'},libraryCollectionTabs(),window.EnglishHello.render(window.ROADMAP_RAW.helloReading,{h,asset,onRhymePreview:id=>showPreview(null,1,null,id),onMaterialPreview:id=>showPreview(null,1,null,null,id)}));
+  if(libraryCollection==='hello')return h('div',{class:'library-view'},libraryCollectionTabs(),window.EnglishHello.render(window.ROADMAP_RAW.helloReading,{h,asset,onRhymePreview:id=>showPreview(null,1,null,id),onMaterialPreview:id=>showPreview(null,1,null,null,id),soundBookBadges:(name,context)=>window.EnglishHello.soundBookMatches(SSS.soundBook,name).map(({entry,match})=>soundBookBadge(entry,match,'hello-'+context)),soundBookLegend:()=>soundBookLegend('legend-hello')}));
   const options=(key,entries,id)=>h('div',{class:'library-filter-choices'},entries.map(([value,label])=>h('button',{type:'button','aria-pressed':String(S[key]===value),onclick:()=>libraryFilterApply(key,value,id+'-toggle')},label)));
   const types=[['all','全部类型'],...Object.entries(TYPES)];
   const searchInput=h('input',{id:'library-search',type:'search',value:S.search,placeholder:'搜索名称、级别、英文名','aria-label':'搜索素材',oninput:e=>{
@@ -1908,13 +1908,14 @@ function songListSongs(){
 }
 function soundBookPage(page,related=false){return h('span',{class:'sound-book-page'+(related?' is-related':''),'aria-hidden':'true'},icon('gourd'),h('span',{},page));}
 function soundBookBadge(entry,related=null,context='book'){
-  const liaoContext=context.startsWith('liao-'),approximate=!liaoContext&&(!!related||!entry.sssSongId&&!!entry.sssRelated?.length);
-  const label='慢葫芦 · 第'+entry.page+'页 · '+(approximate?'改编／同曲调关联':liaoContext||entry.sssSongId?'曲目对应':'书内页码');
-  const matches=liaoContext?[]:related?[related]:entry.sssSongId?[{songId:entry.sssSongId,note:entry.matchNote}]:entry.sssRelated||[];
+  const liaoContext=context.startsWith('liao-'),helloContext=context.startsWith('hello-'),approximate=helloContext?related.kind!=='same-song':!liaoContext&&(!!related||!entry.sssSongId&&!!entry.sssRelated?.length);
+  const label='慢葫芦 · 第'+entry.page+'页 · '+(approximate?'改编／同曲调关联':helloContext||liaoContext||entry.sssSongId?'曲目对应':'书内页码');
+  const matches=liaoContext||helloContext?[]:related?[related]:entry.sssSongId?[{songId:entry.sssSongId,note:entry.matchNote}]:entry.sssRelated||[];
   const body=h('div',{},h('p',{},SSS.soundBook.title+' · 第'+entry.page+'页'),h('p',{},entry.title),
+    helloContext?h('div',{},h('p',{},'Hello套唱曲调：'+related.name),h('p',{},related.note),h('p',{},'这是建议套唱曲调的关联，不表示Hello童谣同文、原声实唱此曲调或发声书使用同一录音。')):null,
     liaoContext?h('p',{},'与廖彩杏书单中的 '+window.EnglishLiao.findBook(LIAO,entry.liaoBookId).title+' 对应同一传统曲目；不代表绘本全文或录音相同。'):null,
     matches.length?matches.map(match=>{const song=SSS.songs.find(song=>song.id===match.songId);return h('div',{},h('p',{},match.note),h('a',{href:song.url,target:'_blank',rel:'noopener noreferrer'},song.title+' ↗'));}):h('p',{},'书内页码按你提供的逐页手录表整理。'),
-    h('p',{class:'small-note'},'仅表示曲目或曲调关联；两份素材的勾选各自独立。'),!liaoContext&&entry.coverPageUrl?h('p',{class:'small-note'},h('a',{href:asset(entry.coverPageUrl),target:'_blank',rel:'noopener noreferrer'},'配图来源 ↗'),' · '+entry.coverNote):null);
+    h('p',{class:'small-note'},'仅表示曲目或曲调关联；两份素材的勾选各自独立。'),!liaoContext&&!helloContext&&entry.coverPageUrl?h('p',{class:'small-note'},h('a',{href:asset(entry.coverPageUrl),target:'_blank',rel:'noopener noreferrer'},'配图来源 ↗'),' · '+entry.coverNote):null);
   const control=libraryPopover('sound-book-'+context+'-'+entry.page,label,soundBookPage(entry.page,approximate),body);
   control.classList.add('sound-book-badge');return control;
 }
@@ -1922,10 +1923,10 @@ function songSoundBookPage(song){
   return SSS.soundBook.songs.filter(entry=>entry.sssSongId===song.id||entry.sssRelated?.some(match=>match.songId===song.id)).map(entry=>soundBookBadge(entry,entry.sssRelated?.find(match=>match.songId===song.id),'sss-'+song.id));
 }
 function soundBookEvidence(){return h('details',{class:'sound-book-evidence'},h('summary',{},'页码与曲名依据'),h('p',{},'完整50首与2–51页按你提供的逐页手录表整理；原商品内页的2、9、12页与手录一致。'),SSS.soundBook.songs.filter(song=>song.titleNote).map(song=>h('p',{},'第'+song.page+'页：'+song.titleNote)),SSS.soundBook.sources.filter(source=>source.url).map(source=>h('p',{},h('a',{href:source.imageUrl||source.url,target:'_blank',rel:'noopener noreferrer'},source.note))));}
-function soundBookLegend(){return h('section',{class:'sound-book-legend'},
-  h('p',{},soundBookBadge(SSS.soundBook.songs[0],null,'legend'),' 绿色：发声书页码；在SSS中表示同曲目对应。'),
-  h('p',{},soundBookBadge(SSS.soundBook.songs.find(song=>song.page===6),SSS.soundBook.songs.find(song=>song.page===6).sssRelated[0],'legend'),' 橙色：改编或同曲调关联，歌词可能不同。'),
-  h('p',{},'点击任一葫芦查看书名、页码与关联说明，手机同样可用。对应福建科学技术出版社52页版；颜色不代表完成状态，也不保证是同一录音。'),
+function soundBookLegend(context='legend'){return h('section',{class:'sound-book-legend'},
+  h('p',{},soundBookBadge(SSS.soundBook.songs[0],null,context),' 绿色：发声书页码；在SSS和Hello套唱曲调中表示同曲目对应。'),
+  h('p',{},soundBookBadge(SSS.soundBook.songs.find(song=>song.page===6),SSS.soundBook.songs.find(song=>song.page===6).sssRelated[0],context),' 橙色：改编或同曲调关联，歌词可能不同。'),
+  h('p',{},'点击任一葫芦查看书名、页码与关联说明，手机同样可用。对应福建科学技术出版社52页版；颜色不代表完成状态，也不保证是同一录音。Hello标记仅关联建议套唱曲调，不表示杂志童谣同文或原声实唱此曲调。'),
   h('p',{},'“慢葫芦”Tab独立收录50首，保持页码顺序并单独勾选，不计入“全部”的42首与SSS进度。'),h('p',{},'重叠筛选按现有标签显示：SSS包含同曲目与改编／同曲调关联，廖彩杏为对应独立书目；可与搜索同时使用。SSS工具栏的葫芦可在全部、必备、推荐、大童、一天各分类中筛出与本书关联的歌曲，再点取消；包含两色关联，不改变完成记录。'),soundBookEvidence());}
 function songRow(song,i){
   const book=isSoundBook(),reference=book?SSS.songs.find(item=>item.id===(song.sssSongId||song.sssRelated?.[0]?.songId)):song;
