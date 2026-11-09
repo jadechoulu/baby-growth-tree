@@ -1132,8 +1132,14 @@
     var songs = filters.category === 'soundBook' ? array(library.soundBook && library.soundBook.songs) : category ? category.songIds.map(function (id) { return library.songs.find(function (song) { return song.id === id; }); }).filter(Boolean) : array(library.songs);
     function searchKey(value) { return String(value || '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9\u4e00-\u9fff#]+/g, ' ').trim(); }
     var query = searchKey(filters.query);
+    var soundBookIds = filters.soundBookOnly && filters.category !== 'soundBook' ? array(library.soundBook && library.soundBook.songs).reduce(function (ids, entry) {
+      if (entry.sssSongId) ids.add(entry.sssSongId);
+      array(entry.sssRelated).forEach(function (match) { ids.add(match.songId); });
+      return ids;
+    }, new Set()) : null;
     return songs.filter(function (song) {
       return (filters.category !== 'soundBook' || !filters.overlap || filters.overlap === 'all' || (filters.overlap === 'sss' ? !!song.sssSongId || array(song.sssRelated).length > 0 : filters.overlap === 'liao' && !!song.liaoBookId)) &&
+        (!soundBookIds || soundBookIds.has(song.id)) &&
         (!filters.scene || filters.scene === 'all' || song.scene === filters.scene) &&
         TOPICS.matches(TOPICS.entryTopics('song', song), { topic: filters.topic || 'all', subtopic: filters.subtopic || 'all' }) &&
         (!filters.activity || filters.activity === 'all' || TOPICS.entryActivities('song', song).includes(filters.activity)) &&
