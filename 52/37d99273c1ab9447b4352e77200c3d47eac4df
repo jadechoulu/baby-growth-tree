@@ -1,0 +1,54 @@
+AGENTS.md
+  h_c836a884b9f50f 47-49,53
+backend/netlify-handler.mjs
+  h_c836a884b9f50f 3,14-18
+backend/netlify/README.md
+  h_c836a884b9f50f 3-4
+backend/netlify/functions/xiaohuasheng-background.mjs
+  h_c836a884b9f50f 1-14
+backend/xiaohuasheng.mjs
+  h_c836a884b9f50f 1-238
+docs/architecture.md
+  h_c836a884b9f50f 7-10
+docs/xiaohuasheng-app-api.md
+  h_c836a884b9f50f 3-4
+docs/xiaohuasheng-cloud-sync.md
+  h_c836a884b9f50f 1-39
+docs/xiaohuasheng-read-sync.md
+  h_c836a884b9f50f 3-4
+english/app.js
+  h_c836a884b9f50f 146-147,155-156,158,161,165-168
+english/index.html
+  h_c836a884b9f50f 2840,3072-3089,3100,5753,5765,5980-5982,5984,5986-5989,5996,6000,7309-7310,7318-7319,7321,7324,7328-7331
+english/shelf-library.js
+  h_c836a884b9f50f 30,42
+english/tests/shelf-library.test.cjs
+  h_c836a884b9f50f 14,17-18,22-29
+english/tests/xiaohuasheng-sync.test.cjs
+  h_c836a884b9f50f 105-126
+english/xiaohuasheng-sync.js
+  h_c836a884b9f50f 125-127,129,131-134,141,145
+scripts/build-sync-backend.mjs
+  h_c836a884b9f50f 24-25
+shared/site-sync.js
+  h_c836a884b9f50f 30,262-279,290
+tests/site-sync-client.test.mjs
+  h_c836a884b9f50f 9,23,27,32-35,40,44,99-116
+tests/worker.test.mjs
+  h_c836a884b9f50f 315-333
+tests/xiaohuasheng-cloud.test.mjs
+  h_c836a884b9f50f 1-125
+worker/index.mjs
+  h_c836a884b9f50f 265-280
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5237d99273c1ab9447b4352e77200c3d47eac4df",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
