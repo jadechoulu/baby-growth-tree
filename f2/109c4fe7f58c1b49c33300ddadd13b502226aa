@@ -1,0 +1,26 @@
+AGENTS.md
+  h_c836a884b9f50f 13
+docs/architecture.md
+  h_c836a884b9f50f 7-10
+english/app.js
+  h_c836a884b9f50f 37,182-189,1825,2103,2145
+english/index.html
+  h_c836a884b9f50f 9,22
+english/runtime/app.4c86f025b1309ad8.js
+  h_c836a884b9f50f 4869,5014-5021,6657,6935,6977
+english/runtime/styles.f50d6b134f96d51f.css
+  h_c836a884b9f50f 2029-2033,2038-2045
+english/styles.css
+  h_c836a884b9f50f 2029-2033,2037-2044
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f2109c4fe7f58c1b49c33300ddadd13b502226aa",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
