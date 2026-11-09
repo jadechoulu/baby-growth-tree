@@ -104,10 +104,13 @@ test('统一发布包保留两边入口，子路径互跳和运行时引用完�
   }
   assert.deepEqual(await filesIn(outputDir), [...files].sort());
   for (const relative of ['home.html', 'index.html', 'english/index.html']) assert.ok(files.has(relative));
-  const english = await readFile(path.join(outputDir, 'english/index.html'), 'utf8');
+  const entry = await readFile(path.join(outputDir, 'english/index.html'), 'utf8');
+  const runtimePaths=[...entry.matchAll(/(?:src|href)="\.\/(runtime\/[^"]+)"/g)].map(match=>'english/'+match[1]);
+  for(const relative of runtimePaths)assert.ok(files.has(relative));
+  const english=entry+'\n'+(await Promise.all(runtimePaths.map(relative=>readFile(path.join(outputDir,relative),'utf8')))).join('\n');
   assert.equal(english.includes('2020-11-24'), false);
   assert.equal(english.includes('/Users/'), false);
-  const links = JSON.parse(english.match(/window\.ROADMAP_SITE=(.*?);window\.ROADMAP_RAW=/)[1]);
+  const links = JSON.parse(english.match(/window\.ROADMAP_SITE=(.*?);window\.ROADMAP_ASSETS=/)[1]);
   for (const [name, relative] of Object.entries(links)) {
     const url = new URL(relative, 'https://example.github.io/baby-growth-tree/english/index.html');
     assert.equal(url.pathname.startsWith('/baby-growth-tree/'), true, `${name} 不能跳出项目路径`);

@@ -132,3 +132,26 @@
 SSS筛选工具栏增加仅图标的葫芦开关，全部／必备／推荐／大童／一天均可使用；包含现有同曲目及改编／同曲调关联，按SSS歌曲ID去重，各分类结果为16／5／14／0／4首。保持原歌单排序、完整42首统计和独立记录，不切到50首发声书清单；场景、主题及搜索继续取交集。切换分类与详情返回保留临时选择，清除复位，图例解释图标与两色关联。
 
 本地553项Node检查和3项页面检查通过，普通、单文件及站点构建通过。浏览器实际点击核对全部五类、空结果、场景与搜索叠加、切换与清除；七档宽度检查工具栏与按钮可见，葫芦28px。未修改个人记录。用户在本批发布过程中追加该需求，按已授权发布范围接续PR及main部署，实际上线以Actions与线上交互回读为准。
+
+## Hello套唱参考曲调对应（2026-11-09，本地）
+
+逐项对照Hello现有38项曲调索引与用户逐页手录，共9项同曲目、3项同曲调关系，覆盖10个曲调、11个书内页码。关系按`helloTunes`集中维护，不按相似标题自动关联，不由SSS关系跨版继承颜色。
+
+| Hello曲调 | 书内页码 | 关系 |
+| --- | --- | --- |
+| Rain Rain Go Away | 2 | 同曲目 |
+| Row Row Row Your Boat | 4 | 同曲目 |
+| Mary Had a Little Lamb | 6 | 同曲目；不继承SSS Mary Had A Kangaroo的改编关系 |
+| Twinkle Twinkle Little Star | 8、9、16 | 9同曲目；8与16为传统同曲调 |
+| Five Little Ducks | 12 | 同曲目 |
+| I’m a Little Teapot | 17 | 同曲目；不继承SSS Snowman的同曲调关系 |
+| Are You Sleeping? | 19 | 同曲目 |
+| Where Is Thumbkin? | 19 | 同曲调，手指游戏歌词不同 |
+| Down by the Station | 30 | 同曲目 |
+| The Wheels on the Bus | 46 | 同曲目 |
+
+同曲目依据为用户手录与`hello-tune-audio.json`参考曲目索引；Twinkle传统共享旋律沿用已有`twinkle-shared-tune`证据。Where Is Thumbkin曲目正文明确使用Frère Jacques曲调，已直接阅读[该页](https://en.wikipedia.org/wiki/Where_is_Thumbkin%3F)，仅作与Are You Sleeping的传统旋律关联。Walking Walking on Halloween没有凭相似题名套用普通Walking Walking的关联；本批未核听其录音，不补造页码。
+
+书册、场景、童谣的曲调入口、选中曲调摘要及可搜索曲调菜单显示相同页码气泡。菜单按用户最新反馈将页码放在播放键左侧、播放键最右对齐；图例在Hello原“资料依据”内复用。所有关系只针对参考曲调，不认定Hello诗歌同文、原声实唱旋律或同一录音；未改任何个人记录。
+
+本批124项Node检查、3项页面检查通过，普通入口、离线单文件及完整站点构建通过。浏览器实际核对书册／场景／童谣页码、绿色同曲目与橙色同曲调、多页码气泡、Escape关闭和试听播放状态；七档视口检查页面无横向溢出。最新菜单顺序在503px截图确认播放键统一靠右，320px下Twinkle的8／9／16三页入口完整可见，点击与关闭说明后保留曲调菜单。本批为本地修改，尚未提交或发布。
