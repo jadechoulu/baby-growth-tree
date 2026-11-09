@@ -44,11 +44,11 @@ function harness({ authenticated = true, search, memory, ask, getQuery } = {}) {
   return { calls, input, byClass, asked: asked.promise, open: options => window.XiaoyaSiteSearch.open(options), async submit(query) { input.value = query; byClass('site-search-form').dispatchEvent(new Event('submit')); await settle(); }, logout() { authenticated = false; authListener('auth'); } };
 }
 
-test('分类搜索按钮带入当前问题并提交，路线比较进入AI；普通书名只检索站内', async () => {
+test('分类搜索按钮带入当前问题并提交，路线比较进入AI；普通书名只检索站内', { timeout: 5000 }, async () => {
   let current = '许密杉和庆爸', payload;
   const h = harness({ getQuery: () => current, ask: async value => { payload = value; return { mode: 'answer', answer: '路线对比', sources: [] }; } });
   await settle(); h.calls.length = 0;
-  h.byClass('site-search-trigger').dispatchEvent(new Event('click')); await settle();
+  h.byClass('site-search-trigger').dispatchEvent(new Event('click')); await h.asked; await settle();
   assert.equal(h.input.value, current); assert.equal(payload.query, current);
   assert.equal(h.calls.filter(call => call === 'ask').length, 1);
   current = '动物'; h.calls.length = 0;
