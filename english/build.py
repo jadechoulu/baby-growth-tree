@@ -43,6 +43,10 @@ RAW['helloReading']['tuneAudio'] = json.loads((ROOT / 'data' / 'hello-tune-audio
 RAW['helloReading']['materialCards'] = json.loads((ROOT / 'data' / 'hello-material-cards.json').read_text())
 RAW['readingPlans'] = json.loads((ROOT / 'data' / 'reading-plans.json').read_text())
 RAW['resourceBooks'] = json.loads((ROOT / 'data' / 'resource-books.json').read_text())
+RAW['resourceBooks'] = json.loads(subprocess.run(
+    ['node', '-e', "const fs=require('node:fs'),BP=require('./english/book-progress.js');const raw=JSON.parse(fs.readFileSync(0,'utf8'));process.stdout.write(JSON.stringify(BP.withReadingPlans(raw.directory,raw.plans,raw.catalog)));"],
+    input=json.dumps({'directory': RAW['resourceBooks'], 'plans': RAW['readingPlans'], 'catalog': RAW['resourceVolumes']}),
+    text=True, capture_output=True, check=True, cwd=ROOT.parent).stdout)
 RAW['filePreviewAssets'] = [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/vendor/pdfjs').rglob('*')) if path.is_file()]
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
 RAW['topicTaxonomy'] = json.loads((ROOT / 'data' / 'topic-taxonomy.json').read_text())

@@ -87,7 +87,8 @@ class EnglishPagesTests(unittest.TestCase):
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const M=require('./english/model.js'),B=require('./english/book-progress.js'),L=require('./english/library-books.js');
 const {raw,index}=JSON.parse(fs.readFileSync(0,'utf8'));
-const full=JSON.parse(fs.readFileSync('english/data/resource-books.json','utf8'));
+const sourceDirectory=JSON.parse(fs.readFileSync('english/data/resource-books.json','utf8'));
+const full=B.withReadingPlans(sourceDirectory,raw.readingPlans,raw.resourceVolumes);
 const volumes=raw.resourceVolumes,catalog=M.normalize(raw),records={};
 full.books.filter((_,i)=>i%29===0).forEach(book=>records[B.MANUAL+book.id]={status:'done'});
 for(const resource of catalog.resources){

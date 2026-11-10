@@ -13,6 +13,40 @@ const entry=(bookId,title)=>({bookId,title});
 const imported=(records,items)=>B.applyReadSnapshot(records,data,snapshot(items));
 const wrap=records=>({version:1,profile:{vocabulary:0,mode:'audio'},favorites:[],records});
 
+test('有同ISBN证据的目录引用共用一次外部事实，各自范围只计一本并兼容原映射',()=>{
+  const edition=name=>({id:name,edition:name,parts:[{label:'A',count:1,directoryMatch:{edition:name}}]});
+  const catalog={series:[{resourceId:'series',unit:'本',scopes:[edition('original'),edition('selection')]}]};
+  const directory={books:[{id:'original-book',resourceId:'series',title:'A Book',edition:'original',externalIds:{xiaohuasheng:['exact']}},{id:'selection-book',resourceId:'series',title:'A Book',edition:'selection',externalIds:{xiaohuasheng:['exact']}}],readingEquivalences:[{bookIds:['original-book','selection-book'],isbn:'9780000000002'}]};
+  const input=snapshot([{bookId:'exact',appBookId:'123',title:'Changed source title',readCount:2}]);
+  const oldDirectory={books:[directory.books[1]]};
+  const old=B.applyReadSnapshot({},data,input,{directory:oldDirectory,catalog}).changes;
+  const originalNote=JSON.parse(old[B.EXTERNAL+'sample-owner:exact'].note);
+  originalNote.keep='原手记字段';old[B.EXTERNAL+'sample-owner:exact'].note=JSON.stringify(originalNote);
+  for(const initial of [{},old]){
+    const result=B.applyReadSnapshot(initial,data,input,{directory,catalog,sourcePriority:true});
+    assert.equal(result.matched.length,1);assert.equal(result.ambiguous.length,0);
+    const records={...initial,...result.changes};
+    assert.equal(Object.keys(records).filter(key=>key.startsWith(B.EXTERNAL)).length,1);
+    for(const book of directory.books){
+      assert.equal(B.bookState(records,book.id,directory).done,true);
+      assert.equal(B.bookState(records,book.id,directory).readCount,2);
+      const plan=B.catalogPlans(directory,catalog,'series').find(plan=>plan.edition===book.edition);
+      assert.equal(B.progress(records,plan).completed,1);
+      const part=plan.groups[0].publicationScope;
+      assert.equal(B.projectScopeQuantity(records,'series',part,{completed:0},catalog,directory).completed,1);
+    }
+    assert.deepEqual(B.applyReadSnapshot(records,data,input,{directory,catalog,sourcePriority:true}).changes,{});
+    if(initial===old){const note=JSON.parse(records[B.EXTERNAL+'sample-owner:exact'].note);assert.equal(note.publicBookId,'selection-book');assert.equal(note.keep,'原手记字段');}
+  }
+  assert.equal(B.applyReadSnapshot({},data,input,{directory:{books:directory.books},catalog}).ambiguous.length,1,'未经核定的重复外部身份仍拒绝');
+  const legacyManual={[B.MANUAL+'selection-book']:{status:'done',note:'保留旧键'}};
+  assert.equal(B.bookState(legacyManual,'original-book',directory).done,true);
+  const cleared={...legacyManual,...B.manualUpdate(legacyManual,'original-book',false,directory)};
+  assert.equal(B.bookState(cleared,'selection-book',directory).done,false);
+  const completed={...cleared,...B.manualUpdate(cleared,'selection-book',true,directory)};
+  assert.equal(B.bookState(completed,'original-book',directory).done,true);
+});
+
 test('RAZ按明确级别和完整题名同步单册，部分目录不当出版分母',()=>{
   const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json');
   const book=directory.books.find(book=>book.resourceId==='resource-1qnd5uh'&&book.level==='aa');

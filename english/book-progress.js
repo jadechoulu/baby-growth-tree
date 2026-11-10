@@ -6,7 +6,7 @@ const parse=value=>{try{return JSON.parse(value);}catch{return null;}};
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’']/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 function planForResource(data,id,directory,catalog,scope){
   const authored=data?.plans?.find(plan=>plan.resourceId===id||plan.resourceIds?.includes(id));
-  if(authored)return authored;
+  if(authored&&(!scope||scopeGroup(authored,scope)!==null))return authored;
   // null 表示当前路线尚无已绑定范围；不能拿套系首个版本冒充本阶段目录。
   if(scope===null)return null;
   const plans=catalogPlans(directory,catalog,id);
@@ -33,9 +33,15 @@ function externalFacts(records){
     return fact?.version===1&&fact.sourceKind==='xiaohuasheng_bookcase_read'&&typeof fact.publicBookId==='string'?[{...fact,key}]:[];
   });
 }
-function bookState(records,bookId){
-  const manual=records?.[MANUAL+bookId]?.status==='done';
-  const external=externalFacts(records).filter(fact=>fact.publicBookId===bookId);
+function readingIds(book,directory){
+  const id=typeof book==='string'?book:book.id;
+  return directory?.readingEquivalences?.find(group=>group.bookIds.includes(id))?.bookIds||book.readingIds||[id];
+}
+function completedBook(records,book,directory,known){return readingIds(book,directory).some(id=>records?.[MANUAL+id]?.status==='done'||known.has(id));}
+function bookState(records,book,directory){
+  const ids=readingIds(book,directory);
+  const manual=ids.some(id=>records?.[MANUAL+id]?.status==='done');
+  const external=externalFacts(records).filter(fact=>ids.includes(fact.publicBookId));
   // 同一本的重复外部身份取最大值，不把同步次数、手工勾选或套装次数相加。
   const counts=external.map(fact=>fact.readCount).filter(count=>Number.isSafeInteger(count)&&count>=0);
   return {done:manual||external.length>0,manual,external,readCount:counts.length?Math.max(...counts):null};
@@ -43,7 +49,7 @@ function bookState(records,bookId){
 function directoryProgress(records,directory,catalog,resourceId){
   const canonical=catalogResource(catalog,resourceId)?.resourceId||resourceId;
   const selected=directoryIndex(directory,catalog).byResource.get(canonical)||[],known=new Set(externalFacts(records).map(fact=>fact.publicBookId));
-  const completed=new Set(selected.filter(book=>records?.[MANUAL+book.id]?.status==='done'||known.has(book.id)).map(book=>book.id)).size;
+  const completed=new Set(selected.filter(book=>completedBook(records,book,directory,known)).map(book=>readingIds(book,directory)[0])).size;
   // 部分目录只表示已识别的单册，不能将条目数作为整套出版分母。
   return {completed,identifiedCompleted:completed,total:null,percent:null,unit:'本',status:completed?'using':'not-started'};
 }
@@ -54,12 +60,17 @@ function bookUpdate(records,prefix,bookId,done){
   if(next.note.length>4000)throw new Error('单册记录内容过长。');
   return previous?.status===next.status&&previous?.note===next.note?{}:{[key]:next};
 }
-function manualUpdate(records,bookId,done){return bookUpdate(records,MANUAL,bookId,done);}
+function manualUpdate(records,book,done,directory){
+  const ids=readingIds(book,directory),changes=bookUpdate(records,MANUAL,ids[0],done);
+  // 同一本的旧手工键仍保留；撤回时一并撤回该证据组的旧勾选，不影响外部已读。
+  if(!done)for(const id of ids.slice(1))if(records?.[MANUAL+id]?.status==='done')Object.assign(changes,bookUpdate(records,MANUAL,id,false));
+  return changes;
+}
 function internalized(records,bookId){return records?.[INTERNALIZED+bookId]?.status==='done';}
 function internalizationUpdate(records,bookId,value){return bookUpdate(records,INTERNALIZED,bookId,value);}
 function progress(records,plan,group='all',legacy){
   const selected=books(plan,group),known=new Set(externalFacts(records).map(fact=>fact.publicBookId));
-  const identifiedCompleted=selected.filter(book=>records?.[MANUAL+book.id]?.status==='done'||known.has(book.id)).length;
+  const identifiedCompleted=selected.filter(book=>completedBook(records,book,undefined,known)).length;
   const legacyCompleted=Number.isSafeInteger(legacy?.completed)&&legacy.completed>=0?legacy.completed:0;
   const total=selected.length,completed=Math.min(total,Math.max(identifiedCompleted,sourcePriority(records,plan,group)?0:legacyCompleted));
   const percent=total?(completed===total?100:Math.min(99,Math.round(completed/total*100))):0;
@@ -103,6 +114,21 @@ function catalogResource(catalog,resourceId){
   if(!index){index=new Map((catalog.series||[]).map(item=>[item.resourceId,item]));publicationIndex.set(catalog,index);}
   const entry=index.get(resourceId);
   return entry?.catalogResourceId?catalogResource(catalog,entry.catalogResourceId):entry;
+}
+function withReadingPlans(directory,data,catalog){
+  const books=[...(directory.books||[])],sources=[...(directory.sources||[])],ids=new Set(books.map(book=>book.id));
+  for(const plan of data?.plans||[]){
+    const sourceId='reading-plan-'+plan.id,resourceId=catalogResource(catalog,plan.resourceId)?.resourceId||plan.resourceId;
+    if(!sources.some(source=>source.id===sourceId))sources.push({id:sourceId,...plan.source,kind:'authored-reading-plan',edition:plan.edition});
+    for(const book of plan.books||[])if(!ids.has(book.id)){
+      const group=plan.groups.find(group=>group.id===book.group),entry=catalogResource(catalog,plan.resourceId);
+      const level=entry?.scopes?.find(scope=>group?.scopeIds?.includes(scope.id))?.levelAliases?.[0]||book.group;
+      books.push({...book,resourceId,seriesTitle:plan.title,edition:plan.edition,level,topics:[],sourceIds:[sourceId],
+        studyGuide:{sourceId,sourceOrder:book.order,patterns:(book.patterns||[]).map(text=>({text})),patternGroup:book.patternGroup}});
+      ids.add(book.id);
+    }
+  }
+  return {...directory,books,sources};
 }
 // 公共目录在页面生命周期内不变；只缓存书目索引，个人事实每次读取，保留原对象内修改的即时性。
 function directoryIndex(directory,catalog){
@@ -160,7 +186,7 @@ function catalogPlans(directory,catalog,resourceId){
     const ids=parts.flatMap(item=>item.selected.map(book=>book.id));
     if(new Set(ids).size!==ids.length)return [];
     const groups=parts.map(({part})=>({id:scopeAuthorityKey(part).split(':').pop(),label:part.label,edition,parts:[{label:part.label,count:part.total}],publicationScope:part}));
-    const books=parts.flatMap(({selected},index)=>selected.map((book,order)=>({...book,group:groups[index].id,order:index*100000+order,number:book.number??order+1,patterns:[]})));
+    const books=parts.flatMap(({selected},index)=>selected.map((book,order)=>({...book,readingIds:readingIds(book,directory),group:groups[index].id,order:index*100000+order,number:book.number??order+1,patterns:[]})));
     const scopeIds=(entry.scopes||[]).filter(scope=>{
       const scopeEdition=scope.edition||entry.edition||'';
       return scopeEdition===edition&&scope.parts?.length===parts.length&&scope.parts.every(part=>parts.some(item=>item.part.label===part.label&&item.part.total===part.count));
@@ -195,20 +221,29 @@ function projectScopeQuantity(records,resourceId,scope,legacy,catalog,directory)
   const priority=selected.every(part=>scopeAuthority(records,part));
   const completedIds=new Set(facts.map(fact=>fact.publicBookId));
   const index=directoryIndex(directory,catalog);
+  const scopedBooks=(index.byResource.get(entry.resourceId)||[]).filter(book=>bookPublicationScopes(book,catalog).some(part=>identities.has(scopeIdentity(part))));
+  // 同册的另一个目录引用仍读取同一事实；分母及去重只取本次出版范围。
+  const knownReads=new Set(externalFacts(records).map(fact=>fact.publicBookId));
+  if(scopedBooks.length){completedIds.clear();for(const book of scopedBooks)if(completedBook(records,book,directory,knownReads))completedIds.add(book.id);}
   for(const [key,record] of Object.entries(records||{}))if(key.startsWith(MANUAL)&&record?.status==='done'){
     const book=index.byId.get(key.slice(MANUAL.length));
     if(book&&bookPublicationScopes(book,catalog).some(part=>identities.has(scopeIdentity(part))))completedIds.add(book.id);
   }
   if(!completedIds.size&&!priority)return legacy;
-  const externalCompleted=new Set(facts.map(fact=>fact.publicBookId)).size,legacyCompleted=Number.isSafeInteger(legacy?.completed)&&legacy.completed>=0?legacy.completed:0;
+  const externalCompleted=scopedBooks.length?scopedBooks.filter(book=>readingIds(book,directory).some(id=>knownReads.has(id))).length:new Set(facts.map(fact=>fact.publicBookId)).size,legacyCompleted=Number.isSafeInteger(legacy?.completed)&&legacy.completed>=0?legacy.completed:0;
   const completed=Math.min(total,Math.max(completedIds.size,priority?0:legacyCompleted)),percent=total?(completed===total?100:Math.min(99,Math.round(completed/total*100))):0;
   return {...legacy,completed,total,percent,status:total>0&&completed===total?'done':completed>0?'using':'not-started',unit,externalCompleted,sourcePriority:priority};
 }
 function matchEntry(data,entry,directory,catalog){
   const title=normalize(entry.title),candidates=[],conflicts=[];
+  const directoryMatch=book=>{
+    const ids=readingIds(book,directory),linked=ids.map(id=>(directory.books||[]).find(item=>item.id===id)).filter(Boolean),primary=linked[0]||book;
+    const scopes=new Map(linked.flatMap(item=>bookPublicationScopes(item,catalog)).map(part=>[scopeIdentity(part),part]));
+    return {publicBookId:primary.id,title:primary.title,resourceId:catalogResource(catalog,primary.resourceId)?.resourceId||primary.resourceId,publicationScopes:[...scopes.values()],...(ids.length>1?{equivalentBookIds:ids}:{})};
+  };
   // 已核定的公开书目身份优先于外站可变题名；重复身份仍交由多候选流程拒绝。
   const identified=(directory?.books||[]).filter(book=>book.externalIds?.xiaohuasheng?.includes(entry.bookId));
-  if(identified.length)return {candidates:identified.map(book=>({publicBookId:book.id,title:book.title,resourceId:catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId,publicationScopes:bookPublicationScopes(book,catalog)})),conflicts};
+  if(identified.length)return {candidates:[...new Map(identified.map(book=>{const match=directoryMatch(book);return [match.publicBookId,match];})).values()],conflicts};
   for(const plan of data?.plans||[]){
     for(const prefix of plan.externalMatch?.prefixes||[]){
       const head=normalize(prefix);
@@ -230,7 +265,7 @@ function matchEntry(data,entry,directory,catalog){
       const tail=title.slice(head.length).trim(),numberMatch=tail.match(/^(\d+)\s+(.+)$/),number=numberMatch?Number(numberMatch[1]):null,bookTitle=numberMatch?numberMatch[2]:tail;
       for(const book of directory.books||[]){
         if(book.resourceId!==declaration.resourceId||!directoryMatches(book,declaration.directoryMatch)||![book.title,...(book.aliases||[])].some(alias=>normalize(alias)===bookTitle))continue;
-        const item={publicBookId:book.id,title:book.title,resourceId:catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId,publicationScopes:bookPublicationScopes(book,catalog)};
+        const item=directoryMatch(book);
         if(!declaration.ignoreNumber&&number!==null&&book.number!==undefined&&number!==book.number)conflicts.push(item);
         else candidates.push(item);
       }
@@ -282,13 +317,16 @@ function applyReadSnapshot(records,data,snapshot,options={}){
       else unmatched.push({...entry,reason:'no-exact-edition-match'});
       continue;
     }
-    const match=candidates[0];
+    let match=candidates[0];
     if(previous?.appBookId!==undefined&&entry.appBookId!==undefined&&String(previous.appBookId)!==entry.appBookId){ambiguous.push({...entry,candidates:[match],reason:'existing-app-id-conflict'});continue;}
     if(previous?.publicBookId&&previous.publicBookId!==match.publicBookId){
       // 同一外站身份后来进入公共目录时沿用其记录；只迁接精确的私人书目ID，不按题名跨版。
       if(previous.publicBookId==='shelf-book-'+owner+'-'+entry.bookId){
         const manual=records?.[MANUAL+previous.publicBookId];
         if(manual&&!records?.[MANUAL+match.publicBookId])changes[MANUAL+match.publicBookId]={...manual};
+      }else if(match.equivalentBookIds?.includes(previous.publicBookId)){
+        // 仅显式核定的同册关系可兼容旧映射；保留原事实键、主身份与未知字段。
+        match={...match,publicBookId:previous.publicBookId};
       }else{ambiguous.push({...entry,candidates:[{publicBookId:previous.publicBookId},match],reason:'existing-mapping-conflict'});continue;}
     }
     matched.push({...entry,...match});
@@ -321,5 +359,5 @@ function applyReadSnapshot(records,data,snapshot,options={}){
   }
   return {changes,matched,unmatched,ambiguous};
 }
-return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
+return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,withReadingPlans,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
 });
