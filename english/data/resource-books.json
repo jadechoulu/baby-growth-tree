@@ -4890,6 +4890,226 @@
       "url": "https://collins.co.uk/products/9780007186518",
       "checkedAt": "2026-11-09",
       "note": "Text type – A simple information book. 按既有外研目录的英文题名与Collins Pink 1B原作核对文体，不互换版本ID、册数或进度。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007512690",
+      "title": "小花生公开单册与Collins原版ISBN核对 · In the Sea",
+      "url": "https://www.xiaohuasheng.cn/book/ac1f78585c1ff004",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/ac1f78585c1ff004",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007512690",
+      "publisherUrl": "https://collins.co.uk/products/9780007512690",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185399",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The Picnic",
+      "url": "https://www.xiaohuasheng.cn/book/4d6546e8efcfa8cb",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/4d6546e8efcfa8cb",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185399",
+      "publisherUrl": "https://collins.co.uk/products/9780007185399",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007186464",
+      "title": "小花生公开单册与Collins原版ISBN核对 · In the Boat",
+      "url": "https://www.xiaohuasheng.cn/book/4d364652606ef67a",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/4d364652606ef67a",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007186464",
+      "publisherUrl": "https://collins.co.uk/products/9780007186464",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007329151",
+      "title": "小花生公开单册与Collins原版ISBN核对 · My Family Tree",
+      "url": "https://www.xiaohuasheng.cn/book/eab72c72ad1665e2",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/eab72c72ad1665e2",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007329151",
+      "publisherUrl": "https://collins.co.uk/products/9780007329151",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185382",
+      "title": "小花生公开单册与Collins原版ISBN核对 · In the Garden",
+      "url": "https://www.xiaohuasheng.cn/book/b3d66d1cfb5d9413",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/b3d66d1cfb5d9413",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185382",
+      "publisherUrl": "https://collins.co.uk/products/9780007185382",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007512621",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Jump and Fly",
+      "url": "https://www.xiaohuasheng.cn/book/59fe762160b3566d",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/59fe762160b3566d",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007512621",
+      "publisherUrl": "https://collins.co.uk/products/9780007512621",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007186488",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The Guinea Pigs",
+      "url": "https://www.xiaohuasheng.cn/book/b4497e1e5a8c65e2",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/b4497e1e5a8c65e2",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007186488",
+      "publisherUrl": "https://collins.co.uk/products/9780007186488",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185580",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Cars",
+      "url": "https://www.xiaohuasheng.cn/book/47ad6078ce611810",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/47ad6078ce611810",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185580",
+      "publisherUrl": "https://collins.co.uk/products/9780007185580",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185368",
+      "title": "小花生公开单册与Collins原版ISBN核对 · My Skateboard",
+      "url": "https://www.xiaohuasheng.cn/book/480c0ce81eb9037b",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/480c0ce81eb9037b",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185368",
+      "publisherUrl": "https://collins.co.uk/products/9780007185368",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007186471",
+      "title": "小花生公开单册与Collins原版ISBN核对 · How Many Animals",
+      "url": "https://www.xiaohuasheng.cn/book/7b561e4db87c65e2",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/7b561e4db87c65e2",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007186471",
+      "publisherUrl": "https://collins.co.uk/products/9780007186471",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007186495",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Shapes",
+      "url": "https://www.xiaohuasheng.cn/book/744a7cbcb9b76240",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/744a7cbcb9b76240",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007186495",
+      "publisherUrl": "https://collins.co.uk/products/9780007186495",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185412",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Pushing and Pulling",
+      "url": "https://www.xiaohuasheng.cn/book/a92c471b8f2a65e2",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/a92c471b8f2a65e2",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185412",
+      "publisherUrl": "https://collins.co.uk/products/9780007185412",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007412778",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Yum",
+      "url": "https://www.xiaohuasheng.cn/book/be90586c8456198e",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/be90586c8456198e",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007412778",
+      "publisherUrl": "https://collins.co.uk/products/9780007412778",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007512645",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Wash, Wash, Wash",
+      "url": "https://www.xiaohuasheng.cn/book/b8f022357c1f39df",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/b8f022357c1f39df",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007512645",
+      "publisherUrl": "https://collins.co.uk/products/9780007512645",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185405",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Dinosaur Rock",
+      "url": "https://www.xiaohuasheng.cn/book/18a1ed9a81b38d17",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/18a1ed9a81b38d17",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185405",
+      "publisherUrl": "https://collins.co.uk/products/9780007185405",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007412761",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Walking and Walking",
+      "url": "https://www.xiaohuasheng.cn/book/68122db8f60752da",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/68122db8f60752da",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007412761",
+      "publisherUrl": "https://collins.co.uk/products/9780007412761",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007412785",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Getting Dressed",
+      "url": "https://www.xiaohuasheng.cn/book/3fa8f39d7c275869",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/3fa8f39d7c275869",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007412785",
+      "publisherUrl": "https://collins.co.uk/products/9780007412785",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007185436",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The Very Wet Dog",
+      "url": "https://www.xiaohuasheng.cn/book/27ed0f5c8f9c65e2",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/27ed0f5c8f9c65e2",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007185436",
+      "publisherUrl": "https://collins.co.uk/products/9780007185436",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007412792",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Teeth",
+      "url": "https://www.xiaohuasheng.cn/book/e64af7e4af7667f6",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/e64af7e4af7667f6",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007412792",
+      "publisherUrl": "https://collins.co.uk/products/9780007412792",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007512676",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The Boy Who Cried Wolf",
+      "url": "https://www.xiaohuasheng.cn/book/c8d441e201660a49",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/c8d441e201660a49",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007512676",
+      "publisherUrl": "https://collins.co.uk/products/9780007512676",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007512669",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The Three Little Rabbits",
+      "url": "https://www.xiaohuasheng.cn/book/533573b25ca738aa",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/533573b25ca738aa",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007512669",
+      "publisherUrl": "https://collins.co.uk/products/9780007512669",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-same-isbn-9780007512683",
+      "title": "小花生公开单册与Collins原版ISBN核对 · In the Jungle",
+      "url": "https://www.xiaohuasheng.cn/book/971c2d9f9d3da354",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/971c2d9f9d3da354",
+      "checkedAt": "2026-11-11",
+      "isbn": "9780007512683",
+      "publisherUrl": "https://collins.co.uk/products/9780007512683",
+      "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
     }
   ],
   "books": [
@@ -194660,5 +194880,271 @@
       ]
     }
   ],
-  "coverCheckedAt": "2026-11-05"
+  "coverCheckedAt": "2026-11-05",
+  "readingEquivalences": [
+    {
+      "bookIds": [
+        "book-ff1291e0c4400c00",
+        "book-2e28ffadf01dc5d8"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007512690",
+      "sourceIds": [
+        "xhs-same-isbn-9780007512690"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-ea98f823f5fc3955",
+        "book-a30240076eba3f04"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185399",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185399"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-bb8ceb333b974c99",
+        "book-45dd2c911fb77385"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007186464",
+      "sourceIds": [
+        "xhs-same-isbn-9780007186464"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-148a34af391e87fc",
+        "book-0e8e7327a1835361"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007329151",
+      "sourceIds": [
+        "xhs-same-isbn-9780007329151"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-996ab94efaec8e68",
+        "book-c5e2cb93e8f3680d"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185382",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185382"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-5ced130cf359a48e",
+        "book-e61c11f847eba397"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007512621",
+      "sourceIds": [
+        "xhs-same-isbn-9780007512621"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-23e6e2a47af6c1aa",
+        "book-2bdf40082c4be82b"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007186488",
+      "sourceIds": [
+        "xhs-same-isbn-9780007186488"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-02ed10ae41d131e7",
+        "book-9b1aeedf2c9677ba"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185580",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185580"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-dd9f5a91f98afb46",
+        "book-a4f1f946a5568c0c"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185368",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185368"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-9086a608330bf535",
+        "book-a34d580cf9b54d61"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007186471",
+      "sourceIds": [
+        "xhs-same-isbn-9780007186471"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-f35fd7d359b145c8",
+        "book-54919dfa5da3e0ac"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007186495",
+      "sourceIds": [
+        "xhs-same-isbn-9780007186495"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-b5b0eb9605609e54",
+        "book-7013fcf72b578886"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185412",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185412"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-2bea2c947618adde",
+        "book-892320f775a15982"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007412778",
+      "sourceIds": [
+        "xhs-same-isbn-9780007412778"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-b0c4135724e71db4",
+        "book-e78d9e8c232f8c17"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007512645",
+      "sourceIds": [
+        "xhs-same-isbn-9780007512645"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-5eba309b6b098b46",
+        "book-f2ac54830d54bff1"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185405",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185405"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-1cd6d68be00bb884",
+        "book-16364a8541a2efff"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007412761",
+      "sourceIds": [
+        "xhs-same-isbn-9780007412761"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-e98b89cdf006c375",
+        "book-7bf262f4b8e37e76"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007412785",
+      "sourceIds": [
+        "xhs-same-isbn-9780007412785"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-b00faa3d77a2e9bf",
+        "book-62873922dbe92b68"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007185436",
+      "sourceIds": [
+        "xhs-same-isbn-9780007185436"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-e6b9308b06dc3202",
+        "book-bb7fe7b9b7b7935c"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007412792",
+      "sourceIds": [
+        "xhs-same-isbn-9780007412792"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-03a27a2c57e76215",
+        "book-d50731c5c73d9356"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007512676",
+      "sourceIds": [
+        "xhs-same-isbn-9780007512676"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-3f06b7a063df3016",
+        "book-670c90049583f34a"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007512669",
+      "sourceIds": [
+        "xhs-same-isbn-9780007512669"
+      ],
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "bookIds": [
+        "book-5a95a4618963b72a",
+        "book-98b2b5bda24b9b90"
+      ],
+      "kind": "same-isbn",
+      "isbn": "9780007512683",
+      "sourceIds": [
+        "xhs-same-isbn-9780007512683"
+      ],
+      "checkedAt": "2026-11-11"
+    }
+  ]
 }

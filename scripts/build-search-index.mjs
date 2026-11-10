@@ -13,6 +13,7 @@ const text = value => typeof value === 'string' || typeof value === 'number' ? S
 export async function buildSearchIndex() {
   const raw = {};
   for (const [key, file] of Object.entries({ banana: 'banana', xu: 'xu', qing: 'qing', editorial: 'editorial', resourceCovers: 'resource-covers', resourceVolumes: 'resource-volumes', resourcePrices: 'resource-prices', liaoReading: 'liao-reading', helloReading: 'hello-reading', readingPlans: 'reading-plans', resourceBooks: 'resource-books', sssSongs: 'sss-songs', topicTaxonomy: 'topic-taxonomy', routePlan: 'route-plan', xuCurrent: 'xu-current' })) raw[key] = await read('english/data/' + file + '.json');
+  raw.resourceBooks = require('../english/book-progress.js').withReadingPlans(raw.resourceBooks, raw.readingPlans, raw.resourceVolumes);
   raw.xuSupplements = await Promise.all(['xu-thousand', 'xu-panorama'].map(file => read('english/data/' + file + '.json')));
   const catalog = model.normalize(raw), entries = [], knowledgeEntries = [], byResource = new Map(catalog.resources.map(item => [item.id, item]));
   const add = (section, kind, id, title, keywords, body, href, source) => {
