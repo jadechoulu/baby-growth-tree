@@ -107,7 +107,8 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
           load();
         }
         async function load(start=0){
-          const version=++revision,currentDir=trail.at(-1),restoreFocus=pane.contains(document.activeElement);status.textContent='正在加载资料目录…';
+          const version=++revision,currentDir=trail.at(-1),restoreFocus=!start&&pane.contains(document.activeElement);status.textContent='正在加载资料目录…';
+          pane.querySelector('.nas-audio-retry')?.remove();
           if(!start){
             const nav=h('div',{class:'nas-audio-path'},trail.map((item,index)=>button('打开'+item.name,item.name,()=>{trail.splice(index+1);load();})));
             pane.replaceChildren(nav,h('ul',{class:'nas-audio-list'}));
@@ -148,14 +149,13 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
               list.append(h('li',{},entry));
             }
             const next=start+result.list.length;
-            if(next<Number(result.total)){
-              if(!result.list.length)throw new Error('极空间目录分页中断，请重试。');
-              const more=button('继续加载资料目录','继续查看',()=>load(next));more.className='nas-audio-more';pane.append(more);
-            }
+            if(next<Number(result.total)&&!result.list.length)throw new Error('极空间目录分页中断，请重试。');
+            const more=root.EnglishAutomaticList.create({hasMore:next<Number(result.total),load:()=>load(next)});
+            more.classList.add('nas-audio-more');pane.append(more);
             status.textContent=list.children.length?'':audioOnly?'此层没有可播放音频，可返回上层或切换“全部资料”。':'此目录为空。';
             root.EnglishAudio.refresh();
             if(restoreFocus)pane.querySelector('.nas-audio-path button:last-child')?.focus({preventScroll:true});
-          }catch(error){if(!state.disposed&&version===revision){status.textContent=error.message;pane.querySelector('.nas-audio-retry')?.remove();const retry=button('重新加载资料目录','重试',()=>load(start));retry.className='nas-audio-retry';pane.append(retry);}}
+          }catch(error){if(!state.disposed&&version===revision){status.textContent=error.message;pane.querySelector('.nas-audio-more')?.remove();pane.querySelector('.nas-audio-retry')?.remove();const retry=button('重新加载资料目录','重试',()=>load(start));retry.className='nas-audio-retry';pane.append(retry);}}
         }
         show(false);return true;
       }

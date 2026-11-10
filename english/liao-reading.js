@@ -58,7 +58,7 @@ function render(data,ui){
   function bookList(matched,{key=state.mode,entries=null}={}){
     const limit=state.limits.get(key)||18,visible=matched.slice(0,limit);
     const body=h('div',{class:'liao-books'},h('ol',{class:'liao-book-list library-book-list library-book-cover-grid'},visible.map(book=>bookRow(book,entries?.get(book.id)))));
-    if(visible.length<matched.length)body.append(button('继续查看 · 余'+(matched.length-visible.length)+'本',()=>{state.limits.set(key,limit+18);const next=bookList(matched,{key,entries});body.replaceWith(next);next.querySelectorAll('.liao-book-card')[visible.length]?.querySelector('.liao-book-link')?.focus({preventScroll:true});},{class:'button liao-more'}));
+    body.append(root.EnglishAutomaticList.tail({total:matched.length,limit,step:18,load:(from,to)=>{state.limits.set(key,to);body.querySelector('ol').append(...matched.slice(from,to).map(book=>bookRow(book,entries?.get(book.id))));}}));
     return body;
   }
   function stagePlan(stage){

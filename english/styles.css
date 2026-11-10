@@ -2042,3 +2042,7 @@
 .english-site-search input:focus-visible{outline:none}
 .english-site-search:focus-within{outline:2px solid var(--green);outline-offset:2px}
 @media(max-width:420px){.site-actions .english-site-search{padding:0 6px;gap:4px}}
+
+/* 分页统一为自动加载尾标，完成后保留轻量状态，不占按钮位置。 */
+.auto-load-status{padding:16px 0;text-align:center;color:var(--muted);font-size:12px;line-height:1.6;font-weight:400}
+.auto-load-status button{color:inherit;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;min-height:44px;padding:0 8px}
