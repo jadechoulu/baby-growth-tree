@@ -5110,6 +5110,64 @@
       "isbn": "9780007512683",
       "publisherUrl": "https://collins.co.uk/products/9780007512683",
       "evidence": "公开单册isbn13与原版目录的Collins ISBN一致；仅核定这两个目录条目引用同一本，不据集合归类推定整套版本相同。"
+    },
+    {
+      "id": "xhs-flr-ef-individual-covers-20261111",
+      "title": "小花生公开书目 · First Little Readers E/F 16本单册封面",
+      "url": "https://www.xiaohuasheng.cn/book/c0eff58d083dd9e8",
+      "checkedAt": "2026-11-11",
+      "isbn": "9781338256574",
+      "evidence": "按已录E/F合辑16本题名逐册核对小花生详情及单册ISBN，保存原始封面引用；不改变书目ID、级别、顺序、主题、作者选版或个人记录。搜索分页未穷尽，不将搜索结果认作完整出版目录。"
+    },
+    {
+      "id": "xhs-original-isbn-9780007185573-20261111",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The Big Splash",
+      "url": "https://www.xiaohuasheng.cn/book/751ac6c5ea923304",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/751ac6c5ea923304",
+      "isbn": "9780007185573",
+      "publisherUrl": "https://collins.co.uk/products/9780007185573",
+      "checkedAt": "2026-11-11",
+      "evidence": "小花生逐册isbn13与已录Collins出版社单册ISBN一致，题名相符；复用原公共单册身份，不凭套系标题、题名相似度或书架数量绑定。"
+    },
+    {
+      "id": "xhs-original-isbn-9780007185535-20261111",
+      "title": "小花生公开单册与Collins原版ISBN核对 · The See-Saw",
+      "url": "https://www.xiaohuasheng.cn/book/c6a797906f523304",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/c6a797906f523304",
+      "isbn": "9780007185535",
+      "publisherUrl": "https://collins.co.uk/products/9780007185535",
+      "checkedAt": "2026-11-11",
+      "evidence": "小花生逐册isbn13与已录Collins出版社单册ISBN一致，题名相符；复用原公共单册身份，不凭套系标题、题名相似度或书架数量绑定。"
+    },
+    {
+      "id": "xhs-original-isbn-9780007186501-20261111",
+      "title": "小花生公开单册与Collins原版ISBN核对 · Monster Mess",
+      "url": "https://www.xiaohuasheng.cn/book/699a5ecd0ac38d17",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/699a5ecd0ac38d17",
+      "isbn": "9780007186501",
+      "publisherUrl": "https://collins.co.uk/products/9780007186501",
+      "checkedAt": "2026-11-11",
+      "evidence": "小花生逐册isbn13与已录Collins出版社单册ISBN一致，题名相符；复用原公共单册身份，不凭套系标题、题名相似度或书架数量绑定。"
+    },
+    {
+      "id": "xhs-original-isbn-9780007329175-20261111",
+      "title": "小花生公开单册与Collins原版ISBN核对 · In the Desert",
+      "url": "https://www.xiaohuasheng.cn/book/bfbca1953089c4a7",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/bfbca1953089c4a7",
+      "isbn": "9780007329175",
+      "publisherUrl": "https://collins.co.uk/products/9780007329175",
+      "checkedAt": "2026-11-11",
+      "evidence": "小花生逐册isbn13与已录Collins出版社单册ISBN一致，题名相符；复用原公共单册身份，不凭套系标题、题名相似度或书架数量绑定。"
+    },
+    {
+      "id": "xhs-original-isbn-9780007412808-20261111",
+      "title": "小花生公开单册与Collins原版ISBN核对 · I Can Help",
+      "url": "https://www.xiaohuasheng.cn/book/ab52f82fbf170c73",
+      "api": "https://m.xiaohuasheng.cn/api/mobileSite/viewBook/ab52f82fbf170c73",
+      "isbn": "9780007412808",
+      "publisherUrl": "https://collins.co.uk/products/9780007412808",
+      "checkedAt": "2026-11-11",
+      "evidence": "小花生逐册isbn13与已录Collins出版社单册ISBN一致，题名相符；复用原公共单册身份，不凭套系标题、题名相似度或书架数量绑定。"
     }
   ],
   "books": [
@@ -29895,7 +29953,8 @@
       "title": "In the Desert",
       "sourceIds": [
         "collins-pink-user",
-        "collins-topic-9780007329175"
+        "collins-topic-9780007329175",
+        "xhs-original-isbn-9780007329175-20261111"
       ],
       "seriesTitle": "Collins Big Cat 大猫分级",
       "level": "Pink 1B",
@@ -29944,6 +30003,11 @@
         },
         "sourceSha256": "766e6b508e52a28b0afdb0789593859efd52b05a2519fddebf5936e64969bec0",
         "processing": "保持比例；不放大；最大边900px；JPEG质量88"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "bfbca1953089c4a7"
+        ]
       }
     },
     {
@@ -30010,7 +30074,8 @@
       "sourceIds": [
         "collins-pink-user",
         "collins-topic-9780007185535",
-        "collins-topic-seesaw-amazon"
+        "collins-topic-seesaw-amazon",
+        "xhs-original-isbn-9780007185535-20261111"
       ],
       "seriesTitle": "Collins Big Cat 大猫分级",
       "level": "Pink 1B",
@@ -30061,6 +30126,11 @@
         },
         "sourceSha256": "dd0177c2ae4e1c870706c937f3f2235405144b5f84f5a0eea0c231f87a1536e1",
         "processing": "保持比例；不放大；最大边900px；JPEG质量88"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "c6a797906f523304"
+        ]
       }
     },
     {
@@ -30243,7 +30313,8 @@
       "sourceIds": [
         "collins-pink-user",
         "collins-topic-9780007412808",
-        "old-subtopic-help-abebooks"
+        "old-subtopic-help-abebooks",
+        "xhs-original-isbn-9780007412808-20261111"
       ],
       "seriesTitle": "Collins Big Cat 大猫分级",
       "level": "Pink 1B",
@@ -30284,6 +30355,11 @@
         ],
         "sourceSha256": "8fd6648d24cb112f7e66242840bc3f37a0edc96ebb94d682e45b038369090215",
         "processing": "保持比例；不放大；最大边900px；JPEG质量88"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "ab52f82fbf170c73"
+        ]
       }
     },
     {
@@ -30292,7 +30368,8 @@
       "title": "Monster Mess",
       "sourceIds": [
         "collins-pink-user",
-        "collins-topic-9780007186501"
+        "collins-topic-9780007186501",
+        "xhs-original-isbn-9780007186501-20261111"
       ],
       "seriesTitle": "Collins Big Cat 大猫分级",
       "level": "Pink 1B",
@@ -30342,6 +30419,11 @@
         },
         "sourceSha256": "1f9aef35ec3660b7a556f511742beea3bbaaaa918c511ea9e9870f30fd513bfe",
         "processing": "保持比例；不放大；最大边900px；JPEG质量88"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "699a5ecd0ac38d17"
+        ]
       }
     },
     {
@@ -30746,7 +30828,8 @@
       "title": "The Big Splash",
       "sourceIds": [
         "collins-pink-user",
-        "collins-topic-9780007185573"
+        "collins-topic-9780007185573",
+        "xhs-original-isbn-9780007185573-20261111"
       ],
       "seriesTitle": "Collins Big Cat 大猫分级",
       "level": "Pink 1B",
@@ -30789,6 +30872,11 @@
         ],
         "sourceSha256": "593730080878951f1a63204b617b9ae5a1bafdde849d9e716c5cf1a59de15fa8",
         "processing": "保持比例；不放大；最大边900px；JPEG质量88"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "751ac6c5ea923304"
+        ]
       }
     },
     {
@@ -61094,12 +61182,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 1,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106093630.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/5828b904030d3618",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106093630.jpg",
+        "title": "First Little Readers level E&F:  Crabby Crab",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297850",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "5828b904030d3618"
+        ]
+      }
     },
     {
       "id": "book-e498d25db0a79dc8",
@@ -61115,12 +61221,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 2,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106093805.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/c9e85d3135305dba",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106093805.jpg",
+        "title": "First Little Readers level E&F:  Ladybug's Birthday",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297867",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "c9e85d3135305dba"
+        ]
+      }
     },
     {
       "id": "book-ba89ca4d317db363",
@@ -61136,12 +61260,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 3,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106093404.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/dc5c028338bd27e4",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106093404.jpg",
+        "title": "First Little Readers level E&F:  Gabby  Loves Green",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297874",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "dc5c028338bd27e4"
+        ]
+      }
     },
     {
       "id": "book-6b3d1b59b4ad802b",
@@ -61157,12 +61299,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 4,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106093945.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/ab00e435b04d4edd",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106093945.jpg",
+        "title": "First Little Readers level E&F:  Little Red Hen Makes a Pizza",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297881",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "ab00e435b04d4edd"
+        ]
+      }
     },
     {
       "id": "book-1ec333bfeeec2efc",
@@ -61178,12 +61338,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 5,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094121.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/b15822cb78f036df",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094121.jpg",
+        "title": "First Little Readers level E&F:  My Best Friend",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297898",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "b15822cb78f036df"
+        ]
+      }
     },
     {
       "id": "book-fb247ae5450679ef",
@@ -61199,12 +61377,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 6,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094233.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/471d90889fec5315",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094233.jpg",
+        "title": "First Little Readers level E&F:  Gary the Monster",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297904",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "471d90889fec5315"
+        ]
+      }
     },
     {
       "id": "book-af6787d1e5ea9241",
@@ -61220,12 +61416,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 7,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094353.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/16241f12087645e0",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094353.jpg",
+        "title": "First Little Readers level E&F:  The Mouse and the Magic Bee",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297911",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "16241f12087645e0"
+        ]
+      }
     },
     {
       "id": "book-2927016e0deedfe5",
@@ -61241,12 +61455,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 8,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094518.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/c1b1b336fa84b5a1",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094518.jpg",
+        "title": "First Little Readers level E&F:  Stone Stew",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297928",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "c1b1b336fa84b5a1"
+        ]
+      }
     },
     {
       "id": "book-51e9d05745da5e35",
@@ -61262,12 +61494,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 9,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094648.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/b376bc80a2a1b81a",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094648.jpg",
+        "title": "First Little Readers level E&F:  Biggy the Bunny",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297935",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "b376bc80a2a1b81a"
+        ]
+      }
     },
     {
       "id": "book-d4c467b852051616",
@@ -61283,12 +61533,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 10,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094805.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/6d42511e826ba979",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094805.jpg",
+        "title": "First Little Readers level E&F:  The Queen 's New Cat",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297942",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "6d42511e826ba979"
+        ]
+      }
     },
     {
       "id": "book-a779653129143679",
@@ -61304,12 +61572,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 11,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106094938.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/551dda2bbda76d29",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106094938.jpg",
+        "title": "First Little Readers level E&F:  Tom's Lost Tooth",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297959",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "551dda2bbda76d29"
+        ]
+      }
     },
     {
       "id": "book-af9641350800ff7d",
@@ -61325,12 +61611,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 12,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/1082124/Book/20190130104552.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/ef6d7f1a140b7468",
+        "imageUrl": "https://img.xiaohuasheng.cn/1082124/Book/20190130104552.jpg",
+        "title": "First Little Readers level E&F:  Ghosterella",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297966",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "ef6d7f1a140b7468"
+        ]
+      }
     },
     {
       "id": "book-7a83c6c3523c405b",
@@ -61346,12 +61650,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 13,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106095203.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/c523b44ab18f43b0",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106095203.jpg",
+        "title": "First Little Readers level E&F:  Cal the Cactus",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297973",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "c523b44ab18f43b0"
+        ]
+      }
     },
     {
       "id": "book-ac5e70e3d9823039",
@@ -61367,12 +61689,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 14,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106095315.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/4558b3d2f6f4a41e",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106095315.jpg",
+        "title": "First Little Readers level E&F:  My Silly Sandwich",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297980",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "4558b3d2f6f4a41e"
+        ]
+      }
     },
     {
       "id": "book-99ae1040bf922f5d",
@@ -61388,12 +61728,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 15,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106095419.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/3e0ba29c4fd82b4d",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106095419.jpg",
+        "title": "First Little Readers level E&F:  Fran Will Fix It",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338297997",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "3e0ba29c4fd82b4d"
+        ]
+      }
     },
     {
       "id": "book-d847476b2df99abc",
@@ -61409,12 +61767,30 @@
       ],
       "sourceIds": [
         "riverside-flr-ef-9781338256574-20261108",
-        "coolcat-flr-e-f-20261108"
+        "coolcat-flr-e-f-20261108",
+        "xhs-flr-ef-individual-covers-20261111"
       ],
       "sourceOrder": 16,
       "publicationIsbn": "9781338256574",
-      "coverStatus": "pending-individual-cover",
-      "editionMatch": "reference-only"
+      "editionMatch": "reference-only",
+      "cover": "https://img.xiaohuasheng.cn/368930/Book/20181106095527.jpg",
+      "coverSource": {
+        "sourceUrl": "https://www.xiaohuasheng.cn/book/d94019b75529de52",
+        "imageUrl": "https://img.xiaohuasheng.cn/368930/Book/20181106095527.jpg",
+        "title": "First Little Readers level E&F:  Too Many Unicorns",
+        "provider": "小花生",
+        "kind": "individual-book",
+        "checkedAt": "2026-11-11",
+        "retrievedAt": "2026-11-11",
+        "edition": "First Little Readers English Parent Pack",
+        "isbn": "9781338298000",
+        "note": "E/F合辑ISBN9781338256574已录目录内的同名逐册；单册封面题名及E/F级别另行核对。"
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "d94019b75529de52"
+        ]
+      }
     },
     {
       "id": "book-c1f1ed7711d67623",
