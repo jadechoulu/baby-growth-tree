@@ -2043,6 +2043,25 @@
 .english-site-search:focus-within{outline:2px solid var(--green);outline-offset:2px}
 @media(max-width:420px){.site-actions .english-site-search{padding:0 6px;gap:4px}}
 
+.site-actions .english-book-finder{display:flex;align-items:center;gap:5px;flex:none;height:44px;min-height:44px;padding:8px;font-size:14px;white-space:nowrap}
+.english-book-finder .icon{width:18px;height:18px}
+@media(max-width:600px){
+  .site-page-bar:has(.english-book-finder)>.site-page-heading{display:none}
+  .site-actions .english-book-finder{width:44px;min-width:44px;justify-content:center}
+  .english-book-finder>span{display:none}
+  .site-actions:has(.english-book-finder) .english-site-search{min-width:44px}
+}
+.book-finder-links{display:grid;gap:12px}
+.book-finder-row{display:flex;align-items:center;gap:8px}
+.book-finder-link{display:flex;align-items:center;gap:12px;flex:1;min-width:0;min-height:56px;padding:12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-size:16px}
+.book-finder-link>span:first-of-type{flex:1}
+.book-finder-link>.icon{flex:none;width:22px;height:22px}
+.book-finder-link:hover{background:var(--light)}
+.book-finder-copy{flex:none;width:44px;height:44px}
+.book-finder-copy .icon{width:20px;height:20px}
+.book-finder .small-note{margin-top:16px}
+.book-finder .text-link{margin-left:8px;min-height:44px}
+
 /* 分页统一为自动加载尾标，完成后保留轻量状态，不占按钮位置。 */
 .auto-load-status{padding:16px 0;text-align:center;color:var(--muted);font-size:12px;line-height:1.6;font-weight:400}
 .auto-load-status button{color:inherit;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;min-height:44px;padding:0 8px}
@@ -2404,23 +2423,76 @@ body.site-navigation-open{overflow:hidden}
 }
 /* 全站检索与助手共用入口；领域内容仍在各自页面查看。 */
 .site-search-trigger{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:10px;border:1px solid var(--site-line,#dce4d8);border-radius:10px;background:var(--site-surface,#fffdf7);color:var(--site-ink,#2e6954);cursor:pointer}
-.site-search-dialog{width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:0;border:1px solid #d6dfd1;border-radius:16px;background:#fffdf7;color:#304f42;box-shadow:0 16px 80px #18332640;font:15px/1.6 system-ui,sans-serif;overflow:auto;overscroll-behavior:contain}
+/* 弹窗自有尺寸与间距，避免分类页面的表单和文字规则影响共用布局。 */
+.site-search-dialog{
+  --search-gutter:20px;
+  box-sizing:border-box;width:min(760px,calc(100vw - 24px));max-width:none;
+  max-height:calc(100dvh - 32px);padding:0;border:1px solid #d6dfd1;border-radius:16px;
+  background:#fffdf7;color:#304f42;box-shadow:0 16px 80px #18332640;
+  font:15px/1.6 system-ui,sans-serif;overflow:auto;overscroll-behavior:contain;
+}
 .site-search-dialog::backdrop{background:#20372e70}
-.site-search-dialog header{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:#fffdf7;border-bottom:1px solid #dce4d8}
-.site-search-dialog h2{margin:0;font-size:20px}.site-search-close{font-size:24px!important;min-width:44px}
+.site-search-dialog *{box-sizing:border-box}
+.site-search-dialog>header{
+  position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px var(--search-gutter);background:#fffdf7;border-bottom:1px solid #dce4d8;
+}
+.site-search-dialog h2{margin:0;min-width:0;font-size:18px;line-height:1.4}
 .site-search-dialog button,.site-search-dialog select,.site-search-dialog input,.site-search-dialog textarea{font:inherit;color:inherit}
-.site-search-dialog button,.site-search-dialog select{min-height:44px;padding:7px 12px;border:1px solid #ccd9c6;border-radius:9px;background:#f1f5e9;cursor:pointer}
-.site-search-dialog button:disabled{opacity:.55;cursor:wait}.site-search-dialog :focus-visible,.site-search-trigger:focus-visible{outline:3px solid #649e80;outline-offset:2px}
-.site-search-form{display:flex;gap:8px;padding:16px 20px 8px;flex-wrap:nowrap}
-.site-search-form input{flex:1 1 0;min-width:0;min-height:44px;padding:9px 12px;border:1px solid #cbd9c6;border-radius:9px;background:#fff;font-size:16px}
-.site-search-form .site-search-action{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:10px}.site-search-action svg{width:22px;height:22px}.site-search-form .site-search-ai{font-weight:700;background:#2e6954;color:white;border-color:#2e6954}
-.site-search-filters{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0 20px 8px;font-size:12px;color:#60745f}
-.site-search-mode{padding:3px 8px;border:1px solid #ccd9c6;border-radius:6px;background:#f1f5e9;font-size:12px;font-weight:600}.site-search-mode[data-state="answering"],.site-search-mode[data-state="preparing"],.site-search-mode[data-state="answer"]{color:#235b46;background:#e2f0e5;border-color:#9ac3a9}.site-search-mode[data-state="unavailable"]{color:#815a22;background:#fbf3e5;border-color:#ddc6a0}
-.site-search-status{margin:10px 20px;font-size:12px;color:#60745f;overflow-wrap:anywhere}.site-search-status button{font-size:13px}
-.site-search-answer{margin:12px 20px;padding:15px;border:1px solid #d6e2cd;border-radius:12px;background:#eff5e9;overflow-wrap:anywhere}.site-search-answer small{font-size:12px;color:#60745f}.site-search-answer p{white-space:pre-wrap;margin:8px 0 0}
-.site-search-results{display:grid;gap:8px;padding:0 20px 16px}.site-search-result{display:grid;gap:3px;padding:12px;border:1px solid #dce4d8;border-radius:10px;background:#fff;color:inherit;text-decoration:none;overflow-wrap:anywhere;min-width:0}.site-search-result:hover{border-color:#679174}.site-search-result strong{font-size:15px}.site-search-result small,.site-search-result span{font-size:12px;color:#60745f}
-.site-search-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;border-top:1px solid #dce4d8}.site-search-dialog footer small{font-size:12px}.site-search-dialog footer button{flex-shrink:0}
-.site-search-dialog>label{display:flex;gap:8px;align-items:center;margin:0 20px;min-height:44px;font-size:12px}.site-search-usage{display:grid;gap:3px;overflow-wrap:anywhere}.site-search-usage a{color:inherit;text-decoration:underline}.site-search-external{margin:0 20px;font-size:12px;overflow-wrap:anywhere}.site-search-external a{display:block;margin:6px 0;color:#2e6954}
-@media(max-width:600px){.site-search-dialog header{padding:10px 12px}.site-search-form{padding:12px 12px 8px;gap:6px}.site-search-filters{padding:0 12px 8px;gap:8px}.site-search-status{margin:10px 12px}.site-search-results{padding:0 12px 12px}.site-search-answer{margin:12px}.site-search-dialog footer{padding:10px 12px}.site-search-trigger{width:40px;height:44px;flex-basis:40px;padding:9px}}
-
-.site-search-memory{margin:0 20px 12px;font-size:12px;overflow-wrap:anywhere}.site-search-memory summary{cursor:pointer;min-height:44px;display:flex;align-items:center}.site-search-memory button{margin:3px;font-size:12px}.site-search-memory p{margin:6px 0}
+.site-search-dialog button,.site-search-dialog select{height:44px;min-height:44px;margin:0;padding:7px 12px;border:1px solid #ccd9c6;border-radius:9px;background:#fff;cursor:pointer;font-size:14px;line-height:1.5}
+.site-search-header-actions{display:flex;flex:none;gap:8px}
+.site-search-dialog .site-search-close,.site-search-dialog .site-search-new{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;font-size:24px;line-height:1;background:transparent;border-color:transparent}
+.site-search-dialog button:hover:not(:disabled){background:#edf3e9}
+.site-search-dialog button:disabled{opacity:.55;cursor:wait}
+.site-search-dialog :focus-visible,.site-search-trigger:focus-visible{outline:2px solid #649e80;outline-offset:2px}
+.site-search-form{display:flex;align-items:center;gap:8px;margin:0;padding:16px var(--search-gutter) 8px;flex-wrap:nowrap}
+.site-search-form input{flex:1 1 0;width:0;min-width:0;height:44px;min-height:44px;padding:8px 12px;border:1px solid #cbd9c6;border-radius:9px;background:#fff;font-size:16px;line-height:1.5}
+.site-search-form .site-search-action{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:10px}
+.site-search-action svg{width:22px;height:22px}
+.site-search-form .site-search-ai{font-weight:700;background:#2e6954;color:white;border-color:#2e6954}
+.site-search-form .site-search-ai:hover:not(:disabled){background:#235440}
+.site-search-filters{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 var(--search-gutter);font-size:14px;color:#60745f}
+.site-search-filters select{width:124px;flex:none}
+.site-search-filters label{display:flex;gap:8px;align-items:center;min-height:44px;margin:0;cursor:pointer}
+.site-search-filters label input{flex:0 0 16px;width:16px;height:16px;min-height:0;margin:0;accent-color:#2e6954}
+.site-search-hint{margin:4px var(--search-gutter) 16px;font-size:12px;line-height:1.6;color:#60745f}
+.site-search-response{margin:0 var(--search-gutter);padding:16px 0 20px;border-top:1px solid #e3e9df}
+.site-search-mode{margin:0;font-size:12px;line-height:1.6;color:#60745f;overflow-wrap:anywhere}
+.site-search-mode[data-state="answering"],.site-search-mode[data-state="preparing"],.site-search-mode[data-state="answer"]{color:#235b46}
+.site-search-mode[data-state="unavailable"]{color:#815a22}
+.site-search-status{margin:6px 0 0;font-size:14px;line-height:1.7;color:#60745f;overflow-wrap:anywhere}
+.site-search-status button{display:block;margin-top:12px}
+.site-search-answer{margin:16px 0 0;padding:16px;border:1px solid #d6e2cd;border-radius:12px;background:#eff5e9;overflow-wrap:anywhere}
+.site-search-answer small{font-size:12px;color:#60745f}
+.site-search-answer p{white-space:pre-wrap;margin:8px 0 0}
+.site-search-results{display:grid;gap:8px;margin-top:16px}
+.site-search-results:empty,.site-search-external:empty{display:none}
+.site-search-result{display:grid;gap:3px;padding:12px;border:1px solid #dce4d8;border-radius:10px;background:#fff;color:inherit;text-decoration:none;overflow-wrap:anywhere;min-width:0}
+.site-search-result:hover{border-color:#679174}
+.site-search-result strong{font-size:15px}
+.site-search-result small,.site-search-result span{font-size:12px;color:#60745f}
+.site-search-external{margin-top:16px;font-size:12px;overflow-wrap:anywhere}
+.site-search-external a{display:block;margin:6px 0;color:#2e6954}
+.site-search-dialog>footer{padding:4px var(--search-gutter);border-top:1px solid #dce4d8;background:#f5f7f0}
+.site-search-memory,.site-search-usage-panel{margin:0;font-size:14px;overflow-wrap:anywhere}
+.site-search-usage-panel{border-top:1px solid #e3e9df}
+.site-search-dialog>footer summary{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;list-style:none}
+.site-search-dialog>footer summary::-webkit-details-marker{display:none}
+.site-search-dialog>footer summary::after{content:'＋';margin-left:auto;flex:none;font-size:18px;color:#60745f}
+.site-search-dialog>footer details[open]>summary::after{content:'−'}
+.site-search-usage-preview{margin-left:auto;min-width:0;font-size:12px;color:#60745f;text-align:right}
+.site-search-dialog>footer .site-search-usage-panel summary::after{margin-left:0}
+.site-search-memory>div{display:grid;gap:8px;padding:4px 0 16px}
+.site-search-memory p{margin:0;font-size:12px;color:#60745f}
+.site-search-memory .site-search-memory-fact{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px}
+.site-search-memory-fact button{flex:none}
+.site-search-memory .site-search-conversation{width:100%;text-align:left}
+.site-search-memory .site-search-forget-all{justify-self:start;color:#8b493d}
+.site-search-usage{display:grid;gap:8px;padding:4px 0 16px;min-width:0;font-size:12px;line-height:1.7;color:#60745f;overflow-wrap:anywhere}
+.site-search-usage a{display:inline;white-space:nowrap;color:#2e6954;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:600px){
+  .site-search-dialog{--search-gutter:16px}
+  .site-search-form{gap:6px}
+  .site-search-trigger{width:40px;height:44px;flex-basis:40px;padding:9px}
+  .site-search-dialog h2{font-size:16px}
+}

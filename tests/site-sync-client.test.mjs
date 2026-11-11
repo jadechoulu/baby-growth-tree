@@ -6,7 +6,7 @@ import vm from 'node:vm';
 const source = await readFile(new URL('../shared/site-sync.js', import.meta.url), 'utf8');
 
 // 只模拟依赖边界，验证调用方可等待的结果，不模拟同步面板或布局。
-function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], assistantResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null }, areas } = {}) {
+function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], assistantResponses = [], bookResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null }, areas } = {}) {
   let states = structuredClone(areas || { english: initial }), action = async () => {}, calls = 0;
   const syncedAreas = [];
   const previewedAreas = [], enabledAreas = [];
@@ -52,6 +52,10 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
       if (url.startsWith(apiBase + '/api/xiaohuasheng/')) {
         requests.push({ url, options });
         return { ok: true, status: 200, json: async () => url.endsWith('/backup') ? { saved: true } : xhsJobs.shift() };
+      }
+      if (url === apiBase + '/api/book-finder/accounts') {
+        requests.push({ url, options });
+        return await bookResponses.shift()();
       }
       if (url.startsWith(apiBase + '/api/assistant')) {
         requests.push({ url, options });
@@ -207,4 +211,29 @@ test('云端书架任务只发固定本人授权请求，等完整结果后返�
   const anonymous = harness({ loggedIn: false });
   await assert.rejects(anonymous.client.readXiaohuasheng(), { code: 'AUTH_REQUIRED' });
   assert.equal(anonymous.requests.length, 0);
+});
+
+
+test('找书账号每次实时读取，不要求迁入英语记录，匿名或失效会话不返回账号', async () => {
+  const response = value => async () => ({ status: 200, ok: true, json: async () => ({ accounts: { epic: value } }) });
+  const h = harness({ initial: { enabled: false }, bookResponses: [response('fake-one'), response('fake-two')] });
+  assert.equal((await h.client.bookFinderAccounts()).accounts.epic, 'fake-one');
+  assert.equal((await h.client.bookFinderAccounts()).accounts.epic, 'fake-two');
+  assert.equal(h.requests.length, 2);
+  for (const request of h.requests) { assert.equal(request.options.cache, 'no-store'); assert.equal(request.options.method, 'GET'); }
+  const anonymous = harness({ loggedIn: false });
+  await assert.rejects(anonymous.client.bookFinderAccounts(), { code: 'AUTH_REQUIRED' });
+  assert.equal(anonymous.requests.length, 0);
+  const expired = harness({ bookResponses: [async () => ({ status: 401 })] });
+  await assert.rejects(expired.client.bookFinderAccounts(), { code: 'AUTH_REQUIRED' });
+});
+
+test('找书请求期间会话失效，先前成功响应也不得交给页面', async () => {
+  let finish, started;
+  const waiting = new Promise(resolve => { started = resolve; });
+  const h = harness({ bookResponses: [() => { started(); return new Promise(resolve => { finish = resolve; }); }, async () => ({ status: 401 })] });
+  const first = h.client.bookFinderAccounts(); await waiting;
+  await assert.rejects(h.client.bookFinderAccounts(), { code: 'AUTH_REQUIRED' });
+  finish({ ok: true, status: 200, json: async () => ({ accounts: { epic: 'fake-late' } }) });
+  await assert.rejects(first, { code: 'AUTH_REQUIRED' });
 });

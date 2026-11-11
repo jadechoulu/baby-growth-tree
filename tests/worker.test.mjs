@@ -103,6 +103,7 @@ function setup(overrides = {}) {
   let privateRepo = true;
   let file = null;
   const documents = new Map();
+  let bookAccounts = null;
   let conflict = null;
   let networkFailure = false;
   async function network(url, options = {}) {
@@ -130,6 +131,9 @@ function setup(overrides = {}) {
         return Response.json({}, { status: 201 });
       }
       return current ? Response.json({ sha: current.sha, encoding: 'base64', content: Buffer.from(JSON.stringify(current.raw)).toString('base64') }) : Response.json({}, { status: 404 });
+    }
+    if (url.startsWith('https://api.github.com/repos/example/private-records/contents/private/book-finder.json')) {
+      return bookAccounts ? Response.json({ sha: SHA_A, encoding: 'base64', content: Buffer.from(JSON.stringify(bookAccounts)).toString('base64') }) : Response.json({}, { status: 404 });
     }
     const match = /^https:\/\/api\.github\.com\/repos\/example\/private-records\/contents\/records\/(profile|growth|health|english)\.json/.exec(url);
     if (match) {
@@ -166,7 +170,7 @@ function setup(overrides = {}) {
     assert.ok(token);
     return token;
   }
-  return { env, sql, calls, request, api, begin, finish, login, advance: (ms) => { time += ms; }, identity: (value) => { identity = value; }, private: (value) => { privateRepo = value; }, file: (raw, sha = SHA_A) => { file = raw === null ? null : { raw, sha }; }, cloudFile: () => file, conflict: (value) => { conflict = value; }, failNetwork: () => { networkFailure = true; } };
+  return { bookAccounts: value => { bookAccounts = value; }, env, sql, calls, request, api, begin, finish, login, advance: (ms) => { time += ms; }, identity: (value) => { identity = value; }, private: (value) => { privateRepo = value; }, file: (raw, sha = SHA_A) => { file = raw === null ? null : { raw, sha }; }, cloudFile: () => file, conflict: (value) => { conflict = value; }, failNetwork: () => { networkFailure = true; } };
 }
 
 test('未配置、未登录及其他来源不会访问 GitHub 私有数据', async () => {
@@ -414,4 +418,42 @@ test('助手记忆复用本人鉴权与固定私有文件，不写入原英语�
   assert.equal(cleared.status, 200);
   const original = await app.api('/api/data/english', token); assert.equal((await original.json()).snapshot, null);
   app.private(false); assert.equal((await app.api('/api/assistant/memory', token)).status, 503);
+});
+
+
+test('找书账号仅限本人有效会话与允许来源，匿名、异人、过期与注销均拒绝', async () => {
+  const app = setup();
+  const path = '/api/book-finder/accounts';
+  assert.equal((await app.api(path)).status, 401);
+  assert.equal(app.calls.length, 0);
+  const token = await app.login();
+  const before = app.calls.length;
+  assert.equal((await app.api(path, token, { headers: { Origin: 'https://untrusted.example' } })).status, 403);
+  assert.equal(app.calls.length, before);
+  await app.api('/api/logout', token, { method: 'POST' });
+  assert.equal((await app.api(path, token)).status, 401);
+  const next = await app.login(); app.advance(13 * 60 * 60_000);
+  assert.equal((await app.api(path, next)).status, 401);
+  const other = setup(); other.identity({ id: 99, login: 'other' });
+  assert.equal((await other.finish(await other.begin())).status, 400);
+});
+
+test('找书只读固定私人文件、无缓存且实时返回白名单；拒绝公开仓和非法数据', async () => {
+  const app = setup(), token = await app.login(), path = '/api/book-finder/accounts';
+  assert.deepEqual(await (await app.api(path, token)).json(), { accounts: {} });
+  app.bookAccounts({ version: 1, accounts: { epic: 'fake-epic@example.test', overdrive: 'fake-library', ignored: 'not-returned' }, extra: 'not-returned' });
+  const response = await app.api(path + '?path=evil.json', token);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('Cache-Control'), 'no-store');
+  assert.deepEqual(await response.json(), { accounts: { epic: 'fake-epic@example.test', overdrive: 'fake-library' } });
+  const read = app.calls.at(-1);
+  assert.equal(read.url, 'https://api.github.com/repos/example/private-records/contents/private/book-finder.json?ref=main');
+  assert.equal(read.options.cache, 'no-store');
+  app.bookAccounts({ version: 1, accounts: { epic: 'changed@example.test' } });
+  assert.equal((await (await app.api(path, token)).json()).accounts.epic, 'changed@example.test');
+  assert.equal((await app.api(path, token, { method: 'PUT' })).status, 405);
+  app.bookAccounts({ version: 1, accounts: { epic: { secret: 'must-not-leak' } } });
+  const invalid = await app.api(path, token);
+  assert.equal(invalid.status, 502); assert.doesNotMatch(await invalid.text(), /must-not-leak/);
+  app.private(false); assert.equal((await app.api(path, token)).status, 503);
 });

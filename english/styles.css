@@ -2043,6 +2043,25 @@
 .english-site-search:focus-within{outline:2px solid var(--green);outline-offset:2px}
 @media(max-width:420px){.site-actions .english-site-search{padding:0 6px;gap:4px}}
 
+.site-actions .english-book-finder{display:flex;align-items:center;gap:5px;flex:none;height:44px;min-height:44px;padding:8px;font-size:14px;white-space:nowrap}
+.english-book-finder .icon{width:18px;height:18px}
+@media(max-width:600px){
+  .site-page-bar:has(.english-book-finder)>.site-page-heading{display:none}
+  .site-actions .english-book-finder{width:44px;min-width:44px;justify-content:center}
+  .english-book-finder>span{display:none}
+  .site-actions:has(.english-book-finder) .english-site-search{min-width:44px}
+}
+.book-finder-links{display:grid;gap:12px}
+.book-finder-row{display:flex;align-items:center;gap:8px}
+.book-finder-link{display:flex;align-items:center;gap:12px;flex:1;min-width:0;min-height:56px;padding:12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-size:16px}
+.book-finder-link>span:first-of-type{flex:1}
+.book-finder-link>.icon{flex:none;width:22px;height:22px}
+.book-finder-link:hover{background:var(--light)}
+.book-finder-copy{flex:none;width:44px;height:44px}
+.book-finder-copy .icon{width:20px;height:20px}
+.book-finder .small-note{margin-top:16px}
+.book-finder .text-link{margin-left:8px;min-height:44px}
+
 /* 分页统一为自动加载尾标，完成后保留轻量状态，不占按钮位置。 */
 .auto-load-status{padding:16px 0;text-align:center;color:var(--muted);font-size:12px;line-height:1.6;font-weight:400}
 .auto-load-status button{color:inherit;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;min-height:44px;padding:0 8px}
