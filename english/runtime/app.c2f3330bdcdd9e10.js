@@ -6243,6 +6243,8 @@ function refreshReadingPlan(focusId){
   document.getElementById(focusId)?.focus({preventScroll:true});
 }
 function bookReadCountBadge(bookId,inline=false){
+  // 套系封面不代表某一本，不查询或下传成员册的阅读次数。
+  if(!bookId)return null;
   const count=BP.bookState(S.records,bookId,BOOKS).readCount;
   return count>1?h('span',{class:'book-read-count'+(inline?' book-read-count-inline':''),'aria-label':'小花生阅读 '+count+' 次',title:'小花生阅读 '+count+' 次'},count+'次'):null;
 }
@@ -6703,9 +6705,12 @@ function practiceDonut(data,colors){
   return h('div',{class:'practice-ring'},svg,h('div',{class:'practice-ring-center'},h('span',{},s.metric==='actual'?'实际投入':'有效投入'),h('strong',{},P.hours(data.minutes)),h('small',{},'小时')));
 }
 function practiceRanking(data,colors){
-  const s=practiceStatState();return h('div',{class:'practice-ranking'},h('div',{class:'practice-section-head'},h('h3',{},'素材投入'),h('span',{class:'small-note'},data.groups.length+' 项 · '+(s.focusFrom?'所选时段':'当前统计范围'))),
-    data.groups.length?h('div',{class:'practice-rank-grid'},data.groups.slice(0,s.rankLimit).map((g,i)=>h('button',{type:'button',id:'practice-rank-'+i,class:'practice-rank-row','aria-pressed':String(s.group===g.id),'data-action':'practice-stat-group','data-group':g.id,style:{'--material-color':colors.get(g.id)}},h('span',{class:'practice-rank-dot','aria-hidden':true}),h('span',{class:'practice-rank-content'},h('span',{class:'practice-rank-name'},g.label,data.groups.some(other=>other.id!==g.id&&other.label===g.label)?h('small',{class:'practice-rank-stage'},stages.get(g.stageId)?.title):null),h('span',{class:'practice-rank-values'},h('b',{},P.hours(g.minutes)+'h'),h('small',{},(g.share*100).toFixed(1)+'%')),h('span',{class:'practice-rank-track'},h('span',{style:{width:(g.share*100)+'%'}})))))):h('p',{class:'small-note'},'记录后，在这里查看各素材的投入占比。'),
-    data.groups.length>s.rankLimit?h('button',{type:'button',id:'practice-rank-more',class:'text-link',onclick:()=>practiceStatsChange({rankLimit:s.rankLimit+12})},'查看其余 '+(data.groups.length-s.rankLimit)+' 项'):null);
+  const s=practiceStatState();
+  const row=(g,i)=>h('button',{type:'button',id:'practice-rank-'+i,class:'practice-rank-row','aria-pressed':String(s.group===g.id),'data-action':'practice-stat-group','data-group':g.id,style:{'--material-color':colors.get(g.id)}},h('span',{class:'practice-rank-dot','aria-hidden':true}),h('span',{class:'practice-rank-content'},h('span',{class:'practice-rank-name'},g.label,data.groups.some(other=>other.id!==g.id&&other.label===g.label)?h('small',{class:'practice-rank-stage'},stages.get(g.stageId)?.title):null),h('span',{class:'practice-rank-values'},h('b',{},P.hours(g.minutes)+'h'),h('small',{},(g.share*100).toFixed(1)+'%')),h('span',{class:'practice-rank-track'},h('span',{style:{width:(g.share*100)+'%'}}))));
+  const list=h('div',{class:'practice-rank-grid'},data.groups.slice(0,s.rankLimit).map(row));
+  return h('div',{class:'practice-ranking'},h('div',{class:'practice-section-head'},h('h3',{},'素材投入'),h('span',{class:'small-note'},data.groups.length+' 项 · '+(s.focusFrom?'所选时段':'当前统计范围'))),
+    data.groups.length?list:h('p',{class:'small-note'},'记录后，在这里查看各素材的投入占比。'),
+    window.EnglishAutomaticList.tail({total:data.groups.length,limit:s.rankLimit,step:12,load:(from,to)=>{s.rankLimit=to;list.append(...data.groups.slice(from,to).map((group,index)=>row(group,from+index)));}}));
 }
 function practiceTrend(data,colors){
   const s=practiceStatState(),buckets=P.trendBuckets(data.entries,{grain:s.grain,anchor:s.trendAnchor,metric:s.metric,count:s.grain==='month'?6:s.grain==='week'?6:undefined}),max=Math.max(60,Math.ceil(Math.max(0,...buckets.map(b=>b.minutes))/60)*60);
