@@ -1,0 +1,16 @@
+docs/architecture.md
+  h_c836a884b9f50f 7-10
+site.css
+  h_c836a884b9f50f 344-351,353-358,361-407
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a298383b6a5b80b23d3173b082274a6d04eb4d0d",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
