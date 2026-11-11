@@ -1,0 +1,20 @@
+docs/site-assistant.md
+  h_c836a884b9f50f 19-20
+shared/site-search.js
+  h_c836a884b9f50f 28-31,40,42-45,50,54-55,84-86,92-94,170,173,210,234,237-238,255
+site.css
+  h_c836a884b9f50f 358,360-363,366,371-383,386,392,394-409,415
+tests/site-search-access.test.mjs
+  h_c836a884b9f50f 108-118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4ee0f23bbec191278c82844d5ccc846e3991a0c0",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
