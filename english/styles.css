@@ -1799,7 +1799,7 @@
 .file-preview::backdrop{background:#173b3166}
 .file-preview>header{display:flex;align-items:center;gap:6px;padding:6px 8px;border-bottom:1px solid var(--line);min-width:0}
 .file-preview h2{flex:1;min-width:0;margin:0;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
-.file-preview button,.file-preview-download{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:30px;height:30px;min-height:30px;padding:3px 7px;border:1px solid var(--line);border-radius:5px;color:var(--ink);background:var(--paper);font:inherit;font-size:13px;cursor:pointer;text-decoration:none}
+.file-preview button,.file-preview-download,.file-preview-original{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:30px;height:30px;min-height:30px;padding:3px 7px;border:1px solid var(--line);border-radius:5px;color:var(--ink);background:var(--paper);font:inherit;font-size:13px;cursor:pointer;text-decoration:none}
 .file-preview button:disabled{opacity:.4;cursor:default}
 .file-preview button:focus-visible,.file-preview a:focus-visible{outline:2px solid var(--green);outline-offset:1px}
 .file-preview-controls{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:5px 8px;border-bottom:1px solid var(--line);font-size:13px}

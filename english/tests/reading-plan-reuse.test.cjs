@@ -30,6 +30,11 @@ test('原表阅读计划派生公共目录，稳定ID、顺序和句型只维护
       assert.deepEqual(book.patterns,original.patterns);
       assert.equal(book.cover,original.cover,'原表单册的封面随公共目录投影保留');
       assert.deepEqual(book.coverSource,original.coverSource,'保留逐册封面核对来源');
+      if(original.externalIds?.xiaohuasheng)for(const bookId of original.externalIds.xiaohuasheng){
+        const match=BP.matchEntry(plans,{bookId,title:'外站可变题名'},merged,catalog);
+        assert.equal(match.candidates.length,1);
+        assert.equal(match.candidates[0].publicBookId,original.id,'精确外站身份不受括号、标点或题名改动影响');
+      }
       assert.ok(book.sourceIds.length,'派生目录保留原表来源');
       assert.ok(book.sourceIds.every(id=>merged.sources.some(source=>source.id===id)));
     }

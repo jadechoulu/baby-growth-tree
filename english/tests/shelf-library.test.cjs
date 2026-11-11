@@ -32,6 +32,22 @@ test('同名不同外部身份不硬绑；无套系依据保留独立单本',()=
   const config={...options,directory:{books:[{id:'public',title:'Same',externalIds:{xiaohuasheng:['other']}}]}};
   assert.equal(Shelf.groups(Shelf.apply({},snap,config).changes,config).length,2);
 });
+test('已核ISBN的大猫外站身份复用公共单册，历史书架入口不重复保留套系',()=>{
+  const directory=require('../data/resource-books.json');
+  const ids=['751ac6c5ea923304','c6a797906f523304','699a5ecd0ac38d17','bfbca1953089c4a7','ab52f82fbf170c73'];
+  const series={id:'synthetic-series',appBookId:'901',title:'Synthetic Series'};
+  const entries=ids.map((id,i)=>book(id,{appBookId:String(9000+i),title:'Synthetic Book '+i,series,read:i===0}));
+  const config={...options,directory};
+  const legacy=Shelf.apply({},snapshot(entries),options).changes;
+  assert.equal(Shelf.groups(legacy,options).length,1);
+  assert.equal(Shelf.groups(legacy,config).length,0,'公共身份补齐后旧私人目录也即时去重');
+  const result=Shelf.apply(legacy,snapshot(entries),config),records={...legacy,...result.changes};
+  assert.equal(result.matched.length,1,'只导入合成快照中标为已读的一册');
+  assert.ok(entries.every(entry=>BP.matchEntry(options.plans,entry,directory,options.catalog).candidates.length===1));
+  assert.equal(Shelf.groups(records,config).length,0);
+  assert.equal(BP.bookState(records,'book-0060dd08ba449561').done,true);
+  assert.equal(BP.bookState(records,'book-7050d391b5ec6563').done,false);
+});
 test('反复同步幂等，手工勾选共用记录；原站改为未读只撤回外部勾选',()=>{
   const snap=snapshot([book('a',{read:true}),book('b')]),first=Shelf.apply({},snap,options),records={...first.changes,...BP.manualUpdate({},'shelf-book-owner-b',true)};
   assert.deepEqual(Shelf.apply(records,snap,options).changes,{});

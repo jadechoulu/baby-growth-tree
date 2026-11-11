@@ -4616,8 +4616,9 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     const heading=h('h2',{},title||decodeURIComponent((info.path||info.url).split('/').at(-1)));
     const source=()=>info.remote?info.url:asset(info.path);
     const download=info.kind==='web'?h('a',{href:info.url,target:'_blank',rel:'noopener noreferrer',class:'file-preview-download','data-preview-original':'true',title:'在浏览器打开原站网页，不自动唤起 App'},'原站网页 ↗'):h('a',{href:source(),download:info.filename||decodeURIComponent(info.path.split('/').at(-1)),class:'file-preview-download','data-preview-original':'true'},'下载');
+    const original=info.kind==='web'?null:h('a',{href:parent?.info.url||source(),target:'_blank',rel:'noopener noreferrer',class:'file-preview-original','data-preview-original':'true',title:parent?'在浏览器打开极空间原分享页':'在新窗口打开原文件'},'原地址 ↗');
     const controls=h('div',{class:'file-preview-controls'}),footer=h('footer',{},status);
-    dialog.append(h('header',{},heading,download,button('关闭资源预览','×',close)),controls,body,footer);
+    dialog.append(h('header',{},heading,original,download,button('关闭资源预览','×',close)),controls,body,footer);
     if(parent)dialog.querySelector('header').prepend(button('返回极空间资料目录','‹ 返回',close));
     state.dispose=()=>{
       if(state.disposed)return;state.disposed=true;
