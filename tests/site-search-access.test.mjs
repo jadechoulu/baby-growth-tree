@@ -105,6 +105,17 @@ test('模型未配置时明确标示未启用，保留站内结果；缓存回�
   assert.equal(cached.byClass('site-search-mode').textContent, 'AI历史回答 · 本次未调用模型');
 });
 
+test('输入后立即提交AI，排队的输入检索不会清除快速返回的回答', async () => {
+  const h = harness({ ask: async () => ({ mode: 'answer', cached: true, answer: '缓存答案', sources: [] }) });
+  await settle(); h.calls.length = 0;
+  h.input.value = '推荐动物'; h.input.dispatchEvent(new Event('input'));
+  h.byClass('site-search-ai').dispatchEvent(new Event('click')); await h.asked; await settle();
+  await new Promise(resolve => setTimeout(resolve, 240));
+  assert.equal(h.byClass('site-search-answer').hidden, false);
+  assert.match(h.byClass('site-search-answer').textContent, /缓存答案/);
+  assert.equal(h.calls.filter(call => call === 'search').length, 1);
+});
+
 test('模型选择仅展示资源时，仍说明已经过AI判断', { timeout: 5000 }, async () => {
   const h = harness({ ask: async () => ({ mode: 'results', sources: [], usage: { modelCalls: 1 } }) });
   await settle(); await h.submit('推荐动物'); await h.asked; await settle();
