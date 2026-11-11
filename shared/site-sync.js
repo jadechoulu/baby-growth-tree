@@ -29,7 +29,7 @@
     async function request(area, method, body) {
       if (!token) throw Object.assign(new Error('请登录本人 GitHub 账号后同步。'), { code: 'AUTH_REQUIRED' });
       let response;
-      const path = { 'assistant': '/api/assistant', 'assistant-search': '/api/assistant/search', 'assistant-memory': '/api/assistant/memory', 'xhs-sync': '/api/xiaohuasheng/sync', 'xhs-backup': '/api/xiaohuasheng/backup' }[area] || (['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area);
+      const path = { 'book-accounts': '/api/book-finder/accounts', 'assistant': '/api/assistant', 'assistant-search': '/api/assistant/search', 'assistant-memory': '/api/assistant/memory', 'xhs-sync': '/api/xiaohuasheng/sync', 'xhs-backup': '/api/xiaohuasheng/backup' }[area] || (['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area);
       try {
         // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 只有短期会话令牌进入固定 API 授权头，GitHub 密钥不进入前端。
         response = await fetch(apiBase + path + (area === 'assistant-memory' && method === 'GET' && body?.conversationId ? '?conversationId=' + encodeURIComponent(body.conversationId) : ''), { method, redirect: 'error', cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json', Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body && method !== 'GET' ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(area.startsWith('assistant') ? 40000 : 25000) });
@@ -342,6 +342,14 @@
     const ready = init();
     singleton = {
       ready, open, changed, sync, syncAll, getState,
+      async bookFinderAccounts() {
+        await ready;
+        const currentToken = token;
+        const result = await request('book-accounts', 'GET');
+        // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 退出或更换会话后，迟到的私人账号响应失效。
+        if (!currentToken || token !== currentToken || !user) throw Object.assign(new Error('请重新登录本人 GitHub 账号。'), { code: 'AUTH_REQUIRED' });
+        return result;
+      },
       async askAssistant(question) { await ready; return request('assistant', 'POST', question); },
       async searchAssistant(question) { await ready; return request('assistant-search', 'POST', question); },
       async assistantMemory(conversationId) { await ready; return request('assistant-memory', 'GET', { conversationId }); },

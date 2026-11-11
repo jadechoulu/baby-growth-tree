@@ -220,6 +220,31 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
     } catch { throw new HttpError(502, 'INVALID_CLOUD_DATA', '云端记录格式异常，未覆盖任何记录，请检查仓库文件。'); }
   }
 
+  async function bookFinderAccounts(config) {
+    await privateRepo(config);
+    // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 本人会话验证后只读取固定私人文件，不接受客户端仓库或路径。
+    const response = await github(config, `${repoPath(config)}/contents/private/book-finder.json?ref=${encodeURIComponent(config.GITHUB_DATA_BRANCH)}`, { cache: 'no-store' });
+    if (response.status === 404) return { accounts: {} };
+    if (!response.ok) throw new HttpError(502, 'BOOK_ACCOUNTS_UNAVAILABLE', '账号暂时无法读取，请稍后重试。');
+    try {
+      const file = await response.json();
+      if (file.encoding !== 'base64' || !SHA.test(file.sha)) throw new Error();
+      const data = JSON.parse(decodeContent(file.content));
+      if (data.version !== 1 || !data.accounts || typeof data.accounts !== 'object') throw new Error();
+      const accounts = {};
+      for (const provider of ['epic', 'overdrive']) {
+        const value = data.accounts[provider];
+        if (value === undefined) continue;
+        if (typeof value !== 'string' || !value.trim() || value.length > 320 || /[\r\n\0]/.test(value)) throw new Error();
+        accounts[provider] = value;
+      }
+      return { accounts };
+    } catch {
+      // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 私人账号及原始响应不进入错误消息。
+      throw new HttpError(502, 'INVALID_BOOK_ACCOUNTS', '账号配置暂不可用，请检查私人配置。');
+    }
+  }
+
   async function session(request, config) {
     const authorization = request.headers.get('Authorization') || '';
     const token = authorization.startsWith('Bearer ') ? authorization.slice(7) : '';
@@ -295,6 +320,10 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
         if (url.pathname === '/api/logout' && request.method === 'POST') {
           await stateStore(config, 'delete', 'session', current.hash);
           return responseHeaders(json({ ok: true, revoked: true }), origin);
+        }
+        if (url.pathname === '/api/book-finder/accounts') {
+          if (request.method !== 'GET') throw new HttpError(405, 'METHOD_NOT_ALLOWED', '请求方法不支持。');
+          return responseHeaders(json(await bookFinderAccounts(config)), origin);
         }
         if (['/api/assistant', '/api/assistant/memory', '/api/assistant/search'].includes(url.pathname)) {
           // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 全站检索、模型及记忆均通过同一固定本人numeric ID会话校验，客户端不能选择账号。
