@@ -116,7 +116,7 @@
         engine = root.XiaoyaSyncEngine.createEngine({
           journal: { get: area => journal.get(scope + '|' + area), update: (area, change) => journal.update(scope + '|' + area, change) },
           request, lock,
-          onStatus() { updateButtons(); },
+          onStatus() { updateButtons(); emit('sync-state'); },
         });
         for (const [area, adapter] of Object.entries(adapters)) await engine.register(area, {
           read: adapter.read,
@@ -131,7 +131,7 @@
     async function authenticate() {
       const result = await request('session', 'GET');
       if (!Number.isSafeInteger(result.user?.id) || typeof result.user.login !== 'string') throw new Error('登录身份响应无效。');
-      user = result.user; engine.authenticate(true); updateButtons(); emit('auth');
+      user = result.user; await engine.authenticate(true); updateButtons(); emit('auth');
     }
     function login() {
       if (!apiBase) return;
@@ -331,11 +331,11 @@
       const result = await request('xhs-backup', 'POST', { snapshot });
       if (result.saved !== true) throw new Error('云端备份未确认，未更新进度。');
     }
-    function resume() { if (engine && user) for (const area of Object.keys(names)) void engine.sync(area); }
-    root.addEventListener('online', resume);
-    root.addEventListener('focus', resume);
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) resume(); });
-    setInterval(() => { if (!document.hidden) resume(); }, 15000);
+    // 打开页面在 authenticate 中读取一次；不因定时、切回页面或焦点变化轮询私人记录。
+    // 断网恢复只续传尚未保存的修改，不重复检查已同步记录。
+    root.addEventListener('online', () => {
+      if (engine && user) for (const [area,state] of Object.entries(engine.states())) if (state.enabled && state.pending && !state.conflict) void engine.sync(area);
+    });
     if (channel) channel.onmessage = event => { if (names[event.data?.area]) { emit(event.data.area); void engine?.changed(event.data.area); } };
     root.addEventListener('storage', event => { if (event.key === 'little-leaf-english-v1') { emit('english'); void engine?.changed('english'); } });
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });

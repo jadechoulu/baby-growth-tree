@@ -40,7 +40,7 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
     XiaoyaSyncEngine: { createJournal: () => ({}), createEngine: () => engine },
     navigator: { locks: { request: (_, callback) => callback() } },
   });
-  const requests = [];
+  const requests = []; let intervals = 0;
   const context = {
     window, document, URL, AbortSignal, crypto: { randomUUID: () => 'test-request' },
     location: { protocol: 'https:', hostname: 'pages.example.test' },
@@ -66,12 +66,23 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
       return expired ? { status: 401 } : { status: 200, ok: true, json: async () => ({ user: { id: 1, login: 'test-user' } }) };
     },
     sessionStorage: { getItem: key => storage.get(key), removeItem: key => storage.delete(key) },
-    setInterval() {}, setTimeout(callback) { queueMicrotask(callback); }, clearTimeout() {},
+    setInterval() { intervals++; }, setTimeout(callback) { queueMicrotask(callback); }, clearTimeout() {},
   };
   vm.runInNewContext(source, context);
   const client = window.XiaoyaSync.createClient({ profileClient: { subscribe() {} } });
-  return { client, document, previewedAreas, enabledAreas, requests, syncedAreas, calls: () => calls, setState(value, area = 'english') { states[area] = structuredClone(value); }, onSync(value) { action = value; } };
+  return { client, document, window, intervals:()=>intervals, previewedAreas, enabledAreas, requests, syncedAreas, calls: () => calls, setState(value, area = 'english') { states[area] = structuredClone(value); }, onSync(value) { action = value; } };
 }
+
+test('已同步私人记录不设置轮询，切回和聚焦不拉取；恢复联网只续传未保存修改', async () => {
+  const h = harness(); await h.client.ready;
+  assert.equal(h.intervals(), 0);
+  h.window.dispatchEvent(new Event('focus')); h.document.dispatchEvent(new Event('visibilitychange')); h.window.dispatchEvent(new Event('online'));
+  await new Promise(resolve=>setImmediate(resolve)); assert.equal(h.calls(), 0);
+  h.setState({enabled:true,pending:true}); h.window.dispatchEvent(new Event('online'));
+  await new Promise(resolve=>setImmediate(resolve)); assert.equal(h.calls(), 1);
+  h.setState({enabled:true,pending:true,conflict:{}}); h.window.dispatchEvent(new Event('online'));
+  await new Promise(resolve=>setImmediate(resolve)); assert.equal(h.calls(), 1);
+});
 
 test('全未连接时顶部动作先预览四类记录，明确确认后才连接并执行一键同步', async () => {
   const h = harness({ areas: Object.fromEntries(['profile', 'growth', 'health', 'english'].map(area => [area, { enabled: false }])) });

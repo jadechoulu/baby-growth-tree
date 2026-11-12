@@ -5,6 +5,21 @@ const B=require('../book-progress.js');
 const origin='https://www.xiaohuasheng.cn',base=origin+'/bookcase/user_42/tag_-6';
 const book=(id,title)=>({bookId:id,title});
 const home={authenticated:true,accountId:'42'};
+
+test('每次页面打开只自动抓取一次，等待本人连接及初次记录同步，不因重绘、聚焦或失败循环抓取',async()=>{
+  let state={authenticated:false,enabled:false},calls=0;
+  const options={getState:async()=>state,synchronize:async()=>{calls++;}};
+  const attempt=X.onPageOpen(options);
+  assert.equal(await attempt(),false);
+  state={authenticated:true,enabled:true,syncing:true}; assert.equal(await attempt(),false);
+  state={authenticated:true,enabled:true};
+  await Promise.all([attempt(),attempt(),attempt()]); assert.equal(calls,1);
+  await attempt(); assert.equal(calls,1);
+  await X.onPageOpen(options)(); assert.equal(calls,2,'新页面可重新抓取');
+  let failures=0;
+  const failed=X.onPageOpen({getState:async()=>state,synchronize:async()=>{failures++;throw Error('离线');}});
+  await assert.rejects(failed()); assert.equal(await failed(),false); assert.equal(failures,1);
+});
 const page=(books,pages=[],extra={})=>({authenticated:true,accountId:'42',isReadCategory:true,advertisedCount:3,books,pages,...extra});
 function client(pages){
   const calls=[];
