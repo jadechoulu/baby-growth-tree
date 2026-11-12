@@ -148,9 +148,9 @@ async function backupEnglishBeforeSync(records){
   if(!response.ok)throw new Error('同步前备份未能保存，未更新进度。请检查本机备份服务。');
   const value=await response.json();if(!value.saved||!value.path)throw new Error('同步前备份未收到确认，未更新进度。');
 }
-async function syncXiaohuashengRead(){
+async function syncXiaohuashengRead({automatic=false}={}){
   if(readingSync.busy)return;
-  readingSync={busy:true,result:null,error:null};render();openModal('xhs-sync');
+  readingSync={busy:true,result:null,error:null};render();if(!automatic)openModal('xhs-sync');
   try{
     await bookLoader.load();
     const result=await window.EnglishXiaohuashengSync.synchronize({location,getRecords:()=>S.records,cloud:siteSync,
@@ -159,8 +159,9 @@ async function syncXiaohuashengRead(){
       onProgress:progress=>{readingSync.progress=progress;if(S.modal?.kind==='xhs-sync')renderModal();}});
     readingSync={busy:false,result,error:null};
   }catch(error){readingSync={busy:false,result:null,error};}
-  render();if(S.modal?.kind==='xhs-sync')renderModal();else openModal('xhs-sync');
-  if(readingSync.result?.mode==='cloud'&&['auth-required','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
+  render();if(S.modal?.kind==='xhs-sync')renderModal();else if(!automatic)openModal('xhs-sync');
+  if(automatic&&readingSync.error)toast('小花生自动同步未完成，原进度保留；可点击同步图标重试。');
+  if(!automatic&&readingSync.result?.mode==='cloud'&&['auth-required','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
 }
 function readingSyncDetail(){
   const {busy,result,error}=readingSync,X=window.EnglishXiaohuashengSync,local=X.localEntry(location),meta=result?.receipt||X.receipt(S.records);
@@ -176,7 +177,7 @@ function readingSyncDetail(){
     meta?h('p',{class:'small-note'},'小花生抓取时间：'+new Date(meta.fetchedAt).toLocaleString('zh-CN')+' · 已读 '+meta.total+' 本 · 匹配 '+meta.matched+' 本'):null,
     result?.cloud&&!result.cloud.ok?h('p',{role:'status'},cloudMessages[result.cloud.status]||'云端尚未确认，已保存的本机记录保留。'):null,
     ['local','cloud-live'].includes(result?.mode)&&result.cloud.ok?h('p',{class:'small-note'},'私人云端已确认，其他设备可同步获取。'):null,
-    h('p',{class:'small-note'},'登录并连接私人英语记录后，由云端直接获取最新小花生书架、阅读状态与次数。无需 Mac 开机或运行本地服务；失败不会用空书单覆盖进度。'+(local?'未连接私人同步时仍可使用本机授权读取。':'')),
+    h('p',{class:'small-note'},'登录并连接私人英语记录后，每次打开英语启蒙自动同步一次；云端另在北京时间每天 03:00、10:00 同步书架、阅读状态与次数。无需打开网站或让 Mac 开机；失败保留原进度。'+(local?'未连接私人同步时仍可使用本机授权读取。':'')),
     ['local','cloud-live'].includes(result?.mode)&&(result.unmatched.length||result.ambiguous.length)?h('details',{},h('summary',{},'待核对书目'),h('ul',{},[...result.ambiguous,...result.unmatched].map(book=>h('li',{},book.title)))):null,
     h('div',{class:'form-actions'},h('button',{type:'button',class:'button',disabled:busy,onclick:()=>siteSync.open()},'打开记录同步'),h('button',{type:'button',class:'button primary',disabled:busy,onclick:syncXiaohuashengRead},busy?'同步中…':'重新获取小花生')));
 }
@@ -1888,7 +1889,7 @@ function otherShelfResults(){
   const groups=all.filter(group=>(otherShelfState.status==='all'||group.status===otherShelfState.status)&&words.every(word=>[group.title,...group.books.map(book=>book.title)].join(' ').toLowerCase().includes(word)));
   const card=group=>h('article',{class:'library-card shelf-card'},h('button',{type:'button',class:'shelf-open',onclick:()=>openModal('shelf-series',group.id),'aria-label':'查看'+group.title+'全部书目与阅读状态'},libraryBookCover({...group,id:group.series?null:group.books[0].id,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),h('strong',{},group.title)),h('div',{class:'shelf-card-progress'},h('span',{},'书架 '+group.completed+'／'+group.total+'本'),h('span',{},P.STATUS[group.status])),h('progress',{max:group.total,value:group.completed,'aria-label':group.title+'已阅读 '+group.completed+'／'+group.total+' 本'}));
   const list=h('div',{class:'resource-grid library-grid library-cover-grid other-shelf-grid'},groups.slice(0,otherShelfState.limit).map(card));
-  return h('div',{id:'other-shelf-results'},h('p',{class:'result-count',role:'status'},groups.length+' 个套系／单本 · '+groups.reduce((sum,group)=>sum+group.total,0)+' 本'),groups.length?list:h('div',{class:'empty'},all.length?'没有匹配的书目。':'同步进度后，这里展示书架中未收录在路线或廖彩杏书单的英文套系和单本。'),window.EnglishAutomaticList.tail({total:groups.length,limit:otherShelfState.limit,step:18,load:(from,to)=>{otherShelfState.limit=to;list.append(...groups.slice(from,to).map(card));}}));
+  return h('div',{id:'other-shelf-results'},h('p',{class:'result-count',role:'status'},groups.length+' 个套系／单本 · '+groups.reduce((sum,group)=>sum+group.total,0)+' 本 · 已读 '+groups.reduce((sum,group)=>sum+group.completed,0)+' 本'),groups.length?list:h('div',{class:'empty'},all.length?'没有匹配的书目。':'同步进度后，这里展示书架中未收录在路线或廖彩杏书单的英文套系和单本。'),window.EnglishAutomaticList.tail({total:groups.length,limit:otherShelfState.limit,step:18,load:(from,to)=>{otherShelfState.limit=to;list.append(...groups.slice(from,to).map(card));}}));
 }
 function otherLibraryView(){
   function refresh(){otherShelfState.limit=18;document.getElementById('other-shelf-results')?.replaceWith(otherShelfResults());}
@@ -2282,9 +2283,12 @@ window.EnglishApp={catalog:C,state:S,render,asset,openSearchResult};render();
 if(['book','resource','stage','song','hello','custom','shelf','method'].some(key=>new URLSearchParams(hashQuery).has(key)))void openSearchResult({href:'?'+hashQuery}).catch(error=>toast(error.message));
 try{await sharedProfileReady;}catch(error){toast(error.message);}profileReady=true;
 siteSync=window.XiaoyaSync.createClient({siteRoot:window.XIAOYA_SITE_ROOT,profileClient:sharedProfile});
-void siteSync.ready.then(()=>{if(S.modal?.kind==='book-finder')void loadBookFinder(S.modal);});
+const automaticReadingSync=window.EnglishXiaohuashengSync.onPageOpen({getState:()=>siteSync.getState('english'),synchronize:()=>syncXiaohuashengRead({automatic:true})});
+const tryAutomaticReadingSync=()=>void automaticReadingSync().catch(()=>{});
+void siteSync.ready.then(()=>{if(S.modal?.kind==='book-finder')void loadBookFinder(S.modal);tryAutomaticReadingSync();});
 siteSync.subscribe(area=>{
   if(area==='auth'&&S.modal?.kind==='book-finder')void loadBookFinder(S.modal);
+  if(['auth','sync-state','english'].includes(area))tryAutomaticReadingSync();
   if(area!=='english')return;
   try{
     const next=JSON.parse(localStorage.getItem('little-leaf-english-v1'));

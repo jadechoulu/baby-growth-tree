@@ -220,6 +220,18 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
     } catch { throw new HttpError(502, 'INVALID_CLOUD_DATA', '云端记录格式异常，未覆盖任何记录，请检查仓库文件。'); }
   }
 
+  async function saveRecords(config, area, incoming) {
+    const savedAt = new Date(now()).toISOString();
+    const file = { ...incoming.snapshot, savedAt };
+    const body = { message: area === 'legacy' ? '保存宝宝成长记录' : `保存小芽${({ profile: '档案', growth: '成长', health: '卫健委观察', english: '英语' })[area]}记录`, branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(file, null, 2))), ...(incoming.revision ? { sha: incoming.revision } : {}) };
+    const saved = await github(config, contentPath(config, area), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (saved.status === 409 || saved.status === 422) return { conflict: true, ...(await loadRecords(config, area)) };
+    if (!saved.ok) throw new HttpError(502, 'GITHUB_UNAVAILABLE', '保存云端记录失败，当前修改尚未同步，请稍后重试。');
+    const confirmed = await saved.json();
+    if (!SHA.test(confirmed.content?.sha)) throw new HttpError(502, 'SAVE_NOT_CONFIRMED', '云端保存结果未确认，请重新读取后重试。');
+    return { snapshot: incoming.snapshot, revision: confirmed.content.sha, savedAt };
+  }
+
   async function bookFinderAccounts(config) {
     await privateRepo(config);
     // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 本人会话验证后只读取固定私人文件，不接受客户端仓库或路径。
@@ -301,6 +313,21 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
   }
 
   return {
+    // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 仅供服务端任务，固定私人英语文件并复用私有仓校验及SHA条件保存，不新增公网免登录入口。
+    englishRepository(config) {
+      return {
+        async read() { await privateRepo(config); return loadRecords(config, 'english'); },
+        async write(snapshot, revision) {
+          if (!SHA.test(revision || '')) throw new HttpError(400, 'INVALID_REVISION', '不能创建或覆盖未连接的英语记录。');
+          const value = SyncModel.normalize('english', snapshot, VALID_IDS);
+          if (!value) throw new HttpError(400, 'INVALID_SNAPSHOT', '不能清空私人英语记录。');
+          await privateRepo(config);
+          const result = await saveRecords(config, 'english', { snapshot: value, revision });
+          if (result.conflict) throw new HttpError(409, 'VERSION_CONFLICT', '私人记录已更新，须重新合并。');
+          return result;
+        },
+      };
+    },
     async fetch(request, env) {
       let origin;
       try {
@@ -364,15 +391,8 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
         if (incoming?.snapshot === null) throw new HttpError(400, 'INVALID_SNAPSHOT', '不能用空文档覆盖记录。');
         await privateRepo(config);
         if (request.method === 'GET') return responseHeaders(json(await loadRecords(config, area)), origin);
-        const savedAt = new Date(now()).toISOString();
-        const file = { ...incoming.snapshot, savedAt };
-        const body = { message: area === 'legacy' ? '保存宝宝成长记录' : `保存小芽${({ profile: '档案', growth: '成长', health: '卫健委观察', english: '英语' })[area]}记录`, branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(file, null, 2))), ...(incoming.revision ? { sha: incoming.revision } : {}) };
-        const saved = await github(config, contentPath(config, area), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        if (saved.status === 409 || saved.status === 422) return responseHeaders(json({ code: 'VERSION_CONFLICT', ...(await loadRecords(config, area)) }, 409), origin);
-        if (!saved.ok) throw new HttpError(502, 'GITHUB_UNAVAILABLE', '保存云端记录失败，当前修改尚未同步，请稍后重试。');
-        const confirmed = await saved.json();
-        if (!SHA.test(confirmed.content?.sha)) throw new HttpError(502, 'SAVE_NOT_CONFIRMED', '云端保存结果未确认，请重新读取后重试。');
-        return responseHeaders(json({ snapshot: incoming.snapshot, revision: confirmed.content.sha, savedAt }), origin);
+        const result = await saveRecords(config, area, incoming);
+        return responseHeaders(json(result.conflict ? { code: 'VERSION_CONFLICT', snapshot: result.snapshot, revision: result.revision, savedAt: result.savedAt } : result, result.conflict ? 409 : 200), origin);
       } catch (error) {
         // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 对外错误只返回固定消息，不回显第三方响应、请求内容或凭据。
         const known = error instanceof HttpError;

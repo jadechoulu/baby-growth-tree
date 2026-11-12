@@ -105,6 +105,27 @@ test('目录请求失败须等待同批请求结束再落定失败，停止继�
   assert.equal(requested.length, 4);
 });
 
+test('后台任务只有私人记录保存回执确认后才完成；页面关闭也执行同一导入，失败不报已同步', async () => {
+  for (const broken of [false,true]) {
+    const store=memoryStore(), config=settings(), env={GITHUB_ALLOWED_USER_ID:'42',WORKER_URL:'https://test.netlify.app',XIAOHUASHENG_CREDENTIALS:JSON.stringify(config)};
+    let launch, imported=0;
+    const service=createXhsService({env,store,now:()=>NOW,network:async(url,options)=>{
+      if(String(url).includes('/.netlify/functions/')){launch=JSON.parse(options.body);return new Response(null,{status:202});}
+      if(String(url).startsWith('http:'))return envelope([{name:config.token}]);
+      return envelope(String(url).includes('/bookroom/')?[row(1)]:detail(1));
+    },importSnapshot:async(value,backup)=>{
+      assert.equal(value.complete,true);imported++;
+      await backup({version:1,records:{manual:{status:'done'}}});
+      if(broken)throw Error('private upstream response');
+      return {saved:true,revision:'b'.repeat(40)};
+    }});
+    await service.start();await service.run(launch);
+    assert.equal(imported,1);assert.equal((await service.status()).status,broken?'failed':'complete');
+    assert.ok([...store.entries.keys()].some(key=>key.startsWith('backups/42/')));
+    if(broken){assert.equal((await service.status()).code,'XHS_SAVE_FAILED');assert.doesNotMatch(JSON.stringify(await service.status()),/private upstream/);}
+  }
+});
+
 test('未配置、授权失效、后台超时不返回旧结果为本次成功，也不清空先前历史', async () => {
   const store = memoryStore(), env = { GITHUB_ALLOWED_USER_ID: '42', WORKER_URL: 'https://test.netlify.app' }; let launch, time = NOW;
   const service = createXhsService({ env, store, now: () => time, network: async (url, options) => {

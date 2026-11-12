@@ -173,7 +173,7 @@
     return {
       register, changed, preview, enable, sync, resolve,
       states: () => Object.fromEntries([...states].map(([key, value]) => [key, M.copy(value)])),
-      // 打开或刷新后，身份确认即直接读服务端；15 秒定时器仅用于页面留在前台时。
+      // 每次打开或刷新后，身份确认即读取一次服务端；后续仅编辑、手动同步或待保存重试触发。
       authenticate(value) { authenticated = value; return value ? Promise.all([...adapters.keys()].map(sync)) : Promise.resolve(); },
       async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); if (timers.has(area)) clearTimeout(timers.get(area)); report(area, { enabled: false }); },
       destroy() { closed = true; for (const timer of timers.values()) clearTimeout(timer); },

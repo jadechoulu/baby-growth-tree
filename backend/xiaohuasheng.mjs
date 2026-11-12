@@ -14,6 +14,7 @@ const errors = {
   XHS_UNAVAILABLE: '云端暂时无法读取小花生，请稍后重试；原进度保留。',
   XHS_INCOMPLETE: '小花生书架或目录不完整，未更新进度。',
   XHS_TIMEOUT: '云端读取超时，原进度保留，可重新同步。',
+  XHS_SAVE_FAILED: '书架读取完成，但私人记录未确认保存；原进度保留，请重试同步。',
 };
 export class XhsError extends Error {
   constructor(code) { super(errors[code] || errors.XHS_UNAVAILABLE); this.code = code; }
@@ -181,7 +182,7 @@ export async function fetchSnapshot({ config, client, store, history, now = Date
 }
 
 /** 私有任务状态与缓存；仅由通过既有本人鉴权的API及一次性后台能力调用。 */
-export function createXhsService({ env, store, network = fetch, now = Date.now }) {
+export function createXhsService({ env, store, network = fetch, now = Date.now, importSnapshot }) {
   const owner = String(env.GITHUB_ALLOWED_USER_ID), current = 'current/' + owner;
   const config = () => credentials(env);
   const publicJob = job => ({ status: job.status, progress: job.progress || null, ...(job.status === 'complete' ? { snapshot: job.snapshot } : {}), ...(job.status === 'failed' ? { code: job.code, message: errors[job.code] || errors.XHS_UNAVAILABLE } : {}) });
@@ -191,13 +192,14 @@ export function createXhsService({ env, store, network = fetch, now = Date.now }
     if (['queued', 'running'].includes(job.status) && now() - job.createdAt > JOB_TTL) return { status: 'failed', code: 'XHS_TIMEOUT', message: errors.XHS_TIMEOUT };
     return publicJob(job);
   }
+  async function backup(snapshot) {
+    const key = 'backups/' + owner + '/' + now() + '-' + randomBytes(12).toString('hex');
+    const saved = await store.setJSON(key, { savedAt: new Date(now()).toISOString(), snapshot }, { onlyIfNew: true });
+    if (!saved.modified) fail('XHS_SAVE_FAILED');
+    return { saved: true };
+  }
   return {
-    status,
-    async backup(snapshot) {
-      const key = 'backups/' + owner + '/' + now() + '-' + randomBytes(12).toString('hex');
-      await store.setJSON(key, { savedAt: new Date(now()).toISOString(), snapshot }, { onlyIfNew: true });
-      return { saved: true };
-    },
+    status, backup,
     async start() {
       config();
       const entry = await store.getWithMetadata(current, { type: 'json', consistency: 'strong' });
@@ -226,7 +228,14 @@ export function createXhsService({ env, store, network = fetch, now = Date.now }
         await client.refresh();
         const snapshot = await fetchSnapshot({ config: settings, client, store, history, now, progress: async progress => store.setJSON(current, { ...job, status: 'running', progress }) });
         await store.setJSON(history + '/snapshot', snapshot);
-        await store.setJSON(current, { ...job, status: 'complete', snapshot });
+        let imported;
+        if (importSnapshot) {
+          try { imported = await importSnapshot(snapshot, backup); }
+          catch { fail('XHS_SAVE_FAILED'); }
+          if (imported?.saved !== true) fail('XHS_SAVE_FAILED');
+        }
+        await store.setJSON(history + '/result', { status: 'complete', finishedAt: new Date(now()).toISOString(), ...(imported ? { imported } : {}) });
+        await store.setJSON(current, { ...job, status: 'complete', snapshot, ...(imported ? { imported } : {}) });
       } catch (error) {
         const result = { status: 'failed', code: error instanceof XhsError ? error.code : 'XHS_UNAVAILABLE', finishedAt: new Date(now()).toISOString() };
         await store.setJSON(history + '/result', result);

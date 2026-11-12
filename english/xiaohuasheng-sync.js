@@ -121,6 +121,25 @@ function requireOwner(records,accountId){
   }
   if([...owners].some(owner=>owner!==String(accountId)))fail('ACCOUNT_MISMATCH','本机授权的小花生账号与已有已读记录不一致，未导入。请先核对本人账号，不会自动切换。');
 }
+function prepareImport(base,snapshot,apply){
+  if(snapshot?.transport!=='xiaohuasheng-app-api'||snapshot.predicate!=='readedFlag=1'||snapshot.complete!==true||snapshot.authenticated!==true||!Array.isArray(snapshot.books)||!snapshot.books.length)fail('INCOMPLETE','未收到完整且非空的小花生已读快照，原进度保留。');
+  requireOwner(base,snapshot.accountId);
+  const previous=receipt(base);
+  if(previous&&Date.parse(previous.fetchedAt)>Date.parse(snapshot.fetchedAt))fail('STALE_SNAPSHOT','本次书架早于已同步快照，未覆盖更新的进度。');
+  const result=apply(base,snapshot);
+  const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length,...(result.shelf?{shelf:result.shelf}:{})};
+  return {...result,receipt:meta,changes:{...result.changes,[RECEIPT]:{status:'done',note:JSON.stringify(meta)}}};
+}
+function onPageOpen({getState,synchronize}){
+  let started=false;
+  return async function attempt(){
+    const state=await getState();
+    if(started||!state.authenticated||!state.enabled||state.conflict||state.error||state.syncing||state.pending)return false;
+    started=true;
+    await synchronize();
+    return true;
+  };
+}
 async function synchronize(options){
   const local=localEntry(options.location||globalThis.location),state=await options.cloud.getState?.('english');
   const remote=typeof options.cloud.readXiaohuasheng==='function'&&(!local||state?.authenticated&&state?.enabled);
@@ -130,19 +149,14 @@ async function synchronize(options){
   }
   options.onProgress?.({phase:remote?'queued':'local'});
   const snapshot=remote?await options.cloud.readXiaohuasheng({onProgress:options.onProgress}):await (options.read||read)();
-  if(snapshot?.transport!=='xiaohuasheng-app-api'||snapshot.predicate!=='readedFlag=1'||snapshot.complete!==true||snapshot.authenticated!==true||!Array.isArray(snapshot.books)||!snapshot.books.length)fail('INCOMPLETE','未收到完整且非空的小花生已读快照，原进度保留。');
   const base=options.getRecords();
-  requireOwner(base,snapshot.accountId);
-  const result=options.apply(base,snapshot);
-  const previous=receipt(base);
-  if(previous&&Date.parse(previous.fetchedAt)>Date.parse(snapshot.fetchedAt))fail('STALE_SNAPSHOT','本次书架早于已同步快照，未覆盖更新的进度。');
-  const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length,...(result.shelf?{shelf:result.shelf}:{})};
+  const result=prepareImport(base,snapshot,options.apply);
   // 先保存当前完整英语备份；在备份往返期间有新编辑时不以旧状态覆盖。
   await (remote?options.cloudBackup:options.backup)(base);
   if(options.getRecords()!==base)fail('RECORDS_CHANGED','备份期间记录有新变化，已保留新编辑，请再次同步。');
-  if(!options.save({...result.changes,[RECEIPT]:{status:'done',note:JSON.stringify(meta)}}))fail('SAVE_FAILED','本机保存失败，原记录已保留，请重试。');
+  if(!options.save(result.changes))fail('SAVE_FAILED','本机保存失败，原记录已保留，请重试。');
   let cloud;try{cloud=await options.cloud.sync('english');}catch{cloud={ok:false,status:'error'};}
-  return {mode:remote?'cloud-live':'local',...result,receipt:meta,cloud};
+  return {mode:remote?'cloud-live':'local',...result,cloud};
 }
-return {LOGIN_URL,SyncError,parsePage,readWebLegacy,read,localEntry,receipt,synchronize,RECEIPT};
+return {LOGIN_URL,SyncError,parsePage,readWebLegacy,read,localEntry,receipt,prepareImport,onPageOpen,synchronize,RECEIPT};
 });

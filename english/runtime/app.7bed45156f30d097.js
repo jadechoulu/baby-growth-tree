@@ -279,7 +279,7 @@
     return {
       register, changed, preview, enable, sync, resolve,
       states: () => Object.fromEntries([...states].map(([key, value]) => [key, M.copy(value)])),
-      // 打开或刷新后，身份确认即直接读服务端；15 秒定时器仅用于页面留在前台时。
+      // 每次打开或刷新后，身份确认即读取一次服务端；后续仅编辑、手动同步或待保存重试触发。
       authenticate(value) { authenticated = value; return value ? Promise.all([...adapters.keys()].map(sync)) : Promise.resolve(); },
       async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); if (timers.has(area)) clearTimeout(timers.get(area)); report(area, { enabled: false }); },
       destroy() { closed = true; for (const timer of timers.values()) clearTimeout(timer); },
@@ -526,7 +526,7 @@
         engine = root.XiaoyaSyncEngine.createEngine({
           journal: { get: area => journal.get(scope + '|' + area), update: (area, change) => journal.update(scope + '|' + area, change) },
           request, lock,
-          onStatus() { updateButtons(); },
+          onStatus() { updateButtons(); emit('sync-state'); },
         });
         for (const [area, adapter] of Object.entries(adapters)) await engine.register(area, {
           read: adapter.read,
@@ -541,7 +541,7 @@
     async function authenticate() {
       const result = await request('session', 'GET');
       if (!Number.isSafeInteger(result.user?.id) || typeof result.user.login !== 'string') throw new Error('登录身份响应无效。');
-      user = result.user; engine.authenticate(true); updateButtons(); emit('auth');
+      user = result.user; await engine.authenticate(true); updateButtons(); emit('auth');
     }
     function login() {
       if (!apiBase) return;
@@ -741,11 +741,11 @@
       const result = await request('xhs-backup', 'POST', { snapshot });
       if (result.saved !== true) throw new Error('云端备份未确认，未更新进度。');
     }
-    function resume() { if (engine && user) for (const area of Object.keys(names)) void engine.sync(area); }
-    root.addEventListener('online', resume);
-    root.addEventListener('focus', resume);
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) resume(); });
-    setInterval(() => { if (!document.hidden) resume(); }, 15000);
+    // 打开页面在 authenticate 中读取一次；不因定时、切回页面或焦点变化轮询私人记录。
+    // 断网恢复只续传尚未保存的修改，不重复检查已同步记录。
+    root.addEventListener('online', () => {
+      if (engine && user) for (const [area,state] of Object.entries(engine.states())) if (state.enabled && state.pending && !state.conflict) void engine.sync(area);
+    });
     if (channel) channel.onmessage = event => { if (names[event.data?.area]) { emit(event.data.area); void engine?.changed(event.data.area); } };
     root.addEventListener('storage', event => { if (event.key === 'little-leaf-english-v1') { emit('english'); void engine?.changed('english'); } });
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
@@ -4133,6 +4133,25 @@ function requireOwner(records,accountId){
   }
   if([...owners].some(owner=>owner!==String(accountId)))fail('ACCOUNT_MISMATCH','本机授权的小花生账号与已有已读记录不一致，未导入。请先核对本人账号，不会自动切换。');
 }
+function prepareImport(base,snapshot,apply){
+  if(snapshot?.transport!=='xiaohuasheng-app-api'||snapshot.predicate!=='readedFlag=1'||snapshot.complete!==true||snapshot.authenticated!==true||!Array.isArray(snapshot.books)||!snapshot.books.length)fail('INCOMPLETE','未收到完整且非空的小花生已读快照，原进度保留。');
+  requireOwner(base,snapshot.accountId);
+  const previous=receipt(base);
+  if(previous&&Date.parse(previous.fetchedAt)>Date.parse(snapshot.fetchedAt))fail('STALE_SNAPSHOT','本次书架早于已同步快照，未覆盖更新的进度。');
+  const result=apply(base,snapshot);
+  const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length,...(result.shelf?{shelf:result.shelf}:{})};
+  return {...result,receipt:meta,changes:{...result.changes,[RECEIPT]:{status:'done',note:JSON.stringify(meta)}}};
+}
+function onPageOpen({getState,synchronize}){
+  let started=false;
+  return async function attempt(){
+    const state=await getState();
+    if(started||!state.authenticated||!state.enabled||state.conflict||state.error||state.syncing||state.pending)return false;
+    started=true;
+    await synchronize();
+    return true;
+  };
+}
 async function synchronize(options){
   const local=localEntry(options.location||globalThis.location),state=await options.cloud.getState?.('english');
   const remote=typeof options.cloud.readXiaohuasheng==='function'&&(!local||state?.authenticated&&state?.enabled);
@@ -4142,21 +4161,16 @@ async function synchronize(options){
   }
   options.onProgress?.({phase:remote?'queued':'local'});
   const snapshot=remote?await options.cloud.readXiaohuasheng({onProgress:options.onProgress}):await (options.read||read)();
-  if(snapshot?.transport!=='xiaohuasheng-app-api'||snapshot.predicate!=='readedFlag=1'||snapshot.complete!==true||snapshot.authenticated!==true||!Array.isArray(snapshot.books)||!snapshot.books.length)fail('INCOMPLETE','未收到完整且非空的小花生已读快照，原进度保留。');
   const base=options.getRecords();
-  requireOwner(base,snapshot.accountId);
-  const result=options.apply(base,snapshot);
-  const previous=receipt(base);
-  if(previous&&Date.parse(previous.fetchedAt)>Date.parse(snapshot.fetchedAt))fail('STALE_SNAPSHOT','本次书架早于已同步快照，未覆盖更新的进度。');
-  const meta={version:1,accountId:String(snapshot.accountId),snapshotId:snapshot.snapshotId,fetchedAt:snapshot.fetchedAt,sourceUrl:snapshot.sourceUrl,transport:snapshot.transport,predicate:snapshot.predicate,total:snapshot.books.length,wholeBookcaseCount:snapshot.wholeBookcaseCount,matched:result.matched.length,unmatched:result.unmatched.length,ambiguous:result.ambiguous.length,...(result.shelf?{shelf:result.shelf}:{})};
+  const result=prepareImport(base,snapshot,options.apply);
   // 先保存当前完整英语备份；在备份往返期间有新编辑时不以旧状态覆盖。
   await (remote?options.cloudBackup:options.backup)(base);
   if(options.getRecords()!==base)fail('RECORDS_CHANGED','备份期间记录有新变化，已保留新编辑，请再次同步。');
-  if(!options.save({...result.changes,[RECEIPT]:{status:'done',note:JSON.stringify(meta)}}))fail('SAVE_FAILED','本机保存失败，原记录已保留，请重试。');
+  if(!options.save(result.changes))fail('SAVE_FAILED','本机保存失败，原记录已保留，请重试。');
   let cloud;try{cloud=await options.cloud.sync('english');}catch{cloud={ok:false,status:'error'};}
-  return {mode:remote?'cloud-live':'local',...result,receipt:meta,cloud};
+  return {mode:remote?'cloud-live':'local',...result,cloud};
 }
-return {LOGIN_URL,SyncError,parsePage,readWebLegacy,read,localEntry,receipt,synchronize,RECEIPT};
+return {LOGIN_URL,SyncError,parsePage,readWebLegacy,read,localEntry,receipt,prepareImport,onPageOpen,synchronize,RECEIPT};
 });
 
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishVocabulary=api;})(typeof window==='object'?window:globalThis,function(){
@@ -5586,9 +5600,9 @@ async function backupEnglishBeforeSync(records){
   if(!response.ok)throw new Error('同步前备份未能保存，未更新进度。请检查本机备份服务。');
   const value=await response.json();if(!value.saved||!value.path)throw new Error('同步前备份未收到确认，未更新进度。');
 }
-async function syncXiaohuashengRead(){
+async function syncXiaohuashengRead({automatic=false}={}){
   if(readingSync.busy)return;
-  readingSync={busy:true,result:null,error:null};render();openModal('xhs-sync');
+  readingSync={busy:true,result:null,error:null};render();if(!automatic)openModal('xhs-sync');
   try{
     await bookLoader.load();
     const result=await window.EnglishXiaohuashengSync.synchronize({location,getRecords:()=>S.records,cloud:siteSync,
@@ -5597,8 +5611,9 @@ async function syncXiaohuashengRead(){
       onProgress:progress=>{readingSync.progress=progress;if(S.modal?.kind==='xhs-sync')renderModal();}});
     readingSync={busy:false,result,error:null};
   }catch(error){readingSync={busy:false,result:null,error};}
-  render();if(S.modal?.kind==='xhs-sync')renderModal();else openModal('xhs-sync');
-  if(readingSync.result?.mode==='cloud'&&['auth-required','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
+  render();if(S.modal?.kind==='xhs-sync')renderModal();else if(!automatic)openModal('xhs-sync');
+  if(automatic&&readingSync.error)toast('小花生自动同步未完成，原进度保留；可点击同步图标重试。');
+  if(!automatic&&readingSync.result?.mode==='cloud'&&['auth-required','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
 }
 function readingSyncDetail(){
   const {busy,result,error}=readingSync,X=window.EnglishXiaohuashengSync,local=X.localEntry(location),meta=result?.receipt||X.receipt(S.records);
@@ -5614,7 +5629,7 @@ function readingSyncDetail(){
     meta?h('p',{class:'small-note'},'小花生抓取时间：'+new Date(meta.fetchedAt).toLocaleString('zh-CN')+' · 已读 '+meta.total+' 本 · 匹配 '+meta.matched+' 本'):null,
     result?.cloud&&!result.cloud.ok?h('p',{role:'status'},cloudMessages[result.cloud.status]||'云端尚未确认，已保存的本机记录保留。'):null,
     ['local','cloud-live'].includes(result?.mode)&&result.cloud.ok?h('p',{class:'small-note'},'私人云端已确认，其他设备可同步获取。'):null,
-    h('p',{class:'small-note'},'登录并连接私人英语记录后，由云端直接获取最新小花生书架、阅读状态与次数。无需 Mac 开机或运行本地服务；失败不会用空书单覆盖进度。'+(local?'未连接私人同步时仍可使用本机授权读取。':'')),
+    h('p',{class:'small-note'},'登录并连接私人英语记录后，每次打开英语启蒙自动同步一次；云端另在北京时间每天 03:00、10:00 同步书架、阅读状态与次数。无需打开网站或让 Mac 开机；失败保留原进度。'+(local?'未连接私人同步时仍可使用本机授权读取。':'')),
     ['local','cloud-live'].includes(result?.mode)&&(result.unmatched.length||result.ambiguous.length)?h('details',{},h('summary',{},'待核对书目'),h('ul',{},[...result.ambiguous,...result.unmatched].map(book=>h('li',{},book.title)))):null,
     h('div',{class:'form-actions'},h('button',{type:'button',class:'button',disabled:busy,onclick:()=>siteSync.open()},'打开记录同步'),h('button',{type:'button',class:'button primary',disabled:busy,onclick:syncXiaohuashengRead},busy?'同步中…':'重新获取小花生')));
 }
@@ -7326,7 +7341,7 @@ function otherShelfResults(){
   const groups=all.filter(group=>(otherShelfState.status==='all'||group.status===otherShelfState.status)&&words.every(word=>[group.title,...group.books.map(book=>book.title)].join(' ').toLowerCase().includes(word)));
   const card=group=>h('article',{class:'library-card shelf-card'},h('button',{type:'button',class:'shelf-open',onclick:()=>openModal('shelf-series',group.id),'aria-label':'查看'+group.title+'全部书目与阅读状态'},libraryBookCover({...group,id:group.series?null:group.books[0].id,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),h('strong',{},group.title)),h('div',{class:'shelf-card-progress'},h('span',{},'书架 '+group.completed+'／'+group.total+'本'),h('span',{},P.STATUS[group.status])),h('progress',{max:group.total,value:group.completed,'aria-label':group.title+'已阅读 '+group.completed+'／'+group.total+' 本'}));
   const list=h('div',{class:'resource-grid library-grid library-cover-grid other-shelf-grid'},groups.slice(0,otherShelfState.limit).map(card));
-  return h('div',{id:'other-shelf-results'},h('p',{class:'result-count',role:'status'},groups.length+' 个套系／单本 · '+groups.reduce((sum,group)=>sum+group.total,0)+' 本'),groups.length?list:h('div',{class:'empty'},all.length?'没有匹配的书目。':'同步进度后，这里展示书架中未收录在路线或廖彩杏书单的英文套系和单本。'),window.EnglishAutomaticList.tail({total:groups.length,limit:otherShelfState.limit,step:18,load:(from,to)=>{otherShelfState.limit=to;list.append(...groups.slice(from,to).map(card));}}));
+  return h('div',{id:'other-shelf-results'},h('p',{class:'result-count',role:'status'},groups.length+' 个套系／单本 · '+groups.reduce((sum,group)=>sum+group.total,0)+' 本 · 已读 '+groups.reduce((sum,group)=>sum+group.completed,0)+' 本'),groups.length?list:h('div',{class:'empty'},all.length?'没有匹配的书目。':'同步进度后，这里展示书架中未收录在路线或廖彩杏书单的英文套系和单本。'),window.EnglishAutomaticList.tail({total:groups.length,limit:otherShelfState.limit,step:18,load:(from,to)=>{otherShelfState.limit=to;list.append(...groups.slice(from,to).map(card));}}));
 }
 function otherLibraryView(){
   function refresh(){otherShelfState.limit=18;document.getElementById('other-shelf-results')?.replaceWith(otherShelfResults());}
@@ -7720,9 +7735,12 @@ window.EnglishApp={catalog:C,state:S,render,asset,openSearchResult};render();
 if(['book','resource','stage','song','hello','custom','shelf','method'].some(key=>new URLSearchParams(hashQuery).has(key)))void openSearchResult({href:'?'+hashQuery}).catch(error=>toast(error.message));
 try{await sharedProfileReady;}catch(error){toast(error.message);}profileReady=true;
 siteSync=window.XiaoyaSync.createClient({siteRoot:window.XIAOYA_SITE_ROOT,profileClient:sharedProfile});
-void siteSync.ready.then(()=>{if(S.modal?.kind==='book-finder')void loadBookFinder(S.modal);});
+const automaticReadingSync=window.EnglishXiaohuashengSync.onPageOpen({getState:()=>siteSync.getState('english'),synchronize:()=>syncXiaohuashengRead({automatic:true})});
+const tryAutomaticReadingSync=()=>void automaticReadingSync().catch(()=>{});
+void siteSync.ready.then(()=>{if(S.modal?.kind==='book-finder')void loadBookFinder(S.modal);tryAutomaticReadingSync();});
 siteSync.subscribe(area=>{
   if(area==='auth'&&S.modal?.kind==='book-finder')void loadBookFinder(S.modal);
+  if(['auth','sync-state','english'].includes(area))tryAutomaticReadingSync();
   if(area!=='english')return;
   try{
     const next=JSON.parse(localStorage.getItem('little-leaf-english-v1'));
