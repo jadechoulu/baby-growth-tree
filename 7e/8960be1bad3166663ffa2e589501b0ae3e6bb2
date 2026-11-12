@@ -1,0 +1,52 @@
+AGENTS.md
+  h_c836a884b9f50f 56,249-250
+backend/netlify/functions/xiaohuasheng-background.mjs
+  h_c836a884b9f50f 3,11-12
+backend/netlify/functions/xiaohuasheng-scheduled.mjs
+  h_c836a884b9f50f 1-12
+backend/xiaohuasheng-import.mjs
+  h_c836a884b9f50f 1-31
+backend/xiaohuasheng.mjs
+  h_c836a884b9f50f 17,185,195-200,202,231-238
+docs/architecture.md
+  h_c836a884b9f50f 440,546
+docs/xiaohuasheng-cloud-sync.md
+  h_c836a884b9f50f 23,39-50
+english/app.js
+  h_c836a884b9f50f 151,153,162-164,180,1892,2286-2288,2291
+english/index.html
+  h_c836a884b9f50f 22
+english/runtime/app.7bed45156f30d097.js
+  h_c836a884b9f50f 282,529,544,744-748,4136-4154,4165,4169,4171,4173,5603,5605,5614-5616,5632,7344,7738-7740,7743
+english/tests/xiaohuasheng-sync.test.cjs
+  h_c836a884b9f50f 8-22
+english/xiaohuasheng-sync.js
+  h_c836a884b9f50f 124-142,153,157,159,161
+scripts/build-sync-backend.mjs
+  h_c836a884b9f50f 27,29-32,45
+shared/site-sync.js
+  h_c836a884b9f50f 119,134,334-338
+shared/sync-engine.js
+  h_c836a884b9f50f 176
+tests/english-sync-actions.test.mjs
+  h_c836a884b9f50f 8,27-43
+tests/site-sync-client.test.mjs
+  h_c836a884b9f50f 43,69,73,76-86
+tests/xiaohuasheng-cloud.test.mjs
+  h_c836a884b9f50f 108-128
+tests/xiaohuasheng-import.test.mjs
+  h_c836a884b9f50f 1-93
+worker/index.mjs
+  h_c836a884b9f50f 223-234,316-330,394-395
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "7e8960be1bad3166663ffa2e589501b0ae3e6bb2",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
