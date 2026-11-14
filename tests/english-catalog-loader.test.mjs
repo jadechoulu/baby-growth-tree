@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-const require=createRequire(import.meta.url),{create,needsBooks,details}=require('../english/catalog-loader.js');
+const require=createRequire(import.meta.url),{create,needsBooks,details,resourceTopics}=require('../english/catalog-loader.js');
 
 test('独立素材与资料页不等待全库，依赖逐册数量的视图仍先读取目录',()=>{
   for(const [view,collection] of [['baby'],['sources'],['routes'],['relations'],['library','hello'],['library','liao']])assert.equal(needsBooks(view,collection),false);
@@ -45,4 +45,16 @@ test('可选资料加载失败可以重试，成功前不替换已有对象',asy
   const target={books:[{id:'identity'}]};let count=0;
   const loader=create(target,'hello.json',async()=>({ok:true,json:async()=>++count===1?{books:[]}:{books:[{id:'identity',parts:[1]}],rhymes:[]}}),{validate:data=>Array.isArray(data.rhymes)});
   await assert.rejects(loader.load(),/不完整/);assert.equal(target.books[0].id,'identity');await loader.load();assert.deepEqual(target.books[0].parts,[1]);
+});
+
+test('资源主题证据按需并发共用，恢复原映射对象，缺页失败不覆盖轻索引且允许重试',async()=>{
+  const mapping={topics:['animals'],status:'title-fallback',patterns:[{text:'I see …',sourceId:'source'}]},taxonomy={resourceMappings:{series:mapping}};
+  let calls=0;
+  const loader=resourceTopics(taxonomy,'resource-topics.json',async()=>({ok:true,json:async()=>++calls===1?{}:{series:{...mapping,basis:'本系列已查简介',sourceIds:['source'],evidence:[{summary:'简介摘录'}]}}}));
+  assert.equal(calls,0);assert.equal(loader.ready,false);
+  await assert.rejects(loader.load(),/不完整/);assert.equal(mapping.basis,undefined);assert.equal(loader.ready,false);
+  await Promise.all([loader.load(),loader.load()]);
+  assert.equal(calls,2);assert.equal(loader.ready,true);assert.equal(taxonomy.resourceMappings.series,mapping);
+  assert.equal(mapping.evidence[0].summary,'简介摘录');assert.deepEqual(mapping.topics,['animals']);
+  const offline=resourceTopics(taxonomy,null,()=>{throw Error('离线不应请求');});assert.equal(offline.ready,true);await offline.load();
 });

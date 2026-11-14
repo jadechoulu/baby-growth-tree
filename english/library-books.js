@@ -7,7 +7,7 @@ function topics(data,custom=[]){
   for(const book of custom)for(const id of topicIds(book,data))if(!T.node(id)&&!result.some(t=>t.id===id))result.push({id,label:id});
   return result;
 }
-function topicIds(book,data){return T.entryTopics('book',book);}
+function topicIds(book,data){return T.entryTopics(book.entryKind==='resource'?'resource':'book',book.entryKind==='resource'?book.resource:book);}
 function seriesGroup(book,data){
   const source=data.sources.find(source=>source.id===book.studyGuide?.sourceId),level=source?.level||'';
   return {id:JSON.stringify([book.resource?.id||book.resourceId,book.seriesTitle||'',normalize(level)]),
@@ -95,6 +95,15 @@ function entries(data,resources,model,volumes){
     return {...book,resource,resourceIds:[...new Set(references.flatMap(r=>[r.id,...(r.mergedResourceIds||[])]))],appearances:references.flatMap(r=>bookAppearances(book,r,model,volumes))};
   })
     .concat(resources.filter(r=>r.custom&&['book','reader'].includes(r.type)).map(r=>({id:r.id,resourceId:r.id,resourceIds:[r.id],title:r.title,custom:true,resource:r,topics:r.topics,edition:'个人新增',level:'',appearances:r.stageRefs||[],sourceIds:[]})));
+}
+// 没有逐册目录的动画、绘本作品等沿用素材身份和详情；不创建第二套单册事实。
+function materialEntries(data,resources,model,volumes){
+  const books=entries(data,resources,model,volumes),covered=new Set(books.flatMap(book=>book.resourceIds));
+  return books.concat(resources.filter(resource=>!covered.has(resource.id)).map(resource=>({
+    id:resource.id,resourceId:resource.id,resourceIds:[resource.id,...(resource.mergedResourceIds||[])],
+    title:resource.title,resource,entryKind:'resource',custom:resource.custom,
+    appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:[],edition:'',level:''
+  })));
 }
 function filter(books,data,filters={}){
   const query=normalize(filters.query);
@@ -210,5 +219,5 @@ function levelGroups(parts){
   }
   return [...editions.values()];
 }
-return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,referenceBooks,quantityReference,bookAppearances,entries,filter,seriesCount,levelGroups};
+return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,referenceBooks,quantityReference,bookAppearances,entries,materialEntries,filter,seriesCount,levelGroups};
 });

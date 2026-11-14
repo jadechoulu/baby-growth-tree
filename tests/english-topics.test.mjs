@@ -170,3 +170,45 @@ test('启明星同版分类图映射公共主题，文体与难度栏不补造�
   assert.equal(ids('book-c876e74a845b4f05').includes('animals.reptiles'),false);
   for(const mappings of Object.values(taxonomy.patternMappings))for(const id of Object.values(mappings))assert.equal(T.node(id)?.parentId,'patterns');
 });
+
+test('补充句型与原表共存，标题兜底只读取离线显式映射，不在运行时猜测',()=>{
+  const runtime=require('../english/data/topic-taxonomy.json'),id='test-topic-explicit';
+  const old=runtime.bookOverrides[id];
+  runtime.bookOverrides[id]={topics:['daily.sleep'],status:'title-fallback',patterns:[{text:'Can I …?',sourceId:'source-explicit',note:'仅适用于已核定本册'}]};
+  try{
+    const entry={id,title:'Bedtime',topics:[],studyGuide:{sourceId:'source-original',patterns:[{text:'This is …'}]}};
+    assert.deepEqual(T.patterns('book',entry).map(p=>[p.text,p.sourceId]),[['This is …','source-original'],['Can I …?','source-explicit']]);
+    assert.equal(T.matches(T.entryTopics('book',entry),{topic:'daily',subtopic:'daily.sleep'}),true);
+    assert.equal(T.entryEvidence('book',entry).status,'title-fallback');
+    assert.deepEqual(T.entryTopics('book',{title:'Bedtime',topics:[]}),[]);
+    assert.deepEqual(T.patterns('book',{title:'Can I have it?'}),[]);
+  }finally{if(old===undefined)delete runtime.bookOverrides[id];else runtime.bookOverrides[id]=old;}
+});
+
+test('小红书句型只绑定同套同级同版本，参考版次及系列内容不下传单册',()=>{
+  const research=require('../english/data/material-topic-research.json');
+  const canonical=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const hasSource=(book,sourceId)=>T.patterns('book',book).some(item=>item.sourceId===sourceId);
+  for(const sourceId of ['xhs-raz-a-patterns-20261114','xhs-bigcat-pink-patterns-20261114']){
+    const tables=research.tables.filter(table=>table.sourceId===sourceId),adopted=books.books.filter(book=>hasSource(book,sourceId));
+    assert.ok(adopted.length,sourceId+'应有已核定的具名书目');
+    for(const book of adopted){
+      assert.ok(tables.some(table=>table.resourceId===book.resourceId&&table.levels.some(level=>level.toLowerCase()===book.level.toLowerCase())&&(!table.editionContains||book.edition.includes(table.editionContains))&&table.rows.some(row=>canonical(row.title)===canonical(book.title))),book.id+'不能跨套、跨级或跨版本借句型');
+      assert.ok(T.entryTopics('book',book).some(id=>T.node(id)?.parentId==='patterns'),book.id+'须进入共用句型筛选');
+    }
+  }
+  const howMany=books.books.find(book=>book.id==='book-9086a608330bf535');
+  assert.ok(hasSource(howMany,'xhs-bigcat-pink-patterns-20261114'));
+  const forest=books.books.find(book=>book.id==='book-guide-raz-a-004');
+  assert.ok(hasSource(forest,'xhs-raz-a-patterns-20261114'));
+  const reference=research.tables.find(table=>table.sourceId==='xhs-ort-1plus-patterns-20261114');
+  assert.equal(reference.status,'reference-only');assert.deepEqual(reference.levels,['1+']);
+  assert.equal(books.books.some(book=>hasSource(book,reference.sourceId)),false,'红标1级合包不冒充已确认的1+版本');
+  const wow={id:'resource-ij95m4'},wowSource='xhs-wow-season2-patterns-20261114';
+  assert.ok(T.patterns('resource',wow).some(item=>item.sourceId===wowSource&&item.note.includes('第二季')));
+  assert.ok(T.matches(T.entryTopics('resource',wow),{topic:'patterns'}));
+  assert.equal(books.books.some(book=>hasSource(book,wowSource)),false,'第二季系列整理不下传各册／集');
+  assert.deepEqual(T.entryTopics('resource',{id:'unmapped-wow-episode',title:'Wow English 第二季第1集'}),[]);
+  assert.deepEqual(T.entryTopics('book',{title:'The Forest',level:'A',topics:[]}),[]);
+  assert.deepEqual(T.patterns('book',{title:'How Many Animals',level:'Pink 1A'}),[]);
+});

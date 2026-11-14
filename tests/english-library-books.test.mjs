@@ -6,6 +6,26 @@ const require=createRequire(import.meta.url),B=require('../english/library-books
 const read=id=>JSON.parse(fs.readFileSync(new URL('../english/data/'+id+'.json',import.meta.url)));
 const data=read('resource-books'),raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan')},catalog=M.normalize(raw);
 
+test('主题检索覆盖无逐册目录素材并复用素材身份，有目录套系不重复混入整套',()=>{
+  const taxonomy=require('../english/data/topic-taxonomy.json');
+  const old=taxonomy.resourceMappings;
+  taxonomy.resourceMappings={...old,'topic-animation':{topics:['concepts.colors']},'topic-liao':{topics:['animals']}};
+  try{
+    const resource={id:'topic-series',title:'已有目录',type:'reader',appearances:[]};
+    const animation={id:'topic-animation',title:'动画',type:'animation',appearances:[{routeId:'qing',stageId:'qing-s1'}]};
+    const liao={id:'topic-liao',title:'绘本作品',type:'book',liaoBookId:'existing-liao',appearances:[]};
+    const directory={books:[{id:'topic-book',resourceId:resource.id,title:'单册',topics:['animals'],level:'',edition:'原版'}],sources:[]};
+    const result=B.materialEntries(directory,[resource,animation,liao],M);
+    assert.deepEqual(result.map(item=>item.id),['topic-book','topic-animation','topic-liao']);
+    const [match]=B.filter(result,directory,{topic:'concepts',subtopic:'concepts.colors',route:'qing',stageIds:['qing-s1'],type:'animation'});
+    assert.equal(match.resource,animation);assert.equal(match.entryKind,'resource');assert.equal(match.id,animation.id);
+    assert.equal(B.filter(result,directory,{topic:'concepts',route:'qing',stageIds:['qing-s2']}).length,0);
+    assert.equal(B.filter(result,directory,{topic:'animals'}).find(item=>item.id===liao.id).resource.liaoBookId,'existing-liao');
+    assert.equal(B.seriesGroups(result,directory).reduce((n,group)=>n+group.count,0),3);
+    assert.deepEqual(B.entries(directory,[resource,animation,liao],M).map(item=>item.id),['topic-book']);
+  }finally{if(old===undefined)delete taxonomy.resourceMappings;else taxonomy.resourceMappings=old;}
+});
+
 test('单册关键词跨公共目录与原表计划检索到具体书名',()=>{
   const BP=require('../english/book-progress.js'),directory=BP.withReadingPlans(data,read('reading-plans'),read('resource-volumes'));
   const result=B.filter(B.entries(directory,catalog.resources,M,read('resource-volumes')),directory,{query:'show'});
@@ -116,22 +136,27 @@ test('个人绘本按主题和个人选用阶段筛选，其他不混入作者�
   assert.equal(B.entries(data,[{...custom,type:'animation'}],M).length,0);
 });
 
-test('主题筛选只接纳有来源的内容或分类核对，未读内容不凭书名命中',()=>{
-  const sourceIds=new Set(data.sources.map(s=>s.id));
+test('主题分类保留内容核对、简介归类及标题兜底的证据层次，运行时不猜测新标题',()=>{
+  const taxonomy=require('../english/data/topic-taxonomy.json'),T=require('../english/topics.js');
+  const sourceIds=new Set([...data.sources,...taxonomy.sources].map(s=>s.id));
   for(const book of data.books){
-    assert.ok(['content-verified','classification-verified','pending','title-fallback'].includes(book.topicStatus),book.title);
-    if(book.topicStatus==='pending')assert.deepEqual(book.topics,[],book.title);
+    const mapping=taxonomy.bookOverrides[book.id],status=mapping?.status&&mapping.status!=='pending'?mapping.status:book.topicStatus;
+    assert.ok(['content-verified','classification-verified','description-derived','pending','title-fallback'].includes(status),book.title);
+    if(status==='pending')assert.deepEqual(book.topics,[],book.title);
     else {
-      assert.ok(book.topicEvidence.length,book.title);
-      for(const evidence of book.topicEvidence){
+      const evidenceRecords=[...(book.topicEvidence||[]),...(mapping?.evidence||[])];
+      assert.ok(evidenceRecords.length,book.title);
+      for(const evidence of evidenceRecords){
         assert.ok(sourceIds.has(evidence.sourceId),book.title);
         assert.ok(evidence.locator&&evidence.summary,book.title);
       }
+      if(status==='title-fallback')assert.ok(evidenceRecords.some(item=>item.kind==='title-fallback'&&item.originalTitle===book.title),book.title);
+      if(status==='description-derived')assert.ok(evidenceRecords.some(item=>item.kind==='content-description'&&/^https:\/\/www\.xiaohuasheng\.cn\/book\//.test(item.url)),book.title);
     }
-    if(book.topicStatus==='title-fallback')assert.ok(data.seriesResearch.find(r=>r.resourceId===book.resourceId)?.searchLog.length,book.title);
   }
-  const books=B.entries(data,catalog.resources,M),pending=books.filter(b=>b.topicStatus==='pending');
+  const books=B.entries(data,catalog.resources,M),pending=books.filter(b=>!(T.entryTopics('book',b).length));
   for(const topic of data.topics)assert.equal(B.filter(pending,data,{topic:topic.id}).length,0);
+  assert.deepEqual(T.entryTopics('book',{title:'The Birthday',topics:[]}),[]);
 });
 
 test('内容核对纠正同名误判，分版本分类及句型不混用',()=>{
@@ -139,7 +164,9 @@ test('内容核对纠正同名误判，分版本分类及句型不混用',()=>{
   assert.ok(pearson.find(b=>b.title==='A Garden').topics.includes('food'));
   assert.ok(pearson.find(b=>b.title==='I Like Birds').topics.includes('concepts'));
   assert.ok(pearson.find(b=>b.title==='The Snake').topics.includes('clothing'));
-  assert.equal(pearson.find(b=>b.title==='The birthday'&&b.level==='3').topicStatus,'pending');
+  const birthday=pearson.find(b=>b.title==='The birthday'&&b.level==='3'),T=require('../english/topics.js');
+  assert.equal(birthday.learningFocus.originalTopic,'现在进行时');
+  assert.equal(T.patterns('book',birthday).some(item=>item.sourceId==='pearson-xhs-old-themes'),false,'错位原表不转为本册句型');
   const scary=data.books.find(b=>b.title==='Pip and Posy: The Scary Monster');
   assert.ok(scary.topics.includes('friendship'));
   assert.ok(!scary.topics.includes('fantasy'));

@@ -22,7 +22,7 @@ class EnglishPagesTests(unittest.TestCase):
         cls.books_url = json.loads(re.search(r'window\.ROADMAP_BOOKS_URL=(.*?);', cls.entry).group(1))
         cls.directory = json.loads((cls.output / cls.books_url).read_text())
         cls.chunks = json.loads(re.search(r'window\.ROADMAP_CHUNKS=(.*?);', cls.html).group(1))
-        cls.lazy = {cls.books_url, cls.chunks['helloReading'], *cls.directory['detailFiles']}
+        cls.lazy = {cls.books_url, *cls.chunks.values(), *cls.directory['detailFiles']}
 
     def test_fixed_birthday_uses_shared_service_without_browser_records(self):
         self.assertNotIn('2020-11-24', self.html)
@@ -70,6 +70,11 @@ class EnglishPagesTests(unittest.TestCase):
             topics.update(detail['topics'])
         self.assertEqual(list(restored.values()), raw['resourceBooks']['books'])
         self.assertEqual(topics, raw['topicTaxonomy']['bookOverrides'])
+        self.assertEqual(json.loads((self.output / self.chunks['resourceTopics']).read_text()), raw['topicTaxonomy']['resourceMappings'])
+        for item in self.data['topicTaxonomy']['resourceMappings'].values():
+            self.assertLessEqual(set(item), {'topics', 'status', 'subtopicStatus', 'patterns'})
+            for pattern in item.get('patterns', []):
+                self.assertLessEqual(set(pattern), {'text', 'sourceId'})
         self.assertEqual(json.loads((self.output / self.chunks['helloReading']).read_text()), raw['helloReading'])
         self.assertLess((self.output / self.books_url).stat().st_size, len(build['inline_json'](raw['resourceBooks']).encode()) * .45)
         self.assertNotIn('materialCards', self.data['helloReading'])
@@ -100,7 +105,16 @@ for(const resource of catalog.resources){
 const topicsSource=fs.readFileSync('english/topics.js','utf8');
 function topics(taxonomy){const context={ROADMAP_RAW:{topicTaxonomy:taxonomy}};vm.runInNewContext(topicsSource,context);return context.EnglishTopics;}
 const firstTopics=topics(raw.topicTaxonomy),fullTopics=topics(JSON.parse(fs.readFileSync('english/data/topic-taxonomy.json','utf8')));
-index.books.forEach((book,i)=>assert.equal(JSON.stringify(firstTopics.entryTopics('book',book)),JSON.stringify(fullTopics.entryTopics('book',full.books[i])),book.id+'主题筛选'));
+index.books.forEach((book,i)=>{
+  assert.equal(JSON.stringify(firstTopics.entryTopics('book',book)),JSON.stringify(fullTopics.entryTopics('book',full.books[i])),book.id+'主题筛选');
+  const patterns=(topics,entry)=>JSON.stringify(topics.patterns('book',entry).map(({text,sourceId})=>({text,sourceId})));
+  assert.equal(patterns(firstTopics,book),patterns(fullTopics,full.books[i]),book.id+'独立句型列');
+});
+for(const resource of catalog.resources){
+  assert.equal(JSON.stringify(firstTopics.entryTopics('resource',resource)),JSON.stringify(fullTopics.entryTopics('resource',resource)),resource.id+'非单册主题筛选');
+  const patterns=(topics)=>JSON.stringify(topics.patterns('resource',resource).map(({text,sourceId})=>({text,sourceId})));
+  assert.equal(patterns(firstTopics),patterns(fullTopics),resource.id+'非单册句型索引');
+}
 '''
         result = subprocess.run(['node', '-e', script], cwd=ROOT, input=json.dumps({'raw': self.data, 'index': self.directory}), text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stderr)
