@@ -1,0 +1,1172 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-14",
+  "note": "仅转录实际读到的公开笔记。title是表内书名，不是按标题生成句型；精确套系/级别/题名匹配后才采用。",
+  "sources": [
+    {
+      "id": "xhs-raz-a-patterns-20261114",
+      "title": "零基础这样刷Raz A星标（句型整理）",
+      "author": "君恒妈妈在陪读",
+      "url": "https://www.xiaohongshu.com/explore/6810e0f00000000022035432",
+      "checkedAt": "2026-11-14",
+      "locator": "11张图，采用图2–7及图9的具名书目与明确句型",
+      "note": "读者按句型整理A星标书目；部分图为宽泛词性，不作为具体句型。无同级同名册不绑定；不改外站身份或个人完成。",
+      "observedImageSha256s": [
+        "0137da0f797653ab4225205d41c9f38313137577a6cc864a0e8db78d702afe7e",
+        "5b0b12dd2cc51039aba4bd7e81d930d4877b8594c3a57700a01215f3222cb12c",
+        "4c8985f31b4908334766f2fb9ce646625fa9ebfeef3072a38500850f281eb8bf",
+        "247752468456771425ba0d5395f6afe1049ed464b671796048c0d9acf8737dd5",
+        "81a7185f5353d2e20d577a291ebfb0ed9e6a98447bff46e865aeda2d7f0d5b0c",
+        "4329069570dfb57078ff2dae63e15ac47567580e0868edd54117701230d86581",
+        "91236608f165ae16f2c2b5a48d4b82105c2c3cc982cc28d73c2c7f21366df541",
+        "8eb84d30f13e6315188638fa5acdd0e1eae2be3b00a206130a724f237b557c52",
+        "503e1245b179172bde8090170b46499235f1d503f59a23b5886484b4f7321146",
+        "12ca8abb5f48051a3e458e3dad86888b41636e2ad91af60e3bfd285c6036ddeb"
+      ]
+    },
+    {
+      "id": "xhs-bigcat-pink-patterns-20261114",
+      "title": "大猫分级Pink句型总结",
+      "author": "买买买小能手",
+      "url": "https://www.xiaohongshu.com/explore/665d75cd000000001303e35f",
+      "checkedAt": "2026-11-14",
+      "locator": "图1，Pink A/B各22本",
+      "note": "读者整理的句型／亲子拓展摘要，不宣称全部为原书逐字原句。仅应用当前明确Pink 1A/1B原版44本。Procedure of making hats不是句型，不纳入。",
+      "observedImageSha256s": [
+        "06c4f7c55ae6d9e67d78e6cddb75046b134799e149c7cab2c8ad25ac8cdbb6ea"
+      ]
+    },
+    {
+      "id": "xhs-ort-1plus-patterns-20261114",
+      "title": "牛津树拓展阅读 1+ 重点句型",
+      "author": "拔河的薄荷",
+      "url": "https://www.xiaohongshu.com/explore/697170f7000000000a02f423",
+      "checkedAt": "2026-11-14",
+      "locator": "图1，27行（第18行空白）",
+      "note": "读者口语拓展表。当前公共目录把红标1/1+合列为1级，未核定原表具体版本；先保存转录，不跨版下传。原表疑似语法错误不自动修写为原书原句。",
+      "observedImageSha256s": [
+        "7bf656e71d65608661a59d51a1e959085aa61d4680ff11d5d0bdb4fee04024fb"
+      ]
+    },
+    {
+      "id": "xhs-qplay-request-20261114",
+      "title": "Q-play3绘本｜请求句型生活化启蒙",
+      "url": "https://www.xiaohongshu.com/explore/6ae536da000000001200a161",
+      "checkedAt": "2026-11-14",
+      "locator": "正文，Can I Have It?",
+      "note": "正文说明本册的礼貌请求句型；角色扮演属于家长拓展，不传播到全套。"
+    },
+    {
+      "id": "xhs-wow-season2-patterns-20261114",
+      "title": "Wow English 第二季6大句型｜零基础直接用",
+      "author": "多多的启蒙屋",
+      "url": "https://www.xiaohongshu.com/explore/6aa2a273000000002601d80e",
+      "checkedAt": "2026-11-14",
+      "locator": "正文的第二季6组句型",
+      "note": "读者第二季整理与亲子拓展，系列范围，不下传每一集，不宣称所有列句均为动画逐字台词。"
+    }
+  ],
+  "tables": [
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "levels": [
+        "A"
+      ],
+      "status": "classification-verified",
+      "rows": [
+        {
+          "title": "Baby Animals",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "The Forest",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "My Body",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "My Face",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "Opposites",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "Our Apartment Building",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "These Shoes",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "This Is Halloween",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "Vegetables",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "Fruits",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "My House",
+          "patterns": [
+            "This is / These are …"
+          ],
+          "locator": "图2",
+          "note": "原图This is / These are合组；仅表示该组检索结构，未独立核定本册各句的单复数。"
+        },
+        {
+          "title": "All Kinds of Faces",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "All Kinds of Buttons",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Bird Colors",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Clean, Not Clean",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "My Easter Eggs",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Nice, Not Nice",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Rabbits",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Safe, Not Safe",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "This Insect",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Snake Colors",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "Scary, Not Scary",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "This Lizard",
+          "patterns": [
+            "This … is …"
+          ],
+          "locator": "图3"
+        },
+        {
+          "title": "A Fish Sees",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "I See My Colors",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "The Mall",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "The Rainstorm",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "Shapes in Nature",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "Pond Animals",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "The Parade",
+          "patterns": [
+            "I / We see …"
+          ],
+          "locator": "图4"
+        },
+        {
+          "title": "Fruit Colors",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "Hot and Cold",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "I Can",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "I Can Skate",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "My Dog",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "We Can Make Sounds",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "You Can Dance",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "Going Places",
+          "patterns": [
+            "… can …"
+          ],
+          "locator": "图5"
+        },
+        {
+          "title": "Halloween Houses",
+          "patterns": [
+            "… have / has …"
+          ],
+          "locator": "图6"
+        },
+        {
+          "title": "Hamster Home",
+          "patterns": [
+            "… have / has …"
+          ],
+          "locator": "图6"
+        },
+        {
+          "title": "Who Has It?",
+          "patterns": [
+            "… have / has …"
+          ],
+          "locator": "图6"
+        },
+        {
+          "title": "Carlos Counts Kittens",
+          "patterns": [
+            "… have / has …"
+          ],
+          "locator": "图6"
+        },
+        {
+          "title": "Car Parts",
+          "patterns": [
+            "… have / has …"
+          ],
+          "locator": "图6"
+        },
+        {
+          "title": "Maria Counts Pumpkins",
+          "patterns": [
+            "… have / has …"
+          ],
+          "locator": "图6"
+        },
+        {
+          "title": "I Love Flowers",
+          "patterns": [
+            "I love …"
+          ],
+          "locator": "图7，混合组中题名可明确对应的项"
+        },
+        {
+          "title": "I Love Pirates",
+          "patterns": [
+            "I love …"
+          ],
+          "locator": "图7，混合组中题名可明确对应的项"
+        },
+        {
+          "title": "Make Me Laugh",
+          "patterns": [
+            "Make me …"
+          ],
+          "locator": "图7，混合组中题名可明确对应的项"
+        },
+        {
+          "title": "My Room",
+          "patterns": [
+            "My…"
+          ],
+          "locator": "图7，混合组中题名可明确对应的项"
+        },
+        {
+          "title": "My Hair",
+          "patterns": [
+            "My…"
+          ],
+          "locator": "图7，混合组中题名可明确对应的项"
+        },
+        {
+          "title": "This Feels",
+          "patterns": [
+            "This feels …"
+          ],
+          "locator": "图9"
+        },
+        {
+          "title": "This Looks",
+          "patterns": [
+            "This looks …"
+          ],
+          "locator": "图9"
+        },
+        {
+          "title": "This Smells",
+          "patterns": [
+            "This smells …"
+          ],
+          "locator": "图9"
+        },
+        {
+          "title": "This Sounds",
+          "patterns": [
+            "This sounds …"
+          ],
+          "locator": "图9"
+        },
+        {
+          "title": "This Tastes",
+          "patterns": [
+            "This tastes …"
+          ],
+          "locator": "图9"
+        }
+      ],
+      "scopeNote": "仅同套A、同名书目；句型保留原表分组口径。"
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "levels": [
+        "Pink 1A"
+      ],
+      "editionContains": "Collins原版进口",
+      "status": "classification-verified",
+      "scopeNote": "Pink44本原版，读者句型/拓展摘要，未给国内选本或其他级别借用。",
+      "rows": [
+        {
+          "title": "Cars",
+          "patterns": [
+            "A … (colour) car"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Dinosaur Rock",
+          "patterns": [
+            "They play … (musical instrument)"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Getting Dressed",
+          "patterns": [
+            "My…"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "How Many Animals",
+          "patterns": [
+            "… (number) … (animals)"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "In the Boat",
+          "patterns": [
+            "… (number) … (animals) in the boat"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "In the Garden",
+          "patterns": [
+            "In the …"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Jump and Fly",
+          "patterns": [
+            "The bird … (verb)"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Minibeasts",
+          "patterns": [
+            "A … (insect)"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "My Family Tree",
+          "patterns": [
+            "This is my …"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "My Skateboard",
+          "patterns": [
+            "My…"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Oops Owl",
+          "patterns": [
+            "… (adjective) owls"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Pushing and Pulling",
+          "patterns": [
+            "I am pushing / pulling"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Shapes",
+          "patterns": [
+            "A … (shape)"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Teeth",
+          "patterns": [
+            "… (adjective / verb) teeth … (verb)"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Farmer's Lunch",
+          "patterns": [
+            "Where is my …?"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Guinea Pigs",
+          "patterns": [
+            "In the …"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Picnic",
+          "patterns": [
+            "The…"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Very Wet Dog",
+          "patterns": [
+            "In the …"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Walking and Walking",
+          "patterns": [
+            "We like walking in …"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Wash, Wash, Wash",
+          "patterns": [
+            "I wash when I …"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Yum",
+          "patterns": [
+            "… (insect), yum yum"
+          ],
+          "locator": "图1，Pink 1A",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "levels": [
+        "Pink 1B"
+      ],
+      "editionContains": "Collins原版进口",
+      "status": "classification-verified",
+      "scopeNote": "Pink44本原版，读者句型/拓展摘要，未给国内选本或其他级别借用。",
+      "rows": [
+        {
+          "title": "Cats",
+          "patterns": [
+            "A cat has …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Colour Bears",
+          "patterns": [
+            "… (colour) and … (colour) make … (colour)"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Come to the Circus",
+          "patterns": [
+            "Come and see the…"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Fly Away Home",
+          "patterns": [
+            "Ladybird is on the …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "I Can Do It",
+          "patterns": [
+            "I am doing …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "I Can Help",
+          "patterns": [
+            "I can help in the …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "In the Desert",
+          "patterns": [
+            "There are … in the desert"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "In the Forest",
+          "patterns": [
+            "… (verb) in the forest"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "In the Jungle",
+          "patterns": [
+            "… (verb) in the jungle"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "In the Sea",
+          "patterns": [
+            "… (verb) in the sea"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Monster Mess",
+          "patterns": [
+            "We painted …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Playing",
+          "patterns": [
+            "We like playing in …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Seasons Scrapbook",
+          "patterns": [
+            "We will find … in the park"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Splash",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Big Splash",
+          "patterns": [
+            "She is getting her …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Boy Who Cried Wolf",
+          "patterns": [
+            "I can see …",
+            "We cannot see …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Pond",
+          "patterns": [
+            "We can see …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Robot",
+          "patterns": [
+            "Here is…"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The See-Saw",
+          "patterns": [
+            "The … went up"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "The Three Little Rabbits",
+          "patterns": [
+            "I can / cannot blow your house down"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "We Like Fruit",
+          "patterns": [
+            "I like eating …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        },
+        {
+          "title": "Wheels",
+          "patterns": [
+            "Some wheels are …"
+          ],
+          "locator": "图1，Pink 1B",
+          "note": "原图XX占位符统一显示为省略号；结构/名词短语沿原表，不冒充逐字原文。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-qplay-request-20261114",
+      "resourceId": "resource-123ikqd",
+      "levels": [
+        ""
+      ],
+      "status": "content-verified",
+      "rows": [
+        {
+          "title": "Can I Have It",
+          "patterns": [
+            "Can I …?",
+            "Can I have it?"
+          ],
+          "topics": [
+            "social.manners"
+          ],
+          "locator": "正文：动物园情境中的礼貌请求"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "levels": [
+        "1+"
+      ],
+      "status": "reference-only",
+      "scopeNote": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。",
+      "rows": [
+        {
+          "title": "Hide and Seek",
+          "patterns": [
+            "Can you see us / me?",
+            "Yes, I can see you.",
+            "We can all see Dad."
+          ]
+        },
+        {
+          "title": "Look at Me",
+          "patterns": [
+            "Look at me, Mum.",
+            "Look at me on my bike."
+          ]
+        },
+        {
+          "title": "Go Away, Floppy",
+          "patterns": [
+            "Come back.",
+            "Go away.",
+            "We are painting / skipping."
+          ]
+        },
+        {
+          "title": "Reds and Blues",
+          "patterns": [
+            "We are all in red.",
+            "Come on the reds.",
+            "Who is in red?",
+            "We are all muddy."
+          ]
+        },
+        {
+          "title": "Big Feet",
+          "patterns": [
+            "Come and look at this.",
+            "Is it a big dinosaur / monster / big giant?"
+          ]
+        },
+        {
+          "title": "Kipper’s Diary",
+          "patterns": [
+            "It was a wet / windy / snowy / rainy / hot day.",
+            "I went to the park."
+          ]
+        },
+        {
+          "title": "The Headache",
+          "patterns": [
+            "… had a trumpet / drum / recorder / guitar / headache."
+          ]
+        },
+        {
+          "title": "At the Park",
+          "patterns": [
+            "Everyone went to the park.",
+            "… went on the slide / horse / swing / see-saw."
+          ]
+        },
+        {
+          "title": "Fancy Dress",
+          "patterns": [
+            "… was a scarecrow / pirate / angel / chicken.",
+            "Everyone was happy."
+          ]
+        },
+        {
+          "title": "Push",
+          "patterns": [
+            "The car was stuck."
+          ],
+          "notAdopted": "原图Someone pull/push it语法待核"
+        },
+        {
+          "title": "Good Old Mum",
+          "patterns": [
+            "… put on a big red nose / a big pillow / big eyebrows / a big beard."
+          ]
+        },
+        {
+          "title": "The Pet Shop",
+          "patterns": [
+            "Everyone wanted a pet.",
+            "… wanted a rat / spider / snake / goldfish."
+          ]
+        },
+        {
+          "title": "What a Mess",
+          "patterns": [
+            "… made a dress / jam / scarf / lorry / birthday card.",
+            "… made a mess."
+          ]
+        },
+        {
+          "title": "Making Faces",
+          "patterns": [
+            "… was fierce / sad / good / frightened / hungry."
+          ]
+        },
+        {
+          "title": "The Journey",
+          "patterns": [
+            "I’m bored / hungry / thirsty / cross / lost."
+          ]
+        },
+        {
+          "title": "Goal",
+          "patterns": [
+            "It was a cold day.",
+            "… got wet / cold / tired / miserable / cross / a goal."
+          ]
+        },
+        {
+          "title": "Who Did That",
+          "patterns": [
+            "Who did that?",
+            "It was …."
+          ]
+        },
+        {
+          "title": "What Dogs Like",
+          "patterns": [
+            "Dogs like to play / walk / run / sleep."
+          ]
+        },
+        {
+          "title": "Presents for Dad",
+          "patterns": [
+            "This is for ….",
+            "It is a bunch of flowers / a box of chocolates / a bunch of grapes."
+          ]
+        },
+        {
+          "title": "Top Dog",
+          "patterns": [
+            "Look at all the dogs.",
+            "We like this dog.",
+            "This is the top dog.",
+            "We like Floppy best of all."
+          ]
+        },
+        {
+          "title": "Look After Me",
+          "patterns": [
+            "She went up the net / the ladder.",
+            "She went on the slide."
+          ]
+        },
+        {
+          "title": "Go on, Mum",
+          "patterns": [
+            "Go on.",
+            "I am going."
+          ]
+        },
+        {
+          "title": "Go Away, Cat",
+          "patterns": [
+            "Go away, little cat.",
+            "A big dog is coming."
+          ]
+        },
+        {
+          "title": "Sandcastle",
+          "patterns": [
+            "… had a box / bucket.",
+            "He put sand in it.",
+            "Pat it flat."
+          ]
+        },
+        {
+          "title": "Floppy’s Bone",
+          "patterns": [
+            "Come back.",
+            "She ran after Floppy."
+          ]
+        },
+        {
+          "title": "The Box of Treasure",
+          "patterns": [
+            "Dad had a map.",
+            "He hid the map in the sand.",
+            "It was a box of sweets / treasure."
+          ],
+          "notAdopted": "Chip dig in the sand语法待核"
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "resource-ij95m4": {
+      "sourceIds": [
+        "xhs-wow-season2-patterns-20261114"
+      ],
+      "topics": [
+        "actions.locomotion",
+        "concepts.counting",
+        "concepts.colors",
+        "body.whole"
+      ],
+      "status": "classification-verified",
+      "basis": "小红书正文按Wow第二季列6组句型及对应主题；系列范围，不下传每集。",
+      "patterns": [
+        {
+          "text": "Let’s …",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "Can you count to three?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "How many legs?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "What colour is it?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "It’s red / yellow / green.",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "What colour are they?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "What is it?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "What’s this?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "It’s a …",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "What are these?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "They are …",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "This is my arm / leg / hand / foot.",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "I like…",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "Do you like …?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "Can you …?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "I can…",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "I can’t …",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        },
+        {
+          "text": "What can you see?",
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "note": "第二季读者整理/亲子拓展"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-wow-season2-patterns-20261114",
+          "summary": "第二季6组：动作、数数、颜色、识物/身体、喜好、能力/观察。原文另有亲子提问拓展，未当成全系列逐集台词。",
+          "locator": "正文第二季6组"
+        }
+      ]
+    }
+  }
+}

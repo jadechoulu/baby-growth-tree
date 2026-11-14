@@ -1256,6 +1256,7 @@
 .resource-grid.library-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));align-items:start;gap:8px}
 .library-card{container-type:inline-size}
 .library-card .resource-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;padding:10px;min-width:0;align-items:center}
+.library-card .library-book-topics,.library-card .book-study-guide{grid-column:1/-1}
 .library-card-head{display:flex;align-items:center;gap:8px;min-width:0}
 .library-card .library-card-cover{flex:0 0 48px;width:48px;min-width:0}
 .library-card .resource-cover{height:60px;border-radius:5px;padding:3px}

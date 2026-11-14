@@ -33,5 +33,12 @@ function details(directory,taxonomy,fetcher){
     return chunks.get(url);
   };
 }
-return {create,needsBooks,details};
+function resourceTopics(taxonomy,url,fetcher){
+  const target=taxonomy.resourceMappings||={};
+  return create(target,url,fetcher,{
+    validate:data=>data&&typeof data==='object'&&!Array.isArray(data)&&Object.keys(target).length===Object.keys(data).length&&Object.keys(target).every(id=>Array.isArray(data[id]?.topics)),
+    apply:data=>{for(const [id,item]of Object.entries(data))Object.assign(target[id],item);}
+  });
+}
+return {create,needsBooks,details,resourceTopics};
 });

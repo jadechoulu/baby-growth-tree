@@ -37,6 +37,12 @@ function patternTopics(entry){
     return mapping[key];
   }).filter(Boolean));
 }
+function patterns(domain,entry={}){
+  const record=domain==='resource'?data.resourceMappings?.[entry.id]:data.bookOverrides[entry.id];
+  const values=[...list(entry.studyGuide?.patterns).map(item=>({...item,sourceId:entry.studyGuide.sourceId})),...list(record?.patterns)];
+  const seen=new Set();
+  return values.filter(item=>{const key=String(item.text||'').trim();if(!key||seen.has(key))return false;seen.add(key);return true;});
+}
 function entryTopics(domain,entry={}){
   if(domain==='book'){
     const override=entry.custom?null:data.bookOverrides[entry.id];
@@ -44,6 +50,7 @@ function entryTopics(domain,entry={}){
     const ids=original.flatMap(value=>bookTopic(value,entry.custom)).concat(list(override?.topics),entry.custom?[]:patternTopics(entry));
     return unique(ids);
   }
+  if(domain==='resource')return list(data.resourceMappings?.[entry.id]?.topics);
   if(domain==='hello-part')return unique(list(data.helloScenes[entry.scene]?.topics).concat(list(helloOverride(domain,entry)?.topics)));
   if(domain==='hello-rhyme')return unique(list(entry.themes).flatMap(theme=>list(data.helloScenes[theme]?.topics)).concat(list(helloOverride(domain,entry)?.topics)));
   if(domain==='song')return list(data.songMappings[entry.id]?.topics);
@@ -64,11 +71,12 @@ function originalLabels(domain,entry={}){
 function entryEvidence(domain,entry={}){
   if(domain==='book'){
     const record=data.bookOverrides[entry.id]||{basis:'保留已有内容核对的一级主题；没有细分依据不补造二级。',evidence:list(entry.topicEvidence)};
-    return {...record,patternTopics:patternTopics(entry),patternSourceId:patternTopics(entry).length?entry.studyGuide.sourceId:null};
+    return {...record,patternTopics:unique(patternTopics(entry).concat(list(record.topics).filter(id=>node(id)?.parentId==='patterns'))),patterns:patterns(domain,entry),patternSourceId:patternTopics(entry).length?entry.studyGuide.sourceId:null};
   }
+  if(domain==='resource')return {...(data.resourceMappings?.[entry.id]||{status:'pending',basis:'本素材尚未取得可用主题依据。'}),patterns:patterns(domain,entry)};
   if(domain==='song')return data.songMappings[entry.id]||{status:'pending',basis:'尚无本曲具体版本的主题映射依据。'};
   const values=originalLabels(domain,entry);
   return {basis:'原场景／主题名称保留，按已确认的公共两级目录关联。',mappings:values.map(value=>({originalLabel:value,...data.helloScenes[value]})),override:helloOverride(domain,entry)};
 }
-return {roots,children,node,label,labels,expand,matches,options,entryTopics,entryActivities,originalLabels,entryEvidence,activities:data.activities,sources:data.sources};
+return {roots,children,node,label,labels,expand,matches,options,entryTopics,entryActivities,originalLabels,entryEvidence,patterns,activities:data.activities,sources:data.sources};
 });

@@ -98,7 +98,19 @@ def split_runtime_data(raw, store):
     raw['helloReading'] = {key: value for key, value in hello.items() if key not in ('books', 'rhymes', 'tuneAudio', 'materialCards')}
     raw['helloReading']['books'] = [{key: value for key, value in book.items() if key in ('id', 'externalIds')} | {'resources': [{'url': item['url']} for item in book['resources'] if item.get('url')]} for book in hello['books']]
     taxonomy = raw['topicTaxonomy']
-    raw['topicTaxonomy'] = {**taxonomy, 'bookOverrides': {key: {field: value for field, value in item.items() if field in ('topics', 'replaceLegacy')} for key, item in taxonomy['bookOverrides'].items()}}
+    topic_index = {}
+    for key, item in taxonomy['bookOverrides'].items():
+        topic_index[key] = {field: value for field, value in item.items() if field in ('topics', 'replaceLegacy', 'status', 'subtopicStatus')}
+        if item.get('patterns'):
+            topic_index[key]['patterns'] = [{name: value for name, value in pattern.items() if name in ('text', 'sourceId')} for pattern in item['patterns']]
+    resource_topics = taxonomy.get('resourceMappings', {})
+    resource_topics_url = store('resource-topics', 'json', inline_json(resource_topics))
+    resource_index = {}
+    for key, item in resource_topics.items():
+        resource_index[key] = {field: value for field, value in item.items() if field in ('topics', 'status', 'subtopicStatus')}
+        if item.get('patterns'):
+            resource_index[key]['patterns'] = [{name: value for name, value in pattern.items() if name in ('text', 'sourceId')} for pattern in item['patterns']]
+    raw['topicTaxonomy'] = {**taxonomy, 'bookOverrides': topic_index, 'resourceMappings': resource_index}
     directory = raw['resourceBooks']
     detail_fields = {'coverSource', 'previousCoverSource', 'catalogMetadata', 'topicBasis', 'topicEvidence', 'genreEvidence', 'titleEvidence', 'catalogNote', 'catalogIdentityNote'}
     books, detail_files = [], []
@@ -113,7 +125,7 @@ def split_runtime_data(raw, store):
             books.append({**index, 'detailChunk': len(detail_files) - 1})
     books_url = store('books', 'json', inline_json({**directory, 'books': books, 'detailFiles': detail_files}))
     raw['resourceBooks'] = {'books': [], 'sources': []}
-    return raw, books_url, {'helloReading': hello_url}
+    return raw, books_url, {'helloReading': hello_url, 'resourceTopics': resource_topics_url}
 
 def write(path, assets, raw=RAW, script=js, site=None):
     site = site or {'home':'../home.html','growth':'../index.html'}
@@ -136,7 +148,7 @@ def write(path, assets, raw=RAW, script=js, site=None):
         for name, suffix, content in [('data', 'js', payload), ('app', 'js', script), ('styles', 'css', css)]:
             files[name] = store(name, suffix, content)
         for previous in runtime.iterdir():
-            if previous.is_file() and re.fullmatch(r'(data|app|styles|hello|books|book-details)\.[0-9a-f]{16}\.(js|css|json)', previous.name) and 'runtime/' + previous.name not in generated:
+            if previous.is_file() and re.fullmatch(r'(data|app|styles|hello|books|book-details|resource-topics)\.[0-9a-f]{16}\.(js|css|json)', previous.name) and 'runtime/' + previous.name not in generated:
                 previous.unlink()
         template = BASE.replace('<style>__CSS__</style>', '<link rel="stylesheet" href="./' + files['styles'] + '">')
         template = template.replace('<script>__JS__</script>', '<script id="english-data" src="./' + files['data'] + '" defer onerror="EnglishStartupFailed()"></script>\n<script src="./' + files['app'] + '" defer onerror="EnglishStartupFailed()"></script>')
