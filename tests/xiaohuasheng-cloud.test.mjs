@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { gzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
-import { createAppClient, createXhsService, fetchSnapshot } from '../backend/xiaohuasheng.mjs';
+import { createAppClient, createXhsService, fetchSnapshot, catalogMetadata } from '../backend/xiaohuasheng.mjs';
 
 const NOW = Date.parse('2026-11-09T00:00:00Z');
 const settings = () => ({ userId: '123', seed: 'fake-seed', authorization: 'fake-authorization', token: 'a'.repeat(8) + '-aaaa-aaaa-aaaa-' + 'a'.repeat(12), platform: 'ios' });
@@ -21,6 +21,19 @@ function memoryStore() {
     async getWithMetadata(key) { return structuredClone(entries.get(key) || null); },
   };
 }
+
+test('书目标签和出版字段按白名单升级缓存，下一次同步仍读取最新阅读状态',async()=>{
+  const metadata=catalogMetadata(detail(1,{category:'英文，lovevery，Lovevery',seriesTitle:'Lovevery',press:'Lovevery',author:'Author',myComment:'private'}));
+  assert.deepEqual(metadata.catalogTags,['英文','lovevery','Lovevery']);assert.equal(metadata.publisher,'Lovevery');assert.equal(metadata.seriesTitle,'Lovevery');assert.equal(metadata.myComment,undefined);
+  const store=memoryStore();await store.setJSON('catalog/123/1',catalogMetadata(detail(1)));
+  const cached=store.entries.get('catalog/123/1');delete cached.data.catalogSchemaVersion;
+  let calls=0,read=true;
+  const client={async get(path){if(path.startsWith('/bookroom/'))return [row(1,{readedFlag:read?1:0}),row(2)];calls++;return detail(Number(path.split('/').at(-1)),{category:'英文，lovevery'});}};
+  let result=await fetchSnapshot({config:settings(),client,store,history:'history/first'});
+  assert.equal(calls,2);assert.deepEqual(result.shelfCatalog.books[0].catalogTags,['英文','lovevery']);
+  calls=0;read=false;result=await fetchSnapshot({config:settings(),client,store,history:'history/second'});
+  assert.equal(calls,0);assert.equal(result.shelfCatalog.books[0].read,false);assert.equal(result.books.length,1);
+});
 
 test('云端按当前时间签名固定本人HTTPS路由，续取令牌；拒绝跳转且不泄漏上游凭据', async () => {
   const config = settings(), calls = [];

@@ -16,6 +16,8 @@ function validateBook(book){
     if(book.cover.length>1500||url.origin!=='https://img.xiaohuasheng.cn'||url.username||url.password)throw Error('小花生封面来源无效。');
   }
   if(book.series&&(!identity(book.series.id)||typeof book.series.appBookId!=='string'||!/^[1-9]\d{0,19}$/.test(book.series.appBookId)||!text(book.series.title,500)))throw Error('小花生套系身份不完整。');
+  for(const [field,max] of [['author',300],['publisher',300],['isbn',300],['seriesTitle',500]])if(book[field]!==undefined&&(typeof book[field]!=='string'||book[field].length>max))throw Error('小花生书目说明字段无效。');
+  if(book.catalogTags!==undefined&&(!Array.isArray(book.catalogTags)||book.catalogTags.length>100||book.catalogTags.some(tag=>!text(tag,2000))))throw Error('小花生书目标签无效。');
 }
 function metadata(records){
   return Object.entries(records||{}).flatMap(([key,record])=>{
@@ -77,11 +79,25 @@ function apply(records,snapshot,options={}){
   const excluded=exclusions(english,options),shelfMatches=new Map();
   for(const book of english)if(!excluded(book)&&!book.isCollection)shelfMatches.set(book.bookId,{publicBookId:'shelf-book-'+owner+'-'+book.bookId,title:book.title});
   const result=BP.applyReadSnapshot(records,options.plans,snapshot,{...options,shelfMatches});
+  // 公共目录补齐身份后，原站未读的手工勾选也要迁接；不等待该册出现于已读快照。
+  for(const book of english){
+    const privateId='shelf-book-'+owner+'-'+book.bookId,old=records?.[BP.MANUAL+privateId];
+    const previous=parse(records?.[PREFIX+owner+':'+book.bookId]?.note);
+    if(!old||previous?.appBookId!==book.appBookId)continue;
+    const exact=(options.directory?.books||[]).some(item=>item.externalIds?.xiaohuasheng?.includes(book.bookId));
+    if(!exact)continue;
+    const match=BP.matchEntry(options.plans,book,options.directory,options.catalog);
+    if(match.candidates.length!==1||match.conflicts.length)continue;
+    const key=BP.MANUAL+match.candidates[0].publicBookId;
+    if(!records?.[key]&&!result.changes[key])result.changes[key]={...old};
+  }
   const active=new Set();
   for(const book of english){
     const key=PREFIX+owner+':'+book.bookId;
     // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 私人目录只保留固定书目字段，外站对象不能覆盖账号、版本或进度键。
-    const note=JSON.stringify({version:1,accountId:owner,bookId:book.bookId,appBookId:book.appBookId,title:book.title,language:book.language,read:book.read,isCollection:book.isCollection,...(book.cover?{cover:book.cover}:{}),...(book.series?{series:{id:book.series.id,appBookId:book.series.appBookId,title:book.series.title}}:{})});
+    const previous=parse(records?.[key]?.note),fallback=previous?.appBookId===book.appBookId?previous:{};
+    const descriptions=Object.fromEntries(['author','publisher','isbn','seriesTitle','catalogTags'].filter(field=>book[field]!==undefined||fallback[field]!==undefined).map(field=>[field,book[field]??fallback[field]]));
+    const note=JSON.stringify({version:1,accountId:owner,bookId:book.bookId,appBookId:book.appBookId,title:book.title,language:book.language,read:book.read,isCollection:book.isCollection,...descriptions,...(book.cover?{cover:book.cover}:{}),...(book.series?{series:{id:book.series.id,appBookId:book.series.appBookId,title:book.series.title}}:{})});
     if(note.length>4000)throw Error('书架元信息超出保存容量，原记录保留。');
     active.add(key);
     if(records?.[key]?.status!=='using'||records[key].note!==note)result.changes[key]={status:'using',note};
@@ -97,8 +113,8 @@ function groups(records,options={}){
   const all=metadata(records),excluded=exclusions(all,options),groups=new Map();
   for(const book of all){
     if(excluded(book))continue;
-    const key=book.series?'shelf-series-'+book.series.id:'shelf-book-'+book.accountId+'-'+book.bookId;
-    if(!groups.has(key))groups.set(key,{id:key,title:book.series?.title||book.title,series:!!book.series,books:[],cover:book.cover});
+    const series=displaySeries(book),key=series?'shelf-series-'+series.id:'shelf-book-'+book.accountId+'-'+book.bookId;
+    if(!groups.has(key))groups.set(key,{id:key,title:series?.title||book.title,series:!!series,books:[],cover:book.cover});
     const group=groups.get(key);
     if(!book.isCollection)group.books.push({...book,id:'shelf-book-'+book.accountId+'-'+book.bookId});
   }
@@ -107,5 +123,12 @@ function groups(records,options={}){
     return {...group,completed,total,status:completed===total?'done':completed?'using':'not-started'};
   }).sort((a,b)=>a.title.localeCompare(b.title,'zh-CN'));
 }
-return {PREFIX,metadata,apply,groups};
+// 本人明确要求的展示归组；不推定出版目录、跨版身份或完成事实。
+function displaySeries(book){
+  const labels=[book.series?.title,book.seriesTitle,book.author,book.publisher,...(book.catalogTags||[])];
+  if(labels.some(label=>/^lovevery(?:\.com|绘本)?$/i.test(String(label||'').trim())))return {id:'curated-lovevery',title:'Lovevery'};
+  if([book.title,book.series?.title].some(label=>/construction\s+site|晚安工地上的车/i.test(label||'')))return {id:'curated-construction-site',title:'Construction Site'};
+  return book.series;
+}
+return {PREFIX,metadata,apply,groups,displaySeries};
 });

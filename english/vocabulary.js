@@ -2,7 +2,7 @@
 'use strict';
 const ENTRY='vocabulary.entry.v1:',CATEGORY='vocabulary.category.v1:',SETTINGS='vocabulary.settings.v1';
 const TYPES={word:'单词',phrase:'短语',pattern:'句型'},CHANNELS={listening:'听懂',speaking:'会说'},POS={noun:'名词',verb:'动词',adjective:'形容词',adverb:'副词',other:'其他'};
-const DEFAULT_CATEGORIES=[['body','身体与人物'],['objects','日常用品'],['nature','自然与动物'],['transport','交通与地点'],['actions','动作与生活'],['attributes','特征与概念'],['uncategorized','未分类']].map(([id,name])=>({id,name}));
+const DEFAULT_CATEGORIES=[['body','身体与人物'],['objects','日常用品'],['nature','自然与动物'],['transport','交通与地点'],['actions','动作与生活'],['attributes','特征与概念'],['uncategorized','其他']].map(([id,name])=>({id,name}));
 const CATEGORY_ALIASES={clothing:'objects',food:'objects',animals:'nature',routines:'actions',people:'body',places:'transport'};
 const PREVIOUS_CATEGORY_NAMES={body:'身体',objects:'日常物品',nature:'自然环境',transport:'交通出行',actions:'动作',attributes:'颜色与数量'};
 function canonicalCategory(id){return Object.hasOwn(CATEGORY_ALIASES,id)?CATEGORY_ALIASES[id]:id;}
@@ -18,13 +18,13 @@ function entries(records,{deleted=false}={}){return Object.entries(records).filt
 function initialized(records){return !!decode(records[SETTINGS])?.initialized||entries(records,{deleted:true}).length>0;}
 function summary(records){const result={};for(const channel of Object.keys(CHANNELS)){result[channel]={};for(const type of Object.keys(TYPES)){const list=entries(records).filter(e=>e.channel===channel&&e.type===type);result[channel][type]={unique:list.length};}}return result;}
 function groupEntries(records,{channel='listening',type='word',categoryId='all',search=''}={}){
-  categoryId=canonicalCategory(categoryId);
+  categoryId=type==='word'?canonicalCategory(categoryId):'all';
   const cats=categories(records),catMap=new Map(cats.map(c=>[c.id,c])),query=text(search);
-  const list=entries(records).filter(e=>e.channel===channel&&e.type===type).map(e=>({...e,categoryId:catMap.has(canonicalCategory(e.categoryId))?canonicalCategory(e.categoryId):'uncategorized'})).filter(e=>(categoryId==='all'||e.categoryId===categoryId)&&(!query||[e.text,...e.aliases,catMap.get(e.categoryId).name].join(' ').toLowerCase().includes(query)));
-  const roles=type==='word'?Object.entries(POS).map(([id,label])=>[id,id==='other'?'其他单词':label]):[[type,TYPES[type]]];
+  const list=entries(records).filter(e=>e.channel===channel&&e.type===type).map(e=>({...e,categoryId:catMap.has(canonicalCategory(e.categoryId))?canonicalCategory(e.categoryId):'uncategorized'})).filter(e=>(categoryId==='all'||e.categoryId===categoryId)&&(!query||[e.text,...e.aliases,...(type==='word'?[catMap.get(e.categoryId).name]:[])].join(' ').toLowerCase().includes(query)));
+  const roles=type==='word'?Object.entries(POS):[[type,TYPES[type]]];
   return roles.map(([id,label])=>{
     const selected=list.filter(e=>type!=='word'||(own(POS,e.pos)?e.pos:'other')===id);
-    return {id,label,total:selected.length,categories:cats.map(c=>({...c,entries:selected.filter(e=>e.categoryId===c.id).sort((a,b)=>a.text.localeCompare(b.text))})).filter(c=>c.entries.length)};
+    return {id,label,total:selected.length,categories:type==='word'?cats.map(c=>({...c,entries:selected.filter(e=>e.categoryId===c.id).sort((a,b)=>a.text.localeCompare(b.text))})).filter(c=>c.entries.length):[{id:'all',name:'',entries:selected.sort((a,b)=>a.text.localeCompare(b.text))}]};
   }).filter(g=>g.total);
 }
 function initChange(){return {[SETTINGS]:pack({initialized:true})};}

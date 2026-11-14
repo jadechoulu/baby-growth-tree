@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-05",
-  "note": "本站按用户确认的20个一级与二级细分统一主题/场景。原始标签、来源、稳定ID及个人记录不变。未取得细分证据只保留一级；难度、TPR活动方式、曲目形式和路线用途不属于主题层级。",
+  "checkedAt": "2026-11-14",
+  "note": "共用21个一级主题及有依据的二级；句型按用户要求作为独立一级检索维度，与内容主题并存，不表示难度。",
   "nodes": [
     {
       "id": "daily",
@@ -727,6 +727,465 @@
       "id": "festivals.parties",
       "label": "聚会与派对",
       "parentId": "festivals"
+    },
+    {
+      "id": "patterns",
+      "label": "句型"
+    },
+    {
+      "id": "patterns.d31ecda36979",
+      "label": "My…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.afe90d871583",
+      "label": "The…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.12d8c07d7755",
+      "label": "A…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.702dc4b6192e",
+      "label": "I like…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.4c15909c4a21",
+      "label": "I am a…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.5478280e125b",
+      "label": "I can…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.dad6d2f810ed",
+      "label": "This is a…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.e5fd16b27853",
+      "label": "I can see a…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.b7c260838e9e",
+      "label": "This is the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.1759c0f26b25",
+      "label": "I can see the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.30ddfa587488",
+      "label": "I like…and…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.95e50905d65d",
+      "label": "I am doing",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.445e61546406",
+      "label": "I put on…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.86d35cda2eb5",
+      "label": "We put on…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.7abe0c4f91f8",
+      "label": "You like…and…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.111d14cdca39",
+      "label": "Here is…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.a176aa4e00db",
+      "label": "This is for…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.f235300c5fac",
+      "label": "Look at the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.2b6eaf9fe5ef",
+      "label": "This is for…said the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.b5ae5df5d025",
+      "label": "Here are…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.12c68048e300",
+      "label": "The…is for me",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.12dca1058f21",
+      "label": "Can you see the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.ba0ecc536459",
+      "label": "I can see you…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.2ce708c2e9d1",
+      "label": "Come and see the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.155ae65d86e5",
+      "label": "I went to the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.d9fc8403ab12",
+      "label": "We went to the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.df8efffb85dd",
+      "label": "I went in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.b7a9e490b59c",
+      "label": "We went in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.d9569423271d",
+      "label": "The…is going up",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.81c574cc58c7",
+      "label": "The…is going down",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.40311796568a",
+      "label": "The…are going in",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.a9cc64dcb5b5",
+      "label": "The…is going to",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.6da5570b024d",
+      "label": "We go in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.67ccc5d6b095",
+      "label": "Look at the…go in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.ca86399f9fb2",
+      "label": "We are in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.05b9d9cbcea3",
+      "label": "Come to the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.12ea69dc378d",
+      "label": "Come in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.32bd6bc7c877",
+      "label": "Come and get the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.76e45008b82b",
+      "label": "I can get the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.f7f34b1ddf96",
+      "label": "You can get the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.c2cacdb53d86",
+      "label": "…for dinner,said the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.13381f6d5fbb",
+      "label": "Come here…said…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.f987d7a9542d",
+      "label": "I am here,said…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.45b93316de37",
+      "label": "Look at…said the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.c4aff20c57cb",
+      "label": "The…said the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.73a3dff67fff",
+      "label": "I am going to…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.e136194677c0",
+      "label": "You can get in this…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.50553d77df33",
+      "label": "I can go in the…",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.b3c23e473bdd",
+      "label": "We can see a …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.5617809f1855",
+      "label": "I see the …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.299804a6dfe8",
+      "label": "I like to …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.7bf058700d17",
+      "label": "… likes the …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.edbbcf039f67",
+      "label": "We like to …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.77696e275df7",
+      "label": "… likes …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.0e22c8f6c415",
+      "label": "… likes to …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.bf86443673f4",
+      "label": "Here is a …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.93815539d9c3",
+      "label": "Here is the …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.ef7f391fa5b1",
+      "label": "Look at my …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.3fe5aaa92eb5",
+      "label": "Look at this …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.d3d92ef9bd9e",
+      "label": "I have a little …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.908b36f13fe9",
+      "label": "I have my …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.7ff652501820",
+      "label": "… has …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.4c00a3da647c",
+      "label": "This is …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.17489516c156",
+      "label": "… like / love to …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.18eb7d295e1a",
+      "label": "… has a very long …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.bdffc4174d5d",
+      "label": "It is …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.8a8b6fbdf9c3",
+      "label": "like …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.9b1830e02c89",
+      "label": "Come and see …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.f46eb2a2f948",
+      "label": "Mom is doing …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.4ec66f8d412f",
+      "label": "Dad is doing …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.3128478ced80",
+      "label": "Baby is doing …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.4d1393c2162a",
+      "label": "I am doing …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.dcf9e8456501",
+      "label": "This bird is doing …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.de83204eec73",
+      "label": "Tom can …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.63d1c91d6456",
+      "label": "I can read to …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.7aff5c60444f",
+      "label": "… can … with …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.2a43bef616ef",
+      "label": "I can draw a …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.fceacd427268",
+      "label": "I can paint a …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.22c5ab8a571e",
+      "label": "… can go fast",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.b580f34bc9ac",
+      "label": "I can hop …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.2679abd1bf58",
+      "label": "… can …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.e10752f9032a",
+      "label": "Look at …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.e137be6d5cd9",
+      "label": "I / we can help …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.8e5a7e056367",
+      "label": "This animal is a …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.b85757a4efa1",
+      "label": "… can … fast",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.c09b3faafda3",
+      "label": "We baked the …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.810ce8dcf471",
+      "label": "… at the farm …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.50b06cb94ebd",
+      "label": "… went to the hut …",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.82806a362e28",
+      "label": "We put the … in the car.",
+      "parentId": "patterns"
+    },
+    {
+      "id": "patterns.5c6d1a97c36b",
+      "label": "We … at school",
+      "parentId": "patterns"
+    },
+    {
+      "id": "sports.roleplay",
+      "label": "角色扮演／小剧场",
+      "parentId": "sports"
     }
   ],
   "activities": [
@@ -927,6 +1386,31 @@
           "note": "原表第87本为The birds，现有上下辑目录同号为The Rides；暂不关联已读记录。"
         }
       ]
+    },
+    {
+      "id": "pearson-xhs-checkin-20261114",
+      "title": "培生启明星按主题分类打卡计划",
+      "author": "无穷小水",
+      "url": "https://www.xiaohongshu.com/explore/68af40be000000001b037063",
+      "checkedAt": "2026-11-14",
+      "locator": "图1–9；1至4级完整分类及5级前11册",
+      "note": "逐项对照公共目录同版中英文题名；表内顺序仅作出处，不改变公共册号。故事线、文体、挑战书及混合语法栏不自动生成内容二级。"
+    },
+    {
+      "id": "pearson-xhs-three-passes-20261114",
+      "title": "培生基础词汇三遍顺序",
+      "author": "熙年英文伴读",
+      "url": "https://www.xiaohongshu.com/explore/689d692e000000001d00067a",
+      "checkedAt": "2026-11-14",
+      "locator": "图1–3主题，图4–6句型",
+      "note": "参考分类思路。原图部分词汇／句型与题名疑似错位；不覆盖用户提供的逐册原表，也不按编号绑定另一版本。75–96图中未给逐册分类。"
+    },
+    {
+      "id": "reading-plan-heinemann-gk70",
+      "title": "海尼曼 GK——句型分类 · 亲子时光",
+      "url": "https://www.zconnect.cn/home/zsviewer?path=%2Fsata11%2Fpublic%2F%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90%2F%E8%8B%B1%E8%AF%AD%E5%90%AF%E8%92%99%2F%E8%AE%B8%E5%AF%86%E6%9D%89%E8%B7%AF%E7%BA%BF%2F%E6%B5%B7%E5%B0%BC%E6%9B%BCGK.pdf&name=%E6%B5%B7%E5%B0%BC%E6%9B%BCGK.pdf&readonly=1",
+      "pages": 3,
+      "checkedAt": "2026-11-06"
     }
   ],
   "legacyBookTopics": {
@@ -13837,6 +14321,2459 @@
     "book-4df9f44e4f8fc5da": {
       "topics": [],
       "subtopicPending": "已存简介未披露足以支持具体主题的内容，或出版社检索仅返回通用分级说明；不据书名补二级。"
+    },
+    "book-3a75a5949264fbe3": {
+      "topics": [
+        "concepts.counting"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-01，Juggling",
+          "originalTopic": "Counting",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-87d7447b611b0126": {
+      "topics": [
+        "concepts.counting"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-02，Greedy Giant贪吃的巨人",
+          "originalTopic": "Counting",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-9f0f2a519faaa432": {
+      "topics": [
+        "concepts.counting"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-03，Curly and the cherries",
+          "originalTopic": "Counting",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d162aa05a6c4374f": {
+      "topics": [
+        "home"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-04，Happy birthday Josie",
+          "originalTopic": "Indoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-46a1d77b72576b9c": {
+      "topics": [
+        "home"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-05，Goodnight Josie",
+          "originalTopic": "Indoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-47e9f6ca7a4d90b4": {
+      "topics": [
+        "home"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-06，That's mine",
+          "originalTopic": "Indoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-b2114304d6fac0f9": {
+      "topics": [
+        "home"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-07，My cushion!",
+          "originalTopic": "Indoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-663c8a41b521c950": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-08，Pop!",
+          "originalTopic": "Colours",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-5af92cc8846b7d03": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-09，I like cars",
+          "originalTopic": "Colours",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-a6162664dd3d6b3b": {
+      "topics": [
+        "concepts.colors"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-10，Fish Colours",
+          "originalTopic": "Colours",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-4a2dc7d29b2a0c29": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-11，Abracadabra",
+          "originalTopic": "Role",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-0c68215cbf18eda7": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-12，Face paintings",
+          "originalTopic": "Role",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-a402574242afe74d": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-13，Fancy dress",
+          "originalTopic": "Role",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-db1eb0fc950ef842": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-14，The play",
+          "originalTopic": "Role",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-7e3cc361f4dbb371": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-15，The princess and the dragon",
+          "originalTopic": "Role",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-dd1f5f4bef80ba76": {
+      "topics": [
+        "sports.toys"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-16，The lost panda",
+          "originalTopic": "Toys",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-078e49c631003729": {
+      "topics": [
+        "sports.toys"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-17，I can't find it!",
+          "originalTopic": "Toys",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-f5afd69a43968e24": {
+      "topics": [
+        "sports.toys"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-18，Moving day",
+          "originalTopic": "Toys",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-dce3bdec061fc0d8": {
+      "topics": [
+        "sports.toys"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-19，Josie and the Junk Box",
+          "originalTopic": "Toys",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-9df1698ce49d8802": {
+      "topics": [
+        "sports.outdoor"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-20，At the Park",
+          "originalTopic": "Outdoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-e13dd2cc6f9e4203": {
+      "topics": [
+        "sports.outdoor"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-21，At the Seaside",
+          "originalTopic": "Outdoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-8d85ca5bd378fe49": {
+      "topics": [
+        "sports.outdoor"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-22，Scaredy Cat",
+          "originalTopic": "Outdoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-6370238e24abb8b6": {
+      "topics": [
+        "sports.outdoor"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-23，Sports Day",
+          "originalTopic": "Outdoors",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-32c9f8c4f63da4b3": {
+      "topics": [
+        "animals.insects"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-24，Minibeasts",
+          "originalTopic": "Bugs",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-bad2c435153ae80d": {
+      "topics": [
+        "animals.insects"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-25，Who Can Curly See?",
+          "originalTopic": "Bugs",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-b9793f60d9b6e9a1": {
+      "topics": [
+        "animals.insects"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-26，A Home for Curly",
+          "originalTopic": "Bugs",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-8542e4c3293953e8": {
+      "topics": [
+        "animals.insects"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-27，Wings",
+          "originalTopic": "Bugs",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-db2be6ef57b2f8bf": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-28，The New Pet",
+          "originalTopic": "Animals 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-4000fd67ef230321": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-29，At the Vet",
+          "originalTopic": "Animals 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-5c314a22524e9289": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-30，What Is It?",
+          "originalTopic": "Animals 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-7e6df65cb4958a3c": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-31，All Fall Down",
+          "originalTopic": "Animals 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-beddf9015988f2fa": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-32，Where Is Patch?",
+          "originalTopic": "Animals 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-7c6bb0e25daf42fb": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-33，Catch It!",
+          "originalTopic": "Verb",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-4fdad4c15ee4f4c3": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-34，Super Car",
+          "originalTopic": "Verb",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-406735ade3460973": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-35，Josie and the Kite",
+          "originalTopic": "Verb",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-93a202b3599bf677": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-36，Our Five Senses",
+          "originalTopic": "Verb",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-3000650b8b7e5bcd": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-37，Friends",
+          "originalTopic": "Verb",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-f28c6a16a06f0520": {
+      "topics": [
+        "actions"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-38，Ned's Noise Machine",
+          "originalTopic": "Verb",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-32b63f3a64fe4b37": {
+      "topics": [
+        "concepts.attributes"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-39，Dirty Dog",
+          "originalTopic": "Description",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-e4f17419fcceaf58": {
+      "topics": [
+        "concepts.attributes"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-40，Something Fishy",
+          "originalTopic": "Description",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-5e1afd55e6065b0f": {
+      "topics": [
+        "concepts.attributes"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-41，The Dog Show",
+          "originalTopic": "Description",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-72c560df2fb025bf": {
+      "topics": [
+        "concepts.attributes"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-42，Big and Little",
+          "originalTopic": "Description",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-f60fae015c5e1684": {
+      "topics": [
+        "concepts.attributes"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-43，Big Bigger Biggest",
+          "originalTopic": "Description",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-67a7c8423a7d80ed": {
+      "topics": [
+        "concepts.attributes"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-44，The Hungry Fox",
+          "originalTopic": "Description",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-8e1bfa9f54437398": {
+      "topics": [
+        "clothing"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-01，Guess Who是谁呢?",
+          "originalTopic": "Clothing",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-94e57b53a8f5e3e9": {
+      "topics": [
+        "clothing"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-02，Max Gets Ready麦克斯准备好了",
+          "originalTopic": "Clothing",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-0e5a4d332d15e3fe": {
+      "topics": [
+        "clothing"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-03，A Jumper for James詹姆斯的毛衣",
+          "originalTopic": "Clothing",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-02d590b280f27a00": {
+      "topics": [
+        "clothing"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-04，The New Hat新帽子",
+          "originalTopic": "Clothing",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-baa51018e3bb2947": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-05，Next Door Pets邻家宠物",
+          "originalTopic": "Animals 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-40e1d23f98d68112": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-06，The Perfect Pet",
+          "originalTopic": "Animals 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-97a50113e496b53b": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-07，Feeding Time进餐时间",
+          "originalTopic": "Animals 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-237f771ccc0d9eb0": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-08，Animal Presents",
+          "originalTopic": "Animals 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-86a8c337e4cfef7c": {
+      "topics": [
+        "food"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-09，Shopping",
+          "originalTopic": "Food",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d99c86f45181e3ed": {
+      "topics": [
+        "food"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-10，Curly is Hungry",
+          "originalTopic": "Food",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-dac78d2bd9b3d1a9": {
+      "topics": [
+        "food"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-11，Fruit Salad水果沙拉",
+          "originalTopic": "Food",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-ef338efedd3c8f92": {
+      "topics": [
+        "food"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-12，The hungry dragon",
+          "originalTopic": "Food",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-8872b12e316ffbea": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-13，I Like to Jump",
+          "originalTopic": "Animals 3",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-caee864cf1a144ea": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-14，The Cow Jumped Over the Moon",
+          "originalTopic": "Animals 3",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-81c9db85f84b6632": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-15，Nature Trail",
+          "originalTopic": "Animals 3",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-84de083ae99e51e6": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-16，Bedtime for bear",
+          "originalTopic": "Animals 3",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d803daac6ca853ee": {
+      "topics": [
+        "animals"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-17，Muddle farm",
+          "originalTopic": "Animals 3",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d04c37dbd9b26740": {
+      "topics": [
+        "fantasy.characters"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-18，Supermarket on Mars",
+          "originalTopic": "Monsters",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-9f7cbb3880480a6b": {
+      "topics": [
+        "fantasy.characters"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-19，Monster meal",
+          "originalTopic": "Monsters",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-e29a859146fba403": {
+      "topics": [
+        "fantasy.characters"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-20，Big Monster Is Running Away 大怪兽逃跑了",
+          "originalTopic": "Monsters",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-5ca56cea8ffcb84b": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-21，Josie and the parade",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-632c668a4a0f35e2": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-22，My Camera 我的照相机",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-8945b9f2f5e945cf": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-23，The Den小窝",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-197c6b127fe7bd2f": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-24，Time for Bed 该睡觉了",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-1e2021a64163efb3": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-25，Which Is Different 哪个不一样?",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-670fb0506ea3f374": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-26，Up the Tree爬树",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-aed4e810d4564c92": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-27，Elephant Walk 大象徒步",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-783226b36290fc2b": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-28，What a Clown 好一个小丑",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-00e660cad2a0a1ea": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-29，Curly and the Log科利和圆木",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-2d8ab15cb61bf08b": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-30，Eeek! Look at this!",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-24afc95c556c3fde": {
+      "topics": [
+        "body"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-31，What is he?",
+          "originalTopic": "Body",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-62f06900565bcc5f": {
+      "topics": [
+        "body"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-32，What is in the box?",
+          "originalTopic": "Body",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-1df563f687df66fc": {
+      "topics": [
+        "body"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-33，Look out!",
+          "originalTopic": "Body",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-940dc8f0f862ac0e": {
+      "topics": [
+        "body"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-34，Fish facts",
+          "originalTopic": "Body",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-c876e74a845b4f05": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-35，Snake is going away!",
+          "originalTopic": "Challenging Books A",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-3e696339b9390775": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-36，A fish for lunch",
+          "originalTopic": "Challenging Books A",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-c250156fbb4c32a1": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-37，I wish I was a bat",
+          "originalTopic": "Challenging Books A",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-5b06050454ced32c": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-38，When I was a baby",
+          "originalTopic": "Challenging Books B",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-8e9ef9a4be0a35d5": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-39，This is Me 这就是我",
+          "originalTopic": "Challenging Books B",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-4c2c205bbaaaaaf0": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-40，Ling and the turtle",
+          "originalTopic": "Challenging Books B",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-91402b1565650f0a": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-41，My Chinese New Year 我的中国新年",
+          "originalTopic": "Challenging Books B",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-c1f1ed7711d67623": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-01，A Toy for Vik",
+          "originalTopic": "Family 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-3a5e15a382288a81": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-02，Go and Get It!",
+          "originalTopic": "Family 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-aa02962a7d27a486": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-03，Where is Our Car？",
+          "originalTopic": "Family 1",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-a341aae60fd25c3b": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-04，Ben&#039;s Brilliant Birthday",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-57ebb6ca2235c34e": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-05，Super Shopping",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-fe1be8ec259a782e": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-06，What a Week!",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-46ab9b563562ea56": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-07，Too Many Pets",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-25639480eb88b80d": {
+      "topics": [
+        "concepts"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-08，Ping Pong",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-c4335c7a4622ad5c": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-09，The Lion&#039;s Dinner(A Play)",
+          "originalTopic": "Plays",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-07af8965f4944bb2": {
+      "topics": [
+        "sports.roleplay"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-10，Pop!(A Play)",
+          "originalTopic": "Plays",
+          "summary": "按用户确认归入运动与游戏／角色扮演／小剧场；同版分类图逐册对应。"
+        }
+      ]
+    },
+    "book-b56dc4ccb305b43e": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-11，Josie and the Baby",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-c98c4827989dbccb": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-12，Josie and the Cake Sale",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-32a02b6b149aa4a3": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-13，Josie Helps Out",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-7e43b905a14274a8": {
+      "topics": [
+        "daily"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-14，I Can&#039;t Open It!",
+          "originalTopic": "Daily Life",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-801afe9f76a9e017": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-15，Where Is Curly？",
+          "originalTopic": "Curly’s Stories",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-b004dfa69bd1c1cc": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-16，Curly to the Rescue",
+          "originalTopic": "Curly’s Stories",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-36cced000844a0b8": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-17，Curly and the Big Berry",
+          "originalTopic": "Curly’s Stories",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-d56c4e77d0c3c978": {
+      "topics": [
+        "concepts.position"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-18，At Last!",
+          "originalTopic": "Prepositions",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-7b936e591a0660f2": {
+      "topics": [
+        "concepts.position"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-19，Grandpa",
+          "originalTopic": "Prepositions",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-897bc7b80ccd2c17": {
+      "topics": [
+        "concepts.position"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-20，Elvis and the Scooter",
+          "originalTopic": "Prepositions",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-24d802cd606c5eea": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-21，Animal Babies",
+          "originalTopic": "Nonfiction 1",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-b13146a82a69d900": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-22，Baby Animals",
+          "originalTopic": "Nonfiction 1",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-7431b833c67a8b27": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-23，Day and Night",
+          "originalTopic": "Nonfiction 1",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-281cded2635bbb35": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-24，Funny Ears",
+          "originalTopic": "Nonfiction 1",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-22ad5ca5a85ac954": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-25，Today and Long Ago",
+          "originalTopic": "Nonfiction 1",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-2b9c637afcf7efd7": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-26，From Seedling To Tree",
+          "originalTopic": "Nonfiction 1",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-a99b5aa30218f1e9": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-27，Rush Hour",
+          "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-150bc5b636056793": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-28，Have You Got Everything，Colin？",
+          "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-9b9bd41a8e569173": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-29，Quiet in the Library",
+          "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-60a9709d3906d1c4": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-30，Be Quiet!",
+          "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-346e2967433a6195": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-31，Look at Me!",
+          "originalTopic": "Imagination and Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d60b2b32cde42394": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-32，Hare and Tortoise Go to School",
+          "originalTopic": "Imagination and Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-5ae99492fc9874c7": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-33，My Wild Woolly",
+          "originalTopic": "Imagination and Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-e70f0f7a48d16bd9": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-34，Furball to the Rescue",
+          "originalTopic": "Imagination and Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-954e9ebc9cc52185": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-35，The Computer Game",
+          "originalTopic": "Family 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-ac9a827e4ee099e8": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-36，Clean-Up Day",
+          "originalTopic": "Family 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-6a6580bf6e196a01": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-37，The Dentist",
+          "originalTopic": "Family 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-c06337abe4bb4c5c": {
+      "topics": [
+        "family"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-38，What a Catch!",
+          "originalTopic": "Family 2",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-545e6f830fc6ded0": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-39，Bert s Boat",
+          "originalTopic": "Songs and Rhymes",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-ff535f88247468f9": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-40，The Pong Song",
+          "originalTopic": "Songs and Rhymes",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-997ea26d58ce1e57": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-41，Mister Wolf s Plan",
+          "originalTopic": "Songs and Rhymes",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-2a61034af6c4020c": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-42，Where Is Little Bo Peep？",
+          "originalTopic": "Songs and Rhymes",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-d55dfbc7a0d6ecc3": {
+      "topics": [
+        "social.friends"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-01，Bully Bear",
+          "originalTopic": "Friends",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-1fd6fe881d051a82": {
+      "topics": [
+        "social.friends"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-02，I Don’t Want to",
+          "originalTopic": "Friends",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-bcf8d23e28d96d03": {
+      "topics": [
+        "social.friends"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-03，A Ball Called Sam",
+          "originalTopic": "Friends",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-988ae025010fcefd": {
+      "topics": [
+        "social.friends"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-04，Josie’s New Coat",
+          "originalTopic": "Friends",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-a16b3d1193b27c34": {
+      "topics": [
+        "social.friends"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-05，Josie and the Bully",
+          "originalTopic": "Friends",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-81bef1f79cb69105": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-06，The Ugly Duckling",
+          "originalTopic": "Ugly Duckling",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-dc11ed391371d10e": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-07，Josie and the Play",
+          "originalTopic": "Ugly Duckling",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-1776447808f9602d": {
+      "topics": [
+        "social"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-08，Brother Love",
+          "originalTopic": "Care and Love",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-bcdacc1054a33dcd": {
+      "topics": [
+        "social"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-09，The New Babysitter",
+          "originalTopic": "Care and Love",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-69d6939274f8d05e": {
+      "topics": [
+        "social"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-10，I Take Care of My Dog",
+          "originalTopic": "Care and Love",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-7e0cd167d72042f6": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-11，Blue Goo",
+          "originalTopic": "Fantasy",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-f51ec24fdf8b529d": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-12，Slurp! Burp!",
+          "originalTopic": "Fantasy",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d16cfa5bdf0e119f": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-13，Space Ant",
+          "originalTopic": "Fantasy",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-6d4c954635923ac7": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-14，Ruby Red and Sky Blue",
+          "originalTopic": "Interests and Jobs",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-2561ee51369fb21a": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-15，When I Grow Up",
+          "originalTopic": "Interests and Jobs",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-eaac630a84d22838": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-16，Super-Duper Shoes",
+          "originalTopic": "Interests and Jobs",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-5785b72cfb1aa2eb": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-17，Welly Dancing",
+          "originalTopic": "Interests and Jobs",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-4e83316259d7f041": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-18，Mrs Mog’s Cats",
+          "originalTopic": "Rhymes and Rhythms",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-11ad97d30677ed8b": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-19，I Love Rocks",
+          "originalTopic": "Rhymes and Rhythms",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-c31f3de09d465c29": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-20，Terrible Tiger",
+          "originalTopic": "Rhymes and Rhythms",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-2db4f92fe50ed370": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-21，Goodnight",
+          "originalTopic": "Fables - Villains",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-42cd7782c94ed332": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-22，Big Bad Wolf",
+          "originalTopic": "Fables - Villains",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-46c971cc4f7b592d": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-23，Chicken Licken",
+          "originalTopic": "Fables - Villains",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-9dedce0bcd01e814": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-24，Field of Gold",
+          "originalTopic": "Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-47ef3434e9501454": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-25，Vroom!",
+          "originalTopic": "Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-4979f88eb3e5ee5a": {
+      "topics": [
+        "fantasy"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-26，The Whale in the Well",
+          "originalTopic": "Fables",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-fa0054e2caea1bf4": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-27，Feelings",
+          "originalTopic": "Nonfiction 2",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-c25a5c3082749042": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-28，Looking at Materials",
+          "originalTopic": "Nonfiction 2",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-ba52e49cd6a08e9d": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-29，What’s It Made of",
+          "originalTopic": "Nonfiction 2",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-0b2b1247bd0d30d2": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-30，Where Is Joe",
+          "originalTopic": "Nonfiction 2",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-ea19fca6ba8032eb": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-31，Make Your Own Monster",
+          "originalTopic": "Nonfiction 2",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-e304e58e5567db7b": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-01，培生启明星5级 1-Whoops 哎呦",
+          "originalTopic": "Hobbies",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-2da1bb214551efe0": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-02，培生启明星5级 2-Snap Happy拍照的乐趣",
+          "originalTopic": "Hobbies",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-249b355fe1ed9496": {
+      "topics": [],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-03，培生启明星5级 3-Yo-YO a GO-GO 溜溜球, 转呀转",
+          "originalTopic": "Hobbies",
+          "summary": "本栏为故事线、形式或混合分类，未据此推定具体内容二级。"
+        }
+      ]
+    },
+    "book-4f80d9c784d2246b": {
+      "topics": [
+        "animals.pets"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-04，培生启明星5级 4-Sniffy小狗嗅嗅",
+          "originalTopic": "Pets",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-f780603981f22856": {
+      "topics": [
+        "animals.pets"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-05，培生启明星5级 05 Barker",
+          "originalTopic": "Pets",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-910e633fcf4a57d6": {
+      "topics": [
+        "animals.pets"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-06，培生启明星5级 6-Amber's Big Dog 安伯的大狗",
+          "originalTopic": "Pets",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-d3074bad042a910b": {
+      "topics": [
+        "concepts.opposites"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-07，培生启明星5级 07 Shoo!",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-97534b7865c7f083": {
+      "topics": [
+        "concepts.opposites"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-08，培生启明星5级 8-The Fantastic Pumpkin奇妙的南瓜",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-30068307260730eb": {
+      "topics": [
+        "concepts.opposites"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-09，培生启明星5级 09 Clever Chick",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-1d5c3e0967875cdc": {
+      "topics": [
+        "concepts.opposites"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-10，培生启明星5级 10-Who Will Marry Maisie梅茜会嫁给谁?",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
+    },
+    "book-9ef47f73891bb7f4": {
+      "topics": [
+        "concepts.opposites"
+      ],
+      "basis": "按同版分类图逐册核对主题，分类过宽时只保留一级。",
+      "evidence": [
+        {
+          "kind": "source-classification",
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-11，培生启明星5级-11: Space Race",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "已核对同版题名；仅映射原分类支持的公共主题。"
+        }
+      ]
     }
   },
   "songMappings": {
@@ -14428,6 +17365,107 @@
           "summary": "母鸡孵蛋，六只小鸡。"
         }
       ]
+    }
+  },
+  "patternMappings": {
+    "guide-pearson-basic": {
+      "my…": "patterns.d31ecda36979",
+      "the…": "patterns.afe90d871583",
+      "a…": "patterns.12d8c07d7755",
+      "i like…": "patterns.702dc4b6192e",
+      "i am a…": "patterns.4c15909c4a21",
+      "i can…": "patterns.5478280e125b",
+      "this is a…": "patterns.dad6d2f810ed",
+      "i can see a…": "patterns.e5fd16b27853",
+      "this is the…": "patterns.b7c260838e9e",
+      "i can see the…": "patterns.1759c0f26b25",
+      "i like…and…": "patterns.30ddfa587488",
+      "i am doing": "patterns.95e50905d65d",
+      "i put on…": "patterns.445e61546406",
+      "we put on…": "patterns.86d35cda2eb5",
+      "you like…and…": "patterns.7abe0c4f91f8",
+      "here is…": "patterns.111d14cdca39",
+      "this is for…": "patterns.a176aa4e00db",
+      "look at the…": "patterns.f235300c5fac",
+      "this is for…said the…": "patterns.2b6eaf9fe5ef",
+      "here are…": "patterns.b5ae5df5d025",
+      "the…is for me": "patterns.12c68048e300",
+      "can you see the…": "patterns.12dca1058f21",
+      "i can see you…": "patterns.ba0ecc536459",
+      "come and see the…": "patterns.2ce708c2e9d1",
+      "i went to the…": "patterns.155ae65d86e5",
+      "we went to the…": "patterns.d9fc8403ab12",
+      "i went in the…": "patterns.df8efffb85dd",
+      "we went in the…": "patterns.b7a9e490b59c",
+      "the…is going up": "patterns.d9569423271d",
+      "the…is going down": "patterns.81c574cc58c7",
+      "the…are going in": "patterns.40311796568a",
+      "the…is going to": "patterns.a9cc64dcb5b5",
+      "we go in the…": "patterns.6da5570b024d",
+      "look at the…go in the…": "patterns.67ccc5d6b095",
+      "we are in the…": "patterns.ca86399f9fb2",
+      "come to the…": "patterns.05b9d9cbcea3",
+      "come in the…": "patterns.12ea69dc378d",
+      "come and get the…": "patterns.32bd6bc7c877",
+      "i can get the…": "patterns.76e45008b82b",
+      "you can get the…": "patterns.f7f34b1ddf96",
+      "…for dinner,said the…": "patterns.c2cacdb53d86",
+      "come here…said…": "patterns.13381f6d5fbb",
+      "i am here,said…": "patterns.f987d7a9542d",
+      "look at…said the…": "patterns.45b93316de37",
+      "the…said the…": "patterns.c4aff20c57cb",
+      "i am going to…": "patterns.73a3dff67fff",
+      "you can get in this…": "patterns.e136194677c0",
+      "i can go in the…": "patterns.50553d77df33"
+    },
+    "reading-plan-heinemann-gk70": {
+      "i can see the…": "patterns.1759c0f26b25",
+      "we can see a…": "patterns.b3c23e473bdd",
+      "i see the…": "patterns.5617809f1855",
+      "i like to…": "patterns.299804a6dfe8",
+      "i like…": "patterns.702dc4b6192e",
+      "…likes the…": "patterns.7bf058700d17",
+      "we like to…": "patterns.edbbcf039f67",
+      "…likes…": "patterns.77696e275df7",
+      "…likes to…": "patterns.0e22c8f6c415",
+      "here is…": "patterns.111d14cdca39",
+      "here is a…": "patterns.bf86443673f4",
+      "here is the…": "patterns.93815539d9c3",
+      "look at the…": "patterns.f235300c5fac",
+      "look at my…": "patterns.ef7f391fa5b1",
+      "look at this…": "patterns.3fe5aaa92eb5",
+      "i have a little…": "patterns.d3d92ef9bd9e",
+      "i have my…": "patterns.908b36f13fe9",
+      "…has…": "patterns.7ff652501820",
+      "this is…": "patterns.4c00a3da647c",
+      "…like / love to…": "patterns.17489516c156",
+      "…has a very long…": "patterns.18eb7d295e1a",
+      "it is…": "patterns.bdffc4174d5d",
+      "like…": "patterns.8a8b6fbdf9c3",
+      "come and see…": "patterns.9b1830e02c89",
+      "mom is doing…": "patterns.f46eb2a2f948",
+      "dad is doing…": "patterns.4ec66f8d412f",
+      "baby is doing…": "patterns.3128478ced80",
+      "i am doing…": "patterns.4d1393c2162a",
+      "this bird is doing…": "patterns.dcf9e8456501",
+      "tom can…": "patterns.de83204eec73",
+      "i can read to…": "patterns.63d1c91d6456",
+      "…can…with…": "patterns.7aff5c60444f",
+      "i can draw a…": "patterns.2a43bef616ef",
+      "i can paint a…": "patterns.fceacd427268",
+      "…can go fast": "patterns.22c5ab8a571e",
+      "i can hop…": "patterns.b580f34bc9ac",
+      "…can…": "patterns.2679abd1bf58",
+      "look at…": "patterns.e10752f9032a",
+      "i / we can help…": "patterns.e137be6d5cd9",
+      "this animal is a…": "patterns.8e5a7e056367",
+      "…can…fast": "patterns.b85757a4efa1",
+      "i am a…": "patterns.4c15909c4a21",
+      "we baked the…": "patterns.c09b3faafda3",
+      "…at the farm…": "patterns.810ce8dcf471",
+      "…went to the hut…": "patterns.50b06cb94ebd",
+      "we put the…in the car.": "patterns.82806a362e28",
+      "we…at school": "patterns.5c6d1a97c36b"
     }
   }
 }

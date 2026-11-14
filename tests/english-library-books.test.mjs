@@ -6,6 +6,13 @@ const require=createRequire(import.meta.url),B=require('../english/library-books
 const read=id=>JSON.parse(fs.readFileSync(new URL('../english/data/'+id+'.json',import.meta.url)));
 const data=read('resource-books'),raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan')},catalog=M.normalize(raw);
 
+test('单册关键词跨公共目录与原表计划检索到具体书名',()=>{
+  const BP=require('../english/book-progress.js'),directory=BP.withReadingPlans(data,read('reading-plans'),read('resource-volumes'));
+  const result=B.filter(B.entries(directory,catalog.resources,M,read('resource-volumes')),directory,{query:'show'});
+  assert.ok(result.some(b=>/puppet show/i.test(b.title)));
+  assert.ok(result.some(b=>/the show/i.test(b.title)));
+});
+
 test('书目身份、版本、主题和来源完整，目录变更不改变作者阶段参考',()=>{
   assert.equal(new Set(data.books.map(b=>b.id)).size,data.books.length);
   for(const b of data.books){
@@ -173,4 +180,19 @@ test('每套查证记录可直接呈现，分类配图存在且不公开浏览�
       }
     }else assert.ok(fs.existsSync(new URL('../english/'+book.cover,import.meta.url)),book.cover);
   }
+});
+
+test('阶段范围默认仅当前，包含更低只取同路线主表及其原始引用',()=>{
+  assert.deepEqual(M.libraryStageIds(catalog,'qing-s2',false),['qing-s2']);
+  assert.deepEqual(M.libraryStageIds(catalog,'qing-s2',true),['qing-s1','qing-s2']);
+  assert.deepEqual(M.libraryStageIds(catalog,'xu-node-500',true),['xu-node-300','xu-1','xu-2','xu-node-500','xu-3','xu-4']);
+  assert.deepEqual(M.libraryStageIds(catalog,'banana-1',true),['banana-pre','banana-1']);
+  const supplementary=catalog.stages.find(st=>st.routeId==='xu'&&st.id.startsWith('xu-panorama-'));
+  const lower=M.libraryStageIds(catalog,supplementary.id,true);
+  assert.ok(lower.length);assert.ok(lower.every(id=>catalog.stages.find(s=>s.id===id).variantId===supplementary.variantId));
+  const entries=B.entries(data,catalog.resources,M,read('resource-volumes'));
+  const current=B.filter(entries,data,{stageIds:M.libraryStageIds(catalog,'qing-s2',false)});
+  const expanded=B.filter(entries,data,{stageIds:M.libraryStageIds(catalog,'qing-s2',true)});
+  assert.ok(current.length&&expanded.length>=current.length);
+  assert.ok(current.every(book=>expanded.some(b=>b.id===book.id)));
 });

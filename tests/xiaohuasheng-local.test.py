@@ -45,7 +45,15 @@ class DerivationTests(unittest.TestCase):
             with mock.patch.object(bridge, 'TOOL_ROOT', root), self.assertRaises(bridge.SyncFailure):
                 bridge.shelf_catalog(data, out, detail, save)
             self.assertTrue((out / 'details/1.json').is_file())
-            self.assertFalse((root / 'private/shelf-metadata-v1/1.json').exists())
+            self.assertFalse((root / 'private/shelf-metadata-v2/1.json').exists())
+
+    def test_catalog_metadata_preserves_public_labels_not_private_fields(self):
+        metadata = bridge.catalog_metadata({'pk': 1, 'guid': 'guid-1', 'name': 'Book', 'category': '英文，lovevery，Lovevery', 'seriesTitle': 'Lovevery', 'press': 'Lovevery', 'myComment': 'private'})
+        self.assertEqual(metadata['catalogTags'], ['英文', 'lovevery', 'Lovevery'])
+        self.assertEqual(metadata['seriesTitle'], 'Lovevery')
+        self.assertEqual(metadata['publisher'], 'Lovevery')
+        self.assertEqual(metadata['catalogSchemaVersion'], 2)
+        self.assertNotIn('myComment', metadata)
 
     def test_real_source_guid_numeric_identity_and_readed_predicate(self):
         data = fixture()

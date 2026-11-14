@@ -791,8 +791,13 @@
       stageRanks.set(stage.id, rank);
       return rank;
     }
+    var typeOrder = { reader: 0, graded: 0, book: 1, animation: 2, song: 3, flashcard: 4, other: 5 };
+    var seriesOrder = new Map();
     var ranks = entries.map(function (entry, index) {
       var resource = entry.resource || entry, rank = [Infinity, Infinity, Infinity, Infinity];
+      if (!seriesOrder.has(resource.id)) seriesOrder.set(resource.id, index);
+      var parsed = entry.resource && levelParts(entry.level, resource);
+      var level = parsed && !parsed.quantities.length && parsed.tokens.length === 1 && parsed.tokens[0].scale !== 'VOLUME' ? parsed.tokens[0] : null;
       var appearances = array(entry.custom ? entry.stageRefs || entry.appearances : entry.appearances).filter(function (appearance) {
         if (filters.route && filters.route !== 'all' && filters.route !== 'other' && appearance.routeId !== filters.route) return;
         if (filters.stageIds && filters.stageIds.indexOf(appearance.stageId) === -1) return;
@@ -817,11 +822,34 @@
           break;
         }
       });
-      return { entry: entry, tier: rank[0], order: rank[1], end: rank[2], role: rank[3], index: index };
+      return { entry: entry, tier: rank[0], order: rank[1], end: rank[2], role: rank[3], type: typeOrder[resource.type] ?? 6,
+        series: seriesOrder.get(resource.id), level: level, index: index };
     });
     return ranks.sort(function (a, b) {
-      return a.tier - b.tier || a.order - b.order || a.end - b.end || a.role - b.role || a.index - b.index;
+      function grade(token) {
+        if (typeof token.grade === 'number') return token.grade;
+        if (token.scale === 'NAMED') return ['预备','基础','进阶','提高'].indexOf(token.grade);
+        if (token.scale === 'COLOR') { var index = ['pink','red','yellow','blue','green','orange','turquoise','purple','gold','white','lime'].indexOf(String(token.grade).toLowerCase()); return index < 0 ? Infinity : index; }
+        return token.grade === 'AA' ? -1 : token.grade.length === 1 ? token.grade.charCodeAt(0) : NaN;
+      }
+      var levelOrder = a.series === b.series && a.level && b.level && a.level.scale === b.level.scale ? grade(a.level) - grade(b.level) || Number(a.level.plus) - Number(b.level.plus) : 0;
+      return (filters.typeFirst ? a.type - b.type : 0) || a.tier - b.tier || a.order - b.order || a.end - b.end || a.type - b.type || a.role - b.role || a.series - b.series || levelOrder || a.index - b.index;
     }).map(function (rank) { return rank.entry; });
+  }
+
+  function libraryStageIds(catalog, selected, includeLower, profile) {
+    var focus = array(catalog.stages).find(function (stage) { return stage.id === selected; });
+    if (!focus) return [];
+    var selectedStages = [focus];
+    if (includeLower) {
+      var plan = getRoutePlan(catalog, focus.routeId, focus.domain || 'listening', profile);
+      var index = plan ? plan.stages.findIndex(function (stage) { return stage.id === focus.id; }) : -1;
+      // 只在同一执行主表或同一来源版本内向前取阶段，不跨作者或其他能力比较序号。
+      selectedStages = index >= 0 ? plan.stages.slice(0, index + 1) : array(catalog.stages).filter(function (stage) {
+        return stage.routeId === focus.routeId && stage.domain === focus.domain && stage.variantId === focus.variantId && stage.sourceId === focus.sourceId && stage.order <= focus.order;
+      });
+    }
+    return unique(selectedStages.flatMap(function (stage) { return [stage.id].concat(array(stage.sourceStageIds)); }));
   }
 
   function getStageMaterials(catalog, stageId, comparisonStages) {
@@ -1241,6 +1269,7 @@
   api.sortLibraryMaterials = sortLibraryMaterials;
   api.libraryMaterialRole = libraryMaterialRole;
   api.libraryStageForRoute = libraryStageForRoute;
+  api.libraryStageIds = libraryStageIds;
   root.EnglishModel = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

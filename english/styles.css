@@ -2065,3 +2065,11 @@
 /* 分页统一为自动加载尾标，完成后保留轻量状态，不占按钮位置。 */
 .auto-load-status{padding:16px 0;text-align:center;color:var(--muted);font-size:12px;line-height:1.6;font-weight:400}
 .auto-load-status button{color:inherit;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer;min-height:44px;padding:0 8px}
+
+.vocabulary-quick-add{margin-left:auto;flex:none;width:30px;height:30px;min-width:30px;padding:0;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--green);font-size:18px;line-height:1}
+.practice-form [hidden]{display:none!important}
+
+.library-topic-summary{display:flex;flex-wrap:wrap;gap:6px 18px;margin:4px 0 10px;padding:8px 12px;border-radius:8px;background:var(--soft,#eef5f0);font-size:13px;line-height:1.5;color:var(--ink,#30473a)}
+.library-topic-summary span{overflow-wrap:anywhere}
+#library-reset{margin-left:auto;font-size:13px;color:var(--muted,#68776e)}
+#library-stage-scope{max-width:160px}

@@ -1,0 +1,1793 @@
+{
+  "checkedAt": "2026-11-14",
+  "sourceId": "pearson-xhs-checkin-20261114",
+  "entries": [
+    {
+      "bookId": "book-3a75a5949264fbe3",
+      "title": "Juggling",
+      "level": "1",
+      "sourceRow": 1,
+      "page": 1,
+      "originalTopic": "Counting",
+      "topics": [
+        "concepts.counting"
+      ]
+    },
+    {
+      "bookId": "book-87d7447b611b0126",
+      "title": "Greedy Giant贪吃的巨人",
+      "level": "1",
+      "sourceRow": 2,
+      "page": 1,
+      "originalTopic": "Counting",
+      "topics": [
+        "concepts.counting"
+      ]
+    },
+    {
+      "bookId": "book-9f0f2a519faaa432",
+      "title": "Curly and the cherries",
+      "level": "1",
+      "sourceRow": 3,
+      "page": 1,
+      "originalTopic": "Counting",
+      "topics": [
+        "concepts.counting"
+      ]
+    },
+    {
+      "bookId": "book-d162aa05a6c4374f",
+      "title": "Happy birthday Josie",
+      "level": "1",
+      "sourceRow": 4,
+      "page": 1,
+      "originalTopic": "Indoors",
+      "topics": [
+        "home"
+      ]
+    },
+    {
+      "bookId": "book-46a1d77b72576b9c",
+      "title": "Goodnight Josie",
+      "level": "1",
+      "sourceRow": 5,
+      "page": 1,
+      "originalTopic": "Indoors",
+      "topics": [
+        "home"
+      ]
+    },
+    {
+      "bookId": "book-47e9f6ca7a4d90b4",
+      "title": "That's mine",
+      "level": "1",
+      "sourceRow": 6,
+      "page": 1,
+      "originalTopic": "Indoors",
+      "topics": [
+        "home"
+      ]
+    },
+    {
+      "bookId": "book-b2114304d6fac0f9",
+      "title": "My cushion!",
+      "level": "1",
+      "sourceRow": 7,
+      "page": 1,
+      "originalTopic": "Indoors",
+      "topics": [
+        "home"
+      ]
+    },
+    {
+      "bookId": "book-663c8a41b521c950",
+      "title": "Pop!",
+      "level": "1",
+      "sourceRow": 8,
+      "page": 1,
+      "originalTopic": "Colours",
+      "topics": [
+        "concepts.colors"
+      ]
+    },
+    {
+      "bookId": "book-5af92cc8846b7d03",
+      "title": "I like cars",
+      "level": "1",
+      "sourceRow": 9,
+      "page": 1,
+      "originalTopic": "Colours",
+      "topics": [
+        "concepts.colors"
+      ]
+    },
+    {
+      "bookId": "book-a6162664dd3d6b3b",
+      "title": "Fish Colours",
+      "level": "1",
+      "sourceRow": 10,
+      "page": 1,
+      "originalTopic": "Colours",
+      "topics": [
+        "concepts.colors"
+      ]
+    },
+    {
+      "bookId": "book-4a2dc7d29b2a0c29",
+      "title": "Abracadabra",
+      "level": "1",
+      "sourceRow": 11,
+      "page": 1,
+      "originalTopic": "Role",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-0c68215cbf18eda7",
+      "title": "Face paintings",
+      "level": "1",
+      "sourceRow": 12,
+      "page": 1,
+      "originalTopic": "Role",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-a402574242afe74d",
+      "title": "Fancy dress",
+      "level": "1",
+      "sourceRow": 13,
+      "page": 1,
+      "originalTopic": "Role",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-db1eb0fc950ef842",
+      "title": "The play",
+      "level": "1",
+      "sourceRow": 14,
+      "page": 1,
+      "originalTopic": "Role",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-7e3cc361f4dbb371",
+      "title": "The princess and the dragon",
+      "level": "1",
+      "sourceRow": 15,
+      "page": 1,
+      "originalTopic": "Role",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-dd1f5f4bef80ba76",
+      "title": "The lost panda",
+      "level": "1",
+      "sourceRow": 16,
+      "page": 1,
+      "originalTopic": "Toys",
+      "topics": [
+        "sports.toys"
+      ]
+    },
+    {
+      "bookId": "book-078e49c631003729",
+      "title": "I can't find it!",
+      "level": "1",
+      "sourceRow": 17,
+      "page": 1,
+      "originalTopic": "Toys",
+      "topics": [
+        "sports.toys"
+      ]
+    },
+    {
+      "bookId": "book-f5afd69a43968e24",
+      "title": "Moving day",
+      "level": "1",
+      "sourceRow": 18,
+      "page": 1,
+      "originalTopic": "Toys",
+      "topics": [
+        "sports.toys"
+      ]
+    },
+    {
+      "bookId": "book-dce3bdec061fc0d8",
+      "title": "Josie and the Junk Box",
+      "level": "1",
+      "sourceRow": 19,
+      "page": 1,
+      "originalTopic": "Toys",
+      "topics": [
+        "sports.toys"
+      ]
+    },
+    {
+      "bookId": "book-9df1698ce49d8802",
+      "title": "At the Park",
+      "level": "1",
+      "sourceRow": 20,
+      "page": 2,
+      "originalTopic": "Outdoors",
+      "topics": [
+        "sports.outdoor"
+      ]
+    },
+    {
+      "bookId": "book-e13dd2cc6f9e4203",
+      "title": "At the Seaside",
+      "level": "1",
+      "sourceRow": 21,
+      "page": 2,
+      "originalTopic": "Outdoors",
+      "topics": [
+        "sports.outdoor"
+      ]
+    },
+    {
+      "bookId": "book-8d85ca5bd378fe49",
+      "title": "Scaredy Cat",
+      "level": "1",
+      "sourceRow": 22,
+      "page": 2,
+      "originalTopic": "Outdoors",
+      "topics": [
+        "sports.outdoor"
+      ]
+    },
+    {
+      "bookId": "book-6370238e24abb8b6",
+      "title": "Sports Day",
+      "level": "1",
+      "sourceRow": 23,
+      "page": 2,
+      "originalTopic": "Outdoors",
+      "topics": [
+        "sports.outdoor"
+      ]
+    },
+    {
+      "bookId": "book-32c9f8c4f63da4b3",
+      "title": "Minibeasts",
+      "level": "1",
+      "sourceRow": 24,
+      "page": 2,
+      "originalTopic": "Bugs",
+      "topics": [
+        "animals.insects"
+      ]
+    },
+    {
+      "bookId": "book-bad2c435153ae80d",
+      "title": "Who Can Curly See?",
+      "level": "1",
+      "sourceRow": 25,
+      "page": 2,
+      "originalTopic": "Bugs",
+      "topics": [
+        "animals.insects"
+      ]
+    },
+    {
+      "bookId": "book-b9793f60d9b6e9a1",
+      "title": "A Home for Curly",
+      "level": "1",
+      "sourceRow": 26,
+      "page": 2,
+      "originalTopic": "Bugs",
+      "topics": [
+        "animals.insects"
+      ]
+    },
+    {
+      "bookId": "book-8542e4c3293953e8",
+      "title": "Wings",
+      "level": "1",
+      "sourceRow": 27,
+      "page": 2,
+      "originalTopic": "Bugs",
+      "topics": [
+        "animals.insects"
+      ]
+    },
+    {
+      "bookId": "book-db2be6ef57b2f8bf",
+      "title": "The New Pet",
+      "level": "1",
+      "sourceRow": 28,
+      "page": 2,
+      "originalTopic": "Animals 1",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-4000fd67ef230321",
+      "title": "At the Vet",
+      "level": "1",
+      "sourceRow": 29,
+      "page": 2,
+      "originalTopic": "Animals 1",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-5c314a22524e9289",
+      "title": "What Is It?",
+      "level": "1",
+      "sourceRow": 30,
+      "page": 2,
+      "originalTopic": "Animals 1",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-7e6df65cb4958a3c",
+      "title": "All Fall Down",
+      "level": "1",
+      "sourceRow": 31,
+      "page": 2,
+      "originalTopic": "Animals 1",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-beddf9015988f2fa",
+      "title": "Where Is Patch?",
+      "level": "1",
+      "sourceRow": 32,
+      "page": 2,
+      "originalTopic": "Animals 1",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-7c6bb0e25daf42fb",
+      "title": "Catch It!",
+      "level": "1",
+      "sourceRow": 33,
+      "page": 2,
+      "originalTopic": "Verb",
+      "topics": [
+        "actions"
+      ]
+    },
+    {
+      "bookId": "book-4fdad4c15ee4f4c3",
+      "title": "Super Car",
+      "level": "1",
+      "sourceRow": 34,
+      "page": 2,
+      "originalTopic": "Verb",
+      "topics": [
+        "actions"
+      ]
+    },
+    {
+      "bookId": "book-406735ade3460973",
+      "title": "Josie and the Kite",
+      "level": "1",
+      "sourceRow": 35,
+      "page": 2,
+      "originalTopic": "Verb",
+      "topics": [
+        "actions"
+      ]
+    },
+    {
+      "bookId": "book-93a202b3599bf677",
+      "title": "Our Five Senses",
+      "level": "1",
+      "sourceRow": 36,
+      "page": 2,
+      "originalTopic": "Verb",
+      "topics": [
+        "actions"
+      ]
+    },
+    {
+      "bookId": "book-3000650b8b7e5bcd",
+      "title": "Friends",
+      "level": "1",
+      "sourceRow": 37,
+      "page": 2,
+      "originalTopic": "Verb",
+      "topics": [
+        "actions"
+      ]
+    },
+    {
+      "bookId": "book-f28c6a16a06f0520",
+      "title": "Ned's Noise Machine",
+      "level": "1",
+      "sourceRow": 38,
+      "page": 2,
+      "originalTopic": "Verb",
+      "topics": [
+        "actions"
+      ]
+    },
+    {
+      "bookId": "book-32b63f3a64fe4b37",
+      "title": "Dirty Dog",
+      "level": "1",
+      "sourceRow": 39,
+      "page": 2,
+      "originalTopic": "Description",
+      "topics": [
+        "concepts.attributes"
+      ]
+    },
+    {
+      "bookId": "book-e4f17419fcceaf58",
+      "title": "Something Fishy",
+      "level": "1",
+      "sourceRow": 40,
+      "page": 2,
+      "originalTopic": "Description",
+      "topics": [
+        "concepts.attributes"
+      ]
+    },
+    {
+      "bookId": "book-5e1afd55e6065b0f",
+      "title": "The Dog Show",
+      "level": "1",
+      "sourceRow": 41,
+      "page": 2,
+      "originalTopic": "Description",
+      "topics": [
+        "concepts.attributes"
+      ]
+    },
+    {
+      "bookId": "book-72c560df2fb025bf",
+      "title": "Big and Little",
+      "level": "1",
+      "sourceRow": 42,
+      "page": 2,
+      "originalTopic": "Description",
+      "topics": [
+        "concepts.attributes"
+      ]
+    },
+    {
+      "bookId": "book-f60fae015c5e1684",
+      "title": "Big Bigger Biggest",
+      "level": "1",
+      "sourceRow": 43,
+      "page": 2,
+      "originalTopic": "Description",
+      "topics": [
+        "concepts.attributes"
+      ]
+    },
+    {
+      "bookId": "book-67a7c8423a7d80ed",
+      "title": "The Hungry Fox",
+      "level": "1",
+      "sourceRow": 44,
+      "page": 2,
+      "originalTopic": "Description",
+      "topics": [
+        "concepts.attributes"
+      ]
+    },
+    {
+      "bookId": "book-8e1bfa9f54437398",
+      "title": "Guess Who是谁呢?",
+      "level": "2",
+      "sourceRow": 1,
+      "page": 3,
+      "originalTopic": "Clothing",
+      "topics": [
+        "clothing"
+      ]
+    },
+    {
+      "bookId": "book-94e57b53a8f5e3e9",
+      "title": "Max Gets Ready麦克斯准备好了",
+      "level": "2",
+      "sourceRow": 2,
+      "page": 3,
+      "originalTopic": "Clothing",
+      "topics": [
+        "clothing"
+      ]
+    },
+    {
+      "bookId": "book-0e5a4d332d15e3fe",
+      "title": "A Jumper for James詹姆斯的毛衣",
+      "level": "2",
+      "sourceRow": 3,
+      "page": 3,
+      "originalTopic": "Clothing",
+      "topics": [
+        "clothing"
+      ]
+    },
+    {
+      "bookId": "book-02d590b280f27a00",
+      "title": "The New Hat新帽子",
+      "level": "2",
+      "sourceRow": 4,
+      "page": 3,
+      "originalTopic": "Clothing",
+      "topics": [
+        "clothing"
+      ]
+    },
+    {
+      "bookId": "book-baa51018e3bb2947",
+      "title": "Next Door Pets邻家宠物",
+      "level": "2",
+      "sourceRow": 5,
+      "page": 3,
+      "originalTopic": "Animals 2",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-40e1d23f98d68112",
+      "title": "The Perfect Pet",
+      "level": "2",
+      "sourceRow": 6,
+      "page": 3,
+      "originalTopic": "Animals 2",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-97a50113e496b53b",
+      "title": "Feeding Time进餐时间",
+      "level": "2",
+      "sourceRow": 7,
+      "page": 3,
+      "originalTopic": "Animals 2",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-237f771ccc0d9eb0",
+      "title": "Animal Presents",
+      "level": "2",
+      "sourceRow": 8,
+      "page": 3,
+      "originalTopic": "Animals 2",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-86a8c337e4cfef7c",
+      "title": "Shopping",
+      "level": "2",
+      "sourceRow": 9,
+      "page": 3,
+      "originalTopic": "Food",
+      "topics": [
+        "food"
+      ]
+    },
+    {
+      "bookId": "book-d99c86f45181e3ed",
+      "title": "Curly is Hungry",
+      "level": "2",
+      "sourceRow": 10,
+      "page": 3,
+      "originalTopic": "Food",
+      "topics": [
+        "food"
+      ]
+    },
+    {
+      "bookId": "book-dac78d2bd9b3d1a9",
+      "title": "Fruit Salad水果沙拉",
+      "level": "2",
+      "sourceRow": 11,
+      "page": 3,
+      "originalTopic": "Food",
+      "topics": [
+        "food"
+      ]
+    },
+    {
+      "bookId": "book-ef338efedd3c8f92",
+      "title": "The hungry dragon",
+      "level": "2",
+      "sourceRow": 12,
+      "page": 3,
+      "originalTopic": "Food",
+      "topics": [
+        "food"
+      ]
+    },
+    {
+      "bookId": "book-8872b12e316ffbea",
+      "title": "I Like to Jump",
+      "level": "2",
+      "sourceRow": 13,
+      "page": 3,
+      "originalTopic": "Animals 3",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-caee864cf1a144ea",
+      "title": "The Cow Jumped Over the Moon",
+      "level": "2",
+      "sourceRow": 14,
+      "page": 3,
+      "originalTopic": "Animals 3",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-81c9db85f84b6632",
+      "title": "Nature Trail",
+      "level": "2",
+      "sourceRow": 15,
+      "page": 3,
+      "originalTopic": "Animals 3",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-84de083ae99e51e6",
+      "title": "Bedtime for bear",
+      "level": "2",
+      "sourceRow": 16,
+      "page": 3,
+      "originalTopic": "Animals 3",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-d803daac6ca853ee",
+      "title": "Muddle farm",
+      "level": "2",
+      "sourceRow": 17,
+      "page": 3,
+      "originalTopic": "Animals 3",
+      "topics": [
+        "animals"
+      ]
+    },
+    {
+      "bookId": "book-d04c37dbd9b26740",
+      "title": "Supermarket on Mars",
+      "level": "2",
+      "sourceRow": 18,
+      "page": 3,
+      "originalTopic": "Monsters",
+      "topics": [
+        "fantasy.characters"
+      ]
+    },
+    {
+      "bookId": "book-9f7cbb3880480a6b",
+      "title": "Monster meal",
+      "level": "2",
+      "sourceRow": 19,
+      "page": 3,
+      "originalTopic": "Monsters",
+      "topics": [
+        "fantasy.characters"
+      ]
+    },
+    {
+      "bookId": "book-e29a859146fba403",
+      "title": "Big Monster Is Running Away 大怪兽逃跑了",
+      "level": "2",
+      "sourceRow": 20,
+      "page": 3,
+      "originalTopic": "Monsters",
+      "topics": [
+        "fantasy.characters"
+      ]
+    },
+    {
+      "bookId": "book-5ca56cea8ffcb84b",
+      "title": "Josie and the parade",
+      "level": "2",
+      "sourceRow": 21,
+      "page": 4,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-632c668a4a0f35e2",
+      "title": "My Camera 我的照相机",
+      "level": "2",
+      "sourceRow": 22,
+      "page": 4,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-8945b9f2f5e945cf",
+      "title": "The Den小窝",
+      "level": "2",
+      "sourceRow": 23,
+      "page": 4,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-197c6b127fe7bd2f",
+      "title": "Time for Bed 该睡觉了",
+      "level": "2",
+      "sourceRow": 24,
+      "page": 4,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-1e2021a64163efb3",
+      "title": "Which Is Different 哪个不一样?",
+      "level": "2",
+      "sourceRow": 25,
+      "page": 4,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-670fb0506ea3f374",
+      "title": "Up the Tree爬树",
+      "level": "2",
+      "sourceRow": 26,
+      "page": 4,
+      "originalTopic": "Prepositions and Opposites",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-aed4e810d4564c92",
+      "title": "Elephant Walk 大象徒步",
+      "level": "2",
+      "sourceRow": 27,
+      "page": 4,
+      "originalTopic": "Prepositions and Opposites",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-783226b36290fc2b",
+      "title": "What a Clown 好一个小丑",
+      "level": "2",
+      "sourceRow": 28,
+      "page": 4,
+      "originalTopic": "Prepositions and Opposites",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-00e660cad2a0a1ea",
+      "title": "Curly and the Log科利和圆木",
+      "level": "2",
+      "sourceRow": 29,
+      "page": 4,
+      "originalTopic": "Prepositions and Opposites",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-2d8ab15cb61bf08b",
+      "title": "Eeek! Look at this!",
+      "level": "2",
+      "sourceRow": 30,
+      "page": 4,
+      "originalTopic": "Prepositions and Opposites",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-24afc95c556c3fde",
+      "title": "What is he?",
+      "level": "2",
+      "sourceRow": 31,
+      "page": 4,
+      "originalTopic": "Body",
+      "topics": [
+        "body"
+      ]
+    },
+    {
+      "bookId": "book-62f06900565bcc5f",
+      "title": "What is in the box?",
+      "level": "2",
+      "sourceRow": 32,
+      "page": 4,
+      "originalTopic": "Body",
+      "topics": [
+        "body"
+      ]
+    },
+    {
+      "bookId": "book-1df563f687df66fc",
+      "title": "Look out!",
+      "level": "2",
+      "sourceRow": 33,
+      "page": 4,
+      "originalTopic": "Body",
+      "topics": [
+        "body"
+      ]
+    },
+    {
+      "bookId": "book-940dc8f0f862ac0e",
+      "title": "Fish facts",
+      "level": "2",
+      "sourceRow": 34,
+      "page": 4,
+      "originalTopic": "Body",
+      "topics": [
+        "body"
+      ]
+    },
+    {
+      "bookId": "book-c876e74a845b4f05",
+      "title": "Snake is going away!",
+      "level": "2",
+      "sourceRow": 35,
+      "page": 4,
+      "originalTopic": "Challenging Books A",
+      "topics": []
+    },
+    {
+      "bookId": "book-3e696339b9390775",
+      "title": "A fish for lunch",
+      "level": "2",
+      "sourceRow": 36,
+      "page": 4,
+      "originalTopic": "Challenging Books A",
+      "topics": []
+    },
+    {
+      "bookId": "book-c250156fbb4c32a1",
+      "title": "I wish I was a bat",
+      "level": "2",
+      "sourceRow": 37,
+      "page": 4,
+      "originalTopic": "Challenging Books A",
+      "topics": []
+    },
+    {
+      "bookId": "book-5b06050454ced32c",
+      "title": "When I was a baby",
+      "level": "2",
+      "sourceRow": 38,
+      "page": 4,
+      "originalTopic": "Challenging Books B",
+      "topics": []
+    },
+    {
+      "bookId": "book-8e9ef9a4be0a35d5",
+      "title": "This is Me 这就是我",
+      "level": "2",
+      "sourceRow": 39,
+      "page": 4,
+      "originalTopic": "Challenging Books B",
+      "topics": []
+    },
+    {
+      "bookId": "book-4c2c205bbaaaaaf0",
+      "title": "Ling and the turtle",
+      "level": "2",
+      "sourceRow": 40,
+      "page": 4,
+      "originalTopic": "Challenging Books B",
+      "topics": []
+    },
+    {
+      "bookId": "book-91402b1565650f0a",
+      "title": "My Chinese New Year 我的中国新年",
+      "level": "2",
+      "sourceRow": 41,
+      "page": 4,
+      "originalTopic": "Challenging Books B",
+      "topics": []
+    },
+    {
+      "bookId": "book-c1f1ed7711d67623",
+      "title": "A Toy for Vik",
+      "level": "3",
+      "sourceRow": 1,
+      "page": 5,
+      "originalTopic": "Family 1",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-3a5e15a382288a81",
+      "title": "Go and Get It!",
+      "level": "3",
+      "sourceRow": 2,
+      "page": 5,
+      "originalTopic": "Family 1",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-aa02962a7d27a486",
+      "title": "Where is Our Car？",
+      "level": "3",
+      "sourceRow": 3,
+      "page": 5,
+      "originalTopic": "Family 1",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-a341aae60fd25c3b",
+      "title": "Ben&#039;s Brilliant Birthday",
+      "level": "3",
+      "sourceRow": 4,
+      "page": 5,
+      "originalTopic": "Days of the Week and Ordinal Numbers",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-57ebb6ca2235c34e",
+      "title": "Super Shopping",
+      "level": "3",
+      "sourceRow": 5,
+      "page": 5,
+      "originalTopic": "Days of the Week and Ordinal Numbers",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-fe1be8ec259a782e",
+      "title": "What a Week!",
+      "level": "3",
+      "sourceRow": 6,
+      "page": 5,
+      "originalTopic": "Days of the Week and Ordinal Numbers",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-46ab9b563562ea56",
+      "title": "Too Many Pets",
+      "level": "3",
+      "sourceRow": 7,
+      "page": 5,
+      "originalTopic": "Days of the Week and Ordinal Numbers",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-25639480eb88b80d",
+      "title": "Ping Pong",
+      "level": "3",
+      "sourceRow": 8,
+      "page": 5,
+      "originalTopic": "Days of the Week and Ordinal Numbers",
+      "topics": [
+        "concepts"
+      ]
+    },
+    {
+      "bookId": "book-c4335c7a4622ad5c",
+      "title": "The Lion&#039;s Dinner(A Play)",
+      "level": "3",
+      "sourceRow": 9,
+      "page": 5,
+      "originalTopic": "Plays",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-07af8965f4944bb2",
+      "title": "Pop!(A Play)",
+      "level": "3",
+      "sourceRow": 10,
+      "page": 5,
+      "originalTopic": "Plays",
+      "topics": [
+        "sports.roleplay"
+      ]
+    },
+    {
+      "bookId": "book-b56dc4ccb305b43e",
+      "title": "Josie and the Baby",
+      "level": "3",
+      "sourceRow": 11,
+      "page": 5,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-c98c4827989dbccb",
+      "title": "Josie and the Cake Sale",
+      "level": "3",
+      "sourceRow": 12,
+      "page": 5,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-32a02b6b149aa4a3",
+      "title": "Josie Helps Out",
+      "level": "3",
+      "sourceRow": 13,
+      "page": 5,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-7e43b905a14274a8",
+      "title": "I Can&#039;t Open It!",
+      "level": "3",
+      "sourceRow": 14,
+      "page": 5,
+      "originalTopic": "Daily Life",
+      "topics": [
+        "daily"
+      ]
+    },
+    {
+      "bookId": "book-801afe9f76a9e017",
+      "title": "Where Is Curly？",
+      "level": "3",
+      "sourceRow": 15,
+      "page": 5,
+      "originalTopic": "Curly’s Stories",
+      "topics": []
+    },
+    {
+      "bookId": "book-b004dfa69bd1c1cc",
+      "title": "Curly to the Rescue",
+      "level": "3",
+      "sourceRow": 16,
+      "page": 5,
+      "originalTopic": "Curly’s Stories",
+      "topics": []
+    },
+    {
+      "bookId": "book-36cced000844a0b8",
+      "title": "Curly and the Big Berry",
+      "level": "3",
+      "sourceRow": 17,
+      "page": 5,
+      "originalTopic": "Curly’s Stories",
+      "topics": []
+    },
+    {
+      "bookId": "book-d56c4e77d0c3c978",
+      "title": "At Last!",
+      "level": "3",
+      "sourceRow": 18,
+      "page": 5,
+      "originalTopic": "Prepositions",
+      "topics": [
+        "concepts.position"
+      ]
+    },
+    {
+      "bookId": "book-7b936e591a0660f2",
+      "title": "Grandpa",
+      "level": "3",
+      "sourceRow": 19,
+      "page": 5,
+      "originalTopic": "Prepositions",
+      "topics": [
+        "concepts.position"
+      ]
+    },
+    {
+      "bookId": "book-897bc7b80ccd2c17",
+      "title": "Elvis and the Scooter",
+      "level": "3",
+      "sourceRow": 20,
+      "page": 5,
+      "originalTopic": "Prepositions",
+      "topics": [
+        "concepts.position"
+      ]
+    },
+    {
+      "bookId": "book-24d802cd606c5eea",
+      "title": "Animal Babies",
+      "level": "3",
+      "sourceRow": 21,
+      "page": 6,
+      "originalTopic": "Nonfiction 1",
+      "topics": []
+    },
+    {
+      "bookId": "book-b13146a82a69d900",
+      "title": "Baby Animals",
+      "level": "3",
+      "sourceRow": 22,
+      "page": 6,
+      "originalTopic": "Nonfiction 1",
+      "topics": []
+    },
+    {
+      "bookId": "book-7431b833c67a8b27",
+      "title": "Day and Night",
+      "level": "3",
+      "sourceRow": 23,
+      "page": 6,
+      "originalTopic": "Nonfiction 1",
+      "topics": []
+    },
+    {
+      "bookId": "book-281cded2635bbb35",
+      "title": "Funny Ears",
+      "level": "3",
+      "sourceRow": 24,
+      "page": 6,
+      "originalTopic": "Nonfiction 1",
+      "topics": []
+    },
+    {
+      "bookId": "book-22ad5ca5a85ac954",
+      "title": "Today and Long Ago",
+      "level": "3",
+      "sourceRow": 25,
+      "page": 6,
+      "originalTopic": "Nonfiction 1",
+      "topics": []
+    },
+    {
+      "bookId": "book-2b9c637afcf7efd7",
+      "title": "From Seedling To Tree",
+      "level": "3",
+      "sourceRow": 26,
+      "page": 6,
+      "originalTopic": "Nonfiction 1",
+      "topics": []
+    },
+    {
+      "bookId": "book-a99b5aa30218f1e9",
+      "title": "Rush Hour",
+      "level": "3",
+      "sourceRow": 27,
+      "page": 6,
+      "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+      "topics": []
+    },
+    {
+      "bookId": "book-150bc5b636056793",
+      "title": "Have You Got Everything，Colin？",
+      "level": "3",
+      "sourceRow": 28,
+      "page": 6,
+      "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+      "topics": []
+    },
+    {
+      "bookId": "book-9b9bd41a8e569173",
+      "title": "Quiet in the Library",
+      "level": "3",
+      "sourceRow": 29,
+      "page": 6,
+      "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+      "topics": []
+    },
+    {
+      "bookId": "book-60a9709d3906d1c4",
+      "title": "Be Quiet!",
+      "level": "3",
+      "sourceRow": 30,
+      "page": 6,
+      "originalTopic": "Personal Responsibility (Getting Ready + Following Rules)",
+      "topics": []
+    },
+    {
+      "bookId": "book-346e2967433a6195",
+      "title": "Look at Me!",
+      "level": "3",
+      "sourceRow": 31,
+      "page": 6,
+      "originalTopic": "Imagination and Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-d60b2b32cde42394",
+      "title": "Hare and Tortoise Go to School",
+      "level": "3",
+      "sourceRow": 32,
+      "page": 6,
+      "originalTopic": "Imagination and Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-5ae99492fc9874c7",
+      "title": "My Wild Woolly",
+      "level": "3",
+      "sourceRow": 33,
+      "page": 6,
+      "originalTopic": "Imagination and Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-e70f0f7a48d16bd9",
+      "title": "Furball to the Rescue",
+      "level": "3",
+      "sourceRow": 34,
+      "page": 6,
+      "originalTopic": "Imagination and Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-954e9ebc9cc52185",
+      "title": "The Computer Game",
+      "level": "3",
+      "sourceRow": 35,
+      "page": 6,
+      "originalTopic": "Family 2",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-ac9a827e4ee099e8",
+      "title": "Clean-Up Day",
+      "level": "3",
+      "sourceRow": 36,
+      "page": 6,
+      "originalTopic": "Family 2",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-6a6580bf6e196a01",
+      "title": "The Dentist",
+      "level": "3",
+      "sourceRow": 37,
+      "page": 6,
+      "originalTopic": "Family 2",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-c06337abe4bb4c5c",
+      "title": "What a Catch!",
+      "level": "3",
+      "sourceRow": 38,
+      "page": 6,
+      "originalTopic": "Family 2",
+      "topics": [
+        "family"
+      ]
+    },
+    {
+      "bookId": "book-545e6f830fc6ded0",
+      "title": "Bert s Boat",
+      "level": "3",
+      "sourceRow": 39,
+      "page": 6,
+      "originalTopic": "Songs and Rhymes",
+      "topics": []
+    },
+    {
+      "bookId": "book-ff535f88247468f9",
+      "title": "The Pong Song",
+      "level": "3",
+      "sourceRow": 40,
+      "page": 6,
+      "originalTopic": "Songs and Rhymes",
+      "topics": []
+    },
+    {
+      "bookId": "book-997ea26d58ce1e57",
+      "title": "Mister Wolf s Plan",
+      "level": "3",
+      "sourceRow": 41,
+      "page": 6,
+      "originalTopic": "Songs and Rhymes",
+      "topics": []
+    },
+    {
+      "bookId": "book-2a61034af6c4020c",
+      "title": "Where Is Little Bo Peep？",
+      "level": "3",
+      "sourceRow": 42,
+      "page": 6,
+      "originalTopic": "Songs and Rhymes",
+      "topics": []
+    },
+    {
+      "bookId": "book-d55dfbc7a0d6ecc3",
+      "title": "Bully Bear",
+      "level": "4",
+      "sourceRow": 1,
+      "page": 7,
+      "originalTopic": "Friends",
+      "topics": [
+        "social.friends"
+      ]
+    },
+    {
+      "bookId": "book-1fd6fe881d051a82",
+      "title": "I Don’t Want to",
+      "level": "4",
+      "sourceRow": 2,
+      "page": 7,
+      "originalTopic": "Friends",
+      "topics": [
+        "social.friends"
+      ]
+    },
+    {
+      "bookId": "book-bcf8d23e28d96d03",
+      "title": "A Ball Called Sam",
+      "level": "4",
+      "sourceRow": 3,
+      "page": 7,
+      "originalTopic": "Friends",
+      "topics": [
+        "social.friends"
+      ]
+    },
+    {
+      "bookId": "book-988ae025010fcefd",
+      "title": "Josie’s New Coat",
+      "level": "4",
+      "sourceRow": 4,
+      "page": 7,
+      "originalTopic": "Friends",
+      "topics": [
+        "social.friends"
+      ]
+    },
+    {
+      "bookId": "book-a16b3d1193b27c34",
+      "title": "Josie and the Bully",
+      "level": "4",
+      "sourceRow": 5,
+      "page": 7,
+      "originalTopic": "Friends",
+      "topics": [
+        "social.friends"
+      ]
+    },
+    {
+      "bookId": "book-81bef1f79cb69105",
+      "title": "The Ugly Duckling",
+      "level": "4",
+      "sourceRow": 6,
+      "page": 7,
+      "originalTopic": "Ugly Duckling",
+      "topics": []
+    },
+    {
+      "bookId": "book-dc11ed391371d10e",
+      "title": "Josie and the Play",
+      "level": "4",
+      "sourceRow": 7,
+      "page": 7,
+      "originalTopic": "Ugly Duckling",
+      "topics": []
+    },
+    {
+      "bookId": "book-1776447808f9602d",
+      "title": "Brother Love",
+      "level": "4",
+      "sourceRow": 8,
+      "page": 7,
+      "originalTopic": "Care and Love",
+      "topics": [
+        "social"
+      ]
+    },
+    {
+      "bookId": "book-bcdacc1054a33dcd",
+      "title": "The New Babysitter",
+      "level": "4",
+      "sourceRow": 9,
+      "page": 7,
+      "originalTopic": "Care and Love",
+      "topics": [
+        "social"
+      ]
+    },
+    {
+      "bookId": "book-69d6939274f8d05e",
+      "title": "I Take Care of My Dog",
+      "level": "4",
+      "sourceRow": 10,
+      "page": 7,
+      "originalTopic": "Care and Love",
+      "topics": [
+        "social"
+      ]
+    },
+    {
+      "bookId": "book-7e0cd167d72042f6",
+      "title": "Blue Goo",
+      "level": "4",
+      "sourceRow": 11,
+      "page": 7,
+      "originalTopic": "Fantasy",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-f51ec24fdf8b529d",
+      "title": "Slurp! Burp!",
+      "level": "4",
+      "sourceRow": 12,
+      "page": 7,
+      "originalTopic": "Fantasy",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-d16cfa5bdf0e119f",
+      "title": "Space Ant",
+      "level": "4",
+      "sourceRow": 13,
+      "page": 7,
+      "originalTopic": "Fantasy",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-6d4c954635923ac7",
+      "title": "Ruby Red and Sky Blue",
+      "level": "4",
+      "sourceRow": 14,
+      "page": 7,
+      "originalTopic": "Interests and Jobs",
+      "topics": []
+    },
+    {
+      "bookId": "book-2561ee51369fb21a",
+      "title": "When I Grow Up",
+      "level": "4",
+      "sourceRow": 15,
+      "page": 7,
+      "originalTopic": "Interests and Jobs",
+      "topics": []
+    },
+    {
+      "bookId": "book-eaac630a84d22838",
+      "title": "Super-Duper Shoes",
+      "level": "4",
+      "sourceRow": 16,
+      "page": 7,
+      "originalTopic": "Interests and Jobs",
+      "topics": []
+    },
+    {
+      "bookId": "book-5785b72cfb1aa2eb",
+      "title": "Welly Dancing",
+      "level": "4",
+      "sourceRow": 17,
+      "page": 7,
+      "originalTopic": "Interests and Jobs",
+      "topics": []
+    },
+    {
+      "bookId": "book-4e83316259d7f041",
+      "title": "Mrs Mog’s Cats",
+      "level": "4",
+      "sourceRow": 18,
+      "page": 7,
+      "originalTopic": "Rhymes and Rhythms",
+      "topics": []
+    },
+    {
+      "bookId": "book-11ad97d30677ed8b",
+      "title": "I Love Rocks",
+      "level": "4",
+      "sourceRow": 19,
+      "page": 7,
+      "originalTopic": "Rhymes and Rhythms",
+      "topics": []
+    },
+    {
+      "bookId": "book-c31f3de09d465c29",
+      "title": "Terrible Tiger",
+      "level": "4",
+      "sourceRow": 20,
+      "page": 7,
+      "originalTopic": "Rhymes and Rhythms",
+      "topics": []
+    },
+    {
+      "bookId": "book-2db4f92fe50ed370",
+      "title": "Goodnight",
+      "level": "4",
+      "sourceRow": 21,
+      "page": 7,
+      "originalTopic": "Fables - Villains",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-42cd7782c94ed332",
+      "title": "Big Bad Wolf",
+      "level": "4",
+      "sourceRow": 22,
+      "page": 7,
+      "originalTopic": "Fables - Villains",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-46c971cc4f7b592d",
+      "title": "Chicken Licken",
+      "level": "4",
+      "sourceRow": 23,
+      "page": 7,
+      "originalTopic": "Fables - Villains",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-9dedce0bcd01e814",
+      "title": "Field of Gold",
+      "level": "4",
+      "sourceRow": 24,
+      "page": 8,
+      "originalTopic": "Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-47ef3434e9501454",
+      "title": "Vroom!",
+      "level": "4",
+      "sourceRow": 25,
+      "page": 8,
+      "originalTopic": "Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-4979f88eb3e5ee5a",
+      "title": "The Whale in the Well",
+      "level": "4",
+      "sourceRow": 26,
+      "page": 8,
+      "originalTopic": "Fables",
+      "topics": [
+        "fantasy"
+      ]
+    },
+    {
+      "bookId": "book-fa0054e2caea1bf4",
+      "title": "Feelings",
+      "level": "4",
+      "sourceRow": 27,
+      "page": 8,
+      "originalTopic": "Nonfiction 2",
+      "topics": []
+    },
+    {
+      "bookId": "book-c25a5c3082749042",
+      "title": "Looking at Materials",
+      "level": "4",
+      "sourceRow": 28,
+      "page": 8,
+      "originalTopic": "Nonfiction 2",
+      "topics": []
+    },
+    {
+      "bookId": "book-ba52e49cd6a08e9d",
+      "title": "What’s It Made of",
+      "level": "4",
+      "sourceRow": 29,
+      "page": 8,
+      "originalTopic": "Nonfiction 2",
+      "topics": []
+    },
+    {
+      "bookId": "book-0b2b1247bd0d30d2",
+      "title": "Where Is Joe",
+      "level": "4",
+      "sourceRow": 30,
+      "page": 8,
+      "originalTopic": "Nonfiction 2",
+      "topics": []
+    },
+    {
+      "bookId": "book-ea19fca6ba8032eb",
+      "title": "Make Your Own Monster",
+      "level": "4",
+      "sourceRow": 31,
+      "page": 8,
+      "originalTopic": "Nonfiction 2",
+      "topics": []
+    },
+    {
+      "bookId": "book-e304e58e5567db7b",
+      "title": "培生启明星5级 1-Whoops 哎呦",
+      "level": "5",
+      "sourceRow": 1,
+      "page": 8,
+      "originalTopic": "Hobbies",
+      "topics": []
+    },
+    {
+      "bookId": "book-2da1bb214551efe0",
+      "title": "培生启明星5级 2-Snap Happy拍照的乐趣",
+      "level": "5",
+      "sourceRow": 2,
+      "page": 8,
+      "originalTopic": "Hobbies",
+      "topics": []
+    },
+    {
+      "bookId": "book-249b355fe1ed9496",
+      "title": "培生启明星5级 3-Yo-YO a GO-GO 溜溜球, 转呀转",
+      "level": "5",
+      "sourceRow": 3,
+      "page": 8,
+      "originalTopic": "Hobbies",
+      "topics": []
+    },
+    {
+      "bookId": "book-4f80d9c784d2246b",
+      "title": "培生启明星5级 4-Sniffy小狗嗅嗅",
+      "level": "5",
+      "sourceRow": 4,
+      "page": 8,
+      "originalTopic": "Pets",
+      "topics": [
+        "animals.pets"
+      ]
+    },
+    {
+      "bookId": "book-f780603981f22856",
+      "title": "培生启明星5级 05 Barker",
+      "level": "5",
+      "sourceRow": 5,
+      "page": 8,
+      "originalTopic": "Pets",
+      "topics": [
+        "animals.pets"
+      ]
+    },
+    {
+      "bookId": "book-910e633fcf4a57d6",
+      "title": "培生启明星5级 6-Amber's Big Dog 安伯的大狗",
+      "level": "5",
+      "sourceRow": 6,
+      "page": 8,
+      "originalTopic": "Pets",
+      "topics": [
+        "animals.pets"
+      ]
+    },
+    {
+      "bookId": "book-d3074bad042a910b",
+      "title": "培生启明星5级 07 Shoo!",
+      "level": "5",
+      "sourceRow": 7,
+      "page": 8,
+      "originalTopic": "Comparative and Superlative",
+      "topics": [
+        "concepts.opposites"
+      ]
+    },
+    {
+      "bookId": "book-97534b7865c7f083",
+      "title": "培生启明星5级 8-The Fantastic Pumpkin奇妙的南瓜",
+      "level": "5",
+      "sourceRow": 8,
+      "page": 8,
+      "originalTopic": "Comparative and Superlative",
+      "topics": [
+        "concepts.opposites"
+      ]
+    },
+    {
+      "bookId": "book-30068307260730eb",
+      "title": "培生启明星5级 09 Clever Chick",
+      "level": "5",
+      "sourceRow": 9,
+      "page": 8,
+      "originalTopic": "Comparative and Superlative",
+      "topics": [
+        "concepts.opposites"
+      ]
+    },
+    {
+      "bookId": "book-1d5c3e0967875cdc",
+      "title": "培生启明星5级 10-Who Will Marry Maisie梅茜会嫁给谁?",
+      "level": "5",
+      "sourceRow": 10,
+      "page": 8,
+      "originalTopic": "Comparative and Superlative",
+      "topics": [
+        "concepts.opposites"
+      ]
+    },
+    {
+      "bookId": "book-9ef47f73891bb7f4",
+      "title": "培生启明星5级-11: Space Race",
+      "level": "5",
+      "sourceRow": 11,
+      "page": 8,
+      "originalTopic": "Comparative and Superlative",
+      "topics": [
+        "concepts.opposites"
+      ]
+    }
+  ],
+  "patternNodes": 90,
+  "unresolvedPatterns": [
+    {
+      "planId": "heinemann-gk70",
+      "bookNumber": 15,
+      "original": "… as …",
+      "reason": "原表文字与patternGroup不一致，不推定为has。"
+    }
+  ],
+  "basicReferenceNote": "笔记图中存在词汇／句型与题名错位，不按表号覆盖用户提供的原表；基础词汇现有95本原表映射继续使用。"
+}
