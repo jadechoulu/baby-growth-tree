@@ -29,11 +29,19 @@ function helloOverride(domain,entry){
   if(domain==='hello-part')return data.helloPartOverrides?.[entry.titleSource?.file+'#'+entry.part];
   if(domain==='hello-rhyme')return data.helloRhymeOverrides?.[entry.id];
 }
+function patternTopics(entry){
+  const guide=entry.studyGuide,mapping=data.patternMappings?.[guide?.sourceId];
+  if(!mapping)return [];
+  return unique(list(guide.patterns).map(pattern=>{
+    const key=String(pattern.text||'').trim().replace(/\.\.\./g,'…').replace(/’/g,"'").replace(/\s+/g,' ').replace(/ …/g,'…').replace(/… /g,'…').toLowerCase();
+    return mapping[key];
+  }).filter(Boolean));
+}
 function entryTopics(domain,entry={}){
   if(domain==='book'){
     const override=entry.custom?null:data.bookOverrides[entry.id];
     const original=list(entry.topics).filter(id=>!list(override?.replaceLegacy).includes(data.legacyBookLabels[id]||id));
-    const ids=original.flatMap(value=>bookTopic(value,entry.custom)).concat(list(override?.topics));
+    const ids=original.flatMap(value=>bookTopic(value,entry.custom)).concat(list(override?.topics),entry.custom?[]:patternTopics(entry));
     return unique(ids);
   }
   if(domain==='hello-part')return unique(list(data.helloScenes[entry.scene]?.topics).concat(list(helloOverride(domain,entry)?.topics)));
@@ -54,7 +62,10 @@ function originalLabels(domain,entry={}){
   return [];
 }
 function entryEvidence(domain,entry={}){
-  if(domain==='book')return data.bookOverrides[entry.id]||{basis:'保留已有内容核对的一级主题；没有细分依据不补造二级。',evidence:list(entry.topicEvidence)};
+  if(domain==='book'){
+    const record=data.bookOverrides[entry.id]||{basis:'保留已有内容核对的一级主题；没有细分依据不补造二级。',evidence:list(entry.topicEvidence)};
+    return {...record,patternTopics:patternTopics(entry),patternSourceId:patternTopics(entry).length?entry.studyGuide.sourceId:null};
+  }
   if(domain==='song')return data.songMappings[entry.id]||{status:'pending',basis:'尚无本曲具体版本的主题映射依据。'};
   const values=originalLabels(domain,entry);
   return {basis:'原场景／主题名称保留，按已确认的公共两级目录关联。',mappings:values.map(value=>({originalLabel:value,...data.helloScenes[value]})),override:helloOverride(domain,entry)};

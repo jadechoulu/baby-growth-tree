@@ -31,7 +31,7 @@ def catalog_metadata(value):
     if not isinstance(title, str) or not title.strip() or len(title) > 1000:
         raise SyncFailure('INCOMPLETE')
     # @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 外站详情仅按白名单派生，不把社区、本人状态或未知字段交给网页。
-    result = {'bookId': guid, 'appBookId': app_id, 'title': title.strip(),
+    result = {'catalogSchemaVersion': 2, 'bookId': guid, 'appBookId': app_id, 'title': title.strip(),
               'language': value.get('language') if isinstance(value.get('language'), str) else ''}
     cover = value.get('frontCover')
     if isinstance(cover, str) and cover and len(cover) <= 1500:
@@ -43,6 +43,10 @@ def catalog_metadata(value):
         text = value.get(source)
         if isinstance(text, str) and len(text) <= 300:
             result[target] = text
+    if isinstance(value.get('seriesTitle'), str) and len(value['seriesTitle']) <= 500:
+        result['seriesTitle'] = value['seriesTitle'].strip()
+    if isinstance(value.get('category'), str) and len(value['category']) <= 2000:
+        result['catalogTags'] = list(dict.fromkeys(tag.strip() for tag in re.split(r'[，,、]', value['category']) if tag.strip()))
     series_id, series_guid, series_title = value.get('taoxiId'), value.get('taoxiGuid'), value.get('taoxiName')
     if (re.fullmatch(r'[1-9][0-9]*', str(series_id)) and isinstance(series_guid, str)
             and re.fullmatch(r'[a-zA-Z0-9_-]{1,80}', series_guid) and isinstance(series_title, str)
@@ -53,7 +57,7 @@ def catalog_metadata(value):
 
 def shelf_catalog(bookcase, out, fetch_detail, private_json, fetch_collection=None):
     """书架目录与已读一次同步；公共元信息按单册缓存，失败不能清空旧目录。"""
-    cache = TOOL_ROOT / 'private' / 'shelf-metadata-v1'
+    cache = TOOL_ROOT / 'private' / 'shelf-metadata-v2'
     cache.mkdir(mode=0o700, parents=True, exist_ok=True)
     rows = bookcase['books']
 

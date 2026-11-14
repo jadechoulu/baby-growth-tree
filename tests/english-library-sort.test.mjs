@@ -115,3 +115,19 @@ test('路线筛选按执行主表真实顺序，不按其他版本的原始序�
     resource('start',{routeId:'xu',stageId:'merged-start',role:'未定'})];
   assert.deepEqual(M.sortLibraryMaterials(configured,entries,{route:'xu'}).map(e=>e.id),['start','next']);
 });
+
+test('主题套系Tab先分级、绘本、动画，各类型内部仍按阶段从易到难',()=>{
+  const entries=[{...resource('late-reader',appearance('later')),type:'reader'},
+    {...resource('early-book',appearance('early')),type:'book'},
+    {...resource('early-reader',appearance('early')),type:'reader'},
+    {...resource('early-animation',appearance('early')),type:'animation'}];
+  assert.deepEqual(ids(entries),['early-reader','early-book','early-animation','late-reader']);
+  assert.deepEqual(ids(entries,{typeFirst:true}),['early-reader','late-reader','early-book','early-animation']);
+});
+
+test('同套系同阶段字母级别从AA到A再B，不把册号或题名当难度',()=>{
+  const series={...resource('raz',appearance('early')),type:'reader'},book=(id,level)=>({id,resource:series,level,appearances:series.appearances});
+  const entries=[book('b','B'),book('a','A'),book('aa','AA')];
+  assert.deepEqual(ids(entries),['aa','a','b']);
+  assert.deepEqual(entries.map(b=>b.id),['b','a','aa']);
+});

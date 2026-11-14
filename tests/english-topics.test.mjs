@@ -35,7 +35,7 @@ test('一级覆盖子级，二级精确且与所选一级保持同一路径',()=
 test('家居从生活场景拆出，空间位置归基础认知，不按题名追加主题',()=>{
   const home=books.books.find(b=>b.id==='book-952f345458a00781');
   // 新增用户原表逐册内容为chair/table/bath/bed/television/mirror。
-  assert.deepEqual(T.entryTopics('book',home),['home.furniture','home.objects']);
+  assert.deepEqual(T.entryTopics('book',home).filter(id=>T.node(id)?.parentId!=='patterns'),['home.furniture','home.objects']);
   assert.deepEqual(T.entryTopics('book',{topics:['places']}),['concepts.position']);
   assert.deepEqual(T.entryTopics('book',{title:'Baby Shark Goes To Bed',topics:[]}),[]);
   assert.deepEqual(T.entryTopics('book',{topics:['animals']}),['animals']);
@@ -132,7 +132,7 @@ test('公共分类不改写来源、稳定ID或个人自由主题',()=>{
 });
 
 test('映射目录的来源和节点引用完整，未核曲目保留明确范围',()=>{
-  assert.equal(T.roots().length,20);
+  assert.equal(T.roots().length,21);
   const sourceIds=new Set(taxonomy.sources.map(s=>s.id));
   for(const mapping of Object.values(taxonomy.songMappings)){
     for(const id of mapping.topics)assert.ok(T.node(id),id);
@@ -144,4 +144,29 @@ test('映射目录的来源和节点引用完整，未核曲目保留明确范�
     assert.deepEqual(mapping.topics,[]);
     assert.ok(mapping.basis);
   }
+});
+
+test('句型与内容主题并存，按来源原文精确匹配，不跨版或按题名猜测',()=>{
+  const BP=require('../english/book-progress.js'),plans=require('../english/data/reading-plans.json'),volumes=require('../english/data/resource-volumes.json');
+  const directory=BP.withReadingPlans(books,plans,volumes);
+  const pearson=directory.books.find(b=>b.resourceId==='resource-1nuqi5t'&&b.studyGuide?.patterns.some(p=>p.text==='I like...'));
+  const ids=T.entryTopics('book',pearson),pattern=ids.find(id=>T.node(id)?.parentId==='patterns');
+  assert.ok(pattern);assert.ok(ids.some(id=>T.node(id)?.parentId!=='patterns'));
+  assert.equal(T.matches(ids,{topic:'patterns',subtopic:pattern}),true);
+  assert.deepEqual(T.entryTopics('book',{title:pearson.title,topics:[],studyGuide:{...pearson.studyGuide,sourceId:'another-edition'}}),[]);
+  assert.deepEqual(T.entryTopics('book',{title:'I like cats',topics:[]}),[]);
+  const gk=directory.books.find(b=>b.id==='heinemann-gk70-01');
+  assert.ok(T.entryTopics('book',gk).some(id=>T.node(id)?.parentId==='patterns'));
+  const modified={...gk,studyGuide:{...gk.studyGuide,patterns:[{text:'Invented sentence …'}]}};
+  assert.equal(T.matches(T.entryTopics('book',modified),{topic:'patterns'}),false);
+});
+
+test('启明星同版分类图映射公共主题，文体与难度栏不补造内容二级',()=>{
+  const ids=id=>T.entryTopics('book',books.books.find(b=>b.id===id));
+  assert.ok(ids('book-3a75a5949264fbe3').includes('concepts.counting'));
+  assert.ok(ids('book-a402574242afe74d').includes('sports.roleplay'));
+  assert.ok(ids('book-32c9f8c4f63da4b3').includes('animals.insects'));
+  assert.ok(ids('book-baa51018e3bb2947').includes('animals'));
+  assert.equal(ids('book-c876e74a845b4f05').includes('animals.reptiles'),false);
+  for(const mappings of Object.values(taxonomy.patternMappings))for(const id of Object.values(mappings))assert.equal(T.node(id)?.parentId,'patterns');
 });

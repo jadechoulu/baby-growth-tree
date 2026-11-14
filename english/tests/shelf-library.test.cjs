@@ -3,6 +3,35 @@ const Shelf=require('../shelf-library.js'),BP=require('../book-progress.js');
 const options={plans:{plans:[]},directory:{books:[]},catalog:{series:[]},liao:{books:[{title:'Already Here'}]}};
 function book(bookId,extra={}){return {bookId,appBookId:String(bookId.charCodeAt(0)),title:'Book '+bookId,language:'英文',read:false,isCollection:false,...extra};}
 function snapshot(books){return {schemaVersion:1,sourceKind:'xiaohuasheng_bookcase_read',authenticated:true,complete:true,accountId:'owner',snapshotId:'shelf-1',fetchedAt:'2026-11-09T00:00:00Z',wholeBookcaseCount:books.length,books:books.filter(b=>b.read).map(b=>({bookId:b.bookId,appBookId:b.appBookId,title:b.title})),shelfCatalog:{version:1,complete:true,total:books.length,books}};}
+test('用户指定的Lovevery和工地展示归组复用单册完成，标签只留在私人元信息',()=>{
+  const entries=[book('a',{catalogTags:['英文','lovevery绘本'],read:true}),book('b',{publisher:'Lovevery.com'}),book('c',{seriesTitle:'Lovevery'}),book('d',{title:'Mighty, Mighty Construction Site'}),book('e',{series:{id:'set',appBookId:'901',title:'晚安工地上的车'}}),book('f',{title:'Construction Site: Road Crew, Coming Through!'}),book('g',{title:'A Lovevery Review'})];
+  const first=Shelf.apply({},snapshot(entries),options),records={...first.changes,...BP.manualUpdate({},'shelf-book-owner-b',true)},before=structuredClone(records),groups=Shelf.groups(records,options);
+  const love=groups.find(group=>group.title==='Lovevery'),site=groups.find(group=>group.title==='Construction Site');
+  assert.equal(love.total,3);assert.equal(love.completed,2);assert.equal(site.total,3);assert.equal(site.completed,0);
+  assert.equal(groups.length,3,'题名含品牌但无标签或出版依据不自动归组');
+  assert.deepEqual(records,before);assert.deepEqual(Shelf.metadata(records).find(b=>b.bookId==='a').catalogTags,['英文','lovevery绘本']);
+  assert.deepEqual(Shelf.apply(records,snapshot(entries),options).changes,{});
+});
+test('培生上辑48册外站身份逐册回归同版公共目录，旧私人勾选同步后复用',()=>{
+  const directory=require('../data/resource-books.json'),books=directory.books.filter(book=>book.sourceIds?.includes('pearson-basic-upper-xhs-20261114'));
+  assert.equal(books.length,48);assert.equal(new Set(books.map(book=>book.externalIdentityEvidence.xiaohuasheng.bookNumber)).size,48);
+  const entries=books.map((b,i)=>book(b.externalIds.xiaohuasheng.at(-1),{appBookId:b.externalIdentityEvidence.xiaohuasheng.appBookId,title:b.externalIdentityEvidence.xiaohuasheng.originalTitle,read:i===0})),snap=snapshot(entries);
+  const config={...options,directory};
+  for(const entry of entries)assert.equal(BP.matchEntry(options.plans,entry,directory,options.catalog).candidates.length,1);
+  const legacy=Shelf.apply({},snap,options).changes,manual=BP.manualUpdate({},'shelf-book-owner-'+entries[1].bookId,true),saved={...legacy,...manual};
+  const result=Shelf.apply(saved,snap,config),records={...saved,...result.changes};
+  assert.equal(Shelf.groups(records,config).length,0);assert.equal(BP.bookState(records,books[0].id).done,true);assert.equal(BP.bookState(records,books[1].id).manual,true);
+  assert.equal(BP.bookState(records,books[2].id).done,false);
+});
+test('旧快照缺少新增元信息时保留已核标签，显式空值可撤回且不同身份不继承',()=>{
+  const first=Shelf.apply({},snapshot([book('a',{catalogTags:['Lovevery'],publisher:'Lovevery.com'})]),options).changes;
+  assert.deepEqual(Shelf.apply(first,snapshot([book('a')]),options).changes,{});
+  const cleared=Shelf.apply(first,snapshot([book('a',{catalogTags:[],publisher:''})]),options).changes;
+  assert.deepEqual(Shelf.metadata({...first,...cleared})[0].catalogTags,[]);
+  assert.equal(Shelf.metadata({...first,...cleared})[0].publisher,'');
+  const changed=Shelf.apply(first,snapshot([book('a',{appBookId:'999'})]),options).changes;
+  assert.equal(Shelf.metadata({...first,...changed})[0].catalogTags,undefined);
+});
 test('英文版本按真实套系归组，中文、双语、未知语言与廖彩杏作品不进入其他',()=>{
   const series={id:'set',appBookId:'901',title:'A Real Series'};
   const snap=snapshot([book('a',{series,read:true}),book('b',{series}),book('c',{language:'中文'}),book('d',{language:''}),book('e',{language:'中英双语'}),book('f',{title:'双语故事'}),book('g',{title:'Already Here'})]);

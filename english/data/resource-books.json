@@ -5168,6 +5168,23 @@
       "publisherUrl": "https://collins.co.uk/products/9780007412808",
       "checkedAt": "2026-11-11",
       "evidence": "小花生逐册isbn13与已录Collins出版社单册ISBN一致，题名相符；复用原公共单册身份，不凭套系标题、题名相似度或书架数量绑定。"
+    },
+    {
+      "id": "pearson-basic-upper-xhs-20261114",
+      "title": "小花生App · 培生幼儿英语基础词汇上辑48册目录及逐册详情",
+      "kind": "xiaohuasheng-app-catalog",
+      "url": "https://www.xiaohuasheng.cn/book/68501ace1e5a92a",
+      "checkedAt": "2026-11-14",
+      "note": "App getBooksInTaoxi/4338518/0/100返回48个唯一身份，48份getBookInfo5逐册详情身份一致。套装ISBN9787572107979，长江少年儿童出版社，2020-11；每册按同版套装身份、书号和英文题名与既有上辑48册交叉核对。仅保存公共身份，不含本人书架或已读。"
+    },
+    {
+      "id": "pearson-xhs-checkin-20261114",
+      "title": "培生启明星按主题分类打卡计划",
+      "author": "无穷小水",
+      "url": "https://www.xiaohongshu.com/explore/68af40be000000001b037063",
+      "checkedAt": "2026-11-14",
+      "locator": "图1–9；1至4级完整分类及5级前11册",
+      "note": "逐项对照公共目录同版中英文题名；表内顺序仅作出处，不改变公共册号。故事线、文体、挑战书及混合语法栏不自动生成内容二级。"
     }
   ],
   "books": [
@@ -20418,7 +20435,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "clothing"
@@ -20491,6 +20509,24 @@
             "locator": "句型分类!A4:E4"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "6d8f08fbb784303a"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6d8f08fbb784303a",
+          "appBookId": "980610",
+          "originalTitle": "培生幼儿英语基础词汇.上 1 My Clothes",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 1,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -20503,7 +20539,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -20582,6 +20619,24 @@
             "locator": "句型分类!A8:E8"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "707ea01caccc98d1"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/707ea01caccc98d1",
+          "appBookId": "980619",
+          "originalTitle": "培生幼儿英语.基础词汇.上 2 The Farm",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 2,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -20594,7 +20649,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "food"
@@ -20667,6 +20723,24 @@
             "locator": "句型分类!A12:E12"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "63d8910cac94dcc5"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/63d8910cac94dcc5",
+          "appBookId": "980656",
+          "originalTitle": "培生幼儿英语.基础词汇.上 3 A Garden",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 3,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -20679,7 +20753,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -20752,6 +20827,24 @@
             "locator": "句型分类!A9:E9"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "508cc44cc3956c1d"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/508cc44cc3956c1d",
+          "appBookId": "980521",
+          "originalTitle": "培生幼儿英语基础词汇.上 4 The Jungle",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 4,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -20764,7 +20857,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "body"
@@ -20837,6 +20931,24 @@
             "locator": "句型分类!A5:E5"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "75a6902b9cd74f4b"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/75a6902b9cd74f4b",
+          "appBookId": "980517",
+          "originalTitle": "培生幼儿英语基础词汇.上 5 My Alien",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 5,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -20849,7 +20961,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -20922,6 +21035,24 @@
             "locator": "句型分类!A13:E13"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "18fccb91ecea61c3"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/18fccb91ecea61c3",
+          "appBookId": "980617",
+          "originalTitle": "培生幼儿英语.基础词汇.上 6 A Home",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 6,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -20934,7 +21065,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "nature"
@@ -21007,6 +21139,24 @@
             "locator": "句型分类!A10:E10"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "440d07174410a943"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/440d07174410a943",
+          "appBookId": "980626",
+          "originalTitle": "培生幼儿英语.基础词汇.上 7 The Day",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 7,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21019,7 +21169,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "family"
@@ -21092,6 +21243,24 @@
             "locator": "句型分类!A6:E6"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "78b7dd6b67a54d04"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/78b7dd6b67a54d04",
+          "appBookId": "980608",
+          "originalTitle": "培生幼儿英语.基础词汇.上 8 My Family",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 8,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21104,7 +21273,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -21179,6 +21349,24 @@
             "locator": "句型分类!A14:E14"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "40551a55633c24af"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/40551a55633c24af",
+          "appBookId": "980659",
+          "originalTitle": "培生幼儿英语.基础词汇.上 9 A Monster House",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 9,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21191,7 +21379,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "clothing"
@@ -21266,6 +21455,24 @@
             "locator": "句型分类!A11:E11"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "3174acf3726fbe07"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3174acf3726fbe07",
+          "appBookId": "980632",
+          "originalTitle": "培生幼儿英语.基础词汇.上 10 The Monster's Clothes",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 10,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21278,7 +21485,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "transport"
@@ -21358,6 +21566,24 @@
             "locator": "句型分类!A7:E7"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "a3614931fbcf47dc"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a3614931fbcf47dc",
+          "appBookId": "980620",
+          "originalTitle": "培生幼儿英语.基础词汇.上 11 My Things",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 11,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21370,7 +21596,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "transport"
@@ -21443,6 +21670,24 @@
             "locator": "句型分类!A15:E15"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "8c659c0ebd62092"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8c659c0ebd62092",
+          "appBookId": "980514",
+          "originalTitle": "培生幼儿英语.基础词汇.上 12 A Ride",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 12,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21455,7 +21700,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "concepts"
@@ -21528,6 +21774,24 @@
             "locator": "句型分类!A16:E16"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "fec76f46056a1d25"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fec76f46056a1d25",
+          "appBookId": "980606",
+          "originalTitle": "培生幼儿英语.基础词汇.上 13 I Like Birds",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 13,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21540,7 +21804,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -21613,6 +21878,24 @@
             "locator": "句型分类!A20:E20"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "e2a53e8e25400899"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e2a53e8e25400899",
+          "appBookId": "980523",
+          "originalTitle": "培生幼儿英语.基础词汇.上 14 The Goats",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 14,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21625,7 +21908,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -21698,6 +21982,24 @@
             "locator": "句型分类!A24:E24"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "c169272ec57985e"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c169272ec57985e",
+          "appBookId": "980669",
+          "originalTitle": "培生幼儿英语.基础词汇.上 15 I Can Laugh",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 15,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21710,7 +22012,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "clothing"
@@ -21783,6 +22086,24 @@
             "locator": "句型分类!A17:E17"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "bef777f7ca5da83b"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bef777f7ca5da83b",
+          "appBookId": "980654",
+          "originalTitle": "培生幼儿英语.基础词汇.上 16 I Like Hats",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 16,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21795,7 +22116,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "jobs"
@@ -21868,6 +22190,24 @@
             "locator": "句型分类!A21:E21"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "b8a8357276329016"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b8a8357276329016",
+          "appBookId": "980664",
+          "originalTitle": "培生幼儿英语.基础词汇.上 17 I Am A Painter",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 17,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21880,7 +22220,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -21953,6 +22294,24 @@
             "locator": "句型分类!A25:E25"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "fd577b90ce10e40d"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fd577b90ce10e40d",
+          "appBookId": "980650",
+          "originalTitle": "培生幼儿英语.基础词汇.上 18 I Can",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 18,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -21965,7 +22324,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -22038,6 +22398,24 @@
             "locator": "句型分类!A18:E18"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "fa45df3c097b62d3"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fa45df3c097b62d3",
+          "appBookId": "980671",
+          "originalTitle": "培生幼儿英语.基础词汇.上 19 I Like Elephants",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 19,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22050,7 +22428,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "family"
@@ -22123,6 +22502,24 @@
             "locator": "句型分类!A22:E22"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "2165cbfc905c2b4a"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2165cbfc905c2b4a",
+          "appBookId": "980628",
+          "originalTitle": "培生幼儿英语.基础词汇.上 20 The Family",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 20,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22135,7 +22532,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -22215,6 +22613,24 @@
             "locator": "句型分类!A26:E26"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "83ff38844b444693"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/83ff38844b444693",
+          "appBookId": "980670",
+          "originalTitle": "培生幼儿英语.基础词汇.上 21 I Can Swim",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 21,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22227,7 +22643,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -22300,6 +22717,24 @@
             "locator": "句型分类!A23:E23"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "9f89f8c153fcc8fa"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9f89f8c153fcc8fa",
+          "appBookId": "980647",
+          "originalTitle": "培生幼儿英语.基础词汇.上 22 I Am A Bee",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 22,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22312,7 +22747,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -22385,6 +22821,24 @@
             "locator": "句型分类!A27:E27"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "5b90f7562ad07411"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5b90f7562ad07411",
+          "appBookId": "980649",
+          "originalTitle": "培生基础词汇(上)第23册 The Animals",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 23,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22397,7 +22851,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -22470,6 +22925,24 @@
             "locator": "句型分类!A19:E19"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "41b93f01cf9c6a5a"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/41b93f01cf9c6a5a",
+          "appBookId": "980655",
+          "originalTitle": "培生幼儿英语.基础词汇.上 24 I Like Riding",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 24,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22482,7 +22955,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "clothing"
@@ -22555,6 +23029,24 @@
             "locator": "句型分类!A38:E38"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "cd9cd81eeecae0ec"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cd9cd81eeecae0ec",
+          "appBookId": "5972323",
+          "originalTitle": "培生幼儿英语.基础词汇.上 25 A Shoe",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 25,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22567,7 +23059,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -22640,6 +23133,24 @@
             "locator": "句型分类!A28:E28"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "9049465bdf7070bb"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9049465bdf7070bb",
+          "appBookId": "5972319",
+          "originalTitle": "培生幼儿英语.基础词汇.上 26 A house",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 26,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22652,7 +23163,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -22725,6 +23237,24 @@
             "locator": "句型分类!A39:E39"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "da45011de2c82656"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/da45011de2c82656",
+          "appBookId": "5972341",
+          "originalTitle": "培生基础词汇(上)第27册in the garden",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 27,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22737,7 +23267,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -22817,6 +23348,24 @@
             "locator": "句型分类!A29:E29"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "d1aaf756498fabd2"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d1aaf756498fabd2",
+          "appBookId": "5974218",
+          "originalTitle": "培生基础词汇(上)第28册 a boat",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 28,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22829,7 +23378,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -22902,6 +23452,24 @@
             "locator": "句型分类!A40:E40"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "a00acf52d2ce8a15"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a00acf52d2ce8a15",
+          "appBookId": "5974222",
+          "originalTitle": "培生基础词汇(上)第29册the hole",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 29,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22914,7 +23482,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "nature"
@@ -22987,6 +23556,24 @@
             "locator": "句型分类!A30:E30"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "7e7dad009d8b9c1e"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7e7dad009d8b9c1e",
+          "appBookId": "5974242",
+          "originalTitle": "培生基础词汇(上)第30册the moon",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 30,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -22999,7 +23586,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -23072,6 +23660,24 @@
             "locator": "句型分类!A41:E41"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "73392234501d9e50"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/73392234501d9e50",
+          "appBookId": "5975664",
+          "originalTitle": "培生基础词汇(上)第31册the monster town",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 31,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23084,7 +23690,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -23157,6 +23764,24 @@
             "locator": "句型分类!A31:E31"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "8a502315c47d17ef"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8a502315c47d17ef",
+          "appBookId": "5975665",
+          "originalTitle": "培生基础词汇(上)第32册 The Balloon Ride",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 32,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23169,7 +23794,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "concepts"
@@ -23242,6 +23868,24 @@
             "locator": "句型分类!A55:E55"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "5e5891da8ba48edd"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5e5891da8ba48edd",
+          "appBookId": "5975666",
+          "originalTitle": "培生基础词汇(上)第33册rainbow town",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 33,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23254,7 +23898,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -23327,6 +23972,24 @@
             "locator": "句型分类!A60:E60"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "bfc47b17cbf26334"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bfc47b17cbf26334",
+          "appBookId": "980666",
+          "originalTitle": "培生幼儿英语.基础词汇.上 34 I Am Jumping",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 34,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23339,7 +24002,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "clothing"
@@ -23412,6 +24076,24 @@
             "locator": "句型分类!A64:E64"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "24269e542c02181b"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/24269e542c02181b",
+          "appBookId": "5977089",
+          "originalTitle": "培生基础词汇(上)第35册the spy",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 35,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23424,7 +24106,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "food"
@@ -23497,6 +24180,24 @@
             "locator": "句型分类!A56:E56"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "f2761312d3c1a9c8"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f2761312d3c1a9c8",
+          "appBookId": "5977093",
+          "originalTitle": "培生基础词汇(上)第36册i like jam",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 36,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23509,7 +24210,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -23582,6 +24284,24 @@
             "locator": "句型分类!A61:E61"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "ff1a6b9956e07b61"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ff1a6b9956e07b61",
+          "appBookId": "980599",
+          "originalTitle": "培生幼儿英语.基础词汇.上 37 I Am Working",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 37,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23594,7 +24314,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "clothing"
@@ -23667,6 +24388,24 @@
             "locator": "句型分类!A65:E65"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "fcb282d189dc6b9a"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fcb282d189dc6b9a",
+          "appBookId": "5978948",
+          "originalTitle": "培生基础词汇(上)第38册 my hat",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 38,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23679,7 +24418,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "nature"
@@ -23752,6 +24492,24 @@
             "locator": "句型分类!A57:E57"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "81121bb4d85bdc2e"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/81121bb4d85bdc2e",
+          "appBookId": "5978951",
+          "originalTitle": "培生基础词汇(上)第39册i like boxes",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 39,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23764,7 +24522,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -23844,6 +24603,24 @@
             "locator": "句型分类!A62:E62"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "9bd3d40ab4dde5c4"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9bd3d40ab4dde5c4",
+          "appBookId": "980601",
+          "originalTitle": "培生幼儿英语.基础词汇.上 40 Monkeys",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 40,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23856,7 +24633,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "body"
@@ -23929,6 +24707,24 @@
             "locator": "句型分类!A66:E66"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "c8ac835526a7f96f"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c8ac835526a7f96f",
+          "appBookId": "5979781",
+          "originalTitle": "培生基础词汇(上)第41册the snowman",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 41,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -23941,7 +24737,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "nature"
@@ -24014,6 +24811,24 @@
             "locator": "句型分类!A58:E58"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "6cbab97236a7aa0d"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6cbab97236a7aa0d",
+          "appBookId": "5979782",
+          "originalTitle": "培生基础词汇(上)第42册hats",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 42,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -24026,7 +24841,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "actions"
@@ -24099,6 +24915,24 @@
             "locator": "句型分类!A63:E63"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "7e7d66d54550043c"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7e7d66d54550043c",
+          "appBookId": "980639",
+          "originalTitle": "培生幼儿英语基础词汇.上 43 Sailors",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 43,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -24111,7 +24945,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "transport"
@@ -24184,6 +25019,24 @@
             "locator": "句型分类!A67:E67"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "13f7b0420fcf2b41"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/13f7b0420fcf2b41",
+          "appBookId": "5982287",
+          "originalTitle": "培生基础词汇(上)第44册the rally car",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 44,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -24196,7 +25049,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "food"
@@ -24269,6 +25123,24 @@
             "locator": "句型分类!A59:E59"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "be5afc662fcec0ab"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/be5afc662fcec0ab",
+          "appBookId": "5982290",
+          "originalTitle": "培生基础词汇(上)第45册 ice cream",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 45,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -24281,7 +25153,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "animals"
@@ -24354,6 +25227,24 @@
             "locator": "句型分类!A49:E49"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "ea85b652083f13d3"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ea85b652083f13d3",
+          "appBookId": "980528",
+          "originalTitle": "培生幼儿英语基础词汇.上 46 The Show",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 46,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -24366,7 +25257,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -24439,6 +25331,24 @@
             "locator": "句型分类!A42:E42"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "fa396d942a95bf06"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fa396d942a95bf06",
+          "appBookId": "5984022",
+          "originalTitle": "培生基础词汇(上)第47册the presents",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 47,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -24451,7 +25361,8 @@
         "pearson-basic-user",
         "pearson-basic-publisher",
         "pearson-xhs-basic-themes",
-        "guide-pearson-basic"
+        "guide-pearson-basic",
+        "pearson-basic-upper-xhs-20261114"
       ],
       "topics": [
         "daily"
@@ -24524,6 +25435,24 @@
             "locator": "句型分类!A50:E50"
           }
         ]
+      },
+      "externalIds": {
+        "xiaohuasheng": [
+          "e8e58fe568d2fd05"
+        ]
+      },
+      "externalIdentityEvidence": {
+        "xiaohuasheng": {
+          "sourceId": "pearson-basic-upper-xhs-20261114",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e8e58fe568d2fd05",
+          "appBookId": "980661",
+          "originalTitle": "培生幼儿英语基础词汇.上 48 Here Is A Bird",
+          "collectionId": "68501ace1e5a92a",
+          "collectionTitle": "培生基础词汇(上)(全48册)",
+          "bookNumber": 48,
+          "checkedAt": "2026-11-14",
+          "basis": "同为培生幼儿英语基础词汇上辑48册版，套装ISBN 9787572107979；以套装身份、逐册原英文题名和书号共同核对既有用户目录及主题表，不按单一编号或同名跨版关联。单册ISBN未提供，不补造。"
+        }
       }
     },
     {
@@ -47599,11 +48528,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155808.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/dbd5c201c6ba8156",
@@ -47615,7 +48545,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-01",
+          "originalTopic": "Counting",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-87d7447b611b0126",
@@ -47633,11 +48571,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155819.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/89b49bc10525c85d",
@@ -47649,7 +48588,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-02",
+          "originalTopic": "Counting",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-9f0f2a519faaa432",
@@ -47667,11 +48614,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160842.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/4e4bf2ef61aa5da6",
@@ -47683,7 +48631,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-03",
+          "originalTopic": "Counting",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d162aa05a6c4374f",
@@ -47701,11 +48657,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155855.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/22a50a2d9a91567",
@@ -47717,7 +48674,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-04",
+          "originalTopic": "Indoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-46a1d77b72576b9c",
@@ -47735,11 +48700,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155905.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/a407a290a0a8333b",
@@ -47751,7 +48717,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-05",
+          "originalTopic": "Indoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-47e9f6ca7a4d90b4",
@@ -47769,11 +48743,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160833.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/b1caf759b6148bc",
@@ -47785,7 +48760,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-06",
+          "originalTopic": "Indoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-b2114304d6fac0f9",
@@ -47803,11 +48786,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155929.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/fea8325b3ee2714a",
@@ -47819,7 +48803,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-07",
+          "originalTopic": "Indoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-663c8a41b521c950",
@@ -47837,11 +48829,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160823.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/ed9f6346422e93c4",
@@ -47853,7 +48846,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-08",
+          "originalTopic": "Colours",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-5af92cc8846b7d03",
@@ -47871,11 +48872,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602155952.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/2479f7002cadc880",
@@ -47887,7 +48889,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-09",
+          "originalTopic": "Colours",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-a6162664dd3d6b3b",
@@ -47905,11 +48915,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160004.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/cb2e0abcfcea64dd",
@@ -47921,7 +48932,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-10",
+          "originalTopic": "Colours",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-4a2dc7d29b2a0c29",
@@ -47939,11 +48958,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160013.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/1e5a4287dc2c2a5f",
@@ -47955,7 +48975,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-11",
+          "originalTopic": "Role",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-0c68215cbf18eda7",
@@ -47973,11 +49001,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160025.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/b3ccf4f7d22b45f9",
@@ -47989,7 +49018,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-12",
+          "originalTopic": "Role",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-a402574242afe74d",
@@ -48007,11 +49044,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160035.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/94b4dc9db05c3a9b",
@@ -48023,7 +49061,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-13",
+          "originalTopic": "Role",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-db1eb0fc950ef842",
@@ -48041,11 +49087,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160044.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/62eb57c0075ac8e8",
@@ -48057,7 +49104,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-14",
+          "originalTopic": "Role",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-7e3cc361f4dbb371",
@@ -48075,11 +49130,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160054.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/189980c5ff5d7b29",
@@ -48091,7 +49147,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-15",
+          "originalTopic": "Role",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-dd1f5f4bef80ba76",
@@ -48109,11 +49173,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160102.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/7b419c0b8b5ea36f",
@@ -48125,7 +49190,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-16",
+          "originalTopic": "Toys",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-078e49c631003729",
@@ -48143,11 +49216,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160113.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/32431f44955fd438",
@@ -48159,7 +49233,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-17",
+          "originalTopic": "Toys",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-f5afd69a43968e24",
@@ -48177,11 +49259,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160812.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/95c834d3892ebe5c",
@@ -48193,7 +49276,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-18",
+          "originalTopic": "Toys",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-dce3bdec061fc0d8",
@@ -48211,11 +49302,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260602160141.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/c6b767fb522dddb8",
@@ -48227,7 +49319,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图1，1级-19",
+          "originalTopic": "Toys",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-9df1698ce49d8802",
@@ -48245,11 +49345,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002004.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/9982f357042bb03b",
@@ -48261,7 +49362,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-20",
+          "originalTopic": "Outdoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-e13dd2cc6f9e4203",
@@ -48279,11 +49388,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002056.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/d77bee6204b5afa8",
@@ -48295,7 +49405,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-21",
+          "originalTopic": "Outdoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-8d85ca5bd378fe49",
@@ -48313,11 +49431,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002129.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/61ed2af75229b534",
@@ -48329,7 +49448,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-22",
+          "originalTopic": "Outdoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-6370238e24abb8b6",
@@ -48347,11 +49474,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002148.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/a1add057455e3fa9",
@@ -48363,7 +49491,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-23",
+          "originalTopic": "Outdoors",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-32c9f8c4f63da4b3",
@@ -48381,11 +49517,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002206.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/3d35cb1a455ce5aa",
@@ -48397,7 +49534,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-24",
+          "originalTopic": "Bugs",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-bad2c435153ae80d",
@@ -48415,11 +49560,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002237.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/e866dc2455be2cd",
@@ -48431,7 +49577,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-25",
+          "originalTopic": "Bugs",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-b9793f60d9b6e9a1",
@@ -48449,11 +49603,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002302.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/1895cc347d59bd05",
@@ -48465,7 +49620,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-26",
+          "originalTopic": "Bugs",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-8542e4c3293953e8",
@@ -48483,11 +49646,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002315.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/f89835a01ad8c886",
@@ -48499,7 +49663,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-27",
+          "originalTopic": "Bugs",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-db2be6ef57b2f8bf",
@@ -48517,11 +49689,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002341.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/82de1bb433576533",
@@ -48533,7 +49706,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-28",
+          "originalTopic": "Animals 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-4000fd67ef230321",
@@ -48551,11 +49732,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002357.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/e381a0ad675669a2",
@@ -48567,7 +49749,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-29",
+          "originalTopic": "Animals 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-5c314a22524e9289",
@@ -48585,11 +49775,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002423.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/b5ff3fa065557563",
@@ -48601,7 +49792,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-30",
+          "originalTopic": "Animals 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-7e6df65cb4958a3c",
@@ -48619,11 +49818,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002459.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/7868a3f83554a338",
@@ -48635,7 +49835,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-31",
+          "originalTopic": "Animals 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-beddf9015988f2fa",
@@ -48653,11 +49861,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260622002520.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/1eae4f468553dec8",
@@ -48669,7 +49878,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-32",
+          "originalTopic": "Animals 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-7c6bb0e25daf42fb",
@@ -48687,11 +49904,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2489068/Book/20261017211421.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/ebc4a959e765ad57",
@@ -48703,7 +49921,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-33",
+          "originalTopic": "Verb",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-4fdad4c15ee4f4c3",
@@ -48721,11 +49947,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094229.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/9850bfe35ae4eeb5",
@@ -48737,7 +49964,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-34",
+          "originalTopic": "Verb",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-406735ade3460973",
@@ -48755,11 +49990,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094254.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/d2b1a3cc4003f50d",
@@ -48771,7 +50007,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-35",
+          "originalTopic": "Verb",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-93a202b3599bf677",
@@ -48789,11 +50033,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094330.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/26f5869dcea30432",
@@ -48805,7 +50050,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-36",
+          "originalTopic": "Verb",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-3000650b8b7e5bcd",
@@ -48823,11 +50076,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094345.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/b302d60742e1c8d1",
@@ -48839,7 +50093,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-37",
+          "originalTopic": "Verb",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-f28c6a16a06f0520",
@@ -48857,11 +50119,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094412.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/983d76d402e092c1",
@@ -48873,7 +50136,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-38",
+          "originalTopic": "Verb",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-32b63f3a64fe4b37",
@@ -48891,11 +50162,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094435.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/6781e547d2df7cf3",
@@ -48907,7 +50179,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-39",
+          "originalTopic": "Description",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-e4f17419fcceaf58",
@@ -48925,11 +50205,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094501.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/66c89f575ae48e29",
@@ -48941,7 +50222,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-40",
+          "originalTopic": "Description",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-5e1afd55e6065b0f",
@@ -48959,11 +50248,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094521.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/82f8e4ba12dd8704",
@@ -48975,7 +50265,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-41",
+          "originalTopic": "Description",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-72c560df2fb025bf",
@@ -48993,11 +50291,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094553.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/91eba45b3f6e7d2f",
@@ -49009,7 +50308,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-42",
+          "originalTopic": "Description",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-f60fae015c5e1684",
@@ -49027,11 +50334,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094618.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/bbe79164f4db56c4",
@@ -49043,7 +50351,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-43",
+          "originalTopic": "Description",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-67a7c8423a7d80ed",
@@ -49061,11 +50377,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level1-20261108"
+        "xhs-pearson-star-level1-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未读取正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20260627094639.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
         "sourceUrl": "https://www.xiaohuasheng.cn/book/82eb11985ada8c6f",
@@ -49077,7 +50394,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 1级（44本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图2，1级-44",
+          "originalTopic": "Description",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-70dd7b76b9e83b10",
@@ -50234,11 +51559,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/6f74ec56d2ca083a",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015161638.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50251,7 +51577,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-01",
+          "originalTopic": "Clothing",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-94e57b53a8f5e3e9",
@@ -50269,11 +51603,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/c629d857d2cbec0a",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015161658.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50286,7 +51621,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-02",
+          "originalTopic": "Clothing",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-0e5a4d332d15e3fe",
@@ -50304,11 +51647,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/20a0f1cb82cd110c",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015161730.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50321,7 +51665,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-03",
+          "originalTopic": "Clothing",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-02d590b280f27a00",
@@ -50339,11 +51691,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/64405107822ea128",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015161744.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50356,7 +51709,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-04",
+          "originalTopic": "Clothing",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-baa51018e3bb2947",
@@ -50374,11 +51735,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/26cf7f7f72cfda29",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015161808.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50391,7 +51753,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-05",
+          "originalTopic": "Animals 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-40e1d23f98d68112",
@@ -50409,11 +51779,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/db91c2612342442b",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015162435.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50426,7 +51797,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-06",
+          "originalTopic": "Animals 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-97a50113e496b53b",
@@ -50444,11 +51823,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/4298e93760b1770c",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015162045.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50461,7 +51841,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-07",
+          "originalTopic": "Animals 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-237f771ccc0d9eb0",
@@ -50479,11 +51867,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/b336e71460b0b387",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015162348.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50496,7 +51885,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-08",
+          "originalTopic": "Animals 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-86a8c337e4cfef7c",
@@ -50514,11 +51911,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/f5ad480b6bb016d2",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015162215.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50531,7 +51929,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-09",
+          "originalTopic": "Food",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d99c86f45181e3ed",
@@ -50549,11 +51955,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/bb4108bd8eaf7b67",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261015162304.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50566,7 +51973,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-10",
+          "originalTopic": "Food",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-dac78d2bd9b3d1a9",
@@ -50584,11 +51999,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/ebf87008c2d8cba0",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261018205339.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50601,7 +52017,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-11",
+          "originalTopic": "Food",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-ef338efedd3c8f92",
@@ -50619,11 +52043,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/7de0c5d67b85be07",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261018205432.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50636,7 +52061,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-12",
+          "originalTopic": "Food",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-8872b12e316ffbea",
@@ -50654,11 +52087,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/f6884ea42ca0b741",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261018205541.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50671,7 +52105,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-13",
+          "originalTopic": "Animals 3",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-caee864cf1a144ea",
@@ -50689,11 +52131,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/7fbecfba1f9fe615",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261018205632.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50706,7 +52149,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-14",
+          "originalTopic": "Animals 3",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-81c9db85f84b6632",
@@ -50724,11 +52175,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/602c9631639f022e",
       "cover": "https://img.xiaohuasheng.cn/2321485/Book/20261018205753.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50741,7 +52193,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-15",
+          "originalTopic": "Animals 3",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-84de083ae99e51e6",
@@ -50759,11 +52219,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/104e152e328847d6",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260809082750.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50776,7 +52237,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-16",
+          "originalTopic": "Animals 3",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d803daac6ca853ee",
@@ -50794,11 +52263,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/ccc882a66cb7a0d0",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260809082816.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50811,7 +52281,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-17",
+          "originalTopic": "Animals 3",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d04c37dbd9b26740",
@@ -50829,11 +52307,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/fc39296b1636d810",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260809082841.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50846,7 +52325,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-18",
+          "originalTopic": "Monsters",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-9f7cbb3880480a6b",
@@ -50864,11 +52351,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/c5740db0d636443f",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260810204718.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50881,7 +52369,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-19",
+          "originalTopic": "Monsters",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-e29a859146fba403",
@@ -50899,11 +52395,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/61f14660b4e665c9",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260810204826.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50916,7 +52413,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图3，2级-20",
+          "originalTopic": "Monsters",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-5ca56cea8ffcb84b",
@@ -50934,11 +52439,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/33036f9d0412ab7f",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260810204843.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50951,7 +52457,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-21",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-632c668a4a0f35e2",
@@ -50969,11 +52483,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/cc06eecdd2ea13c3",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260810204814.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -50986,7 +52501,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-22",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-8945b9f2f5e945cf",
@@ -51004,11 +52527,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/fc348628b2eb581d",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260810204800.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51021,7 +52545,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-23",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-197c6b127fe7bd2f",
@@ -51039,11 +52571,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/ed45342138ecae72",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260810204746.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51056,7 +52589,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-24",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-1e2021a64163efb3",
@@ -51074,11 +52615,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/809b387e92edf66c",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260811211601.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51091,7 +52633,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-25",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-670fb0506ea3f374",
@@ -51109,11 +52659,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/9c49d1b05aef5fd1",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260811211623.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51126,7 +52677,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-26",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-aed4e810d4564c92",
@@ -51144,11 +52703,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/a8c745605c71a490",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260811211635.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51161,7 +52721,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-27",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-783226b36290fc2b",
@@ -51179,11 +52747,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/783a539042f2ebb7",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260811211653.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51196,7 +52765,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-28",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-00e660cad2a0a1ea",
@@ -51214,11 +52791,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/95760cd92f45421",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260811211707.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51231,7 +52809,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-29",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-2d8ab15cb61bf08b",
@@ -51249,11 +52835,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/8c3ea9716c0c3884",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260811211530.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51266,7 +52853,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-30",
+          "originalTopic": "Prepositions and Opposites",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-24afc95c556c3fde",
@@ -51284,11 +52879,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/7b7b4e89b6e9aa9c",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260813222450.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51301,7 +52897,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-31",
+          "originalTopic": "Body",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-62f06900565bcc5f",
@@ -51319,11 +52923,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/401fee55baea427f",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260813222432.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51336,7 +52941,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-32",
+          "originalTopic": "Body",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-1df563f687df66fc",
@@ -51354,11 +52967,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/911928a686eb0350",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260813222412.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51371,7 +52985,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-33",
+          "originalTopic": "Body",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-940dc8f0f862ac0e",
@@ -51389,11 +53011,12 @@
         ]
       },
       "sourceIds": [
-        "xhs-pearson-star-level2-20261108"
+        "xhs-pearson-star-level2-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://www.xiaohuasheng.cn/book/65dd931626eba551",
       "cover": "https://img.xiaohuasheng.cn/1909504/Book/20250911220057.jpg?imageView2/1/w/216/h/288",
       "coverSource": {
@@ -51406,7 +53029,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 2级（41本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图4，2级-34",
+          "originalTopic": "Body",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-c876e74a845b4f05",
@@ -59638,11 +61269,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110153634.jpg",
       "coverSource": {
@@ -59666,7 +61298,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-01",
+          "originalTopic": "Friends",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-1fd6fe881d051a82",
@@ -59688,11 +61328,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110153445.jpg",
       "coverSource": {
@@ -59716,7 +61357,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-02",
+          "originalTopic": "Friends",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-bcf8d23e28d96d03",
@@ -59738,11 +61387,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110153336.jpg",
       "coverSource": {
@@ -59766,7 +61416,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-03",
+          "originalTopic": "Friends",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-988ae025010fcefd",
@@ -59788,11 +61446,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/1909504/Book/20260709231703.jpg",
       "coverSource": {
@@ -59816,7 +61475,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-04",
+          "originalTopic": "Friends",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-a16b3d1193b27c34",
@@ -59838,11 +61505,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110153043.jpg",
       "coverSource": {
@@ -59866,7 +61534,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-05",
+          "originalTopic": "Friends",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-81bef1f79cb69105",
@@ -59988,11 +61664,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110152646.jpg",
       "coverSource": {
@@ -60016,7 +61693,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-08",
+          "originalTopic": "Care and Love",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-bcdacc1054a33dcd",
@@ -60038,11 +61723,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110152535.jpg",
       "coverSource": {
@@ -60066,7 +61752,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-09",
+          "originalTopic": "Care and Love",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-69d6939274f8d05e",
@@ -60088,11 +61782,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110152418.jpg",
       "coverSource": {
@@ -60116,7 +61811,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-10",
+          "originalTopic": "Care and Love",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-7e0cd167d72042f6",
@@ -60138,11 +61841,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/1909504/Book/20260615232456.jpg",
       "coverSource": {
@@ -60166,7 +61870,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-11",
+          "originalTopic": "Fantasy",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-f51ec24fdf8b529d",
@@ -60188,11 +61900,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110152146.jpg",
       "coverSource": {
@@ -60216,7 +61929,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-12",
+          "originalTopic": "Fantasy",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d16cfa5bdf0e119f",
@@ -60238,11 +61959,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/1716985/Book/20260728233429.jpg",
       "coverSource": {
@@ -60266,7 +61988,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-13",
+          "originalTopic": "Fantasy",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-6d4c954635923ac7",
@@ -60638,11 +62368,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110150802.jpg",
       "coverSource": {
@@ -60666,7 +62397,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-21",
+          "originalTopic": "Fables - Villains",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-42cd7782c94ed332",
@@ -60688,11 +62427,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110150643.jpg",
       "coverSource": {
@@ -60716,7 +62456,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-22",
+          "originalTopic": "Fables - Villains",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-46c971cc4f7b592d",
@@ -60738,11 +62486,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110150525.jpg",
       "coverSource": {
@@ -60766,7 +62515,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图7，4级-23",
+          "originalTopic": "Fables - Villains",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-9dedce0bcd01e814",
@@ -60788,11 +62545,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110150411.jpg",
       "coverSource": {
@@ -60816,7 +62574,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-24",
+          "originalTopic": "Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-47ef3434e9501454",
@@ -60838,11 +62604,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110150245.jpg",
       "coverSource": {
@@ -60866,7 +62633,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-25",
+          "originalTopic": "Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-4979f88eb3e5ee5a",
@@ -60888,11 +62663,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level4-20261108",
-        "xhs-pearson-star-level4-covers-20261108"
+        "xhs-pearson-star-level4-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1116",
       "cover": "https://img.xiaohuasheng.cn/2328009/Book/20251110150110.jpg",
       "coverSource": {
@@ -60916,7 +62692,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 4级（31本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，4级-26",
+          "originalTopic": "Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-fa0054e2caea1bf4",
@@ -61812,11 +63596,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124223.jpg",
       "coverSource": {
@@ -61840,7 +63625,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-01",
+          "originalTopic": "Family 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-3a5e15a382288a81",
@@ -61862,11 +63655,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124209.jpg",
       "coverSource": {
@@ -61890,7 +63684,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-02",
+          "originalTopic": "Family 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-aa02962a7d27a486",
@@ -61912,11 +63714,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124142.jpg",
       "coverSource": {
@@ -61940,7 +63743,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-03",
+          "originalTopic": "Family 1",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-a341aae60fd25c3b",
@@ -61962,11 +63773,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124126.jpg",
       "coverSource": {
@@ -61990,7 +63802,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-04",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-57ebb6ca2235c34e",
@@ -62012,11 +63832,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124156.jpg",
       "coverSource": {
@@ -62040,7 +63861,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-05",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-fe1be8ec259a782e",
@@ -62062,11 +63891,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124113.jpg",
       "coverSource": {
@@ -62090,7 +63920,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-06",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-46ab9b563562ea56",
@@ -62112,11 +63950,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260923224010.jpg",
       "coverSource": {
@@ -62145,7 +63984,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-07",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-25639480eb88b80d",
@@ -62167,11 +64014,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260923223811.jpg",
       "coverSource": {
@@ -62195,7 +64043,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-08",
+          "originalTopic": "Days of the Week and Ordinal Numbers",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-c4335c7a4622ad5c",
@@ -62217,11 +64073,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260923223710.jpg",
       "coverSource": {
@@ -62245,7 +64102,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-09",
+          "originalTopic": "Plays",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-07af8965f4944bb2",
@@ -62267,11 +64132,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260923223743.jpg",
       "coverSource": {
@@ -62295,7 +64161,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-10",
+          "originalTopic": "Plays",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-b56dc4ccb305b43e",
@@ -62317,11 +64191,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260923223842.jpg",
       "coverSource": {
@@ -62345,7 +64220,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-11",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-c98c4827989dbccb",
@@ -62367,11 +64250,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260923223920.jpg",
       "coverSource": {
@@ -62395,7 +64279,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-12",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-32a02b6b149aa4a3",
@@ -62417,11 +64309,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124020.jpg",
       "coverSource": {
@@ -62445,7 +64338,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-13",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-7e43b905a14274a8",
@@ -62467,11 +64368,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925124030.jpg",
       "coverSource": {
@@ -62495,7 +64397,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-14",
+          "originalTopic": "Daily Life",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-801afe9f76a9e017",
@@ -62667,11 +64577,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260925123921.jpg",
       "coverSource": {
@@ -62695,7 +64606,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-18",
+          "originalTopic": "Prepositions",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-7b936e591a0660f2",
@@ -62717,11 +64636,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260926092620.jpg",
       "coverSource": {
@@ -62745,7 +64665,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-19",
+          "originalTopic": "Prepositions",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-897bc7b80ccd2c17",
@@ -62767,11 +64695,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260926092644.jpg",
       "coverSource": {
@@ -62795,7 +64724,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图5，3级-20",
+          "originalTopic": "Prepositions",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-24d802cd606c5eea",
@@ -63317,11 +65254,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260929215323.jpg",
       "coverSource": {
@@ -63345,7 +65283,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-31",
+          "originalTopic": "Imagination and Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d60b2b32cde42394",
@@ -63367,11 +65313,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260929215304.jpg",
       "coverSource": {
@@ -63395,7 +65342,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-32",
+          "originalTopic": "Imagination and Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-5ae99492fc9874c7",
@@ -63417,11 +65372,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20260929215343.jpg",
       "coverSource": {
@@ -63445,7 +65401,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-33",
+          "originalTopic": "Imagination and Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-e70f0f7a48d16bd9",
@@ -63467,11 +65431,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20261003084436.jpg",
       "coverSource": {
@@ -63495,7 +65460,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-34",
+          "originalTopic": "Imagination and Fables",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-954e9ebc9cc52185",
@@ -63517,11 +65490,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20261001160355.jpg",
       "coverSource": {
@@ -63545,7 +65519,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-35",
+          "originalTopic": "Family 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-ac9a827e4ee099e8",
@@ -63567,11 +65549,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20261001160156.jpg",
       "coverSource": {
@@ -63595,7 +65578,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-36",
+          "originalTopic": "Family 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-6a6580bf6e196a01",
@@ -63617,11 +65608,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20261001160126.jpg",
       "coverSource": {
@@ -63645,7 +65637,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-37",
+          "originalTopic": "Family 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-c06337abe4bb4c5c",
@@ -63667,11 +65667,12 @@
       },
       "sourceIds": [
         "piyo-pearson-star-level3-20261108",
-        "xhs-pearson-star-level3-covers-20261108"
+        "xhs-pearson-star-level3-covers-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "公开单册及出版方目录仅核对书目身份、级别与封面；未取得逐本正文内容，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "detailUrl": "https://piyopen.lovereadingbooks.com/content/1121",
       "cover": "https://img.xiaohuasheng.cn/2244083/Book/20261001160516.jpg",
       "coverSource": {
@@ -63695,7 +65696,15 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "培生启明星 · 3级（42本）"
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图6，3级-38",
+          "originalTopic": "Family 2",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-545e6f830fc6ded0",
@@ -85662,10 +87671,11 @@
         "培生启明星5级 4-Sniffy小狗嗅嗅"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 4,
       "detailUrl": "https://www.xiaohuasheng.cn/book/3f00a80f93299213",
@@ -85695,7 +87705,15 @@
         "xiaohuasheng": [
           "3f00a80f93299213"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-04",
+          "originalTopic": "Pets",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-f780603981f22856",
@@ -85707,10 +87725,11 @@
         "培生启明星5级 05 Barker"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 5,
       "detailUrl": "https://www.xiaohuasheng.cn/book/2c9a0ab110375f9e",
@@ -85740,7 +87759,15 @@
         "xiaohuasheng": [
           "2c9a0ab110375f9e"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-05",
+          "originalTopic": "Pets",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-910e633fcf4a57d6",
@@ -85752,10 +87779,11 @@
         "培生启明星5级 6-Amber's Big Dog 安伯的大狗"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 6,
       "detailUrl": "https://www.xiaohuasheng.cn/book/7c8ac978db2bd904",
@@ -85785,7 +87813,15 @@
         "xiaohuasheng": [
           "7c8ac978db2bd904"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-06",
+          "originalTopic": "Pets",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-d3074bad042a910b",
@@ -85797,10 +87833,11 @@
         "培生启明星5级 07 Shoo!"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 7,
       "detailUrl": "https://www.xiaohuasheng.cn/book/e3697a9c90369454",
@@ -85830,7 +87867,15 @@
         "xiaohuasheng": [
           "e3697a9c90369454"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-07",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-97534b7865c7f083",
@@ -85842,10 +87887,11 @@
         "培生启明星5级 8-The Fantastic Pumpkin奇妙的南瓜"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 8,
       "detailUrl": "https://www.xiaohuasheng.cn/book/7d355f954fddef4",
@@ -85875,7 +87921,15 @@
         "xiaohuasheng": [
           "7d355f954fddef4"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-08",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-30068307260730eb",
@@ -85887,10 +87941,11 @@
         "培生启明星5级 09 Clever Chick"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 9,
       "detailUrl": "https://www.xiaohuasheng.cn/book/5e8e4aad10356f09",
@@ -85920,7 +87975,15 @@
         "xiaohuasheng": [
           "5e8e4aad10356f09"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-09",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-1d5c3e0967875cdc",
@@ -85932,10 +87995,11 @@
         "培生启明星5级 10-Who Will Marry Maisie梅茜会嫁给谁?"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 10,
       "detailUrl": "https://www.xiaohuasheng.cn/book/361b322a53300cee",
@@ -85965,7 +88029,15 @@
         "xiaohuasheng": [
           "361b322a53300cee"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-10",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-9ef47f73891bb7f4",
@@ -85977,10 +88049,11 @@
         "培生启明星5级-11: Space Race"
       ],
       "topics": [],
-      "topicStatus": "pending",
-      "topicBasis": "完整公开集合仅核对单册成员、级别与版本范围；未核正文，不按题名推测主题。",
+      "topicStatus": "classification-verified",
+      "topicBasis": "已逐册核对同版分类图，按原分类支持的颗粒度映射公共主题；不据题名补猜。",
       "sourceIds": [
-        "xhs-remaining-ac3360dd36a76488-5-20261108"
+        "xhs-remaining-ac3360dd36a76488-5-20261108",
+        "pearson-xhs-checkin-20261114"
       ],
       "sourceOrder": 11,
       "detailUrl": "https://www.xiaohuasheng.cn/book/da36cb2115d29942",
@@ -86010,7 +88083,15 @@
         "xiaohuasheng": [
           "da36cb2115d29942"
         ]
-      }
+      },
+      "topicEvidence": [
+        {
+          "sourceId": "pearson-xhs-checkin-20261114",
+          "locator": "图8，5级-11",
+          "originalTopic": "Comparative and Superlative",
+          "summary": "同版中英文题名逐项核对，采用原图明确主题；不据题名补造二级。"
+        }
+      ]
     },
     {
       "id": "book-fb9bec9ab626c50c",

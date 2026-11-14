@@ -6,6 +6,21 @@ const input=(text,extra={})=>({text,type:'word',channel:'listening',categoryId:'
 const apply=(records,changes)=>Object.assign(records,changes);
 const wrap=records=>({version:1,profile:{vocabulary:70,mode:'audio'},favorites:[],records});
 
+test('短语句型忽略分类筛选并连续列出，历史分类元数据不迁移',()=>{
+  const records={};
+  for(const type of ['phrase','pattern']){
+    apply(records,V.add(records,input('come here',{type,categoryId:'actions'})));
+    apply(records,V.add(records,input('good night',{type,categoryId:'objects'})));
+    const before=structuredClone(records),groups=V.groupEntries(records,{type,categoryId:'body'});
+    assert.equal(groups.length,1);assert.equal(groups[0].categories.length,1);
+    assert.equal(groups[0].categories[0].entries.length,2);
+    assert.deepEqual(records,before);
+  }
+  apply(records,V.add(records,input('hello',{categoryId:'',pos:''})));
+  const other=V.groupEntries(records).find(group=>group.id==='other');
+  assert.equal(other.categories[0].id,'uncategorized');assert.equal(other.categories[0].name,'其他');
+});
+
 test('词数去重、重复不累计，大小写和明确复数归并，听说与内容类型隔离',()=>{
   const records={};for(const t of ['Feet','foot','feet'])apply(records,V.add(records,input(t)));
   apply(records,V.add(records,input('foot',{channel:'speaking'})));

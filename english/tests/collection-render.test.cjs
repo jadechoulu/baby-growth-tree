@@ -10,7 +10,7 @@ test('其他书架的套系封面不查单册次数，散本保留本人次数�
     {id:'single',series:false,title:'Single Book',cover:'single.jpg',total:1,completed:1,status:'done',books:[{id:'b3',title:'Single Book',cover:'single.jpg'}]}];
   const context={h:element,asset:x=>x,icon:()=>null,S:{records:{}},BOOKS:{},BP:{bookState:(_records,id)=>{assert.equal(typeof id,'string');calls.push(id);return {readCount:3};}},P:{STATUS:{using:'进行中',done:'已完成'}},
     otherShelfState:{query:'',status:'all',limit:18},shelfGroups:()=>groups,openModal(){},window:{EnglishAutomaticList:{tail:()=>element('div',{})}}};
-  vm.createContext(context);vm.runInContext([section('function bookReadCountBadge(','function bookCompletionControl('),section('function libraryBookCover(','function bookRow('),section('function otherShelfResults(','function otherLibraryView(')].join('\n'),context);
+  vm.createContext(context);vm.runInContext([section('function bookReadCountBadge(','function bookCompletionControl('),section('function libraryBookCover(','function bookRow('),section('function shelfSeriesCard(','function otherLibraryView(')].join('\n'),context);
   const rendered=context.otherShelfResults();assert.equal(rendered.attrs.id,'other-shelf-results');assert.deepEqual(calls,['b3']);
   assert.equal(rendered.children[1].children.length,2);
   // 没有封面的套系占位也不能把 null 身份交给单册模型。
