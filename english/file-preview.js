@@ -6,7 +6,7 @@ function fileInfo(href,base){
   const home=new URL('assets/',base);
   if(url.origin!==home.origin||!url.pathname.startsWith(home.pathname))return null;
   const ext=url.pathname.split('.').at(-1).toLowerCase();
-  const kind=ext==='pdf'?'pdf':/^(jpe?g|png|webp|gif|avif)$/.test(ext)?'image':/^(mp3|m4a|wav|ogg)$/.test(ext)?'audio':null;
+  const kind=ext==='xlsx'?'spreadsheet':ext==='pdf'?'pdf':/^(jpe?g|png|webp|gif|avif)$/.test(ext)?'image':/^(mp3|m4a|wav|ogg)$/.test(ext)?'audio':null;
   if(!kind)return null;
   let path;try{path=decodeURIComponent(url.pathname.slice(home.pathname.length));}catch{return null;}
   return {kind,url:url.href,path:'assets/'+path,page:Math.max(1,Math.trunc(Number(new URLSearchParams(url.hash.slice(1)).get('page')))||1)};
@@ -89,6 +89,10 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     // 阻止 Escape 冒泡关闭资源下面仍在阅读的详情或原图预览。
     dialog.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Escape'){e.preventDefault();close();}else if(e.target.tagName!=='INPUT'&&['ArrowLeft','ArrowRight'].includes(e.key)&&state.pdf){e.preventDefault();turn(e.key==='ArrowRight'?1:-1);}});
     document.body.append(dialog);document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('button').focus({preventScroll:true});
+    if(info.kind==='spreadsheet'){
+      controls.hidden=true;body.classList.add('file-preview-web');
+      body.append(h('iframe',{src:asset(info.path+'.preview.html'),title:title||'原始Excel表格',sandbox:'',onload:()=>{status.textContent='';}}));return true;
+    }
     if(info.kind==='web'){
       root.EnglishAudio?.stop(false);controls.hidden=true;body.classList.add('file-preview-web');
       const shareFrame=()=>h('iframe',{src:info.url,title:title||'带读资料',allow:'autoplay; fullscreen; picture-in-picture',allowfullscreen:true,sandbox:'allow-scripts allow-same-origin allow-forms allow-downloads allow-presentation allow-popups',referrerpolicy:'no-referrer',onload:()=>{status.textContent='';}});

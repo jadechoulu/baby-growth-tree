@@ -135,7 +135,7 @@ function entries(records,options={}){
     const isbn=isbnKey(book.isbn),matches=[...new Set([...(byExternal.get(book.bookId)||[]),...(isbn.length>=10?byIsbn.get(isbn)||[]:[])])];
     const publicBook=matches.length===1?matches[0]:null;
     const record=publicBook&&topics?.entryTopics('book',publicBook).length?{...topics.entryEvidence('book',publicBook),topics:topics.entryTopics('book',publicBook),patterns:topics.patterns('book',publicBook)}:classifier?.classify(book);
-    return {...book,privateShelf:true,shelfGroupId:group.id,resourceId:group.id,resourceIds:[group.id],seriesTitle:group.title,edition:'私人小花生书架',level:'',appearances:[],resource:{id:group.id,title:group.title,type:'book',aliases:[],appearances:[]},topicRecord:record||{topics:[],patterns:[],status:'pending'},sourceIds:[],topics:record?.topics||[]};
+    return {...book,searchLabels:[book.seriesTitle,book.series?.title,...(book.catalogTags||[])].filter(Boolean),privateShelf:true,shelfGroupId:group.id,resourceId:group.id,resourceIds:[group.id],seriesTitle:group.title,edition:'私人小花生书架',level:'',appearances:[],resource:{id:group.id,title:group.title,type:'book',aliases:[],appearances:[]},topicRecord:record||{topics:[],patterns:[],status:'pending'},sourceIds:[],topics:record?.topics||[]};
   }));
 }
 // 本人明确要求的展示归组；不推定出版目录、跨版身份或完成事实。

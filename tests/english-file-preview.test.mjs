@@ -49,3 +49,10 @@ test('外部网页、站内导航与下载文件不误入媒体弹窗',()=>{
 test('离线单文件入口可以用原始资源路径恢复预览类型',()=>{
   assert.equal(fileInfo('assets/hello/notes/book-02.pdf','file:///tmp/英语启蒙路线导航.html').kind,'pdf');
 });
+
+
+test('原始Excel仅在本站assets中路由到只读表格预览',()=>{
+  const base='https://example.test/baby-growth-tree/english/index.html';
+  assert.deepEqual(fileInfo('assets/sources/reading-guides/raz-a.xlsx',base),{kind:'spreadsheet',url:'https://example.test/baby-growth-tree/english/assets/sources/reading-guides/raz-a.xlsx',path:'assets/sources/reading-guides/raz-a.xlsx',page:1});
+  assert.equal(fileInfo('https://outside.test/raz-a.xlsx',base),null);
+});
