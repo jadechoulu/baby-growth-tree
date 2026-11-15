@@ -1,0 +1,91 @@
+english/assets/sources/reading-guides/raz-a.xlsx.preview.html
+  s_655a201aff35d2::t_0ffb8e50180bd4 1-2
+english/file-preview.js
+  s_655a201aff35d2::t_cda61d991a2264 9,92-95
+docs/material-tags.md
+  s_655a201aff35d2::t_e3be7898c6eaba 89,94
+docs/architecture.md
+  s_655a201aff35d2::t_8ac0bb4305449e 7
+  s_655a201aff35d2::t_e3be7898c6eaba 9
+  s_655a201aff35d2::t_dbf9d90e56b8cd 8,10-13,16
+english/assets/sources/reading-guides/raz-aa.xlsx.preview.html
+  s_655a201aff35d2::t_0ffb8e50180bd4 1
+english/styles.css
+  s_655a201aff35d2::t_0ffb8e50180bd4 2085-2086
+  s_655a201aff35d2::t_4386c81e0e6d49 1914,2083-2084
+  s_655a201aff35d2::t_2b1ed1f85ddc8d 2087-2098
+english/topic-ui.js
+  s_655a201aff35d2::t_76e95681a8cc44 4,10-16,23-24
+english/build.py
+  s_655a201aff35d2::t_cda61d991a2264 6,52
+AGENTS.md
+  s_655a201aff35d2::t_e3be7898c6eaba 14
+  s_655a201aff35d2::t_d074345d8433f0 13,15
+english/shelf-library.js
+  s_655a201aff35d2::t_fe4e5cc8348c2c 138
+scripts/build-workbook-previews.py
+  s_655a201aff35d2::t_cda61d991a2264 1-53
+tests/english-search-actions.test.mjs
+  s_655a201aff35d2::t_e3be7898c6eaba 71-82
+  s_655a201aff35d2::t_b84aa90cd21d1a 12,56
+  s_655a201aff35d2::t_24a5706570de96 62-70
+english/tests/collection-render.test.cjs
+  s_655a201aff35d2::t_7344feba9f88e2 11
+  s_655a201aff35d2::t_b2bb00d07744df 12
+  s_655a201aff35d2::t_8be4962ad5a89f 14-15,17
+english/hello-reading.js
+  s_655a201aff35d2::t_464b7b9c624502 140,210-211,246,253-254,266-267
+english/assets/sources/reading-guides/pearson-basic.xlsx.preview.html
+  s_655a201aff35d2::t_0ffb8e50180bd4 1
+english/liao-reading.js
+  s_655a201aff35d2::t_464b7b9c624502 115-116,118
+english/app.js
+  s_655a201aff35d2::t_e3255e38d906f0 200-201,250,1578-1579,1581,1738,1837,1874,1878,1881-1882,1962,2274,2332
+  s_655a201aff35d2::t_e3be7898c6eaba 1621,1910-1912,1917,1933
+  s_655a201aff35d2::t_76e95681a8cc44 1684-1685,1693,1700-1701,1703,1723
+  s_655a201aff35d2::t_464b7b9c624502 1763,1804
+  s_655a201aff35d2::t_ea235ce3f5c8e6 1920-1932,1934-1937,1941-1942,1947
+  s_655a201aff35d2::t_fe4e5cc8348c2c 280,282,1630-1632,1639-1640,1642,1949-1953,1970-1971,2227
+  s_655a201aff35d2::t_18f9cd6a5a23a3 1883-1890,1939
+  s_655a201aff35d2::t_4386c81e0e6d49 1948,2297
+  s_655a201aff35d2::t_b84aa90cd21d1a 2165
+  s_655a201aff35d2::t_986b8b4e68c077 1633-1636,1641,1710,1840-1848,1850,1873,1909,1913-1916,1946,1956,1958,1969
+  s_655a201aff35d2::t_6cb6aac8e29a95 708,1550-1551,1554,1558,1609,1611-1612,1836,1938,1940,1944-1945
+english/library-books.js
+  s_655a201aff35d2::t_986b8b4e68c077 25-35,244
+  s_655a201aff35d2::t_fe4e5cc8348c2c 137
+tests/english-library-books.test.mjs
+  s_655a201aff35d2::t_e3be7898c6eaba 299-309
+  s_655a201aff35d2::t_b84aa90cd21d1a 287-298
+tests/english-topics.test.mjs
+  s_655a201aff35d2::t_f7e3e7c17342a3 256-263,265-274
+  s_655a201aff35d2::t_54dc2c61671dc4 264
+english/topics.js
+  s_655a201aff35d2::t_76e95681a8cc44 8
+english/index.html
+  s_655a201aff35d2::t_f270ccd91f4136 9,21-22
+english/runtime/app.49a4c595244e5234.js
+  s_655a201aff35d2::t_efe5a901c964d5 1755,1877,1883-1889,1896-1897,4100,4436-4446,4548,4655,4762,4845-4848,5150,5220-5221,5256,5263-5264,5276-5277,5535-5536,5538,5839-5840,5889,5919,5921,6347,7189-7190,7193,7197,7217-7218,7220,7248,7250-7251,7260,7269-7275,7278-7281,7323-7324,7332,7339-7340,7342,7349,7362,7377,7402,7443,7475-7476,7479-7487,7489,7512-7513,7517,7520-7529,7548-7556,7559-7581,7583-7592,7595,7597,7601,7608-7610,7804,7866,7913,7936,7971
+english/runtime/data.ffceb36c898a7a80.js
+  s_655a201aff35d2::t_4635a83777a95e 1
+english/runtime/styles.d6fb404fb619bc1b.css
+  s_655a201aff35d2::t_05e3238a69ede7 1914,2084-2099
+tests/english-file-preview.test.mjs
+  s_655a201aff35d2::t_40e10712ff2cd3 52-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1d3d465cd4feb7ea87e98671336027920327a6d9",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
