@@ -80,6 +80,14 @@ test('单册关键词跨公共目录与原表计划检索到具体书名',()=>{
   assert.ok(result.some(b=>/the show/i.test(b.title)));
 });
 
+test('单册可按自身套系名检索，不依赖素材统一名称',()=>{
+  const resource={id:'search-series',title:'统一素材名称',type:'book',appearances:[]};
+  const book={id:'search-book',title:'A Book',seriesTitle:'Fixture Series',resource,resourceId:resource.id,topics:[],appearances:[]};
+  assert.deepEqual(B.filter([book],{topics:[]},{query:'fixture series'}),[book]);
+  assert.deepEqual(B.filter([book],{topics:[]},{query:'A Book'}),[book]);
+  assert.deepEqual(B.filter([book],{topics:[]},{query:'不存在的书名'}),[]);
+});
+
 test('书目身份、版本、主题和来源完整，目录变更不改变作者阶段参考',()=>{
   assert.equal(new Set(data.books.map(b=>b.id)).size,data.books.length);
   for(const b of data.books){

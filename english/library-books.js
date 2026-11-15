@@ -123,7 +123,7 @@ function filter(books,data,filters={}){
     if(filters.series&&filters.series!=='all'&&seriesGroup(book,data).id!==filters.series)return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
-    if(query&&!normalize([book.title,...(book.aliases||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
+    if(query&&!normalize([book.title,...(book.aliases||[]),book.seriesTitle,book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
     return true;
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。

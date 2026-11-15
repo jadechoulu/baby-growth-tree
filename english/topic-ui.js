@@ -1,11 +1,11 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishTopicUI=api;})(typeof window==='object'?window:globalThis,function(){
 'use strict';
 function create({h,topics}){
-  function picker({id,topic='all',subtopic='all',onchange,custom=[]}){
+  function picker({id,topic='all',subtopic='all',onchange,custom=[],compact=false}){
     const primary=h('select',{id:id+'-primary','aria-label':'一级主题',onchange:e=>{sync(e.currentTarget.value,'all');onchange(e.currentTarget.value,'all');}});
     const secondary=h('select',{id:id+'-secondary','aria-label':'二级主题',onchange:e=>{const child=e.currentTarget.value;sync(primary.value,child);onchange(primary.value,child);}});
     const selectedLabel=h('span',{class:'topic-selected-label'});
-    const element=h('div',{class:'topic-picker'},h('label',{for:primary.id},'一级主题',primary),h('label',{for:secondary.id},'二级主题',secondary),selectedLabel);
+    const element=h('div',{class:'topic-picker'+(compact?' topic-picker-compact':'')},h('label',{for:primary.id},h('span',{class:'topic-picker-label'},'一级主题'),primary),h('label',{for:secondary.id},h('span',{class:'topic-picker-label'},'二级主题'),secondary),selectedLabel);
     const option=(value,label,selected)=>h('option',{value,selected},label);
     function sync(parent,child){
       primary.replaceChildren(option('all','全部主题',parent==='all'),...topics.roots().map(n=>option(n.id,n.label,parent===n.id)),...custom.map(n=>option(n.id,n.label,parent===n.id)));
@@ -13,7 +13,9 @@ function create({h,topics}){
       secondary.replaceChildren(option('all','全部二级',child==='all'),...children.map(n=>option(n.id,n.label,child===n.id)));
       secondary.disabled=parent==='all'||!children.length;
       selectedLabel.textContent=parent==='all'?'':topics.label(parent)+(child!=='all'?' / '+topics.label(child):'');
-      selectedLabel.hidden=parent==='all';
+      selectedLabel.hidden=compact||parent==='all';
+      primary.title='一级主题：'+(parent==='all'?'全部主题':topics.label(parent));
+      secondary.title='二级主题：'+(child==='all'?'全部二级':topics.label(child));
     }
     sync(topic,subtopic);return {element,sync};
   }

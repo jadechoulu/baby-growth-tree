@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
+import { createRequire } from 'node:module';
+const searchCore=createRequire(import.meta.url)('../shared/search-core.js');
 
 const app = await readFile(new URL('../english/app.js', import.meta.url), 'utf8');
 const actions = app.slice(app.indexOf('function focusEnglishSearch(){'), app.indexOf('function englishActions(){'));
@@ -20,15 +22,16 @@ test('顶栏搜索本人书架的单册题名，退出后不读取或展示私�
   let reads=0;const cards=[],context={englishOwnerAuthenticated:true,S:{route:'all',age:'all',libraryTopic:'all',sharedOnly:false,type:'all',materialStatus:'all'},shelfGroups:()=>{reads++;return [{title:'Fixture Series',books:[{title:'What a Show'}]}];},shelfSeriesCard:g=>{cards.push(g);return g;},h:(tag,attrs,...children)=>({tag,attrs,children}),window:{EnglishAutomaticList:{tail:()=>null}}};
   vm.runInNewContext(app.slice(app.indexOf('function shelfSearchResults('),app.indexOf('function librarySearchMaterials(')),context);
   assert.ok(context.shelfSearchResults('show'));assert.equal(cards.length,1);
-  context.englishOwnerAuthenticated=false;assert.equal(context.shelfSearchResults('show'),null);assert.equal(reads,1);
+  context.S.type='book';assert.ok(context.shelfSearchResults('fixture'));assert.equal(cards.length,2);
+  context.englishOwnerAuthenticated=false;assert.equal(context.shelfSearchResults('show'),null);assert.equal(reads,2);
 });
 
-test('英语输入继续素材筛选；回车和空列表提问入口传入同一句话，输入法确认不提问', () => {
-  const calls = [], input = { value: '许密杉和庆爸' }, state = { search: '', view: 'library' };
+test('英语普通书名回车继续素材筛选，问题与显式助手入口保留受保护检索', () => {
+  const calls = [], input = { value: '许密杉和庆爸', focus() {} }, state = { search: '', view: 'library' };
   const context = {
     S: state, libraryCollection: 'all',
     document: { getElementById: () => input, querySelector: () => ({ replaceWith: () => calls.push('filter') }) },
-    window: { XiaoyaSiteSearch: { open: options => calls.push(options) } },
+    window: { XiaoyaSearchCore:searchCore, XiaoyaSiteSearch: { open: options => calls.push(options) } },
     libraryResults() {}, updateLibraryUsageToggle() {},
   };
   vm.runInNewContext(actions, context);
@@ -41,6 +44,11 @@ test('英语输入继续素材筛选；回车和空列表提问入口传入同�
   context.askEnglishSearch({ key: 'Enter', preventDefault() { prevented = true; } });
   assert.equal(prevented, true); assert.equal(calls[1].query, input.value); assert.equal(calls[1].submit, true); assert.equal(calls[1].focus, input);
   context.askEnglishSearch(); assert.equal(calls[2].query, input.value);
+  for(const query of ['大猫','海尼曼','The Foot Book','Lovevery','']){
+    calls.length=0;input.value=query;
+    context.askEnglishSearch({key:'Enter',preventDefault(){}});
+    assert.deepEqual(calls,['filter']);assert.equal(state.search,query);
+  }
 });
 
 test('重置统一清除全部组合筛选，重新选择阶段恢复只看当前阶段',()=>{
