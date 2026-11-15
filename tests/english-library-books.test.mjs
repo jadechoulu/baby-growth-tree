@@ -26,6 +26,53 @@ test('主题检索覆盖无逐册目录素材并复用素材身份，有目录�
   }finally{if(old===undefined)delete taxonomy.resourceMappings;else taxonomy.resourceMappings=old;}
 });
 
+test('有据系列主题缺少单册表达时仅在主题结果提供系列入口，不恢复旧聚合或下传每册',()=>{
+  const taxonomy=require('../english/data/topic-taxonomy.json'),T=require('../english/topics.js'),old=taxonomy.resourceMappings;
+  const evidence={status:'description-derived',topics:['animals.farm','fantasy.adventure'],basis:'已核系列简介示例，只证明系列涉及范围。',sourceIds:['public-description']};
+  taxonomy.resourceMappings={...old,'scope-series':evidence,'old-aggregate':{status:'catalog-aggregate',topics:['fantasy.adventure']}};
+  try{
+    const resource={id:'scope-series',title:'有据系列',type:'reader',appearances:[{routeId:'qing',stageId:'qing-s1',level:''}]};
+    const aggregate={...resource,id:'old-aggregate',title:'旧聚合'};
+    const directory={sources:[],topics:[],books:[{id:'scope-book',resourceId:resource.id,title:'Farm',topics:['animals'],level:'',edition:'已核版'},
+      {id:'aggregate-book',resourceId:aggregate.id,title:'Other Farm',topics:['animals'],level:'',edition:'已核版'}]};
+    // 单册的真实主题明确到二级，不能借系列简介补冒险主题。
+    directory.books[0].topics=['animals.farm'];
+    const before=structuredClone(directory),result=B.materialEntries(directory,[resource,aggregate],M);
+    const fallback=result.find(entry=>entry.resourceTopicFallback);
+    assert.equal(fallback.id,resource.id);assert.equal(fallback.resource,resource);
+    assert.equal(fallback.topicScope,'resource');assert.deepEqual(fallback.sourceIds,evidence.sourceIds);
+    assert.deepEqual(T.entryEvidence('resource',fallback.resource),{...evidence,patterns:[]});
+    assert.deepEqual(B.filter(result,directory).map(entry=>entry.id),['scope-book','aggregate-book']);
+    assert.deepEqual(B.filter(result,directory,{query:'有据系列'}).map(entry=>entry.id),['scope-book']);
+    assert.deepEqual(B.filter(result,directory,{topic:'animals',subtopic:'animals.farm'}).map(entry=>entry.id),['scope-book']);
+    assert.deepEqual(B.filter(result,directory,{topic:'fantasy',subtopic:'fantasy.adventure'}).map(entry=>entry.id),[resource.id]);
+    assert.deepEqual(B.filter(result,directory,{topic:'fantasy',subtopic:'fantasy.adventure',route:'qing',stageIds:['qing-s1']}).map(entry=>entry.id),[resource.id]);
+    assert.equal(B.filter(result,directory,{topic:'fantasy',stageIds:['qing-s2']}).length,0);
+    assert.equal(B.filter(result,directory,{topic:'fantasy',type:'animation'}).length,0);
+    assert.ok(!result.some(entry=>entry.id===aggregate.id));
+    assert.deepEqual(directory,before);assert.deepEqual(T.entryTopics('book',result[0]),['animals.farm']);
+    // 普通构建按需拆证据后，轻索引仅保留 status/topics，行为必须相同。
+    taxonomy.resourceMappings['scope-series']={status:evidence.status,topics:evidence.topics};
+    assert.deepEqual(B.filter(B.materialEntries(directory,[resource,aggregate],M),directory,{topic:'fantasy'}).map(entry=>entry.id),[resource.id]);
+  }finally{taxonomy.resourceMappings=old;}
+});
+
+test('宫保鸡丁、朱妮琼斯、扎克与莲花巷的系列简介主题可达，不复制逐册主题',()=>{
+  const T=require('../english/topics.js'),volumes=read('resource-volumes'),resources=catalog.resources;
+  const before=JSON.stringify(data.books),result=B.materialEntries(data,resources,M,volumes);
+  for(const id of ['resource-6ze03a','resource-gzsymu','resource-13sgknh','resource-1wst5jk']){
+    const fallback=result.find(entry=>entry.id===id&&entry.resourceTopicFallback);
+    assert.ok(fallback,id);
+    const members=result.filter(entry=>entry.entryKind!=='resource'&&entry.resourceIds.includes(id));
+    const missing=T.entryTopics('resource',fallback.resource).filter(topic=>!members.some(book=>T.matches(T.entryTopics('book',book),{topic})));
+    assert.ok(missing.length,id);
+    for(const topic of missing)assert.ok(B.filter(result,data,{topic}).includes(fallback),id+' '+topic);
+    assert.ok(!B.filter(result,data).includes(fallback));
+  }
+  for(const id of ['resource-nqvpg2','resource-166ekar','resource-ckc2k'])assert.ok(!result.some(entry=>entry.id===id&&entry.resourceTopicFallback),id);
+  assert.equal(JSON.stringify(data.books),before);
+});
+
 test('单册关键词跨公共目录与原表计划检索到具体书名',()=>{
   const BP=require('../english/book-progress.js'),directory=BP.withReadingPlans(data,read('reading-plans'),read('resource-volumes'));
   const result=B.filter(B.entries(directory,catalog.resources,M,read('resource-volumes')),directory,{query:'show'});
@@ -151,7 +198,13 @@ test('主题分类保留内容核对、简介归类及标题兜底的证据层�
         assert.ok(evidence.locator&&evidence.summary,book.title);
       }
       if(status==='title-fallback')assert.ok(evidenceRecords.some(item=>item.kind==='title-fallback'&&item.originalTitle===book.title),book.title);
-      if(status==='description-derived')assert.ok(evidenceRecords.some(item=>item.kind==='content-description'&&/^https:\/\/www\.xiaohuasheng\.cn\/book\//.test(item.url)),book.title);
+      if(status==='description-derived')assert.ok(evidenceRecords.some(item=>{
+        const source=taxonomy.sources.find(source=>source.id===item.sourceId);
+        return item.kind==='content-description'&&(
+          /^https:\/\/www\.xiaohuasheng\.cn\/book\//.test(item.url)||
+          /^https:\/\/www\.xiaohongshu\.com\/explore\/[a-f0-9]+$/.test(item.url)&&source?.url===item.url
+        );
+      }),book.title);
     }
   }
   const books=B.entries(data,catalog.resources,M),pending=books.filter(b=>!(T.entryTopics('book',b).length));

@@ -1,0 +1,579 @@
+{
+  "checkedAt": "2026-11-15",
+  "sources": [
+    {
+      "id": "xhs-heinemann-learning-targets-20261115",
+      "url": "https://www.xiaohongshu.com/explore/6ab3953a0000000014003e5e",
+      "title": "海尼曼 GK70 本｜句型分类打卡墙",
+      "author": "yjl",
+      "locator": "图3",
+      "kind": "reader-learning-target",
+      "summary": "根 agent 实际读到的图3四个明确学习目标分组；不是原书逐字句型。本文件只作导入候选及身份核对，不覆盖现有阅读计划。"
+    }
+  ],
+  "tables": [
+    {
+      "sourceId": "xhs-heinemann-learning-targets-20261115",
+      "resourceId": "resource-9fvmjt",
+      "levels": [
+        "GK70 A"
+      ],
+      "editionContains": "国内 GK70 选本",
+      "status": "classification-verified",
+      "kind": "reader-learning-target",
+      "scopeNote": "图3为读者学习目标分组，仅匹配当前国内 GK70 选本同套同版精确题名；不是逐字原书句型。",
+      "rows": [
+        {
+          "bookId": "heinemann-gk70-01",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 A",
+          "edition": "国内 GK70 选本",
+          "title": "At the market",
+          "sourceTitle": "At the Market",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“At the Market”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "I can see the …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：I can see the …。"
+        },
+        {
+          "bookId": "heinemann-gk70-06",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 A",
+          "edition": "国内 GK70 选本",
+          "title": "At the zoo",
+          "sourceTitle": "At the Zoo",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“At the Zoo”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "We can see a …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：We can see a …。"
+        },
+        {
+          "bookId": "heinemann-gk70-07",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 A",
+          "edition": "国内 GK70 选本",
+          "title": "On the way to school",
+          "sourceTitle": "On the Way to School",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“On the Way to School”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "I see the …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：I see the …。"
+        },
+        {
+          "bookId": "heinemann-gk70-08",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 A",
+          "edition": "国内 GK70 选本",
+          "title": "The park",
+          "sourceTitle": "The Park",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“The Park”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "I can see the …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：I can see the …。"
+        },
+        {
+          "bookId": "heinemann-gk70-28",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 A",
+          "edition": "国内 GK70 选本",
+          "title": "The show",
+          "sourceTitle": "The Show",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“The Show”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "Come and see …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：Come and see …。"
+        },
+        {
+          "bookId": "heinemann-gk70-29",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 A",
+          "edition": "国内 GK70 选本",
+          "title": "The puppet show",
+          "sourceTitle": "The Puppet Show",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“The Puppet Show”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "I can see the …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：I can see the …。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-heinemann-learning-targets-20261115",
+      "resourceId": "resource-9fvmjt",
+      "levels": [
+        "GK70 B"
+      ],
+      "editionContains": "国内 GK70 选本",
+      "status": "classification-verified",
+      "kind": "reader-learning-target",
+      "scopeNote": "图3为读者学习目标分组，仅匹配当前国内 GK70 选本同套同版精确题名；不是逐字原书句型。",
+      "rows": [
+        {
+          "bookId": "heinemann-gk70-44",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 B",
+          "edition": "国内 GK70 选本",
+          "title": "The baby animals",
+          "sourceTitle": "The Baby Animals",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“The Baby Animals”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "Come and see …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：Come and see …。"
+        },
+        {
+          "bookId": "heinemann-gk70-45",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 B",
+          "edition": "国内 GK70 选本",
+          "title": "Over the river",
+          "sourceTitle": "Over the River",
+          "sourceGroup": "I can see …",
+          "patterns": [
+            "I can see …"
+          ],
+          "locator": "图3，第1组“I can see …”，条目“Over the River”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "We can see a …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：We can see a …。"
+        },
+        {
+          "bookId": "heinemann-gk70-54",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 B",
+          "edition": "国内 GK70 选本",
+          "title": "Hop hop hop",
+          "sourceTitle": "Hop, Hop, Hop",
+          "sourceGroup": "It can …",
+          "patterns": [
+            "It can …"
+          ],
+          "locator": "图3，第2组“It can …”，条目“Hop, Hop, Hop”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "I can hop …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：I can hop …。"
+        },
+        {
+          "bookId": "heinemann-gk70-55",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 B",
+          "edition": "国内 GK70 选本",
+          "title": "Rain",
+          "sourceTitle": "Rain",
+          "sourceGroup": "It is …",
+          "patterns": [
+            "It is …"
+          ],
+          "locator": "图3，第4组“It is …”，条目“Rain”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "Look at the …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：Look at the …。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-heinemann-learning-targets-20261115",
+      "resourceId": "resource-9fvmjt",
+      "levels": [
+        "GK70 C"
+      ],
+      "editionContains": "国内 GK70 选本",
+      "status": "classification-verified",
+      "kind": "reader-learning-target",
+      "scopeNote": "图3为读者学习目标分组，仅匹配当前国内 GK70 选本同套同版精确题名；不是逐字原书句型。",
+      "rows": [
+        {
+          "bookId": "heinemann-gk70-65",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 C",
+          "edition": "国内 GK70 选本",
+          "title": "Flap flap fly",
+          "sourceTitle": "Flap, Flap, Fly",
+          "sourceGroup": "It can …",
+          "patterns": [
+            "It can …"
+          ],
+          "locator": "图3，第2组“It can …”，条目“Flap, Flap, Fly”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "… can …"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：… can …。"
+        },
+        {
+          "bookId": "heinemann-gk70-70",
+          "resourceId": "resource-9fvmjt",
+          "level": "GK70 C",
+          "edition": "国内 GK70 选本",
+          "title": "Animals that go fast",
+          "sourceTitle": "Animals That Go Fast",
+          "sourceGroup": "It can …",
+          "patterns": [
+            "It can …"
+          ],
+          "locator": "图3，第2组“It can …”，条目“Animals That Go Fast”",
+          "kind": "reader-learning-target",
+          "existingPatterns": [
+            "This animal is a …",
+            "… can … fast"
+          ],
+          "note": "第三方读者学习目标分组，不是逐字原书句型；保留现有 reading-plan 原表句型，不据目标组改写原文。 现有原表：This animal is a …；… can … fast。"
+        }
+      ]
+    }
+  ],
+  "matched": [
+    {
+      "bookId": "heinemann-gk70-01",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 A",
+      "edition": "国内 GK70 选本",
+      "title": "At the market",
+      "sourceTitle": "At the Market",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "I can see the …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-06",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 A",
+      "edition": "国内 GK70 选本",
+      "title": "At the zoo",
+      "sourceTitle": "At the Zoo",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "We can see a …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-07",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 A",
+      "edition": "国内 GK70 选本",
+      "title": "On the way to school",
+      "sourceTitle": "On the Way to School",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "I see the …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-08",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 A",
+      "edition": "国内 GK70 选本",
+      "title": "The park",
+      "sourceTitle": "The Park",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "I can see the …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-28",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 A",
+      "edition": "国内 GK70 选本",
+      "title": "The show",
+      "sourceTitle": "The Show",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "Come and see …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-29",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 A",
+      "edition": "国内 GK70 选本",
+      "title": "The puppet show",
+      "sourceTitle": "The Puppet Show",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "I can see the …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-44",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 B",
+      "edition": "国内 GK70 选本",
+      "title": "The baby animals",
+      "sourceTitle": "The Baby Animals",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "Come and see …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-45",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 B",
+      "edition": "国内 GK70 选本",
+      "title": "Over the river",
+      "sourceTitle": "Over the River",
+      "sourceGroup": "I can see …",
+      "existingPatterns": [
+        "We can see a …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-54",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 B",
+      "edition": "国内 GK70 选本",
+      "title": "Hop hop hop",
+      "sourceTitle": "Hop, Hop, Hop",
+      "sourceGroup": "It can …",
+      "existingPatterns": [
+        "I can hop …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-65",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 C",
+      "edition": "国内 GK70 选本",
+      "title": "Flap flap fly",
+      "sourceTitle": "Flap, Flap, Fly",
+      "sourceGroup": "It can …",
+      "existingPatterns": [
+        "… can …"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-70",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 C",
+      "edition": "国内 GK70 选本",
+      "title": "Animals that go fast",
+      "sourceTitle": "Animals That Go Fast",
+      "sourceGroup": "It can …",
+      "existingPatterns": [
+        "This animal is a …",
+        "… can … fast"
+      ]
+    },
+    {
+      "bookId": "heinemann-gk70-55",
+      "resourceId": "resource-9fvmjt",
+      "level": "GK70 B",
+      "edition": "国内 GK70 选本",
+      "title": "Rain",
+      "sourceTitle": "Rain",
+      "sourceGroup": "It is …",
+      "existingPatterns": [
+        "Look at the …"
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "sourceTitle": "The Farm",
+      "sourceGroup": "I can see …",
+      "locator": "图3，第1组“I can see …”，条目“The Farm”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": [],
+      "nearbyCandidates": [
+        {
+          "bookId": "heinemann-gk70-50",
+          "title": "At the farm",
+          "reason": "原图题名无 At，现有目录有 At，不删除词强行匹配。"
+        }
+      ]
+    },
+    {
+      "sourceTitle": "Jump, Kangaroo!",
+      "sourceGroup": "It can …",
+      "locator": "图3，第2组“It can …”，条目“Jump, Kangaroo!”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Run, Rabbit!",
+      "sourceGroup": "It can …",
+      "locator": "图3，第2组“It can …”，条目“Run, Rabbit!”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Swim, Duck!",
+      "sourceGroup": "It can …",
+      "locator": "图3，第2组“It can …”，条目“Swim, Duck!”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Fly, Butterfly!",
+      "sourceGroup": "It can …",
+      "locator": "图3，第2组“It can …”，条目“Fly, Butterfly!”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Run, Deer!",
+      "sourceGroup": "It can …",
+      "locator": "图3，第2组“It can …”，条目“Run, Deer!”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Animals That Swim",
+      "sourceGroup": "It can …",
+      "locator": "图3，第2组“It can …”，条目“Animals That Swim”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Look at the Cat",
+      "sourceGroup": "Look at …",
+      "locator": "图3，第3组“Look at …”，条目“Look at the Cat”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Look at the Dog",
+      "sourceGroup": "Look at …",
+      "locator": "图3，第3组“Look at …”，条目“Look at the Dog”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Look at the Pig",
+      "sourceGroup": "Look at …",
+      "locator": "图3，第3组“Look at …”，条目“Look at the Pig”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Look at the Duck",
+      "sourceGroup": "Look at …",
+      "locator": "图3，第3组“Look at …”，条目“Look at the Duck”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Look at the Bear",
+      "sourceGroup": "Look at …",
+      "locator": "图3，第3组“Look at …”，条目“Look at the Bear”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Look at the Deer",
+      "sourceGroup": "Look at …",
+      "locator": "图3，第3组“Look at …”，条目“Look at the Deer”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "The Sun",
+      "sourceGroup": "It is …",
+      "locator": "图3，第4组“It is …”，条目“The Sun”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Snow",
+      "sourceGroup": "It is …",
+      "locator": "图3，第4组“It is …”，条目“Snow”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    },
+    {
+      "sourceTitle": "Wind",
+      "sourceGroup": "It is …",
+      "locator": "图3，第4组“It is …”，条目“Wind”",
+      "reason": "当前海尼曼 GK70 同套同版目录没有唯一精确题名；不按相似题名、编号或其他版本绑定。",
+      "candidateIds": []
+    }
+  ],
+  "notAdoptedGroups": [
+    {
+      "group": "Here is / Here are",
+      "reason": "源图混合多个句型，不能将组中全部句型按册扩散；本次不按该组补逐册句型。"
+    },
+    {
+      "group": "is / are doing",
+      "reason": "源图混合多个句型，不能将组中全部句型按册扩散；本次不按该组补逐册句型。"
+    },
+    {
+      "group": "has / have",
+      "reason": "源图混合多个句型，不能将组中全部句型按册扩散；本次不按该组补逐册句型。"
+    },
+    {
+      "group": "I like / I like to",
+      "reason": "源图混合多个句型，不能将组中全部句型按册扩散；本次不按该组补逐册句型。"
+    },
+    {
+      "group": "综合复习11册",
+      "reason": "没有独立逐册句型依据，不赋句型。"
+    }
+  ],
+  "counts": {
+    "sourceRows": 28,
+    "matchedBooks": 12,
+    "unmatchedRows": 16,
+    "tableCount": 3,
+    "remainingGk70BooksNotClassifiedByThisImage": 58
+  },
+  "importerCompatibility": {
+    "currentStatus": "requires-projected-plan-candidates",
+    "reason": "GK70 70册在 reading-plans.json 的 heinemann-gk70 计划，经 EnglishBookProgress.withReadingPlans() 投影进同一公共目录；当前 scripts/import-material-topics.py tables 候选只扫描 directory.books，无法匹配这些稳定 bookId。",
+    "requiredAction": "候选复用 withReadingPlans() 同等投影后的目录，不能把阅读计划抄入 resource-books.json.books。导入应保留 kind=reader-learning-target，不把来源改成原书句型或覆盖 reading-plans 原句型。",
+    "identitySnapshot": "/tmp/followup-topic-normalized.json"
+  },
+  "validation": {
+    "identityRule": "仅大小写和标点规范化，保留所有题名词；限定同 resourceId、edition 与完整 level。",
+    "publicFilesChanged": false
+  }
+}

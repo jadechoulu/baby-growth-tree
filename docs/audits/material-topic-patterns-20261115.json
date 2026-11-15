@@ -1,0 +1,2234 @@
+{
+  "checkedAt": "2026-11-15",
+  "matched": [
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Baby Animals",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-007",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "The Forest",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-004",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My Body",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-074",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My Face",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-086",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Opposites",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-094",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Our Apartment Building",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-047",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "These Shoes",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-062",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Vegetables",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-013",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My House",
+      "locator": "图2",
+      "bookId": "book-guide-raz-a-069",
+      "patterns": [
+        "This is / These are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "All Kinds of Faces",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-087",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "All Kinds of Buttons",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-044",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Bird Colors",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-022",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Clean, Not Clean",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-067",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My Easter Eggs",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-031",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Nice, Not Nice",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-078",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Rabbits",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-019",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Safe, Not Safe",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-079",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Insect",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-026",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Snake Colors",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-020",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Scary, Not Scary",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-099",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Lizard",
+      "locator": "图3",
+      "bookId": "book-guide-raz-a-098",
+      "patterns": [
+        "This … is …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "A Fish Sees",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-055",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "I See My Colors",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-021",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "The Mall",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-043",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "The Rainstorm",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-018",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Shapes in Nature",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-016",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Pond Animals",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-001",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "The Parade",
+      "locator": "图4",
+      "bookId": "book-guide-raz-a-065",
+      "patterns": [
+        "I / We see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Fruit Colors",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-014",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Hot and Cold",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-095",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "I Can",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-060",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "I Can Skate",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-081",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My Dog",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-002",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "We Can Make Sounds",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-089",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "You Can Dance",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-080",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Going Places",
+      "locator": "图5",
+      "bookId": "book-guide-raz-a-029",
+      "patterns": [
+        "… can …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Halloween Houses",
+      "locator": "图6",
+      "bookId": "book-guide-raz-a-033",
+      "patterns": [
+        "… have / has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Hamster Home",
+      "locator": "图6",
+      "bookId": "book-guide-raz-a-009",
+      "patterns": [
+        "… have / has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Who Has It?",
+      "locator": "图6",
+      "bookId": "book-guide-raz-a-092",
+      "patterns": [
+        "… have / has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Carlos Counts Kittens",
+      "locator": "图6",
+      "bookId": "book-guide-raz-a-024",
+      "patterns": [
+        "… have / has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Car Parts",
+      "locator": "图6",
+      "bookId": "book-guide-raz-a-037",
+      "patterns": [
+        "… have / has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Maria Counts Pumpkins",
+      "locator": "图6",
+      "bookId": "book-guide-raz-a-025",
+      "patterns": [
+        "… have / has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "I Love Flowers",
+      "locator": "图7，混合组中题名可明确对应的项",
+      "bookId": "book-guide-raz-a-008",
+      "patterns": [
+        "I love …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "I Love Pirates",
+      "locator": "图7，混合组中题名可明确对应的项",
+      "bookId": "book-guide-raz-a-064",
+      "patterns": [
+        "I love …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Make Me Laugh",
+      "locator": "图7，混合组中题名可明确对应的项",
+      "bookId": "book-guide-raz-a-071",
+      "patterns": [
+        "Make me …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My Room",
+      "locator": "图7，混合组中题名可明确对应的项",
+      "bookId": "book-guide-raz-a-054",
+      "patterns": [
+        "My…"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "My Hair",
+      "locator": "图7，混合组中题名可明确对应的项",
+      "bookId": "book-guide-raz-a-076",
+      "patterns": [
+        "My…"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Feels",
+      "locator": "图9",
+      "bookId": "book-guide-raz-a-035",
+      "patterns": [
+        "This feels …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Looks",
+      "locator": "图9",
+      "bookId": "book-guide-raz-a-052",
+      "patterns": [
+        "This looks …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Smells",
+      "locator": "图9",
+      "bookId": "book-guide-raz-a-093",
+      "patterns": [
+        "This smells …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Sounds",
+      "locator": "图9",
+      "bookId": "book-guide-raz-a-050",
+      "patterns": [
+        "This sounds …"
+      ]
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Tastes",
+      "locator": "图9",
+      "bookId": "book-guide-raz-a-041",
+      "patterns": [
+        "This tastes …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Cars",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-02ed10ae41d131e7",
+      "patterns": [
+        "A … (colour) car"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Dinosaur Rock",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-5eba309b6b098b46",
+      "patterns": [
+        "They play … (musical instrument)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Getting Dressed",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-e98b89cdf006c375",
+      "patterns": [
+        "My…"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "How Many Animals",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-9086a608330bf535",
+      "patterns": [
+        "… (number) … (animals)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Boat",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-bb8ceb333b974c99",
+      "patterns": [
+        "… (number) … (animals) in the boat"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Garden",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-996ab94efaec8e68",
+      "patterns": [
+        "In the …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Jump and Fly",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-5ced130cf359a48e",
+      "patterns": [
+        "The bird … (verb)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Minibeasts",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-f93e4b5585f8143e",
+      "patterns": [
+        "A … (insect)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "My Family Tree",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-148a34af391e87fc",
+      "patterns": [
+        "This is my …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "My Skateboard",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-dd9f5a91f98afb46",
+      "patterns": [
+        "My…"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Oops Owl",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-e3b0dfa1395f1c51",
+      "patterns": [
+        "… (adjective) owls"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Pushing and Pulling",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-b5b0eb9605609e54",
+      "patterns": [
+        "I am pushing / pulling"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Shapes",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-f35fd7d359b145c8",
+      "patterns": [
+        "A … (shape)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Teeth",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-e6b9308b06dc3202",
+      "patterns": [
+        "… (adjective / verb) teeth … (verb)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Farmer's Lunch",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-a369dbfea934d0f7",
+      "patterns": [
+        "Where is my …?"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Guinea Pigs",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-23e6e2a47af6c1aa",
+      "patterns": [
+        "In the …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Picnic",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-ea98f823f5fc3955",
+      "patterns": [
+        "The…"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Very Wet Dog",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-b00faa3d77a2e9bf",
+      "patterns": [
+        "In the …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Walking and Walking",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-1cd6d68be00bb884",
+      "patterns": [
+        "We like walking in …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Wash, Wash, Wash",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-b0c4135724e71db4",
+      "patterns": [
+        "I wash when I …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Yum",
+      "locator": "图1，Pink 1A",
+      "bookId": "book-2bea2c947618adde",
+      "patterns": [
+        "… (insect), yum yum"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Cats",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-2545cc14e442449e",
+      "patterns": [
+        "A cat has …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Colour Bears",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-4abf9ef71e8fde6a",
+      "patterns": [
+        "… (colour) and … (colour) make … (colour)"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Come to the Circus",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-a12d35aa680e0111",
+      "patterns": [
+        "Come and see the…"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Fly Away Home",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-26581f808039e4a8",
+      "patterns": [
+        "Ladybird is on the …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "I Can Do It",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-9033e7b98b17aecf",
+      "patterns": [
+        "I am doing …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "I Can Help",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-37ec9a6d9fd646bf",
+      "patterns": [
+        "I can help in the …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Desert",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-6a2d7fc7208504de",
+      "patterns": [
+        "There are … in the desert"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Forest",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-42c35bff705e4722",
+      "patterns": [
+        "… (verb) in the forest"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Jungle",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-5a95a4618963b72a",
+      "patterns": [
+        "… (verb) in the jungle"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Sea",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-ff1291e0c4400c00",
+      "patterns": [
+        "… (verb) in the sea"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Monster Mess",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-c404828626dce184",
+      "patterns": [
+        "We painted …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Playing",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-4c69d1c933891490",
+      "patterns": [
+        "We like playing in …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Seasons Scrapbook",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-baed202890e9607f",
+      "patterns": [
+        "We will find … in the park"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Splash",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-49b0ad1b4c848bfd",
+      "patterns": [
+        "I can see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Big Splash",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-0060dd08ba449561",
+      "patterns": [
+        "She is getting her …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Boy Who Cried Wolf",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-03a27a2c57e76215",
+      "patterns": [
+        "I can see …",
+        "We cannot see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Pond",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-c98d3057b97ec688",
+      "patterns": [
+        "We can see …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Robot",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-b90f8ef5532b4084",
+      "patterns": [
+        "Here is…"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The See-Saw",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-7050d391b5ec6563",
+      "patterns": [
+        "The … went up"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "The Three Little Rabbits",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-3f06b7a063df3016",
+      "patterns": [
+        "I can / cannot blow your house down"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "We Like Fruit",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-da86fe31c2e02e95",
+      "patterns": [
+        "I like eating …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bigcat-pink-patterns-20261114",
+      "resourceId": "resource-g7xvo5",
+      "title": "Wheels",
+      "locator": "图1，Pink 1B",
+      "bookId": "book-1f4c28ac77ef836c",
+      "patterns": [
+        "Some wheels are …"
+      ]
+    },
+    {
+      "sourceId": "xhs-qplay-request-20261114",
+      "resourceId": "resource-123ikqd",
+      "title": "Can I Have It",
+      "locator": "正文：动物园情境中的礼貌请求",
+      "bookId": "book-74342d8238be6c9c",
+      "patterns": [
+        "Can I …?",
+        "Can I have it?"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Here is a Bird",
+      "locator": "图2，Here Is a Bird行",
+      "bookId": "book-018b3344a3283ba9",
+      "patterns": [
+        "Here is a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am a bee",
+      "locator": "图2，I Am a Bee行",
+      "bookId": "book-441564395ac2df6f",
+      "patterns": [
+        "I am a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am a painter",
+      "locator": "图2，I Am a Painter行",
+      "bookId": "book-eb0ec2c4eb6006c8",
+      "patterns": [
+        "I am a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am jumping",
+      "locator": "图2，I Am Jumping行",
+      "bookId": "book-fe8fbfabc7484b64",
+      "patterns": [
+        "I am"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am working",
+      "locator": "图2，I Am Working行",
+      "bookId": "book-1688fb7a30e67068",
+      "patterns": [
+        "I am"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can laugh",
+      "locator": "图2，I Can Laugh行",
+      "bookId": "book-86c3980ee616244e",
+      "patterns": [
+        "I can"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can swim",
+      "locator": "图2，I Can Swim行",
+      "bookId": "book-6c6f080a8d255bd3",
+      "patterns": [
+        "I can"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can",
+      "locator": "图2，I Can行",
+      "bookId": "book-c040ac0b98897149",
+      "patterns": [
+        "I can"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like elephants",
+      "locator": "图2，I Like Elephants行",
+      "bookId": "book-64fe568e3e820da7",
+      "patterns": [
+        "I like"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like hats",
+      "locator": "图2，I Like Hats行",
+      "bookId": "book-c1f7c71995bf888f",
+      "patterns": [
+        "I like"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like riding",
+      "locator": "图2，I Like Riding行",
+      "bookId": "book-29d35e890d99b212",
+      "patterns": [
+        "I like"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like birds",
+      "locator": "图2，I Like Birds行",
+      "bookId": "book-41654efcf4af7af7",
+      "patterns": [
+        "I like"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Monkeys",
+      "locator": "图2，Monkeys行",
+      "bookId": "book-9737ae1a0f275fb4",
+      "patterns": [
+        "I am"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Sailors",
+      "locator": "图2，Sailors行",
+      "bookId": "book-7ec492cade351d3f",
+      "patterns": [
+        "I am"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The animals",
+      "locator": "图2，The Animals行",
+      "bookId": "book-336b2f2a8433708a",
+      "patterns": [
+        "I can"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The family",
+      "locator": "图2，The Family行",
+      "bookId": "book-e9df5dbbf59cdb57",
+      "patterns": [
+        "I am a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The goats",
+      "locator": "图2，The Goats行",
+      "bookId": "book-fa631a0a5e2fa5cf",
+      "patterns": [
+        "I am a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The party",
+      "locator": "图2，The Party行",
+      "bookId": "book-875b228eb120188f",
+      "patterns": [
+        "Here is the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The show",
+      "locator": "图2，The Show行",
+      "bookId": "book-1c71a66663dd69bb",
+      "patterns": [
+        "Here is a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The water park",
+      "locator": "图2，The Water Park行",
+      "bookId": "book-2d3122aa1416c34b",
+      "patterns": [
+        "Here is the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A boat",
+      "locator": "图3，A Boat行",
+      "bookId": "book-8856517def4aa560",
+      "patterns": [
+        "I can see a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A house",
+      "locator": "图3，A House行",
+      "bookId": "book-87c20a381ec76c42",
+      "patterns": [
+        "I can see a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A shoe",
+      "locator": "图3，A Shoe行",
+      "bookId": "book-f72ffb59d80bc1ca",
+      "patterns": [
+        "This is a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Dinner",
+      "locator": "图3，Dinner行",
+      "bookId": "book-3032f57215270557",
+      "patterns": [
+        "This is for a..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Hats",
+      "locator": "图3，Hats行",
+      "bookId": "book-d05dfba5cbe9cf0f",
+      "patterns": [
+        "I like...and..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like boxes",
+      "locator": "图3，I Like Boxes行",
+      "bookId": "book-7275b0c0a4172a44",
+      "patterns": [
+        "I like...and..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like jam",
+      "locator": "图3，I Like Jam行",
+      "bookId": "book-f1e5ca60a0eefeb1",
+      "patterns": [
+        "I like...and..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "In the garden",
+      "locator": "图3，In the Garden行",
+      "bookId": "book-85b8cd36129b98bf",
+      "patterns": [
+        "This is a"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "In the mud",
+      "locator": "图3，In the Mud行",
+      "bookId": "book-91bd010128130089",
+      "patterns": [
+        "I went in the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Look at the animals",
+      "locator": "图3，Look at the Animals行",
+      "bookId": "book-96fd24663465780a",
+      "patterns": [
+        "Look at the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Look at the robot",
+      "locator": "图3，Look at the Robot行",
+      "bookId": "book-7696b24fbc1ed7e8",
+      "patterns": [
+        "Look at the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My hat",
+      "locator": "图3，My Hat行",
+      "bookId": "book-03f701263b3a1628",
+      "patterns": [
+        "I put on my"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My trip",
+      "locator": "图3，My Trip行",
+      "bookId": "book-b4f3d4b6ae83fc28",
+      "patterns": [
+        "I went to the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Our day",
+      "locator": "图3，Our Day行",
+      "bookId": "book-a59336b8e4714d42",
+      "patterns": [
+        "We went to the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Rainbow town",
+      "locator": "图3，Rainbow Town行",
+      "bookId": "book-d319b92455229d3e",
+      "patterns": [
+        "I like...and..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Shopping",
+      "locator": "图3，Shopping行",
+      "bookId": "book-51b2b50575007b2f",
+      "patterns": [
+        "Look at the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The balloon ride",
+      "locator": "图3，The Balloon Ride行",
+      "bookId": "book-4f965199dbff2a9c",
+      "patterns": [
+        "I can see the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bears",
+      "locator": "图3，The Bears行",
+      "bookId": "book-9ad6ea2a7850c216",
+      "patterns": [
+        "We went in the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bird",
+      "locator": "图3，The Bird行",
+      "bookId": "book-624fd40162342a9a",
+      "patterns": [
+        "I went to the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The holiday",
+      "locator": "图3，The Holiday行",
+      "bookId": "book-6626b5a6b33689d2",
+      "patterns": [
+        "We went to the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The mice",
+      "locator": "图3，The Mice行",
+      "bookId": "book-9689d607435638ab",
+      "patterns": [
+        "We went in the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The monster town",
+      "locator": "图3，The Monster Town行",
+      "bookId": "book-120467d83dfe4093",
+      "patterns": [
+        "This is the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The moon",
+      "locator": "图3，The Moon行",
+      "bookId": "book-cd2932456bc86e57",
+      "patterns": [
+        "I can see the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The pets",
+      "locator": "图3，The Pets行",
+      "bookId": "book-33f385f073835fa9",
+      "patterns": [
+        "Look at the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The presents",
+      "locator": "图3，The Presents行",
+      "bookId": "book-850fd4e6e70f1beb",
+      "patterns": [
+        "This is for a..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The rally car",
+      "locator": "图3，The Rally Car行",
+      "bookId": "book-ba22b1a02e38476d",
+      "patterns": [
+        "We put on the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The snake",
+      "locator": "图3，The Snake行",
+      "bookId": "book-4567446b5697222e",
+      "patterns": [
+        "I went in the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The snowman",
+      "locator": "图3，The Snowman行",
+      "bookId": "book-3e985931b9b37fd6",
+      "patterns": [
+        "We put on the"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The spy",
+      "locator": "图3，The Spy行",
+      "bookId": "book-456af7f9945ec472",
+      "patterns": [
+        "I put on my"
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Wheels",
+      "locator": "图3，Wheels行",
+      "bookId": "book-291cc3ccc6043a14",
+      "patterns": [
+        "This is for the..."
+      ]
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The new house",
+      "locator": "图3，The New House行",
+      "bookId": "book-e900847f5f77b694",
+      "patterns": [
+        "This is for the..."
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Come Over",
+      "locator": "图3，Come Over（B）内页示例",
+      "sourceLevel": "B",
+      "bookId": "book-09ce07634e7a7aa6",
+      "patterns": [
+        "Come over and see my …"
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-1cn6i3m",
+      "title": "Two Little Penguins",
+      "locator": "图3，Two Little Penguins（D）内页示例",
+      "sourceLevel": "D",
+      "bookId": "book-904ebbebbbc11163",
+      "patterns": [
+        "Look! Two little penguins …"
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-zl69cf",
+      "title": "Those Silly Cubs",
+      "locator": "图5，Those Silly Cubs（A）内页示例",
+      "sourceLevel": "A",
+      "bookId": "book-3b6aca24b93cf45d",
+      "patterns": [
+        "Those silly cubs … and …"
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-zl69cf",
+      "title": "That Cupcake Can Zoom",
+      "locator": "图5，That Cupcake Can Zoom!（B）内页示例",
+      "sourceLevel": "B",
+      "bookId": "book-c58f5cd79f1d2e18",
+      "patterns": [
+        "That cupcake can zoom!",
+        "It goes higher than …"
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-zl69cf",
+      "title": "Too Bossy",
+      "locator": "图5，Too Bossy（C）内页示例",
+      "sourceLevel": "C",
+      "bookId": "book-9d21029c2e5f4a7e",
+      "patterns": [
+        "The … had a play date with …"
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-zl69cf",
+      "title": "Buddy Readers level E&F: Meet apple and orange",
+      "locator": "图5，Meet Apple and Orange（E）内页示例",
+      "sourceLevel": "E",
+      "bookId": "book-8e2ecd8de466755c",
+      "patterns": [
+        "We are not alike."
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-nqvpg2",
+      "title": "Guided Science Readers: A: Fall Leaves",
+      "locator": "图9，Fall Leaves（A）封面与内页示例",
+      "sourceLevel": "A",
+      "bookId": "book-c4ebd3a8ce4e6274",
+      "patterns": [
+        "Look at the … leaves."
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-nqvpg2",
+      "title": "Ants Work Together",
+      "locator": "图9，Ants Work Together（D）封面与内页示例",
+      "sourceLevel": "D",
+      "bookId": "book-1e07646f9d6d0de3",
+      "patterns": [
+        "Ants work together to …",
+        "They use teamwork!"
+      ]
+    },
+    {
+      "sourceId": "xhs-scholastic-levels-20261115",
+      "resourceId": "resource-nqvpg2",
+      "title": "Animal  Helpers - Guided Science Readers F",
+      "locator": "图9，Animal Helpers（F）封面与内页示例",
+      "sourceLevel": "F",
+      "bookId": "book-afc7fd1fabee5351",
+      "patterns": [
+        "People help animals.",
+        "Animals help people, too."
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "The Penguin Family",
+      "locator": "图1，The Penguin Family",
+      "bookId": "book-76656f0104893fa2",
+      "patterns": [
+        "Let me help …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Bada in the Morning",
+      "locator": "图2，Bada in the Morning",
+      "bookId": "book-2eaacc970d42ea5c",
+      "patterns": [
+        "Let’s …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Bada at Night",
+      "locator": "图3，Bada at Night",
+      "bookId": "book-453e45129f208c25",
+      "patterns": [
+        "Time to …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Mimi's Robot",
+      "locator": "图4，Mimi's Robot",
+      "bookId": "book-4edc41a42c11358b",
+      "patterns": [
+        "Look! The robot’s …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Let's Play Hide and Seek",
+      "locator": "图5，Let's Play Hide and Seek",
+      "bookId": "book-781e014f3de9973a",
+      "patterns": [
+        "Let’s look …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Bada Food Patrol",
+      "locator": "图6，Bada Food Patrol",
+      "bookId": "book-69d4d9922936b7a6",
+      "patterns": [
+        "Try a/an …!"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Bada's Birthday Surprise",
+      "locator": "图7，Bada's Birthday Surprise",
+      "bookId": "book-bc830a7d968f77dc",
+      "patterns": [
+        "I am …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Kitchen Helpers",
+      "locator": "图8，Kitchen Helpers",
+      "bookId": "book-e728fa5ee1d47f99",
+      "patterns": [
+        "Get the …, please."
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Clean Up Time",
+      "locator": "图9，Clean Up Time",
+      "bookId": "book-ebf18e18364d64d0",
+      "patterns": []
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "A Clean World",
+      "locator": "图10，A Clean World",
+      "bookId": "book-025b202a5aacbc68",
+      "patterns": [
+        "… is stuck in …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "First Aid Friends",
+      "locator": "图11，First Aid Friends",
+      "bookId": "book-06abeefb7ef8b0b0",
+      "patterns": [
+        "I’ll put … on …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Three Sick Kittens",
+      "locator": "图12，Three Sick Kittens",
+      "bookId": "book-c1906103600b05c1",
+      "patterns": [
+        "Use the …, please."
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Slam Dunk Time",
+      "locator": "图13，Slam Dunk Time",
+      "bookId": "book-2367906b0c31da32",
+      "patterns": [
+        "I can …, too."
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "The Rainbow Weather Team",
+      "locator": "图14，The Rainbow Weather Team",
+      "bookId": "book-d13c552efb6f1a2a",
+      "patterns": [
+        "I’m wearing …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Bada and Curly Grow Corn",
+      "locator": "图15，Bada and Curly Grow Corn",
+      "bookId": "book-bc00f29e5d789eb2",
+      "patterns": [
+        "Plants need …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "The Camp Badanamu Games",
+      "locator": "图16，The Camp Badanamu Games",
+      "bookId": "book-2c3a29665367b3ad",
+      "patterns": [
+        "I can’t …",
+        "Let me …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Hoot Hootie Hoo",
+      "locator": "图17，Hoot Hootie Hoo",
+      "bookId": "book-a35ca1a1402171da",
+      "patterns": [
+        "Wake up, …!",
+        "I hear a …!"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Flopsy and Mopsy",
+      "locator": "图18，Flopsy and Mopsy",
+      "bookId": "book-bc788e9fd7219cff",
+      "patterns": [
+        "Would you like to …?",
+        "What is that sound?"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-last-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Agent M",
+      "locator": "图1，Agent M",
+      "bookId": "book-1beda227410f6110",
+      "patterns": [
+        "Can someone help us?",
+        "Let me help you!"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-last-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Go,Abby,Go!",
+      "locator": "图2，Go,Abby,Go!",
+      "bookId": "book-f3172b3476cca856",
+      "patterns": [
+        "Who can help me?",
+        "Here comes a …!"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-last-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "The Great,Big Hat Mix-up",
+      "locator": "图3，The Great,Big Hat Mix-up",
+      "bookId": "book-267756fcb6528f27",
+      "patterns": [
+        "This is …’s hat!",
+        "Let’s go see … at …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-last-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Where's the Concert?",
+      "locator": "图4，Where's the Concert?",
+      "bookId": "book-d57512efa04b7600",
+      "patterns": [
+        "Go straight.",
+        "Turn right."
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-last-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "This Way,Ducklings",
+      "locator": "图5，This Way,Ducklings",
+      "bookId": "book-0157b582ac496804",
+      "patterns": [
+        "Watch out for …",
+        "Now it’s safe to …"
+      ]
+    },
+    {
+      "sourceId": "xhs-bada-talk-transcript-last-20261115",
+      "resourceId": "resource-ckc2k",
+      "title": "Movie Magic",
+      "locator": "图6，Movie Magic",
+      "bookId": "book-ceb99d6378b79e65",
+      "patterns": [
+        "Let’s …",
+        "Put up …!"
+      ]
+    },
+    {
+      "sourceId": "xhs-pearson-dad-park-20261115",
+      "resourceId": "resource-141vfh7",
+      "title": "Dad at the Park",
+      "locator": "正文爸爸和孩子在公园玩耍，爸爸太大玩不了滑梯及核心句型",
+      "bookId": "book-a569f0f51d60cd71",
+      "patterns": [
+        "You are too big!"
+      ]
+    },
+    {
+      "sourceId": "xhs-pearson400-reader-quotation-20261115",
+      "resourceId": "resource-166ekar",
+      "title": "培生儿童英语情境口语400句下《ben's bike》",
+      "locator": "正文 Ben's Bike 段：Please take me for a ride. / You are too slow. / Stop! I will get off.",
+      "sourceLevel": "下",
+      "bookId": "book-ed9b6f2d382fef5f",
+      "patterns": [
+        "Please take me for a ride.",
+        "You are too slow.",
+        "Stop! I will get off."
+      ]
+    },
+    {
+      "sourceId": "xhs-pearson400-reader-quotation-20261115",
+      "resourceId": "resource-166ekar",
+      "title": "培生儿童英语情境口语400句上：Zack's Spots",
+      "locator": "正文 Zack's Spots 段：I like my towel. / Your pants are too big. / You can't take that. / I can do that.",
+      "sourceLevel": "上",
+      "bookId": "book-ebe68bc460780036",
+      "patterns": [
+        "I like my towel.",
+        "Your pants are too big.",
+        "You can't take that.",
+        "I can do that."
+      ]
+    },
+    {
+      "sourceId": "xhs-6ac92f00000000001203fc23-20261115",
+      "resourceId": "resource-1mu8hkl",
+      "title": "Judy Moody #01: Judy Moody Was in a Mood",
+      "locator": "正文主角与第一册开学第一天心情差的情节",
+      "bookId": "book-862afdab65720274",
+      "patterns": []
+    },
+    {
+      "sourceId": "xhs-atoz-absent-author-summary-20261115",
+      "resourceId": "resource-1nhjndw",
+      "title": "A to Z Mysteries #01: The Absent Author",
+      "locator": "正文明确系列第一本、三侦探解决作家失踪谜团；首图视频封面同名",
+      "bookId": "book-c3cc765d996b4832",
+      "patterns": []
+    }
+  ],
+  "unmatched": [
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "This Is Halloween",
+      "locator": "图2",
+      "candidateIds": [],
+      "reason": "没有唯一同套同级同题名条目；不按序号或其他版次绑定。"
+    },
+    {
+      "sourceId": "xhs-raz-a-patterns-20261114",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Fruits",
+      "locator": "图2",
+      "candidateIds": [],
+      "reason": "没有唯一同套同级同题名条目；不按序号或其他版次绑定。"
+    }
+  ],
+  "referenceOnly": [
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Hide and Seek",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Look at Me",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Go Away, Floppy",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Reds and Blues",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Big Feet",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Kipper’s Diary",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "The Headache",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "At the Park",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Fancy Dress",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Push",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Good Old Mum",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "The Pet Shop",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "What a Mess",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Making Faces",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "The Journey",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Goal",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Who Did That",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "What Dogs Like",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Presents for Dad",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Top Dog",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Look After Me",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Go on, Mum",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Go Away, Cat",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Sandcastle",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "Floppy’s Bone",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "xhs-ort-1plus-patterns-20261114",
+      "resourceId": "resource-1n3ix1n",
+      "title": "The Box of Treasure",
+      "locator": null,
+      "reason": "待核原表版次。当前公共目录1级合包未显式区分1+，不因同名就借用。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Can you see me",
+      "locator": "图4，Can You See Me行",
+      "bookId": "book-a9c88105c7b5ab10",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Come in the grass",
+      "locator": "图4，Come in the Grass行",
+      "bookId": "book-844ce5402a2f949c",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Come",
+      "locator": "图4，Come行",
+      "bookId": "book-8b11fd8e25a52694",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Cooking",
+      "locator": "图4，Cooking行",
+      "bookId": "book-05095a1a9731890a",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Elephant trick",
+      "locator": "图4，Elephant Trick行",
+      "bookId": "book-12cafd56c5e70667",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Going shopping",
+      "locator": "图4，Going Shopping行",
+      "bookId": "book-4b97ef58794668ff",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can help",
+      "locator": "图4，I Can Help行",
+      "bookId": "book-57510c54e97256ba",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Mice",
+      "locator": "图4，Mice行",
+      "bookId": "book-8ec33d4be2545232",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Silly tricks",
+      "locator": "图4，Silly Tricks行",
+      "bookId": "book-afd2fa35fa099cd9",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The ants",
+      "locator": "图4，The Ants行",
+      "bookId": "book-090d5aa035a73149",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The birthday",
+      "locator": "图4，The Birthday行",
+      "bookId": "book-c2eb159cecf62918",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bumper cars",
+      "locator": "图4，The Bumper Cars行",
+      "bookId": "book-ca6541e9ea434197",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The market",
+      "locator": "图4，The Market行",
+      "bookId": "book-7054723c806e738e",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The rides",
+      "locator": "图4，The Rides行",
+      "bookId": "book-b4cd0243a0707a95",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The spies",
+      "locator": "图4，The Spies行",
+      "bookId": "book-45d6675dc056fc78",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The trucks",
+      "locator": "图4，The Trucks行",
+      "bookId": "book-c9b5044b42646ced",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The turkey",
+      "locator": "图4，The Turkey行",
+      "bookId": "book-38ff64f4d3c17bcc",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The water",
+      "locator": "图4，The Water行",
+      "bookId": "book-a76a9f7e70d7bb2e",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    },
+    {
+      "sourceId": "pearson-xhs-old-themes",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Zoo dinners",
+      "locator": "图4，Zoo Dinners行",
+      "bookId": "book-015245ef2a251744",
+      "reason": "第3辑原分类图存在缺主体、疑似错位与已知书名差异；本轮仅保留原图转录参考，不作为本册具体句型，不进入筛选。"
+    }
+  ],
+  "note": "小红书分类表／正文的逐项采用结果；参考版次、未唯一匹配及疑似语法错误不作原书句型。"
+}

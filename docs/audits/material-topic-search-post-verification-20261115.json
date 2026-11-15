@@ -1,0 +1,944 @@
+{
+  "checkedAt": "2026-11-15",
+  "sources": [
+    {
+      "id": "xhs-penelope-polite-20261115",
+      "title": "Penelope isPolite 懂礼貌💙13 精读",
+      "author": "Doo_小脑袋充电",
+      "url": "https://www.xiaohongshu.com/explore/6aa7a9c00000000011031748",
+      "checkedAt": "2026-11-15",
+      "kind": "reader-guide",
+      "locator": "正文：重点短语与经典原句",
+      "note": "实际核读读者整理正文，未独立逐帧核对动画。只说明本篇具名集数及系列可涉及范围，不传播至每集。 标题01/13仅保留读者精读编号，不视为官方集序。"
+    },
+    {
+      "id": "xhs-penelope-dressed-20261115",
+      "title": "蓝色小考拉｜Penelope Gets Dressed 01精读",
+      "author": "Doo_小脑袋充电",
+      "url": "https://www.xiaohongshu.com/explore/6aa75b06000000002802ced2",
+      "checkedAt": "2026-11-15",
+      "kind": "reader-guide",
+      "locator": "正文：穿衣场景、亲子建议与经典原句",
+      "note": "实际核读第三方正文；短结构据正文明确示例归纳，亲子拓展与逐字台词不混称，不传播至每集。 标题01/13仅保留读者精读编号，不视为官方集序。"
+    },
+    {
+      "id": "xhs-tsinghua-hello-20261115",
+      "title": "英语启蒙：清华语感启蒙台词本（1-10集）",
+      "author": "一力向北光",
+      "url": "https://www.xiaohongshu.com/explore/66126b97000000001b00c6f9",
+      "kind": "reader-transcription",
+      "checkedAt": "2026-11-15",
+      "locator": "实际读图1：0a unit 1 Hello及正文",
+      "note": "只采用实际读到的第1图，未把10张标题当成10集均核读。第三方手打台词，不独立证明动画逐字内容。"
+    },
+    {
+      "id": "xhs-buddy-fltrp-robot-20261115",
+      "title": "巴蒂英语第2级，读完啦",
+      "author": "小怪兽满头大包",
+      "url": "https://www.xiaohongshu.com/explore/6a3675170000000017008cd1",
+      "kind": "reader-interior-photo",
+      "checkedAt": "2026-11-15",
+      "locator": "实际读图1封面Silly Robot及图2内页",
+      "note": "图1确认巴蒂第二级及Silly Robot，图2可见Look at my arms.与机器人手臂示意。未核其余图片，不下传全部单册。"
+    },
+    {
+      "id": "xhs-powerup2-level2-map-20261115",
+      "title": "拿到PU第二版2级别的目录了",
+      "author": "波兰教书匠",
+      "url": "https://www.xiaohongshu.com/explore/684d7ce7000000002102e552",
+      "kind": "reader-interior-photo",
+      "checkedAt": "2026-11-15",
+      "locator": "正文及图2蓝色Map of the book，页2–3",
+      "note": "正文明确新旧版对比，图1橙色为旧版，不采用；仅实际核读图2蓝色第二版Level2目录，不传播其它级别。"
+    },
+    {
+      "id": "xhs-6ae2a326000000003703f868-20261115",
+      "title": "THINK第二版｜Starter/1/2单元总览表📖",
+      "author": "Celiaaye",
+      "url": "https://www.xiaohongshu.com/explore/6ae2a326000000003703f868",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "实际读图1：Second Edition Starter Units1–6",
+      "note": "实际仅核图1/6及正文；Grammar栏多为词类及语法点，没有完整可用例句，不据此补造句型。"
+    },
+    {
+      "id": "xhs-6aa2cb18000000000b00fafb-20261115",
+      "title": "📖共读逐字稿-悠游1-1-1《Five Blocks》",
+      "author": "养成系网橙🍊",
+      "url": "https://www.xiaohongshu.com/explore/6aa2cb18000000000b00fafb",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文逐跨页亲子共读稿",
+      "note": "实际核读正文，原书数字正文与家长添加的亲子语言分开；未逐页独立验证原书，不传播全套。"
+    },
+    {
+      "id": "xhs-667106cf0000000006005acf-20261115",
+      "title": "绘本—牛津树初体验",
+      "author": "如彼",
+      "url": "https://www.xiaohongshu.com/explore/667106cf0000000006005acf",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文明确比较牛津树、Maisy及凯文凯蒂段落",
+      "note": "只实际读正文，配图3–7的页内原句尚未独立核看；不传播至每册。"
+    },
+    {
+      "id": "xhs-6ad4ec1f00000000260176c4-20261115",
+      "title": "西游记英文版台词精读1-1📖",
+      "author": "猎道德之精英",
+      "url": "https://www.xiaohongshu.com/explore/6ad4ec1f00000000260176c4",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文与实际读图1/4：Chapter1 The Monkey",
+      "note": "正文明确Little Fox L5身份；只核图1，不把4图/108集视为全核，不改已有集数与数量。"
+    },
+    {
+      "id": "xhs-6af907f30000000018024fc0-20261115",
+      "title": "初章进阶必读：A to Z 神秘案件",
+      "author": "徐小Q",
+      "url": "https://www.xiaohongshu.com/explore/6af907f30000000018024fc0",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文“这套书讲什么”",
+      "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。"
+    },
+    {
+      "id": "xhs-6ac92f00000000001203fc23-20261115",
+      "title": "心情不好就读她❗初章《小朱迪》",
+      "author": "LearnWide",
+      "url": "https://www.xiaohongshu.com/explore/6ac92f00000000001203fc23",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文主角和第一册开学情节",
+      "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。"
+    },
+    {
+      "id": "xhs-6a795cae000000002203247b-20261115",
+      "title": "奇幻冒险初章｜The Zack Files 扎克档案",
+      "author": "乐资有道",
+      "url": "https://www.xiaohongshu.com/explore/6a795cae000000002203247b",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文具名怪事及伙伴合作",
+      "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+    },
+    {
+      "id": "xhs-pearson-dad-park-20261115",
+      "title": "亲子英语共读-Book 2|《Dad at the Park》！",
+      "author": "小小小小军",
+      "url": "https://www.xiaohongshu.com/explore/698d9d53000000000c037dd6",
+      "kind": "reader-quotation",
+      "checkedAt": "2026-11-15",
+      "locator": "正文具名基础级故事及核心句型",
+      "note": "实际读第三方共读正文，未独立核原书页或视频；仅本册。"
+    },
+    {
+      "id": "xhs-6a96bfc6000000001001ec52-20261115",
+      "title": "原版初章书分享｜Junie B. Jones朱妮·琼斯✨",
+      "author": "Jessie｜博士小姨看世界",
+      "url": "https://www.xiaohongshu.com/explore/6a96bfc6000000001001ec52",
+      "kind": "reader-guide",
+      "checkedAt": "2026-11-15",
+      "locator": "正文故事讲什么",
+      "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+    },
+    {
+      "id": "xhs-atoz-absent-author-summary-20261115",
+      "title": "侦探系列童书阅读笔记",
+      "author": "倩倩",
+      "url": "https://www.xiaohongshu.com/explore/695a4646000000001e010ed0",
+      "kind": "reader-content-summary",
+      "checkedAt": "2026-11-15",
+      "locator": "正文及视频首图封面The Absent Author；未播放转录",
+      "note": "实际核读第三方正文明确A to Z Mysteries第一册The Absent Author及三人小侦探解决作家失踪谜团；未独立核原书页或ISBN，未播放视频转录，无可采用英文句型。"
+    }
+  ],
+  "resources": {
+    "resource-1gsfuor": {
+      "title": "蓝色小考拉",
+      "topics": [
+        "social.manners",
+        "daily.dress",
+        "clothing.dressing"
+      ],
+      "sourceIds": [
+        "xhs-penelope-polite-20261115",
+        "xhs-penelope-dressed-20261115"
+      ],
+      "status": "content-verified",
+      "basis": "已读两篇具名内容的场景与句型整理，系列范围为礼貌请求与穿衣，不按角色或颜色归类，不下传各集。",
+      "patterns": [
+        {
+          "text": "Thank you!",
+          "sourceId": "xhs-penelope-polite-20261115",
+          "note": "读者整理具名懂礼貌篇礼貌短句，未独立核台词。"
+        },
+        {
+          "text": "You are very polite.",
+          "sourceId": "xhs-penelope-polite-20261115",
+          "note": "读者整理具名懂礼貌篇示例，非全系列通用原句。"
+        },
+        {
+          "text": "I’ll … all by myself.",
+          "sourceId": "xhs-penelope-dressed-20261115",
+          "note": "据具名穿衣篇穿衣正文示例保守归纳结构；省略号非逐字台词。 正文例：I’ll get dressed all by myself."
+        },
+        {
+          "text": "Don’t put … in …",
+          "sourceId": "xhs-penelope-dressed-20261115",
+          "note": "据具名穿衣篇穿衣正文示例保守归纳结构。 正文例：Don’t put both feet in one hole."
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-penelope-polite-20261115",
+          "kind": "content-summary",
+          "locator": "Penelope is Polite笔记正文",
+          "summary": "正文明确please、thank you、sorry等礼貌请求表达。"
+        },
+        {
+          "sourceId": "xhs-penelope-dressed-20261115",
+          "kind": "content-summary",
+          "locator": "Penelope Gets Dressed笔记正文",
+          "summary": "正文明确自己穿裤子、袜子、外套的生活流程。"
+        }
+      ]
+    },
+    "resource-1e4sexo": {
+      "title": "清华幼儿英语启蒙动画",
+      "topics": [
+        "social.greetings",
+        "social.introduction"
+      ],
+      "sourceIds": [
+        "xhs-tsinghua-hello-20261115"
+      ],
+      "status": "content-verified",
+      "basis": "已读0a unit1 Hello的读者台词图，包含问候与自我介绍；仅说明具名课程及系列可涉及范围，不传播各集。",
+      "patterns": [
+        {
+          "text": "Hello, …!",
+          "sourceId": "xhs-tsinghua-hello-20261115",
+          "note": "图1问候短句结构，非全系列每集通用。"
+        },
+        {
+          "text": "I’m …",
+          "sourceId": "xhs-tsinghua-hello-20261115",
+          "note": "图1Hello! I’m Bear.的简短结构，读者转录。"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-tsinghua-hello-20261115",
+          "kind": "content-summary",
+          "locator": "图1，0a unit 1 Hello",
+          "summary": "问候Hello和自我介绍I’m Bear，采用招呼与自我介绍主题。"
+        }
+      ]
+    },
+    "resource-1hv2ggo": {
+      "title": "巴蒂英语",
+      "topics": [
+        "body"
+      ],
+      "sourceIds": [
+        "xhs-buddy-fltrp-robot-20261115"
+      ],
+      "status": "content-verified",
+      "basis": "已读巴蒂第2级Silly Robot具名封面与内页，手臂辨认仅作系列样例范围，不传播每册。",
+      "patterns": [
+        {
+          "text": "Look at my …",
+          "sourceId": "xhs-buddy-fltrp-robot-20261115",
+          "note": "图2可见Look at my arms.，仅该具名示例的结构。"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-buddy-fltrp-robot-20261115",
+          "kind": "content-summary",
+          "locator": "图1–2，Silly Robot",
+          "summary": "内页Look at my arms.配机器人手臂动作，仅采用身体部位一级，不由机器人名推科普，不把arm当作手与手指。"
+        }
+      ]
+    },
+    "resource-1ew2482": {
+      "title": "Power Up",
+      "topics": [
+        "daily",
+        "concepts.time",
+        "concepts.calendar",
+        "sports",
+        "jobs.people",
+        "festivals.parties",
+        "family.members",
+        "home.rooms",
+        "animals.wild",
+        "animals",
+        "nature.weather",
+        "clothing.clothes",
+        "food.cooking",
+        "transport.places",
+        "transport.safety"
+      ],
+      "sourceIds": [
+        "xhs-powerup2-level2-map-20261115"
+      ],
+      "status": "classification-verified",
+      "basis": "第二版Level2蓝色目录实际涵盖日常作息、星期与活动、聚会职业、家庭家居、野生与家养动物、天气衣服、厨房制作与城市出行；仅具名Level2系列范围。",
+      "patterns": [
+        {
+          "text": "What time do you get up?",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        },
+        {
+          "text": "How often do you play basketball?",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        },
+        {
+          "text": "Why …? Because …",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        },
+        {
+          "text": "Were they on holiday last weekend?",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        },
+        {
+          "text": "Did you go shopping yesterday?",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        },
+        {
+          "text": "I have to …",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        },
+        {
+          "text": "I don’t have to …",
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "note": "图2蓝色第二版Level2目录Grammar列；省略号项为原例归纳，非所有级别通用。"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-powerup2-level2-map-20261115",
+          "kind": "content-summary",
+          "locator": "图2蓝色目录页2–3",
+          "summary": "Unit1日常时间，2星期与活动，3职业聚会，4家庭家居，5动物，6天气，7食物厨房，8城镇交通安全。",
+          "scope": {
+            "edition": "Second Edition",
+            "level": "2",
+            "units": "1–8",
+            "kind": "named-course-sample"
+          }
+        }
+      ]
+    },
+    "resource-9v2gi2": {
+      "title": "think",
+      "topics": [
+        "social.introduction",
+        "emotions.expression",
+        "family.members",
+        "home.rooms",
+        "home.furniture",
+        "transport.places",
+        "concepts.position",
+        "daily.shopping",
+        "daily",
+        "body",
+        "concepts.attributes",
+        "social.friends"
+      ],
+      "sourceIds": [
+        "xhs-6ae2a326000000003703f868-20261115"
+      ],
+      "status": "classification-verified",
+      "basis": "读者按第二版Starter前六单元整理：介绍自己、情绪、家庭房间家具、城镇指路与购物、日常习惯、身体与朋友外貌。仅具名级别范围，不下传全级别。",
+      "patterns": [],
+      "evidence": [
+        {
+          "sourceId": "xhs-6ae2a326000000003703f868-20261115",
+          "kind": "content-summary",
+          "locator": "图1 Unit4 City life：介绍城镇与指路，城镇地点与方位词",
+          "summary": "读者按第二版Starter前六单元整理：介绍自己、情绪、家庭房间家具、城镇指路与购物、日常习惯、身体与朋友外貌。仅具名级别范围，不下传全级别。",
+          "scope": {
+            "edition": "Second Edition",
+            "level": "Starter",
+            "units": "1–6",
+            "kind": "named-course-sample"
+          }
+        }
+      ]
+    },
+    "resource-7vimum": {
+      "title": "悠游阅读成长计划",
+      "topics": [
+        "concepts.counting",
+        "sports.toys",
+        "social"
+      ],
+      "sourceIds": [
+        "xhs-6aa2cb18000000000b00fafb-20261115"
+      ],
+      "status": "content-verified",
+      "basis": "具名L1 Five Blocks正文明确1–5积木计数、积木倒塌与结尾Sorry；仅该篇共读样例，不下传其它册。",
+      "patterns": [
+        {
+          "text": "How many blocks now?",
+          "sourceId": "xhs-6aa2cb18000000000b00fafb-20261115",
+          "note": "正文家长拓展提问，不是原书逐字原句。",
+          "kind": "reader-parent-extension"
+        },
+        {
+          "text": "Can you count the blocks with me?",
+          "sourceId": "xhs-6aa2cb18000000000b00fafb-20261115",
+          "note": "正文家长亲子拓展句，不冒充原书正文。",
+          "kind": "reader-parent-extension"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-6aa2cb18000000000b00fafb-20261115",
+          "kind": "content-summary",
+          "locator": "正文逐跨页亲子共读稿",
+          "summary": "具名L1 Five Blocks正文明确1–5积木计数、积木倒塌与结尾Sorry；仅该篇共读样例，不下传其它册。"
+        }
+      ]
+    },
+    "resource-1f8szif": {
+      "title": "牛津树初体验",
+      "topics": [
+        "daily.school",
+        "family.siblings",
+        "transport.air",
+        "sports.water"
+      ],
+      "sourceIds": [
+        "xhs-667106cf0000000006005acf-20261115"
+      ],
+      "status": "description-derived",
+      "basis": "读者正文明确初体验系列涉及上学、弟妹出生、坐飞机、游泳；牛津树泳课示例单独采用，不把Maisy的blow bubbles原句混入牛津树。",
+      "patterns": [
+        {
+          "text": "We’re learning to …",
+          "sourceId": "xhs-667106cf0000000006005acf-20261115",
+          "note": "读者正文引述We’re learning to swim on our backs.，据此归纳，未独立核原页。"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-667106cf0000000006005acf-20261115",
+          "kind": "content-summary",
+          "locator": "正文明确比较牛津树、Maisy及凯文凯蒂段落",
+          "summary": "读者正文明确初体验系列涉及上学、弟妹出生、坐飞机、游泳；牛津树泳课示例单独采用，不把Maisy的blow bubbles原句混入牛津树。"
+        }
+      ]
+    },
+    "resource-1af6ny6": {
+      "title": "Journey to the West 西游记",
+      "topics": [
+        "fantasy.magic",
+        "fantasy.characters"
+      ],
+      "sourceIds": [
+        "xhs-6ad4ec1f00000000260176c4-20261115"
+      ],
+      "status": "content-verified",
+      "basis": "图1明确石头受神奇力量而裂开生猴、眼中射出光、玉帝天宫，采用魔法和幻想角色；不把日月或光当作科普主题。仅Chapter1样例。",
+      "patterns": [
+        {
+          "text": "Inside was a …",
+          "sourceId": "xhs-6ad4ec1f00000000260176c4-20261115",
+          "note": "图1读者转录Inside was a monkey!的叙事结构，未独立核动画逐字台词。"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "xhs-6ad4ec1f00000000260176c4-20261115",
+          "kind": "content-summary",
+          "locator": "正文与实际读图1/4：Chapter1 The Monkey",
+          "summary": "图1明确石头受神奇力量而裂开生猴、眼中射出光、玉帝天宫，采用魔法和幻想角色；不把日月或光当作科普主题。仅Chapter1样例。",
+          "scope": {
+            "level": "Little Fox L5",
+            "chapter": "1 The Monkey",
+            "kind": "named-chapter-sample"
+          }
+        }
+      ]
+    },
+    "resource-1nhjndw": {
+      "title": "A to Z Mysteries 神秘事件",
+      "topics": [
+        "fantasy.mystery"
+      ],
+      "sourceIds": [
+        "xhs-6af907f30000000018024fc0-20261115"
+      ],
+      "status": "description-derived",
+      "basis": "正文明确Dink、Josh、Ruth Rose三个小侦探每本破解案件，查找线索；采用侦探与解谜，不因A–Z序列当字母教学。 属现实型侦探解谜，不表示超自然。",
+      "patterns": [],
+      "evidence": [
+        {
+          "sourceId": "xhs-6af907f30000000018024fc0-20261115",
+          "kind": "content-summary",
+          "locator": "正文“这套书讲什么”",
+          "summary": "正文明确Dink、Josh、Ruth Rose三个小侦探每本破解案件，查找线索；采用侦探与解谜，不因A–Z序列当字母教学。"
+        }
+      ]
+    },
+    "resource-1mu8hkl": {
+      "title": "Judy Moody 稀奇古怪小朱迪",
+      "topics": [
+        "emotions.expression",
+        "daily.school"
+      ],
+      "sourceIds": [
+        "xhs-6ac92f00000000001203fc23-20261115"
+      ],
+      "status": "description-derived",
+      "basis": "正文具名描述Judy在开学第一天心情差，以及故事中的情绪表达；只采用该场景的系列样例，不将每册均视为情绪课，不从Moody标题推分类。",
+      "patterns": [],
+      "evidence": [
+        {
+          "sourceId": "xhs-6ac92f00000000001203fc23-20261115",
+          "kind": "content-summary",
+          "locator": "正文主角和第一册开学情节",
+          "summary": "正文具名描述Judy在开学第一天心情差，以及故事中的情绪表达；只采用该场景的系列样例，不将每册均视为情绪课，不从Moody标题推分类。"
+        }
+      ]
+    },
+    "resource-13sgknh": {
+      "title": "The Zack Files 扎克档案",
+      "topics": [
+        "fantasy.characters",
+        "fantasy.adventure",
+        "social.friends"
+      ],
+      "sourceIds": [
+        "xhs-6a795cae000000002203247b-20261115"
+      ],
+      "status": "description-derived",
+      "basis": "正文明确会说话的猫、时空穿越、外星人与大脚怪及伙伴共同解难，采用幻想角色、冒险和朋友；不因外星人或时空穿越归科学知识。",
+      "patterns": [],
+      "evidence": [
+        {
+          "sourceId": "xhs-6a795cae000000002203247b-20261115",
+          "kind": "content-summary",
+          "locator": "正文具名怪事及伙伴合作",
+          "summary": "正文明确会说话的猫、时空穿越、外星人与大脚怪及伙伴共同解难，采用幻想角色、冒险和朋友；不因外星人或时空穿越归科学知识。"
+        }
+      ]
+    },
+    "resource-gzsymu": {
+      "title": "Junie B Jones 朱妮琼斯",
+      "topics": [
+        "daily.school",
+        "social.friends",
+        "emotions.expression"
+      ],
+      "sourceIds": [
+        "xhs-6a96bfc6000000001001ec52-20261115"
+      ],
+      "status": "description-derived",
+      "basis": "正文明确幼儿园与一年级校园、交朋友与闹脾气的日常故事；只汇总系列涉及范围，不将每册归为同主题。",
+      "patterns": [],
+      "evidence": [
+        {
+          "sourceId": "xhs-6a96bfc6000000001001ec52-20261115",
+          "kind": "content-summary",
+          "locator": "正文故事讲什么",
+          "summary": "正文明确幼儿园与一年级校园、交朋友与闹脾气的日常故事；只汇总系列涉及范围，不将每册归为同主题。"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "sourceId": "xhs-pearson-dad-park-20261115",
+      "resourceId": "resource-141vfh7",
+      "levels": [
+        "基础级"
+      ],
+      "editionContains": "培生亲子故事屋 · 基础级（28本）",
+      "status": "classification-verified",
+      "scopeNote": "第三方读者正文引述，仅具名本册，不下传全套。",
+      "rows": [
+        {
+          "bookId": "book-a569f0f51d60cd71",
+          "title": "Dad at the Park",
+          "topics": [
+            "family.parent-child",
+            "sports.playground"
+          ],
+          "patterns": [
+            "You are too big!"
+          ],
+          "locator": "正文爸爸和孩子在公园玩耍，爸爸太大玩不了滑梯及核心句型",
+          "note": "正文引句首字母规范为大写，未独立核原页。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-6ac92f00000000001203fc23-20261115",
+      "resourceId": "resource-1mu8hkl",
+      "levels": [
+        ""
+      ],
+      "editionContains": "Judy Moody 稀奇古怪小朱迪 · 小花生16本目录选集（2026-11-09）",
+      "status": "description-derived",
+      "kind": "reader-content-summary",
+      "scopeNote": "已读第三方正文明确第1册Judy Moody（2000）开学第一天心情差，按同作品与当前目录具名第1册关联主题；未独立核对原书页或ISBN，不建立进度等价，不传播其它15册，没有可采用英文句型。",
+      "rows": [
+        {
+          "bookId": "book-862afdab65720274",
+          "title": "Judy Moody #01: Judy Moody Was in a Mood",
+          "sourceTitle": "Judy Moody（2000），第1册",
+          "patterns": [],
+          "topics": [
+            "daily.school",
+            "emotions.expression"
+          ],
+          "kind": "reader-content-summary",
+          "locator": "正文主角与第一册开学第一天心情差的情节",
+          "note": "仅此具名第1册，依据第三方内容简介，无句型；不以系列整体情绪标签传播其余单册。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-atoz-absent-author-summary-20261115",
+      "resourceId": "resource-1nhjndw",
+      "levels": [
+        ""
+      ],
+      "editionContains": "A to Z Mysteries 原系列 A–Z",
+      "status": "description-derived",
+      "kind": "reader-content-summary",
+      "scopeNote": "仅第三方具名第一册内容简介，未独立核原页／ISBN，不建立版本或进度等价，不传播其余25册，无句型。",
+      "rows": [
+        {
+          "bookId": "book-c3cc765d996b4832",
+          "title": "A to Z Mysteries #01: The Absent Author",
+          "sourceTitle": "The Absent Author",
+          "patterns": [],
+          "topics": [
+            "fantasy.mystery"
+          ],
+          "kind": "reader-content-summary",
+          "locator": "正文明确系列第一本、三侦探解决作家失踪谜团；首图视频封面同名",
+          "note": "仅此具名第一册解谜主题，不采用视频未转录内容，无英文原句，不推定魔法。"
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "resourceId": "resource-1az9smt",
+      "query": "小兔乒乓 英语 动画 主题",
+      "status": "read-but-identity-unresolved",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/68352218000000002001dfaf",
+      "title": "🐰BBC《小兔兵兵》| 启蒙 + 独立力培养",
+      "note": "正文明确Bing Bunny小兔兵兵，和原路线小兔乒乓译名尚未核定同作。不因搜索命中改名、套用主题或句型。"
+    },
+    {
+      "resourceId": "resource-1e4sexo",
+      "query": "清华幼儿英语 语感启蒙 主题 句型",
+      "status": "read-content-adopted",
+      "sourceUrls": [
+        "https://www.xiaohongshu.com/explore/6ae72fd0000000001a021e6b",
+        "https://www.xiaohongshu.com/explore/66126b97000000001b00c6f9"
+      ],
+      "note": "Friends视频正文无具体词句，未采用标题；另实际读到Hello台词本图1并采用。"
+    },
+    {
+      "resourceId": "resource-1hv2ggo",
+      "query": "巴蒂英语 主题 句型 外研社",
+      "status": "read-content-adopted",
+      "sourceUrls": [
+        "https://www.xiaohongshu.com/explore/6abbaf1e0000000014032040",
+        "https://www.xiaohongshu.com/explore/6a3675170000000017008cd1"
+      ],
+      "note": "第一篇正文无具体内容未采用；第二篇实际读前两图Silly Robot及手臂原句，采用系列样例。"
+    },
+    {
+      "resourceId": "resource-1clzu3i",
+      "query": "Booklife Junior 许密杉 主题",
+      "status": "read-but-identity-unresolved",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/695b49f800000000210323ee",
+      "title": "文脉解码书booklife和junior科普如何选",
+      "note": "实际读到正文明确两套不同产品，不能合成一种目录或借用单册主题/句型；当前原引用身份仍待核，不因来源比较就改稳定素材或数量。"
+    },
+    {
+      "resourceId": "resource-oz0jbk",
+      "query": "糊涂女佣 Amelia Bedelia 主题 句型",
+      "status": "read-reference-outside-confirmed-range",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a960a98000000002802e037",
+      "title": "《糊涂女佣》精读｜高频句式，强化语言输入积累",
+      "note": "实际读图为Amelia Bedelia参选市长内容，未核同当前五册盒装参考的具体作品范围；不按同品牌把台词及主题移到已选目录。"
+    },
+    {
+      "resourceId": "resource-1ew2482",
+      "query": "Power Up 二版 主题 句型 目录",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/684d7ce7000000002102e552",
+      "note": "实际核读正文和两图，图1为旧版对照，仅采用图2第二版Level2。"
+    },
+    {
+      "resourceId": "resource-1sx9rf3",
+      "query": "新概念英语 经典版 主题 句型 目录",
+      "status": "read-but-identity-unresolved",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/67da6fbd000000001d02c38d",
+      "title": "抓紧收藏！新概念第一册144课知识点梳理🔥",
+      "note": "正文泛称语法覆盖无可采用的具体主题句型；项目经典版候选与青少版封面身份差异未核，不跨版借用。"
+    },
+    {
+      "resourceId": "resource-9v2gi2",
+      "query": "Think 剑桥 二版 starter 目录 句型",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ae2a326000000003703f868",
+      "title": "THINK第二版｜Starter/1/2单元总览表📖",
+      "note": "实际仅核图1/6及正文；Grammar栏多为词类及语法点，没有完整可用例句，不据此补造句型。"
+    },
+    {
+      "resourceId": "resource-1y3ytv6",
+      "query": "My First Reading 许密杉 分级 主题",
+      "status": "read-but-identity-unresolved",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/69899d0d000000002800b7b7",
+      "title": "跟着许密杉老师整理了新书单",
+      "note": "聚焦查询结果是许密杉综合书单；正文及首图未核到My First Reading明确出版社和具体册名，不据泛称跨系列借用。"
+    },
+    {
+      "resourceId": "resource-7vimum",
+      "query": "悠游阅读成长计划 主题 句型",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6aa2cb18000000000b00fafb",
+      "title": "📖共读逐字稿-悠游1-1-1《Five Blocks》",
+      "note": "实际核读正文，原书数字正文与家长添加的亲子语言分开；未逐页独立验证原书，不传播全套。"
+    },
+    {
+      "resourceId": "resource-1f8szif",
+      "query": "牛津树 初体验 主题 句型",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/667106cf0000000006005acf",
+      "title": "绘本—牛津树初体验",
+      "note": "只实际读正文，配图3–7的页内原句尚未独立核看；不传播至每册。"
+    },
+    {
+      "resourceId": "resource-16o9su4",
+      "query": "小火柴 英语 分级 主题 句型",
+      "status": "read-no-adoptable-content",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/687a1336000000001202d4c8",
+      "title": "✨本月入手的最佳书单~盖世小火柴！",
+      "note": "正文仅画风/音频/道理等评价，图1是多册封面合照，未核到具体内容句型；不由书名小火柴推火或自然知识，不从笼统童话推每册魔法。"
+    },
+    {
+      "resourceId": "resource-1af6ny6",
+      "query": "小狐狸 Journey to the West 西游记 主题 句型",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ad4ec1f00000000260176c4",
+      "title": "西游记英文版台词精读1-1📖",
+      "note": "正文明确Little Fox L5身份；只核图1，不把4图/108集视为全核，不改已有集数与数量。"
+    },
+    {
+      "resourceId": "resource-9fvmjt",
+      "query": "海尼曼 主题 句型 分类",
+      "status": "read-learning-target-preserved-no-overwrite",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ab3953a0000000014003e5e",
+      "title": "海尼曼 GK70 本｜句型分类打卡墙",
+      "note": "图3是读者学习目标分组，28行仅12条同套同版精确题名；且多处目标句型与已有原表不同。保留独立核对表，不覆盖现有原书句型，不为本次表另抄reading-plans的逐册目录。"
+    },
+    {
+      "resourceId": "resource-1nhjndw",
+      "query": "A to Z Mysteries 神秘事件 主题 句型",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6af907f30000000018024fc0",
+      "title": "初章进阶必读：A to Z 神秘案件",
+      "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。"
+    },
+    {
+      "resourceId": "resource-912oje",
+      "query": "培生儿童英语 礼盒 主题 句型",
+      "status": "read-other-series-not-applied",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6abdea2a00000000140384cc",
+      "title": "庆爸常规路线英语启蒙培生系列！96本顺序表",
+      "note": "检索命中标题泛称培生，正文及首图明确培生词汇妙趣屋1–3辑，不是儿童英语Level1–6礼盒版；不混用。此前400句查询也为不同resource-166ekar，已单独核对两册。"
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "query": "培生启明星 主题 句型 分类",
+      "status": "read-no-adoptable-content",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ab487d50000000014002d1f",
+      "title": "培生启明星2的内容和使用感受",
+      "note": "正文仅标签，视频未逐帧转录；评论对倒装句的回忆不作为核定原文。既有用户给定分类图映射继续保留，本篇不补造逐册句型。"
+    },
+    {
+      "resourceId": "resource-1mu8hkl",
+      "query": "Judy Moody 小朱迪 主题 内容",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ac92f00000000001203fc23",
+      "title": "心情不好就读她❗初章《小朱迪》",
+      "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。"
+    },
+    {
+      "resourceId": "resource-13sgknh",
+      "query": "Zack Files 扎克档案 主题 内容",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a795cae000000002203247b",
+      "title": "奇幻冒险初章｜The Zack Files 扎克档案",
+      "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+    },
+    {
+      "resourceId": "resource-141vfh7",
+      "query": "培生亲子故事屋 主题 句型",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/698d9d53000000000c037dd6",
+      "note": "唯一同套基础级Dad at the Park，采用本册主题与正文引句。"
+    },
+    {
+      "resourceId": "resource-gzsymu",
+      "query": "Junie B Jones 朱妮琼斯 主题 内容",
+      "status": "read-content-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a96bfc6000000001001ec52",
+      "title": "原版初章书分享｜Junie B. Jones朱妮·琼斯✨",
+      "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+    },
+    {
+      "resourceId": "resource-1mi9g2h",
+      "query": "丽声妙想英文绘本 第二级 主题 句型",
+      "status": "read-outside-book-content-not-applied",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ad4ca00000000002701d12c",
+      "title": "✨4 岁半男宝英语｜丽声妙想二",
+      "note": "正文前段仅阅读感受；后半What can you see/房间/躲藏属于另一次外教课，不能归为绘本句型或主题。首图混多册封面，未逐册核内容，不采用外教课语言。"
+    },
+    {
+      "resourceId": "resource-pc7ej8",
+      "query": "Baby Why 生物 化学 主题 句型",
+      "status": "read-other-range-not-applied",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ae89035000000003601b141",
+      "title": "英语启蒙丨两岁娃Babywhy目前只开启这十本",
+      "note": "实际正文和首图是Babywhy English20本认知生活套系，不是路线明确的生物/化学子范围。不能从英文套系标题借主题或句型到生物化学；保留原路线仅科普一级。"
+    },
+    {
+      "resourceId": "resource-19dcja1",
+      "query": "Baby All 物理 艺术 主题 目录",
+      "status": "read-product-ranges-no-new-content",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/691fbe8b000000001e0053e8",
+      "title": "【书本记录】盖世&海豚 Babyall 全家福",
+      "note": "图1区分物理、生化、科学、数学、艺术、英语六套；正文没有具体单册内容/原句。仅核产品分套，保留路线既有物理艺术一级，不把其它四套主题扩散到路线物理艺术范围。"
+    },
+    {
+      "resourceId": "resource-1nhjndw",
+      "query": "A to Z The Absent Author 故事",
+      "status": "read-named-book-description-adopted",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/695a4646000000001e010ed0",
+      "title": "侦探系列童书阅读笔记",
+      "note": "正文明确第一册The Absent Author，三名小侦探解决作家失踪谜团；仅该册fantasy.mystery，无句型，视频未播放转录。",
+      "attempts": [
+        {
+          "sourceUrl": "https://www.xiaohongshu.com/explore/6adb299e000000002b0009ff",
+          "decision": "正文仅难度和视频，未采用内容主题。"
+        },
+        {
+          "sourceUrl": "https://www.xiaohongshu.com/explore/66729dc0000000000e032f0d",
+          "decision": "正文Read book everyday；视频原书首段仅朋友对话，没有解谜内容，不据此归主题。"
+        },
+        {
+          "sourceUrl": "https://www.xiaohongshu.com/explore/6645f60d000000001e023ecb",
+          "decision": "正文亲子复述感受，无具体情节，视频未转录，不采用。"
+        },
+        {
+          "sourceUrl": "https://www.xiaohongshu.com/explore/695a4646000000001e010ed0",
+          "decision": "采用正文具名第一册三侦探解失踪谜团；首图封面仅核题名，不当视频内容已核。"
+        }
+      ]
+    }
+  ],
+  "statusReview": [
+    {
+      "resourceId": "resource-1nhjndw",
+      "before": "classification-verified",
+      "after": "description-derived",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-1mu8hkl",
+      "before": "classification-verified",
+      "after": "description-derived",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-13sgknh",
+      "before": "classification-verified",
+      "after": "description-derived",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-gzsymu",
+      "before": "classification-verified",
+      "after": "description-derived",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-1f8szif",
+      "before": "classification-verified",
+      "after": "description-derived",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-1gsfuor",
+      "before": "classification-verified",
+      "after": "content-verified",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-1e4sexo",
+      "before": "classification-verified",
+      "after": "content-verified",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-1hv2ggo",
+      "before": "classification-verified",
+      "after": "content-verified",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-7vimum",
+      "before": "classification-verified",
+      "after": "content-verified",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    },
+    {
+      "resourceId": "resource-1af6ny6",
+      "before": "classification-verified",
+      "after": "content-verified",
+      "basis": "状态按实际证据类型区分，简介归类不冒充已核分类，第三方转录保留未独立核原书／动画边界。"
+    }
+  ],
+  "additionalNamedBookReviews": [
+    {
+      "bookId": "book-862afdab65720274",
+      "sourceId": "xhs-6ac92f00000000001203fc23-20261115",
+      "topics": [
+        "daily.school",
+        "emotions.expression"
+      ],
+      "status": "description-derived",
+      "sentenceCount": 0,
+      "note": "同作品具名第1册内容简介；不独立核页/ISBN，无句型，不传播全16册。"
+    },
+    {
+      "bookId": "book-c3cc765d996b4832",
+      "sourceId": "xhs-atoz-absent-author-summary-20261115",
+      "topics": [
+        "fantasy.mystery"
+      ],
+      "status": "description-derived",
+      "sentenceCount": 0,
+      "note": "同作品具名第一册内容简介；未独立核页／ISBN，无句型，不传播全26册。"
+    }
+  ]
+}

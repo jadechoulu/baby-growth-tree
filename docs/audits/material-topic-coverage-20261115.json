@@ -1,0 +1,6801 @@
+{
+  "scope": "公共静态目录全量检查；册数按分版本条目计。不读取私人书架，不等于逐册已核正文或线上验收。",
+  "counts": {
+    "resources": 329,
+    "sourceBooks": 3816,
+    "projectedBooks": 3886,
+    "classifiedBooks": 3517,
+    "pendingBooks": 369,
+    "missingPublicBookIds": []
+  },
+  "collections": {
+    "liao": {
+      "total": 130,
+      "pendingIds": [
+        "liao-book-001",
+        "liao-book-059"
+      ]
+    },
+    "helloParts": {
+      "total": 120,
+      "classified": 120,
+      "pendingIds": []
+    },
+    "helloRhymes": {
+      "total": 56,
+      "classified": 56
+    },
+    "sss": {
+      "total": 42,
+      "classified": 42,
+      "pendingIds": []
+    },
+    "soundBook": {
+      "total": 50,
+      "classified": 45,
+      "pendingIds": [
+        "manhulu-9787533574901-p027",
+        "manhulu-9787533574901-p039",
+        "manhulu-9787533574901-p040",
+        "manhulu-9787533574901-p047",
+        "manhulu-9787533574901-p048"
+      ]
+    }
+  },
+  "series": [
+    {
+      "id": "resource-1cn6i3m",
+      "title": "学乐小读者",
+      "books": 141,
+      "classified": 123,
+      "pendingBookIds": [
+        "book-1788bf5ac309bdd2",
+        "book-4df9f44e4f8fc5da",
+        "book-ff87d0896cacf103",
+        "book-3c14856d6bcdd138",
+        "book-e7594a286c8fd9c2",
+        "book-c18f672be43f1042",
+        "book-9100a0d309a078c9",
+        "book-db3676619e69c432",
+        "book-0e695eb7cce72d60",
+        "book-f1e007e7194834f6",
+        "book-2f0d26c4247a515e",
+        "book-34c2e0be31bf49fb",
+        "book-37155e12cfd6b764",
+        "book-52a71e0fbe5f2953",
+        "book-44079076c4dcc3b5",
+        "book-ece04b4645d3f335",
+        "book-ba89ca4d317db363",
+        "book-af9641350800ff7d"
+      ],
+      "bookStatus": {
+        "content-verified": 22,
+        "title-fallback": 98,
+        "pending": 18,
+        "classification-verified": 2,
+        "description-derived": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.greetings",
+        "nature.ocean",
+        "festivals.birthday",
+        "daily.school",
+        "daily.meals",
+        "sports.playground",
+        "science.light",
+        "sports.water",
+        "concepts.position",
+        "sports.hiding",
+        "clothing.accessories",
+        "concepts.shapes",
+        "nature.seasons",
+        "concepts.colors",
+        "concepts.attributes",
+        "concepts.time",
+        "food.snacks",
+        "arts.art",
+        "animals.pets",
+        "fantasy.characters",
+        "animals",
+        "animals.farm",
+        "family.twins",
+        "actions.locomotion",
+        "concepts.opposites",
+        "science.life",
+        "home.objects",
+        "food.protein",
+        "daily.tidy",
+        "festivals.parties",
+        "clothing.shoes",
+        "animals.birds",
+        "nature.weather",
+        "family.siblings",
+        "transport.land",
+        "body.face",
+        "festivals.halloween",
+        "nature.plants",
+        "food",
+        "arts.performance",
+        "animals.dinosaurs",
+        "animals.insects",
+        "concepts.counting",
+        "food.staples",
+        "food.cooking",
+        "body.hands",
+        "science.materials",
+        "body.feet",
+        "social.friends",
+        "sports",
+        "actions.affection",
+        "animals.wild",
+        "body.health",
+        "emotions.expression",
+        "animals.sea",
+        "actions.turn",
+        "actions.imitation",
+        "home.buildings",
+        "emotions.angry",
+        "fantasy.magic",
+        "actions.objects"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-h4sa2o",
+      "title": "学乐高频词",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "classification-verified",
+      "resourceTopics": [
+        "animals.birds",
+        "animals.insects",
+        "transport.places",
+        "transport.land",
+        "nature.protection"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-z5w7e2",
+      "title": "Sight Word Stories",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-nqvpg2",
+      "title": "Guided Science Readers",
+      "books": 76,
+      "classified": 76,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 73,
+        "classification-verified": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals",
+        "concepts.counting",
+        "nature.seasons",
+        "animals.birds",
+        "nature.plants",
+        "food.vegetables",
+        "animals.sea",
+        "social.greetings",
+        "actions.locomotion",
+        "animals.insects",
+        "animals.wild",
+        "science.life",
+        "science.experiments",
+        "nature.water",
+        "nature.environment",
+        "sports.water",
+        "nature.weather",
+        "animals.farm",
+        "sports.hiding",
+        "animals.habitats",
+        "concepts.colors",
+        "nature.ocean",
+        "social.friends",
+        "social.participation",
+        "food.snacks",
+        "science.space",
+        "concepts.time",
+        "actions.imitation",
+        "home.buildings",
+        "social.helping"
+      ],
+      "unreachableResourceTopics": [
+        "social.participation",
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-zl69cf",
+      "title": "Buddy Reader",
+      "books": 96,
+      "classified": 81,
+      "pendingBookIds": [
+        "book-603f2b872f986f31",
+        "book-a6806d74be45f152",
+        "book-cd3052d23a0555e0",
+        "book-fbeed560dbfc04d0",
+        "book-5dd379ea490d8c2b",
+        "book-1f6fd530d3d2f89b",
+        "book-f9e6c28adc2b0050",
+        "book-a5368a9da1c34c19",
+        "book-9fad81ac658fc2c0",
+        "book-4a77578b49ba215d",
+        "book-7482c6e0916e4c8e",
+        "book-d431e16d1e562ba5",
+        "book-62c8747a816d8cf9",
+        "book-9a52f0c22858206e",
+        "book-f25fe80699d9ce7a"
+      ],
+      "bookStatus": {
+        "title-fallback": 76,
+        "description-derived": 1,
+        "pending": 15,
+        "classification-verified": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals",
+        "actions.locomotion",
+        "fantasy.adventure",
+        "social.friends",
+        "emotions.expression",
+        "concepts.position",
+        "sports",
+        "arts.dance",
+        "daily.meals",
+        "clothing.clothes",
+        "festivals.parties",
+        "actions.affection",
+        "daily.bath",
+        "concepts.opposites",
+        "concepts.shapes",
+        "arts.art",
+        "fantasy.characters",
+        "food.snacks",
+        "transport.travel",
+        "home.buildings",
+        "animals.habitats",
+        "fantasy.magic",
+        "daily.school",
+        "animals.farm",
+        "animals.pets",
+        "sports.hiding",
+        "concepts.colors",
+        "family.siblings",
+        "sports.water",
+        "emotions.angry",
+        "clothing.shoes",
+        "festivals.birthday",
+        "animals.sea",
+        "nature.ocean",
+        "arts.performance",
+        "animals.insects",
+        "sports.roleplay",
+        "nature.weather",
+        "food.cooking",
+        "nature.environment",
+        "food.fruit",
+        "science.space",
+        "clothing.accessories"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-19jrpig",
+      "title": "First Little Comics",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "classification-verified",
+      "resourceTopics": [
+        "concepts.colors",
+        "social.friends",
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-g7xvo5",
+      "title": "大猫分级",
+      "books": 254,
+      "classified": 241,
+      "pendingBookIds": [
+        "book-6783be251ea021c1",
+        "book-0bf792df9fa9ca80",
+        "book-7624506069e15324",
+        "book-9c5f5b11f16328e6",
+        "book-58cf8cc21f338261",
+        "book-2ce03abf7d5d0fec",
+        "book-90523bebaf0ab00e",
+        "book-dfb6933938556c80",
+        "book-16bfd74c0e5f97b0",
+        "book-d998a693e08e9c20",
+        "book-ffd479e7d89b4c2e",
+        "book-6f0b1e25d60f8f3b",
+        "book-0bc8bd05afb13d7e"
+      ],
+      "bookStatus": {
+        "content-verified": 44,
+        "description-derived": 55,
+        "title-fallback": 142,
+        "pending": 13
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "nature",
+        "animals",
+        "nature.plants",
+        "nature.environment",
+        "animals.sea",
+        "nature.ocean",
+        "food",
+        "family",
+        "food.staples",
+        "food.snacks",
+        "food.drinks",
+        "concepts",
+        "transport",
+        "concepts.counting",
+        "transport.water",
+        "family.members",
+        "sports",
+        "sports.outdoor",
+        "daily.bath",
+        "animals.birds",
+        "animals.farm",
+        "fantasy.adventure",
+        "transport.land",
+        "concepts.colors",
+        "daily.safety",
+        "animals.insects",
+        "actions.imitation",
+        "arts",
+        "arts.art",
+        "concepts.shapes",
+        "science",
+        "actions.push-pull",
+        "daily.wake",
+        "daily.wash",
+        "daily.sleep",
+        "animals.dinosaurs",
+        "nature.weather",
+        "concepts.opposites",
+        "daily.dress",
+        "clothing.dressing",
+        "animals.pets",
+        "body.face",
+        "body",
+        "food.fruit",
+        "sports.playground",
+        "social.helping",
+        "social",
+        "social.honesty",
+        "arts.performance",
+        "family.parent-child",
+        "body.whole",
+        "actions.locomotion",
+        "fantasy",
+        "fantasy.characters",
+        "home.buildings",
+        "animals.wild",
+        "nature.seasons",
+        "sports.water",
+        "sports.toys",
+        "nature.water",
+        "actions.objects",
+        "daily.meals",
+        "concepts.time",
+        "daily.tidy",
+        "family.siblings",
+        "transport.places",
+        "jobs.people",
+        "arts.instruments",
+        "arts.singing",
+        "science.phenomena",
+        "science.experiments",
+        "sports.hiding",
+        "clothing.shoes",
+        "transport.travel",
+        "home.furniture",
+        "science.materials",
+        "clothing.clothes",
+        "fantasy.magic",
+        "sports.ball",
+        "nature.protection",
+        "daily.shopping",
+        "concepts.calendar",
+        "fantasy.pirates",
+        "science.light",
+        "daily.school",
+        "food.protein",
+        "arts.rhythm",
+        "arts.dance",
+        "festivals.parties",
+        "body.hands",
+        "animals.habitats",
+        "body.self",
+        "emotions.happy",
+        "emotions.scared",
+        "social.friends",
+        "science.space",
+        "body.feet",
+        "home.objects",
+        "body.senses",
+        "science.life",
+        "clothing.accessories",
+        "home.rooms",
+        "daily.haircut"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mi9g2h",
+      "title": "丽声妙想英文绘本2",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-5434e",
+      "title": "丽声英语百科",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-10bn1i2",
+      "title": "小书虫",
+      "books": 48,
+      "classified": 47,
+      "pendingBookIds": [
+        "book-1262a8fdc05e33f3"
+      ],
+      "bookStatus": {
+        "title-fallback": 32,
+        "pending": 1,
+        "description-derived": 15
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily.shopping",
+        "food.fruit",
+        "family.members",
+        "animals.insects",
+        "daily.meals",
+        "social.greetings",
+        "science.experiments",
+        "fantasy.characters",
+        "sports.outdoor",
+        "animals.habitats",
+        "animals.wild",
+        "sports.toys",
+        "clothing.accessories",
+        "food.snacks",
+        "nature.weather",
+        "sports.hiding",
+        "social.manners",
+        "concepts.books",
+        "animals.dinosaurs",
+        "transport.places",
+        "social.helping",
+        "sports.water",
+        "nature.ocean",
+        "daily.school",
+        "science.phenomena",
+        "animals",
+        "science.life",
+        "sports",
+        "arts.art",
+        "concepts.attributes",
+        "science.materials",
+        "nature.protection",
+        "jobs.work",
+        "home.buildings",
+        "jobs.people",
+        "body.whole",
+        "actions.locomotion",
+        "nature.environment",
+        "science.space",
+        "animals.farm"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mzat21",
+      "title": "悦读中国",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "festivals",
+        "arts.performance",
+        "arts.art",
+        "food"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1n3ix1n",
+      "title": "牛津树",
+      "books": 340,
+      "classified": 287,
+      "pendingBookIds": [
+        "book-0f5d3cca150d9484",
+        "book-416417dd42d3852e",
+        "book-5440007ef1931341",
+        "book-5c996b0894684b6c",
+        "book-0d60bf51514d88b8",
+        "book-a297e4909eb752f8",
+        "book-c0e0a9fc30839f00",
+        "book-8156f54bcc74b050",
+        "book-4561058ce1a9ad11",
+        "book-e70df3631fd9722f",
+        "book-6e4b080ea3bd3499",
+        "book-9643294d8d0562ba",
+        "book-14bb18cb1f1246a2",
+        "book-6ade2d116ac3453e",
+        "book-ea36fd8bc92d6fd7",
+        "book-d552cd067ba5712f",
+        "book-6764d9a8890a46d4",
+        "book-fba845d4acc6b906",
+        "book-8332388e191c44aa",
+        "book-6fd19380d4fc5528",
+        "book-bc68d1b0d4ab1b80",
+        "book-e54966ef4972bad8",
+        "book-beec28af7b91422e",
+        "book-b1a9e8e840116129",
+        "book-7f62e393f3e3063f",
+        "book-fee3f253e5807661",
+        "book-91d93b7c3973fdba",
+        "book-bc95e30e4618817c",
+        "book-3475da1ee4dff4a3",
+        "book-bb837037f35979d8",
+        "book-589a4f56876a8aec",
+        "book-2da4f67d93ba4211",
+        "book-747d88c51ffb8395",
+        "book-61d9264c9b29be69",
+        "book-50a42bbab549f418",
+        "book-7c47553ae963b76b",
+        "book-fecd5706b504319a",
+        "book-e6668e2ab2daf517",
+        "book-6388ccfdc6f7b20b",
+        "book-4b80636c21769006",
+        "book-5dcb2b36290ebe5d",
+        "book-172211c690ac4226",
+        "book-ff4b37907cf79df9",
+        "book-caf3aa1c7e51b2bd",
+        "book-d33b63fe3dd7374a",
+        "book-c3853f3db291fae2",
+        "book-e01b0822e6102aa9",
+        "book-78659f0a89817b4b",
+        "book-b84c1f3ee36d9ec5",
+        "book-a40dcc46d1f7cef4",
+        "book-703502fe68dea2d3",
+        "book-be17c56516552b50",
+        "book-760777a69aa96511"
+      ],
+      "bookStatus": {
+        "title-fallback": 264,
+        "pending": 53,
+        "description-derived": 23
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.wild",
+        "nature.weather",
+        "animals.insects",
+        "animals",
+        "nature.plants",
+        "concepts.position",
+        "fantasy.characters",
+        "arts.instruments",
+        "food.protein",
+        "family.members",
+        "sports.toys",
+        "festivals.parties",
+        "clothing.shoes",
+        "transport.land",
+        "daily.bath",
+        "daily.childcare",
+        "sports.water",
+        "concepts.attributes",
+        "festivals.birthday",
+        "body.face",
+        "transport.air",
+        "science.phenomena",
+        "daily.meals",
+        "sports.ball",
+        "sports.playground",
+        "jobs.work",
+        "food.snacks",
+        "body.health",
+        "actions.locomotion",
+        "daily.school",
+        "daily.wake",
+        "daily.haircut",
+        "concepts.books",
+        "home.objects",
+        "food.fruit",
+        "home.furniture",
+        "nature.ocean",
+        "food.staples",
+        "sports.outdoor",
+        "clothing.clothes",
+        "sports.roleplay",
+        "actions.push-pull",
+        "animals.pets",
+        "daily.tidy",
+        "daily.shopping",
+        "sports.hiding",
+        "body.feet",
+        "fantasy.adventure",
+        "animals.birds",
+        "social.friends",
+        "animals.habitats",
+        "home.buildings",
+        "animals.sea",
+        "clothing.accessories",
+        "nature.water",
+        "arts.performance",
+        "concepts.calendar",
+        "concepts.opposites",
+        "social.helping",
+        "science.space",
+        "arts.art",
+        "arts.dance",
+        "body.hands",
+        "transport.travel",
+        "nature.environment",
+        "fantasy.magic",
+        "fantasy.pirates",
+        "daily.sleep",
+        "sports",
+        "animals.dinosaurs",
+        "concepts.time",
+        "festivals.christmas",
+        "science.light",
+        "festivals.other",
+        "transport.water",
+        "sports.indoor",
+        "science.experiments",
+        "social.manners",
+        "concepts.colors",
+        "concepts.money",
+        "emotions.scared",
+        "nature.protection",
+        "transport.places"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mx6gx6",
+      "title": "培生启明星",
+      "books": 241,
+      "classified": 229,
+      "pendingBookIds": [
+        "book-150bc5b636056793",
+        "book-60a9709d3906d1c4",
+        "book-e304e58e5567db7b",
+        "book-2828f1927fbb4ae5",
+        "book-47b071371dca4d91",
+        "book-27d2409ec06c9bbf",
+        "book-c54d90f3c965fbc3",
+        "book-7dd7737236596fdd",
+        "book-118934e11b5a673d",
+        "book-7de0a7d90852e638",
+        "book-1fa3d461d95c8c10",
+        "book-50ed98465d4a65e7"
+      ],
+      "bookStatus": {
+        "classification-verified": 128,
+        "title-fallback": 101,
+        "pending": 12
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "concepts.counting",
+        "home",
+        "concepts.colors",
+        "sports.roleplay",
+        "sports.toys",
+        "sports.outdoor",
+        "animals.insects",
+        "animals",
+        "actions",
+        "concepts.attributes",
+        "clothing",
+        "food",
+        "fantasy.characters",
+        "daily",
+        "concepts",
+        "body",
+        "animals.wild",
+        "daily.meals",
+        "body.self",
+        "festivals.other",
+        "social.friends",
+        "arts.performance",
+        "social",
+        "fantasy",
+        "science.life",
+        "clothing.shoes",
+        "arts.dance",
+        "science.phenomena",
+        "emotions.expression",
+        "science.materials",
+        "concepts.position",
+        "family",
+        "social.helping",
+        "food.fruit",
+        "animals.young",
+        "concepts.time",
+        "body.face",
+        "nature.plants",
+        "concepts.books",
+        "transport.water",
+        "arts.singing",
+        "emotions.happy",
+        "animals.pets",
+        "concepts.opposites",
+        "transport.travel",
+        "home.buildings",
+        "body.health",
+        "food.cooking",
+        "actions.locomotion",
+        "nature.weather",
+        "science.space",
+        "body.feet",
+        "clothing.clothes",
+        "animals.birds",
+        "food.staples",
+        "sports.water",
+        "sports.playground",
+        "arts.art",
+        "sports.ball",
+        "jobs.people",
+        "sports",
+        "concepts.shapes",
+        "food.snacks",
+        "science.experiments",
+        "jobs.work",
+        "family.members",
+        "festivals.birthday",
+        "animals.sea"
+      ],
+      "unreachableResourceTopics": [
+        "science.space"
+      ]
+    },
+    {
+      "id": "resource-912oje",
+      "title": "培生儿童英语",
+      "books": 96,
+      "classified": 88,
+      "pendingBookIds": [
+        "book-17ab09685e9c67fb",
+        "book-ad7d955555dc2879",
+        "book-de1ff5dde0541f00",
+        "book-c583d0707018ef52",
+        "book-adaa492cb909aaf4",
+        "book-d7e9a08c269a429b",
+        "book-ebc2ad36200ebeda",
+        "book-e6354e1b9eb6f3ce"
+      ],
+      "bookStatus": {
+        "title-fallback": 88,
+        "pending": 8
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals",
+        "clothing.accessories",
+        "fantasy.pirates",
+        "fantasy.adventure",
+        "fantasy.characters",
+        "daily.meals",
+        "home.objects",
+        "animals.wild",
+        "arts.instruments",
+        "food.fruit",
+        "nature.weather",
+        "science.space",
+        "clothing.clothes",
+        "animals.insects",
+        "sports.playground",
+        "transport.places",
+        "nature.water",
+        "home.buildings",
+        "nature.environment",
+        "science.phenomena",
+        "science.materials",
+        "food.vegetables",
+        "food.cooking",
+        "food.snacks",
+        "sports.toys",
+        "daily.school",
+        "fantasy.magic",
+        "animals.sea",
+        "nature.ocean",
+        "social.helping",
+        "clothing.shoes",
+        "food",
+        "animals.pets",
+        "jobs.people",
+        "arts.performance",
+        "actions.locomotion",
+        "animals.birds",
+        "festivals.birthday",
+        "transport.travel",
+        "arts.art",
+        "concepts.shapes",
+        "animals.sounds",
+        "transport.water",
+        "home.furniture"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1wlddvg",
+      "title": "Jump百科分级·蝌蚪",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-hlndqy",
+      "title": "Jump百科分级·牛蛙",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-nymq45",
+      "title": "Jump百科分级·袋鼠",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-163rc2r",
+      "title": "Jump百科分级·蓝鹰",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-5iilo9",
+      "title": "国家地理",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1qnd5uh",
+      "title": "RAZ",
+      "books": 1260,
+      "classified": 1127,
+      "pendingBookIds": [
+        "book-5c99543607b5fedb",
+        "book-d6cab681a1f64b0c",
+        "book-333740fba81cb930",
+        "book-19370076495605bf",
+        "book-7829893e7e9c58f1",
+        "book-af8bbbd551f31db4",
+        "book-0ad81971c1b0df92",
+        "book-8c4bf7922dbe746e",
+        "book-b5ab1e3fdd09d75d",
+        "book-ad464760f32a947d",
+        "book-c3aa3350c2a882c7",
+        "book-b804412aa5d5d852",
+        "book-7465074072090d80",
+        "book-cb0db9095a72c8b8",
+        "book-8fcc836d53acd007",
+        "book-2aa0744f11e949fd",
+        "book-eb82448af824b20c",
+        "book-b61be8d3da5133ee",
+        "book-aba98746ba49f4b1",
+        "book-723a945ab3c808a1",
+        "book-e8e58a160a02a343",
+        "book-d53d1d1dbd55948a",
+        "book-3b3d9835762e9f0a",
+        "book-4e9c8d38b7c61d48",
+        "book-d1624cd2cf193bf8",
+        "book-f9c64e95be038ea9",
+        "book-c7c6c8960112a157",
+        "book-81b7bb40e4c880fe",
+        "book-8eec30e84cd20a15",
+        "book-697c2b833e2b4e94",
+        "book-be88d8bd0aeb3545",
+        "book-da60f97d99b8067a",
+        "book-f74a223b9a672ff6",
+        "book-e00748ffa3857774",
+        "book-7f19d61e68ba0781",
+        "book-b473ea49f1c19f5b",
+        "book-b14ee5bc568ad1ee",
+        "book-216c1f10439ff759",
+        "book-4c50e07824c96d95",
+        "book-b9c86f2f9f4e76de",
+        "book-bb9cfe7c0828e301",
+        "book-cd818eb11d86122b",
+        "book-01321ad06b39fc11",
+        "book-fe6d008c4971eea3",
+        "book-0935eb7730498fd2",
+        "book-98e8dc8b6b7dd802",
+        "book-eaf73d779360edfd",
+        "book-8c3441caa0d2a9b1",
+        "book-1ebcacaaf9bd36c3",
+        "book-440db6500d528d5e",
+        "book-be9a68041b7e2f52",
+        "book-3a67a7ff19109870",
+        "book-cda207f5e2967c99",
+        "book-c49b746c028e9a11",
+        "book-47039ba31654bd2b",
+        "book-004ae5a38c7e2fec",
+        "book-998003ab6460ba46",
+        "book-d921a602bfed85a1",
+        "book-dab04abd71bd6094",
+        "book-b9b9fb33a7cb4993",
+        "book-5d3e6067ffde1ed0",
+        "book-6c02ca5cc8db68f7",
+        "book-9b28ea2d3c23b184",
+        "book-a6c21ffa2f26dee2",
+        "book-098661ff7e7ab75f",
+        "book-7e9e4a8a63652dfc",
+        "book-37d3c5bb638c2ed1",
+        "book-190ced70e67bb981",
+        "book-5b4ee9676a49e7dc",
+        "book-122a766461af7362",
+        "book-edddc06c698032b9",
+        "book-e47b0947aa5cfcf9",
+        "book-9bb91a90a40f6747",
+        "book-0f575aba403f777f",
+        "book-8c3c25aaaf0a6203",
+        "book-3ee14f34d17ae633",
+        "book-2b486cc0c2e48451",
+        "book-422e5d78113947a2",
+        "book-c46fc447189d2342",
+        "book-8a1915658bf70a25",
+        "book-dbafb6e9be45bfcc",
+        "book-c9c7bb0cc8431d12",
+        "book-bf26f0a1fe11a5f0",
+        "book-b949e58681c1ab71",
+        "book-1e0674fb0d688efe",
+        "book-9590eeb9f82544ef",
+        "book-1ca03bc56d82bd5c",
+        "book-fa51d6c7b3d12923",
+        "book-278349c763e32282",
+        "book-54d01d0d3d7f0901",
+        "book-b49ecc14c64c2642",
+        "book-6e44b60230d86087",
+        "book-90c91900352a67fe",
+        "book-75fcb85984506b8e",
+        "book-127ca02795b56a85",
+        "book-e8e23bdabab2cca9",
+        "book-6ed49f963730a986",
+        "book-b55b081978d360af",
+        "book-0bb559df4eb6b34a",
+        "book-c11b5f668fb9fb66",
+        "book-aae6bbde36b3a474",
+        "book-5b05e53c712d9fc1",
+        "book-02b7f137fb8801da",
+        "book-0797c3bc49824e64",
+        "book-8e7d851278fafb1c",
+        "book-28ac302547809ab8",
+        "book-9e53f6ad8554fb6b",
+        "book-2abeb4a63d90304c",
+        "book-8481d5d390ad0717",
+        "book-d29fa6acaede8c3d",
+        "book-5613bcf72be058fe",
+        "book-aad8e21f8de58c43",
+        "book-e1ee0879cd7c1b8c",
+        "book-8003330f023d3a39",
+        "book-073aebbd5ed50fc6",
+        "book-b9ad65f9df91c677",
+        "book-f43a514e3cd78f55",
+        "book-ad6e32258bf30339",
+        "book-ce81025abd9db2ff",
+        "book-e7bee4973c5259f6",
+        "book-0c5d6f09b3e00be6",
+        "book-e4b916539a48dc86",
+        "book-b57ae50905e151d7",
+        "book-998b635cb0562d2e",
+        "book-ad562f55e892fce7",
+        "book-63af099110d711bf",
+        "book-c35c0d2a567fdc71",
+        "book-612622464221e161",
+        "book-6215f5de7f670d16",
+        "book-63d14439ab8b348d",
+        "book-0012091fb317858b",
+        "book-1bfc69b54f4b0845",
+        "book-314cbfe7ac7cbc27"
+      ],
+      "bookStatus": {
+        "classification-verified": 203,
+        "pending": 133,
+        "title-fallback": 837,
+        "description-derived": 87
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.farm",
+        "animals.pets",
+        "animals.wild",
+        "actions.locomotion",
+        "concepts.position",
+        "animals.insects",
+        "nature.ocean",
+        "animals.birds",
+        "nature.water",
+        "nature.weather",
+        "nature.seasons",
+        "animals.sea",
+        "nature.plants",
+        "body.whole",
+        "fantasy.characters",
+        "animals",
+        "daily.sleep",
+        "concepts.colors",
+        "clothing.clothes",
+        "clothing.accessories",
+        "transport.land",
+        "transport.safety",
+        "sports.playground",
+        "food.fruit",
+        "food.vegetables",
+        "concepts.counting",
+        "home.furniture",
+        "home.objects",
+        "transport.water",
+        "transport.air",
+        "festivals.parties",
+        "phonics.alphabet",
+        "concepts.books",
+        "transport.places",
+        "festivals.christmas",
+        "food.snacks",
+        "festivals.other",
+        "daily.meals",
+        "daily.school",
+        "food",
+        "food.drinks",
+        "food.staples",
+        "family.parent-child",
+        "sports.ball",
+        "transport.travel",
+        "daily.shopping",
+        "sports.outdoor",
+        "jobs.work",
+        "daily.dress",
+        "clothing.dressing",
+        "clothing.shoes",
+        "festivals.birthday",
+        "actions.affection",
+        "home.rooms",
+        "daily.bath",
+        "sports.toys",
+        "sports.indoor",
+        "festivals.easter",
+        "actions",
+        "arts.film",
+        "family.members",
+        "concepts.opposites",
+        "jobs.people",
+        "actions.turn",
+        "nature.environment",
+        "animals.habitats",
+        "animals.young",
+        "concepts.attributes",
+        "concepts.shapes",
+        "festivals.halloween",
+        "food.cooking",
+        "body.senses",
+        "sports.water",
+        "arts.art",
+        "actions.objects",
+        "home.buildings",
+        "fantasy.pirates",
+        "daily.tidy",
+        "daily.wash",
+        "emotions.happy",
+        "concepts.money",
+        "body.face",
+        "social.manners",
+        "daily.safety",
+        "arts.dance",
+        "actions.stretch",
+        "family.siblings",
+        "emotions.scared",
+        "emotions.sad",
+        "emotions.angry",
+        "actions.clap",
+        "arts.rhythm",
+        "concepts.ownership",
+        "animals.dinosaurs",
+        "animals.sounds",
+        "science.space",
+        "body.feet",
+        "arts.performance",
+        "science.materials",
+        "sports",
+        "body.self",
+        "daily.wake",
+        "science.phenomena",
+        "science.life",
+        "arts.instruments",
+        "food.protein",
+        "body.hands",
+        "concepts.time",
+        "science.light",
+        "science.experiments",
+        "emotions.expression",
+        "jobs.tools",
+        "social.helping",
+        "social.sharing",
+        "arts.singing",
+        "social.participation",
+        "social.friends",
+        "nature.protection",
+        "social.goodbye",
+        "concepts.calendar",
+        "sports.hiding",
+        "body.health",
+        "fantasy.magic",
+        "social.honesty",
+        "family.twins",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-190oaw2",
+      "title": "红火箭",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-9fvmjt",
+      "title": "海尼曼",
+      "books": 70,
+      "classified": 62,
+      "pendingBookIds": [
+        "heinemann-gk70-02",
+        "heinemann-gk70-24",
+        "heinemann-gk70-03",
+        "heinemann-gk70-33",
+        "heinemann-gk70-15",
+        "heinemann-gk70-11",
+        "heinemann-gk70-09",
+        "heinemann-gk70-43"
+      ],
+      "bookStatus": {
+        "title-fallback": 62,
+        "unspecified": 8
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily.shopping",
+        "animals.habitats",
+        "daily.school",
+        "sports.outdoor",
+        "arts.performance",
+        "nature.water",
+        "home.rooms",
+        "social.participation",
+        "sports",
+        "animals",
+        "sports.hiding",
+        "family.siblings",
+        "transport.land",
+        "daily.meals",
+        "sports.toys",
+        "home.furniture",
+        "nature.plants",
+        "animals.pets",
+        "food.staples",
+        "food.cooking",
+        "nature.weather",
+        "festivals.parties",
+        "animals.wild",
+        "home.objects",
+        "concepts.attributes",
+        "family.members",
+        "animals.young",
+        "animals.birds",
+        "arts.art",
+        "actions.locomotion",
+        "animals.insects",
+        "social.helping",
+        "clothing.clothes",
+        "clothing.dressing",
+        "sports.roleplay",
+        "animals.farm",
+        "clothing.accessories",
+        "transport.travel"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-7vimum",
+      "title": "悠游阅读成长计划",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "concepts.counting",
+        "sports.toys",
+        "social"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1pinwiv",
+      "title": "古力小超人",
+      "books": 24,
+      "classified": 22,
+      "pendingBookIds": [
+        "book-d02ed715bd0dd9e4",
+        "book-6b0ad74eb09b73d6"
+      ],
+      "bookStatus": {
+        "title-fallback": 22,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.greetings",
+        "daily.wake",
+        "daily.tidy",
+        "sports.hiding",
+        "actions.clap",
+        "festivals.birthday",
+        "festivals.parties",
+        "food",
+        "science.light",
+        "actions.imitation",
+        "nature.weather",
+        "sports.water",
+        "actions.locomotion",
+        "sports.ball",
+        "concepts.position",
+        "jobs.tools",
+        "food.cooking",
+        "sports.playground",
+        "sports.toys",
+        "fantasy.magic",
+        "social.friends",
+        "arts.art",
+        "food.snacks"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-123ikqd",
+      "title": "QPlay奇问妙想国",
+      "books": 10,
+      "classified": 9,
+      "pendingBookIds": [
+        "book-d6ed29454ac9da5e"
+      ],
+      "bookStatus": {
+        "title-fallback": 8,
+        "content-verified": 1,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "home.objects",
+        "fantasy.characters",
+        "social.manners",
+        "social.sharing",
+        "concepts.ownership",
+        "daily.wash",
+        "body.hands",
+        "body.senses",
+        "sports.ball",
+        "actions.objects",
+        "food"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1qj90tg",
+      "title": "WPlay词汇妙趣国",
+      "books": 12,
+      "classified": 12,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 12
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "jobs.people",
+        "arts.singing",
+        "arts.instruments"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1y3ytv6",
+      "title": "My First Reading",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1x8d7zy",
+      "title": "小犀牛",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-hlfpbh",
+      "title": "小猪和狐狸",
+      "books": 4,
+      "classified": 4,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 2,
+        "description-derived": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "home.objects",
+        "animals.wild",
+        "social.friends",
+        "animals",
+        "sports.hiding",
+        "concepts.books",
+        "body.health",
+        "emotions.happy",
+        "nature.protection",
+        "clothing.shoes"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-141vfh7",
+      "title": "培生亲子故事屋",
+      "books": 56,
+      "classified": 50,
+      "pendingBookIds": [
+        "book-901b996729528054",
+        "book-e2ef08cfd96d4733",
+        "book-fc4d4917594b9baf",
+        "book-c02b901dd83228cd",
+        "book-1e98b1f78f8d379c",
+        "book-37460b9ed6e31352"
+      ],
+      "bookStatus": {
+        "title-fallback": 49,
+        "pending": 6,
+        "classification-verified": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.wild",
+        "actions.locomotion",
+        "animals",
+        "animals.insects",
+        "festivals.parties",
+        "arts.performance",
+        "nature.plants",
+        "transport.land",
+        "fantasy.characters",
+        "clothing.accessories",
+        "family.members",
+        "sports.outdoor",
+        "animals.birds",
+        "jobs.people",
+        "clothing.clothes",
+        "animals.sounds",
+        "daily.meals",
+        "animals.habitats",
+        "nature.environment",
+        "sports.playground",
+        "food.snacks",
+        "nature.weather",
+        "home.furniture",
+        "emotions.happy",
+        "social.helping",
+        "body.face",
+        "home.objects",
+        "daily.tidy",
+        "daily.school",
+        "body.health",
+        "sports.ball",
+        "sports.toys",
+        "food.fruit",
+        "science.experiments"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-166ekar",
+      "title": "培生儿童英语情境口语400句",
+      "books": 40,
+      "classified": 37,
+      "pendingBookIds": [
+        "book-764c9027f72cbe9d",
+        "book-3cb59aafe8c5d1eb",
+        "book-f9e098622104565a"
+      ],
+      "bookStatus": {
+        "title-fallback": 35,
+        "pending": 3,
+        "classification-verified": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "family.members",
+        "emotions.happy",
+        "animals",
+        "daily.shopping",
+        "jobs.people",
+        "concepts.attributes",
+        "arts.performance",
+        "body.health",
+        "sports.playground",
+        "animals.wild",
+        "body.face",
+        "nature.ocean",
+        "home.buildings",
+        "food.protein",
+        "science.space",
+        "transport.land",
+        "animals.birds",
+        "nature.environment",
+        "actions.locomotion",
+        "home.objects",
+        "daily.school"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.attributes",
+        "science.space"
+      ]
+    },
+    {
+      "id": "resource-nwgt6e",
+      "title": "Unicorn And Yeti",
+      "books": 9,
+      "classified": 9,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 7,
+        "title-fallback": 1,
+        "description-derived": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy",
+        "social.friends",
+        "fantasy.magic",
+        "sports",
+        "sports.ball",
+        "sports.outdoor",
+        "food",
+        "social.sharing",
+        "sports.playground",
+        "food.fruit",
+        "nature",
+        "daily",
+        "sports.indoor",
+        "nature.weather",
+        "sports.toys",
+        "sports.hiding",
+        "food.cooking",
+        "arts.dance",
+        "fantasy.characters",
+        "concepts.shapes",
+        "arts.art",
+        "food.snacks",
+        "emotions.happy"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1vonnh3",
+      "title": "Hello Hedgehog",
+      "books": 6,
+      "classified": 6,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 6
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "sports",
+        "transport",
+        "social.friends",
+        "transport.land",
+        "daily",
+        "daily.sleep",
+        "emotions.scared",
+        "jobs.people",
+        "sports.water",
+        "social.sharing",
+        "sports.toys",
+        "festivals",
+        "festivals.birthday",
+        "emotions.expression"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-197hwlb",
+      "title": "水先生",
+      "books": 15,
+      "classified": 13,
+      "pendingBookIds": [
+        "book-40052ea3ce33adfa",
+        "book-ab140d4478bd4b27"
+      ],
+      "bookStatus": {
+        "title-fallback": 13,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "nature.plants",
+        "nature.seasons",
+        "science.phenomena",
+        "concepts.time",
+        "science.space",
+        "transport.travel",
+        "body.senses",
+        "body.whole",
+        "animals.farm",
+        "nature.weather",
+        "jobs.work",
+        "animals.dinosaurs",
+        "concepts.colors"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-afwa0g",
+      "title": "Bumble And Bee",
+      "books": 3,
+      "classified": 3,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily",
+        "social.friends",
+        "sports.water",
+        "sports",
+        "sports.hiding",
+        "nature",
+        "food",
+        "nature.seasons",
+        "arts.art",
+        "food.cooking"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-qckpg5",
+      "title": "Maisy初体验",
+      "books": 12,
+      "classified": 12,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 12
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily",
+        "jobs.people",
+        "body.face",
+        "transport",
+        "transport.travel",
+        "transport.land",
+        "arts",
+        "transport.places",
+        "daily.childcare",
+        "arts.singing",
+        "social.friends",
+        "daily.sleep",
+        "sports.indoor",
+        "food",
+        "arts.dance",
+        "sports",
+        "sports.ball",
+        "daily.shopping",
+        "food.snacks",
+        "emotions.scared",
+        "sports.water",
+        "nature",
+        "animals",
+        "nature.water",
+        "animals.birds",
+        "animals.insects",
+        "festivals",
+        "festivals.birthday",
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1f8szif",
+      "title": "牛津树初体验",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school",
+        "family.siblings",
+        "transport.air",
+        "sports.water"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-bpm5u8",
+      "title": "神奇校车桥梁版",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mymg35",
+      "title": "Croc and Ally 鳄鱼和艾丽",
+      "books": 4,
+      "classified": 1,
+      "pendingBookIds": [
+        "book-8405892654726e8b",
+        "book-f38f329f9e779db1",
+        "book-e8aff1efcc2e1f2e"
+      ],
+      "bookStatus": {
+        "pending": 3,
+        "title-fallback": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-zs4dhg",
+      "title": "淘气兔子杰克",
+      "books": 8,
+      "classified": 3,
+      "pendingBookIds": [
+        "book-964f52b39c062a04",
+        "book-b647c2f61a244fdf",
+        "book-a2ebdca5f002335c",
+        "book-4075c67213d88e8e",
+        "book-6eea57c97aa88b64"
+      ],
+      "bookStatus": {
+        "title-fallback": 3,
+        "pending": 5
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.habitats",
+        "sports.ball"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ukyalh",
+      "title": "Fly Guy and Buzz 苍蝇小子",
+      "books": 19,
+      "classified": 18,
+      "pendingBookIds": [
+        "book-2a29792a85bf7a70"
+      ],
+      "bookStatus": {
+        "title-fallback": 18,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.insects",
+        "social.greetings",
+        "food.cooking",
+        "festivals.christmas",
+        "family.members",
+        "body.feet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-16o9su4",
+      "title": "小火柴",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1l68zks",
+      "title": "大红狗 Clifford",
+      "books": 10,
+      "classified": 10,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 10
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.manners",
+        "social.sharing",
+        "social.friends",
+        "nature.seasons",
+        "transport.travel",
+        "family.members",
+        "sports.water",
+        "festivals.birthday",
+        "sports.ball",
+        "social.participation",
+        "actions.objects",
+        "sports",
+        "family.siblings",
+        "animals",
+        "jobs.work",
+        "social.helping",
+        "science.phenomena",
+        "transport.places",
+        "arts.performance",
+        "home.buildings"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-gb603o",
+      "title": "Moby Shinobi and Toby too! 忍者莫比与托比",
+      "books": 3,
+      "classified": 2,
+      "pendingBookIds": [
+        "book-3aa3a88e6fd54198"
+      ],
+      "bookStatus": {
+        "title-fallback": 2,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "sports.outdoor"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-wqz9tv",
+      "title": "Fairlight Friends系列",
+      "books": 3,
+      "classified": 3,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy.magic",
+        "science.light",
+        "festivals.parties",
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-170tbmv",
+      "title": "Henry and Mudge 亨利与马吉",
+      "books": 20,
+      "classified": 16,
+      "pendingBookIds": [
+        "book-af7697fce9995b16",
+        "book-027651ca7c9beaa3",
+        "book-6a44e19ae85dadeb",
+        "book-d26e698209716d12"
+      ],
+      "bookStatus": {
+        "title-fallback": 16,
+        "pending": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "home.buildings",
+        "science.space",
+        "concepts.time",
+        "family.members",
+        "festivals.christmas",
+        "transport.travel",
+        "nature.weather",
+        "daily.meals",
+        "animals",
+        "emotions.happy",
+        "daily.sleep"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-1dwbb86",
+      "title": "Flat Stanley 纸片人",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-45qugp",
+      "title": "Winnie and Wilbur 女巫温妮",
+      "books": 25,
+      "classified": 25,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 4,
+        "title-fallback": 21
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "home.buildings",
+        "fantasy.magic",
+        "home.furniture",
+        "animals",
+        "nature.seasons",
+        "nature.ocean",
+        "fantasy.characters",
+        "emotions.happy",
+        "festivals.birthday",
+        "food.vegetables",
+        "jobs.people",
+        "nature.plants",
+        "actions.objects",
+        "science.life",
+        "food.snacks",
+        "food.cooking",
+        "social.helping",
+        "food.fruit",
+        "science.space",
+        "body.whole",
+        "animals.dinosaurs",
+        "transport.places",
+        "fantasy.adventure",
+        "daily.school",
+        "actions.locomotion",
+        "arts.performance",
+        "animals.birds",
+        "fantasy.pirates",
+        "clothing.clothes",
+        "sports.roleplay",
+        "festivals.parties",
+        "festivals.christmas",
+        "animals.wild",
+        "animals.insects",
+        "festivals.other",
+        "social.friends",
+        "sports"
+      ],
+      "unreachableResourceTopics": [
+        "emotions.happy"
+      ]
+    },
+    {
+      "id": "resource-var8qr",
+      "title": "Frog and Toad 青蛙与蟾蜍",
+      "books": 4,
+      "classified": 4,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily",
+        "sports",
+        "social.friends",
+        "sports.water",
+        "nature",
+        "food",
+        "nature.plants",
+        "food.cooking",
+        "emotions.scared",
+        "festivals",
+        "nature.seasons",
+        "festivals.christmas",
+        "food.snacks",
+        "sports.outdoor",
+        "festivals.birthday",
+        "daily.tidy"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1tlgrbe",
+      "title": "Dragon 胖龙蓝蓝",
+      "books": 5,
+      "classified": 5,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 2,
+        "description-derived": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.friends",
+        "fantasy.characters",
+        "animals",
+        "nature.plants",
+        "transport.land",
+        "animals.pets",
+        "food.protein",
+        "concepts.time",
+        "home.rooms",
+        "daily.shopping",
+        "food",
+        "festivals.halloween",
+        "clothing.clothes",
+        "emotions.scared",
+        "food.vegetables",
+        "body.senses",
+        "animals.sounds",
+        "actions.locomotion",
+        "food.snacks",
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-mavhf5",
+      "title": "丽声冒险故事岛",
+      "books": 56,
+      "classified": 39,
+      "pendingBookIds": [
+        "book-7e16cbb931b64119",
+        "book-28c8e889f000d684",
+        "book-4b37110d1e34aa78",
+        "book-e915a4e09e81efde",
+        "book-cea595e768a3cedb",
+        "book-077a4575e8ea1cec",
+        "book-80ba15e551dea0e7",
+        "book-f647c182af7fb6fb",
+        "book-7f3dfcb3f369fbba",
+        "book-7dd984e09a059bce",
+        "book-d184e5103763ce25",
+        "book-be6a5ddb3fe68094",
+        "book-222a2387acbd42aa",
+        "book-67f4e5054d1b0af4",
+        "book-40065b2bda21ce56",
+        "book-e6a3f42df72a802a",
+        "book-6e9996a7b1ec27de"
+      ],
+      "bookStatus": {
+        "title-fallback": 39,
+        "pending": 17
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.habitats",
+        "animals",
+        "fantasy.adventure",
+        "transport.air",
+        "home.buildings",
+        "science.materials",
+        "emotions.scared",
+        "fantasy.characters",
+        "nature.environment",
+        "nature.weather",
+        "daily.safety",
+        "animals.sea",
+        "nature.ocean",
+        "science.phenomena",
+        "animals.dinosaurs",
+        "body.face"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ef7fo1",
+      "title": "Olive & Beatrix 奥莉和贝特丽克斯",
+      "books": 2,
+      "classified": 2,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.insects"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-sfumgq",
+      "title": "Press Start! 方块兔",
+      "books": 19,
+      "classified": 19,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 19
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy",
+        "fantasy.adventure",
+        "sports",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-6rpiv2",
+      "title": "Missy’s Super Duper 米西公主",
+      "books": 4,
+      "classified": 4,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.pets",
+        "daily.school",
+        "transport.travel"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1af6ny6",
+      "title": "Journey to the West 西游记",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "fantasy.magic",
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-3qjvdw",
+      "title": "Rocket Girl 火箭女孩",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-hcpvnf",
+      "title": "Rocket Girl’s Journey to the West 火箭女孩西游记",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1b0dlwg",
+      "title": "Mighty Robot 威猛机器人",
+      "books": 9,
+      "classified": 9,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 9
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy.characters",
+        "animals.insects",
+        "science.space",
+        "animals.wild",
+        "animals.birds"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-7pnqm0",
+      "title": "Billy and mini Monsters 比利和小怪兽",
+      "books": 15,
+      "classified": 15,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 15
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "transport.places",
+        "fantasy.characters",
+        "body.health",
+        "nature.ocean",
+        "daily.school",
+        "transport.air",
+        "sports.water",
+        "animals.habitats",
+        "transport.travel",
+        "nature.protection",
+        "daily.sleep",
+        "festivals.halloween",
+        "festivals.parties",
+        "home.buildings",
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-13qqnf6",
+      "title": "Hot dog 腊肠狗系列",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-d2yc4z",
+      "title": "Layla and the bots 莱拉和机器人",
+      "books": 4,
+      "classified": 3,
+      "pendingBookIds": [
+        "book-2a425e6bfc210914"
+      ],
+      "bookStatus": {
+        "pending": 1,
+        "title-fallback": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "emotions.happy",
+        "actions.objects",
+        "food.snacks"
+      ],
+      "unreachableResourceTopics": [
+        "emotions.happy"
+      ]
+    },
+    {
+      "id": "resource-cy521f",
+      "title": "Mercy Watson 小猪梅西",
+      "books": 6,
+      "classified": 6,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 6
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily",
+        "family",
+        "social.helping",
+        "transport",
+        "transport.land",
+        "transport.travel",
+        "jobs",
+        "jobs.people",
+        "festivals",
+        "clothing",
+        "festivals.halloween",
+        "clothing.dressing",
+        "animals.pets",
+        "food",
+        "transport.places",
+        "food.snacks"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-152pfrt",
+      "title": "Owl Diaries 猫头鹰日记",
+      "books": 24,
+      "classified": 24,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 24
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "festivals",
+        "social.friends",
+        "social.manners",
+        "festivals.other",
+        "emotions",
+        "family",
+        "arts",
+        "arts.art",
+        "animals",
+        "animals.pets",
+        "food",
+        "food.snacks",
+        "nature",
+        "nature.weather",
+        "daily",
+        "daily.sleep",
+        "emotions.scared",
+        "festivals.birthday",
+        "family.siblings",
+        "arts.singing",
+        "food.fruit",
+        "food.drinks",
+        "sports.outdoor",
+        "emotions.expression",
+        "sports",
+        "nature.ocean",
+        "sports.water",
+        "arts.instruments",
+        "social",
+        "social.participation",
+        "social.sharing",
+        "food.cooking",
+        "arts.dance"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-156rqb1",
+      "title": "The Princess in Black 黑衣公主",
+      "books": 11,
+      "classified": 11,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 11
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy",
+        "fantasy.adventure",
+        "fantasy.characters",
+        "festivals",
+        "festivals.birthday",
+        "daily",
+        "transport.travel",
+        "social.friends",
+        "arts.singing",
+        "sports.indoor",
+        "science",
+        "science.experiments",
+        "sports.outdoor",
+        "arts",
+        "festivals.other",
+        "arts.art",
+        "animals",
+        "animals.pets"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ox5enn",
+      "title": "Haggis and Tank 哈吉斯坦克",
+      "books": 3,
+      "classified": 2,
+      "pendingBookIds": [
+        "book-6fb94d6f7340316d"
+      ],
+      "bookStatus": {
+        "pending": 1,
+        "title-fallback": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "actions.objects",
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ny70rr",
+      "title": "Princess Pink and the Land of Fake-Believe 粉红公主与虚无世界",
+      "books": 4,
+      "classified": 2,
+      "pendingBookIds": [
+        "book-455ace6b19d12944",
+        "book-e0fb36ec2730d377"
+      ],
+      "bookStatus": {
+        "title-fallback": 2,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.sounds"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-17uzhaa",
+      "title": "Bad guys 坏蛋联盟",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-6ze03a",
+      "title": "Kung Pow Chicken 宫保鸡丁",
+      "books": 4,
+      "classified": 4,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 4
+      },
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-z8zhbt",
+      "title": "Monkey Me 猴子男孩",
+      "books": 4,
+      "classified": 4,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.pets",
+        "animals.wild",
+        "daily.school",
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-gzsymu",
+      "title": "Junie B Jones 朱妮琼斯",
+      "books": 28,
+      "classified": 24,
+      "pendingBookIds": [
+        "book-10482190717f5ccc",
+        "book-01c56e4b1ef74d4a",
+        "book-33ac295a272c76c8",
+        "book-56ea4fd002f3a956"
+      ],
+      "bookStatus": {
+        "title-fallback": 24,
+        "pending": 4
+      },
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.land",
+        "daily.school",
+        "clothing.clothes",
+        "festivals.birthday",
+        "body.senses",
+        "animals",
+        "festivals.parties",
+        "home.furniture",
+        "fantasy.characters",
+        "daily.haircut",
+        "nature.plants",
+        "sports.ball",
+        "home.objects",
+        "festivals.christmas",
+        "arts.instruments",
+        "animals.birds",
+        "daily.meals",
+        "social.friends",
+        "emotions.expression"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-o1ogk8",
+      "title": "Rabbit & Bear 胖熊和瘦兔",
+      "books": 6,
+      "classified": 5,
+      "pendingBookIds": [
+        "book-29a1c5e28c35c99c"
+      ],
+      "bookStatus": {
+        "title-fallback": 5,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals",
+        "animals.habitats",
+        "food.snacks",
+        "concepts.time",
+        "emotions.sad",
+        "nature.water"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-1buy45u",
+      "title": "Isadora moon 伊莎多拉穆恩系列",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-11j61f",
+      "title": "Desmond Cole Ghost Patrol 捉鬼小分队",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-13sgknh",
+      "title": "The Zack Files 扎克档案",
+      "books": 29,
+      "classified": 26,
+      "pendingBookIds": [
+        "book-8539b343a3b5c26e",
+        "book-63a3489cbdd263e5",
+        "book-1de4005c6d156dca"
+      ],
+      "bookStatus": {
+        "title-fallback": 26,
+        "pending": 3
+      },
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.travel",
+        "family.members",
+        "body.health",
+        "fantasy.characters",
+        "science.phenomena",
+        "home.objects",
+        "nature.protection",
+        "animals.sea",
+        "body.whole",
+        "animals",
+        "social.honesty",
+        "jobs.people",
+        "transport.places",
+        "animals.dinosaurs",
+        "food.protein",
+        "science.space",
+        "science.life",
+        "social.manners",
+        "animals.insects",
+        "fantasy.adventure",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-4meiec",
+      "title": "Dragon Master 驯龙大师",
+      "books": 33,
+      "classified": 33,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 33
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1jxbmnm",
+      "title": "Magic Treehouse 神奇树屋漫画版",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.magic",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mnq6y8",
+      "title": "Magic Tree House 神奇树屋",
+      "books": 28,
+      "classified": 25,
+      "pendingBookIds": [
+        "book-e0084bf0da236896",
+        "book-a77fe6da16fa4d05",
+        "book-3c7fcd89c4139057"
+      ],
+      "bookStatus": {
+        "title-fallback": 25,
+        "pending": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "concepts.time",
+        "fantasy.pirates",
+        "science.space",
+        "animals.sea",
+        "transport.places",
+        "fantasy.characters",
+        "daily.meals",
+        "animals.wild",
+        "daily.sleep",
+        "transport.travel",
+        "science.phenomena",
+        "transport.water",
+        "nature.seasons",
+        "social.greetings",
+        "festivals.other"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-1j8s6qm",
+      "title": "The last firehawk 火鹰传奇",
+      "books": 12,
+      "classified": 10,
+      "pendingBookIds": [
+        "book-734a3b95194991fa",
+        "book-0b65bf73eeebfe8d"
+      ],
+      "bookStatus": {
+        "title-fallback": 10,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "science.phenomena",
+        "nature.plants",
+        "nature.water",
+        "nature.weather",
+        "nature.environment",
+        "science.light"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-9ub1k4",
+      "title": "Stink 朱迪弟弟系列",
+      "books": 12,
+      "classified": 10,
+      "pendingBookIds": [
+        "book-811a21ab794619f1",
+        "book-a7f22ab44d94e2bd"
+      ],
+      "bookStatus": {
+        "pending": 2,
+        "title-fallback": 10
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "clothing.shoes",
+        "animals.pets",
+        "science.space",
+        "fantasy.characters",
+        "actions.locomotion",
+        "animals",
+        "daily.sleep",
+        "animals.sea",
+        "animals.insects",
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mu8hkl",
+      "title": "Judy Moody 稀奇古怪小朱迪",
+      "books": 16,
+      "classified": 12,
+      "pendingBookIds": [
+        "book-5b326d77c636d9e5",
+        "book-f764c1eb7cd6cab3",
+        "book-7372457a8f7c07c1",
+        "book-6e52aaafd489f42d"
+      ],
+      "bookStatus": {
+        "description-derived": 1,
+        "pending": 4,
+        "title-fallback": 11
+      },
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "jobs.people",
+        "nature.seasons",
+        "home.objects",
+        "food.drinks",
+        "festivals.parties",
+        "emotions.expression",
+        "daily.school"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-18dli54",
+      "title": "Marvin Redpost 麻烦精马文",
+      "books": 8,
+      "classified": 7,
+      "pendingBookIds": [
+        "book-f0ce95fba5151dc1"
+      ],
+      "bookStatus": {
+        "title-fallback": 7,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "fantasy.magic",
+        "home.buildings",
+        "jobs.people",
+        "food.snacks",
+        "festivals.birthday"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-12jlik8",
+      "title": "Pets rule! 萌宠当家",
+      "books": 5,
+      "classified": 5,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 5
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.pets",
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-19sq4gs",
+      "title": "Real Pigeons 鸽子侦探",
+      "books": 5,
+      "classified": 5,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 5
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.birds",
+        "animals.habitats",
+        "sports.water"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-agtp1r",
+      "title": "The Notebook of Doom 毁灭日记",
+      "books": 13,
+      "classified": 8,
+      "pendingBookIds": [
+        "book-c3365e5594392810",
+        "book-0043f6f3f94e4bfd",
+        "book-a07a666beacb233c",
+        "book-e2e4b4d9bb736b09",
+        "book-8f65a245841424ea"
+      ],
+      "bookStatus": {
+        "title-fallback": 8,
+        "pending": 5
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "sports.toys",
+        "concepts.time",
+        "science.light",
+        "food.vegetables",
+        "food.protein",
+        "family.members",
+        "fantasy.characters",
+        "animals.insects",
+        "nature.weather"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time",
+        "family.members"
+      ]
+    },
+    {
+      "id": "resource-nxe263",
+      "title": "Eerie elementary 怪诞小学",
+      "books": 9,
+      "classified": 9,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 9
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily.school",
+        "nature.environment",
+        "sports.playground",
+        "science.experiments",
+        "arts.art"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1nhjndw",
+      "title": "A to Z Mysteries 神秘事件",
+      "books": 26,
+      "classified": 21,
+      "pendingBookIds": [
+        "book-e81269af8f3c8985",
+        "book-f94b88dacc22a928",
+        "book-8f11983d994f69bb",
+        "book-0ad2fac7458473c2",
+        "book-47df3413a647bd8d"
+      ],
+      "bookStatus": {
+        "title-fallback": 20,
+        "pending": 5,
+        "description-derived": 1
+      },
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.birds",
+        "animals.wild",
+        "sports.indoor",
+        "daily.school",
+        "body.whole",
+        "transport.water",
+        "fantasy.characters",
+        "transport.travel",
+        "family.members",
+        "fantasy.mystery"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1whu8ta",
+      "title": "Wayside School 歪歪路小学",
+      "books": 3,
+      "classified": 3,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily.school"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1wst5jk",
+      "title": "Lotus Lane 莲花巷女生日记",
+      "books": 4,
+      "classified": 0,
+      "pendingBookIds": [
+        "book-38fb46db902a8d9f",
+        "book-068b275d2093ae4f",
+        "book-167ea55cb63f86fb",
+        "book-49bd8dbe88457fd5"
+      ],
+      "bookStatus": {
+        "pending": 4
+      },
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.friends",
+        "clothing.clothes"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1gq6hvt",
+      "title": "My Weird School 疯狂学校",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1k30p32",
+      "title": "The Treehouse Collection 小屁孩树屋",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.characters",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1tu4qnm",
+      "title": "Andrew Lost 安德鲁的微观世界",
+      "books": 18,
+      "classified": 16,
+      "pendingBookIds": [
+        "book-c6577fbe751323fa",
+        "book-e79ee9d6223b55b6"
+      ],
+      "bookStatus": {
+        "title-fallback": 16,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals",
+        "home.rooms",
+        "nature.plants",
+        "animals.sea",
+        "nature.ocean",
+        "science.space",
+        "animals.dinosaurs",
+        "science.phenomena",
+        "nature.protection",
+        "nature.environment",
+        "family.members"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1fcf1ox",
+      "title": "The magic school bus rides again 神奇校车大树系列",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1c42je5",
+      "title": "Merlin Mission 梅林任务",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.magic",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kacco9",
+      "title": "Geronimo Stilton 老鼠记者",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1rtjaam",
+      "title": "Football super stars 足球明星",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "sports.ball"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1xi6ik1",
+      "title": "时光学名词卡",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-5d3abe",
+      "title": "阿布巴布动词卡",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "actions"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1bry08c",
+      "title": "SSS 指令式儿歌",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "transport.water",
+        "daily.sleep",
+        "emotions.happy",
+        "actions.clap",
+        "animals.farm",
+        "food.cooking",
+        "sports.finger",
+        "jobs.people",
+        "animals",
+        "concepts.counting",
+        "sports.hiding",
+        "nature.weather",
+        "sports.outdoor",
+        "animals.sea",
+        "family.members",
+        "daily.wash",
+        "daily.dress",
+        "social.greetings",
+        "actions.stretch",
+        "transport.land",
+        "body",
+        "actions.imitation",
+        "concepts.opposites",
+        "social.manners",
+        "phonics.alphabet",
+        "animals.pets",
+        "actions.turn",
+        "arts.dance",
+        "jobs.work",
+        "food.snacks",
+        "social.sharing",
+        "sports.indoor",
+        "daily.bath",
+        "concepts.time",
+        "daily.wake",
+        "clothing.dressing",
+        "actions.locomotion",
+        "daily.tidy",
+        "festivals.christmas",
+        "fantasy.characters",
+        "festivals.halloween"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1tacti",
+      "title": "Yakka Dee",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "food.fruit",
+        "animals.pets",
+        "concepts.books",
+        "clothing.shoes",
+        "transport.land",
+        "animals.birds",
+        "home.objects",
+        "food.vegetables",
+        "clothing.accessories",
+        "animals.insects",
+        "transport.water",
+        "home.buildings",
+        "animals.wild",
+        "sports.ball",
+        "animals",
+        "home.furniture",
+        "body.face",
+        "animals.sea",
+        "science.space",
+        "daily.bath",
+        "body.whole",
+        "nature.plants",
+        "nature.weather",
+        "body.feet",
+        "animals.farm",
+        "sports.outdoor",
+        "food.snacks",
+        "sports.toys",
+        "transport.air",
+        "clothing.clothes",
+        "food.protein",
+        "food.drinks",
+        "arts.instruments",
+        "food.staples",
+        "daily.wash",
+        "fantasy.characters",
+        "animals.dinosaurs",
+        "concepts.time",
+        "festivals.birthday",
+        "body.hands",
+        "phonics.alphabet",
+        "phonics.letter-sounds"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1nuqi5t",
+      "title": "培生词汇妙趣屋",
+      "books": 192,
+      "classified": 187,
+      "pendingBookIds": [
+        "book-b4f3d4b6ae83fc28",
+        "book-4f965199dbff2a9c",
+        "book-6626b5a6b33689d2",
+        "book-120467d83dfe4093",
+        "book-850fd4e6e70f1beb"
+      ],
+      "bookStatus": {
+        "classification-verified": 190,
+        "title-fallback": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "food.vegetables",
+        "food.fruit",
+        "home.rooms",
+        "home.objects",
+        "transport",
+        "animals",
+        "jobs",
+        "actions",
+        "clothing",
+        "concepts.colors",
+        "body",
+        "family.members",
+        "nature",
+        "animals.farm",
+        "animals.wild",
+        "food",
+        "food.drinks",
+        "animals.insects",
+        "nature.environment",
+        "daily",
+        "concepts.position",
+        "science.space",
+        "animals.pets",
+        "transport.land",
+        "festivals.birthday",
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories",
+        "nature.plants",
+        "body.whole",
+        "home.furniture",
+        "nature.weather",
+        "concepts.time",
+        "family",
+        "home.buildings",
+        "sports.playground",
+        "transport.travel",
+        "animals.birds",
+        "emotions.expression",
+        "arts.singing",
+        "jobs.people",
+        "actions.locomotion",
+        "sports.water",
+        "animals.sounds",
+        "animals.sea",
+        "transport.water",
+        "transport.places",
+        "transport.air",
+        "actions.clap",
+        "food.snacks",
+        "actions.objects",
+        "daily.wash",
+        "food.cooking",
+        "daily.sleep",
+        "festivals.parties",
+        "fantasy.characters",
+        "food.staples",
+        "daily.meals",
+        "daily.shopping",
+        "sports.outdoor",
+        "nature.water",
+        "daily.bath"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-149sp5j",
+      "title": "书虫",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-qe1v8g",
+      "title": "Didi’s day",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily",
+        "social"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1u3sl6e",
+      "title": "绿色大森林",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "nature.environment"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-vy1kzi",
+      "title": "趣趣知知鸟",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.position",
+        "concepts.opposites"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-16a6i0i",
+      "title": "动物王国大冒险",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.environment",
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ddfbd5",
+      "title": "Little Pim",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.fruit"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-14o82ad",
+      "title": "小羊提米",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.childcare"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-jwq9vf",
+      "title": "Highlight 故事与科普配对",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-smispi",
+      "title": "蝙蝠和朋友们",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1y9g6so",
+      "title": "汽车小镇",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "transport.land",
+        "transport.places"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1gsfuor",
+      "title": "蓝色小考拉",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "social.manners",
+        "daily.dress",
+        "clothing.dressing"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ij95m4",
+      "title": "Wow English",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "classification-verified",
+      "resourceTopics": [
+        "actions.locomotion",
+        "concepts.counting",
+        "concepts.colors",
+        "body.whole"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-rl0b1m",
+      "title": "小 P 优优",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "emotions.expression"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1kgj14f",
+      "title": "恐龙伙伴",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1danc8u",
+      "title": "小鼠波波",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily",
+        "daily.meals",
+        "daily.dress",
+        "sports",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1febliy",
+      "title": "Max and Ruby",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.siblings"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1az9smt",
+      "title": "小兔乒乓",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-x4koio",
+      "title": "小老虎丹尼尔",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social",
+        "emotions"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1iwxmhd",
+      "title": "Peter rabbit",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social",
+        "nature.protection"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-mxtrmb",
+      "title": "小狐狸动画",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-wzntyi",
+      "title": "Meg and Mog",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.magic",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-v9iv1e",
+      "title": "Pip and posy",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.friends",
+        "sports"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-l64s2i",
+      "title": "培生（第六阶段未标明套系）",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1c2hg6x",
+      "title": "大马泽",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-f7cp5r",
+      "title": "道奇",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.participation",
+        "social.helping"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ej5kvd",
+      "title": "巫师与猫",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "fantasy.magic"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kgt2tw",
+      "title": "名词闪卡",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1nxtpna",
+      "title": "TPR动词指令卡",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "actions"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kcbshs",
+      "title": "basic reading",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-l95jou",
+      "title": "大马泽单词本",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-16z7681",
+      "title": "大马泽台词本",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-11spny4",
+      "title": "Highlight",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1n7rgvn",
+      "title": "字母表",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1jyk16u",
+      "title": "字母积木",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet",
+        "phonics.phonics"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hotvkv",
+      "title": "牛津自然拼读",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "phonics.phonics"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-f0ccqx",
+      "title": "220视觉词",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1clzu3i",
+      "title": "Booklife Junior",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-103oyny",
+      "title": "蝙蝠和朋友",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ezbi3s",
+      "title": "小狐狸台词本",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-a52ypl",
+      "title": "饼干狗",
+      "books": 24,
+      "classified": 24,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 22,
+        "title-fallback": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "home.furniture",
+        "body.senses",
+        "food.snacks",
+        "daily.sleep",
+        "daily.school",
+        "animals",
+        "jobs.people",
+        "home.buildings",
+        "social.friends",
+        "transport.land",
+        "transport.places",
+        "animals.wild",
+        "sports.toys",
+        "sports",
+        "social.helping",
+        "sports.ball",
+        "family.members",
+        "actions.locomotion",
+        "animals.pets",
+        "social.sharing",
+        "daily.bath",
+        "nature.plants",
+        "concepts.books",
+        "arts.performance",
+        "food",
+        "transport.travel",
+        "animals.insects",
+        "nature.weather",
+        "sports.outdoor",
+        "social.participation",
+        "festivals.parties",
+        "science.phenomena",
+        "concepts.position",
+        "daily.wake"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hwirew",
+      "title": "皮特猫",
+      "books": 16,
+      "classified": 16,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 15,
+        "title-fallback": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "daily.school",
+        "jobs.people",
+        "body.health",
+        "food.staples",
+        "social.sharing",
+        "social.friends",
+        "animals",
+        "clothing.shoes",
+        "concepts.attributes",
+        "festivals.christmas",
+        "fantasy.magic",
+        "fantasy.adventure",
+        "sports.ball",
+        "social.participation",
+        "actions.locomotion",
+        "sports",
+        "science.phenomena",
+        "nature.ocean",
+        "home.buildings",
+        "emotions.scared",
+        "family.siblings",
+        "social.helping",
+        "animals.pets",
+        "arts.art",
+        "transport.places",
+        "family.members",
+        "clothing.clothes",
+        "transport.land",
+        "transport.travel",
+        "food.fruit",
+        "animals.sea",
+        "concepts.opposites",
+        "sports.water",
+        "fantasy.characters",
+        "nature.weather",
+        "food.snacks",
+        "actions.objects",
+        "animals.insects",
+        "emotions.angry",
+        "emotions.happy",
+        "food.cooking",
+        "food",
+        "daily.tidy"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-19cnwh8",
+      "title": "名词卡",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ehqeof",
+      "title": "动词卡",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "actions"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hv2ggo",
+      "title": "巴蒂英语",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "body"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-xqapbe",
+      "title": "Frog and Friends 蛙小弟",
+      "books": 8,
+      "classified": 8,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 7,
+        "title-fallback": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.friends",
+        "nature.water",
+        "animals",
+        "nature.seasons",
+        "festivals.parties",
+        "arts.dance",
+        "social.helping",
+        "concepts.time",
+        "daily.sleep",
+        "nature.plants",
+        "nature.ocean",
+        "fantasy.adventure",
+        "animals.birds",
+        "emotions.scared",
+        "arts.singing",
+        "nature.weather",
+        "festivals.christmas",
+        "festivals.other"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1md8os8",
+      "title": "小猪佩奇",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.members",
+        "family.siblings",
+        "sports",
+        "sports.roleplay",
+        "sports.outdoor"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ghd02m",
+      "title": "牛津自拼",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "phonics.phonics"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hu7to9",
+      "title": "丽声高频词",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-gfdta7",
+      "title": "莎林高频词",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-l141pg",
+      "title": "Evan-moor sight words",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-yy64zs",
+      "title": "蔬菜王国",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "food.vegetables"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1raloog",
+      "title": "丽声自然拼读",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "phonics.phonics"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1nnr59r",
+      "title": "大猫自然拼读",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "phonics.phonics"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-oz0jbk",
+      "title": "糊涂女佣",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ulmaqc",
+      "title": "内裤超人",
+      "books": 12,
+      "classified": 8,
+      "pendingBookIds": [
+        "book-8c02c5fc3da7d7ec",
+        "book-55c9f6aef244cc66",
+        "book-b628a8ad57cf31cc",
+        "book-ede36c65761cc4d2"
+      ],
+      "bookStatus": {
+        "title-fallback": 8,
+        "pending": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "science.space",
+        "concepts.time",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-1r3pyyc",
+      "title": "罗尔德达尔",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure",
+        "food.snacks"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-13uj3q",
+      "title": "神奇校车",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ngqkjv",
+      "title": "哈里波特",
+      "books": 7,
+      "classified": 3,
+      "pendingBookIds": [
+        "book-0b3d50b77c94e3a1",
+        "book-9d1c9ed6c267c188",
+        "book-715982fb1c14f905",
+        "book-d43a2b4582a759f1"
+      ],
+      "bookStatus": {
+        "title-fallback": 3,
+        "pending": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "science.phenomena",
+        "body.whole"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1sx9rf3",
+      "title": "新概念",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ew2482",
+      "title": "Power up",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "classification-verified",
+      "resourceTopics": [
+        "daily",
+        "concepts.time",
+        "concepts.calendar",
+        "sports",
+        "jobs.people",
+        "festivals.parties",
+        "family.members",
+        "home.rooms",
+        "animals.wild",
+        "animals",
+        "nature.weather",
+        "clothing.clothes",
+        "food.cooking",
+        "transport.places",
+        "transport.safety"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-9v2gi2",
+      "title": "think",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "classification-verified",
+      "resourceTopics": [
+        "social.introduction",
+        "emotions.expression",
+        "family.members",
+        "home.rooms",
+        "home.furniture",
+        "transport.places",
+        "concepts.position",
+        "daily.shopping",
+        "daily",
+        "body",
+        "concepts.attributes",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-zqlmu5",
+      "title": "basic words",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ckc2k",
+      "title": "巴塔木口语书",
+      "books": 24,
+      "classified": 24,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "classification-verified": 24
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "sports.hiding",
+        "animals.birds",
+        "family.members",
+        "animals",
+        "body.health",
+        "food",
+        "arts.performance",
+        "festivals.birthday",
+        "fantasy.characters",
+        "science.life",
+        "concepts.time",
+        "animals.sounds",
+        "daily.tidy",
+        "arts.film",
+        "fantasy.magic",
+        "clothing.accessories",
+        "sports",
+        "social.participation",
+        "nature.weather",
+        "social.friends",
+        "nature.protection",
+        "home.rooms",
+        "social.helping"
+      ],
+      "unreachableResourceTopics": [
+        "animals.birds",
+        "fantasy.characters",
+        "science.life",
+        "concepts.time",
+        "fantasy.magic",
+        "social.participation",
+        "social.friends"
+      ]
+    },
+    {
+      "id": "resource-1yfs7b5",
+      "title": "Super Hammy",
+      "books": 30,
+      "classified": 28,
+      "pendingBookIds": [
+        "book-d04142f6837f668d",
+        "book-5db1138b4f64bbcc"
+      ],
+      "bookStatus": {
+        "pending": 2,
+        "description-derived": 12,
+        "title-fallback": 16
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "transport.land",
+        "food.protein",
+        "daily.bath",
+        "festivals.birthday",
+        "festivals.parties",
+        "food.snacks",
+        "animals",
+        "food.cooking",
+        "fantasy.adventure",
+        "clothing.clothes",
+        "festivals.halloween",
+        "nature.weather",
+        "emotions.scared",
+        "clothing.accessories",
+        "arts.dance",
+        "actions.locomotion",
+        "transport.travel",
+        "daily.tidy",
+        "sports.ball",
+        "nature.ocean",
+        "food.staples",
+        "social.friends",
+        "animals.sea",
+        "sports.water",
+        "animals.insects",
+        "science.space",
+        "sports.outdoor",
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-17efze2",
+      "title": "Muzzy",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1am9p27",
+      "title": "Wow学练机",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-qkrzsy",
+      "title": "动物国王大冒险",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.environment",
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1e4sexo",
+      "title": "清华幼儿英语启蒙动画",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "social.greetings",
+        "social.introduction"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-q1bvp4",
+      "title": "小小优趣成长计划",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-e87t8v",
+      "title": "小猪小象",
+      "books": 25,
+      "classified": 25,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 24,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "actions",
+        "social.friends",
+        "emotions.sad",
+        "emotions.expression",
+        "festivals",
+        "clothing",
+        "clothing.clothes",
+        "festivals.other",
+        "animals",
+        "social.manners",
+        "sports",
+        "sports.toys",
+        "sports.indoor",
+        "nature",
+        "sports.outdoor",
+        "nature.weather",
+        "sports.ball",
+        "arts",
+        "arts.dance",
+        "actions.imitation",
+        "emotions.scared",
+        "concepts.books",
+        "body.face",
+        "food",
+        "social.sharing",
+        "food.snacks",
+        "arts.instruments",
+        "transport",
+        "transport.travel",
+        "fantasy",
+        "daily",
+        "daily.sleep"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hh94zx",
+      "title": "3S动画儿歌",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-45fjcl",
+      "title": "口语剧场",
+      "books": 30,
+      "classified": 28,
+      "pendingBookIds": [
+        "book-cdf9e9e3f8b2bea9",
+        "book-9cdeb3348cbe3b0e"
+      ],
+      "bookStatus": {
+        "title-fallback": 28,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "food",
+        "family.members",
+        "animals.farm",
+        "animals",
+        "festivals.parties",
+        "nature.water",
+        "transport.water",
+        "transport.land",
+        "arts.singing",
+        "daily.wake",
+        "family.siblings",
+        "food.snacks",
+        "home.buildings",
+        "actions.locomotion",
+        "concepts.position",
+        "social.manners",
+        "body.feet",
+        "nature.plants",
+        "science.life",
+        "concepts.time"
+      ],
+      "unreachableResourceTopics": [
+        "concepts.time"
+      ]
+    },
+    {
+      "id": "resource-yl8irm",
+      "title": "Best Buddies",
+      "books": 3,
+      "classified": 3,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 3
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "social.friends",
+        "home.rooms",
+        "home.objects",
+        "animals",
+        "food.snacks",
+        "social.participation",
+        "nature.weather",
+        "emotions.happy",
+        "sports.toys"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-o2t6vh",
+      "title": "波西与皮普",
+      "books": 12,
+      "classified": 12,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "content-verified": 12
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "sports",
+        "social.friends",
+        "social.sharing",
+        "social.manners",
+        "emotions.angry",
+        "emotions.sad",
+        "emotions.expression",
+        "nature",
+        "nature.weather",
+        "sports.outdoor",
+        "daily",
+        "emotions.scared",
+        "sports.toys",
+        "food.snacks",
+        "daily.bath",
+        "daily.sleep",
+        "nature.ocean",
+        "festivals",
+        "festivals.christmas",
+        "animals",
+        "nature.plants",
+        "festivals.birthday",
+        "sports.indoor",
+        "sports.hiding",
+        "daily.wash"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ie3zww",
+      "title": "佩奇高频词绘本",
+      "books": 20,
+      "classified": 20,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 20
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "transport.air",
+        "animals",
+        "family.members",
+        "actions.locomotion",
+        "sports.hiding",
+        "animals.wild",
+        "food.staples",
+        "animals.pets",
+        "festivals.birthday",
+        "home.buildings",
+        "concepts.attributes",
+        "concepts.opposites",
+        "animals.habitats",
+        "daily.sleep",
+        "daily.tidy",
+        "nature.plants",
+        "nature.weather"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-106pkss",
+      "title": "快乐瓢虫",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1qn098f",
+      "title": "I can read",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-uux27w",
+      "title": "银河号阅读全解码",
+      "books": 30,
+      "classified": 28,
+      "pendingBookIds": [
+        "book-82a9b3daeb4a0dd6",
+        "book-14c2bdbe6c2e6992"
+      ],
+      "bookStatus": {
+        "title-fallback": 28,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.wild",
+        "family.members",
+        "home.buildings",
+        "daily.sleep",
+        "home.furniture",
+        "animals",
+        "animals.pets",
+        "actions.locomotion",
+        "concepts.opposites",
+        "transport.land",
+        "animals.insects",
+        "nature.weather",
+        "food.snacks",
+        "festivals.birthday",
+        "daily.meals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kjiouh",
+      "title": "学乐橡子点读系列",
+      "books": 6,
+      "classified": 6,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 2,
+        "title-fallback": 4
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "emotions.happy",
+        "body.face",
+        "science.space",
+        "sports",
+        "sports.hiding",
+        "daily.wake",
+        "daily.school",
+        "festivals.parties"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hwgnzy",
+      "title": "小毛人",
+      "books": 5,
+      "classified": 5,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "description-derived": 5
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "arts.film",
+        "transport.places",
+        "science.phenomena",
+        "transport.travel",
+        "jobs.work",
+        "clothing.clothes",
+        "clothing.shoes",
+        "social.helping",
+        "jobs.people",
+        "actions.locomotion",
+        "nature.ocean",
+        "sports.outdoor",
+        "animals.sea",
+        "fantasy.adventure",
+        "family.members",
+        "concepts.counting",
+        "social.friends",
+        "social.participation"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-127dfoe",
+      "title": "脏脏书",
+      "books": 20,
+      "classified": 20,
+      "pendingBookIds": [],
+      "bookStatus": {
+        "title-fallback": 20
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "body.face",
+        "body.health",
+        "animals.dinosaurs",
+        "animals.wild",
+        "body.hands",
+        "fantasy.characters",
+        "food.cooking",
+        "jobs.people",
+        "body.whole",
+        "concepts.attributes",
+        "social.manners",
+        "social.helping",
+        "social.greetings",
+        "sports.hiding",
+        "home.buildings",
+        "family.members",
+        "animals"
+      ],
+      "unreachableResourceTopics": [
+        "family.members"
+      ]
+    },
+    {
+      "id": "resource-1g6rmtp",
+      "title": "汪培珽一段",
+      "books": 28,
+      "classified": 26,
+      "pendingBookIds": [
+        "book-ad0dae5e016019ce",
+        "book-9bbd7135452f2a3b"
+      ],
+      "bookStatus": {
+        "description-derived": 19,
+        "title-fallback": 7,
+        "pending": 2
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "festivals.birthday",
+        "festivals.parties",
+        "home.buildings",
+        "social.friends",
+        "social.helping",
+        "transport.places",
+        "animals.habitats",
+        "emotions.happy",
+        "social.manners",
+        "social.participation",
+        "fantasy.adventure",
+        "jobs.people",
+        "home.furniture",
+        "body.senses",
+        "animals",
+        "concepts.attributes",
+        "animals.wild",
+        "arts.art",
+        "sports.toys",
+        "arts.dance",
+        "arts.performance",
+        "concepts.colors",
+        "actions.locomotion",
+        "daily.school",
+        "concepts.opposites",
+        "sports.water",
+        "transport.travel",
+        "nature.weather",
+        "food.staples",
+        "family.members",
+        "animals.insects",
+        "animals.birds",
+        "food.vegetables",
+        "body.face",
+        "sports.outdoor",
+        "nature.environment",
+        "science.life",
+        "concepts.ownership",
+        "emotions.sad",
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-3z1ap6",
+      "title": "佩奇绘本",
+      "books": 50,
+      "classified": 49,
+      "pendingBookIds": [
+        "book-64bd346e05b9e131"
+      ],
+      "bookStatus": {
+        "description-derived": 17,
+        "title-fallback": 32,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "sports.toys",
+        "animals",
+        "family.members",
+        "animals.sounds",
+        "actions.locomotion",
+        "arts.singing",
+        "social.helping",
+        "transport.travel",
+        "animals.insects",
+        "food.staples",
+        "home.buildings",
+        "home.furniture",
+        "nature.water",
+        "transport.water",
+        "daily.school",
+        "sports",
+        "concepts.counting",
+        "fantasy.adventure",
+        "actions.objects",
+        "social.friends",
+        "sports.outdoor",
+        "nature.environment",
+        "nature.plants",
+        "body.feet",
+        "daily.meals",
+        "transport.land",
+        "sports.indoor",
+        "jobs.people",
+        "arts.instruments",
+        "family.siblings",
+        "emotions.expression",
+        "arts.dance",
+        "clothing.clothes",
+        "sports.roleplay",
+        "festivals.parties",
+        "nature.weather",
+        "fantasy.pirates",
+        "animals.wild",
+        "body.face",
+        "fantasy.characters",
+        "sports.water",
+        "fantasy.magic",
+        "science.space",
+        "daily.sleep",
+        "jobs.work",
+        "daily.shopping",
+        "arts.performance",
+        "nature.protection",
+        "social.sharing",
+        "emotions.scared",
+        "nature.seasons",
+        "sports.ball",
+        "concepts.attributes",
+        "clothing.shoes"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-pc7ej8",
+      "title": "Baby why",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-19dcja1",
+      "title": "Baby all",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "content-verified",
+      "resourceTopics": [
+        "science",
+        "arts"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-4oyfst",
+      "title": "心智麦田轻科普绘本",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1xt8nl",
+      "title": "心智麦田",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-rn86pz",
+      "title": "卡由",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-18cyfjx",
+      "title": "本霍丽",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.magic",
+        "sports",
+        "nature.weather",
+        "festivals.birthday",
+        "daily.bath"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-2oa12d",
+      "title": "天才宝贝熊",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.friends",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-8gw34h",
+      "title": "64动物街",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.sleep"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-crn5zs",
+      "title": "呜米123",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.shapes",
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-13d4vi4",
+      "title": "布鲁伊绘本",
+      "books": 10,
+      "classified": 9,
+      "pendingBookIds": [
+        "book-8e047672582da8e1"
+      ],
+      "bookStatus": {
+        "description-derived": 3,
+        "title-fallback": 6,
+        "pending": 1
+      },
+      "resourceStatus": "catalog-aggregate",
+      "resourceTopics": [
+        "family.members",
+        "family.siblings",
+        "sports",
+        "fantasy.adventure",
+        "sports.water",
+        "science.light",
+        "daily.school",
+        "home.buildings",
+        "fantasy.characters",
+        "jobs.people"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mopiiw",
+      "title": "培生",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1m8k2cj",
+      "title": "海狸",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-lkawg4",
+      "title": "美国Jump百科",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1u6no5j",
+      "title": "丽声中国文化英语分级阅读",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy",
+        "science"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-a3pj5d",
+      "title": "托马斯和朋友",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ffnro6",
+      "title": "牛津阅读树丽声经典故事屋",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-i08rz4",
+      "title": "My Very First Mother Goose",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-vv6vo0",
+      "title": "Brown Bear, Brown Bear, What Do You See?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.colors",
+        "animals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1hgvkff",
+      "title": "The Wheels On The Bus",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.land"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-b9rod3",
+      "title": "Five Little Monkeys Jumping On the Bed",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-c7e8z4",
+      "title": "Go Away, Mr. Wolf!",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "emotions.scared",
+        "emotions.expression"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-9ubkym",
+      "title": "Down By The Station",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "transport.places"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-pju8mn",
+      "title": "Hop On Pop",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.phonics"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-6nitnk",
+      "title": "Five Little Men In A Flying Saucer",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting",
+        "nature.protection"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-hcvxme",
+      "title": "Green Eggs And Ham",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.meals",
+        "food.protein"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-5oki6m",
+      "title": "Henny Penny",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.farm"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-176t4cw",
+      "title": "Ape in A Cape: An Alphabet of Odd Animals",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1f4wv80",
+      "title": "Ten Fat Sausages",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1oekyar",
+      "title": "The Very Hungry Caterpillar",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.insects",
+        "science.life"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-677ibk",
+      "title": "Hattie And The Fox",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.whole",
+        "body.face"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-16k358v",
+      "title": "I Am the Music Man",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "arts.instruments",
+        "arts.singing"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kgdjk7",
+      "title": "Today is Monday",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.calendar",
+        "food"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-lh36dl",
+      "title": "Does a Kangaroo Have A Mother, Too?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.young",
+        "family.members"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-54s4qo",
+      "title": "Five Little Ducks",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "animals",
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1bid0cl",
+      "title": "Fox in Socks",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "animals",
+        "clothing.shoes"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-18td68c",
+      "title": "Dr. Seuss's ABC",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1c172gy",
+      "title": "Dry Bones",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.whole"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-gazse",
+      "title": "Go Away, Big Green Monster!",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1cr86bu",
+      "title": "Five Little Monkeys Sitting In A Tree",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "animals",
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1v7hjqt",
+      "title": "Sheep In A Jeep",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.land"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-9w5eqk",
+      "title": "The Mixed-Up Chameleon",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.colors",
+        "concepts.shapes",
+        "concepts.opposites",
+        "body.self"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1yptgft",
+      "title": "Down In The Jungle",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "actions.imitation",
+        "animals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1bndb8e",
+      "title": "Goodnight Moon",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.sleep",
+        "home.rooms",
+        "home.objects"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-2pkejd",
+      "title": "Sheep In A Shop",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.shopping",
+        "festivals.birthday"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-9lg0zt",
+      "title": "Here We Go Round The Mulberry Bush",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "pending",
+      "resourceTopics": [],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1jzx6a4",
+      "title": "King Bidgood's In The Bathtub",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.bath"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1192vhw",
+      "title": "Rosie's Walk",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "actions.locomotion"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1k2yblz",
+      "title": "Color Zoo",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals",
+        "concepts.shapes",
+        "concepts.colors"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-cxzlok",
+      "title": "The Napping House",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.sleep"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-nzp4j8",
+      "title": "We All Go Traveling By",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school",
+        "concepts.colors",
+        "transport"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kdjt73",
+      "title": "Creepy Crawly Calypso",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting",
+        "animals.insects",
+        "arts.instruments",
+        "arts.dance"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-gv0fh9",
+      "title": "Polar Bear, Polar Bear, What Do You Hear?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.wild",
+        "animals.sounds",
+        "body.senses"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ezw6pi",
+      "title": "We're Going On A Bear Hunt",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family",
+        "nature.environment",
+        "nature.water"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-e0deks",
+      "title": "Guess How Much I Love You",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "emotions"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1rtdbii",
+      "title": "The Very Quiet Cricket",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.insects",
+        "animals.sounds"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1rfqaa4",
+      "title": "Walking Through The Jungle",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "actions.locomotion",
+        "nature.environment"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-sslx1m",
+      "title": "Is Your Mama a Llama?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.members",
+        "animals.young"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-swnr9d",
+      "title": "Animal Boogie",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "animals",
+        "arts.dance"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ew26k4",
+      "title": "The Foot Book",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.feet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-50w3ni",
+      "title": "Kipper's A to Z",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-odl4hj",
+      "title": "One Fish Two Fish Red Fish Blue Fish",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.colors",
+        "concepts.counting",
+        "concepts.opposites"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ndxcld",
+      "title": "The Journey Home From Grandpa",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "family.members",
+        "transport.travel"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ue01n1",
+      "title": "Chicken Soup With Rice: A Book of Months",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.calendar",
+        "nature.seasons"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1gl3q7g",
+      "title": "On Market Street",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet",
+        "daily.shopping",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1aiv3j8",
+      "title": "Silly Sally",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "actions.locomotion"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1qjo4su",
+      "title": "Each Peach Pear Plum",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.characters",
+        "sports.hiding"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1axuzav",
+      "title": "PaPa Please Get The Moon For Me",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.parent-child",
+        "fantasy.adventure"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-v1oplb",
+      "title": "Quick As A Cricket",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.self",
+        "concepts.opposites"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-11b5fx",
+      "title": "Eating the Alphabet: Fruits & Vegetables from A to Z",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet",
+        "food.fruit",
+        "food.vegetables"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1aay5rg",
+      "title": "See You Later, Alligator!",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "social.goodbye"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-15sy3lx",
+      "title": "The Princess and the Dragon",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-gfbn0g",
+      "title": "I Am An Apple",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.plants",
+        "science.life",
+        "food.fruit"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-18mkknq",
+      "title": "I'm A Caterpillar",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.insects",
+        "science.life"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1vsr5ws",
+      "title": "The Little Mouse, the Red Ripe Strawberry, and the Big Hungry Bear",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.sharing",
+        "food.fruit"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-8kh62k",
+      "title": "A Dragon On The Doorstep",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "sports.hiding",
+        "emotions.scared",
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-16v91n6",
+      "title": "Alligators All Around: An Alphabet",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ooku4u",
+      "title": "I'm A Seed",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "nature.plants"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ccuta",
+      "title": "I Am A Star",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1e34ab8",
+      "title": "Maisy Goes Camping",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "sports.outdoor",
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1gir2hi",
+      "title": "The Itsy Bitsy Spider",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.insects"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-eaqu9s",
+      "title": "I Am Snow",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.weather"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1vxkmi",
+      "title": "I Am Water",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "science.materials",
+        "nature.water"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1cjhna",
+      "title": "Maisy's Christmas Eve",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1vjfruy",
+      "title": "I Am A Leaf",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.plants",
+        "science.life"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1wwhqfr",
+      "title": "I Am Fire",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "science.phenomena",
+        "daily.safety"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-q581sv",
+      "title": "Over In The Meadow",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-13rz61r",
+      "title": "Do You Want to Be My Friend?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.friends"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ukb9ef",
+      "title": "I Am A Rock",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.environment",
+        "science.materials"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-q8s207",
+      "title": "I Am Planet Earth",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.environment"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-zfropn",
+      "title": "Row Row Row Your Boat",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.water",
+        "family"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-et4jlw",
+      "title": "Handa's Surprise",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.fruit",
+        "animals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-doubyn",
+      "title": "The Solar System",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-10nehah",
+      "title": "The Sun",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-jllmbn",
+      "title": "What's The Time, Mr. Wolf?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.time",
+        "daily"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-wde72q",
+      "title": "Earth",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1t7cqi0",
+      "title": "The Moon",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-12v6f01",
+      "title": "Tomorrow's Alphabet",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1s38bbr",
+      "title": "Where's My Teddy?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "sports.toys",
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1m7axsv",
+      "title": "Comets",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-5zgn0",
+      "title": "If You Give A Mouse A Cookie",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.snacks",
+        "food.drinks"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1qr2hq0",
+      "title": "Owl Babies",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.members",
+        "emotions.scared",
+        "animals.young"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-qje93w",
+      "title": "Shooting Stars",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "science.space"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-hj6buu",
+      "title": "Chicka Chicka Boom Boom",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1a06usg",
+      "title": "If You Take A Mouse To School",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school",
+        "home.objects"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1t85qsk",
+      "title": "Kipper's Christmas Eve",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-eydrmj",
+      "title": "Mouse Paint",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "arts.art",
+        "concepts.colors"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1qr5tqv",
+      "title": "Curious George Learns the Alphabets",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "phonics.alphabet"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-zy2g91",
+      "title": "If The Dinosaurs Came Back",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "fantasy"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1wmv83w",
+      "title": "Kipper's Monster",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "emotions.scared",
+        "sports.outdoor"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-kutkhd",
+      "title": "Madeline",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.health"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ve7r9t",
+      "title": "Miss Nelson Is Missing",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-148s47w",
+      "title": "The Blue Balloon",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "sports.toys",
+        "fantasy.magic"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ljtocg",
+      "title": "The Runaway Bunny",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.parent-child",
+        "sports.hiding"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-wiwkru",
+      "title": "Click, Clack, Moo Cows that Type",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.farm"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1b8srl5",
+      "title": "Dinosaur Encore",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "animals.dinosaurs",
+        "concepts.opposites"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1faxq52",
+      "title": "Noisy Nora",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.siblings",
+        "emotions.expression"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-3ti9yy",
+      "title": "If You Take a Mouse to the Movies",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-r0zmpl",
+      "title": "If You Give a Moose a Muffin",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.snacks",
+        "daily.shopping"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1aediw2",
+      "title": "If You Give a Pig a Pancake",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.staples",
+        "daily.bath"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-ff8ubh",
+      "title": "If You Give a Cat a Cupcake",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.snacks",
+        "daily.tidy"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-10tvpd7",
+      "title": "Balloonia",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.siblings",
+        "sports.toys"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-6txmzp",
+      "title": "Presto Change-O",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "fantasy.magic",
+        "social.helping"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-19b512l",
+      "title": "Tooth Fairy",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.face",
+        "fantasy.characters"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-18xcnce",
+      "title": "Magic Shoelaces",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "clothing.shoes",
+        "fantasy.magic"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-bnvlpw",
+      "title": "Scaredy Cats",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "emotions.scared"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1nu5bmv",
+      "title": "Twenty-Four Robbers",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "food.cooking",
+        "social.sharing",
+        "concepts.counting"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-io3tvo",
+      "title": "Love You Forever",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "family.parent-child"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1698oq0",
+      "title": "Ten, Nine, Eight",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting",
+        "daily.sleep",
+        "family.parent-child"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-7ateo2",
+      "title": "Where Does the Brown Bear Go?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.sleep",
+        "animals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-whayxl",
+      "title": "On Christmas Eve",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "festivals.christmas"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1ifleal",
+      "title": "Tell Me Something Happy Before I Go to Sleep",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.sleep",
+        "emotions.scared",
+        "family.siblings"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1te3amu",
+      "title": "Madeline's Christmas",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "festivals.christmas",
+        "body.health",
+        "social.helping",
+        "fantasy.magic"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-qyy3wb",
+      "title": "Madeline's Rescue",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "social.helping",
+        "animals.pets"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-xm3z3w",
+      "title": "Miss Nelson Is Back",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-qkn23m",
+      "title": "Miss Nelson Has a Field Day",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school",
+        "sports.ball"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1nts7uq",
+      "title": "Handa's Hen",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting",
+        "animals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-lnow54",
+      "title": "Eat Your Peas",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.meals",
+        "food.vegetables"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-1mca9yc",
+      "title": "How Do Dinosaurs Say Good Night?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.sleep",
+        "family.parent-child"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-bwwbfm",
+      "title": "How Do Dinosaurs Eat Their Food?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.meals",
+        "social.manners"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-eale33",
+      "title": "How Do Dinosaurs Get Well Soon?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "body.health"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-154tmyd",
+      "title": "How Do Dinosaurs Go to School?",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "daily.school"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-oymp14",
+      "title": "One Gorilla",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "concepts.counting",
+        "animals"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-n1p6po",
+      "title": "Mr Gumpy's Outing",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.water"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-usfk0l",
+      "title": "Mr Gumpy's Motor Car",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "transport.land",
+        "social.helping"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-2dg3x5",
+      "title": "Snow",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "title-fallback",
+      "resourceTopics": [
+        "nature.weather"
+      ],
+      "unreachableResourceTopics": []
+    },
+    {
+      "id": "resource-izs48b",
+      "title": "The Carrot Seed",
+      "books": 0,
+      "classified": 0,
+      "pendingBookIds": [],
+      "bookStatus": {},
+      "resourceStatus": "description-derived",
+      "resourceTopics": [
+        "nature.plants",
+        "science.life"
+      ],
+      "unreachableResourceTopics": []
+    }
+  ]
+}

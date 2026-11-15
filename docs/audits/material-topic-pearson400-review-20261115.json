@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "checkedAt": "2026-11-15",
+  "sources": [
+    {
+      "id": "xhs-pearson400-reader-quotation-20261115",
+      "title": "培生400句，我主要拿它给自己攒常用句",
+      "author": "书卷妈妈的绘本生活",
+      "url": "https://www.xiaohongshu.com/explore/6a830d16000000002402df09",
+      "checkedAt": "2026-11-15",
+      "locator": "正文 Ben’s Bike 与 Zack’s Spots 两个具名段落",
+      "kind": "reader-quotation",
+      "note": "根 agent 实际读取正文后转录，未独立核原书页。Ben’s Bike 3条、Zack’s Spots 4条；后文 It’s too / You can do it 为家长替换扩展，不作原文采用。"
+    }
+  ],
+  "tables": [
+    {
+      "sourceId": "xhs-pearson400-reader-quotation-20261115",
+      "resourceId": "resource-166ekar",
+      "levels": [
+        "下"
+      ],
+      "editionContains": "培生儿童英语情境口语400句，上、下两辑",
+      "status": "classification-verified",
+      "kind": "reader-quotation",
+      "scopeNote": "第三方读者正文对本册的引述；根 agent 实际读取小红书正文，未独立核对原书页。仅两册具名段落，不扩散全套。",
+      "rows": [
+        {
+          "bookId": "book-ed9b6f2d382fef5f",
+          "title": "培生儿童英语情境口语400句下《ben's bike》",
+          "sourceTitle": "Ben's Bike",
+          "sourceLevel": "下",
+          "patterns": [
+            "Please take me for a ride.",
+            "You are too slow.",
+            "Stop! I will get off."
+          ],
+          "topics": [
+            "transport.land",
+            "social.manners"
+          ],
+          "locator": "正文 Ben's Bike 段：Please take me for a ride. / You are too slow. / Stop! I will get off.",
+          "kind": "reader-quotation",
+          "note": "正文 Ben’s Bike 段：请求载一程、嫌太慢和要求停车下车；礼貌请求归社交礼貌，骑行归陆地交通。 所列句子仅逐字保留该读者正文引述，不冒充原书页独立核验。"
+        }
+      ]
+    },
+    {
+      "sourceId": "xhs-pearson400-reader-quotation-20261115",
+      "resourceId": "resource-166ekar",
+      "levels": [
+        "上"
+      ],
+      "editionContains": "培生儿童英语情境口语400句，上、下两辑",
+      "status": "classification-verified",
+      "kind": "reader-quotation",
+      "scopeNote": "第三方读者正文对本册的引述；根 agent 实际读取小红书正文，未独立核对原书页。仅两册具名段落，不扩散全套。",
+      "rows": [
+        {
+          "bookId": "book-ebe68bc460780036",
+          "title": "培生儿童英语情境口语400句上：Zack's Spots",
+          "sourceTitle": "Zack's Spots",
+          "sourceLevel": "上",
+          "patterns": [
+            "I like my towel.",
+            "Your pants are too big.",
+            "You can't take that.",
+            "I can do that."
+          ],
+          "topics": [
+            "clothing.clothes"
+          ],
+          "locator": "正文 Zack's Spots 段：I like my towel. / Your pants are too big. / You can't take that. / I can do that.",
+          "kind": "reader-quotation",
+          "note": "正文 Zack’s Spots 段的衣裤语句；仅采用衣服主题，不因 towel 一词推定全册为洗澡主题。 所列句子仅逐字保留该读者正文引述，不冒充原书页独立核验。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "matchedBooks": 2,
+    "quotedSentences": 7,
+    "tableCount": 2
+  },
+  "identityNote": "《培生儿童英语情境口语400句》规范实体 resource-166ekar；resource-912oje 为另一套 Level1–6《培生儿童英语》，本来源不适用于它。",
+  "notAdopted": [
+    {
+      "text": "It's too …",
+      "reason": "正文家长替换，不是具名书目原文引句。"
+    },
+    {
+      "text": "You can do it.",
+      "reason": "正文家长替换，不是具名书目原文引句。"
+    }
+  ]
+}

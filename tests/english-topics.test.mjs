@@ -85,7 +85,7 @@ test('Hello家居和道路场景不推定交通、安全或自我认知教学，
   assert.deepEqual(T.entryTopics('hello-part',{scene:'农场'}),[]);
   const farm=hello.books.find(b=>b.number===13),hen=farm.parts.find(p=>p.part===2),findIt=farm.parts.find(p=>p.part===3);
   assert.equal(T.matches(T.entryTopics('hello-part',hen),{topic:'animals',subtopic:'animals.farm'}),true);
-  assert.deepEqual(T.entryTopics('hello-part',findIt),[]);
+  assert.deepEqual(T.entryTopics('hello-part',findIt),['animals.farm','concepts.counting']);
   const car=rhymes.find(r=>r.id==='hello-rhyme-06'),toothbrush=rhymes.find(r=>r.id==='hello-rhyme-41');
   assert.equal(T.matches(T.entryTopics('hello-rhyme',car),{topic:'animals',subtopic:'animals.farm'}),true);
   assert.equal(T.matches(T.entryTopics('hello-rhyme',toothbrush),{topic:'body',subtopic:'body.self'}),false);
@@ -211,4 +211,45 @@ test('小红书句型只绑定同套同级同版本，参考版次及系列内�
   assert.deepEqual(T.entryTopics('resource',{id:'unmapped-wow-episode',title:'Wow English 第二季第1集'}),[]);
   assert.deepEqual(T.entryTopics('book',{title:'The Forest',level:'A',topics:[]}),[]);
   assert.deepEqual(T.patterns('book',{title:'How Many Animals',level:'Pink 1A'}),[]);
+});
+
+test('慢葫芦逐页主题与页码查询、对应筛选取交集，保留独立歌曲身份及原顺序',()=>{
+  const before=JSON.stringify(songs),pages=filters=>M.filterSongs(songs,{category:'soundBook',...filters}).map(song=>song.page);
+  assert.ok(pages({topic:'food',subtopic:'food.fruit'}).includes(3));
+  assert.deepEqual(pages({topic:'food',subtopic:'food.fruit',query:'apples and bananas'}),[3]);
+  assert.deepEqual(pages({topic:'food',subtopic:'food.fruit',overlap:'sss'}),[]);
+  assert.deepEqual(pages({topic:'animals',subtopic:'animals.farm',overlap:'sss',query:'mary'}),[6]);
+  assert.deepEqual(pages({topic:'animals',subtopic:'animals.farm',overlap:'liao',query:'mary'}),[]);
+  const animalPages=pages({topic:'animals'});
+  assert.ok(animalPages.length>1);
+  assert.deepEqual(animalPages,[...animalPages].sort((a,b)=>a-b));
+  assert.ok(M.filterSongs(songs,{category:'soundBook',topic:'animals'}).every(song=>song.id.startsWith('manhulu-')));
+  assert.equal(JSON.stringify(songs),before);
+});
+
+test('慢葫芦同曲目只引用已保存主题，改编及同曲调不继承内容、活动方式或句型',()=>{
+  const byPage=page=>songs.soundBook.songs.find(song=>song.page===page);
+  for(const song of songs.soundBook.songs){
+    const mapping=taxonomy.songMappings[song.id];
+    assert.ok(mapping,song.id);
+    assert.ok(mapping.basis&&mapping.evidence.length,song.id);
+    assert.deepEqual(T.entryActivities('song',song),[]);
+    assert.deepEqual(T.patterns('song',song),[]);
+    if(song.sssSongId){
+      assert.deepEqual(mapping.topics,taxonomy.songMappings[song.sssSongId].topics);
+      assert.ok(mapping.evidence.some(item=>item.kind==='same-song-topic-reference'&&item.referencedSongId===song.sssSongId));
+    }else{
+      assert.ok(['title-fallback','pending'].includes(mapping.status));
+      assert.ok(mapping.evidence.every(item=>item.kind!=='same-song-topic-reference'));
+    }
+  }
+  assert.deepEqual(T.entryTopics('song',byPage(6)),['animals.farm']);
+  assert.deepEqual(T.entryTopics('song',byPage(16)),['phonics.alphabet']);
+  assert.deepEqual(T.entryTopics('song',byPage(17)),['home.objects']);
+  assert.deepEqual(T.entryTopics('song',byPage(19)),['daily.sleep']);
+  for(const page of [27,39,40,47,48]){
+    assert.equal(taxonomy.songMappings[byPage(page).id].status,'pending');
+    assert.deepEqual(T.entryTopics('song',byPage(page)),[]);
+  }
+  assert.equal(T.matches(T.entryTopics('song',byPage(48)),{topic:'science'}),false);
 });

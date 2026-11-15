@@ -45,6 +45,17 @@ def title_text(title, config):
     return result.strip()
 
 
+def classification_title(book, config):
+    """与私人书架共用JS一致排除套系容器名，不以系列名代替本册内容。"""
+    title = title_text(unicodedata.normalize('NFKC', book.get('title', '')).replace('’', "'"), config)
+    series = (book.get('series') or {}).get('title') or book.get('seriesTitle')
+    if series:
+        if title.lower() == series.lower():
+            return ''
+        title = re.sub('^' + re.escape(series) + r'\s*[:：–—-]\s*', '', title, flags=re.I)
+    return title.strip()
+
+
 def compile_rules(config, nodes):
     result = []
     for rule in config['rules']:
@@ -177,7 +188,7 @@ def classify(book, taxonomy, config, rules, index, repeated):
     description, rejected = description_topics(book, index, repeated, config, rules)
     if description:
         return {'id': book['id'], 'title': book['title'], 'resourceId': book['resourceId'], **description}
-    title = title_text(book['title'], config)
+    title = classification_title(book, config)
     ambiguous = {normal(value) for value in config.get('ambiguousTitles', [])}
     hits = [] if normal(title) in ambiguous else match_topics(title, rules)
     if hits:
@@ -218,13 +229,17 @@ def refine_root_only(book, taxonomy, config, rules, index, repeated):
     """只把原有一级细化到同父级二级，不借标题扩散另一内容根。"""
     nodes = {node['id']: node for node in taxonomy['nodes'] + config.get('nodes', [])}
     current = effective_topics(book, taxonomy)
-    if not current or any(nodes.get(value, {}).get('parentId') for value in current):
+    if not current:
         return None
-    parents = set(current)
+    covered = {nodes[value]['parentId'] for value in current if nodes.get(value, {}).get('parentId')}
+    parents = {value for value in current if not nodes.get(value, {}).get('parentId')} - covered
+    if not parents:
+        return None
     def select(values):
         return [value for value in values if nodes.get(value, {}).get('parentId') in parents]
     description, _ = description_topics(book, index, repeated, config, rules)
     chosen = select(description['topics']) if description else []
+    record = None
     if chosen:
         record = {**description, 'topics': chosen, 'subtopicStatus': 'description-derived'}
         record.pop('status', None)
@@ -232,20 +247,28 @@ def refine_root_only(book, taxonomy, config, rules, index, repeated):
         # 证据只列本次实际采用的二级命中，避免旁支主题误显示为本次结论。
         record['evidence'] = [{**item, 'matches': [hit for hit in item.get('matches', []) if hit['topic'] in chosen]}
                               for item in record['evidence'] if any(hit['topic'] in chosen for hit in item.get('matches', []))]
-        return record
-    title = title_text(book['title'], config)
+    title = classification_title(book, config)
     if normal(title) in {normal(value) for value in config.get('ambiguousTitles', [])}:
-        return None
-    hits = [hit for hit in match_topics(title, rules) if select([hit['topic']])]
+        return record
+    description_parents = {nodes[value]['parentId'] for value in chosen}
+    hits = [hit for hit in match_topics(title, rules)
+            if select([hit['topic']]) and nodes[hit['topic']]['parentId'] not in description_parents]
     if not hits:
-        return None
-    return {'topics': list(dict.fromkeys(hit['topic'] for hit in hits)), 'subtopicStatus': 'title-fallback',
+        return record
+    fallback = {'topics': list(dict.fromkeys(hit['topic'] for hit in hits)), 'subtopicStatus': 'title-fallback',
             'basis': '保留原分类及核对状态；按用户要求仅以本册题名，在原有一级范围内补二级查找标签；未借用同名其他版本内容。',
             'sourceIds': ['catalog-title-topic-fallback-20261114'],
             'evidence': [{'kind': 'title-fallback', 'sourceId': 'catalog-title-topic-fallback-20261114',
                           'locator': '公共目录稳定单册 ' + book['id'], 'originalTitle': book['title'],
                           'classificationTitle': title, 'summary': '二级题名兜底（限原有一级）：' + title,
                           'matches': hits, 'checkedAt': '2026-11-14'}]}
+    if not record:
+        return fallback
+    # 各父级独立采用最强可用依据；混合结果按较弱等级展示，逐条证据仍区分简介／题名。
+    return {**fallback, 'topics': list(dict.fromkeys(record['topics'] + fallback['topics'])),
+            'sourceIds': list(dict.fromkeys(record['sourceIds'] + fallback['sourceIds'])),
+            'evidence': record['evidence'] + fallback['evidence'],
+            'basis': '保留原分类及核对状态；每个缺少二级的原有一级分别采用本册简介或明确题名；逐条保留证据等级，题名补充仍为较弱查找标签。'}
 
 
 def all_books(directory, plans):

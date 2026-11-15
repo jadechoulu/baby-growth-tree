@@ -96,19 +96,27 @@ function entries(data,resources,model,volumes){
   })
     .concat(resources.filter(r=>r.custom&&['book','reader'].includes(r.type)).map(r=>({id:r.id,resourceId:r.id,resourceIds:[r.id],title:r.title,custom:true,resource:r,topics:r.topics,edition:'个人新增',level:'',appearances:r.stageRefs||[],sourceIds:[]})));
 }
-// 没有逐册目录的动画、绘本作品等沿用素材身份和详情；不创建第二套单册事实。
+// 系列简介只证明系列涉及的范围，不能下传每册；有目录时仅保留主题缺口的资源候选。
 function materialEntries(data,resources,model,volumes){
-  const books=entries(data,resources,model,volumes),covered=new Set(books.flatMap(book=>book.resourceIds));
-  return books.concat(resources.filter(resource=>!covered.has(resource.id)).map(resource=>({
-    id:resource.id,resourceId:resource.id,resourceIds:[resource.id,...(resource.mergedResourceIds||[])],
-    title:resource.title,resource,entryKind:'resource',custom:resource.custom,
-    appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:[],edition:'',level:''
-  })));
+  const books=entries(data,resources,model,volumes),covered=new Map();
+  for(const book of books)for(const id of book.resourceIds){if(!covered.has(id))covered.set(id,[]);covered.get(id).push(book);}
+  const evidenceStates=new Set(['classification-verified','content-verified','description-derived','title-fallback']);
+  return books.concat(resources.flatMap(resource=>{
+    const members=covered.get(resource.id),record=T.entryEvidence('resource',resource);
+    const fallback=!!members&&evidenceStates.has(record.status)&&T.entryTopics('resource',resource).some(id=>!members.some(book=>T.matches(topicIds(book,data),{topic:id})));
+    if(members&&!fallback)return [];
+    return [{id:resource.id,resourceId:resource.id,resourceIds:[resource.id,...(resource.mergedResourceIds||[])],
+      title:resource.title,resource,entryKind:'resource',custom:resource.custom,
+      ...(fallback?{resourceTopicFallback:true,topicScope:'resource'}:{}),
+      appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:record.sourceIds||[],edition:'',level:''}];
+  }));
 }
 function filter(books,data,filters={}){
   const query=normalize(filters.query);
-  return books.filter(book=>{
+  const hasTopic=!!(filters.topic&&filters.topic!=='all'||filters.subtopic&&filters.subtopic!=='all');
+  const matched=books.filter(book=>{
     const resource=book.resource;
+    if(book.resourceTopicFallback&&!hasTopic)return false;
     if(filters.route&&filters.route!=='all'&&(filters.route==='other'?!book.custom:!book.appearances.some(a=>a.routeId===filters.route)))return false;
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
@@ -118,6 +126,9 @@ function filter(books,data,filters={}){
     if(query&&!normalize([book.title,...(book.aliases||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
     return true;
   });
+  // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
+  const concreteResources=new Set(matched.filter(book=>book.entryKind!=='resource').flatMap(book=>book.resourceIds||[book.resourceId]));
+  return matched.filter(book=>!book.resourceTopicFallback||!book.resourceIds.some(id=>concreteResources.has(id)));
 }
 function seriesCount(data,resource,model,volumes,filters={}){
   const route=filters.route,stageIds=filters.stageIds;
