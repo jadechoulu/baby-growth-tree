@@ -123,6 +123,21 @@ function groups(records,options={}){
     return {...group,completed,total,status:completed===total?'done':completed?'using':'not-started'};
   }).sort((a,b)=>a.title.localeCompare(b.title,'zh-CN'));
 }
+function entries(records,options={}){
+  const topics=options.topics,classifier=options.titleClassifier;
+  const byExternal=new Map(),byIsbn=new Map(),isbnKey=value=>String(value||'').replace(/[^0-9X]/gi,'').toUpperCase();
+  for(const book of options.directory?.books||[]){
+    for(const id of book.externalIds?.xiaohuasheng||[])byExternal.set(id,[...(byExternal.get(id)||[]),book]);
+    const isbn=isbnKey(book.isbn);if(isbn.length>=10)byIsbn.set(isbn,[...(byIsbn.get(isbn)||[]),book]);
+  }
+  return groups(records,options).flatMap(group=>group.books.map(book=>{
+    // 只沿精确外站身份或唯一ISBN借用公共单册分类；同名或同套不建立关系。
+    const isbn=isbnKey(book.isbn),matches=[...new Set([...(byExternal.get(book.bookId)||[]),...(isbn.length>=10?byIsbn.get(isbn)||[]:[])])];
+    const publicBook=matches.length===1?matches[0]:null;
+    const record=publicBook&&topics?.entryTopics('book',publicBook).length?{...topics.entryEvidence('book',publicBook),topics:topics.entryTopics('book',publicBook),patterns:topics.patterns('book',publicBook)}:classifier?.classify(book);
+    return {...book,privateShelf:true,shelfGroupId:group.id,resourceId:group.id,resourceIds:[group.id],seriesTitle:group.title,edition:'私人小花生书架',level:'',appearances:[],resource:{id:group.id,title:group.title,type:'book',aliases:[],appearances:[]},topicRecord:record||{topics:[],patterns:[],status:'pending'},sourceIds:[],topics:record?.topics||[]};
+  }));
+}
 // 本人明确要求的展示归组；不推定出版目录、跨版身份或完成事实。
 function displaySeries(book){
   const labels=[book.series?.title,book.seriesTitle,book.author,book.publisher,...(book.catalogTags||[])];
@@ -130,5 +145,5 @@ function displaySeries(book){
   if([book.title,book.series?.title].some(label=>/construction\s+site|晚安工地上的车/i.test(label||'')))return {id:'curated-construction-site',title:'Construction Site'};
   return book.series;
 }
-return {PREFIX,metadata,apply,groups,displaySeries};
+return {PREFIX,metadata,apply,groups,displaySeries,entries};
 });

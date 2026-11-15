@@ -45,3 +45,16 @@ test('主题筛选后的关系图保留原ID与归属，并排除同册未命中
   assert.equal(JSON.stringify(data),before);
   assert.equal(H.topicGraphData(data),data);
 });
+
+test('13号Find It按实际农场动物与数数内容筛选，不扩散到同册或其他农场Part',()=>{
+  const book=data.books.find(b=>b.number===13),findIt=book.parts.find(p=>p.part===3);
+  for(const filters of [{topic:'animals',subtopic:'animals.farm'},{topic:'concepts',subtopic:'concepts.counting'}]){
+    const found=H.browse(data,{book:book.id,...filters});
+    assert.ok(found.scenes.some(row=>row.part===findIt));
+    assert.ok(found.scenes.every(row=>[2,3].includes(row.part.part)));
+  }
+  assert.deepEqual(T.entryTopics('hello-part',{scene:'农场'}),[]);
+  const evidence=T.entryEvidence('hello-part',findIt).override;
+  assert.equal(evidence.status,'content-verified');
+  assert.ok(evidence.evidence.some(item=>item.file==='assets/hello/notes/book-13.pdf'&&item.page===5));
+});

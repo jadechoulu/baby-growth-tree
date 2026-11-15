@@ -33,6 +33,63 @@ class MaterialTopicClassificationTest(unittest.TestCase):
         self.assertFalse(any(topic.startswith('patterns') for topic in result['topics']))
         self.assertEqual(result['id'], 'test-stable-book')
 
+    def test_adaptation_promotion_does_not_turn_pirate_story_into_film_topic(self):
+        book = self.book('Blackbeard the Pirate', externalIds={'xiaohuasheng': ['abc123']})
+        result = self.classify(book, [{'guid': 'abc123', 'name': book['title'], 'introduction':
+            "Blackbeard the Pirate tells the true story of the famous pirate who terrorized the seas for years. "
+            "Blackbeard's true story is the inspiration behind many of the colorful pirates in today's books and movies."}])
+        self.assertIn('fantasy.pirates', result['topics'])
+        self.assertNotIn('arts.film', result['topics'])
+
+    def test_transport_book_brands_do_not_invent_space_experiment_or_fire_topics(self):
+        for title in ['Police Cars (Blastoff! Readers: Mighty Machines) (Blastoff Readers. Level 1)',
+                      'Busy Machines: Trucks', 'Trains (Machines with Power!)', 'Fire Truck (Wheelie Books)']:
+            with self.subTest(title=title):
+                result = self.classify(self.book(title))
+                self.assertIn('transport.land', result['topics'])
+                self.assertFalse(any(topic.startswith('science.') for topic in result['topics']))
+
+    def test_collection_prefixes_and_publisher_suffixes_do_not_create_subjects(self):
+        examples = {'Jump Tadpole Book Graded Level PreK-1 (My Fisrt Animal Books)': 'animals',
+                    '彩虹兔Sing Along欢唱童谣第一辑: The Wheels on the Bus': 'transport.land',
+                    '新东方—彩虹糖儿童读物: My Shoes': 'clothing.shoes',
+                    '我的小小世界 SET2: My Family': 'family.members'}
+        for title, expected in examples.items():
+            with self.subTest(title=title):
+                result = self.classify(self.book(title))
+                self.assertIn(expected, result['topics'])
+                self.assertNotIn('arts.singing', result['topics'])
+                if 'Tadpole' not in title:
+                    self.assertFalse(any(t.startswith('animals') for t in result['topics']))
+
+    def test_pure_hello_issue_ids_and_reading_brands_are_not_content(self):
+        for title in ('Hello Library No.01', 'Hello Library No.24', 'Hello No.03',
+                      'I Can Read! Level 1: Rex'):
+            with self.subTest(title=title):
+                result = self.classify(self.book(title))
+                self.assertEqual(result['status'], 'pending')
+                self.assertEqual(result['topics'], [])
+        result = self.classify(self.book('Hello Library No.01: A Train'))
+        self.assertEqual(result['topics'], ['transport.land'])
+        self.assertEqual(self.classify(self.book('Hello!'))['topics'], ['social.greetings'])
+        container = self.book('MY ANIMAL COLLECTION', series={'title': 'My Animal Collection'})
+        self.assertEqual(self.classify(container)['status'], 'pending')
+        actual = self.book('My Animal Collection: My Shoes', series={'title': 'My Animal Collection'})
+        self.assertEqual(self.classify(actual)['topics'], ['clothing.shoes'])
+
+    def test_generic_setting_and_names_do_not_create_curriculum_topics(self):
+        cases = {'Animal Stars': 'science.space', 'The Lake of Stars': 'science.space',
+                 'The Wind and the Sun': 'science.space', "Eggs in the Sun": 'science.space',
+                 'The Missing Mummy': 'family.members', 'Mother Teresa': 'family.members',
+                 'The Germ Family Finds a New Home': 'family.members',
+                 'Mummies in the Morning': 'concepts.time',
+                 'The Knight at Dawn': 'concepts.time', 'Happy Birthday, Winnie': 'emotions.happy'}
+        for title, unexpected in cases.items():
+            with self.subTest(title=title):
+                self.assertNotIn(unexpected, self.classify(self.book(title))['topics'])
+        self.assertIn('science.space', self.classify(self.book('Our Sun'))['topics'])
+        self.assertIn('concepts.time', self.classify(self.book('Day and Night'))['topics'])
+
     def test_clear_secondary_titles_are_retrievable(self):
         cases = {'Ten': 'concepts.counting', 'My Brain': 'body.whole', 'Healthy Snacks': 'food.snacks',
                  'The Aquarium': 'animals.habitats', 'Bridges': 'home.buildings',
@@ -51,6 +108,39 @@ class MaterialTopicClassificationTest(unittest.TestCase):
         result = self.classify(book, taxonomy=taxonomy)
         self.assertEqual(result['status'], 'preserved')
         self.assertEqual(result['topics'], ['food.vegetables'])
+
+    def test_clear_catalog_gaps_have_explainable_content_topics(self):
+        cases = {'RAZ F17 Battery Power! (RAZ F)': 'science.phenomena',
+                 'RAZ C18 All About Earthworms (RAZ C)': 'animals',
+                 'Canada (RAZ J)': 'science.geography',
+                 'Ancient Egypt (RAZ L)': 'science.history',
+                 'Can I Vote? (RAZ M)': 'social.rules',
+                 'Where Can the King Pee?': 'daily.toilet',
+                 'Being Bilingual (RAZ J)': 'concepts.language',
+                 'Oxford Reading Tree 4-4: The Secret Room': 'home.rooms',
+                 "What’s It Made of": 'science.materials',
+                 'We Do Yoga (RAZ F)': 'sports'}
+        for title, topic in cases.items():
+            with self.subTest(title=title):
+                result = self.classify(self.book(title))
+                self.assertIn(topic, result['topics'])
+                self.assertEqual(result['status'], 'title-fallback')
+                self.assertFalse(any(value.startswith('patterns') for value in result['topics']))
+        self.assertNotIn('animals.insects', self.classify(self.book('All About Earthworms'))['topics'])
+        self.assertNotIn('animals.wild', self.classify(self.book('Water Bears'))['topics'])
+
+    def test_character_names_idioms_and_untargeted_rules_stay_unclassified(self):
+        for title in ('Fern Goes Away', 'Bob Bilby (Bluey)', 'Rat-a-tat-tat',
+                      'Lots of Hearts', 'Making Waves', 'Rex', 'New Rule!', 'Standing Tall',
+                      'The Quizzical Question', 'Max Wants to Fly'):
+            with self.subTest(title=title):
+                self.assertEqual(self.classify(self.book(title))['status'], 'pending')
+
+    def test_incidental_description_words_are_not_book_or_work_topics(self):
+        book = self.book('What Is It?', externalIds={'xiaohuasheng': ['abc123']})
+        result = self.classify(book, [{'guid': 'abc123', 'name': book['title'],
+                                     'introduction': 'This book introduces his work opposing segregation laws and racism.'}])
+        self.assertEqual(result['topics'], ['social.rules'])
 
     def test_shared_title_does_not_borrow_other_edition_description(self):
         book = self.book('What Is It?', externalIds={'xiaohuasheng': ['original-guid']})
@@ -121,6 +211,27 @@ class MaterialTopicClassificationTest(unittest.TestCase):
         taxonomy['bookOverrides'][book['id']] = {'topics': ['clothing', *first['topics']], 'subtopicRefinement': first}
         again = C.refine_root_only(book, taxonomy, self.config, self.rules, {}, {})
         self.assertEqual(first, again)
+
+    def test_each_root_is_refined_without_replacing_an_existing_child(self):
+        book = self.book('A crocodile and a bicycle', topicStatus='classification-verified',
+                         topics=['animals', 'animals.insects', 'transport'])
+        taxonomy = {**self.taxonomy, 'bookOverrides': {}}
+        before = copy.deepcopy(book)
+        record = C.refine_root_only(book, taxonomy, self.config, self.rules, {}, {})
+        self.assertEqual(record['topics'], ['transport.land'])
+        self.assertEqual(book, before)
+
+    def test_distinct_roots_can_use_description_then_title_without_upgrading_title_evidence(self):
+        book = self.book('A bee and a bicycle', topics=['animals', 'transport'],
+                         externalIds={'xiaohuasheng': ['abc123']})
+        index, repeated = C.description_index([{'guid': 'abc123', 'name': book['title'],
+                                               'introduction': 'A curious bee explores the world around her.'}])
+        record = C.refine_root_only(book, {**self.taxonomy, 'bookOverrides': {}},
+                                    self.config, self.rules, index, repeated)
+        self.assertEqual(record['topics'], ['animals.insects', 'transport.land'])
+        self.assertEqual(record['subtopicStatus'], 'title-fallback')
+        self.assertEqual([item['kind'] for item in record['evidence']], ['content-description', 'title-fallback'])
+        self.assertNotIn('status', record)
 
 
 if __name__ == '__main__':

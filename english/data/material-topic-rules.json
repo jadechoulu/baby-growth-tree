@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-14",
+  "checkedAt": "2026-11-15",
   "note": "仅供离线生成显式主题映射；先复用已有分类，再使用本册公开简介，最后按用户要求从题名兜底。匹配不是原文/句型核定，原始题名及命中短语必须随证据保留。模糊题名不强行归类。",
   "rules": [
     {
@@ -12,7 +12,8 @@
         "waking up",
         "get up",
         "gets up",
-        "getting up"
+        "getting up",
+        "wake the baby"
       ],
       "chineseTerms": [
         "起床",
@@ -103,7 +104,12 @@
         "messy room",
         "mess",
         "big wash",
-        "scrub"
+        "scrub",
+        "gets clean",
+        "get clean",
+        "clean is not",
+        "mop",
+        "mopping"
       ],
       "chineseTerms": [
         "收拾",
@@ -111,7 +117,8 @@
         "清扫",
         "凌乱",
         "打扫",
-        "干净"
+        "干净",
+        "打扫卫生"
       ]
     },
     {
@@ -122,7 +129,8 @@
         "day care",
         "nursery school",
         "baby-sitter",
-        "babysitter"
+        "babysitter",
+        "playgroup"
       ],
       "chineseTerms": [
         "日托",
@@ -142,14 +150,20 @@
         "go to the store",
         "shops",
         "we buy",
-        "buying"
+        "buying",
+        "to the store",
+        "jumble sale",
+        "thrift shop",
+        "trolley"
       ],
       "chineseTerms": [
         "购物",
         "买东西",
         "超市",
         "菜市场",
-        "买卖"
+        "买卖",
+        "义卖",
+        "跳蚤市场"
       ]
     },
     {
@@ -160,12 +174,16 @@
         "haircuts",
         "hairdresser",
         "barber shop",
-        "beauty shop"
+        "beauty shop",
+        "barbershop",
+        "just a trim",
+        "shave it off"
       ],
       "chineseTerms": [
         "理发",
         "剪头发",
-        "美发"
+        "美发",
+        "修剪头发"
       ]
     },
     {
@@ -181,12 +199,21 @@
         "sleeping",
         "sleepover",
         "goodnight",
-        "good night"
+        "good night",
+        "nap",
+        "naps",
+        "snore",
+        "snores",
+        "snoring",
+        "insomnia"
       ],
       "chineseTerms": [
         "睡觉",
         "晚安",
-        "入睡"
+        "入睡",
+        "不眠夜",
+        "午睡",
+        "打鼾"
       ]
     },
     {
@@ -196,13 +223,27 @@
         "school",
         "classroom",
         "kindergarten",
-        "first grader"
+        "first grader",
+        "classrooms",
+        "classes",
+        "homework",
+        "college",
+        "graduation",
+        "class play",
+        "class flag",
+        "hall monitors",
+        "locker",
+        "lockers"
       ],
       "chineseTerms": [
         "学校",
         "上学",
         "教室",
-        "幼儿园"
+        "幼儿园",
+        "毕业",
+        "课后",
+        "课堂",
+        "作业"
       ]
     },
     {
@@ -228,7 +269,9 @@
         "bedroom",
         "living room",
         "dining room",
-        "my room"
+        "my room",
+        "room",
+        "rooms"
       ],
       "chineseTerms": [
         "浴室",
@@ -253,7 +296,13 @@
         "beds",
         "shelf",
         "shelves",
-        "cupboard"
+        "cupboard",
+        "pillow",
+        "pillows",
+        "sheets",
+        "blanket",
+        "blankets",
+        "bedding"
       ],
       "chineseTerms": [
         "家具",
@@ -261,7 +310,10 @@
         "椅子",
         "桌子",
         "书架",
-        "橱柜"
+        "橱柜",
+        "枕头",
+        "床单",
+        "毯子"
       ]
     },
     {
@@ -281,7 +333,30 @@
         "mirror",
         "mirrors",
         "bucket",
-        "buckets"
+        "buckets",
+        "eraser",
+        "erasers",
+        "spoon",
+        "spoons",
+        "key",
+        "keys",
+        "bottle",
+        "bottles",
+        "pot",
+        "pots",
+        "vase",
+        "vases",
+        "towel",
+        "towels",
+        "crown",
+        "crowns",
+        "jewel",
+        "jewels",
+        "soap",
+        "envelope",
+        "envelopes",
+        "computer",
+        "computers"
       ],
       "chineseTerms": [
         "雨伞",
@@ -289,7 +364,19 @@
         "口袋",
         "盒子",
         "水桶",
-        "镜子"
+        "镜子",
+        "橡皮",
+        "勺子",
+        "钥匙",
+        "瓶子",
+        "锅",
+        "花瓶",
+        "毛巾",
+        "王冠",
+        "珠宝",
+        "肥皂",
+        "信封",
+        "电脑"
       ],
       "exclude": "fun with paper|paper planes|toilet paper"
     },
@@ -320,7 +407,23 @@
         "igloo",
         "igloos",
         "tent",
-        "tents"
+        "tents",
+        "roof",
+        "roofs",
+        "lighthouse",
+        "lighthouses",
+        "hotel",
+        "hotels",
+        "palace",
+        "palaces",
+        "temple",
+        "temples",
+        "tunnel",
+        "tunnels",
+        "dam",
+        "dams",
+        "colosseum",
+        "places people live"
       ],
       "chineseTerms": [
         "房屋",
@@ -334,7 +437,16 @@
         "木屋",
         "小屋",
         "冰屋",
-        "帐篷"
+        "帐篷",
+        "屋顶",
+        "灯塔",
+        "旅馆",
+        "宫殿",
+        "神庙",
+        "隧道",
+        "水坝",
+        "甜蜜的家",
+        "世界地标"
       ]
     },
     {
@@ -382,7 +494,10 @@
         "finger",
         "fingers",
         "arm",
-        "arms"
+        "arms",
+        "leftie",
+        "lefties",
+        "left-handed"
       ],
       "chineseTerms": [
         "手指",
@@ -425,7 +540,19 @@
         "belly",
         "stomach",
         "digestive system",
-        "blood"
+        "blood",
+        "heart",
+        "hearts",
+        "lungs",
+        "lung",
+        "muscles",
+        "muscle",
+        "tummy",
+        "tummies",
+        "butts",
+        "butt",
+        "buttocks",
+        "bone"
       ],
       "chineseTerms": [
         "身体",
@@ -438,7 +565,11 @@
         "肚脐",
         "肚子",
         "胃",
-        "血液"
+        "血液",
+        "肺",
+        "肌肉",
+        "心脏",
+        "屁股"
       ]
     },
     {
@@ -477,7 +608,15 @@
         "taste",
         "tastes",
         "touch",
-        "touches"
+        "touches",
+        "noise",
+        "noisy",
+        "sniff",
+        "sniffs",
+        "sniffing",
+        "smelly",
+        "stinks",
+        "you stink"
       ],
       "chineseTerms": [
         "感官",
@@ -490,9 +629,10 @@
         "听见",
         "闻闻",
         "味道",
-        "触摸"
+        "触摸",
+        "气味"
       ],
-      "exclude": "sounds of the letters|letter sound|sound book|sound books|发声书"
+      "exclude": "sounds of the letters|letter sound|sound book|sound books|发声书|stink moody"
     },
     {
       "id": "animals",
@@ -560,7 +700,38 @@
         "foal",
         "foals",
         "cub",
-        "cubs"
+        "cubs",
+        "tail",
+        "tails",
+        "paw",
+        "paws",
+        "beak",
+        "beaks",
+        "pony",
+        "ponies",
+        "pup",
+        "pups",
+        "rat",
+        "rats",
+        "worm",
+        "worms",
+        "earthworm",
+        "earthworms",
+        "llama",
+        "llamas",
+        "burro",
+        "burros",
+        "bilby",
+        "bilbies",
+        "seal",
+        "seals",
+        "chicken",
+        "chickens",
+        "tadpole",
+        "tadpoles",
+        "racehorse",
+        "racehorses",
+        "water bears"
       ],
       "chineseTerms": [
         "动物",
@@ -576,7 +747,15 @@
         "小兔",
         "小鸭",
         "牛群",
-        "小动物"
+        "小动物",
+        "尾巴",
+        "爪子",
+        "鸟喙",
+        "马儿",
+        "小鸡",
+        "绵羊",
+        "狼",
+        "老鼠"
       ],
       "exclude": "hot dog|corn dog|cat nap|monkey business|cat in the hat|dog s life|sick as a dog|cat s got your tongue|piggy bank"
     },
@@ -606,7 +785,9 @@
         "guinea pigs",
         "goldfish",
         "poodle",
-        "poodles"
+        "poodles",
+        "pug",
+        "pugs"
       ],
       "chineseTerms": [
         "宠物",
@@ -689,7 +870,28 @@
         "leopard",
         "leopards",
         "lynx",
-        "safari"
+        "safari",
+        "moose",
+        "bison",
+        "coyote",
+        "coyotes",
+        "groundhog",
+        "groundhogs",
+        "jaguar",
+        "jaguars",
+        "reindeer",
+        "reindeers",
+        "sabertooth",
+        "crocs",
+        "gators",
+        "woodchuck",
+        "woodchucks",
+        "badger",
+        "badgers",
+        "hyena",
+        "hyenas",
+        "meerkat",
+        "meerkats"
       ],
       "chineseTerms": [
         "野生动物",
@@ -716,9 +918,16 @@
         "水獭",
         "黑猩猩",
         "猎豹",
-        "豹子"
+        "豹子",
+        "美洲野牛",
+        "驼鹿",
+        "郊狼",
+        "美洲豹",
+        "驯鹿",
+        "獾",
+        "鬣狗"
       ],
-      "exclude": "monkey business|tiger lily|fox in socks|barking up|water bears?|bear with"
+      "exclude": "monkey business|tiger lily|fox in socks|barking up|water bears?|bear with|water bears"
     },
     {
       "id": "animals-sea",
@@ -742,7 +951,14 @@
         "orcas",
         "sea animals",
         "sea turtle",
-        "sea turtles"
+        "sea turtles",
+        "seal",
+        "seals",
+        "seal pup",
+        "sea lion",
+        "sea lions",
+        "seashell",
+        "seashells"
       ],
       "chineseTerms": [
         "海洋动物",
@@ -753,7 +969,10 @@
         "海马",
         "水母",
         "螃蟹",
-        "虎鲸"
+        "虎鲸",
+        "海豹",
+        "贝壳",
+        "海狮"
       ]
     },
     {
@@ -802,7 +1021,17 @@
         "cricket",
         "crickets",
         "grasshopper",
-        "grasshoppers"
+        "grasshoppers",
+        "cockroach",
+        "cockroaches",
+        "scorpion",
+        "scorpions",
+        "tarantula",
+        "tarantulas",
+        "lice",
+        "louse",
+        "beehive",
+        "beehives"
       ],
       "chineseTerms": [
         "昆虫",
@@ -822,7 +1051,12 @@
         "黄蜂",
         "飞蛾",
         "蟋蟀",
-        "蚱蜢"
+        "蚱蜢",
+        "蟑螂",
+        "蝎子",
+        "狼蛛",
+        "虱子",
+        "蜂巢"
       ],
       "exclude": "bugging|bee happy|bee lieve|flies? away|flies? in the sky|what flies|he flies|today i will fly|wants to fly|time flies|let s fly|fly high|fly high|fly away home"
     },
@@ -836,11 +1070,16 @@
         "dinos",
         "t-rex",
         "tyrannosaurus",
-        "stegosaurus"
+        "stegosaurus",
+        "t rex",
+        "pterodactyl",
+        "pterodactyls",
+        "t. rex"
       ],
       "chineseTerms": [
         "恐龙",
-        "霸王龙"
+        "霸王龙",
+        "翼龙"
       ]
     },
     {
@@ -880,7 +1119,16 @@
         "sparrow",
         "sparrows",
         "turkey",
-        "turkeys"
+        "turkeys",
+        "goose",
+        "geese",
+        "loon",
+        "loons",
+        "budgie",
+        "budgies",
+        "budgerigar",
+        "budgerigars",
+        "birdy"
       ],
       "chineseTerms": [
         "鸟类",
@@ -897,7 +1145,10 @@
         "啄木鸟",
         "鸵鸟",
         "麻雀",
-        "火鸡"
+        "火鸡",
+        "潜鸟",
+        "虎皮鹦鹉",
+        "大雁"
       ]
     },
     {
@@ -919,7 +1170,12 @@
         "den",
         "dens",
         "web",
-        "webs"
+        "webs",
+        "watering hole",
+        "fishtank",
+        "fishtanks",
+        "stable",
+        "stables"
       ],
       "chineseTerms": [
         "动物栖息地",
@@ -929,7 +1185,9 @@
         "水族馆",
         "鱼缸",
         "巢穴",
-        "蛛网"
+        "蛛网",
+        "饮水坑",
+        "马厩"
       ]
     },
     {
@@ -1018,7 +1276,9 @@
         "pineapple",
         "pineapples",
         "cherry",
-        "cherries"
+        "cherries",
+        "cranberry",
+        "cranberries"
       ],
       "chineseTerms": [
         "水果",
@@ -1035,7 +1295,8 @@
         "李子",
         "芒果",
         "菠萝",
-        "樱桃"
+        "樱桃",
+        "蔓越莓"
       ],
       "exclude": "orange outlaw|big apple"
     },
@@ -1056,7 +1317,10 @@
         "broccoli",
         "peas",
         "onion",
-        "onions"
+        "onions",
+        "pepper",
+        "peppers",
+        "pickles"
       ],
       "chineseTerms": [
         "蔬菜",
@@ -1065,7 +1329,10 @@
         "番茄",
         "南瓜",
         "豌豆",
-        "洋葱"
+        "洋葱",
+        "辣椒",
+        "甜椒",
+        "腌菜"
       ]
     },
     {
@@ -1086,7 +1353,13 @@
         "hamburger",
         "hamburgers",
         "pancake",
-        "pancakes"
+        "pancakes",
+        "taco",
+        "tacos",
+        "bun",
+        "buns",
+        "cracker",
+        "crackers"
       ],
       "chineseTerms": [
         "主食",
@@ -1097,7 +1370,9 @@
         "披萨",
         "热狗",
         "汉堡",
-        "煎饼"
+        "煎饼",
+        "塔可",
+        "面包卷"
       ]
     },
     {
@@ -1129,7 +1404,13 @@
         "cheesecake",
         "cheesecakes",
         "dessert",
-        "desserts"
+        "desserts",
+        "fruitcake",
+        "cinnamon bun",
+        "sugar",
+        "syrup",
+        "maple syrup",
+        "jawbreaker"
       ],
       "chineseTerms": [
         "蛋糕",
@@ -1144,7 +1425,10 @@
         "雪糕",
         "零食",
         "甜点",
-        "芝士蛋糕"
+        "芝士蛋糕",
+        "水果蛋糕",
+        "肉桂卷",
+        "糖浆"
       ]
     },
     {
@@ -1188,7 +1472,12 @@
         "soup",
         "soups",
         "dumpling",
-        "dumplings"
+        "dumplings",
+        "barbecue",
+        "barbecues",
+        "salsa",
+        "make maple syrup",
+        "making maple syrup"
       ],
       "chineseTerms": [
         "烹饪",
@@ -1197,7 +1486,10 @@
         "烘焙",
         "做汤",
         "做披萨",
-        "煮饭"
+        "煮饭",
+        "烧烤",
+        "莎莎酱",
+        "制作枫糖浆"
       ]
     },
     {
@@ -1240,14 +1532,19 @@
         "yum-yum",
         "peanut",
         "peanuts",
-        "nuts"
+        "nuts",
+        "vegan",
+        "yum",
+        "do not eat that",
+        "eating"
       ],
       "chineseTerms": [
         "食物",
         "肚子饿",
         "好吃",
         "花生",
-        "坚果"
+        "坚果",
+        "素食"
       ]
     },
     {
@@ -1269,7 +1566,10 @@
         "outfit",
         "outfits",
         "costume",
-        "costumes"
+        "costumes",
+        "jeans",
+        "wear",
+        "wears"
       ],
       "chineseTerms": [
         "衣服",
@@ -1278,7 +1578,9 @@
         "衬衫",
         "大衣",
         "外套",
-        "服装"
+        "服装",
+        "牛仔裤",
+        "穿什么"
       ]
     },
     {
@@ -1323,12 +1625,18 @@
         "scarf",
         "scarves",
         "glove",
-        "gloves"
+        "gloves",
+        "mitten",
+        "mittens",
+        "jewelry",
+        "jewellery"
       ],
       "chineseTerms": [
         "帽子",
         "围巾",
-        "手套"
+        "手套",
+        "连指手套",
+        "首饰"
       ],
       "exclude": "cat in the hat"
     },
@@ -1353,7 +1661,6 @@
       "topic": "family.members",
       "terms": [
         "mum",
-        "mummy",
         "mom",
         "mommy",
         "mother",
@@ -1373,7 +1680,25 @@
         "dads",
         "mums",
         "aunty",
-        "auntie"
+        "auntie",
+        "families",
+        "grandparents",
+        "grandpas",
+        "grandmothers",
+        "grandfathers",
+        "grannies",
+        "gran",
+        "cousin",
+        "cousins",
+        "daughter",
+        "daughters",
+        "son",
+        "sons",
+        "stepsister",
+        "stepsisters",
+        "new baby",
+        "mummy pig",
+        "mummy and daddy"
       ],
       "chineseTerms": [
         "妈妈",
@@ -1387,8 +1712,15 @@
         "叔叔",
         "阿姨",
         "家庭成员",
-        "亲戚"
-      ]
+        "亲戚",
+        "亲子",
+        "家人",
+        "表亲",
+        "堂亲",
+        "女儿",
+        "儿子"
+      ],
+      "exclude": "mother teresa|germ family"
     },
     {
       "id": "family-siblings",
@@ -1455,7 +1787,8 @@
         "高兴",
         "笑声",
         "大笑"
-      ]
+      ],
+      "exclude": "happy birthday|happy paws|开心农场"
     },
     {
       "id": "emotions-sad",
@@ -1503,12 +1836,21 @@
         "frightened",
         "fear",
         "worry",
-        "worried"
+        "worried",
+        "fright",
+        "scare",
+        "scares",
+        "terrifying",
+        "scream",
+        "screams",
+        "bad dream"
       ],
       "chineseTerms": [
         "害怕",
         "恐惧",
-        "担心"
+        "担心",
+        "惊吓",
+        "尖叫"
       ]
     },
     {
@@ -1520,13 +1862,19 @@
         "feel better",
         "feeling better",
         "tantrum",
-        "bossy"
+        "bossy",
+        "calming down",
+        "calm down",
+        "shy",
+        "mood"
       ],
       "chineseTerms": [
         "情绪",
         "感受",
         "情绪表达",
-        "发脾气"
+        "发脾气",
+        "害羞",
+        "冷静"
       ]
     },
     {
@@ -1578,13 +1926,18 @@
         "thanks",
         "sorry",
         "manners",
-        "polite"
+        "polite",
+        "thankful",
+        "welcome",
+        "good deeds"
       ],
       "chineseTerms": [
         "谢谢",
         "对不起",
         "礼貌",
-        "感谢"
+        "感谢",
+        "感恩",
+        "欢迎"
       ]
     },
     {
@@ -1598,12 +1951,17 @@
         "taking turns",
         "take turns",
         "share with",
-        "shares with"
+        "shares with",
+        "share",
+        "shares",
+        "selfish",
+        "two for me one for you"
       ],
       "chineseTerms": [
         "分享",
         "轮流",
-        "轮到谁"
+        "轮到谁",
+        "自私"
       ],
       "exclude": "bond they share|share a bond|share the same|share similar|common.*share"
     },
@@ -1666,7 +2024,8 @@
         "honesty",
         "tell a lie",
         "telling lies",
-        "trust"
+        "trust",
+        "not a crook"
       ],
       "chineseTerms": [
         "诚实",
@@ -1682,7 +2041,8 @@
         "color",
         "colors",
         "colour",
-        "colours"
+        "colours",
+        "reds and blues"
       ],
       "chineseTerms": [
         "颜色",
@@ -1703,14 +2063,17 @@
         "circle",
         "circles",
         "rectangle",
-        "rectangles"
+        "rectangles",
+        "spiral",
+        "spirals"
       ],
       "chineseTerms": [
         "形状",
         "三角形",
         "正方形",
         "圆形",
-        "长方形"
+        "长方形",
+        "螺旋"
       ]
     },
     {
@@ -1726,22 +2089,31 @@
         "subtraction",
         "math",
         "maths",
-        "numbers",
         "the number",
         "what number",
         "adding numbers",
         "adding up",
-        "addition and subtraction"
+        "addition and subtraction",
+        "double it",
+        "trillion",
+        "greater than",
+        "less than",
+        "countdown",
+        "pairs"
       ],
       "chineseTerms": [
         "数数",
         "数量",
         "数字",
         "加法",
-        "减法"
+        "减法",
+        "双倍",
+        "大于",
+        "小于",
+        "倒计时"
       ],
       "exclude": "don t count on|count on dracula",
-      "regex": "^(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|one[, ]+two[, ]+three)[!.?]*$"
+      "regex": "^(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|one[, ]+two[, ]+three)[!.?]*$|(?<![A-Za-z])number\\s+(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)(?![A-Za-z])"
     },
     {
       "id": "concepts-opposites",
@@ -1767,7 +2139,21 @@
         "wet and dry",
         "clean and dirty",
         "cold day",
-        "hot day"
+        "hot day",
+        "too high",
+        "too fast",
+        "so big",
+        "very long",
+        "tiny things",
+        "little things",
+        "small one",
+        "tall one",
+        "standing tall",
+        "fast and faster",
+        "quiet or loud",
+        "super fast",
+        "open shut",
+        "open and shut"
       ],
       "chineseTerms": [
         "反义词",
@@ -1780,7 +2166,8 @@
         "高低",
         "远近",
         "开合",
-        "干湿"
+        "干湿",
+        "飞速向前"
       ]
     },
     {
@@ -1812,7 +2199,15 @@
         "week",
         "weeks",
         "month",
-        "months"
+        "months",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+        "weekend"
       ],
       "chineseTerms": [
         "星期",
@@ -1820,7 +2215,16 @@
         "日历",
         "这个月",
         "这周",
-        "星期几"
+        "星期几",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+        "星期日",
+        "周末",
+        "一周"
       ]
     },
     {
@@ -1836,19 +2240,21 @@
         "then and now",
         "today and long ago",
         "before and after",
-        "night",
-        "morning"
+        "nighttime",
+        "about time",
+        "when is nighttime"
       ],
       "chineseTerms": [
-        "时间",
         "白天和黑夜",
         "时钟",
         "过去和现在",
         "很久以前",
         "天黑以后",
-        "夜晚",
-        "一周"
-      ]
+        "认识时间",
+        "时间认知",
+        "几点钟"
+      ],
+      "regex": "^(?:the\\s+)?(?:night|morning|dawn|sunset|afternoon)[.!?]?$"
     },
     {
       "id": "concepts-money",
@@ -1880,13 +2286,19 @@
         "bookstore",
         "my books",
         "our books",
-        "read a book"
+        "read a book",
+        "picture book",
+        "picture books",
+        "i can read",
+        "book whiz",
+        "look at this book"
       ],
       "chineseTerms": [
         "图书馆",
         "书店",
         "读书",
-        "阅读书本"
+        "阅读书本",
+        "一本书"
       ],
       "exclude": "notebook|not so itty|big book of"
     },
@@ -1919,7 +2331,9 @@
         "same and different",
         "button",
         "buttons",
-        "glasses"
+        "glasses",
+        "camouflage",
+        "stripes and spots"
       ],
       "chineseTerms": [
         "外观与特征",
@@ -1927,7 +2341,9 @@
         "斑点",
         "相同和不同",
         "纽扣",
-        "眼镜"
+        "眼镜",
+        "伪装",
+        "保护色"
       ]
     },
     {
@@ -1965,7 +2381,16 @@
         "thunderstorm",
         "thunderbolt",
         "frost",
-        "frosty"
+        "frosty",
+        "puddle",
+        "puddles",
+        "snowstorm",
+        "snowstorms",
+        "blizzard",
+        "blizzards",
+        "flood",
+        "floods",
+        "flooding"
       ],
       "chineseTerms": [
         "下雨",
@@ -1986,7 +2411,10 @@
         "雾",
         "雷暴",
         "雪仗",
-        "冰霜"
+        "冰霜",
+        "水坑",
+        "暴雪",
+        "洪水"
       ]
     },
     {
@@ -1997,16 +2425,20 @@
         "summer",
         "autumn",
         "winter",
-        "seasons"
+        "seasons",
+        "what season",
+        "fall fun",
+        "i love fall"
       ],
       "chineseTerms": [
         "春天",
         "夏天",
         "秋天",
         "冬天",
-        "四季"
+        "四季",
+        "什么季节"
       ],
-      "regex": "\\b(?:i love fall|in the fall|fall leaves|fall is here)\\b"
+      "regex": "^fall[.!?]?$"
     },
     {
       "id": "nature-plants",
@@ -2026,7 +2458,17 @@
         "cacti",
         "garden",
         "gardening",
-        "oak"
+        "oak",
+        "ferns",
+        "woods",
+        "orchid",
+        "orchids",
+        "beanstalk",
+        "willow",
+        "willows",
+        "buckeye",
+        "buckeyes",
+        "harvest"
       ],
       "chineseTerms": [
         "植物",
@@ -2036,7 +2478,9 @@
         "种子",
         "仙人掌",
         "花园",
-        "园艺"
+        "园艺",
+        "橡树",
+        "豆茎"
       ],
       "exclude": "family tree|tree house|treehouse|tree of lies"
     },
@@ -2050,15 +2494,22 @@
         "beach",
         "beaches",
         "coral reef",
-        "reef"
+        "reef",
+        "tide",
+        "tides",
+        "waves",
+        "wave"
       ],
       "chineseTerms": [
         "海洋",
         "海边",
         "沙滩",
         "珊瑚礁",
-        "海滩"
-      ]
+        "海滩",
+        "潮汐",
+        "海浪"
+      ],
+      "exclude": "making waves"
     },
     {
       "id": "nature-environment",
@@ -2077,7 +2528,29 @@
         "swamp",
         "swamps",
         "arctic",
-        "antarctic"
+        "antarctic",
+        "mud",
+        "sand",
+        "soil",
+        "rock",
+        "rocks",
+        "cliff",
+        "cliffs",
+        "canyon",
+        "canyons",
+        "glacier",
+        "glaciers",
+        "quicksand",
+        "island",
+        "islands",
+        "cavern",
+        "caverns",
+        "underground",
+        "everglades",
+        "yellowstone",
+        "north pole",
+        "south pole",
+        "logs"
       ],
       "chineseTerms": [
         "森林",
@@ -2087,7 +2560,15 @@
         "洞穴",
         "沼泽",
         "北极",
-        "南极"
+        "南极",
+        "泥土",
+        "泥巴",
+        "沙子",
+        "沙地",
+        "峡谷",
+        "冰川",
+        "荒岛",
+        "岛屿"
       ]
     },
     {
@@ -2101,13 +2582,19 @@
         "pond",
         "ponds",
         "stream",
-        "streams"
+        "streams",
+        "creek",
+        "creeks",
+        "rapids",
+        "mississippi"
       ],
       "chineseTerms": [
         "河流",
         "湖泊",
         "池塘",
-        "小溪"
+        "小溪",
+        "溪流",
+        "急流"
       ]
     },
     {
@@ -2138,7 +2625,25 @@
         "tractors",
         "railroad",
         "railway",
-        "railways"
+        "railways",
+        "wheel",
+        "wheels",
+        "wheelchair",
+        "wheelchairs",
+        "go-karts",
+        "motorway",
+        "motorways",
+        "traffic jam",
+        "trucking",
+        "rush hour",
+        "road burner",
+        "tires",
+        "tyres",
+        "bulldozer",
+        "bulldozers",
+        "road",
+        "roads",
+        "construction vehicles"
       ],
       "chineseTerms": [
         "汽车",
@@ -2150,7 +2655,11 @@
         "出租车",
         "摩托车",
         "滑板车",
-        "拖拉机"
+        "拖拉机",
+        "轮子",
+        "轮椅",
+        "高速公路",
+        "堵车"
       ]
     },
     {
@@ -2166,7 +2675,13 @@
         "submarine",
         "submarines",
         "yacht",
-        "yachts"
+        "yachts",
+        "tugboat",
+        "tugboats",
+        "boating",
+        "titanic",
+        "capsized",
+        "capsize"
       ],
       "chineseTerms": [
         "船只",
@@ -2174,7 +2689,8 @@
         "小船",
         "独木舟",
         "潜水艇",
-        "游艇"
+        "游艇",
+        "泰坦尼克"
       ]
     },
     {
@@ -2206,13 +2722,23 @@
       "terms": [
         "road safety",
         "traffic lights",
-        "crossing the road"
+        "crossing the road",
+        "traffic signal",
+        "traffic signals",
+        "stop sign",
+        "stop signs",
+        "parking ticket",
+        "many roads",
+        "sidewalk",
+        "sidewalks"
       ],
       "chineseTerms": [
         "道路安全",
         "交通安全",
         "红绿灯",
-        "过马路"
+        "过马路",
+        "交通标志",
+        "停车罚单"
       ]
     },
     {
@@ -2229,7 +2755,15 @@
         "vacation",
         "holiday",
         "holidays",
-        "camping"
+        "camping",
+        "camper",
+        "campers",
+        "day out",
+        "outing",
+        "around the world",
+        "for a drive",
+        "roadside",
+        "nature trail"
       ],
       "chineseTerms": [
         "旅行",
@@ -2237,7 +2771,11 @@
         "出游",
         "假期",
         "度假",
-        "露营"
+        "露营",
+        "野外一日游",
+        "假日",
+        "游记",
+        "环游"
       ]
     },
     {
@@ -2254,7 +2792,14 @@
         "museums",
         "hospital",
         "hospitals",
-        "post office"
+        "post office",
+        "neighborhood",
+        "neighbourhood",
+        "neighbour",
+        "neighbours",
+        "neighbor",
+        "neighbors",
+        "next door"
       ],
       "chineseTerms": [
         "城镇",
@@ -2262,7 +2807,9 @@
         "商场",
         "博物馆",
         "医院",
-        "邮局"
+        "邮局",
+        "邻居",
+        "社区"
       ]
     },
     {
@@ -2292,7 +2839,13 @@
         "skipping",
         "roll",
         "rolls",
-        "rolling"
+        "rolling",
+        "marching",
+        "race",
+        "races",
+        "racing",
+        "great race",
+        "loves to march"
       ],
       "chineseTerms": [
         "走跑跳爬",
@@ -2301,7 +2854,9 @@
         "跑步",
         "行走",
         "跳绳",
-        "滚动"
+        "滚动",
+        "行进",
+        "赛跑"
       ]
     },
     {
@@ -2380,12 +2935,14 @@
         "push",
         "pushing",
         "pull",
-        "pulling"
+        "pulling",
+        "tug of war"
       ],
       "chineseTerms": [
         "推拉",
         "推一推",
-        "拉一拉"
+        "拉一拉",
+        "拔河"
       ]
     },
     {
@@ -2408,7 +2965,11 @@
         "repairs",
         "built",
         "pick up",
-        "drop it"
+        "drop it",
+        "fixed",
+        "spit",
+        "spitting",
+        "take a bite"
       ],
       "chineseTerms": [
         "搭建",
@@ -2417,7 +2978,8 @@
         "抬起",
         "修理",
         "捡起",
-        "放下"
+        "放下",
+        "吐口水"
       ]
     },
     {
@@ -2451,7 +3013,10 @@
         "golf",
         "goal",
         "goals",
-        "field day"
+        "field day",
+        "hockey",
+        "lacrosse",
+        "umpire"
       ],
       "chineseTerms": [
         "球类",
@@ -2461,7 +3026,10 @@
         "网球",
         "排球",
         "高尔夫",
-        "乌龙球"
+        "乌龙球",
+        "曲棍球",
+        "长曲棍球",
+        "关于球"
       ]
     },
     {
@@ -2473,11 +3041,14 @@
         "jigsaw",
         "jigsaws",
         "puzzle",
-        "puzzles"
+        "puzzles",
+        "chess"
       ],
       "chineseTerms": [
         "桌游",
-        "拼图"
+        "拼图",
+        "象棋",
+        "迷宫"
       ]
     },
     {
@@ -2502,7 +3073,15 @@
         "sleds",
         "sledding",
         "sledge",
-        "sledges"
+        "sledges",
+        "fishing",
+        "surf",
+        "surfing",
+        "surfs",
+        "surf s up",
+        "surf's up",
+        "rodeo",
+        "marathon"
       ],
       "chineseTerms": [
         "公园",
@@ -2511,7 +3090,10 @@
         "滑冰",
         "滑雪",
         "徒步",
-        "雪橇"
+        "雪橇",
+        "钓鱼",
+        "冲浪",
+        "马拉松"
       ]
     },
     {
@@ -2520,7 +3102,8 @@
       "terms": [
         "hide and seek",
         "hide-and-seek",
-        "hiding"
+        "hiding",
+        "i hide"
       ],
       "chineseTerms": [
         "捉迷藏",
@@ -2654,7 +3237,23 @@
         "games",
         "playing",
         "hobbies",
-        "hobby"
+        "hobby",
+        "exercise",
+        "gymnast",
+        "gymnastics",
+        "karate",
+        "yoga",
+        "olympics",
+        "olympic",
+        "wrestling",
+        "lets play",
+        "let s play",
+        "wants to play",
+        "learns to play",
+        "out to play",
+        "play and ride",
+        "let's play",
+        "wanted to play"
       ],
       "chineseTerms": [
         "运动",
@@ -2662,7 +3261,13 @@
         "游戏",
         "爱好",
         "玩闹",
-        "玩玩闹闹"
+        "玩玩闹闹",
+        "锻炼",
+        "体操",
+        "空手道",
+        "瑜伽",
+        "奥运",
+        "摔跤"
       ]
     },
     {
@@ -2683,7 +3288,8 @@
         "christmas",
         "santa",
         "xmas",
-        "jingle bells"
+        "jingle bells",
+        "feliz navidad"
       ],
       "chineseTerms": [
         "圣诞节",
@@ -2696,7 +3302,8 @@
       "terms": [
         "halloween",
         "jack-o-lantern",
-        "trick or treat"
+        "trick or treat",
+        "jack-o'-lanterns"
       ],
       "chineseTerms": [
         "万圣节",
@@ -2725,7 +3332,17 @@
         "hanukkah",
         "ramadan",
         "diwali",
-        "eid"
+        "eid",
+        "kwanzaa",
+        "cascarones",
+        "cinco de mayo",
+        "fourth of july",
+        "independence day",
+        "saint patrick",
+        "st patrick",
+        "day of the dead",
+        "dia de los muertos",
+        "april fools"
       ],
       "chineseTerms": [
         "新年",
@@ -2733,7 +3350,12 @@
         "情人节",
         "光明节",
         "斋月",
-        "排灯节"
+        "排灯节",
+        "宽扎节",
+        "独立日",
+        "愚人节",
+        "亡灵节",
+        "圣帕特里克"
       ]
     },
     {
@@ -2746,13 +3368,26 @@
         "festival",
         "festivals",
         "parade",
-        "parades"
+        "parades",
+        "wedding",
+        "weddings",
+        "gifts",
+        "piñata",
+        "piñatas",
+        "pinata",
+        "pinatas",
+        "fete",
+        "traditions"
       ],
       "chineseTerms": [
         "派对",
         "聚会",
         "庆典",
-        "游行"
+        "游行",
+        "婚礼",
+        "礼物",
+        "传统",
+        "狂欢"
       ]
     },
     {
@@ -2798,7 +3433,9 @@
       "topic": "phonics.phonics",
       "terms": [
         "phonics",
-        "phonetic"
+        "phonetic",
+        "silent e",
+        "land of letters"
       ],
       "chineseTerms": [
         "自然拼读"
@@ -2848,7 +3485,20 @@
         "shoemakers",
         "ambulance service",
         "baker",
-        "bakers"
+        "bakers",
+        "vet",
+        "vets",
+        "veterinarian",
+        "veterinarians",
+        "workers",
+        "caretaker",
+        "caretakers",
+        "stonecutter",
+        "stonecutters",
+        "shepherd",
+        "shepherds",
+        "storyteller",
+        "storytellers"
       ],
       "chineseTerms": [
         "职业人物",
@@ -2872,7 +3522,13 @@
         "社区工作者",
         "鞋匠",
         "急救服务",
-        "面包师"
+        "面包师",
+        "石匠",
+        "牧羊人",
+        "故事家",
+        "漫画家",
+        "酋长",
+        "骑士"
       ]
     },
     {
@@ -2887,14 +3543,20 @@
         "fire station",
         "factory",
         "factories",
-        "pedal power"
+        "pedal power",
+        "workplace",
+        "workplaces",
+        "stables",
+        "too much work",
+        "places to work"
       ],
       "chineseTerms": [
         "职业",
         "工作内容",
         "消防站",
         "工厂",
-        "能源"
+        "能源",
+        "工作场所"
       ]
     },
     {
@@ -2908,13 +3570,21 @@
         "screwdriver",
         "screwdrivers",
         "wrench",
-        "wrenches"
+        "wrenches",
+        "scarecrow",
+        "scarecrows",
+        "fence",
+        "fences",
+        "construction site",
+        "construction sites"
       ],
       "chineseTerms": [
         "工具",
         "锤子",
         "螺丝刀",
-        "扳手"
+        "扳手",
+        "稻草人",
+        "围栏"
       ]
     },
     {
@@ -2970,7 +3640,11 @@
         "comets",
         "sun",
         "globe",
-        "earth"
+        "earth",
+        "blastoff",
+        "blast off",
+        "twinkling stars",
+        "stars"
       ],
       "chineseTerms": [
         "宇宙",
@@ -2990,8 +3664,10 @@
         "星系",
         "彗星",
         "太阳",
-        "地球"
-      ]
+        "地球",
+        "星星"
+      ],
+      "exclude": "mood martian|galactic jawbreaker|星星小子|mr\\.?\\s*sun|kid rocket|animal stars|stars and stripes|lake of stars|where on earth|rocket boots|wind and (?:the )?sun|sun and (?:the )?wind|moon.*trick.*sun|eggs in the sun|walk in the sun"
     },
     {
       "id": "science-phenomena",
@@ -3020,7 +3696,13 @@
         "steam",
         "water changes",
         "does water change",
-        "changing water"
+        "changing water",
+        "sink or float",
+        "energy",
+        "battery",
+        "batteries",
+        "power cut",
+        "fireball"
       ],
       "chineseTerms": [
         "火山",
@@ -3035,9 +3717,13 @@
         "岩石",
         "水的变化",
         "火",
-        "冰"
+        "冰",
+        "沉浮",
+        "能量",
+        "电池",
+        "停电"
       ],
-      "exclude": "rock stars|rock star|rock music|rock concert|dinosaur rock|rocking|on the rocks|stone soup|stone stew|ice cream|ice-cream"
+      "exclude": "rock stars|rock star|rock music|rock concert|dinosaur rock|rocking|on the rocks|stone soup|stone stew|ice cream|ice-cream|fire\\s*(?:truck|engine|station|fighter)s?|消防|火车|火箭|火鸡|火腿"
     },
     {
       "id": "science-experiments",
@@ -3074,13 +3760,34 @@
         "life cycle",
         "life cycles",
         "seedling",
-        "seedlings"
+        "seedlings",
+        "fossil",
+        "fossils",
+        "hibernation",
+        "hibernate",
+        "hatching",
+        "hatch",
+        "migration",
+        "migrating",
+        "living or nonliving",
+        "mold",
+        "mould",
+        "moldy",
+        "clone",
+        "clones"
       ],
       "chineseTerms": [
         "生长",
         "成长",
         "生命周期",
-        "发芽"
+        "发芽",
+        "化石",
+        "冬眠",
+        "孵化",
+        "迁徙",
+        "生命",
+        "霉菌",
+        "收获农作物"
       ],
       "exclude": "growl|grow your|grow a reader|grow their|grow as"
     },
@@ -3181,7 +3888,20 @@
         "crafts",
         "making cards",
         "clay",
-        "fun with paper"
+        "fun with paper",
+        "sculpture",
+        "sculptures",
+        "statue",
+        "statues",
+        "portrait",
+        "portraits",
+        "make paper",
+        "paper-making",
+        "picture",
+        "pictures",
+        "cards",
+        "sew",
+        "sewing"
       ],
       "chineseTerms": [
         "绘画",
@@ -3192,7 +3912,11 @@
         "黏土",
         "纸艺",
         "美术馆",
-        "大画家"
+        "大画家",
+        "雕塑",
+        "雕像",
+        "立体贺卡",
+        "漫画"
       ]
     },
     {
@@ -3216,7 +3940,13 @@
         "the play",
         "our show",
         "rock stars",
-        "nutcracker"
+        "nutcracker",
+        "drama",
+        "drama queen",
+        "class play",
+        "pop star",
+        "pop stars",
+        "the show"
       ],
       "chineseTerms": [
         "表演",
@@ -3228,7 +3958,8 @@
         "音乐会",
         "小丑",
         "杂耍演员",
-        "胡桃夹子"
+        "胡桃夹子",
+        "小小故事家"
       ]
     },
     {
@@ -3272,7 +4003,15 @@
         "spell",
         "spells",
         "wishes",
-        "magic egg"
+        "magic egg",
+        "genie",
+        "genies",
+        "broomstick",
+        "broomsticks",
+        "flying carpet",
+        "flying carpets",
+        "dracula",
+        "mind reader"
       ],
       "chineseTerms": [
         "魔法",
@@ -3281,7 +4020,9 @@
         "魔杖",
         "咒语",
         "许愿",
-        "魔蛋"
+        "魔蛋",
+        "神灯",
+        "飞毯"
       ]
     },
     {
@@ -3313,7 +4054,16 @@
         "fairy tale",
         "fairy tales",
         "princess",
-        "princesses"
+        "princesses",
+        "troll",
+        "trolls",
+        "medusa",
+        "bigfoot",
+        "haunted",
+        "robo-boxers",
+        "robo-boogers",
+        "snombies",
+        "talking toilets"
       ],
       "chineseTerms": [
         "怪物",
@@ -3330,7 +4080,8 @@
         "小矮人",
         "童话",
         "公主",
-        "大英雄"
+        "大英雄",
+        "妖怪"
       ],
       "exclude": "giant (?:baobab|tree|trees|sequoia|panda|pandas|redwood|squid|squids|clam|clams|snail|snails|anteater|anteaters)"
     },
@@ -3345,14 +4096,27 @@
         "quest",
         "quests",
         "underwater chase",
-        "world tour"
+        "world tour",
+        "escape",
+        "escapes",
+        "escaping",
+        "chase",
+        "chases",
+        "mission",
+        "battle",
+        "battles",
+        "stampede",
+        "hunt",
+        "hunting"
       ],
       "chineseTerms": [
         "冒险",
         "探险",
         "宝藏",
         "寻宝",
-        "环游世界"
+        "环游世界",
+        "逃生",
+        "逃离"
       ]
     },
     {
@@ -3373,7 +4137,8 @@
         "protect the earth",
         "save the planet",
         "go green",
-        "goes green"
+        "goes green",
+        "saves the world"
       ],
       "chineseTerms": [
         "环境保护",
@@ -3406,7 +4171,18 @@
         "bump",
         "bumps",
         "injured",
-        "injury"
+        "injury",
+        "cold shivers",
+        "catches a cold",
+        "sneeze",
+        "sneezes",
+        "sneezing",
+        "diabetes",
+        "get well",
+        "x-ray",
+        "x ray",
+        "checkup",
+        "check-up"
       ],
       "chineseTerms": [
         "健康",
@@ -3421,7 +4197,11 @@
         "医院",
         "医药",
         "疫苗",
-        "受伤"
+        "受伤",
+        "得了感冒",
+        "糖尿病",
+        "喷嚏",
+        "康复"
       ],
       "exclude": "healthy snacks|healthy food|healthy foods|healthy eating"
     },
@@ -3441,7 +4221,11 @@
         "plastic",
         "metal",
         "metals",
-        "glass"
+        "glass",
+        "glassblowing",
+        "make paper",
+        "what's it made of",
+        "what’s it made of"
       ],
       "chineseTerms": [
         "物性",
@@ -3449,9 +4233,268 @@
         "木材",
         "塑料",
         "金属",
-        "玻璃"
+        "玻璃",
+        "吹制玻璃",
+        "造纸"
       ],
       "exclude": "glass of|glass slipper|plastic surgery|recycling"
+    },
+    {
+      "id": "social-conduct-root",
+      "topic": "social",
+      "terms": [
+        "bully",
+        "bullying",
+        "teasing",
+        "spying",
+        "kidnapped",
+        "kidnapper",
+        "kidnappers",
+        "bandit",
+        "outlaw",
+        "naughty",
+        "pick on me"
+      ],
+      "chineseTerms": [
+        "霸凌",
+        "欺负",
+        "捉弄",
+        "绑架",
+        "捣蛋"
+      ]
+    },
+    {
+      "id": "nature-water-root",
+      "topic": "nature",
+      "terms": [
+        "water",
+        "underwater",
+        "under water"
+      ],
+      "chineseTerms": [
+        "自然界"
+      ]
+    },
+    {
+      "id": "arts-photography-root",
+      "topic": "arts",
+      "terms": [
+        "picture day",
+        "camcorder",
+        "camera",
+        "cameras",
+        "photography"
+      ],
+      "chineseTerms": [
+        "拍照",
+        "摄影"
+      ]
+    },
+    {
+      "id": "arts-tv-root",
+      "topic": "arts",
+      "terms": [
+        "no tv",
+        "television",
+        "tv show"
+      ],
+      "chineseTerms": [
+        "动画世界"
+      ]
+    },
+    {
+      "id": "fantasy-mystery",
+      "topic": "fantasy.mystery",
+      "terms": [
+        "mystery",
+        "mysteries",
+        "detective",
+        "detectives",
+        "spy",
+        "spies",
+        "secret maze"
+      ],
+      "chineseTerms": [
+        "神探",
+        "侦探",
+        "神秘事件",
+        "破案",
+        "解谜"
+      ]
+    },
+    {
+      "id": "science-geography",
+      "topic": "science.geography",
+      "terms": [
+        "africa",
+        "brazil",
+        "india",
+        "australia",
+        "argentina",
+        "egypt",
+        "canada",
+        "mexico",
+        "south korea",
+        "russia",
+        "japan",
+        "spain",
+        "china",
+        "kenya",
+        "morocco",
+        "united arab emirates",
+        "istanbul",
+        "singapore",
+        "london",
+        "hawaii",
+        "dubai",
+        "antarctica",
+        "pacific islands",
+        "rapa nui",
+        "yellowstone",
+        "grand canyon",
+        "tokyo",
+        "north pole",
+        "south pole",
+        "map",
+        "maps",
+        "american symbols",
+        "country places",
+        "world landmarks"
+      ],
+      "chineseTerms": [
+        "非洲",
+        "巴西",
+        "印度",
+        "澳大利亚",
+        "阿根廷",
+        "埃及",
+        "加拿大",
+        "墨西哥",
+        "韩国",
+        "俄罗斯",
+        "日本",
+        "西班牙",
+        "中国",
+        "肯尼亚",
+        "摩洛哥",
+        "阿联酋",
+        "伊斯坦布尔",
+        "新加坡",
+        "伦敦",
+        "夏威夷",
+        "迪拜",
+        "南极洲",
+        "太平洋岛国",
+        "世界地标"
+      ]
+    },
+    {
+      "id": "science-history",
+      "topic": "science.history",
+      "terms": [
+        "ancient egypt",
+        "colonial life",
+        "civil war",
+        "revolutionary war",
+        "mummies",
+        "chichen itza",
+        "colosseum",
+        "great zimbabwe",
+        "machu picchu",
+        "pompeii"
+      ],
+      "chineseTerms": [
+        "古埃及",
+        "殖民时代",
+        "内战",
+        "革命战争",
+        "木乃伊",
+        "庞贝",
+        "马丘比丘",
+        "奇琴伊察"
+      ]
+    },
+    {
+      "id": "social-rules",
+      "topic": "social.rules",
+      "terms": [
+        "election",
+        "elections",
+        "vote",
+        "voting",
+        "constitution",
+        "government",
+        "laws for kids",
+        "human rights",
+        "laws",
+        "segregation",
+        "racism"
+      ],
+      "chineseTerms": [
+        "选举",
+        "投票",
+        "宪法",
+        "政府",
+        "法律",
+        "人权"
+      ]
+    },
+    {
+      "id": "daily-toilet",
+      "topic": "daily.toilet",
+      "terms": [
+        "pee",
+        "poop",
+        "potty training",
+        "toilet training",
+        "fart",
+        "farts"
+      ],
+      "chineseTerms": [
+        "如厕",
+        "上厕所",
+        "尿尿",
+        "拉便便",
+        "放屁"
+      ]
+    },
+    {
+      "id": "concepts-language",
+      "topic": "concepts.language",
+      "terms": [
+        "bilingual",
+        "bilingualism",
+        "suffix",
+        "suffixes",
+        "wrong words",
+        "new way of speaking",
+        "too much talk",
+        "first words",
+        "100 words",
+        "1000 words",
+        "english words",
+        "vocabulary"
+      ],
+      "chineseTerms": [
+        "双语能力",
+        "词缀",
+        "语言与文字"
+      ],
+      "exclude": "双语绘本|双语阅读"
+    },
+    {
+      "id": "arts-literature-root",
+      "topic": "arts",
+      "terms": [
+        "poetry",
+        "poem",
+        "poems",
+        "from bad to verse"
+      ],
+      "chineseTerms": [
+        "诗歌",
+        "写诗"
+      ]
     }
   ],
   "genericDescriptionPatterns": [
@@ -3531,9 +4574,13 @@
     "\\b(?:reading practice|bedtime reading|read together)\\b",
     "^Science:",
     "\\b(?:narration|audio edition|recording|story collection|book collection)\\b",
-    "\\b(?:the original|first|last)\\b.*\\b(?:story|book)\\b.*\\b(?:sounds|narration)\\b"
+    "\\b(?:the original|first|last)\\b.*\\b(?:story|book)\\b.*\\b(?:sounds|narration)\\b",
+    "inspiration behind.*(?:books|movies|films)"
   ],
   "titlePrefixPatterns": [
+    "^\\s*Hello\\s+(?:Library\\s+)?(?:No\\.?\\s*|#)\\d+\\s*[:：—–-]?\\s*",
+    "^\\s*Hello\\s+Library\\s*[:：—–-]?\\s*",
+    "^\\s*(?:My\\s+First\\s+)?I\\s+Can\\s+Read!?\\s*(?:Level\\s*\\d+\\s*)?[:：]\\s*",
     "^\\s*(?:\\d+\\s*[-.:：]?\\s*)?(?:RAZ\\s*[- ]?\\s*[A-Z]{1,2}\\s*\\d*\\s*[-.:：]?\\s*)",
     "^\\s*(?:Reading A[- ]Z\\s*[A-Z]{1,2}\\s*[-.:：]?\\s*)",
     "^\\s*(?:牛津阅读树|Oxford Reading Tree)\\s*[^:：]*[:：]\\s*",
@@ -3552,12 +4599,29 @@
     "^\\s*(?:Magic Tree House|The Last Firehawk|Judy Moody|Stink Moody|Junie B\\. Jones|Marvin Redpost|Galaxy Zack|Billy and the Mini Monsters|A to Z Mysteries|A to Z Mystery|Andrew Lost|The Notebook of Doom|The Nootbook of Doom|Eerie Elementary|Mighty Robot|Rabbit and Bear|Acorn|A Crabby Book|Missy.s Super Duper Royal Deluxe|Lotus Lane|Pip and Posy|Croc and Ally|Frog and Friends|LAYLA and the BOTS|Fairylight Friends|Moby Shinobi and Toby Too!)\\s*(?:#?\\s*\\d+)?\\s*[:：]\\s*",
     "^\\s*淘气兔子杰克双语绘本系列\\s*[:：]\\s*",
     "^\\s*All Aboard Reading\\s*[:：]\\s*",
-    "^\\s*\\d+\\s*(?:[-.]\\s*|\\s+)"
+    "^\\s*\\d+\\s*(?:[-.]\\s*|\\s+)",
+    "^\\s*I\\s+Can\\s+Read!?\\s+Biscuit\\s*[:：]\\s*(?:Biscuit\\s*)?",
+    "^\\s*Winnie\\s+and\\s+Wilbur\\s*[:：\\-]\\s*",
+    "^\\s*Little\\s+Critter\\s*[:：]\\s*",
+    "^\\s*Benchmark\\s*口语剧场\\s*[:：]\\s*",
+    "^\\s*(?:\\d+\\s+)?(?:Henry\\s*&\\s*Mudge)\\s*(?:and\\s+|[:：]\\s*)?",
+    "^\\s*Guided\\s+Science\\s+Readers\\s*[:：]\\s*[A-D]\\s*[:：]\\s*",
+    "^\\s*彩虹兔\\s*Sing\\s*Along\\s*欢唱童谣第[^:：]*[:：]\\s*",
+    "^\\s*(?:新东方[—–-]\\s*)?彩虹糖[^:：]*[:：]\\s*",
+    "^\\s*我的小小世界\\s*SET\\s*\\d+[^:：]*[:：]\\s*",
+    "^\\s*Trucktown\\s*[:：-]\\s*",
+    "^\\s*Busy\\s+Machines\\s*[:：]\\s*"
   ],
   "titleSuffixPatterns": [
     "\\s*\\(\\s*(?:RAZ\\s*)?[A-Z]{1,2}\\s*\\)\\s*$",
     "\\s*\\((?:Book|book)\\s*\\d+\\)\\s*$",
-    "\\s*[:：]\\s*a classic picture book\\s*$"
+    "\\s*[:：]\\s*a classic picture book\\s*$",
+    "\\s*\\(\\s*Bluey\\s*\\)\\s*$",
+    "\\s*\\(\\s*My\\s+(?:First|Fisrt)\\s+Animal\\s+Books[^)]*\\)\\s*$",
+    "\\s*Book\\s+Graded\\s+Level\\s+PreK[-–]\\d+\\s*$",
+    "\\s*\\(\\s*Blastoff!?\\s*Readers[^\\n]*$",
+    "\\s*\\(\\s*Machines\\s+with\\s+Power!?\\s*\\)\\s*$",
+    "\\s*\\(\\s*Wheelie\\s+Books\\s*\\)\\s*$"
   ],
   "ambiguousTitles": [
     "Monkey Business",
@@ -3590,8 +4654,24 @@
     "Fly Away",
     "He Flies",
     "What Flies",
-    "Water Bears",
-    "Taking Care of Chase"
+    "Taking Care of Chase",
+    "Rat-a-tat-tat",
+    "Lots of Hearts",
+    "Bob Bilby (Bluey)",
+    "Making Waves",
+    "发射杰克!",
+    "Fern Goes Away",
+    "Bob Bilby",
+    "A Sinking Feeling",
+    "The Time Capsule",
+    "A Tall Tale",
+    "The Big Spin",
+    "The New Place",
+    "Standing Tall",
+    "Aunt Allie and the Valkyrie",
+    "Out of the Blue",
+    "Me and My Mummy",
+    "In Time"
   ],
   "descriptionMaxRepeatedBooks": 3,
   "nodes": [
@@ -3624,6 +4704,51 @@
         "catalog-title-topic-fallback-20261114"
       ],
       "basis": "公开书目题名及简介中有Things Made of Wood、Looking at Materials、Plastic、What Is It Made of等明确材料性质内容，归科普下独立二级，不混入家居物品。"
+    },
+    {
+      "id": "science.geography",
+      "label": "国家与地理",
+      "parentId": "science",
+      "sourceIds": [
+        "catalog-title-topic-fallback-20261114"
+      ],
+      "basis": "题名直接点明国家、城市或地理区域，用于查找该地域内容，不推定旅行情节或自然地貌。"
+    },
+    {
+      "id": "science.history",
+      "label": "历史与文明",
+      "parentId": "science",
+      "sourceIds": [
+        "catalog-title-topic-fallback-20261114"
+      ],
+      "basis": "题名明确历史时代、文明、遗址或具名历史战争；不按人物名字猜职业或经历。"
+    },
+    {
+      "id": "social.rules",
+      "label": "规则与公共参与",
+      "parentId": "social",
+      "sourceIds": [
+        "catalog-title-topic-fallback-20261114"
+      ],
+      "basis": "题名明确选举、投票、宪法、政府、法律等公共生活，不把含rule的所有材料归入。"
+    },
+    {
+      "id": "daily.toilet",
+      "label": "如厕",
+      "parentId": "daily",
+      "sourceIds": [
+        "catalog-title-topic-fallback-20261114"
+      ],
+      "basis": "题名明确如厕、生理排泄或如厕训练，不将提到毛巾或衣物等同洗澡／如厕。"
+    },
+    {
+      "id": "concepts.language",
+      "label": "语言与文字",
+      "parentId": "concepts",
+      "sourceIds": [
+        "catalog-title-topic-fallback-20261114"
+      ],
+      "basis": "题名明确双语、词缀、语言或言语体系；普通问句和人物对话不因此归类，也不生成任何句型。"
     }
   ]
 }

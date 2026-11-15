@@ -1,24 +1,25 @@
 (function(root){
 'use strict';
 // 阅读筛选和开合只留在内存，不参与路线、个人记录或同步。
-const state={query:'',mode:'picture',limits:new Map(),weeks:new Map()};
+const state={query:'',topic:'all',subtopic:'all',mode:'picture',limits:new Map(),weeks:new Map()};
 const folds=new Map();
 function books(data){return data.books.concat(data.supplementaryBooks||[]);}
 function findBook(data,id){return books(data).find(book=>book.id===id);}
 function pictureEntry(data,id){return data.pictureBooklist.entries.find(entry=>entry.bookId===id);}
-function filter(data,{stage='all',query='',order='plan'}={}){
+function filter(data,{stage='all',query='',order='plan',topic='all',subtopic='all',topics,resourceForBook}={}){
   const words=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
   const ordered=order==='picture'?data.pictureBooklist.entries.map(entry=>findBook(data,entry.bookId)):data.books;
-  return ordered.filter(book=>(stage==='all'||String(book.stage)===String(stage))&&words.every(word=>[book.title,...book.references.map(ref=>ref.original),...book.notes].join(' ').toLowerCase().includes(word)));
+  return ordered.filter(book=>(stage==='all'||String(book.stage)===String(stage))&&words.every(word=>[book.title,...book.references.map(ref=>ref.original),...book.notes].join(' ').toLowerCase().includes(word))&&
+    ((topic==='all'&&subtopic==='all')||!!(topics&&resourceForBook&&topics.matches(topics.entryTopics('resource',resourceForBook(book.id)||{}),{topic,subtopic}))));
 }
 function reviewFor(data,book){return data.reviews.filter(review=>book.references.some(ref=>ref.week>=review.fromWeeks[0]&&ref.week<=review.fromWeeks[1]));}
 function stageProgress(stage,isDone){
   const ids=[...new Set(stage.bookIds)];
   return {completed:ids.filter(isDone).length,total:ids.length};
 }
-function weekPlan(data,week,{query=''}={}){
+function weekPlan(data,week,options={}){
   const review=data.reviews.find(review=>week>=review.weeks[0]&&week<=review.weeks[1]);
-  const matched=new Set(filter(data,{query}).map(book=>book.id)),entries=new Map();
+  const matched=new Set(filter(data,options).map(book=>book.id)),entries=new Map();
   for(const ref of data.introductions){
     if(!matched.has(ref.bookId)||!(review?ref.week>=review.fromWeeks[0]&&ref.week<=review.fromWeeks[1]:ref.week===week))continue;
     if(!entries.has(ref.bookId))entries.set(ref.bookId,{book:findBook(data,ref.bookId),references:[]});
@@ -44,6 +45,8 @@ function mediaLinks(book,{h,asset,compact=false,chapters=null}){
 function render(data,ui){
   const {h,icon,popover,asset,onResource,sourceBtn}=ui;
   const area=h('section',{class:'liao-reading','aria-label':'廖彩杏书单'});
+  const topicOptions=()=>({query:state.query,topic:state.topic,subtopic:state.subtopic,topics:ui.topics,resourceForBook:ui.resourceForBook});
+  const isFiltered=()=>!!state.query||state.topic!=='all'||state.subtopic!=='all';
   function button(label,action,attrs={}){return h('button',{type:'button',class:'button',...attrs,onclick:action},label);}
   function info(){return h('div',{},h('p',{},data.scope),h('h3',{},'新旧版本与周计划'),data.pictureBooklist.differences.map(text=>h('p',{},text)),sourceBtn('liao-picture-source',1,'核对文章全部配图'),h('h3',{},'逐本标记'),h('p',{},'○／✓：未完成／已完成。☆／★：尚未标记／已完整内化，由家长观察后手动标记，点击可取消。两个标记相互独立，星标不计入阶段已完成本数，也不代表独立阅读。'),ui.soundBookLegend?.(),h('h3',{},'资料包核对'),h('p',{},'原100部中，极空间102个目录对应100部作品，'+data.packageSummary.nasContentWorkCount+'部目录有内容、'+data.packageSummary.nasEmptyWorkCount+'部为空。鹅妈妈三章按一部作品计。后续新增30本的实际文件接入情况见各书资料详情。'),h('p',{},data.packageSummary.note),h('h3',{},'阶段与等级'),h('p',{},data.levelNote),h('p',{},data.ageNote),sourceBtn('liao-book-source',37,'适读年龄说明 · 纸页72–73'),h('h3',{},'原资料与核对边界'),data.sources.map(source=>h('div',{},h('p',{},source.title),h('p',{class:'small-note'},source.note),h('a',{class:'text-link',href:asset(source.file),...(/^https?:/.test(source.file)?{target:'_blank',rel:'noopener noreferrer'}:{download:source.file.split('/').pop()})},/^https?:/.test(source.file)?'查看原文章 ↗':'下载原资料'))),h('p',{class:'small-note'},'核对：'+data.checkedAt));}
   function bookRow(book,entry=null){
@@ -63,18 +66,18 @@ function render(data,ui){
   }
   function stagePlan(stage){
     const reviews=data.reviews.filter(review=>review.weeks[0]>=stage.weeks[0]&&review.weeks[1]<=stage.weeks[1]);
-    const weekKey=stage.id+(state.query?'-search':'');
-    const selected=()=>state.weeks.get(weekKey)||(state.query?'all':stage.weeks[0]),tabs=new Map();
+    const weekKey=stage.id+(isFiltered()?'-search':'');
+    const selected=()=>state.weeks.get(weekKey)||(isFiltered()?'all':stage.weeks[0]),tabs=new Map();
     const choices=['all',...Array.from({length:stage.weeks[1]-stage.weeks[0]+1},(_,i)=>stage.weeks[0]+i)];
     const panelId=stage.id+'-panel',tabId=week=>stage.id+'-week-'+week;
     const panel=h('div',{class:'liao-week-panel',id:panelId,role:'tabpanel',tabindex:'0'});
     function content(){
       const week=selected();panel.setAttribute('aria-labelledby',tabId(week));
       if(week==='all'){
-        const matched=filter(data,{stage:stage.number,query:state.query});
+        const matched=filter(data,{...topicOptions(),stage:stage.number});
         return [matched.length?bookList(matched,{key:stage.id+'-all'}):h('p',{class:'empty'},'本阶段没有匹配的书目。')];
       }
-      const plan=weekPlan(data,week,{query:state.query});
+      const plan=weekPlan(data,week,topicOptions());
       const entries=new Map(plan.entries.map(entry=>[entry.book.id,{...entry,review:!!plan.review}]));
       return [h('p',{class:'small-note liao-week-note',role:'status'},'第'+week+'周 · '+(plan.review?'复习第'+plan.review.fromWeeks.join('–')+'周书单':'本周引入')+' · '+plan.entries.length+'本'),plan.entries.length?bookList(plan.entries.map(entry=>entry.book),{key:stage.id+'-'+week,entries}):h('p',{class:'empty'},'本周没有匹配的书目，可切换周次或查看本阶段全部。')];
     }
@@ -98,11 +101,11 @@ function render(data,ui){
     panel.append(...content());
     const progress=stageProgress(stage,ui.isDone||(()=>false));
     const planInfo=popover(stage.id+'-schedule',stage.title+'复习计划',icon('calendar'),h('div',{},reviews.map(review=>h('p',{},'第'+review.weeks.join('–')+'周：复习第'+review.fromWeeks.join('–')+'周书单'))));
-    return h('details',{class:'liao-plan-stage','aria-label':stage.title,open:state.query?true:(folds.has(stage.id)?folds.get(stage.id):stage.number===1),ontoggle:e=>{if(e.currentTarget.isConnected&&!state.query)folds.set(stage.id,e.currentTarget.open);}},h('summary',{},h('div',{class:'liao-stage-heading'},h('strong',{},stage.title+' · '+stage.weeks.join('–')+'周'),planInfo),h('small',{class:'liao-stage-progress','data-liao-stage':stage.id,'aria-live':'polite','aria-label':stage.title+'已完成'+progress.completed+'本，共'+progress.total+'本',title:'已完成／本阶段总册数'},progress.completed+'/'+progress.total+'本')),h('div',{class:'liao-plan-stage-body'},tablist,panel));
+    return h('details',{class:'liao-plan-stage','aria-label':stage.title,open:isFiltered()?true:(folds.has(stage.id)?folds.get(stage.id):stage.number===1),ontoggle:e=>{if(e.currentTarget.isConnected&&!isFiltered())folds.set(stage.id,e.currentTarget.open);}},h('summary',{},h('div',{class:'liao-stage-heading'},h('strong',{},stage.title+' · '+stage.weeks.join('–')+'周'),planInfo),h('small',{class:'liao-stage-progress','data-liao-stage':stage.id,'aria-live':'polite','aria-label':stage.title+'已完成'+progress.completed+'本，共'+progress.total+'本',title:'已完成／本阶段总册数'},progress.completed+'/'+progress.total+'本')),h('div',{class:'liao-plan-stage-body'},tablist,panel));
   }
   function results(){
-    const picture=state.mode==='picture',matched=filter(data,{query:state.query,order:picture?'picture':'plan'});
-    return h('div',{class:'liao-results'},state.query?h('p',{class:'result-count',role:'status'},'找到'+matched.length+'本参考书目'):null,matched.length?(picture?bookList(matched):data.stages.filter(stage=>matched.some(book=>book.stage===stage.number)).map(stagePlan)):h('p',{class:'empty'},'没有匹配的书目，请调整关键词。'));
+    const picture=state.mode==='picture',matched=filter(data,{...topicOptions(),order:picture?'picture':'plan'});
+    return h('div',{class:'liao-results'},isFiltered()?h('p',{class:'result-count',role:'status'},'找到'+matched.length+'本参考书目'):null,matched.length?(picture?bookList(matched):data.stages.filter(stage=>matched.some(book=>book.stage===stage.number)).map(stagePlan)):h('p',{class:'empty'},'没有匹配的书目，请调整关键词或主题。'));
   }
   const weekLegend=popover('liao-week-legend','周次图例',icon('legend'),h('div',{},h('p',{},h('span',{class:'liao-week-key'},'引入周'),' 按原表引入新书。'),h('p',{},h('span',{class:'liao-week-key liao-week-review'},'复习周'),' 浅紫色、虚线边框，重听指定周段的书单；同一复习段内各周共用书目。'),h('p',{},h('span',{class:'liao-week-key liao-week-current'},'当前周'),h('span',{class:'liao-week-key liao-week-review liao-week-current'},'当前复习周'),' 选中时底色加深、边框变为实线。'),h('p',{class:'small-note'},'颜色只区分周次安排，不表示书本完成状态或难度。')));
   weekLegend.hidden=state.mode!=='plan';
@@ -110,8 +113,9 @@ function render(data,ui){
   const search=h('input',{id:'liao-query',type:'search',value:state.query,placeholder:'书名、英文名或原表写法','aria-label':'搜索廖彩杏书目',oninput:e=>{if(e.isComposing)return;state.query=e.target.value;state.limits.clear();refreshResults();},oncompositionend:e=>{state.query=e.target.value;state.limits.clear();refreshResults();}});
   const modeButtons=['picture','plan'].map(mode=>button(mode==='picture'?'建议顺序 · 130本':'52周 · 100本',()=>{state.mode=mode;modeButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(['picture','plan'][i]===mode)));refreshResults();},{class:'liao-mode-button','aria-pressed':String(state.mode===mode)}));
   const controls=h('div',{class:'liao-controls'},popover('liao-search','搜索廖彩杏书目',icon('search'),h('div',{class:'library-search-box'},search),!!state.query),button(icon('close'),()=>{state.query='';state.limits.clear();search.value='';refreshResults();},{class:'library-filter-button','aria-label':'清除廖彩杏搜索',title:'清除搜索'}));
+  const topicPicker=ui.topicUI&&ui.topics&&ui.resourceForBook?ui.topicUI.picker({id:'liao-topic',topic:state.topic,subtopic:state.subtopic,onchange:(topic,subtopic)=>{state.topic=topic;state.subtopic=subtopic;state.limits.clear();refreshResults();}}).element:null;
   area.append(h('div',{class:'liao-library-toolbar'},h('div',{class:'liao-library-nav'},ui.collectionTabs)),
-    h('div',{class:'liao-mode-switch'},h('div',{class:'liao-mode-tabs',role:'group','aria-label':'书单排列方式'},modeButtons),h('div',{class:'liao-mode-tools'},popover('liao-info','廖彩杏资料与等级说明',icon('info'),info()),button(icon('help'),ui.onMethod,{id:'liao-method-toggle',class:'library-filter-button','aria-label':'这些素材怎么用','aria-haspopup':'dialog',title:'这些素材怎么用'}),button(icon('gourd'),ui.onSoundBook,{id:'liao-sound-book-toggle',class:'library-filter-button','aria-label':'慢葫芦发声书完整书单','aria-haspopup':'dialog',title:'慢葫芦发声书 · 50首页码书单'}),weekLegend,controls)),results());
+    h('div',{class:'liao-mode-switch'},h('div',{class:'liao-mode-tabs',role:'group','aria-label':'书单排列方式'},modeButtons),h('div',{class:'liao-mode-tools'},popover('liao-info','廖彩杏资料与等级说明',icon('info'),info()),button(icon('help'),ui.onMethod,{id:'liao-method-toggle',class:'library-filter-button','aria-label':'这些素材怎么用','aria-haspopup':'dialog',title:'这些素材怎么用'}),button(icon('gourd'),ui.onSoundBook,{id:'liao-sound-book-toggle',class:'library-filter-button','aria-label':'慢葫芦发声书完整书单','aria-haspopup':'dialog',title:'慢葫芦发声书 · 50首页码书单'}),weekLegend,controls)),...(topicPicker?[topicPicker]:[]),results());
   return area;
 }
 function method(data,{h,icon,sourceBtn,onResource}){

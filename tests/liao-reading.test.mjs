@@ -44,6 +44,25 @@ test('阶段和多词搜索取交集，复习指向原周段而不造新书',()=
  assert.equal(data.reviews.length,8);
  const before=JSON.stringify(data);L.filter(data,{query:'anything'});L.reviewFor(data,goose);assert.equal(JSON.stringify(data),before);
 });
+test('主题按精确公共资源身份筛选图示、阶段与复习，保留原顺序和完整阶段分母',()=>{
+ const topics=require('../english/topics.js');
+ const selected=[data.books[0],data.books.find(book=>book.number===4),data.supplementaryBooks[0]],ids=new Set(selected.map(book=>book.id));
+ const mappings=new Map(selected.map(book=>[book.id,{id:'resource-for-'+book.id}]));
+ const mappedTopics={...topics,entryTopics:(domain,entry)=>domain==='resource'&&[...mappings.values()].some(resource=>resource.id===entry.id)?['animals.farm']:[]};
+ const options={topic:'animals',subtopic:'animals.farm',topics:mappedTopics,resourceForBook:id=>mappings.get(id)};
+ const before=JSON.stringify(data);
+ assert.deepEqual(L.filter(data,{...options,order:'picture'}).map(book=>book.id),data.pictureBooklist.entries.map(entry=>entry.bookId).filter(id=>ids.has(id)));
+ assert.deepEqual(L.filter(data,{...options,stage:1}).map(book=>book.id),data.books.filter(book=>book.stage===1&&ids.has(book.id)).map(book=>book.id));
+ assert.deepEqual(L.filter(data,{...options,query:'green HAM'}).map(book=>book.number),[4]);
+ assert.equal(L.filter(data,{...options,subtopic:'animals.pets'}).length,0);
+ for(const week of [1,2,3,5,6]){
+  const original=L.weekPlan(data,week),filtered=L.weekPlan(data,week,options);
+  assert.deepEqual(filtered.entries,original.entries.filter(entry=>ids.has(entry.book.id)));
+ }
+ assert.deepEqual(L.stageProgress(data.stages[0],id=>ids.has(id)),{completed:2,total:22});
+ assert.equal(JSON.stringify(data),before);
+ assert.equal(L.filter(data,{...options,resourceForBook:()=>undefined}).length,0);
+});
 test('逐周安排沿用当周原表顺序和鹅妈妈章节，不以首次引入周次代替后续章',()=>{
  const before=JSON.stringify(data);
  for(const week of [1,2,3,4,14,27,40,49]){

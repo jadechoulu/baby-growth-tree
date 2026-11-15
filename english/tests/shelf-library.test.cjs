@@ -129,3 +129,30 @@ test('同步进度一次备份保存书架与勾选，云端失败仍保留本�
   await assert.rejects(X.synchronize(input));assert.equal(saves,1);
   await assert.rejects(X.synchronize({...input,read:async()=>({...snap,accountId:'other'})}),error=>error.code==='ACCOUNT_MISMATCH');
 });
+
+test('私人单册主题派生与公共筛选共用，套系主题不传播，完成与元信息不被修改',()=>{
+  const T=require('../topics.js'),LB=require('../library-books.js'),classifier=require('../title-topic-rules.js').create(require('../data/material-topic-rules.json'),T);
+  const series={id:'set',appBookId:'901',title:'Animal Series'};
+  const entries=[book('a',{title:'Wake Up!',series,read:true}),book('b',{title:'My Shoes',series}),book('c',{title:'Mystery Title',series})];
+  const records=Shelf.apply({},snapshot(entries),options).changes,before=structuredClone(records);
+  const derived=Shelf.entries(records,{...options,topics:T,titleClassifier:classifier});
+  assert.equal(derived.length,3);assert.equal(derived[0].id,'shelf-book-owner-a');
+  const selected=LB.seriesFilter(derived,{topic:'daily',subtopic:'daily.wake'});
+  assert.deepEqual(selected.map(book=>book.bookId),['a']);assert.equal(BP.bookState(records,selected[0].id).done,true);
+  assert.equal(LB.seriesFilter(derived,{topic:'animals'}).length,0,'套系题名不被当作所有单册主题');
+  assert.equal(LB.seriesFilter(derived,{topic:'clothing',subtopic:'clothing.shoes'}).length,1);
+  assert.equal(LB.seriesFilter(derived,{topic:'daily',subtopic:'clothing.shoes'}).length,0);
+  assert.equal(LB.seriesGroups(derived,{sources:[]}).length,1);
+  assert.deepEqual(T.patterns('book',derived[0]),[]);assert.equal(T.entryEvidence('book',derived[0]).status,'title-fallback');
+  assert.deepEqual(records,before);assert.ok(!JSON.stringify(records).includes('topicRecord'));
+});
+test('私人书目只在唯一精确ISBN时复用已核单册主题，同名与多版不借用',()=>{
+  const T=require('../topics.js'),classifier=require('../title-topic-rules.js').create(require('../data/material-topic-rules.json'),T);
+  const entries=[book('a',{title:'Unknown Story',isbn:'9781234567897'}),book('b',{title:'Public Book'})],records=Shelf.apply({},snapshot(entries),options).changes;
+  const publicBook={id:'public',resourceId:'public-series',title:'Public Book',isbn:'9781234567897',topics:['daily.wake'],topicStatus:'content-verified'};
+  const derived=Shelf.entries(records,{...options,directory:{books:[publicBook]},topics:T,titleClassifier:classifier});
+  assert.deepEqual(T.entryTopics('book',derived.find(book=>book.bookId==='a')),['daily.wake']);
+  assert.deepEqual(T.entryTopics('book',derived.find(book=>book.bookId==='b')),[]);
+  const multiple=Shelf.entries(records,{...options,directory:{books:[publicBook,{...publicBook,id:'second'}]},topics:T,titleClassifier:classifier});
+  assert.deepEqual(T.entryTopics('book',multiple.find(book=>book.bookId==='a')),[]);
+});

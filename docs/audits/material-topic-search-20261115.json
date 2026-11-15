@@ -1,0 +1,1376 @@
+{
+  "checkedAt": "2026-11-15",
+  "scope": "后续联网核读、验证后续读及归档证据接入",
+  "resourceFollowup": [
+    {
+      "resourceId": "resource-vy1kzi",
+      "title": "趣趣知知鸟",
+      "priorConclusion": "已有TVmaze同名节目简介仅说角色出游寻乐，无具体知识主题；腾讯正文为站点导航壳。应读官方节目概念/分集教育介绍，不以鸟形角色归动物。",
+      "status": "read-content-adopted",
+      "note": "实际读3篇，采用1篇具体概念场景正文；无实际句型。",
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/681c0f0a000000002300de2b",
+          "decision": "泛泛介绍，不采用"
+        },
+        {
+          "url": "https://www.xiaohongshu.com/explore/690d5c830000000004023732",
+          "decision": "正文仅标签，未核视频台词，不采用标题句型"
+        },
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ae1792100000000350236dc",
+          "decision": "采用正文放进/拿出、变大/变小场景，系列范围"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-ddfbd5",
+      "title": "Little Pim",
+      "priorConclusion": "原有封面页请求失败、TVmaze无匹配；需官方英语DVD/课程的具体主题与句型，检索词仅为下一步线索，不视为已核主题。",
+      "status": "read-content-adopted",
+      "note": "实际读水果主题正文，仅采用系列food.fruit，无实际句型。",
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/66623e85000000000d00d867",
+          "decision": "采用明确水果主题介绍，简介归类，不传播各集"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1gsfuor",
+      "title": "蓝色小考拉",
+      "priorConclusion": "之前TVmaze Penelope误命中2024成人剧，必须拒绝；应按原封面明确蓝色小考拉动画查制片/官方简介。蓝色与考拉是角色外观，不能据此归颜色/动物。",
+      "status": "read-content-adopted",
+      "note": "随后实际核读两篇具名蓝色小考拉礼貌与穿衣正文；仅读者精读编号，不视为官方集序。系列范围不下传每集。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "verification-required",
+          "note": "根内置浏览器本次查询触发App扫码验证，未取得搜索结果，不计空结果。"
+        }
+      ],
+      "adoptedStatus": "content-verified",
+      "adoptedTopics": [
+        "social.manners",
+        "daily.dress",
+        "clothing.dressing"
+      ],
+      "sources": [
+        {
+          "id": "xhs-penelope-polite-20261115",
+          "title": "Penelope isPolite 懂礼貌💙13 精读",
+          "author": "Doo_小脑袋充电",
+          "url": "https://www.xiaohongshu.com/explore/6aa7a9c00000000011031748",
+          "checkedAt": "2026-11-15",
+          "kind": "reader-guide",
+          "locator": "正文：重点短语与经典原句",
+          "note": "实际核读读者整理正文，未独立逐帧核对动画。只说明本篇具名集数及系列可涉及范围，不传播至每集。 标题01/13仅保留读者精读编号，不视为官方集序。"
+        },
+        {
+          "id": "xhs-penelope-dressed-20261115",
+          "title": "蓝色小考拉｜Penelope Gets Dressed 01精读",
+          "author": "Doo_小脑袋充电",
+          "url": "https://www.xiaohongshu.com/explore/6aa75b06000000002802ced2",
+          "checkedAt": "2026-11-15",
+          "kind": "reader-guide",
+          "locator": "正文：穿衣场景、亲子建议与经典原句",
+          "note": "实际核读第三方正文；短结构据正文明确示例归纳，亲子拓展与逐字台词不混称，不传播至每集。 标题01/13仅保留读者精读编号，不视为官方集序。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1az9smt",
+      "title": "小兔乒乓",
+      "priorConclusion": "未保存英文名或封面来源；不要套用Bing，TVmaze Bing只有角色简介也不足主题，先确认中文译名对应作品。",
+      "status": "read-but-identity-unresolved",
+      "note": "正文明确Bing Bunny小兔兵兵，和原路线小兔乒乓译名尚未核定同作。不因搜索命中改名、套用主题或句型。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1az9smt",
+        "query": "小兔乒乓 英语 动画 主题",
+        "status": "read-but-identity-unresolved",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/68352218000000002001dfaf",
+        "title": "🐰BBC《小兔兵兵》| 启蒙 + 独立力培养",
+        "note": "正文明确Bing Bunny小兔兵兵，和原路线小兔乒乓译名尚未核定同作。不因搜索命中改名、套用主题或句型。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/68352218000000002001dfaf",
+          "decision": "正文明确Bing Bunny小兔兵兵，和原路线小兔乒乓译名尚未核定同作。不因搜索命中改名、套用主题或句型。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-pc7ej8",
+      "title": "Baby why",
+      "priorConclusion": "路线原文明确资料类别科普、范围生物化学，已有出版社20+20本英语产品身份；可先归science一级，再按逐本真实目录细化，不能直接推全部单册science.life/materials。",
+      "status": "read-other-range-not-applied",
+      "note": "实际正文和首图是Babywhy English20本认知生活套系，不是路线明确的生物/化学子范围。不能从英文套系标题借主题或句型到生物化学；保留原路线仅科普一级。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-pc7ej8",
+        "query": "Baby Why 生物 化学 主题 句型",
+        "status": "read-other-range-not-applied",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ae89035000000003601b141",
+        "title": "英语启蒙丨两岁娃Babywhy目前只开启这十本",
+        "note": "实际正文和首图是Babywhy English20本认知生活套系，不是路线明确的生物/化学子范围。不能从英文套系标题借主题或句型到生物化学；保留原路线仅科普一级。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ae89035000000003601b141",
+          "decision": "实际正文和首图是Babywhy English20本认知生活套系，不是路线明确的生物/化学子范围。不能从英文套系标题借主题或句型到生物化学；保留原路线仅科普一级。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-19dcja1",
+      "title": "Baby all",
+      "priorConclusion": "路线原文明确物理/艺术且类别科普，可在本引用系列范围采用science、arts一级；出版候选说明Ah产品只是同主创团队，不能把该候选40本认作所有Baby All，先核实际产品再补二级。",
+      "status": "read-product-ranges-no-new-content",
+      "note": "图1区分物理、生化、科学、数学、艺术、英语六套；正文没有具体单册内容/原句。仅核产品分套，保留路线既有物理艺术一级，不把其它四套主题扩散到路线物理艺术范围。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-19dcja1",
+        "query": "Baby All 物理 艺术 主题 目录",
+        "status": "read-product-ranges-no-new-content",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/691fbe8b000000001e0053e8",
+        "title": "【书本记录】盖世&海豚 Babyall 全家福",
+        "note": "图1区分物理、生化、科学、数学、艺术、英语六套；正文没有具体单册内容/原句。仅核产品分套，保留路线既有物理艺术一级，不把其它四套主题扩散到路线物理艺术范围。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/691fbe8b000000001e0053e8",
+          "decision": "图1区分物理、生化、科学、数学、艺术、英语六套；正文没有具体单册内容/原句。仅核产品分套，保留路线既有物理艺术一级，不把其它四套主题扩散到路线物理艺术范围。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1e4sexo",
+      "title": "清华幼儿英语启蒙动画",
+      "priorConclusion": "原封面页请求失败，已有原文仅辅线；需确定课程/分集或歌词表，120集和启蒙形式不能自动给主题。",
+      "status": "read-content-adopted",
+      "note": "Friends视频正文无具体词句，未采用标题；另实际读到Hello台词本图1并采用。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1e4sexo",
+        "query": "清华幼儿英语 语感启蒙 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrls": [
+          "https://www.xiaohongshu.com/explore/6ae72fd0000000001a021e6b",
+          "https://www.xiaohongshu.com/explore/66126b97000000001b00c6f9"
+        ],
+        "note": "Friends视频正文无具体词句，未采用标题；另实际读到Hello台词本图1并采用。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ae72fd0000000001a021e6b",
+          "decision": "Friends视频正文无具体词句，未采用标题；另实际读到Hello台词本图1并采用。"
+        },
+        {
+          "url": "https://www.xiaohongshu.com/explore/66126b97000000001b00c6f9",
+          "decision": "Friends视频正文无具体词句，未采用标题；另实际读到Hello台词本图1并采用。"
+        }
+      ],
+      "adoptedStatus": "content-verified",
+      "adoptedTopics": [
+        "social.greetings",
+        "social.introduction"
+      ]
+    },
+    {
+      "resourceId": "resource-1hv2ggo",
+      "title": "巴蒂英语",
+      "priorConclusion": "有外研社1/2级各20本范围及来源，缺本级目录/试读；不能与学乐Buddy Reader混同。",
+      "status": "read-content-adopted",
+      "note": "第一篇正文无具体内容未采用；第二篇实际读前两图Silly Robot及手臂原句，采用系列样例。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1hv2ggo",
+        "query": "巴蒂英语 主题 句型 外研社",
+        "status": "read-content-adopted",
+        "sourceUrls": [
+          "https://www.xiaohongshu.com/explore/6abbaf1e0000000014032040",
+          "https://www.xiaohongshu.com/explore/6a3675170000000017008cd1"
+        ],
+        "note": "第一篇正文无具体内容未采用；第二篇实际读前两图Silly Robot及手臂原句，采用系列样例。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6abbaf1e0000000014032040",
+          "decision": "第一篇正文无具体内容未采用；第二篇实际读前两图Silly Robot及手臂原句，采用系列样例。"
+        },
+        {
+          "url": "https://www.xiaohongshu.com/explore/6a3675170000000017008cd1",
+          "decision": "第一篇正文无具体内容未采用；第二篇实际读前两图Silly Robot及手臂原句，采用系列样例。"
+        }
+      ],
+      "adoptedStatus": "content-verified",
+      "adoptedTopics": [
+        "body"
+      ]
+    },
+    {
+      "resourceId": "resource-1clzu3i",
+      "title": "Booklife Junior",
+      "priorConclusion": "已保存BookLife144册和Junior Learning12册的互斥候选，原文分两行不能合为一个品牌；先核原引用，再用真实候选ISBN读内容。",
+      "status": "read-but-identity-unresolved",
+      "note": "实际读到正文明确两套不同产品，不能合成一种目录或借用单册主题/句型；当前原引用身份仍待核，不因来源比较就改稳定素材或数量。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1clzu3i",
+        "query": "Booklife Junior 许密杉 主题",
+        "status": "read-but-identity-unresolved",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/695b49f800000000210323ee",
+        "title": "文脉解码书booklife和junior科普如何选",
+        "note": "实际读到正文明确两套不同产品，不能合成一种目录或借用单册主题/句型；当前原引用身份仍待核，不因来源比较就改稳定素材或数量。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/695b49f800000000210323ee",
+          "decision": "实际读到正文明确两套不同产品，不能合成一种目录或借用单册主题/句型；当前原引用身份仍待核，不因来源比较就改稳定素材或数量。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-oz0jbk",
+      "title": "糊涂女佣",
+      "priorConclusion": "I Can Read官方五册目录已存，非品牌全集；可按五本各自标题/简介补主题。女佣是故事角色/职业称呼，不能直接推出职业教学。",
+      "status": "read-reference-outside-confirmed-range",
+      "note": "实际读图为Amelia Bedelia参选市长内容，未核同当前五册盒装参考的具体作品范围；不按同品牌把台词及主题移到已选目录。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-oz0jbk",
+        "query": "糊涂女佣 Amelia Bedelia 主题 句型",
+        "status": "read-reference-outside-confirmed-range",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a960a98000000002802e037",
+        "title": "《糊涂女佣》精读｜高频句式，强化语言输入积累",
+        "note": "实际读图为Amelia Bedelia参选市长内容，未核同当前五册盒装参考的具体作品范围；不按同品牌把台词及主题移到已选目录。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6a960a98000000002802e037",
+          "decision": "实际读图为Amelia Bedelia参选市长内容，未核同当前五册盒装参考的具体作品范围；不按同品牌把台词及主题移到已选目录。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1sx9rf3",
+      "title": "新概念",
+      "priorConclusion": "当前候选为经典四册，封面检索为青少版；先确定版次，再按学生本目录补，不能把语言能力目标当主题。",
+      "status": "read-but-identity-unresolved",
+      "note": "正文泛称语法覆盖无可采用的具体主题句型；项目经典版候选与青少版封面身份差异未核，不跨版借用。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1sx9rf3",
+        "query": "新概念英语 经典版 主题 句型 目录",
+        "status": "read-but-identity-unresolved",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/67da6fbd000000001d02c38d",
+        "title": "抓紧收藏！新概念第一册144课知识点梳理🔥",
+        "note": "正文泛称语法覆盖无可采用的具体主题句型；项目经典版候选与青少版封面身份差异未核，不跨版借用。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/67da6fbd000000001d02c38d",
+          "decision": "正文泛称语法覆盖无可采用的具体主题句型；项目经典版候选与青少版封面身份差异未核，不跨版借用。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1ew2482",
+      "title": "Power up",
+      "priorConclusion": "已有二版学生本6级ISBN，但目前只有组件和数量，需同版目录/样章。",
+      "status": "read-content-adopted",
+      "note": "实际核读正文和两图，图1为旧版对照，仅采用图2第二版Level2。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1ew2482",
+        "query": "Power Up 二版 主题 句型 目录",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/684d7ce7000000002102e552",
+        "note": "实际核读正文和两图，图1为旧版对照，仅采用图2第二版Level2。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/684d7ce7000000002102e552",
+          "decision": "实际核读正文和两图，图1为旧版对照，仅采用图2第二版Level2。"
+        }
+      ],
+      "adoptedStatus": "classification-verified",
+      "adoptedTopics": [
+        "daily",
+        "concepts.time",
+        "concepts.calendar",
+        "sports",
+        "jobs.people",
+        "festivals.parties",
+        "family.members",
+        "home.rooms",
+        "animals.wild",
+        "animals",
+        "nature.weather",
+        "clothing.clothes",
+        "food.cooking",
+        "transport.places",
+        "transport.safety"
+      ]
+    },
+    {
+      "resourceId": "resource-9v2gi2",
+      "title": "think",
+      "priorConclusion": "已有二版英音6级ISBN；需目录/试读，不按Think品牌推思维类主题。",
+      "status": "read-content-adopted",
+      "note": "实际仅核图1/6及正文；Grammar栏多为词类及语法点，没有完整可用例句，不据此补造句型。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-9v2gi2",
+        "query": "Think 剑桥 二版 starter 目录 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ae2a326000000003703f868",
+        "title": "THINK第二版｜Starter/1/2单元总览表📖",
+        "note": "实际仅核图1/6及正文；Grammar栏多为词类及语法点，没有完整可用例句，不据此补造句型。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ae2a326000000003703f868",
+          "decision": "实际仅核图1/6及正文；Grammar栏多为词类及语法点，没有完整可用例句，不据此补造句型。"
+        }
+      ],
+      "adoptedStatus": "classification-verified",
+      "adoptedTopics": [
+        "social.introduction",
+        "emotions.expression",
+        "family.members",
+        "home.rooms",
+        "home.furniture",
+        "transport.places",
+        "concepts.position",
+        "daily.shopping",
+        "daily",
+        "body",
+        "concepts.attributes",
+        "social.friends"
+      ]
+    },
+    {
+      "resourceId": "resource-1y3ytv6",
+      "title": "My First Reading",
+      "priorConclusion": "原文只说明不同主题小故事，缺出版社/ISBN；不混作Usborne My First Reading Library或其他同名产品，先核封面和出版身份。",
+      "status": "read-but-identity-unresolved",
+      "note": "聚焦查询结果是许密杉综合书单；正文及首图未核到My First Reading明确出版社和具体册名，不据泛称跨系列借用。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1y3ytv6",
+        "query": "My First Reading 许密杉 分级 主题",
+        "status": "read-but-identity-unresolved",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/69899d0d000000002800b7b7",
+        "title": "跟着许密杉老师整理了新书单",
+        "note": "聚焦查询结果是许密杉综合书单；正文及首图未核到My First Reading明确出版社和具体册名，不据泛称跨系列借用。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/69899d0d000000002800b7b7",
+          "decision": "聚焦查询结果是许密杉综合书单；正文及首图未核到My First Reading明确出版社和具体册名，不据泛称跨系列借用。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-7vimum",
+      "title": "悠游阅读成长计划",
+      "priorConclusion": "已有官方系列与逐级60本来源，当前摘录未包含具体内容主题；可从已存外研社/Unischool入口读取分辑目录和微课。",
+      "status": "read-content-adopted",
+      "note": "实际核读正文，原书数字正文与家长添加的亲子语言分开；未逐页独立验证原书，不传播全套。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-7vimum",
+        "query": "悠游阅读成长计划 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6aa2cb18000000000b00fafb",
+        "title": "📖共读逐字稿-悠游1-1-1《Five Blocks》",
+        "note": "实际核读正文，原书数字正文与家长添加的亲子语言分开；未逐页独立验证原书，不传播全套。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6aa2cb18000000000b00fafb",
+          "decision": "实际核读正文，原书数字正文与家长添加的亲子语言分开；未逐页独立验证原书，不传播全套。"
+        }
+      ],
+      "adoptedStatus": "content-verified",
+      "adoptedTopics": [
+        "concepts.counting",
+        "sports.toys",
+        "social"
+      ]
+    },
+    {
+      "resourceId": "resource-1f8szif",
+      "title": "牛津树初体验",
+      "priorConclusion": "已有2022八本套装ISBN，外部封面记录同系列；需八册实际题名/简介，而不是由First Experiences推生活主题。",
+      "status": "read-content-adopted",
+      "note": "只实际读正文，配图3–7的页内原句尚未独立核看；不传播至每册。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1f8szif",
+        "query": "牛津树 初体验 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/667106cf0000000006005acf",
+        "title": "绘本—牛津树初体验",
+        "note": "只实际读正文，配图3–7的页内原句尚未独立核看；不传播至每册。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/667106cf0000000006005acf",
+          "decision": "只实际读正文，配图3–7的页内原句尚未独立核看；不传播至每册。"
+        }
+      ],
+      "adoptedStatus": "description-derived",
+      "adoptedTopics": [
+        "daily.school",
+        "family.siblings",
+        "transport.air",
+        "sports.water"
+      ]
+    },
+    {
+      "resourceId": "resource-16o9su4",
+      "title": "小火柴",
+      "priorConclusion": "已有盖世官网及已读知乎三级30本身份；童话寓言属于形式，不能一律归魔法/幻想角色；需要具体书单内容。",
+      "status": "read-no-adoptable-content",
+      "note": "正文仅画风/音频/道理等评价，图1是多册封面合照，未核到具体内容句型；不由书名小火柴推火或自然知识，不从笼统童话推每册魔法。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-16o9su4",
+        "query": "小火柴 英语 分级 主题 句型",
+        "status": "read-no-adoptable-content",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/687a1336000000001202d4c8",
+        "title": "✨本月入手的最佳书单~盖世小火柴！",
+        "note": "正文仅画风/音频/道理等评价，图1是多册封面合照，未核到具体内容句型；不由书名小火柴推火或自然知识，不从笼统童话推每册魔法。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/687a1336000000001202d4c8",
+          "decision": "正文仅画风/音频/道理等评价，图1是多册封面合照，未核到具体内容句型；不由书名小火柴推火或自然知识，不从笼统童话推每册魔法。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1af6ny6",
+      "title": "Journey to the West 西游记",
+      "priorConclusion": "官方已确认Level5 108 Stories入口；这是明确作品，优先读取官方故事简介/台词，不把中文常识当本英文版本正文。",
+      "status": "read-content-adopted",
+      "note": "正文明确Little Fox L5身份；只核图1，不把4图/108集视为全核，不改已有集数与数量。",
+      "attemptHistory": [
+        {
+          "checkedAt": "2026-11-15",
+          "phase": "before-post-verification-review",
+          "status": "not-yet-read",
+          "note": "本轮尚未执行根会话核读；小红书验证后继续。"
+        }
+      ],
+      "latestQuery": {
+        "resourceId": "resource-1af6ny6",
+        "query": "小狐狸 Journey to the West 西游记 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ad4ec1f00000000260176c4",
+        "title": "西游记英文版台词精读1-1📖",
+        "note": "正文明确Little Fox L5身份；只核图1，不把4图/108集视为全核，不改已有集数与数量。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ad4ec1f00000000260176c4",
+          "decision": "正文明确Little Fox L5身份；只核图1，不把4图/108集视为全核，不改已有集数与数量。"
+        }
+      ],
+      "adoptedStatus": "content-verified",
+      "adoptedTopics": [
+        "fantasy.magic",
+        "fantasy.characters"
+      ]
+    },
+    {
+      "resourceId": "resource-9fvmjt",
+      "title": "海尼曼",
+      "status": "read-learning-target-preserved-no-overwrite",
+      "note": "图3是读者学习目标分组，28行仅12条同套同版精确题名；且多处目标句型与已有原表不同。保留独立核对表，不覆盖现有原书句型，不为本次表另抄reading-plans的逐册目录。",
+      "latestQuery": {
+        "resourceId": "resource-9fvmjt",
+        "query": "海尼曼 主题 句型 分类",
+        "status": "read-learning-target-preserved-no-overwrite",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ab3953a0000000014003e5e",
+        "title": "海尼曼 GK70 本｜句型分类打卡墙",
+        "note": "图3是读者学习目标分组，28行仅12条同套同版精确题名；且多处目标句型与已有原表不同。保留独立核对表，不覆盖现有原书句型，不为本次表另抄reading-plans的逐册目录。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ab3953a0000000014003e5e",
+          "decision": "图3是读者学习目标分组，28行仅12条同套同版精确题名；且多处目标句型与已有原表不同。保留独立核对表，不覆盖现有原书句型，不为本次表另抄reading-plans的逐册目录。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1nhjndw",
+      "title": "A to Z Mysteries 神秘事件",
+      "status": "read-content-adopted",
+      "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。",
+      "latestQuery": {
+        "resourceId": "resource-1nhjndw",
+        "query": "A to Z Mysteries 神秘事件 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6af907f30000000018024fc0",
+        "title": "初章进阶必读：A to Z 神秘案件",
+        "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6af907f30000000018024fc0",
+          "decision": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。"
+        }
+      ],
+      "adoptedStatus": "description-derived",
+      "adoptedTopics": [
+        "fantasy.mystery"
+      ],
+      "namedBookReview": {
+        "bookId": "book-c3cc765d996b4832",
+        "sourceId": "xhs-atoz-absent-author-summary-20261115",
+        "topics": [
+          "fantasy.mystery"
+        ],
+        "status": "description-derived",
+        "sentenceCount": 0,
+        "note": "同作品具名第一册内容简介；未独立核页／ISBN，无句型，不传播全26册。"
+      }
+    },
+    {
+      "resourceId": "resource-912oje",
+      "title": "培生儿童英语",
+      "status": "read-other-series-not-applied",
+      "note": "检索命中标题泛称培生，正文及首图明确培生词汇妙趣屋1–3辑，不是儿童英语Level1–6礼盒版；不混用。此前400句查询也为不同resource-166ekar，已单独核对两册。",
+      "latestQuery": {
+        "resourceId": "resource-912oje",
+        "query": "培生儿童英语 礼盒 主题 句型",
+        "status": "read-other-series-not-applied",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6abdea2a00000000140384cc",
+        "title": "庆爸常规路线英语启蒙培生系列！96本顺序表",
+        "note": "检索命中标题泛称培生，正文及首图明确培生词汇妙趣屋1–3辑，不是儿童英语Level1–6礼盒版；不混用。此前400句查询也为不同resource-166ekar，已单独核对两册。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6abdea2a00000000140384cc",
+          "decision": "检索命中标题泛称培生，正文及首图明确培生词汇妙趣屋1–3辑，不是儿童英语Level1–6礼盒版；不混用。此前400句查询也为不同resource-166ekar，已单独核对两册。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1mx6gx6",
+      "title": "培生启明星",
+      "status": "read-no-adoptable-content",
+      "note": "正文仅标签，视频未逐帧转录；评论对倒装句的回忆不作为核定原文。既有用户给定分类图映射继续保留，本篇不补造逐册句型。",
+      "latestQuery": {
+        "resourceId": "resource-1mx6gx6",
+        "query": "培生启明星 主题 句型 分类",
+        "status": "read-no-adoptable-content",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ab487d50000000014002d1f",
+        "title": "培生启明星2的内容和使用感受",
+        "note": "正文仅标签，视频未逐帧转录；评论对倒装句的回忆不作为核定原文。既有用户给定分类图映射继续保留，本篇不补造逐册句型。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ab487d50000000014002d1f",
+          "decision": "正文仅标签，视频未逐帧转录；评论对倒装句的回忆不作为核定原文。既有用户给定分类图映射继续保留，本篇不补造逐册句型。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-1mu8hkl",
+      "title": "Judy Moody 稀奇古怪小朱迪",
+      "status": "read-content-adopted",
+      "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。",
+      "latestQuery": {
+        "resourceId": "resource-1mu8hkl",
+        "query": "Judy Moody 小朱迪 主题 内容",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ac92f00000000001203fc23",
+        "title": "心情不好就读她❗初章《小朱迪》",
+        "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ac92f00000000001203fc23",
+          "decision": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。"
+        }
+      ],
+      "adoptedStatus": "description-derived",
+      "adoptedTopics": [
+        "emotions.expression",
+        "daily.school"
+      ],
+      "namedBookReview": {
+        "bookId": "book-862afdab65720274",
+        "sourceId": "xhs-6ac92f00000000001203fc23-20261115",
+        "topics": [
+          "daily.school",
+          "emotions.expression"
+        ],
+        "status": "description-derived",
+        "sentenceCount": 0,
+        "note": "同作品具名第1册内容简介；不独立核页/ISBN，无句型，不传播全16册。"
+      }
+    },
+    {
+      "resourceId": "resource-13sgknh",
+      "title": "The Zack Files 扎克档案",
+      "status": "read-content-adopted",
+      "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。",
+      "latestQuery": {
+        "resourceId": "resource-13sgknh",
+        "query": "Zack Files 扎克档案 主题 内容",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a795cae000000002203247b",
+        "title": "奇幻冒险初章｜The Zack Files 扎克档案",
+        "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6a795cae000000002203247b",
+          "decision": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+        }
+      ],
+      "adoptedStatus": "description-derived",
+      "adoptedTopics": [
+        "fantasy.characters",
+        "fantasy.adventure",
+        "social.friends"
+      ]
+    },
+    {
+      "resourceId": "resource-141vfh7",
+      "title": "培生亲子故事屋",
+      "status": "read-content-adopted",
+      "note": "唯一同套基础级Dad at the Park，采用本册主题与正文引句。",
+      "latestQuery": {
+        "resourceId": "resource-141vfh7",
+        "query": "培生亲子故事屋 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/698d9d53000000000c037dd6",
+        "note": "唯一同套基础级Dad at the Park，采用本册主题与正文引句。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/698d9d53000000000c037dd6",
+          "decision": "唯一同套基础级Dad at the Park，采用本册主题与正文引句。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-gzsymu",
+      "title": "Junie B Jones 朱妮琼斯",
+      "status": "read-content-adopted",
+      "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。",
+      "latestQuery": {
+        "resourceId": "resource-gzsymu",
+        "query": "Junie B Jones 朱妮琼斯 主题 内容",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a96bfc6000000001001ec52",
+        "title": "原版初章书分享｜Junie B. Jones朱妮·琼斯✨",
+        "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6a96bfc6000000001001ec52",
+          "decision": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+        }
+      ],
+      "adoptedStatus": "description-derived",
+      "adoptedTopics": [
+        "daily.school",
+        "social.friends",
+        "emotions.expression"
+      ]
+    },
+    {
+      "resourceId": "resource-1mi9g2h",
+      "title": "丽声妙想英文绘本2",
+      "status": "read-outside-book-content-not-applied",
+      "note": "正文前段仅阅读感受；后半What can you see/房间/躲藏属于另一次外教课，不能归为绘本句型或主题。首图混多册封面，未逐册核内容，不采用外教课语言。",
+      "latestQuery": {
+        "resourceId": "resource-1mi9g2h",
+        "query": "丽声妙想英文绘本 第二级 主题 句型",
+        "status": "read-outside-book-content-not-applied",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ad4ca00000000002701d12c",
+        "title": "✨4 岁半男宝英语｜丽声妙想二",
+        "note": "正文前段仅阅读感受；后半What can you see/房间/躲藏属于另一次外教课，不能归为绘本句型或主题。首图混多册封面，未逐册核内容，不采用外教课语言。"
+      },
+      "sources": [
+        {
+          "url": "https://www.xiaohongshu.com/explore/6ad4ca00000000002701d12c",
+          "decision": "正文前段仅阅读感受；后半What can you see/房间/躲藏属于另一次外教课，不能归为绘本句型或主题。首图混多册封面，未逐册核内容，不采用外教课语言。"
+        }
+      ]
+    },
+    {
+      "resourceId": "resource-166ekar",
+      "title": "培生儿童英语情境口语400句",
+      "status": "read-content-adopted",
+      "note": "《培生儿童英语情境口语400句》规范实体 resource-166ekar；resource-912oje 为另一套 Level1–6《培生儿童英语》，本来源不适用于它。",
+      "adoptedBookRows": 2,
+      "adoptedQuotedSentences": 7,
+      "sources": [
+        {
+          "id": "xhs-pearson400-reader-quotation-20261115",
+          "title": "培生400句，我主要拿它给自己攒常用句",
+          "author": "书卷妈妈的绘本生活",
+          "url": "https://www.xiaohongshu.com/explore/6a830d16000000002402df09",
+          "checkedAt": "2026-11-15",
+          "locator": "正文 Ben’s Bike 与 Zack’s Spots 两个具名段落",
+          "kind": "reader-quotation",
+          "note": "根 agent 实际读取正文后转录，未独立核原书页。Ben’s Bike 3条、Zack’s Spots 4条；后文 It’s too / You can do it 为家长替换扩展，不作原文采用。"
+        }
+      ],
+      "notAdopted": [
+        {
+          "text": "It's too …",
+          "reason": "正文家长替换，不是具名书目原文引句。"
+        },
+        {
+          "text": "You can do it.",
+          "reason": "正文家长替换，不是具名书目原文引句。"
+        }
+      ]
+    }
+  ],
+  "bookFollowup": {
+    "checkedAt": "2026-11-15",
+    "status": "followup-reviewed-with-data-gaps",
+    "sources": [
+      {
+        "id": "xhs-adventure-island-impression-20261115",
+        "title": "强推丽声的冒险故事岛",
+        "author": "肉丸子丸子",
+        "url": "https://www.xiaohongshu.com/explore/6a87d79b000000002500ddd4",
+        "kind": "reader-impression",
+        "checkedAt": "2026-11-15",
+        "publishedAt": "08-21（页面未显示年份）",
+        "readScope": [
+          "正文",
+          "配图1/4",
+          "配图2/4",
+          "配图3/4",
+          "配图4/4"
+        ],
+        "bodyQuote": "让4岁小盆友都看得停不下来，找到“追剧”的快乐",
+        "note": "真实打开正文并逐图核读；第三方使用感受无逐册分类，不传播至整套主题/句型。"
+      },
+      {
+        "id": "xhs-penelope-polite-20261115",
+        "title": "Penelope isPolite 懂礼貌💙13 精读",
+        "author": "Doo_小脑袋充电",
+        "url": "https://www.xiaohongshu.com/explore/6aa7a9c00000000011031748",
+        "checkedAt": "2026-11-15",
+        "kind": "reader-guide",
+        "locator": "正文：重点短语与经典原句",
+        "note": "实际核读读者整理正文，未独立逐帧核对动画。只说明本篇具名集数及系列可涉及范围，不传播至每集。 标题01/13仅保留读者精读编号，不视为官方集序。"
+      },
+      {
+        "id": "xhs-penelope-dressed-20261115",
+        "title": "蓝色小考拉｜Penelope Gets Dressed 01精读",
+        "author": "Doo_小脑袋充电",
+        "url": "https://www.xiaohongshu.com/explore/6aa75b06000000002802ced2",
+        "checkedAt": "2026-11-15",
+        "kind": "reader-guide",
+        "locator": "正文：穿衣场景、亲子建议与经典原句",
+        "note": "实际核读第三方正文；短结构据正文明确示例归纳，亲子拓展与逐字台词不混称，不传播至每集。 标题01/13仅保留读者精读编号，不视为官方集序。"
+      },
+      {
+        "id": "xhs-tsinghua-hello-20261115",
+        "title": "英语启蒙：清华语感启蒙台词本（1-10集）",
+        "author": "一力向北光",
+        "url": "https://www.xiaohongshu.com/explore/66126b97000000001b00c6f9",
+        "kind": "reader-transcription",
+        "checkedAt": "2026-11-15",
+        "locator": "实际读图1：0a unit 1 Hello及正文",
+        "note": "只采用实际读到的第1图，未把10张标题当成10集均核读。第三方手打台词，不独立证明动画逐字内容。"
+      },
+      {
+        "id": "xhs-buddy-fltrp-robot-20261115",
+        "title": "巴蒂英语第2级，读完啦",
+        "author": "小怪兽满头大包",
+        "url": "https://www.xiaohongshu.com/explore/6a3675170000000017008cd1",
+        "kind": "reader-interior-photo",
+        "checkedAt": "2026-11-15",
+        "locator": "实际读图1封面Silly Robot及图2内页",
+        "note": "图1确认巴蒂第二级及Silly Robot，图2可见Look at my arms.与机器人手臂示意。未核其余图片，不下传全部单册。"
+      },
+      {
+        "id": "xhs-powerup2-level2-map-20261115",
+        "title": "拿到PU第二版2级别的目录了",
+        "author": "波兰教书匠",
+        "url": "https://www.xiaohongshu.com/explore/684d7ce7000000002102e552",
+        "kind": "reader-interior-photo",
+        "checkedAt": "2026-11-15",
+        "locator": "正文及图2蓝色Map of the book，页2–3",
+        "note": "正文明确新旧版对比，图1橙色为旧版，不采用；仅实际核读图2蓝色第二版Level2目录，不传播其它级别。"
+      },
+      {
+        "id": "xhs-6ae2a326000000003703f868-20261115",
+        "title": "THINK第二版｜Starter/1/2单元总览表📖",
+        "author": "Celiaaye",
+        "url": "https://www.xiaohongshu.com/explore/6ae2a326000000003703f868",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "实际读图1：Second Edition Starter Units1–6",
+        "note": "实际仅核图1/6及正文；Grammar栏多为词类及语法点，没有完整可用例句，不据此补造句型。"
+      },
+      {
+        "id": "xhs-6aa2cb18000000000b00fafb-20261115",
+        "title": "📖共读逐字稿-悠游1-1-1《Five Blocks》",
+        "author": "养成系网橙🍊",
+        "url": "https://www.xiaohongshu.com/explore/6aa2cb18000000000b00fafb",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文逐跨页亲子共读稿",
+        "note": "实际核读正文，原书数字正文与家长添加的亲子语言分开；未逐页独立验证原书，不传播全套。"
+      },
+      {
+        "id": "xhs-667106cf0000000006005acf-20261115",
+        "title": "绘本—牛津树初体验",
+        "author": "如彼",
+        "url": "https://www.xiaohongshu.com/explore/667106cf0000000006005acf",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文明确比较牛津树、Maisy及凯文凯蒂段落",
+        "note": "只实际读正文，配图3–7的页内原句尚未独立核看；不传播至每册。"
+      },
+      {
+        "id": "xhs-6ad4ec1f00000000260176c4-20261115",
+        "title": "西游记英文版台词精读1-1📖",
+        "author": "猎道德之精英",
+        "url": "https://www.xiaohongshu.com/explore/6ad4ec1f00000000260176c4",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文与实际读图1/4：Chapter1 The Monkey",
+        "note": "正文明确Little Fox L5身份；只核图1，不把4图/108集视为全核，不改已有集数与数量。"
+      },
+      {
+        "id": "xhs-6af907f30000000018024fc0-20261115",
+        "title": "初章进阶必读：A to Z 神秘案件",
+        "author": "徐小Q",
+        "url": "https://www.xiaohongshu.com/explore/6af907f30000000018024fc0",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文“这套书讲什么”",
+        "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。"
+      },
+      {
+        "id": "xhs-6ac92f00000000001203fc23-20261115",
+        "title": "心情不好就读她❗初章《小朱迪》",
+        "author": "LearnWide",
+        "url": "https://www.xiaohongshu.com/explore/6ac92f00000000001203fc23",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文主角和第一册开学情节",
+        "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。"
+      },
+      {
+        "id": "xhs-6a795cae000000002203247b-20261115",
+        "title": "奇幻冒险初章｜The Zack Files 扎克档案",
+        "author": "乐资有道",
+        "url": "https://www.xiaohongshu.com/explore/6a795cae000000002203247b",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文具名怪事及伙伴合作",
+        "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+      },
+      {
+        "id": "xhs-pearson-dad-park-20261115",
+        "title": "亲子英语共读-Book 2|《Dad at the Park》！",
+        "author": "小小小小军",
+        "url": "https://www.xiaohongshu.com/explore/698d9d53000000000c037dd6",
+        "kind": "reader-quotation",
+        "checkedAt": "2026-11-15",
+        "locator": "正文具名基础级故事及核心句型",
+        "note": "实际读第三方共读正文，未独立核原书页或视频；仅本册。"
+      },
+      {
+        "id": "xhs-6a96bfc6000000001001ec52-20261115",
+        "title": "原版初章书分享｜Junie B. Jones朱妮·琼斯✨",
+        "author": "Jessie｜博士小姨看世界",
+        "url": "https://www.xiaohongshu.com/explore/6a96bfc6000000001001ec52",
+        "kind": "reader-guide",
+        "checkedAt": "2026-11-15",
+        "locator": "正文故事讲什么",
+        "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+      },
+      {
+        "id": "xhs-pearson400-reader-quotation-20261115",
+        "title": "培生400句，我主要拿它给自己攒常用句",
+        "author": "书卷妈妈的绘本生活",
+        "url": "https://www.xiaohongshu.com/explore/6a830d16000000002402df09",
+        "checkedAt": "2026-11-15",
+        "locator": "正文 Ben’s Bike 与 Zack’s Spots 两个具名段落",
+        "kind": "reader-quotation",
+        "note": "根 agent 实际读取正文后转录，未独立核原书页。Ben’s Bike 3条、Zack’s Spots 4条；后文 It’s too / You can do it 为家长替换扩展，不作原文采用。"
+      },
+      {
+        "id": "xhs-atoz-absent-author-summary-20261115",
+        "title": "侦探系列童书阅读笔记",
+        "author": "倩倩",
+        "url": "https://www.xiaohongshu.com/explore/695a4646000000001e010ed0",
+        "kind": "reader-content-summary",
+        "checkedAt": "2026-11-15",
+        "locator": "正文及视频首图封面The Absent Author；未播放转录",
+        "note": "实际核读第三方正文明确A to Z Mysteries第一册The Absent Author及三人小侦探解决作家失踪谜团；未独立核原书页或ISBN，未播放视频转录，无可采用英文句型。"
+      }
+    ],
+    "queries": [
+      {
+        "resourceId": "resource-mavhf5",
+        "query": "丽声冒险故事岛 主题 句型",
+        "method": "Chrome新建独立标签，使用页面搜索框提交并点击具名搜索结果",
+        "status": "results-observed-and-detail-read",
+        "selectedResult": {
+          "title": "强推丽声的冒险故事岛",
+          "url": "https://www.xiaohongshu.com/explore/6a87d79b000000002500ddd4"
+        },
+        "directDetailAttempt": "无会话查询参数的公开URL先返回笔记暂时无法浏览；随后经站内搜索可正常点击正文。",
+        "adoptedRows": 0
+      },
+      {
+        "resourceId": "resource-9fvmjt",
+        "query": "海尼曼 主题 句型 分类",
+        "method": "沿已观察search_result站内检索路径，单次提交本系列聚焦查询",
+        "status": "limited-security-verification",
+        "visibleEvidence": "为保护账号安全，请使用已登录该账号的「小红书APP」扫码验证身份",
+        "pageTitle": "安全验证",
+        "path": "/website-login/captcha",
+        "adoptedRows": 0,
+        "note": "未获得搜索结果或正文，不记为没搜到，不继续尝试规避验证。"
+      },
+      {
+        "resourceId": "resource-9fvmjt",
+        "query": "海尼曼 主题 句型 分类",
+        "status": "read-learning-target-preserved-no-overwrite",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ab3953a0000000014003e5e",
+        "title": "海尼曼 GK70 本｜句型分类打卡墙",
+        "note": "图3是读者学习目标分组，28行仅12条同套同版精确题名；且多处目标句型与已有原表不同。保留独立核对表，不覆盖现有原书句型，不为本次表另抄reading-plans的逐册目录。"
+      },
+      {
+        "resourceId": "resource-1nhjndw",
+        "query": "A to Z Mysteries 神秘事件 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6af907f30000000018024fc0",
+        "title": "初章进阶必读：A to Z 神秘案件",
+        "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。"
+      },
+      {
+        "resourceId": "resource-912oje",
+        "query": "培生儿童英语 礼盒 主题 句型",
+        "status": "read-other-series-not-applied",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6abdea2a00000000140384cc",
+        "title": "庆爸常规路线英语启蒙培生系列！96本顺序表",
+        "note": "检索命中标题泛称培生，正文及首图明确培生词汇妙趣屋1–3辑，不是儿童英语Level1–6礼盒版；不混用。此前400句查询也为不同resource-166ekar，已单独核对两册。"
+      },
+      {
+        "resourceId": "resource-1mx6gx6",
+        "query": "培生启明星 主题 句型 分类",
+        "status": "read-no-adoptable-content",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ab487d50000000014002d1f",
+        "title": "培生启明星2的内容和使用感受",
+        "note": "正文仅标签，视频未逐帧转录；评论对倒装句的回忆不作为核定原文。既有用户给定分类图映射继续保留，本篇不补造逐册句型。"
+      },
+      {
+        "resourceId": "resource-1mu8hkl",
+        "query": "Judy Moody 小朱迪 主题 内容",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ac92f00000000001203fc23",
+        "title": "心情不好就读她❗初章《小朱迪》",
+        "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。"
+      },
+      {
+        "resourceId": "resource-13sgknh",
+        "query": "Zack Files 扎克档案 主题 内容",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a795cae000000002203247b",
+        "title": "奇幻冒险初章｜The Zack Files 扎克档案",
+        "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+      },
+      {
+        "resourceId": "resource-141vfh7",
+        "query": "培生亲子故事屋 主题 句型",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/698d9d53000000000c037dd6",
+        "note": "唯一同套基础级Dad at the Park，采用本册主题与正文引句。"
+      },
+      {
+        "resourceId": "resource-gzsymu",
+        "query": "Junie B Jones 朱妮琼斯 主题 内容",
+        "status": "read-content-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a96bfc6000000001001ec52",
+        "title": "原版初章书分享｜Junie B. Jones朱妮·琼斯✨",
+        "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+      },
+      {
+        "resourceId": "resource-1mi9g2h",
+        "query": "丽声妙想英文绘本 第二级 主题 句型",
+        "status": "read-outside-book-content-not-applied",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6ad4ca00000000002701d12c",
+        "title": "✨4 岁半男宝英语｜丽声妙想二",
+        "note": "正文前段仅阅读感受；后半What can you see/房间/躲藏属于另一次外教课，不能归为绘本句型或主题。首图混多册封面，未逐册核内容，不采用外教课语言。"
+      },
+      {
+        "resourceId": "resource-1nhjndw",
+        "query": "A to Z The Absent Author 故事",
+        "status": "read-named-book-description-adopted",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/695a4646000000001e010ed0",
+        "title": "侦探系列童书阅读笔记",
+        "note": "正文明确第一册The Absent Author，三名小侦探解决作家失踪谜团；仅该册fantasy.mystery，无句型，视频未播放转录。",
+        "attempts": [
+          {
+            "sourceUrl": "https://www.xiaohongshu.com/explore/6adb299e000000002b0009ff",
+            "decision": "正文仅难度和视频，未采用内容主题。"
+          },
+          {
+            "sourceUrl": "https://www.xiaohongshu.com/explore/66729dc0000000000e032f0d",
+            "decision": "正文Read book everyday；视频原书首段仅朋友对话，没有解谜内容，不据此归主题。"
+          },
+          {
+            "sourceUrl": "https://www.xiaohongshu.com/explore/6645f60d000000001e023ecb",
+            "decision": "正文亲子复述感受，无具体情节，视频未转录，不采用。"
+          },
+          {
+            "sourceUrl": "https://www.xiaohongshu.com/explore/695a4646000000001e010ed0",
+            "decision": "采用正文具名第一册三侦探解失踪谜团；首图封面仅核题名，不当视频内容已核。"
+          }
+        ]
+      }
+    ],
+    "remainingSeries": [
+      {
+        "resourceId": "resource-mavhf5",
+        "title": "丽声冒险故事岛",
+        "readStatus": "detail-and-4-images-read-no-adoptable-book-mapping"
+      },
+      {
+        "resourceId": "resource-9fvmjt",
+        "title": "海尼曼",
+        "readStatus": "read-learning-target-preserved-no-overwrite",
+        "note": "图3是读者学习目标分组，28行仅12条同套同版精确题名；且多处目标句型与已有原表不同。保留独立核对表，不覆盖现有原书句型，不为本次表另抄reading-plans的逐册目录。"
+      },
+      {
+        "resourceId": "resource-1nhjndw",
+        "title": "A to Z Mysteries 神秘事件",
+        "readStatus": "read-content-adopted",
+        "note": "第三方系列内容介绍，仅系列范围，没有具体句型；难度及26本数不据此改写公共版本。",
+        "namedBookReview": {
+          "bookId": "book-c3cc765d996b4832",
+          "sourceId": "xhs-atoz-absent-author-summary-20261115",
+          "topics": [
+            "fantasy.mystery"
+          ],
+          "status": "description-derived",
+          "sentenceCount": 0,
+          "note": "同作品具名第一册内容简介；未独立核页／ISBN，无句型，不传播全26册。"
+        }
+      },
+      {
+        "resourceId": "resource-1mx6gx6",
+        "title": "培生启明星",
+        "readStatus": "read-no-adoptable-content",
+        "note": "正文仅标签，视频未逐帧转录；评论对倒装句的回忆不作为核定原文。既有用户给定分类图映射继续保留，本篇不补造逐册句型。"
+      },
+      {
+        "resourceId": "resource-912oje",
+        "title": "培生儿童英语",
+        "readStatus": "read-other-series-not-applied",
+        "note": "检索命中标题泛称培生，正文及首图明确培生词汇妙趣屋1–3辑，不是儿童英语Level1–6礼盒版；不混用。此前400句查询也为不同resource-166ekar，已单独核对两册。"
+      },
+      {
+        "resourceId": "resource-1mu8hkl",
+        "title": "Judy Moody 稀奇古怪小朱迪",
+        "readStatus": "read-content-adopted",
+        "note": "第三方内容介绍，未核全16册；书单数量、电影、蓝思等其它断言不采纳，不增补没有英文原句的句型。",
+        "namedBookReview": {
+          "bookId": "book-862afdab65720274",
+          "sourceId": "xhs-6ac92f00000000001203fc23-20261115",
+          "topics": [
+            "daily.school",
+            "emotions.expression"
+          ],
+          "status": "description-derived",
+          "sentenceCount": 0,
+          "note": "同作品具名第1册内容简介；不独立核页/ISBN，无句型，不传播全16册。"
+        }
+      },
+      {
+        "resourceId": "resource-13sgknh",
+        "title": "The Zack Files 扎克档案",
+        "readStatus": "read-content-adopted",
+        "note": "第三方系列情节简介，无具名原句，不补造句型；不采用其年龄、难度、总册数断言替换公共资料。"
+      },
+      {
+        "resourceId": "resource-141vfh7",
+        "title": "培生亲子故事屋",
+        "readStatus": "read-content-adopted",
+        "note": "唯一同套基础级Dad at the Park，采用本册主题与正文引句。"
+      },
+      {
+        "resourceId": "resource-gzsymu",
+        "title": "Junie B Jones 朱妮琼斯",
+        "readStatus": "read-content-adopted",
+        "note": "第三方内容简介，无可用英文原句，不据孩童口语特点编造句型；不采其蓝思年龄、总量或阅读路线建议。"
+      },
+      {
+        "resourceId": "resource-1mi9g2h",
+        "title": "丽声妙想英文绘本2",
+        "readStatus": "read-outside-book-content-not-applied",
+        "note": "正文前段仅阅读感受；后半What can you see/房间/躲藏属于另一次外教课，不能归为绘本句型或主题。首图混多册封面，未逐册核内容，不采用外教课语言。"
+      },
+      {
+        "resourceId": "resource-166ekar",
+        "title": "培生儿童英语情境口语400句",
+        "readStatus": "read-content-adopted",
+        "adoptedBookRows": 2,
+        "note": "同套同辑精确匹配2册7句，不对应Level1–6儿童英语礼盒。"
+      }
+    ],
+    "attemptHistory": [
+      {
+        "checkedAt": "2026-11-15",
+        "phase": "before-post-verification-review",
+        "status": "partial-blocked-by-xiaohongshu-security-verification",
+        "queries": [
+          {
+            "resourceId": "resource-mavhf5",
+            "query": "丽声冒险故事岛 主题 句型",
+            "method": "Chrome新建独立标签，使用页面搜索框提交并点击具名搜索结果",
+            "status": "results-observed-and-detail-read",
+            "selectedResult": {
+              "title": "强推丽声的冒险故事岛",
+              "url": "https://www.xiaohongshu.com/explore/6a87d79b000000002500ddd4"
+            },
+            "directDetailAttempt": "无会话查询参数的公开URL先返回笔记暂时无法浏览；随后经站内搜索可正常点击正文。",
+            "adoptedRows": 0
+          },
+          {
+            "resourceId": "resource-9fvmjt",
+            "query": "海尼曼 主题 句型 分类",
+            "method": "沿已观察search_result站内检索路径，单次提交本系列聚焦查询",
+            "status": "limited-security-verification",
+            "visibleEvidence": "为保护账号安全，请使用已登录该账号的「小红书APP」扫码验证身份",
+            "pageTitle": "安全验证",
+            "path": "/website-login/captcha",
+            "adoptedRows": 0,
+            "note": "未获得搜索结果或正文，不记为没搜到，不继续尝试规避验证。"
+          }
+        ],
+        "remainingSeries": [
+          {
+            "resourceId": "resource-mavhf5",
+            "title": "丽声冒险故事岛",
+            "readStatus": "detail-and-4-images-read-no-adoptable-book-mapping"
+          },
+          {
+            "resourceId": "resource-9fvmjt",
+            "title": "海尼曼",
+            "readStatus": "attempted-query-blocked-security-verification"
+          },
+          {
+            "resourceId": "resource-1nhjndw",
+            "title": "A to Z Mysteries 神秘事件",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-1mx6gx6",
+            "title": "培生启明星",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-912oje",
+            "title": "培生儿童英语",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-1mu8hkl",
+            "title": "Judy Moody 稀奇古怪小朱迪",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-13sgknh",
+            "title": "The Zack Files 扎克档案",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-141vfh7",
+            "title": "培生亲子故事屋",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-gzsymu",
+            "title": "Junie B Jones 朱妮琼斯",
+            "readStatus": "not-attempted-after-security-verification"
+          },
+          {
+            "resourceId": "resource-1mi9g2h",
+            "title": "丽声妙想英文绘本2",
+            "readStatus": "not-attempted-after-security-verification"
+          }
+        ]
+      }
+    ],
+    "note": "后续已实际读取原阻塞队列的具名笔记，当前不再以扫码验证作未读结论。没有可用内容、身份不明及范围不符仍不采用；原尝试完整保留。系列简介采用不等于逐册补齐。"
+  },
+  "note": "本次记录区分实际正文核读、归档回读与未采用原因；原扫码验证及未尝试为早期历史，已在后续具名核读结果中更新。旧查询与趣趣知知鸟、Little Pim及84条逐册采用不重复计新。只有具名范围有可用证据才采用，不宣称全部素材原文均核完。",
+  "verification": {
+    "idempotent": true,
+    "books": 3816,
+    "identityChanges": 0,
+    "hashes": {
+      "english/data/topic-taxonomy.json": "5162da51da30eed3f4e00e3237ec555acf709155ad048515d8954af8458eac1e",
+      "english/data/resource-books.json": "42d973fd7d9914c832c00d2ee242f9be5391bc80854b9d35cb961f8bd1770d0f",
+      "docs/audits/material-topic-patterns-20261115.json": "2ef74d9b0729ccc304ec0dc39cf4ef9ffc76411f5c9bff32e1e5388cc36d66ba"
+    },
+    "tests": {
+      "importer": 8,
+      "classifier": 12,
+      "topicsLibrarySortLoader": 53,
+      "pagesBuild": 5,
+      "passed": 78
+    },
+    "browser": [
+      "宝宝的一天/起床→巴塔木口语书2册：封面、逐册主题与句型正常",
+      "Bada in the Morning→主题与句型依据：原笔记链接、图号及读者转录边界显示正常",
+      "食物/水果→Little Pim：显示系列主题，无猜测句型"
+    ],
+    "scope": "先前84条逐册资料及8项系列范围的验证基线；本次后续新增5册与12系列范围尚待根统一导入、构建及验收，不沿用基线冒充本批已通过。"
+  },
+  "adoption": {
+    "newAdoptedBookRows": 84,
+    "newBooksWithPatterns": 83,
+    "pearsonAdopted": 51,
+    "scholasticAdopted": 9,
+    "badaAdopted": 24,
+    "newResourceScopes": 8,
+    "cumulativeMatchedRows": 180,
+    "cumulativeUnmatchedRows": 2,
+    "cumulativeReferenceOnlyRows": 45,
+    "scope": "先前已验证批次，保留历史计数；后续增量单独记录。",
+    "postVerificationAdditions": {
+      "newAdoptedBookRows": 5,
+      "newBooksWithPatterns": 3,
+      "pearson400Rows": 2,
+      "pearson400QuotedSentences": 7,
+      "dadAtTheParkRows": 1,
+      "dadAtTheParkQuotedSentences": 1,
+      "newResourceScopes": 12,
+      "excludedPriorResourceScopes": [
+        "resource-vy1kzi",
+        "resource-ddfbd5"
+      ],
+      "verificationStatus": "awaiting-shared-import-build-and-acceptance",
+      "note": "不重复计算先前84条／8项；系列范围不传播逐册主题。海尼曼只留独立学习目标核对记录，0条导入。",
+      "judyMoodyDescriptionRows": 1,
+      "atozDescriptionRows": 1
+    }
+  },
+  "postVerificationAudit": "material-topic-search-post-verification-20261115.json",
+  "pearson400Audit": "material-topic-pearson400-review-20261115.json",
+  "heinemannAudit": "material-topic-heinemann-review-20261115.json"
+}

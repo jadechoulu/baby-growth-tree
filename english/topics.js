@@ -38,6 +38,7 @@ function patternTopics(entry){
   }).filter(Boolean));
 }
 function patterns(domain,entry={}){
+  if(domain==='book'&&entry.privateShelf)return list(entry.topicRecord?.patterns);
   const record=domain==='resource'?data.resourceMappings?.[entry.id]:data.bookOverrides[entry.id];
   const values=[...list(entry.studyGuide?.patterns).map(item=>({...item,sourceId:entry.studyGuide.sourceId})),...list(record?.patterns)];
   const seen=new Set();
@@ -45,6 +46,7 @@ function patterns(domain,entry={}){
 }
 function entryTopics(domain,entry={}){
   if(domain==='book'){
+    if(entry.privateShelf)return list(entry.topicRecord?.topics);
     const override=entry.custom?null:data.bookOverrides[entry.id];
     const original=list(entry.topics).filter(id=>!list(override?.replaceLegacy).includes(data.legacyBookLabels[id]||id));
     const ids=original.flatMap(value=>bookTopic(value,entry.custom)).concat(list(override?.topics),entry.custom?[]:patternTopics(entry));
@@ -70,6 +72,7 @@ function originalLabels(domain,entry={}){
 }
 function entryEvidence(domain,entry={}){
   if(domain==='book'){
+    if(entry.privateShelf)return entry.topicRecord||{status:'pending',topics:[],patterns:[],basis:'本册主题待核对。'};
     const record=data.bookOverrides[entry.id]||{basis:'保留已有内容核对的一级主题；没有细分依据不补造二级。',evidence:list(entry.topicEvidence)};
     return {...record,patternTopics:unique(patternTopics(entry).concat(list(record.topics).filter(id=>node(id)?.parentId==='patterns'))),patterns:patterns(domain,entry),patternSourceId:patternTopics(entry).length?entry.studyGuide.sourceId:null};
   }
