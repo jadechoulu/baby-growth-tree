@@ -284,3 +284,26 @@ test('阶段范围默认仅当前，包含更低只取同路线主表及其原�
   assert.ok(current.length&&expanded.length>=current.length);
   assert.ok(current.every(book=>expanded.some(b=>b.id===book.id)));
 });
+
+
+test('套系展示在匹配后按明确身份去重，保留匹配单册与完整目录事实',()=>{
+  const resource={id:'series-1',title:'Series'},other={id:'series-2',title:'Series'};
+  const entries=[{id:'a',resource,topics:['animals']},{id:'b',resource,topics:['food']},{id:'c',resource:other},{id:'d',privateShelf:true,shelfGroupId:'shelf-1',resource},{id:'e',privateShelf:true,shelfGroupId:'shelf-1',resource}];
+  const before=structuredClone(entries),groups=B.displayGroups(entries);
+  assert.deepEqual(groups.map(group=>group.id),['series-1','series-2','shelf-1']);
+  assert.deepEqual(groups[0].entries.map(book=>book.id),['a','b']);
+  assert.equal(groups[0].resource,resource);assert.equal(groups[2].privateShelf,true);
+  assert.deepEqual(B.displayGroups([entries[1]])[0].entries.map(book=>book.id),['b']);
+  assert.deepEqual(entries,before);
+});
+
+
+test('单册搜索保留书架原始套系名和目录标签，未选主题也能按套系缩小',()=>{
+  const resource={id:'private-series',title:'统一展示名称',type:'book',appearances:[]};
+  const book={id:'private-one',title:'The Ride',resource,resourceId:resource.id,seriesTitle:resource.title,series:{title:'原站套系'},searchLabels:['原始套系名','目录标签'],appearances:[],topics:[]};
+  const directory={topics:[],sources:[]};
+  for(const query of ['原站套系','原始套系名','目录标签','The Ride'])assert.deepEqual(B.filter([book],directory,{query}),[book]);
+  const groups=B.seriesGroups([book],directory);
+  assert.deepEqual(B.filter([book],directory,{query:'ride',series:groups[0].id}),[book]);
+  assert.deepEqual(B.filter([book],directory,{query:'ride',series:'other-series'}),[]);
+});

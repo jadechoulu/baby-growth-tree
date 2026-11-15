@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse, json, base64, mimetypes, re, shutil, hashlib, subprocess
 
 ROOT = Path(__file__).resolve().parent
+subprocess.run(['python3', str(ROOT.parent / 'scripts/build-workbook-previews.py')], check=True)
 subprocess.run(['node', str(ROOT.parent / 'scripts/build-search-index.mjs')], check=True)
 RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','editorial']}
 RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read_text())
@@ -48,6 +49,7 @@ RAW['resourceBooks'] = json.loads(subprocess.run(
     input=json.dumps({'directory': RAW['resourceBooks'], 'plans': RAW['readingPlans'], 'catalog': RAW['resourceVolumes']}),
     text=True, capture_output=True, check=True, cwd=ROOT.parent).stdout)
 RAW['filePreviewAssets'] = [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/vendor/pdfjs').rglob('*')) if path.is_file()]
+RAW['filePreviewAssets'] += [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/sources/reading-guides').glob('*.preview.html'))]
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
 RAW['topicTaxonomy'] = json.loads((ROOT / 'data' / 'topic-taxonomy.json').read_text())
 RAW['materialTopicRules'] = json.loads((ROOT / 'data' / 'material-topic-rules.json').read_text())

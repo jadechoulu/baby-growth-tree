@@ -253,3 +253,22 @@ test('慢葫芦同曲目只引用已保存主题，改编及同曲调不继承�
   }
   assert.equal(T.matches(T.entryTopics('song',byPage(48)),{topic:'science'}),false);
 });
+
+test('范围主题选项只保留有结果的路径，切换目录清除已失效的一级和二级',()=>{
+  const UI=require('../english/topic-ui.js');
+  function h(tag,attrs={},...children){
+    const node={tag,...attrs,children:children.flat(),replaceChildren(...next){this.children=next.flat();this.value=this.children.find(item=>item.selected)?.value||this.children[0]?.value||'';}};
+    if(tag==='select')node.replaceChildren(...node.children);
+    return node;
+  }
+  const calls=[],picker=UI.create({h,topics:T}).picker({id:'scope',available:['home.rooms',T.children('patterns')[0].id],topic:'home',subtopic:'home.rooms',onchange:(...values)=>calls.push(values)});
+  const primary=picker.element.children[0].children[1],secondary=picker.element.children[1].children[1];
+  assert.deepEqual(primary.children.map(item=>item.value),['all','patterns','home']);
+  assert.deepEqual(secondary.children.map(item=>item.value),['all','home.rooms']);
+  assert.deepEqual(picker.sync('home','home.rooms',['animals.farm']),{topic:'all',subtopic:'all'});
+  assert.deepEqual(primary.children.map(item=>item.value),['all','animals']);
+  assert.equal(secondary.disabled,true);
+  primary.value='animals';primary.onchange({currentTarget:primary});
+  assert.deepEqual(calls,[['animals','all']]);assert.deepEqual(secondary.children.map(item=>item.value),['all','animals.farm']);
+  picker.sync('all','all',[]);assert.equal(picker.element.hidden,true);
+});

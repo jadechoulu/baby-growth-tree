@@ -5,7 +5,7 @@ const byId=new Map(data.nodes.map(item=>[item.id,item]));
 const byLabel=new Map(data.nodes.map(item=>[item.label,item]));
 const legacyLabels=Object.fromEntries(Object.entries(data.legacyBookLabels).map(([label,id])=>[id,label]));
 function node(id){return byId.get(id)||byLabel.get(id);}
-function roots(){return data.nodes.filter(item=>!item.parentId);}
+function roots(){return data.nodes.filter(item=>!item.parentId).sort((a,b)=>Number(b.id==='patterns')-Number(a.id==='patterns'));}
 function children(parentId){return data.nodes.filter(item=>item.parentId===parentId);}
 function label(id){return node(id)?.label||id;}
 function labels(ids){return unique(list(ids).map(label));}

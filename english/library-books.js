@@ -22,6 +22,17 @@ function seriesGroups(books,data){
   }
   return [...groups.values()];
 }
+// 展示分组仅使用明确的公共素材或私人套系身份，不按相似书名归并。
+function displayGroups(entries){
+  const groups=new Map();
+  for(const entry of entries){
+    const id=entry.privateShelf?entry.shelfGroupId:entry.resource.id;
+    const key=(entry.privateShelf?'shelf:':'resource:')+id;
+    if(!groups.has(key))groups.set(key,{id,privateShelf:!!entry.privateShelf,resource:entry.resource,entries:[]});
+    groups.get(key).entries.push(entry);
+  }
+  return [...groups.values()];
+}
 function seriesFilter(books,{edition='all',topic='all',subtopic='all'}={}){
   return books.filter(book=>(edition==='all'||book.edition===edition)&&T.matches(T.entryTopics('book',book),{topic,subtopic}));
 }
@@ -123,7 +134,7 @@ function filter(books,data,filters={}){
     if(filters.series&&filters.series!=='all'&&seriesGroup(book,data).id!==filters.series)return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
-    if(query&&!normalize([book.title,...(book.aliases||[]),book.seriesTitle,book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
+    if(query&&!normalize([book.title,...(book.aliases||[]),book.seriesTitle,book.series?.title,...(book.searchLabels||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
     return true;
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
@@ -230,5 +241,5 @@ function levelGroups(parts){
   }
   return [...editions.values()];
 }
-return {normalize,topics,topicIds,seriesGroup,seriesGroups,seriesFilter,referenceBooks,quantityReference,bookAppearances,entries,materialEntries,filter,seriesCount,levelGroups};
+return {normalize,topics,topicIds,seriesGroup,seriesGroups,displayGroups,seriesFilter,referenceBooks,quantityReference,bookAppearances,entries,materialEntries,filter,seriesCount,levelGroups};
 });
