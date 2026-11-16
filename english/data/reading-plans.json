@@ -107,7 +107,24 @@
             "xiaohuasheng": [
               "fd7e55bb440d628d"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "1.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4kUfFgaerX2OyIIvSm3l3BF2gSQ4Xvfvm3g5qZ8x8Cqu5TAm4m4",
+              "durationSeconds": 4184,
+              "label": "完整版",
+              "observedTitle": "At the Market",
+              "checkedAt": "2026-11-16",
+              "evidence": "At the Market 标题页及水果、面包、肉类词汇页",
+              "sampleSeconds": [
+                3,
+                60,
+                2092
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-06",
@@ -137,7 +154,24 @@
             "xiaohuasheng": [
               "7b10f2904e6c2238"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "16.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lQ2Pwrfm2ajIbGb6xq5uN9db7uRa8Dym25lpAxfX3khqm2gm4m4",
+              "durationSeconds": 1474,
+              "label": "完整版",
+              "observedTitle": "At the Zoo",
+              "checkedAt": "2026-11-16",
+              "evidence": "We can see a lion 正文；开头复习 At the Market",
+              "sampleSeconds": [
+                3,
+                60,
+                737
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-07",
@@ -167,7 +201,24 @@
             "xiaohuasheng": [
               "446447633f9bfda8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "19.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1I4m2MnxGSOlqXL8ds94BQ0JcFGsBy76GlvGyYtzuMOTAm4m4",
+              "durationSeconds": 1505,
+              "label": "完整版",
+              "observedTitle": "On the Way to School",
+              "checkedAt": "2026-11-16",
+              "evidence": "On the Way to School 封面；I see the playground 正文",
+              "sampleSeconds": [
+                3,
+                60,
+                752
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-08",
@@ -197,7 +248,24 @@
             "xiaohuasheng": [
               "26d790274afff780"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "22.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4k8YVzHAUI7WELzm1Tozr48uDVodelPbp4cw2e7HQ77xdwm4m4",
+              "durationSeconds": 1743,
+              "label": "完整版",
+              "observedTitle": "The Park",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Park 封面；I can see the birds 正文",
+              "sampleSeconds": [
+                3,
+                60,
+                871
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-29",
@@ -227,7 +295,27 @@
             "xiaohuasheng": [
               "d0c5357a29d27e18"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "84.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1P6ge1T9MOnSFEAnQzkjVs7ZfglqWJnGgHSUvliT63Bgm4m4",
+              "durationSeconds": 1086,
+              "label": "完整版 · 版本对照",
+              "observedTitle": "The Puppet Show / The Movie",
+              "checkedAt": "2026-11-16",
+              "evidence": "120秒及868秒展示 The Puppet Show 原版汇总页；正文对照 The Movie 的 doors / dark 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                543,
+                120,
+                868
+              ],
+              "note": "版本对照：本集含原版《The Puppet Show》汇总页，并对照新版《The Movie》；新版场景与原书不同。"
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-38",
@@ -257,7 +345,24 @@
             "xiaohuasheng": [
               "39d4adb75c5ebde8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "111.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4khm1Y70rqm1FPXWbiQN9wqol5g0rQPGyggxwQqarkm1ISVwm4m4",
+              "durationSeconds": 864,
+              "label": "完整版",
+              "observedTitle": "At the Pond",
+              "checkedAt": "2026-11-16",
+              "evidence": "At the Pond 封面及 We can see a butterfly 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                432
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-45",
@@ -287,7 +392,24 @@
             "xiaohuasheng": [
               "3e06524e121f3900"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "132.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lJWwktoEXEp7i1kzL7hIrkESvtvbv65OfhSjcGlm28figm4m4",
+              "durationSeconds": 1088,
+              "label": "完整版",
+              "observedTitle": "Over the River",
+              "checkedAt": "2026-11-16",
+              "evidence": "Over the River 题名页及熊过河内页",
+              "sampleSeconds": [
+                3,
+                60,
+                544
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-02",
@@ -317,7 +439,24 @@
             "xiaohuasheng": [
               "3cd1e54810d70810"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "4.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nRKQ924TR5nteiKpwbynm194nby9m2fNwiOt3jgXm3Alm1Wgm4m4",
+              "durationSeconds": 3305,
+              "label": "完整版",
+              "observedTitle": "Rex",
+              "checkedAt": "2026-11-16",
+              "evidence": "Rex 封面及小熊荡秋千正文",
+              "sampleSeconds": [
+                3,
+                60,
+                1652
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-14",
@@ -347,7 +486,24 @@
             "xiaohuasheng": [
               "9f2bf1acf111acb8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "40.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1YLm3vMdkUN37ww1CiXJgTq0IobKxZEdYm3qm1Hs6thcEWQm4m4",
+              "durationSeconds": 1149,
+              "label": "完整版",
+              "observedTitle": "My Room",
+              "checkedAt": "2026-11-16",
+              "evidence": "My Room 背景封面；I like my picture 正文，开头复习 Rex",
+              "sampleSeconds": [
+                3,
+                60,
+                574
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-24",
@@ -377,7 +533,24 @@
             "xiaohuasheng": [
               "fa090c329794f380"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "69.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nwLtTc2uhcz2fCSB2JPJ0uY7OZ9pIhm3teDBZ3qvDybQgm4m4",
+              "durationSeconds": 977,
+              "label": "完整版",
+              "observedTitle": "Polly",
+              "checkedAt": "2026-11-16",
+              "evidence": "Polly 封面；She likes the tomato 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                488
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-32",
@@ -407,7 +580,24 @@
             "xiaohuasheng": [
               "f09d91321e766df8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "93.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lszy4r4oA6NAwvim3xWneb9LiEHm1Cwm1gp2uxm1MWS7m3IgAm4m4",
+              "durationSeconds": 818,
+              "label": "完整版",
+              "observedTitle": "At School",
+              "checkedAt": "2026-11-16",
+              "evidence": "At School 题名页；I like to paint at school 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                409
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-49",
@@ -437,7 +627,24 @@
             "xiaohuasheng": [
               "1f1e8cdc36c251a8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "144.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4kvs6xsdHrA3Vm1wLFDyBVr6WZFQx0wHs9jbnxqDQhDe7Am4m4",
+              "durationSeconds": 1007,
+              "label": "完整版",
+              "observedTitle": "Playing Together",
+              "checkedAt": "2026-11-16",
+              "evidence": "Playing Together 汇总页及 We like to play with the bears 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                503
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-59",
@@ -587,7 +794,24 @@
             "xiaohuasheng": [
               "19790ac34bf4bae0"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "51.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nDRbYGhLgkeZbkBelqneOBFm3jH8m2JkcCm3CdJa4Hy0klgm4m4",
+              "durationSeconds": 994,
+              "label": "完整版",
+              "observedTitle": "My Lunch",
+              "checkedAt": "2026-11-16",
+              "evidence": "My Lunch 封面；Here is my bread / lettuce 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                497
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-19",
@@ -617,7 +841,24 @@
             "xiaohuasheng": [
               "bda465dd621f3f50"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "54.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lR70Yhvm3HWDIBPERL7TK0rTAvjxm2f14TYFIJgpszZZWAm4m4",
+              "durationSeconds": 1112,
+              "label": "完整版",
+              "observedTitle": "Toys",
+              "checkedAt": "2026-11-16",
+              "evidence": "Toys 封面及 This is a bus / yo-yo 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                556
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-22",
@@ -647,7 +888,24 @@
             "xiaohuasheng": [
               "8e04c46fd6bf77c8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "63.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4ktPm37JnjztjaPBJnWeBm2ZQcZkm1eB4owTm1zC7kKMqxrKQm4m4",
+              "durationSeconds": 793,
+              "label": "完整版",
+              "observedTitle": "Setting the Table",
+              "checkedAt": "2026-11-16",
+              "evidence": "Setting the Table 题名页；Here is the knife / glass 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                396
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-23",
@@ -677,7 +935,24 @@
             "xiaohuasheng": [
               "c5d3bef0e48a9f18"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "66.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1m1GdYxsOFk9ncgxkxA7qgTK1JlIENBqYzRlXQRC5EWJwm4m4",
+              "durationSeconds": 1021,
+              "label": "完整版",
+              "observedTitle": "The Flower",
+              "checkedAt": "2026-11-16",
+              "evidence": "is the pot / the stem 种花内页；开头复习 Polly",
+              "sampleSeconds": [
+                3,
+                60,
+                510
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-26",
@@ -707,7 +982,24 @@
             "xiaohuasheng": [
               "a740fbf56b0e3028"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "75.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lZ6nxKwzRLSbjjm2p9qlm1LXVm2l1ytutOT85m2czeel51Kwm4m4",
+              "durationSeconds": 884,
+              "label": "完整版",
+              "observedTitle": "The Pet Store",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Pet Store 题名页；Here is a frog 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                442
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-35",
@@ -737,7 +1029,24 @@
             "xiaohuasheng": [
               "37b0ecd7805d909d"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "102.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1FTVDwJM5kzAm3iOrZ9Fw0rR0dFNfhm2yhEeOaHKP1XGawm4m4",
+              "durationSeconds": 923,
+              "label": "完整版",
+              "observedTitle": "The Play",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Play 封面及 Here is the cow / mouse 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                461
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-36",
@@ -767,7 +1076,24 @@
             "xiaohuasheng": [
               "f3473cbb51683798"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "105.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nA9WJzm1yXIANDXCd9C2jL6MrQjnqm3f4xeZhVVoRtSwm2wm4m4",
+              "durationSeconds": 825,
+              "label": "完整版",
+              "observedTitle": "Making a Pizza",
+              "checkedAt": "2026-11-16",
+              "evidence": "Making a Pizza 题名页及 Here is the cheese / dough 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                412
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-47",
@@ -797,7 +1123,24 @@
             "xiaohuasheng": [
               "16418e25c560ef8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "138.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1vym3cjFYeIlRbznTejutlWYb3Cm2Qrb6m1fFf9Hm28KUltQm4m4",
+              "durationSeconds": 917,
+              "label": "完整版",
+              "observedTitle": "Making Soup",
+              "checkedAt": "2026-11-16",
+              "evidence": "Making Soup 题名页、切胡萝卜内页及 BOOK 47 汇总页",
+              "sampleSeconds": [
+                3,
+                60,
+                458
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-03",
@@ -829,7 +1172,24 @@
             "xiaohuasheng": [
               "1931d5208819980a"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "7.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4l8TFucL4m2m2Jm14bm1ioJPJbhiebI31yLRRGEMkW8g3dcAQm4m4",
+              "durationSeconds": 2549,
+              "label": "完整版",
+              "observedTitle": "Funny Things",
+              "checkedAt": "2026-11-16",
+              "evidence": "Look at the funny pants / shoes 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                1274
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-16",
@@ -859,7 +1219,24 @@
             "xiaohuasheng": [
               "4dedccddc9d9d720"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "45.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nsNEm1CfE4m19DslXlnkxIy0cg0pCtiJcBqzvMw6Gi8yNAm4m4",
+              "durationSeconds": 1134,
+              "label": "完整版",
+              "observedTitle": "Going Sledding",
+              "checkedAt": "2026-11-16",
+              "evidence": "Going Sledding 封面与 Look at my boots 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                567
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-17",
@@ -889,7 +1266,24 @@
             "xiaohuasheng": [
               "556d090ce16601f8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "48.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4k2BYdFUnWjgCgQS7YcV2b8AW6Kc55m1gNHLm1ocljYp5m2Qm4m4",
+              "durationSeconds": 934,
+              "label": "完整版",
+              "observedTitle": "Making a Snowman",
+              "checkedAt": "2026-11-16",
+              "evidence": "Look at the carrot / banana / buttons 雪人内页",
+              "sampleSeconds": [
+                3,
+                60,
+                467
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-25",
@@ -919,7 +1313,24 @@
             "xiaohuasheng": [
               "dcc79b43dcded3c0"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "72.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m17IAcm1GX1cfVbaxHF7pyBUbwgV93yhLwzuHZt0gCZQ6Qm4m4",
+              "durationSeconds": 931,
+              "label": "完整版",
+              "observedTitle": "The Sidewalk",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Sidewalk 新旧封面；Look at the tree 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                465
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-30",
@@ -949,7 +1360,24 @@
             "xiaohuasheng": [
               "9774acdc125ac8b8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "87.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nrCMQkDSXJ9liMoevFYU0GzAWh7vzIG07CU0ukbheUBgm4m4",
+              "durationSeconds": 805,
+              "label": "完整版",
+              "observedTitle": "My Baby Sister",
+              "checkedAt": "2026-11-16",
+              "evidence": "My Baby Sister 原版汇总页；Look at the dog 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                402
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-31",
@@ -979,7 +1407,24 @@
             "xiaohuasheng": [
               "12fb169b4a4a7998"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "90.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lFLMLtL4uuL7fQyCvN93vINrQVRJCnfjAuBNCgeGca6Am4m4",
+              "durationSeconds": 1149,
+              "label": "完整版",
+              "observedTitle": "The Parade",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Parade 题名页及 Look at the balloons 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                574
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-33",
@@ -1012,7 +1457,27 @@
             "xiaohuasheng": [
               "bfe9387cc87f3c08"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "96.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4kaahOj6tG8OEx1m1OgYgXI3SHhMAnTam3h76m1aPwIJ6cyQm4m4",
+              "durationSeconds": 746,
+              "label": "完整版 · 版本对照",
+              "observedTitle": "Get Ready / Getting Ready",
+              "checkedAt": "2026-11-16",
+              "evidence": "Getting Ready 新版封面；原版球、球棒内页及新版裤子、袜子对照",
+              "sampleSeconds": [
+                3,
+                60,
+                373,
+                120,
+                596
+              ],
+              "note": "版本对照：原书《Get Ready》与新版《Getting Ready》的题名和部分画面不同，本集均有展示。"
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-46",
@@ -1042,7 +1507,24 @@
             "xiaohuasheng": [
               "d612094d8cc0b018"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "135.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1b9v3WdxyUWbXB9KxJ3sTeRRCZ1cuPECZCpm2wm2WsrL9gm4m4",
+              "durationSeconds": 1001,
+              "label": "完整版",
+              "observedTitle": "My Big Bear",
+              "checkedAt": "2026-11-16",
+              "evidence": "Look at my big bear; He has big feet 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                500
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-55",
@@ -1194,7 +1676,24 @@
             "xiaohuasheng": [
               "b3ed528921a1d2b"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "43.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nirvVkgm1DPQt7wsOzO4m2gm3v4xBjm3geR3N0k9pccOFHvAm4m4",
+              "durationSeconds": 1121,
+              "label": "完整版",
+              "observedTitle": "The Baby",
+              "checkedAt": "2026-11-16",
+              "evidence": "The baby has a blanket / bear 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                560
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-20",
@@ -1226,7 +1725,24 @@
             "xiaohuasheng": [
               "34d8700aee1d3fe8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "57.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lRMbCAY0sasQZSWFCWBvj0m22em2AyRAum1wrm1gFtOppwNAm4m4",
+              "durationSeconds": 902,
+              "label": "完整版",
+              "observedTitle": "Little Things",
+              "checkedAt": "2026-11-16",
+              "evidence": "Little Things 对照封面；I have a little lamp / stove 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                451
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-21",
@@ -1256,7 +1772,24 @@
             "xiaohuasheng": [
               "6e933800cf65b2c8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "60.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4kFIYm3OwwVMGdWDkWD9Fv52B2f0Zp0m1YVVFsziGDIm2ZTgm4m4",
+              "durationSeconds": 1053,
+              "label": "完整版",
+              "observedTitle": "Packing My Bag",
+              "checkedAt": "2026-11-16",
+              "evidence": "Packing My Bag 封面；I have my pants 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                526
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-27",
@@ -1286,7 +1819,24 @@
             "xiaohuasheng": [
               "9e17620069c385d8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "78.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1jGN5hg7AKq11wrnk9m1Ydnt3m1iTgxLFFdF6m3CqdGF4uQm4m4",
+              "durationSeconds": 904,
+              "label": "完整版",
+              "observedTitle": "Wheels",
+              "checkedAt": "2026-11-16",
+              "evidence": "Wheels 题名页；A plane has wheels 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                452
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-39",
@@ -1316,7 +1866,24 @@
             "xiaohuasheng": [
               "bc1d5ffdb3cc3392"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "114.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lhQbFd952ivluBN3dCBZNqhYkNcGJvqIUm2SKb2T3RijQm4m4",
+              "durationSeconds": 806,
+              "label": "完整版",
+              "observedTitle": "Spots",
+              "checkedAt": "2026-11-16",
+              "evidence": "Spots 封面及有斑点的鱼内页",
+              "sampleSeconds": [
+                3,
+                60,
+                403
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-48",
@@ -1347,7 +1914,24 @@
             "xiaohuasheng": [
               "bfc98c632d18ed38"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "141.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lQG9lwVM0m2hhH7PR14ENm1czcTHkdGRRDGxFMNR9PQcbAm4m4",
+              "durationSeconds": 1169,
+              "label": "完整版",
+              "observedTitle": "My Family",
+              "checkedAt": "2026-11-16",
+              "evidence": "My Family 原版汇总页及 Family 封面；开头复习 Brother",
+              "sampleSeconds": [
+                3,
+                60,
+                584
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-62",
@@ -1446,7 +2030,24 @@
             "xiaohuasheng": [
               "ed706e276da5df90"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "81.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4kurI1f0aIwOoIUo8PPm2L4V3DEgPRm3FDpkim2ea9599Nxgm4m4",
+              "durationSeconds": 1168,
+              "label": "完整版",
+              "observedTitle": "The Show",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Show 题名页；Come and see an elephant 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                584
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-44",
@@ -1476,7 +2077,24 @@
             "xiaohuasheng": [
               "6bf1fbb5e9c6b590"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "129.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1kKm1owBHbSsPb6NghX86I7uVUr5Zm1WFGO3tlzSp8Jr1Qm4m4",
+              "durationSeconds": 830,
+              "label": "完整版",
+              "observedTitle": "The Baby Animals",
+              "checkedAt": "2026-11-16",
+              "evidence": "The Baby Animals 封面及动物宝宝汇总页",
+              "sampleSeconds": [
+                3,
+                60,
+                415
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-04",
@@ -1506,7 +2124,24 @@
             "xiaohuasheng": [
               "834591b04c40660"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "10.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nvqNIqdllIrLRz1Km2LMqZ0aDm1TovxViZdSQLEPQROhEgm4m4",
+              "durationSeconds": 1882,
+              "label": "完整版",
+              "observedTitle": "Mom",
+              "checkedAt": "2026-11-16",
+              "evidence": "Mom 封面；Mom is eating 正文",
+              "sampleSeconds": [
+                3,
+                60,
+                941
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-05",
@@ -1536,7 +2171,24 @@
             "xiaohuasheng": [
               "732666a57f8b580"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "13.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4ndlMydV1xkKs3HZym3nJHFjFVgjl9RAYCUtYyV5bpLnCgm4m4",
+              "durationSeconds": 1392,
+              "label": "完整版",
+              "observedTitle": "Dad",
+              "checkedAt": "2026-11-16",
+              "evidence": "Dad 封面；Dad is running 正文",
+              "sampleSeconds": [
+                3,
+                60,
+                696
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-11",
@@ -1566,7 +2218,24 @@
             "xiaohuasheng": [
               "a075ad9bb2c9bd98"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "31.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4n3m1MA19wu5sPFeDRm1c0egVf2dm3iDclEPIm2w6KRbGm3cm2gm4m4",
+              "durationSeconds": 1491,
+              "label": "完整版",
+              "observedTitle": "Baby",
+              "checkedAt": "2026-11-16",
+              "evidence": "Baby is sleeping / eating 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                745
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-13",
@@ -1596,7 +2265,24 @@
             "xiaohuasheng": [
               "39ef3571a8d29f8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "37.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nwda1ui5m1fo7Fta8lD6Al004lcn8ReCbwSukXpJWAspgm4m4",
+              "durationSeconds": 1225,
+              "label": "完整版",
+              "observedTitle": "Little Cub",
+              "checkedAt": "2026-11-16",
+              "evidence": "Little Cub 封面与 I am riding 校车内页",
+              "sampleSeconds": [
+                3,
+                60,
+                612
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-37",
@@ -1626,7 +2312,24 @@
             "xiaohuasheng": [
               "37fa711feb9e1718"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "108.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4n00E37QhQcnzYe04H95Hm2DSQtEYXZTcH0vzoTawIuRigm4m4",
+              "durationSeconds": 799,
+              "label": "完整版",
+              "observedTitle": "Birds",
+              "checkedAt": "2026-11-16",
+              "evidence": "Birds 封面及 This bird is running 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                399
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-09",
@@ -1656,7 +2359,24 @@
             "xiaohuasheng": [
               "48ffcd9883407566"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "25.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1FvRNu6qc4pQvD91Zfy5ibuuLrxFuK38IU6qtxfUZqGQm4m4",
+              "durationSeconds": 1315,
+              "label": "完整版",
+              "observedTitle": "Tom",
+              "checkedAt": "2026-11-16",
+              "evidence": "Tom 题名页；Tom can run 正文",
+              "sampleSeconds": [
+                3,
+                60,
+                657
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-10",
@@ -1686,7 +2406,24 @@
             "xiaohuasheng": [
               "5784deb52bc670a8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "28.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4k22GJPkiuLxk40Cm2A4Mt7t8lBm1m3f10oKfVPc2SeTlm1vwm4m4",
+              "durationSeconds": 1898,
+              "label": "完整版",
+              "observedTitle": "I Can Read",
+              "checkedAt": "2026-11-16",
+              "evidence": "I Can Read 题名页；I can read to my grandpa 正文",
+              "sampleSeconds": [
+                3,
+                60,
+                949
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-34",
@@ -1716,7 +2453,24 @@
             "xiaohuasheng": [
               "6889b289667f640"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "99.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4kLUVU1baxnLUZ58gv80PHQuJRHIIVNj7zQ6vwp6bNAtQm4m4",
+              "durationSeconds": 934,
+              "label": "完整版",
+              "observedTitle": "My Bear",
+              "checkedAt": "2026-11-16",
+              "evidence": "My Bear 新旧封面；I can paint / ride with my bear 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                467
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-40",
@@ -1746,7 +2500,24 @@
             "xiaohuasheng": [
               "672067a0d8c950a8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "117.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4n336jXc3Fm1qL4iIrm3Lk7VW0YYac1QhegCAYjfXA0Ux0Am4m4",
+              "durationSeconds": 574,
+              "label": "完整版",
+              "observedTitle": "Drawing",
+              "checkedAt": "2026-11-16",
+              "evidence": "120秒 I can draw a mom；287秒原版 Drawing 汇总页；459秒 Drawing 题名页",
+              "sampleSeconds": [
+                3,
+                60,
+                287
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-42",
@@ -1776,7 +2547,24 @@
             "xiaohuasheng": [
               "31c3bdd2b036b238"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "123.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lxYSP0qZm2Ct4t08BL80Gkpxl9pGVM2WuMbDtd2Hm3ozfgm4m4",
+              "durationSeconds": 919,
+              "label": "完整版",
+              "observedTitle": "Painting",
+              "checkedAt": "2026-11-16",
+              "evidence": "Painting 封面及 I can paint a cat 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                459
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-43",
@@ -1806,7 +2594,24 @@
             "xiaohuasheng": [
               "c9956f18d4459c08"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "126.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nYgslm3tEEKvyJk4SKXVgDUrm1AVVpA6kWuKaDRjs2tJjgm4m4",
+              "durationSeconds": 895,
+              "label": "完整版",
+              "observedTitle": "Things That Go Fast",
+              "checkedAt": "2026-11-16",
+              "evidence": "Things That Go Fast 封面、汇总页及自行车内页",
+              "sampleSeconds": [
+                3,
+                60,
+                447
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-54",
@@ -1958,7 +2763,24 @@
             "xiaohuasheng": [
               "554fcbc56f4e41a0"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "34.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4m1yjbXeQ5nLMm3FBFWYRx9yAm3X7BQuX0F8m1qxikJQjroUgm4m4",
+              "durationSeconds": 1530,
+              "label": "完整版",
+              "observedTitle": "Playing Dress Up",
+              "checkedAt": "2026-11-16",
+              "evidence": "Playing Dress Up 封面；I am a little bee 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                765
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-41",
@@ -1988,7 +2810,24 @@
             "xiaohuasheng": [
               "8b3fb1afc751c7e0"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "120.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nX7RXEOm2m34ObiZyBJVnm2l9ZvbCLIGGuXjVbtYKUDm3p6gm4m4",
+              "durationSeconds": 781,
+              "label": "完整版",
+              "observedTitle": "Baking",
+              "checkedAt": "2026-11-16",
+              "evidence": "Baking 标题及 We baked the cake 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                390
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-50",
@@ -2018,7 +2857,24 @@
             "xiaohuasheng": [
               "19978d9137000b30"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "147.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4nYQ7tFQcqnKURpAuXLaIU6q8QuSW48U7v7m3flWE5JaSgm4m4",
+              "durationSeconds": 789,
+              "label": "完整版",
+              "observedTitle": "At the Farm",
+              "checkedAt": "2026-11-16",
+              "evidence": "At the farm 题名区域及 And the little piglet is at the farm 内页",
+              "sampleSeconds": [
+                3,
+                60,
+                394
+              ]
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-51",
@@ -2048,7 +2904,27 @@
             "xiaohuasheng": [
               "c923901020b286e8"
             ]
-          }
+          },
+          "videos": [
+            {
+              "sourceId": "heinemann-gk-reading-camp",
+              "filename": "150.完整版.mp4.mp4",
+              "path": "E.UPO52Dq0wlgEef9Fhm1wRC3IJVYpbxf0f3K4WpPk7SVT7OKJhV3m1D51wkNm3HhQO3rBEWVzdzffm11q09YkN8go7OyxY9S50JHkoIAQXESiQ9bqnD3m3gPFzgiMZBJIjx5bC9PubFqXqm2IL5fJOOWHm2nRxgiqhm2ZrVm3gWuo72d09A4lsZrQ7m1zvc7O4V51PMSMVD2nR7VoTkBbNf6qRU63p5m1wm4m4",
+              "durationSeconds": 855,
+              "label": "完整版 · 版本对照",
+              "observedTitle": "The Hat / The Bag",
+              "checkedAt": "2026-11-16",
+              "evidence": "120秒 The Hat 原版汇总页；427秒 The Bag 新版内页；684秒熊、狐狸、兔子等关键词页",
+              "sampleSeconds": [
+                3,
+                60,
+                427,
+                120,
+                684
+              ],
+              "note": "版本对照：本集含原版《The Hat》汇总页，并对照新版《The Bag》；不能视为两版逐页同文。"
+            }
+          ]
         },
         {
           "id": "heinemann-gk70-52",
@@ -2195,6 +3071,19 @@
               "5fff3a7196b87a18"
             ]
           }
+        }
+      ],
+      "mediaSources": [
+        {
+          "id": "heinemann-gk-reading-camp",
+          "title": "海尼曼原版阅读营 · 完整版",
+          "url": "https://s.znas.cn/AppH5/share/?nid=LIYDIMZRGEZTEVCVLIZUM&code=MMW0E6lm2VC7lIm3NDLvm1Nym1RYuXEQkksGm31wBim2KMh3LlySgm1iVOY341JxAQiwpP8&mode=file&display=list&advancedmode=0",
+          "shortUrl": "https://t3.znas.cn/iozE3i2uww",
+          "checkedAt": "2026-11-16",
+          "expiresAt": "2027-05-15T05:51:01+00:00",
+          "fileCount": 152,
+          "completeVideoCount": 51,
+          "note": "用户指定分享；逐个抽样完整版开头、第60秒与中段，版本差异另补120秒及约80%位置。当前分享仅覆盖第1–51册，52–70册未找到对应文件。"
         }
       ]
     }

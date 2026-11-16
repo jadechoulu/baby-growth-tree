@@ -119,3 +119,22 @@ test('海尼曼公共书目按原计划分组参与许密杉五节点筛选，�
   assert.ok(unrelated);
   assert.notEqual(BP.planForResource(plans,resource.id,merged,catalog,unrelated),plan,'明确另一出版版本时不默认打开GK70原表');
 });
+
+test('已核对视频随原单册投影；缺失册不补造视频或改变完成键',()=>{
+  const plan=plans.plans.find(plan=>plan.id==='heinemann-gk70');
+  const merged=BP.withReadingPlans(directory,plans,catalog);
+  const linked=plan.books.filter(book=>book.videos?.length),missing=plan.books.filter(book=>!book.videos?.length);
+  assert.equal(linked.length,51);assert.equal(missing.length,19);
+  assert.deepEqual(missing.map(book=>book.number).sort((a,b)=>a-b),Array.from({length:19},(_,i)=>52+i));
+  assert.equal(new Set(linked.map(book=>book.videos[0].path)).size,51,'每册指向独立已核对文件');
+  assert.deepEqual(linked.filter(book=>book.videos[0].note).map(book=>book.number).sort((a,b)=>a-b),[29,33,51]);
+  for(const book of plan.books){
+    const projected=merged.books.find(item=>item.id===book.id);
+    assert.deepEqual(projected.videos,book.videos);
+    for(const video of book.videos||[]){
+      assert.ok(plan.mediaSources.some(source=>source.id===video.sourceId));
+      assert.ok(video.evidence&&video.sampleSeconds.length>=3&&video.durationSeconds>0);
+      assert.ok(!/dtoken|play_addr/.test(JSON.stringify(video)),'不保存临时播放凭据');
+    }
+  }
+});

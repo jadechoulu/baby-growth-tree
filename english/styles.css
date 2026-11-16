@@ -1984,7 +1984,7 @@
 .book-study-guide{display:block;flex-basis:100%;min-width:0;overflow-wrap:anywhere}
 .book-study-guide>span{display:block;margin:3px 0}
 .reading-plan h2{margin:0 0 12px;overflow-wrap:anywhere}
-.reading-plan-toolbar,.reading-plan-filters,.reading-import-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.reading-plan-toolbar,.reading-plan-filters,.reading-sync-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .reading-plan-filters button{min-height:36px;border:1px solid var(--line,#d3ddd8);border-radius:8px;background:var(--paper,#fff);color:inherit;padding:6px 10px;font:inherit;font-size:15px}
 .reading-plan-filters button[aria-pressed="true"]{background:var(--accent,#2e6954);color:white;border-color:var(--accent,#2e6954)}
 .reading-plan-summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 12px;margin:12px 0 4px}
@@ -2003,8 +2003,7 @@
 .reading-book-pattern-column{flex:0 0 25%;min-width:0;max-width:160px;overflow-wrap:anywhere}
 .reading-book-pattern-column>small{display:block;margin-bottom:3px;color:var(--muted,#64756c);font-size:12px}
 .reading-book-pattern-column>.reading-book-patterns{display:grid;gap:3px;color:var(--ink)}
-.reading-import-toolbar{margin-top:16px}
-.reading-import-toolbar small{font-size:12px;color:var(--muted,#64756c)}
+.reading-sync-toolbar{margin-top:16px}
 .reading-plan button:focus-visible,.reading-book-row input:focus-visible{outline:2px solid var(--accent,#2e6954);outline-offset:3px}
 @media(max-width:390px){.reading-book-row{gap:6px}}
 
@@ -2104,3 +2103,8 @@
 .hello-series-open small{color:var(--muted);font-size:12px}
 .hello-series-open:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .series-topic-toolbar .filter-reset{margin-left:auto}
+
+/* 逐册媒体入口沿用公共播放器；不挤占书名及原表句型。 */
+.reading-book-row>.book-video-play{flex:0 0 28px;width:28px;height:32px;min-width:28px;min-height:32px;padding:4px}
+.file-preview-caption,.file-preview-note{margin:4px 0;font-size:12px;overflow-wrap:anywhere}
+.file-preview-note{color:var(--ink);line-height:1.5}

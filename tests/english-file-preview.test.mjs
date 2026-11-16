@@ -56,3 +56,21 @@ test('原始Excel仅在本站assets中路由到只读表格预览',()=>{
   assert.deepEqual(fileInfo('assets/sources/reading-guides/raz-a.xlsx',base),{kind:'spreadsheet',url:'https://example.test/baby-growth-tree/english/assets/sources/reading-guides/raz-a.xlsx',path:'assets/sources/reading-guides/raz-a.xlsx',page:1});
   assert.equal(fileInfo('https://outside.test/raz-a.xlsx',base),null);
 });
+
+test('单册视频复用分享认证并使用官方播放器路由，关闭信号传给认证请求',async()=>{
+  const controller=new AbortController(),calls=[];
+  const client=nasClient('https://s.znas.cn/AppH5/share/?nid=device&code=share&mode=file',async(url,options)=>{
+    calls.push(options);return {ok:true,json:async()=>({code:200,data:{dtoken:'temporary-test-only'}})};
+  },controller.signal);
+  assert.equal(calls.length,0,'列出书单不获取播放令牌');
+  const [player,download]=await Promise.all([client.player('encrypted-file','完整版.mp4.mp4'),client.audio('encrypted-file')]);
+  const url=new URL(player);
+  assert.equal(url.pathname,'/AppH5/share/player');
+  assert.equal(url.searchParams.get('encrypted_path'),'encrypted-file');
+  assert.equal(url.searchParams.get('encodeNasId'),'device');
+  assert.equal(url.searchParams.get('from'),'videoshare');
+  assert.equal(url.searchParams.get('dtoken'),'temporary-test-only');
+  assert.equal(new URL(download).searchParams.get('dtoken'),'temporary-test-only');
+  assert.equal(calls.length,1,'同一次打开的播放器与下载共用认证请求');
+  assert.equal(calls[0].signal,controller.signal);controller.abort();assert.ok(calls[0].signal.aborted);
+});
