@@ -68,7 +68,7 @@ function asset(path){if(!path)return '';const item=window.ROADMAP_ASSETS?.[path]
 window.EnglishFilePreview=window.EnglishFilePreview.install({h,asset,externalUrls:[...window.ROADMAP_RAW.helloReading.books.flatMap(book=>book.resources),...(window.ROADMAP_RAW.helloReading.supplements||[]),...LIAO.books.flatMap(book=>book.package.shares||[]),...READING.plans.flatMap(plan=>plan.mediaSources||[])].map(item=>item.url).filter(Boolean),originalPath:href=>{
   const [url,hash]=href.split('#'),path=Object.keys(blobs).find(path=>blobs[path]===url)||Object.keys(window.ROADMAP_ASSETS||{}).find(path=>window.ROADMAP_ASSETS[path]===url);
   return path?path+(hash?'#'+hash:''):null;
-}});
+},onMinimize:()=>{if(!closeModal())return false;if(S.preview)closePreview();return document.body.style.overflow;}});
 function sourcePage(id,page){const s=src(id);return s?.previews.find(p=>p.page===Number(page))||s?.previews[0];}
 function bookVideoEntry(book){
   const plan=READING.plans.find(plan=>plan.books.some(item=>item.id===book.id)),entry=plan?.books.find(item=>item.id===book.id),video=entry?.videos?.[0],source=plan?.mediaSources?.find(item=>item.id===video?.sourceId);
@@ -77,7 +77,7 @@ function bookVideoEntry(book){
 function bookVideoButton(book){
   const {video,source}=bookVideoEntry(book);
   if(!video||!source)return null;
-  return h('button',{type:'button',class:'icon-button book-video-play',title:'播放'+video.label+' · '+book.title,'aria-label':'播放'+video.label+'：'+book.title,onclick:event=>{event.stopPropagation();window.EnglishFilePreview.openFile(source.url,{name:video.filename,path:video.path,note:video.note},book.title+' · '+video.label,event.currentTarget);}},icon('play'));
+  return h('button',{type:'button',class:'icon-button book-video-play',title:'播放'+video.label+' · '+book.title,'aria-label':'播放'+video.label+'：'+book.title,onclick:event=>{event.stopPropagation();window.EnglishFilePreview.openFile(source.url,{name:video.filename,path:video.path,note:video.note,width:video.width,height:video.height},book.title+' · '+video.label,event.currentTarget);}},icon('play'));
 }
 function readingVideoSummary(books){
   const available=books.filter(book=>bookVideoEntry(book).video),covered=books.some(book=>bookVideoEntry(book).plan?.mediaSources?.length);
