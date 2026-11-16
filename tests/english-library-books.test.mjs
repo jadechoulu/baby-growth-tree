@@ -6,6 +6,23 @@ const require=createRequire(import.meta.url),B=require('../english/library-books
 const read=id=>JSON.parse(fs.readFileSync(new URL('../english/data/'+id+'.json',import.meta.url)));
 const data=read('resource-books'),raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan')},catalog=M.normalize(raw);
 
+test('全部及三条路线的每个阶段均保留原套系入口，不用未对应单册代替整套引用',()=>{
+  const {audit,inputs}=require('../scripts/audit-library-route-coverage.cjs'),input=inputs(),before=JSON.stringify(input.directory.books);
+  const report=audit(input);
+  assert.deepEqual(report.issues,[]);
+  assert.ok(report.ranges>40);
+  for(const row of report.routes)assert.equal(row.shown,row.expected,row.route);
+  const entries=B.materialEntries(input.directory,input.catalog.resources,M,input.volumes);
+  const gyuri=input.catalog.resources.find(r=>r.title==='古力小超人');
+  const selected=B.filter(entries,input.directory,{route:'qing',stageIds:['qing-s1']}).filter(e=>e.resourceId===gyuri.id);
+  assert.equal(selected.length,1);
+  assert.equal(selected[0].entryKind,'resource');
+  assert.equal(selected[0].resourceCatalogFallback,true);
+  assert.ok(B.filter(entries,input.directory).some(e=>e.resourceId===gyuri.id&&e.entryKind!=='resource'));
+  assert.ok(!B.filter(entries,input.directory).some(e=>e.resourceId===gyuri.id&&e.entryKind==='resource'));
+  assert.equal(JSON.stringify(input.directory.books),before,'不修改单册阶段、身份与完成事实');
+});
+
 test('主题检索覆盖无逐册目录素材并复用素材身份，有目录套系不重复混入整套',()=>{
   const taxonomy=require('../english/data/topic-taxonomy.json');
   const old=taxonomy.resourceMappings;

@@ -21,6 +21,18 @@ test('图鉴标题用途随阶段与路线交集变化，不把整套固定成�
   assert.equal(M.libraryMaterialRole(catalog,entry,{}),null);
 });
 
+test('只指定路线时标题沿最早阶段用途着色，主表优先，切阶段后用途随之更新',()=>{
+  const configured={...catalog,raw:{routePlan:{routes:{qing:{listening:{stageIds:['early','later']}}}}}};
+  const entry=resource('series',appearance('later'),appearance('early','辅线'));
+  assert.equal(M.libraryMaterialRole(configured,entry,{route:'qing'}).kind,'auxiliary');
+  assert.equal(M.libraryMaterialRole(configured,entry,{route:'qing',stageIds:['later']}).kind,'main');
+  assert.equal(M.libraryMaterialRole(configured,entry,{route:'all'}),null);
+  const unresolved=resource('unknown',appearance('early','主线',{roleEvidence:{status:'unresolved'}}));
+  assert.equal(M.libraryMaterialRole(configured,unresolved,{route:'qing'}).kind,'reference');
+  const primaryOnly={...configured,raw:{routePlan:{routes:{qing:{listening:{stageIds:['later']}}}}}};
+  assert.equal(M.libraryMaterialRole(primaryOnly,entry,{route:'qing'}).kind,'main');
+});
+
 test('多阶段用途冲突或尚未核定时保留中性，不借筛选外主线',()=>{
   const entry=resource('series',appearance('early','辅线'),appearance('later'));
   assert.equal(M.libraryMaterialRole(catalog,entry,{stageIds:['early','later']}).kind,'reference');

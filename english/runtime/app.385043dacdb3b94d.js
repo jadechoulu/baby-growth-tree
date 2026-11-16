@@ -2776,14 +2776,27 @@ return {create};
   }
 
   function libraryMaterialRole(catalog, entry, filters) {
-    // 不给整套固定用途；只汇总当前明确选中阶段内、本条目实际具备的引用。
-    if (!filters || !array(filters.stageIds).length || entry.custom) return null;
+    // 指定路线时跟随其最早使用阶段；明确阶段范围时汇总该范围，不给整套固定用途。
+    if (!filters || entry.custom || !array(filters.stageIds).length && (!filters.route || ['all', 'other'].indexOf(filters.route) !== -1)) return null;
     var resource = entry.resource || entry;
     var stages = new Map(array(catalog.stages).map(function (stage) { return [stage.id, stage]; }));
-    var matched = array(entry.appearances).filter(function (appearance) {
-      return filters.stageIds.indexOf(appearance.stageId) !== -1 &&
+    var appearances = array(entry.appearances).filter(function (appearance) {
+      return (!array(filters.stageIds).length || filters.stageIds.indexOf(appearance.stageId) !== -1) &&
         (!filters.route || filters.route === 'all' || appearance.routeId === filters.route);
-    }).map(function (appearance) {
+    });
+    if (!array(filters.stageIds).length) {
+      var plan = ((((catalog.raw || {}).routePlan || {}).routes || {})[filters.route] || {}).listening;
+      var primary = array(plan && plan.stageIds);
+      var current = appearances.filter(function (appearance) { return primary.indexOf(appearance.stageId) !== -1; });
+      if (current.length) appearances = current;
+      function order(appearance) {
+        var index = primary.indexOf(appearance.stageId), stage = stages.get(appearance.stageId);
+        return current.length ? index : stage ? stage.order : Infinity;
+      }
+      var earliest = Math.min.apply(null, appearances.map(order));
+      appearances = appearances.filter(function (appearance) { return order(appearance) === earliest; });
+    }
+    var matched = appearances.map(function (appearance) {
       var stage = stages.get(appearance.stageId);
       return stage ? materialRole(stage, appearance, resource) : null;
     }).filter(Boolean);
@@ -4637,7 +4650,7 @@ function entries(data,resources,model,volumes){
   })
     .concat(resources.filter(r=>r.custom&&['book','reader'].includes(r.type)).map(r=>({id:r.id,resourceId:r.id,resourceIds:[r.id],title:r.title,custom:true,resource:r,topics:r.topics,edition:'个人新增',level:'',appearances:r.stageRefs||[],sourceIds:[]})));
 }
-// 系列简介只证明系列涉及的范围，不能下传每册；有目录时仅保留主题缺口的资源候选。
+// 单册目录不替代原路线的套系引用；未对应逐册的引用保留套系入口，不给单册补造阶段。
 function materialEntries(data,resources,model,volumes){
   const books=entries(data,resources,model,volumes),covered=new Map();
   for(const book of books)for(const id of book.resourceIds){if(!covered.has(id))covered.set(id,[]);covered.get(id).push(book);}
@@ -4645,9 +4658,12 @@ function materialEntries(data,resources,model,volumes){
   return books.concat(resources.flatMap(resource=>{
     const members=covered.get(resource.id),record=T.entryEvidence('resource',resource);
     const fallback=!!members&&evidenceStates.has(record.status)&&T.entryTopics('resource',resource).some(id=>!members.some(book=>T.matches(topicIds(book,data),{topic:id})));
-    if(members&&!fallback)return [];
+    const matchedAppearances=new Set((members||[]).flatMap(book=>book.appearances));
+    const catalogFallback=!!members&&(resource.appearances||[]).some(appearance=>!matchedAppearances.has(appearance));
+    if(members&&!fallback&&!catalogFallback)return [];
     return [{id:resource.id,resourceId:resource.id,resourceIds:[resource.id,...(resource.mergedResourceIds||[])],
       title:resource.title,resource,entryKind:'resource',custom:resource.custom,
+      ...(catalogFallback?{resourceCatalogFallback:true,resourceTopicAvailable:evidenceStates.has(record.status)}:{}),
       ...(fallback?{resourceTopicFallback:true,topicScope:'resource'}:{}),
       appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:record.sourceIds||[],edition:'',level:''}];
   }));
@@ -4684,7 +4700,7 @@ function filter(books,data,filters={}){
   const hasTopic=!!(filters.topic&&filters.topic!=='all'||filters.subtopic&&filters.subtopic!=='all');
   const matched=books.filter(book=>{
     const resource=book.resource;
-    if(book.resourceTopicFallback&&!hasTopic)return false;
+    if(book.resourceCatalogFallback?hasTopic&&!book.resourceTopicFallback&&!book.resourceTopicAvailable:book.resourceTopicFallback&&!hasTopic)return false;
     if(filters.route&&filters.route!=='all'&&(filters.route==='other'?!book.custom:!book.appearances.some(a=>a.routeId===filters.route)))return false;
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
@@ -4696,7 +4712,7 @@ function filter(books,data,filters={}){
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
   const concreteResources=new Set(matched.filter(book=>book.entryKind!=='resource').flatMap(book=>book.resourceIds||[book.resourceId]));
-  return matched.filter(book=>!book.resourceTopicFallback||!book.resourceIds.some(id=>concreteResources.has(id)));
+  return matched.filter(book=>!(book.resourceTopicFallback||book.resourceCatalogFallback)||!book.resourceIds.some(id=>concreteResources.has(id)));
 }
 function seriesCount(data,resource,model,volumes,filters={}){
   const route=filters.route,stageIds=filters.stageIds;
@@ -7494,7 +7510,7 @@ function libraryResultRow(entry){
   if(entry.privateShelf)return shelfBookCard(entry);
   if(entry.entryKind!=='resource')return bookRow(entry);
   const card=libraryCard(entry.resource),body=card.querySelector('.resource-body');
-  if(entry.resourceTopicFallback)body.append(h('p',{class:'small-note'},'系列涉及此主题，具体单册待对应。'));
+  if(entry.resourceTopicFallback&&S.libraryTopic!=='all')body.append(h('p',{class:'small-note'},'系列涉及此主题，具体单册待对应。'));
   body.append(h('div',{class:'library-book-topics'},topicUI.tags(LB.topicIds(entry,BOOKS)),TOPICS.entryEvidence('resource',entry.resource).status==='title-fallback'?h('span',{class:'small-note'},'标题兜底'):null));
   const guide=studyGuideInfo(entry.resource,{domain:'resource',compact:true});if(guide)body.append(guide);
   return card;
