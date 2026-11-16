@@ -51,6 +51,55 @@ async function connect(h, engine) {
   engine.authenticate(true); await engine.enable(h.area, await engine.preview(h.area));
 }
 
+test('本人身份确认后自动恢复已有英语云端；空本机不上传空记录，不自动接入其他分类',async t=>{
+  const h=harness(null,english(70,[],{book:{status:'done'}}),'english');
+  const e=await h.make({autoRestoreAreas:['english']});t.after(()=>e.destroy());
+  assert.equal(h.requests.length,0);
+  await e.authenticate(true);
+  assert.deepEqual(h.disk(),h.remote());
+  assert.equal(e.states().english.enabled,true);
+  assert.equal(e.states().english.pending,false);
+  assert.equal(h.requests.some(item=>item.method==='PUT'),false);
+  const other=harness(null,growth({book:{note:'keep'}}));
+  const g=await other.make({autoRestoreAreas:['english']});t.after(()=>g.destroy());
+  await g.authenticate(true);
+  assert.equal(other.requests.length,0);
+  assert.equal(g.states().growth.enabled,false);
+});
+
+test('首次自动接回保留双方独立记录；同字段差异交给原冲突流程',async t=>{
+  const h=harness(english(70,[],{local:{status:'done'}}),english(70,[],{remote:{status:'done'}}),'english');
+  const e=await h.make({autoRestoreAreas:['english']});t.after(()=>e.destroy());
+  await e.authenticate(true);
+  assert.deepEqual(Object.keys(h.disk().records).sort(),['local','remote']);
+  assert.deepEqual(h.disk(),h.remote());
+  const c=harness(english(70,[],{book:{note:'local'}}),english(70,[],{book:{note:'remote'}}),'english');
+  const conflict=await c.make({autoRestoreAreas:['english']});t.after(()=>conflict.destroy());
+  await conflict.authenticate(true);
+  assert.equal(conflict.states().english.conflict.conflicts.length,1);
+  assert.equal(c.disk().records.book.note,'local');
+  assert.equal(c.remote().records.book.note,'remote');
+  assert.equal(c.requests.some(item=>item.method==='PUT'),false);
+});
+
+test('没有云端、主动暂停或读取中退出，不自动创建或迁入英语记录',async t=>{
+  const h=harness(null,null,'english');const e=await h.make({autoRestoreAreas:['english']});t.after(()=>e.destroy());
+  await e.authenticate(true);
+  assert.equal(e.states().english.enabled,false);
+  assert.equal(h.requests.some(item=>item.method==='PUT'),false);
+  const paused=harness(null,english(),'english');const p=await paused.make({autoRestoreAreas:['english']});t.after(()=>p.destroy());
+  await p.disable('english');await p.authenticate(true);
+  assert.equal(paused.requests.length,0);
+  assert.equal(p.states().english.enabled,false);
+  const late=harness(null,english(),'english');const l=await late.make({autoRestoreAreas:['english']});t.after(()=>l.destroy());
+  let release,entered;const started=new Promise(resolve=>entered=resolve);
+  late.onGet(async()=>{entered();await new Promise(resolve=>release=resolve);});
+  const restoring=l.authenticate(true);await started;await l.authenticate(false);release();await restoring;
+  assert.equal(l.states().english.enabled,false);
+  assert.equal(late.disk(),null);
+  assert.equal(late.requests.length,1);
+});
+
 test('已连接设备重新打开，身份确认即读取云端，不依赖轮询计时器', async t => {
   const h = harness(growth({})); let e = await h.make(); await connect(h, e); e.destroy();
   h.remoteEdit(growth({ a: { completedAt: '2026-10-29' } }));

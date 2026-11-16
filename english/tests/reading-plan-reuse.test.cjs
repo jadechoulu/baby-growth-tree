@@ -8,6 +8,44 @@ const plans=require('../data/reading-plans.json');
 const directory=require('../data/resource-books.json');
 const catalog=require('../data/resource-volumes.json');
 
+test('GK句型与书籍排列复用同一70册及完成事实，视频顺序另存核对依据',()=>{
+  const plan=plans.plans.find(plan=>plan.id==='heinemann-gk70'),before=JSON.stringify(plan);
+  assert.deepEqual(plan.readingOrders.map(item=>item.id),['pattern','book']);
+  assert.deepEqual(BP.books(plan,'all','pattern').slice(0,4).map(book=>book.number),[1,6,7,8]);
+  assert.deepEqual(BP.books(plan,'all','book').map(book=>book.number),Array.from({length:70},(_,i)=>i+1));
+  const bookOrder=BP.books(plan,'all','book'),courses=bookOrder.filter(book=>book.campOrder);
+  assert.equal(courses.length,51);
+  assert.deepEqual(courses.map(book=>book.campOrder),Array.from({length:51},(_,i)=>i+1));
+  assert.deepEqual(courses.map(book=>book.videos[0].filename),courses.map(book=>book.videos[0].filename).sort((a,b)=>Number(a.split('.')[0])-Number(b.split('.')[0])));
+  assert.equal(bookOrder.slice(51).length,19);
+  assert.ok(bookOrder.slice(51).every(book=>!book.campOrder&&!book.videos?.length));
+  const records=BP.manualUpdate({},bookOrder[7].id,true);
+  for(const group of ['all','A','B','C'])for(const mode of plan.readingOrders){
+    const sorted=BP.books(plan,group,mode.id),original=BP.books(plan,group);
+    assert.deepEqual(new Set(sorted.map(book=>book.id)),new Set(original.map(book=>book.id)));
+    assert.ok(sorted.every(book=>original.includes(book)),'排列不复制或改写原单册与媒体');
+    assert.equal(sorted.filter(book=>BP.bookState(records,book).done).length,original.filter(book=>BP.bookState(records,book).done).length);
+  }
+  assert.equal(JSON.stringify(plan),before);
+});
+
+test('多选GK A与B按同一书目并集核算，排序不改变分母和完成事实',()=>{
+  const plan=plans.plans.find(plan=>plan.id==='heinemann-gk70');
+  const records={...BP.manualUpdate({},BP.books(plan,'A')[0].id,true),...BP.manualUpdate({},BP.books(plan,'B')[0].id,true)};
+  const before=JSON.stringify(records);
+  for(const mode of plan.readingOrders){
+    const selected=BP.books(plan,['A','B'],mode.id);
+    assert.equal(selected.length,58);
+    assert.equal(new Set(selected.map(book=>book.id)).size,58);
+    assert.ok(selected.every(book=>['A','B'].includes(book.group)));
+  }
+  assert.equal(BP.progress(records,plan,['A','B']).completed,2);
+  assert.equal(BP.progress(records,plan,['A','B']).total,58);
+  assert.equal(BP.progress(records,plan,'C').completed,0);
+  assert.equal(BP.progress(records,plan).completed,2);
+  assert.equal(JSON.stringify(records),before);
+});
+
 test('原表阅读计划派生公共目录，稳定ID、顺序和句型只维护一份，重复合成不增加单册',()=>{
   const before=JSON.stringify([directory,plans,catalog]);
   const merged=BP.withReadingPlans(directory,plans,catalog);

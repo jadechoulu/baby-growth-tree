@@ -7,7 +7,7 @@ import fs from 'node:fs';
 function harness(request,onMinimize){
   let document;
   class Element extends EventTarget{
-    constructor(tag,attrs={},...children){super();this.tagName=tag.toUpperCase();this.attrs=attrs;this.children=[];this.style={};this.isConnected=false;this.classList={add:()=>{},toggle:()=>{}};for(const [key,value] of Object.entries(attrs)){if(key.startsWith('on'))this.addEventListener(key.slice(2),value);else this[key]=value;}this.append(...children);}
+    constructor(tag,attrs={},...children){super();this.tagName=tag.toUpperCase();this.attrs=attrs;this.children=[];this.style={};this.isConnected=false;const classes=new Set();this.classList={add:name=>classes.add(name),toggle:(name,on)=>on?classes.add(name):classes.delete(name),contains:name=>classes.has(name)};for(const [key,value] of Object.entries(attrs)){if(key.startsWith('on'))this.addEventListener(key.slice(2),value);else this[key]=value;}this.append(...children);}
     append(...items){for(const item of items.flat(Infinity)){if(item&&typeof item==='object'){item.parent=this;item.isConnected=this.isConnected;}if(item!=null)this.children.push(item);}}
     replaceChildren(...items){this.children=[];this.append(...items);}
     querySelectorAll(tags){const names=tags.split(',').map(tag=>tag.toUpperCase()),found=[];for(const child of this.children)if(child instanceof Element){if(names.includes(child.tagName))found.push(child);found.push(...child.querySelectorAll(tags));}return found;}
@@ -15,7 +15,7 @@ function harness(request,onMinimize){
     remove(){this.isConnected=false;if(this.parent)this.parent.children=this.parent.children.filter(child=>child!==this);}
     removeAttribute(key){delete this[key];}
     setAttribute(key,value){this[key]=value;}
-    getBoundingClientRect(){const parent=this.tagName==='DIALOG'?this:this.parent;const width=parseFloat(parent?.style.width)||200,height=parseFloat(parent?.style.height)||392;return {left:parseFloat(parent?.style.left)||20,top:parseFloat(parent?.style.top)||200,width:this.tagName==='DIV'?width-2:width,height:this.tagName==='HEADER'?38:this.tagName==='DIV'?height-40:height};}
+    getBoundingClientRect(){const parent=this.tagName==='DIALOG'?this:this.parent;const width=parseFloat(parent?.style.width)||200,height=parseFloat(parent?.style.height)||392;return {left:parseFloat(parent?.style.left)||20,top:parseFloat(parent?.style.top)||200,width:parseFloat(this.style.width)||(this.tagName==='DIV'?width-2:width),height:this.tagName==='HEADER'?(parent?.classList.contains('file-preview-listening')?54:38):parseFloat(this.style.height)||(this.tagName==='DIV'?height-40:height)};}
     setPointerCapture(){}
     closest(){return this.tagName==='BUTTON'||this.tagName==='A'?this:null;}
     showModal(){this.isConnected=true;this.open=true;this.modal=true;}
@@ -26,7 +26,7 @@ function harness(request,onMinimize){
   document={baseURI:'https://example.test/english/index.html',body:new Element('body'),addEventListener:()=>{}};
   document.body.isConnected=true;
   const trigger=new Element('button');trigger.isConnected=true;document.activeElement=trigger;
-  const window={innerWidth:506,innerHeight:799,addEventListener:()=>{},removeEventListener:()=>{},EnglishAudio:{stop:()=>{}},URL,AbortController};
+  const window=Object.assign(new EventTarget(),{innerWidth:506,innerHeight:799,EnglishAudio:{stop:()=>{}},URL,AbortController});
   const context={window,document,URL,URLSearchParams,AbortController,fetch:request};
   vm.runInNewContext(fs.readFileSync(new URL('../english/file-preview.js',import.meta.url),'utf8'),context);
   const share='https://s.znas.cn/AppH5/share/?nid=device&code=share&mode=file';
@@ -104,4 +104,53 @@ test('横屏首次进入小窗先限制尺寸再修正位置，标题栏与缩�
   assert.equal(parseFloat(dialog.style.top),8);
   assert.ok(parseFloat(dialog.style.top)+parseFloat(dialog.style.height)<=352);
   h.preview.close();
+});
+
+test('收听条复用同一播放器，拖动和视口收缩后可恢复等比小窗及大窗',async()=>{
+  let requests=0,signal;
+  const h=harness(async(_url,options)=>{requests++;signal=options.signal;return {ok:true,json:async()=>({code:200,data:{dtoken:'temporary-test-only'}})};});
+  const initialOverflow=h.document.body.style.overflow;
+  h.preview.openFile(h.share,{name:'完整版.mp4',path:'file',width:720,height:1280},'测试',h.trigger);await settle();
+  const dialog=h.document.body.querySelector('dialog'),frame=dialog.querySelector('iframe'),url=frame.src;
+  const buttons=dialog.querySelectorAll('button'),mini=buttons.find(button=>button['aria-label']==='小窗播放（可继续操作页面）'),listen=buttons.find(button=>button['aria-label']==='收起画面，只听声音');
+  const resize=buttons.find(button=>button.className==='file-preview-resize'),move=buttons.find(button=>button.className==='file-preview-move'),body=frame.parent;
+  assert.equal(listen.hidden,true);mini.dispatchEvent(new Event('click'));assert.equal(listen.hidden,false);
+  const key=(target,key)=>target.dispatchEvent(Object.assign(new Event('keydown'),{key}));
+  key(resize,'ArrowRight');const videoSize={width:dialog.style.width,height:dialog.style.height};
+  listen.dispatchEvent(new Event('click'));
+  assert.equal(dialog.style.width,'200px');assert.equal(dialog.style.height,'56px');assert.equal(dialog.modal,false);
+  assert.equal(listen['aria-pressed'],'true');assert.equal(body.inert,true);assert.equal(body['aria-hidden'],'true');assert.equal(resize.hidden,true);
+  assert.equal(frame.src,url);assert.equal(dialog.querySelector('iframe'),frame);assert.equal(signal.aborted,false);assert.equal(requests,1);
+  const pointer=(type,x,y)=>Object.assign(new Event(type),{button:0,clientX:x,clientY:y,pointerId:1});
+  const header=dialog.querySelector('header');header.dispatchEvent(pointer('pointerdown',20,200));header.dispatchEvent(pointer('pointermove',500,700));header.dispatchEvent(pointer('pointerup',500,700));
+  assert.equal(dialog.style.left,'298px');key(move,'ArrowLeft');assert.equal(dialog.style.left,'274px');
+  h.window.innerWidth=320;h.window.innerHeight=568;h.window.dispatchEvent(new Event('resize'));
+  assert.equal(dialog.style.left,'112px');assert.equal(dialog.style.top,'504px');
+  listen.dispatchEvent(new Event('click'));
+  assert.equal(dialog.style.width,videoSize.width);assert.equal(dialog.style.height,videoSize.height);
+  assert.equal(body.inert,false);assert.equal(body['aria-hidden'],undefined);assert.equal(body.style.width,'');assert.equal(resize.hidden,false);
+  assert.ok(parseFloat(dialog.style.top)+parseFloat(dialog.style.height)<=560);
+  assert.equal(frame.src,url);assert.equal(dialog.querySelector('iframe'),frame);
+  listen.dispatchEvent(new Event('click'));mini.dispatchEvent(new Event('click'));
+  assert.equal(dialog.modal,true);assert.equal(body.inert,false);assert.equal(listen.hidden,true);assert.equal(dialog.style.height,'');
+  assert.equal(dialog.querySelector('iframe'),frame);assert.equal(frame.src,url);assert.equal(requests,1);
+  mini.dispatchEvent(new Event('click'));listen.dispatchEvent(new Event('click'));
+  buttons.find(button=>button['aria-label']==='关闭资源预览').dispatchEvent(new Event('click'));
+  assert.equal(frame.src,undefined);assert.equal(signal.aborted,true);assert.equal(h.document.body.style.overflow,initialOverflow);assert.equal(h.document.activeElement,h.trigger);
+});
+
+test('视频仍在加载时收起画面，迟到播放器保留收听模式，关闭后迟到认证不恢复媒体',async()=>{
+  let resolve;
+  const h=harness(()=>new Promise(done=>{resolve=done;}));
+  h.preview.openFile(h.share,{name:'完整版.mp4',path:'file'},'测试',h.trigger);
+  const dialog=h.document.body.querySelector('dialog'),buttons=dialog.querySelectorAll('button');
+  buttons.find(button=>button['aria-label']==='小窗播放（可继续操作页面）').dispatchEvent(new Event('click'));
+  buttons.find(button=>button['aria-label']==='收起画面，只听声音').dispatchEvent(new Event('click'));
+  resolve({ok:true,json:async()=>({code:200,data:{dtoken:'temporary-test-only'}})});await settle();
+  assert.ok(dialog.querySelector('iframe'));assert.equal(dialog.style.height,'56px');
+  assert.equal(dialog.querySelector('iframe').parent.inert,true);h.preview.close();
+  h.preview.openFile(h.share,{name:'完整版.mp4',path:'other'},'另一册',h.trigger);
+  const next=h.document.body.querySelector('dialog');h.preview.close();
+  resolve({ok:true,json:async()=>({code:200,data:{dtoken:'late-test-only'}})});await settle();
+  assert.equal(next.querySelector('iframe'),undefined);assert.equal(h.document.body.querySelectorAll('dialog').length,0);
 });
