@@ -1,0 +1,78 @@
+english/styles.css
+  s_655a201aff35d2::t_3aa5f6c38d13c1 1349-1356
+docs/sync.md
+  s_655a201aff35d2::t_91ade2a9dade93 109-116
+shared/site-search.js
+  s_655a201aff35d2::t_e9a91ac53e70a0 76,131,133-134,148,225,259
+  s_655a201aff35d2::t_9e5739664388e6 262-265
+  s_655a201aff35d2::t_b6777902040b48 135-138
+english/runtime/app.cc2c76a524370a8e.js
+  s_655a201aff35d2::t_3c1eb57acc7ed8 1-8137
+tests/site-sync-client.test.mjs
+  s_655a201aff35d2::t_91ade2a9dade93 48
+  s_655a201aff35d2::t_8428baf8708ace 264-364
+  s_655a201aff35d2::t_fb1102859541ac 261-263
+english/index.html
+  s_655a201aff35d2::t_3c1eb57acc7ed8 22
+  s_655a201aff35d2::t_0aed10e75f20d6 9,21
+english/topics.js
+  s_655a201aff35d2::t_0bea304502e279 7-9,12,15
+english/app.js
+  s_655a201aff35d2::t_76444a53d447ed 1646
+  s_655a201aff35d2::t_fec63ec37c328c 1873
+  s_655a201aff35d2::t_3aa5f6c38d13c1 1616,1914,1940-1941,1949,1967
+  s_655a201aff35d2::t_407d93eff1eff5 167,171,248,273-275,277,341
+  s_655a201aff35d2::t_8b0082d45e1334 276
+  s_655a201aff35d2::t_3de705b9ddfcdd 1644
+shared/site-sync.js
+  s_655a201aff35d2::t_43aa745b5d6025 16,38-49,51,67,79-80,158-159,161-163,168,171-172,180,183-186,188-190,193-196,212,214,317-321,347-349,356,409-410,412,419
+  s_655a201aff35d2::t_76444a53d447ed 29-37,50,52-54,56,59,64,74,157,166-167,169-170,173-179,181,191-192,213,328,405-408,411,413-415
+  s_655a201aff35d2::t_fec63ec37c328c 73
+  s_655a201aff35d2::t_745bc13320b359 93,160,182,187
+  s_655a201aff35d2::t_0e32a7d2ef2239 55,65
+  s_655a201aff35d2::t_456416469ef05b 164
+english/library-books.js
+  s_655a201aff35d2::t_3aa5f6c38d13c1 125-132,135-151,164
+  s_655a201aff35d2::t_e760c29c6d17be 133-134
+AGENTS.md
+  s_655a201aff35d2::t_91ade2a9dade93 341
+  s_655a201aff35d2::t_3ae4814336799e 338-340,342
+docs/topic-taxonomy.md
+  s_655a201aff35d2::t_fbb75e4dea7e9a 31,105,126-127
+english/data/topic-taxonomy.json
+  s_655a201aff35d2::t_4a8a61cbe2e902 139989-140361
+english/hello-reading.js
+  s_655a201aff35d2::t_89c04d6f9e477e 63,73-74
+english/runtime/data.4bf70c9f7d4127a5.js
+  s_655a201aff35d2::t_44e1ee137773a7 1
+english/runtime/styles.c130fa578476d42d.css
+  s_655a201aff35d2::t_c19a3ca6478781 1349-1356
+english/tests/collection-render.test.cjs
+  s_bda4aff338d076::t_c21607c7a10d74 30-38
+tests/english-library-books.test.mjs
+  s_655a201aff35d2::t_3976bef5da5cad 310-326
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "03d35469ae2d21f10a32600f7c8528d5706a6115",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    },
+    "s_bda4aff338d076": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e221-c96b-7221-81d5-e5bd6f481290",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
