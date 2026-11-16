@@ -1,7 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-const {fileInfo,nasShare,nasFileKind,nasClient}=createRequire(import.meta.url)('../english/file-preview.js');
+const {fileInfo,nasShare,nasFileKind,nasClient,miniVideoSize}=createRequire(import.meta.url)('../english/file-preview.js');
+test('小窗缩放保留横竖视频原比例，超大和超小尺寸都限制在当前视口',()=>{
+  for(const ratio of [9/16,16/9,1])for(const [vw,vh] of [[320,568],[506,799],[1280,800],[600,300]])for(const width of [20,200,10000]){
+    const size=miniVideoSize(width,ratio,vw,vh,38);
+    assert.ok(Math.abs((size.width-2)/(size.height-40)-ratio)<1e-6);
+    assert.ok(size.width<=vw-16&&size.height<=vh-16+1e-6);
+    assert.ok(size.width>=Math.min(160,(vh-56)*ratio+2));
+  }
+});
 test('共用分享识别不按套系白名单，拒绝伪造来源，格式决定播放或查看动作',()=>{
   assert.ok(nasShare('https://s.znas.cn/AppH5/share/?nid=example&code=example&mode=file'));
   for(const url of ['invalid','http://s.znas.cn/AppH5/share/?nid=a&code=b&mode=file','https://s.znas.cn.evil.test/AppH5/share/?nid=a&code=b&mode=file','https://user@s.znas.cn/AppH5/share/?nid=a&code=b&mode=file','https://s.znas.cn/AppH5/share/?nid=a&code=b&mode=album','https://s.znas.cn/AppH5/share/?nid=a&mode=file'])assert.equal(nasShare(url),null);

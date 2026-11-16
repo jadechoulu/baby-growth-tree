@@ -118,6 +118,8 @@
 
 ## 证据位置与复查
 
+后续小窗验收（2026-11-16）：原分享文件元数据逐个按文件路径核对，51部视频均为720×1280，尺寸随原媒体映射维护。页面内小窗的画面区域198×352，拖拽放大后263×467.55，均为9:16；标题栏拖动及右下角等比缩放实际操作成功。At the Zoo缩放及页面检索期间paused=false、时间持续递增；恢复大窗仍readyState=4。320×568小窗边界为(108,100)–(308,492)，700×360横屏为(515,8)–(688,352)，未越界；横屏首次定位修正有回归测试。Node完整733项与Python发布包6项串行通过，统一站点构建成功；小窗不写完成记录。实现为页面内悬浮窗，未宣称系统级跨应用画中画或真实手机触控验收。发布状态以对应PR、main部署与线上回读为准。
+
 逐册核对元信息在`english/data/reading-plans.json`的`videos`中，包括实际文件名、观测题名、采样秒数及依据。采样截图、`verified-mapping.json`与窄屏播放截图保存在本机资料目录，不进入公开站点。
 
 可重跑：`node --test tests/english-file-preview.test.mjs tests/english-file-preview-lifecycle.test.mjs tests/reading-reuse-audit.test.mjs english/tests/reading-plan-reuse.test.cjs`、`node scripts/audit-reading-reuse.cjs`、`python3 tests/english-pages.test.py`。

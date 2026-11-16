@@ -2108,3 +2108,12 @@
 .reading-book-row>.book-video-play{flex:0 0 28px;width:28px;height:32px;min-width:28px;min-height:32px;padding:4px}
 .file-preview-caption,.file-preview-note{margin:4px 0;font-size:12px;overflow-wrap:anywhere}
 .file-preview-note{color:var(--ink);line-height:1.5}
+.file-preview.file-preview-floating{position:fixed;z-index:10000;inset:auto 12px max(76px,env(safe-area-inset-bottom)) auto;margin:0;box-shadow:0 8px 32px #14291d55;grid-template-rows:38px minmax(0,1fr)}
+.file-preview-floating>header{box-sizing:border-box;height:38px;padding:4px;gap:4px;touch-action:none;cursor:move;user-select:none}
+.file-preview-floating h2{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-preview-floating>footer,.file-preview-floating .file-preview-controls,.file-preview-floating .file-preview-original,.file-preview-floating .file-preview-download,.file-preview-floating>header>button[aria-label="返回极空间资料目录"]{display:none}
+.file-preview-floating .file-preview-body{padding:0;overflow:hidden}
+.file-preview-floating .file-preview-body video{height:100%;object-fit:contain}
+.file-preview .file-preview-move{touch-action:none;cursor:move;font-size:18px;user-select:none}
+.file-preview .file-preview-resize{position:absolute;right:0;bottom:0;min-width:26px;width:26px;height:26px;min-height:26px;padding:0;border-radius:7px 0 0 0;touch-action:none;cursor:nwse-resize;opacity:.85;user-select:none}
+.file-preview .file-preview-move[hidden],.file-preview .file-preview-resize[hidden]{display:none}
