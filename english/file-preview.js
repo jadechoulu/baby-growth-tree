@@ -45,6 +45,12 @@ function nasClient(href,request=fetch,signal){
       if(!Array.isArray(result?.list)||!Number.isSafeInteger(Number(result.total))||Number(result.total)<start+result.list.length||(!result.list.length&&Number(result.total)>start)||result.list.some(item=>typeof item.name!=='string'||typeof item.path!=='string'))throw new Error('极空间目录读取不完整，请重试。');
       return result;
     },
+    async player(path,name){
+      const {dtoken}=await token(),url=new URL('/AppH5/share/player',share.origin);
+      // 官方分享播放器使用该路由与参数，转码请求在原站内完成。
+      url.search=new URLSearchParams({from:'videoshare',mode:'file',encrypted_path:path,vid:path,name,encodeNasId:nid,dtoken});
+      return url.href;
+    },
     async audio(path){
       const {dtoken}=await token(),url=new URL('/share/v2/share/dlfile',share.origin);
       // 直接流式读取原文件；原站转码地址接口不允许跨站读取。
@@ -63,6 +69,11 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     const info=describe(href);if(!info)return false;
     return openInfo(info,title,trigger);
   }
+  function openFile(href,item,title,trigger=document.activeElement){
+    const info=describe(href);
+    if(info?.kind!=='web'||!nasShare(info.url)||typeof item?.path!=='string'||nasFileKind(item)!=='video')return false;
+    return openInfo({kind:'video',url:'',remote:true,filename:item.name,shareUrl:info.url,nasPath:item.path,note:item.note},title||item.name,trigger);
+  }
   function openInfo(info,title,trigger,parent=null){
     if(info.kind==='audio'){root.EnglishAudio.playSource(info.path,title,asset);return true;}
     if(!parent)close();
@@ -73,14 +84,14 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     const heading=h('h2',{},title||decodeURIComponent((info.path||info.url).split('/').at(-1)));
     const source=()=>info.remote?info.url:asset(info.path);
     const download=info.kind==='web'?h('a',{href:info.url,target:'_blank',rel:'noopener noreferrer',class:'file-preview-download','data-preview-original':'true',title:'在浏览器打开原站网页，不自动唤起 App'},'原站网页 ↗'):h('a',{href:source(),download:info.filename||decodeURIComponent(info.path.split('/').at(-1)),class:'file-preview-download','data-preview-original':'true'},'下载');
-    const original=info.kind==='web'?null:h('a',{href:parent?.info.url||source(),target:'_blank',rel:'noopener noreferrer',class:'file-preview-original','data-preview-original':'true',title:parent?'在浏览器打开极空间原分享页':'在新窗口打开原文件'},'原地址 ↗');
-    const controls=h('div',{class:'file-preview-controls'}),footer=h('footer',{},status);
+    const original=info.kind==='web'?null:h('a',{href:info.shareUrl||parent?.info.url||source(),target:'_blank',rel:'noopener noreferrer',class:'file-preview-original','data-preview-original':'true',title:info.shareUrl||parent?'在浏览器打开极空间原分享页':'在新窗口打开原文件'},'原地址 ↗');
+    const controls=h('div',{class:'file-preview-controls'}),footer=h('footer',{},info.filename?h('p',{class:'file-preview-caption'},info.filename):null,info.note?h('p',{class:'file-preview-note'},info.note):null,status);
     dialog.append(h('header',{},heading,original,download,button('关闭资源预览','×',close)),controls,body,footer);
     if(parent)dialog.querySelector('header').prepend(button('返回极空间资料目录','‹ 返回',close));
     state.dispose=()=>{
       if(state.disposed)return;state.disposed=true;
       state.revision++;state.observer?.disconnect();for(const task of state.renderTasks)task.cancel();state.task?.destroy().catch(()=>{});dialog.remove();
-      state.abort?.abort();if(state.nas)root.EnglishAudio?.stop(false);
+      state.abort?.abort();for(const frame of dialog.querySelectorAll('iframe')){frame.src='about:blank';frame.removeAttribute('src');}if(state.nas)root.EnglishAudio?.stop(false);
       for(const media of dialog.querySelectorAll('audio,video')){media.pause();media.removeAttribute('src');media.load();}
       if(current===state){current=parent;document.body.style.overflow=previousOverflow;if(trigger?.isConnected)trigger.focus({preventScroll:true});}
     };
@@ -145,7 +156,7 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
                     root.EnglishAudio?.stop(false);status.textContent='';
                     if(kind==='file'){
                       const link=h('a',{href:url,download:item.name,'data-preview-original':'true'},'下载 '+item.name);status.replaceChildren(link);link.click();
-                    }else openInfo({kind,url,remote:true,filename:item.name},item.name,entry,state);
+                    }else openInfo({kind,url,remote:true,filename:item.name,...(kind==='video'?{shareUrl:info.url,nasPath:item.path}:{})},item.name,entry,state);
                   }
                 }catch(error){if(!state.disposed&&request===playing)status.textContent=error.message;}
                 finally{entry.removeAttribute('aria-busy');}
@@ -222,8 +233,22 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     zoomOutput=h('output',{'aria-label':'资源缩放比例'},'100%');
     controls.append(button('缩小资源','−',()=>zoom(-25)),zoomOutput,button('放大资源','＋',()=>zoom(25)));
     if(info.kind==='video'){
-      controls.hidden=true;
-      const video=h('video',{src:source(),controls:true,playsinline:true,preload:'metadata','aria-label':'视频：'+title,onloadedmetadata:()=>{status.textContent='';},onerror:()=>{status.textContent='浏览器暂时无法播放此视频，可下载或返回目录复制分享链接到极空间 App。';}});body.append(video);return true;
+      controls.hidden=true;root.EnglishAudio?.stop(false);
+      if(info.nasPath){
+        download.hidden=true;state.abort=new AbortController();state.nas=nasClient(info.shareUrl,fetch,state.abort.signal);
+        body.classList.add('file-preview-web');
+        const load=async()=>{
+          status.textContent='正在加载视频…';
+          try{
+            const [url,file]=await Promise.all([state.nas.player(info.nasPath,info.filename),state.nas.audio(info.nasPath)]);if(state.disposed)return;
+            download.href=file;download.hidden=false;
+            body.replaceChildren(h('iframe',{src:url,title:'视频：'+title,allow:'autoplay; fullscreen; picture-in-picture',allowfullscreen:true,sandbox:'allow-scripts allow-same-origin allow-forms allow-presentation',referrerpolicy:'no-referrer',onload:()=>{if(!state.disposed)status.textContent='如未自动播放，请点视频中的播放按钮。';}}));
+          }catch{if(!state.disposed)status.replaceChildren('视频加载失败，可重试或打开原地址。',button('重新加载视频','重试',load));}
+        };load();
+      }else{
+        const video=h('video',{src:source(),controls:true,playsinline:true,preload:'metadata','aria-label':'视频：'+title,onloadedmetadata:()=>{status.textContent='';},onerror:()=>{if(!state.disposed)status.replaceChildren('浏览器暂时无法播放此视频，可重试或打开原地址查看。',button('重新加载视频','重试',()=>{video.load();video.play().catch(()=>{});}));}});body.append(video);
+      }
+      return true;
     }
     if(info.kind==='image'){
       const img=h('img',{src:source(),alt:title||'原图',onload:()=>{status.textContent='';},onerror:()=>{status.textContent='图片加载失败，可下载原文件。';}});body.append(img);return true;
@@ -250,7 +275,7 @@ function install({h,asset,originalPath=()=>null,externalUrls=[]}){
     e.preventDefault();e.stopPropagation();open(link.getAttribute('href'),link.getAttribute('aria-label')||link.textContent.replace(/↗/g,'').trim(),link);
   },true);
   window.addEventListener('resize',()=>{if(current?.pdf)current.repaint();});
-  return {open,close,describe};
+  return {open,openFile,close,describe};
 }
 const api={fileInfo,nasShare,nasFileKind,nasClient,install};root.EnglishFilePreview=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window==='undefined'?globalThis:window);

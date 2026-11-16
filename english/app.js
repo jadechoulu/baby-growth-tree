@@ -65,11 +65,25 @@ function btn(label,action,attrs={},cls='button'){return h('button',Object.assign
 function routeChip(id){return h('span',{class:'chip '+id},routes.get(id)?.name||id);}
 function src(id){return C.sources.find(x=>x.id===id);}
 function asset(path){if(!path)return '';const item=window.ROADMAP_ASSETS?.[path];if(!item)return path;if(!item.startsWith('data:application/pdf'))return item;if(!blobs[path]){const data=atob(item.slice(item.indexOf(',')+1));const b=new Uint8Array(data.length);for(let i=0;i<data.length;i++)b[i]=data.charCodeAt(i);blobs[path]=URL.createObjectURL(new Blob([b],{type:'application/pdf'}));}return blobs[path];}
-window.EnglishFilePreview=window.EnglishFilePreview.install({h,asset,externalUrls:[...window.ROADMAP_RAW.helloReading.books.flatMap(book=>book.resources),...(window.ROADMAP_RAW.helloReading.supplements||[]),...LIAO.books.flatMap(book=>book.package.shares||[])].map(item=>item.url).filter(Boolean),originalPath:href=>{
+window.EnglishFilePreview=window.EnglishFilePreview.install({h,asset,externalUrls:[...window.ROADMAP_RAW.helloReading.books.flatMap(book=>book.resources),...(window.ROADMAP_RAW.helloReading.supplements||[]),...LIAO.books.flatMap(book=>book.package.shares||[]),...READING.plans.flatMap(plan=>plan.mediaSources||[])].map(item=>item.url).filter(Boolean),originalPath:href=>{
   const [url,hash]=href.split('#'),path=Object.keys(blobs).find(path=>blobs[path]===url)||Object.keys(window.ROADMAP_ASSETS||{}).find(path=>window.ROADMAP_ASSETS[path]===url);
   return path?path+(hash?'#'+hash:''):null;
 }});
 function sourcePage(id,page){const s=src(id);return s?.previews.find(p=>p.page===Number(page))||s?.previews[0];}
+function bookVideoEntry(book){
+  const plan=READING.plans.find(plan=>plan.books.some(item=>item.id===book.id)),entry=plan?.books.find(item=>item.id===book.id),video=entry?.videos?.[0],source=plan?.mediaSources?.find(item=>item.id===video?.sourceId);
+  return {plan,video,source};
+}
+function bookVideoButton(book){
+  const {video,source}=bookVideoEntry(book);
+  if(!video||!source)return null;
+  return h('button',{type:'button',class:'icon-button book-video-play',title:'播放'+video.label+' · '+book.title,'aria-label':'播放'+video.label+'：'+book.title,onclick:event=>{event.stopPropagation();window.EnglishFilePreview.openFile(source.url,{name:video.filename,path:video.path,note:video.note},book.title+' · '+video.label,event.currentTarget);}},icon('play'));
+}
+function readingVideoSummary(books){
+  const available=books.filter(book=>bookVideoEntry(book).video),covered=books.some(book=>bookVideoEntry(book).plan?.mediaSources?.length);
+  if(!covered)return null;
+  return h('p',{class:'small-note reading-video-summary'},'完整版视频 '+available.length+'/'+books.length+' 册'+(available.length<books.length?'；其余本次分享未收录':'')+'。带“版本对照”的视频含新旧版差异，播放时可查看说明。');
+}
 function sourceBtn(id,page,label){const source=src(id),caption=label||((source?.title||'原文')+' · 第 '+page+' 页');return source?.file&&!source.previews?.length?h('a',{class:'text-link',href:source.file,target:'_blank',rel:'noopener'},icon('source'),caption):btn([icon('source'),caption],'preview',{'data-source':id,'data-page':page},'text-link');}
 function stageSourceLinks(st){const refs=st.pages.map(page=>({id:st.sourceId||st.routeId,page}));for(const m of st.materials){const id=m.sourceId||st.sourceId||st.routeId,page=m.page||st.pages[0]||1;if(!refs.some(ref=>ref.id===id&&ref.page===page))refs.push({id,page});}for(const ref of st.raw.referenceSources||[]){if(!refs.some(item=>item.id===ref.sourceId&&item.page===ref.page))refs.push({id:ref.sourceId,page:ref.page,label:ref.label});}return refs.map(ref=>sourceBtn(ref.id,ref.page,ref.label));}
 function persist({delay=0}={}){resourceProgressCache=null;practiceSessionCache=null;try{const {name,birthDate,...englishProfile}=S.profile;if(!sharedProfile.get().birthDate&&saved.profile){if(saved.profile.name)englishProfile.name=saved.profile.name;if(saved.profile.birthDate)englishProfile.birthDate=saved.profile.birthDate;}localStorage.setItem('little-leaf-english-v1',JSON.stringify({profile:englishProfile,favorites:legacyFavorites,records:S.records}));void siteSync?.changed('english',{delay}).catch(error=>toast('本机已保存，同步暂不可用：'+error.message));return true;}catch{toast('当前浏览器未能保存，请保持页面打开或导出备份。');return false;}}
@@ -865,29 +879,19 @@ function readingPlanDetail(resourceId){
   if(!plan)return h('p',{},'这份素材尚未配置逐本书单。');
   const current=BP.scopeGroup(plan,scope)??BP.groupForStage(plan,m.stageId);
   m.readingGroup??=current;
-  m.readingSourcePriority??=BP.sourcePriority(S.records,plan,m.readingGroup);
   const editions=plan.catalog?BP.catalogPlans(BOOKS,window.ROADMAP_RAW.resourceVolumes,resourceId):[];
   const group=m.readingGroup,progress=sharedReadingProgress(plan,group),all=sharedReadingProgress(plan);
   const visible=BP.books(plan,group);
   const hasPatterns=visible.some(book=>TOPICS.patterns('book',book).length||(!plan.catalog&&book.patterns.length));
-  const file=h('input',{id:'reading-import-file',type:'file',accept:'.json,application/json',hidden:true,onchange:async e=>{
-    const selected=e.target.files[0];if(!selected)return;
-    try{
-      const snapshot=JSON.parse(await selected.text()),result=BP.applyReadSnapshot(S.records,READING,snapshot,{sourcePriority:m.readingSourcePriority,directory:BOOKS,catalog:window.ROADMAP_RAW.resourceVolumes});
-      if(!savePracticeRecords(result.changes))return;
-      m.importSummary='已匹配 '+result.matched.length+' 条；未匹配 '+result.unmatched.length+' 条；待确认 '+result.ambiguous.length+' 条。';
-      m.importPending=[...result.ambiguous,...result.unmatched];
-      refreshReadingPlan('reading-import');
-    }catch(error){toast('未导入：'+error.message);e.target.value='';}
-  }});
   const filters=[{id:'all',label:'全部 '+plan.books.length+'本'},...plan.groups.map(g=>({id:g.id,label:g.label+' '+BP.books(plan,g.id).length+'本'}))];
   const groupLabel=id=>plan.groups.find(group=>group.id===id)?.label||id;
   const quantity={total:progress.total,unit:'本',narrowed:true,unknown:[],contextLabel:plan.edition||plan.title,parts:plan.groups.filter(item=>group==='all'||item.id===group).map(item=>({edition:plan.edition||plan.title,label:item.label,count:BP.books(plan,item.id).length,unit:'本'}))};
   return h('div',{class:'reading-plan'},h('h2',{},byId.get(resourceId)?.title||plan.title),resourceBookCatalog(byId.get(resourceId),false,quantity),plan.edition?h('p',{class:'small-note'},plan.edition):null,
-    editions.length>1?h('label',{class:'form-row'},'版本',h('select',{id:'reading-edition','aria-label':'逐本书单版本',onchange:e=>{const selected=editions.find(item=>item.id===e.currentTarget.value);m.readingScope={edition:selected.edition,parts:selected.groups.flatMap(group=>group.parts),total:selected.books.length};m.readingGroup='all';delete m.readingSourcePriority;refreshReadingPlan('reading-edition');}},editions.map(item=>h('option',{value:item.id,selected:item.id===plan.id},item.edition)))):null,
+    editions.length>1?h('label',{class:'form-row'},'版本',h('select',{id:'reading-edition','aria-label':'逐本书单版本',onchange:e=>{const selected=editions.find(item=>item.id===e.currentTarget.value);m.readingScope={edition:selected.edition,parts:selected.groups.flatMap(group=>group.parts),total:selected.books.length};m.readingGroup='all';refreshReadingPlan('reading-edition');}},editions.map(item=>h('option',{value:item.id,selected:item.id===plan.id},item.edition)))):null,
     h('div',{class:'reading-plan-toolbar'},h('div',{class:'reading-plan-filters',role:'group','aria-label':'阅读范围'},filters.map(g=>h('button',{type:'button',id:'reading-group-'+g.id,'aria-pressed':String(group===g.id),onclick:()=>{m.readingGroup=g.id;refreshReadingPlan('reading-group-'+g.id);}},g.label))),
       current!=='all'?h('button',{type:'button',class:'text-link',onclick:()=>{m.readingGroup=current;refreshReadingPlan('reading-group-'+current);}},(plan.catalog?'当前级别 · ':'当前阶段 · ')+groupLabel(current)):null),
     h('p',{class:'reading-plan-summary','aria-live':'polite'},(group==='all'?'全部':groupLabel(group))+' · '+progress.completed+'/'+progress.total+'本 · '+progress.percent+'%',group!=='all'?'　全部 '+all.completed+'/'+all.total+'本':'',h('small',{},'逐本已勾 '+progress.identifiedCompleted+' 本'+(BP.sourcePriority(S.records,plan,group)?'；以小花生逐本记录为准':progress.completed>progress.identifiedCompleted?'；含旧合计记录，未反推单册':''))),
+    readingVideoSummary(visible),
     seriesTopicBrowser(resourceId,visible,(selected,start=0)=>{let lastPattern=start?(plan.catalog?groupLabel(selected[start-1].group):selected[start-1].patternGroup):undefined;return h('ol',{class:'reading-book-list'},selected.slice(start).map(book=>{
       const state=BP.bookState(S.records,book,BOOKS),section=plan.catalog?groupLabel(book.group):book.patternGroup,heading=lastPattern!==section;lastPattern=section;
       const labelId='reading-book-'+book.id;
@@ -895,12 +899,10 @@ function readingPlanDetail(resourceId){
       const patterns=[...new Set([...TOPICS.patterns('book',book).map(item=>item.text),...(!plan.catalog?book.patterns:[])])];
       return h('li',{class:'reading-book-item'+(state.done?' done':'')},heading?h('h3',{class:'reading-pattern-heading'},section):null,
         h('div',{class:'reading-book-row'},bookCompletionControl(book,labelId),coverBook?.cover?libraryBookCover(coverBook):bookReadCountBadge(book.id,true),h('label',{for:labelId},h('span',{class:'reading-book-name'},h('small',{},'#'+String(book.number).padStart(2,'0')+' · '+groupLabel(book.group)),book.title),
-          plan.catalog?h('span',{class:'reading-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),studyGuideInfo(book,{showPatterns:false})):null),
+          plan.catalog?h('span',{class:'reading-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),studyGuideInfo(book,{showPatterns:false})):null),bookVideoButton(book),
           hasPatterns?h('div',{class:'reading-book-pattern-column'},h('small',{},'句型'),h('span',{class:'reading-book-patterns'},patterns.length?patterns.map(pattern=>h('span',{},pattern)):h('span',{class:'small-note'},'原表未列'))):null));
     }));}),
-    h('div',{class:'reading-import-toolbar'},file,h('button',{id:'reading-import',type:'button',class:'button soft',onclick:()=>file.click()},'同步小花生已读清单'),h('label',{},h('input',{type:'checkbox',checked:m.readingSourcePriority,onchange:e=>{m.readingSourcePriority=e.target.checked;}}),'以小花生为准'),h('small',{},'导入已获取的“读过”清单 JSON；重复导入不重复计数，不清空手工记录。选中后旧合计保留但不计入，逐本手工勾选仍保留。')),
-    m.importSummary?h('p',{role:'status',class:'small-note'},m.importSummary):null,
-    m.importPending?.length?h('details',{},h('summary',{},'查看未自动匹配的书目'),h('ul',{},m.importPending.map(b=>h('li',{},b.title+(b.candidates?' · 多个候选，未自动勾选':''))))):null,
+    h('div',{class:'reading-sync-toolbar'},h('button',{id:'reading-plan-sync',type:'button',class:'button soft',disabled:!profileReady||readingSync.busy,'aria-busy':String(readingSync.busy),onclick:syncXiaohuashengRead},readingSync.busy?'同步中…':'同步小花生进度')),
     readingFold('reading-material-'+plan.id,'素材资料与路线',resourceDetail(byId.get(resourceId),true,{bookCatalog:false}),false,'series-evidence'));
 }
 
@@ -1608,7 +1610,7 @@ function libraryBookCover(book){
 function bookRow(book,{detail=false}={}){
   const resource=book.resource,topicIds=LB.topicIds(book,BOOKS);
   const destinations=[...new Map(book.appearances.map(a=>[a.stageId,a])).values()];
-  return h('article',{class:'library-book-row'},libraryBookCover(book),h('div',{class:'library-book-body'},h('div',{class:'library-book-title'},materialUI.name(book.title,false,{tag:'strong',className:'library-book-name',role:detail?null:EnglishModel.libraryMaterialRole(C,book,{route:S.route,stageIds:libraryStageIds()})}),h('span',{class:'library-book-actions'},book.custom?null:bookCompletionControl(book,(detail?'detail-book-':'catalog-book-')+book.id),btn(icon('info'),book.custom?'custom-book-edit':'library-book',{'data-id':book.custom?resource.id:book.id,title:'版本、目录与主题依据','aria-label':book.title+'的版本、目录与主题依据'},'icon-button'))),
+  return h('article',{class:'library-book-row'},libraryBookCover(book),h('div',{class:'library-book-body'},h('div',{class:'library-book-title'},materialUI.name(book.title,false,{tag:'strong',className:'library-book-name',role:detail?null:EnglishModel.libraryMaterialRole(C,book,{route:S.route,stageIds:libraryStageIds()})}),h('span',{class:'library-book-actions'},bookVideoButton(book),book.custom?null:bookCompletionControl(book,(detail?'detail-book-':'catalog-book-')+book.id),btn(icon('info'),book.custom?'custom-book-edit':'library-book',{'data-id':book.custom?resource.id:book.id,title:'版本、目录与主题依据','aria-label':book.title+'的版本、目录与主题依据'},'icon-button'))),
     h('div',{class:'library-book-context'},h('span',{},(book.seriesTitle||resource.title)+(book.level?' · '+book.level:'')),h('span',{},book.edition)),
     h('div',{class:'library-book-topics'},topicIds.length?topicUI.tags(topicIds):h('span',{class:'small-note'},'主题待核对'),bookTopicFallbackLabel(book)?h('span',{class:'small-note'},bookTopicFallbackLabel(book)):null),!detail?studyGuideInfo(book,{showOriginal:false}):null,
     detail&&destinations.length?h('details',{class:'library-book-stages',open:libraryUsageFolds.get(book.id)??false,ontoggle:e=>{if(e.target===e.currentTarget&&e.currentTarget.isConnected){libraryUsageFolds.set(book.id,e.currentTarget.open);}}},h('summary',{},book.custom?'个人阶段参考':book.unleveledSeries?'套系使用阶段参考 · '+destinations.length:'路线使用阶段 · '+destinations.length),destinations.map(a=>btn((routes.get(a.routeId)?.name||'')+' · '+(stages.get(a.stageId)?.title||a.stageId),'stage',{'data-id':a.stageId},'text-link')),book.custom?h('p',{class:'small-note'},'个人选用，不代表作者书单。'):null):null));
@@ -1729,8 +1731,8 @@ function resourceSeriesBooks(resourceId,unit=null){
 }
 function libraryBookDetail(id){
   const book=libraryBooks().find(b=>b.id===id);if(!book)return h('p',{},'未找到这本书。');
-  const row=bookRow(book,{detail:true});row.querySelector('.icon-button')?.remove();
-  return h('div',{},row,studyGuideInfo(book),h('p',{},bookTopicLabel(book)),h('p',{},book.topicBasis||BOOKS.topicNote),topicUI.evidence('book',book),
+  const row=bookRow(book,{detail:true});row.querySelector('[data-action="library-book"]')?.remove();
+  return h('div',{},row,bookVideoEntry(book).plan?.mediaSources?.length&&!bookVideoEntry(book).video?h('p',{class:'small-note'},'本次分享未收录这册完整版视频。'):null,studyGuideInfo(book),h('p',{},bookTopicLabel(book)),h('p',{},book.topicBasis||BOOKS.topicNote),topicUI.evidence('book',book),
     (book.topicEvidence||[]).map(evidence=>h('section',{class:'book-topic-evidence'},h('p',{},evidence.summary),evidence.originalTopic?h('p',{class:'small-note'},'原分类：'+evidence.originalTopic):null,h('p',{class:'small-note'},evidence.locator||''),bookSourceBlock(evidence.sourceId))),
     book.learningFocus?h('details',{},h('summary',{},'原表学习重点（与内容主题分开）'),h('p',{},book.learningFocus.originalTopic||''),h('p',{class:'small-note'},'原表句型：'+book.learningFocus.sentencePattern+'；仅供原图核对，不作为英语示范。')):null,
     book.chapters?.length?h('details',{},h('summary',{},'分篇内容'),book.chapters.map(chapter=>h('p',{},chapter.title+' · '+TOPICS.labels(TOPICS.entryTopics('book',chapter)).join('、')))):null,book.catalogNote?h('p',{class:'small-note'},book.catalogNote+(book.sourceTitle?' 目录原名：'+book.sourceTitle:'')):null,
@@ -2187,7 +2189,7 @@ function stageResourceReading(unit){
   const viewingScope=bound?scope:candidate?.scope;
   const context=h('div',{class:'reading-stage-context'},h('p',{class:'small-note'},'来自：'+routes.get(stage.routeId).name+' · '+stage.title+' · '+unit.label),
     units.length>1?h('div',{class:'reading-plan-filters',role:'group','aria-label':'本阶段素材级别'},units.map(child=>h('button',{type:'button','aria-pressed':String(child.key===selected.key),onclick:()=>{
-      m.stageReadingUnit=child.key;delete m.readingScope;delete m.readingGroup;delete m.readingSourcePriority;delete m.readingBrowser;delete m.catalogBrowser;renderModal();
+      m.stageReadingUnit=child.key;delete m.readingScope;delete m.readingGroup;delete m.readingBrowser;delete m.catalogBrowser;renderModal();
     }},child.partLevel?.label||child.partScope?.label||child.label))):null);
   if(viewingScope){
     m.readingScope??=viewingScope;

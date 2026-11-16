@@ -6,6 +6,38 @@ import vm from 'node:vm';
 const app = await readFile(new URL('../english/app.js', import.meta.url), 'utf8');
 // 执行真实入口函数，验证点击后业务流程，不复制页面布局或导入算法。
 const action = app.slice(app.indexOf('async function syncXiaohuashengRead('), app.indexOf('function readingSyncDetail(){'));
+const readingDetail = app.slice(app.indexOf('function readingPlanDetail('), app.indexOf('function libraryQuantityContext('));
+
+test('书单同步复用抓取流程，在未就绪或同步中禁用同步', async () => {
+  for (const [ready, busy] of [[true, false], [false, false], [true, true]]) {
+    const calls = [], nodes = [], state = { modal: {}, records: {} };
+    const plan = { id: 'test', title: '测试书单', groups: [], books: [] };
+    const context = {
+      S: state, profileReady: ready, readingSync: { busy }, BOOKS: {}, location: {},
+      BP: { scopeGroup: () => 'all', sourcePriority: () => false, books: () => [] },
+      libraryReadingScope: () => ({}), readingPlanForResource: () => plan,
+      sharedReadingProgress: () => ({ completed: 0, total: 0, identifiedCompleted: 0 }),
+      byId: new Map(), resourceBookCatalog() {}, readingVideoSummary() {}, seriesTopicBrowser() {}, resourceDetail() {},
+      readingFold: (_key, _title, content) => content,
+      h(tag, props, ...children) { const node = { tag, ...props, children, click() { calls.push('filechooser'); } }; nodes.push(node); return node; },
+      render() {}, renderModal() {}, openModal(kind) { state.modal = { kind }; },
+      bookLoader: { async load() {} },
+      window: { EnglishXiaohuashengSync: { async synchronize() { calls.push('synchronize'); return { mode: 'cloud-live', cloud: { ok: true } }; } } },
+      siteSync: {}, backupEnglishBeforeSync() {}, savePracticeRecords() {},
+    };
+    vm.runInNewContext(action + readingDetail, context);
+    context.readingPlanDetail('test');
+    const sync = nodes.find(node => node.id === 'reading-plan-sync');
+    assert.equal(sync.disabled, !ready || busy);
+    assert.equal(sync.onclick, context.syncXiaohuashengRead);
+    if (!sync.disabled) {
+      await sync.onclick();
+      assert.deepEqual(calls, ['synchronize']);
+      assert.equal(state.modal.kind, 'xhs-sync');
+    }
+  }
+});
+
 test('小花生点击被登录、连接或冲突阻断时打开原同步面板，成功及普通失败保留获取结果', async () => {
   for (const status of ['auth-required', 'connection-required', 'conflict', 'error', 'synced']) {
     const calls = [], state = { modal: null };
