@@ -507,15 +507,17 @@
     "retrievedAt": "2026-10-28"
   },
   "resource-912oje": {
-    "path": "assets/covers/resource-912oje.jpg",
-    "sourceUrl": "https://item.m.jd.com/ware/view.action?wareId=12276348&clickUrl=&from=timeline&isappinstalled=0",
-    "imageUrl": "https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/136934/23/9319/377678/5f55d874E9bdd7b28/359bf01828a2f2f7.jpg!q80.dpg",
-    "title": "【点读版】培生幼儿英语 预备级 套装35册(培生小学英语启蒙分级阅读绘本 少儿幼儿儿童英文 儿童英语启蒙0基础入门推荐 )【图片 价格 品牌 ...",
-    "provider": "网络检索",
+    "sourceUrl": "https://www.xiaohuasheng.cn/book/18a34fc2dabd6550",
+    "imageUrl": "https://img.xiaohuasheng.cn/1421884/Book/20220502140656.jpg",
+    "title": "培生少儿英语趣味分级阅读: The Hare and the Tortoise",
+    "provider": "小花生",
     "kind": "series-example",
-    "width": 640,
-    "height": 640,
-    "retrievedAt": "2026-10-28"
+    "seriesUrl": "https://www.xiaohuasheng.cn/series/7e345d90e8079912",
+    "edition": "长江少儿／海豚传媒《培生儿童英语》Level1–6礼盒版",
+    "checkedAt": "2026-11-16",
+    "retrievedAt": "2026-11-08",
+    "path": "https://img.xiaohuasheng.cn/1421884/Book/20220502140656.jpg",
+    "note": "采用已核定儿童英语Level2目录中的单册作为套系示例；原图At the Park属于培生幼儿英语预备级，移除其与儿童英语的错误对应。"
   },
   "resource-nymq45": {
     "path": "assets/covers/resource-nymq45.jpg",

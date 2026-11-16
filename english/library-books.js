@@ -107,7 +107,7 @@ function entries(data,resources,model,volumes){
   })
     .concat(resources.filter(r=>r.custom&&['book','reader'].includes(r.type)).map(r=>({id:r.id,resourceId:r.id,resourceIds:[r.id],title:r.title,custom:true,resource:r,topics:r.topics,edition:'个人新增',level:'',appearances:r.stageRefs||[],sourceIds:[]})));
 }
-// 系列简介只证明系列涉及的范围，不能下传每册；有目录时仅保留主题缺口的资源候选。
+// 单册目录不替代原路线的套系引用；未对应逐册的引用保留套系入口，不给单册补造阶段。
 function materialEntries(data,resources,model,volumes){
   const books=entries(data,resources,model,volumes),covered=new Map();
   for(const book of books)for(const id of book.resourceIds){if(!covered.has(id))covered.set(id,[]);covered.get(id).push(book);}
@@ -115,9 +115,12 @@ function materialEntries(data,resources,model,volumes){
   return books.concat(resources.flatMap(resource=>{
     const members=covered.get(resource.id),record=T.entryEvidence('resource',resource);
     const fallback=!!members&&evidenceStates.has(record.status)&&T.entryTopics('resource',resource).some(id=>!members.some(book=>T.matches(topicIds(book,data),{topic:id})));
-    if(members&&!fallback)return [];
+    const matchedAppearances=new Set((members||[]).flatMap(book=>book.appearances));
+    const catalogFallback=!!members&&(resource.appearances||[]).some(appearance=>!matchedAppearances.has(appearance));
+    if(members&&!fallback&&!catalogFallback)return [];
     return [{id:resource.id,resourceId:resource.id,resourceIds:[resource.id,...(resource.mergedResourceIds||[])],
       title:resource.title,resource,entryKind:'resource',custom:resource.custom,
+      ...(catalogFallback?{resourceCatalogFallback:true,resourceTopicAvailable:evidenceStates.has(record.status)}:{}),
       ...(fallback?{resourceTopicFallback:true,topicScope:'resource'}:{}),
       appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:record.sourceIds||[],edition:'',level:''}];
   }));
@@ -154,7 +157,7 @@ function filter(books,data,filters={}){
   const hasTopic=!!(filters.topic&&filters.topic!=='all'||filters.subtopic&&filters.subtopic!=='all');
   const matched=books.filter(book=>{
     const resource=book.resource;
-    if(book.resourceTopicFallback&&!hasTopic)return false;
+    if(book.resourceCatalogFallback?hasTopic&&!book.resourceTopicFallback&&!book.resourceTopicAvailable:book.resourceTopicFallback&&!hasTopic)return false;
     if(filters.route&&filters.route!=='all'&&(filters.route==='other'?!book.custom:!book.appearances.some(a=>a.routeId===filters.route)))return false;
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
@@ -166,7 +169,7 @@ function filter(books,data,filters={}){
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
   const concreteResources=new Set(matched.filter(book=>book.entryKind!=='resource').flatMap(book=>book.resourceIds||[book.resourceId]));
-  return matched.filter(book=>!book.resourceTopicFallback||!book.resourceIds.some(id=>concreteResources.has(id)));
+  return matched.filter(book=>!(book.resourceTopicFallback||book.resourceCatalogFallback)||!book.resourceIds.some(id=>concreteResources.has(id)));
 }
 function seriesCount(data,resource,model,volumes,filters={}){
   const route=filters.route,stageIds=filters.stageIds;

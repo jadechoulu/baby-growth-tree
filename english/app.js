@@ -1603,7 +1603,7 @@ function libraryResultRow(entry){
   if(entry.privateShelf)return shelfBookCard(entry);
   if(entry.entryKind!=='resource')return bookRow(entry);
   const card=libraryCard(entry.resource),body=card.querySelector('.resource-body');
-  if(entry.resourceTopicFallback)body.append(h('p',{class:'small-note'},'系列涉及此主题，具体单册待对应。'));
+  if(entry.resourceTopicFallback&&S.libraryTopic!=='all')body.append(h('p',{class:'small-note'},'系列涉及此主题，具体单册待对应。'));
   body.append(h('div',{class:'library-book-topics'},topicUI.tags(LB.topicIds(entry,BOOKS)),TOPICS.entryEvidence('resource',entry.resource).status==='title-fallback'?h('span',{class:'small-note'},'标题兜底'):null));
   const guide=studyGuideInfo(entry.resource,{domain:'resource',compact:true});if(guide)body.append(guide);
   return card;

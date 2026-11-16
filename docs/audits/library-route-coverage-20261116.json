@@ -1,0 +1,1103 @@
+{
+  "checkedAt": "2026-11-16",
+  "before": {
+    "all": {
+      "expected": 329,
+      "shown": 329,
+      "missing": []
+    },
+    "qing": {
+      "expected": 63,
+      "shown": 44,
+      "missing": [
+        {
+          "id": "resource-1pinwiv",
+          "title": "古力小超人"
+        },
+        {
+          "id": "resource-hlfpbh",
+          "title": "小猪和狐狸"
+        },
+        {
+          "id": "resource-166ekar",
+          "title": "培生儿童英语情境口语400句"
+        },
+        {
+          "id": "resource-197hwlb",
+          "title": "水先生"
+        },
+        {
+          "id": "resource-zs4dhg",
+          "title": "淘气兔子杰克"
+        },
+        {
+          "id": "resource-1l68zks",
+          "title": "大红狗 Clifford"
+        },
+        {
+          "id": "resource-45qugp",
+          "title": "Winnie and Wilbur 女巫温妮"
+        },
+        {
+          "id": "resource-1hwirew",
+          "title": "皮特猫"
+        },
+        {
+          "id": "resource-a52ypl",
+          "title": "饼干狗"
+        },
+        {
+          "id": "resource-ckc2k",
+          "title": "巴塔木口语书"
+        },
+        {
+          "id": "resource-e87t8v",
+          "title": "小猪小象"
+        },
+        {
+          "id": "resource-45fjcl",
+          "title": "口语剧场"
+        },
+        {
+          "id": "resource-yl8irm",
+          "title": "Best Buddies"
+        },
+        {
+          "id": "resource-kjiouh",
+          "title": "学乐橡子点读系列"
+        },
+        {
+          "id": "resource-1hwgnzy",
+          "title": "小毛人"
+        },
+        {
+          "id": "resource-127dfoe",
+          "title": "脏脏书"
+        },
+        {
+          "id": "resource-1g6rmtp",
+          "title": "汪培珽一段"
+        },
+        {
+          "id": "resource-3z1ap6",
+          "title": "佩奇绘本"
+        },
+        {
+          "id": "resource-13d4vi4",
+          "title": "布鲁伊绘本"
+        }
+      ]
+    },
+    "xu": {
+      "expected": 81,
+      "shown": 78,
+      "missing": [
+        {
+          "id": "resource-45qugp",
+          "title": "Winnie and Wilbur 女巫温妮"
+        },
+        {
+          "id": "resource-1hwirew",
+          "title": "皮特猫"
+        },
+        {
+          "id": "resource-a52ypl",
+          "title": "饼干狗"
+        }
+      ]
+    },
+    "banana": {
+      "expected": 95,
+      "shown": 84,
+      "missing": [
+        {
+          "id": "resource-9fvmjt",
+          "title": "海尼曼"
+        },
+        {
+          "id": "resource-1pinwiv",
+          "title": "古力小超人"
+        },
+        {
+          "id": "resource-hlfpbh",
+          "title": "小猪和狐狸"
+        },
+        {
+          "id": "resource-141vfh7",
+          "title": "培生亲子故事屋"
+        },
+        {
+          "id": "resource-166ekar",
+          "title": "培生儿童英语情境口语400句"
+        },
+        {
+          "id": "resource-197hwlb",
+          "title": "水先生"
+        },
+        {
+          "id": "resource-zs4dhg",
+          "title": "淘气兔子杰克"
+        },
+        {
+          "id": "resource-1l68zks",
+          "title": "大红狗 Clifford"
+        },
+        {
+          "id": "resource-170tbmv",
+          "title": "Henry and Mudge 亨利与马吉"
+        },
+        {
+          "id": "resource-45qugp",
+          "title": "Winnie and Wilbur 女巫温妮"
+        },
+        {
+          "id": "resource-mavhf5",
+          "title": "丽声冒险故事岛"
+        }
+      ]
+    }
+  },
+  "after": {
+    "resources": 329,
+    "books": 3886,
+    "ranges": 47,
+    "issues": [],
+    "routes": [
+      {
+        "route": "all",
+        "expected": 329,
+        "shown": 329,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "banana",
+        "expected": 95,
+        "shown": 95,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          },
+          {
+            "id": "resource-1pinwiv",
+            "title": "古力小超人"
+          },
+          {
+            "id": "resource-hlfpbh",
+            "title": "小猪和狐狸"
+          },
+          {
+            "id": "resource-141vfh7",
+            "title": "培生亲子故事屋"
+          },
+          {
+            "id": "resource-166ekar",
+            "title": "培生儿童英语情境口语400句"
+          },
+          {
+            "id": "resource-197hwlb",
+            "title": "水先生"
+          },
+          {
+            "id": "resource-zs4dhg",
+            "title": "淘气兔子杰克"
+          },
+          {
+            "id": "resource-1l68zks",
+            "title": "大红狗 Clifford"
+          },
+          {
+            "id": "resource-170tbmv",
+            "title": "Henry and Mudge 亨利与马吉"
+          },
+          {
+            "id": "resource-45qugp",
+            "title": "Winnie and Wilbur 女巫温妮"
+          },
+          {
+            "id": "resource-mavhf5",
+            "title": "丽声冒险故事岛"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "expected": 81,
+        "shown": 81,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-45qugp",
+            "title": "Winnie and Wilbur 女巫温妮"
+          },
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          },
+          {
+            "id": "resource-a52ypl",
+            "title": "饼干狗"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "expected": 63,
+        "shown": 63,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1pinwiv",
+            "title": "古力小超人"
+          },
+          {
+            "id": "resource-hlfpbh",
+            "title": "小猪和狐狸"
+          },
+          {
+            "id": "resource-166ekar",
+            "title": "培生儿童英语情境口语400句"
+          },
+          {
+            "id": "resource-197hwlb",
+            "title": "水先生"
+          },
+          {
+            "id": "resource-zs4dhg",
+            "title": "淘气兔子杰克"
+          },
+          {
+            "id": "resource-1l68zks",
+            "title": "大红狗 Clifford"
+          },
+          {
+            "id": "resource-45qugp",
+            "title": "Winnie and Wilbur 女巫温妮"
+          },
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          },
+          {
+            "id": "resource-a52ypl",
+            "title": "饼干狗"
+          },
+          {
+            "id": "resource-ckc2k",
+            "title": "巴塔木口语书"
+          },
+          {
+            "id": "resource-e87t8v",
+            "title": "小猪小象"
+          },
+          {
+            "id": "resource-45fjcl",
+            "title": "口语剧场"
+          },
+          {
+            "id": "resource-yl8irm",
+            "title": "Best Buddies"
+          },
+          {
+            "id": "resource-kjiouh",
+            "title": "学乐橡子点读系列"
+          },
+          {
+            "id": "resource-1hwgnzy",
+            "title": "小毛人"
+          },
+          {
+            "id": "resource-127dfoe",
+            "title": "脏脏书"
+          },
+          {
+            "id": "resource-1g6rmtp",
+            "title": "汪培珽一段"
+          },
+          {
+            "id": "resource-3z1ap6",
+            "title": "佩奇绘本"
+          },
+          {
+            "id": "resource-13d4vi4",
+            "title": "布鲁伊绘本"
+          }
+        ]
+      }
+    ],
+    "stages": [
+      {
+        "route": "banana",
+        "stageIds": [
+          "banana-pre"
+        ],
+        "expected": 15,
+        "shown": 15,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          },
+          {
+            "id": "resource-1pinwiv",
+            "title": "古力小超人"
+          }
+        ]
+      },
+      {
+        "route": "banana",
+        "stageIds": [
+          "banana-1"
+        ],
+        "expected": 20,
+        "shown": 20,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          },
+          {
+            "id": "resource-912oje",
+            "title": "培生儿童英语"
+          },
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          }
+        ]
+      },
+      {
+        "route": "banana",
+        "stageIds": [
+          "banana-2"
+        ],
+        "expected": 23,
+        "shown": 23,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          },
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          },
+          {
+            "id": "resource-hlfpbh",
+            "title": "小猪和狐狸"
+          },
+          {
+            "id": "resource-141vfh7",
+            "title": "培生亲子故事屋"
+          },
+          {
+            "id": "resource-166ekar",
+            "title": "培生儿童英语情境口语400句"
+          }
+        ]
+      },
+      {
+        "route": "banana",
+        "stageIds": [
+          "banana-3"
+        ],
+        "expected": 23,
+        "shown": 23,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          },
+          {
+            "id": "resource-197hwlb",
+            "title": "水先生"
+          },
+          {
+            "id": "resource-zs4dhg",
+            "title": "淘气兔子杰克"
+          },
+          {
+            "id": "resource-1l68zks",
+            "title": "大红狗 Clifford"
+          }
+        ]
+      },
+      {
+        "route": "banana",
+        "stageIds": [
+          "banana-4"
+        ],
+        "expected": 40,
+        "shown": 40,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          },
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          },
+          {
+            "id": "resource-170tbmv",
+            "title": "Henry and Mudge 亨利与马吉"
+          },
+          {
+            "id": "resource-45qugp",
+            "title": "Winnie and Wilbur 女巫温妮"
+          },
+          {
+            "id": "resource-mavhf5",
+            "title": "丽声冒险故事岛"
+          }
+        ]
+      },
+      {
+        "route": "banana",
+        "stageIds": [
+          "banana-chapter"
+        ],
+        "expected": 28,
+        "shown": 28,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1n3ix1n",
+            "title": "牛津树"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-1"
+        ],
+        "expected": 4,
+        "shown": 4,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-2"
+        ],
+        "expected": 11,
+        "shown": 11,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          },
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-3"
+        ],
+        "expected": 12,
+        "shown": 12,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-4"
+        ],
+        "expected": 13,
+        "shown": 13,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-5"
+        ],
+        "expected": 12,
+        "shown": 12,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-6"
+        ],
+        "expected": 9,
+        "shown": 9,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-listening-300"
+        ],
+        "expected": 6,
+        "shown": 6,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-listening-500"
+        ],
+        "expected": 7,
+        "shown": 7,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-listening-800"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-listening-1000"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-listening-2000"
+        ],
+        "expected": 1,
+        "shown": 1,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-speaking"
+        ],
+        "expected": 0,
+        "shown": 0,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-reading-literacy"
+        ],
+        "expected": 9,
+        "shown": 9,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-reading-extensive"
+        ],
+        "expected": 13,
+        "shown": 13,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-45qugp",
+            "title": "Winnie and Wilbur 女巫温妮"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-reading-intensive"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-panorama-writing"
+        ],
+        "expected": 0,
+        "shown": 0,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-thousand-1"
+        ],
+        "expected": 10,
+        "shown": 10,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-thousand-2"
+        ],
+        "expected": 9,
+        "shown": 9,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-thousand-3"
+        ],
+        "expected": 8,
+        "shown": 8,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-thousand-4"
+        ],
+        "expected": 9,
+        "shown": 9,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          },
+          {
+            "id": "resource-a52ypl",
+            "title": "饼干狗"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-current-300"
+        ],
+        "expected": 7,
+        "shown": 7,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-current-500"
+        ],
+        "expected": 7,
+        "shown": 7,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-9fvmjt",
+            "title": "海尼曼"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-current-800"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-current-1000"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-current-2000"
+        ],
+        "expected": 1,
+        "shown": 1,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-node-300"
+        ],
+        "expected": 17,
+        "shown": 17,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          },
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-node-500"
+        ],
+        "expected": 18,
+        "shown": 18,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-node-800"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1cn6i3m",
+            "title": "学乐小读者"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-node-1000"
+        ],
+        "expected": 5,
+        "shown": 5,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          }
+        ]
+      },
+      {
+        "route": "xu",
+        "stageIds": [
+          "xu-node-2000"
+        ],
+        "expected": 1,
+        "shown": 1,
+        "missing": 0,
+        "seriesReferences": []
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s1"
+        ],
+        "expected": 16,
+        "shown": 16,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-1pinwiv",
+            "title": "古力小超人"
+          },
+          {
+            "id": "resource-ckc2k",
+            "title": "巴塔木口语书"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s2"
+        ],
+        "expected": 15,
+        "shown": 15,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s3"
+        ],
+        "expected": 19,
+        "shown": 19,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          },
+          {
+            "id": "resource-166ekar",
+            "title": "培生儿童英语情境口语400句"
+          },
+          {
+            "id": "resource-a52ypl",
+            "title": "饼干狗"
+          },
+          {
+            "id": "resource-e87t8v",
+            "title": "小猪小象"
+          },
+          {
+            "id": "resource-45fjcl",
+            "title": "口语剧场"
+          },
+          {
+            "id": "resource-yl8irm",
+            "title": "Best Buddies"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s4"
+        ],
+        "expected": 19,
+        "shown": 19,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          },
+          {
+            "id": "resource-10bn1i2",
+            "title": "小书虫"
+          },
+          {
+            "id": "resource-hlfpbh",
+            "title": "小猪和狐狸"
+          },
+          {
+            "id": "resource-166ekar",
+            "title": "培生儿童英语情境口语400句"
+          },
+          {
+            "id": "resource-e87t8v",
+            "title": "小猪小象"
+          },
+          {
+            "id": "resource-45fjcl",
+            "title": "口语剧场"
+          },
+          {
+            "id": "resource-kjiouh",
+            "title": "学乐橡子点读系列"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s5"
+        ],
+        "expected": 18,
+        "shown": 18,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          },
+          {
+            "id": "resource-10bn1i2",
+            "title": "小书虫"
+          },
+          {
+            "id": "resource-zs4dhg",
+            "title": "淘气兔子杰克"
+          },
+          {
+            "id": "resource-1hwirew",
+            "title": "皮特猫"
+          },
+          {
+            "id": "resource-uux27w",
+            "title": "银河号阅读全解码"
+          },
+          {
+            "id": "resource-1hwgnzy",
+            "title": "小毛人"
+          },
+          {
+            "id": "resource-127dfoe",
+            "title": "脏脏书"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s6"
+        ],
+        "expected": 19,
+        "shown": 19,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          },
+          {
+            "id": "resource-10bn1i2",
+            "title": "小书虫"
+          },
+          {
+            "id": "resource-197hwlb",
+            "title": "水先生"
+          },
+          {
+            "id": "resource-uux27w",
+            "title": "银河号阅读全解码"
+          },
+          {
+            "id": "resource-1g6rmtp",
+            "title": "汪培珽一段"
+          },
+          {
+            "id": "resource-3z1ap6",
+            "title": "佩奇绘本"
+          }
+        ]
+      },
+      {
+        "route": "qing",
+        "stageIds": [
+          "qing-s7"
+        ],
+        "expected": 23,
+        "shown": 23,
+        "missing": 0,
+        "seriesReferences": [
+          {
+            "id": "resource-g7xvo5",
+            "title": "大猫分级"
+          },
+          {
+            "id": "resource-10bn1i2",
+            "title": "小书虫"
+          },
+          {
+            "id": "resource-1l68zks",
+            "title": "大红狗 Clifford"
+          },
+          {
+            "id": "resource-45qugp",
+            "title": "Winnie and Wilbur 女巫温妮"
+          },
+          {
+            "id": "resource-uux27w",
+            "title": "银河号阅读全解码"
+          },
+          {
+            "id": "resource-13d4vi4",
+            "title": "布鲁伊绘本"
+          }
+        ]
+      }
+    ]
+  }
+}
