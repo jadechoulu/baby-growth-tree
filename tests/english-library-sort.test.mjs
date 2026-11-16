@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
+import fs from 'node:fs';
 
 const M=createRequire(import.meta.url)('../english/model.js');
 const catalog={stages:[
@@ -130,4 +131,24 @@ test('同套系同阶段字母级别从AA到A再B，不把册号或题名当难�
   const entries=[book('b','B'),book('a','A'),book('aa','AA')];
   assert.deepEqual(ids(entries),['aa','a','b']);
   assert.deepEqual(entries.map(b=>b.id),['b','a','aa']);
+});
+
+test('许密杉真实公共目录保留海尼曼，套系及单册按类型内路线级别排序',()=>{
+  const require=createRequire(import.meta.url),LB=require('../english/library-books.js'),BP=require('../english/book-progress.js');
+  const read=name=>JSON.parse(fs.readFileSync(new URL('../english/data/'+name+'.json',import.meta.url)));
+  const volumes=read('resource-volumes'),raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),
+    xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan'),resourceVolumes:volumes};
+  const catalog=M.normalize(raw),data=BP.withReadingPlans(read('resource-books'),read('reading-plans'),volumes);
+  const matches=LB.filter(LB.materialEntries(data,catalog.resources,M,volumes),data,{route:'xu'});
+  const ordered=M.sortLibraryMaterials(catalog,matches,{route:'xu',typeFirst:true}),groups=LB.displayGroups(ordered);
+  const heinemann=groups.findIndex(g=>g.resource.title==='海尼曼'),animation=groups.findIndex(g=>g.resource.type==='animation');
+  assert.ok(heinemann>=0&&heinemann<18,'海尼曼保留在首批套系中');
+  assert.ok(heinemann<animation,'低阶动画不插入连续的分级书目');
+  assert.equal(ordered.length,matches.length);
+  assert.deepEqual(new Set(ordered.map(e=>e.id)),new Set(matches.map(e=>e.id)));
+  const gk=ordered.filter(e=>e.resource.title==='海尼曼'&&e.id.startsWith('heinemann-gk70-'));
+  assert.equal(gk.length,70);
+  assert.deepEqual([...new Set(gk.map(e=>e.group))],['A','B','C']);
+  const at500=LB.filter(matches,data,{route:'xu',stageIds:['xu-node-500']}).filter(e=>e.resource.title==='海尼曼');
+  assert.equal(at500.length,58,'五节点500仍只包含原A/B范围，不把C搬回新节点');
 });
