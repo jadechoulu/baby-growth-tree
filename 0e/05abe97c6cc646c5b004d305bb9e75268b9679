@@ -1,0 +1,50 @@
+tests/english-file-preview-lifecycle.test.mjs
+  s_7f5a04113a9a79::t_5d1686949fcb7f 18-20,29,64,69-70,73-78
+  s_7f5a04113a9a79::t_33269fdfb9a318 34,96-107
+  s_7f5a04113a9a79::t_41586330b9b387 7,10,17,21-23,33,60-63,65-68,71-72,79-95
+english/file-preview.js
+  s_7f5a04113a9a79::t_6192b40d4321ac 67,72,94-95,111-126,128-134,137-140,144,151,156,158,160
+  s_7f5a04113a9a79::t_33269fdfb9a318 135
+  s_7f5a04113a9a79::t_17d7bdab6a0078 62-66,80,87,96-110,127,136,141-143,145-150,221,307,311,342
+english/styles.css
+  s_7f5a04113a9a79::t_6192b40d4321ac 2114-2117
+  s_7f5a04113a9a79::t_17d7bdab6a0078 2111-2113,2118-2119
+english/data/reading-plans.json
+  s_7f5a04113a9a79::t_036a929e6b82de 125-127,174-176,223-225,272-274,324-326,373-375,422-424,471-473,520-522,569-571,618-620,667-669,836-838,885-887,934-936,983-985,1032-1034,1081-1083,1130-1132,1179-1181,1230-1232,1279-1281,1328-1330,1377-1379,1426-1428,1475-1477,1530-1532,1579-1581,1750-1752,1801-1803,1850-1852,1899-1901,1948-1950,1998-2000,2116-2118,2165-2167,2214-2216,2263-2265,2312-2314,2361-2363,2410-2412,2459-2461,2508-2510,2557-2559,2606-2608,2655-2657,2704-2706,2875-2877,2924-2926,2973-2975,3025-3027
+docs/audits/heinemann-gk-video-20261116.md
+  s_7f5a04113a9a79::t_3da4cba0199e54 121-122
+english/index.html
+  s_7f5a04113a9a79::t_dcb9d3b8a8b17c 22
+  s_7f5a04113a9a79::t_6a754f96148c8f 9-10,20-21
+docs/architecture.md
+  s_7f5a04113a9a79::t_e2db8e3171b2a4 7-10
+english/app.js
+  s_7f5a04113a9a79::t_17d7bdab6a0078 80
+  s_7f5a04113a9a79::t_6192b40d4321ac 71
+tests/english-file-preview.test.mjs
+  s_7f5a04113a9a79::t_5d1686949fcb7f 4-12
+english/runtime/app.7bf1183d5eb8066d.js
+  s_7f5a04113a9a79::t_dcb9d3b8a8b17c 1-8226
+english/runtime/books.ff7c07ec7f6efd5c.json
+  s_7f5a04113a9a79::t_208eb295611af1 1
+english/runtime/data.4755921036d00dcd.js
+  s_7f5a04113a9a79::t_eb485dfabec53d 1
+english/runtime/styles.52e7f83d5fc26d6b.css
+  s_7f5a04113a9a79::t_ce257c993f07d1 2111-2119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0e05abe97c6cc646c5b004d305bb9e75268b9679",
+  "prompts": {},
+  "sessions": {
+    "s_7f5a04113a9a79": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e2cc-c89e-71b0-b20a-cf8c1be384c3",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
