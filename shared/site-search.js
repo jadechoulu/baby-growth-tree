@@ -73,7 +73,7 @@
       try {
         const state = await sync().getState('english');
         if (epoch !== accessEpoch) return;
-        if (!state.authenticated) { if (request === usageRequest) showUsage(null, '全站搜索与智能对话仅限本人 GitHub 账号。'); return; }
+        if (!state.authenticated) { if (request === usageRequest) showUsage(null, state.message || '全站搜索与智能对话仅限本人 GitHub 账号。'); return; }
         const response = await sync().assistantStatus();
         if (request === usageRequest) {
           showUsage(response.usage, response.enabled ? '用量暂不可读取' : 'AI尚未启用；暂无用量统计。', response.platformUsage, response.model);
@@ -128,11 +128,14 @@
         results.append(link);
       }
     }
-    function requireLogin() {
+    function requireLogin(state = sync().getSessionState?.()) {
       results.replaceChildren(); answer.hidden = true; answer.replaceChildren(); external.replaceChildren(); memoryBody.replaceChildren(); history = [];
-      status.textContent = '全站搜索与智能对话仅限本人 GitHub 账号。';
-      showMode('unavailable', '请先登录 · 未调用AI');
-      status.append(' ', button('登录本人 GitHub', () => { dialog.close(); void sync().open(); }));
+      status.textContent = state?.message || '全站搜索与智能对话仅限本人 GitHub 账号。';
+      showMode('unavailable', state && !state.canLogin ? '登录核验未完成 · 未调用AI' : '请先登录 · 未调用AI');
+      if (!state || state.canLogin || state.canRetry) status.append(' ', button(state?.canRetry ? '重试登录核验' : '登录本人 GitHub', () => {
+        if (state?.canRetry) void sync().retryAuthentication().catch(error => { status.textContent = error.message; });
+        else { dialog.close(); void sync().open(); }
+      }));
     }
     async function localSearch(force = false) {
       if (busy && !force) return null;
@@ -142,7 +145,7 @@
       try {
         const state = await sync().getState('english');
         if (!current()) return null;
-        if (!state.authenticated) { requireLogin(); return null; }
+        if (!state.authenticated) { requireLogin(state); return null; }
         if (!q) { results.replaceChildren(); status.textContent = '输入书名、主题或技能名开始查找。'; return []; }
         // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 先由服务端验证本人会话，再检索本机私人素材；不提供匿名本机检索兜底。
         const response = await sync().searchAssistant({ query: q, section: scope });
@@ -219,7 +222,7 @@
       try {
         const state = await sync().getState('english');
         if (!current()) return;
-        if (!state.authenticated) { if (showList) memoryBody.replaceChildren(node('p', '登录本人账号后查看私人对话与记忆。')); return; }
+        if (!state.authenticated) { if (showList) memoryBody.replaceChildren(node('p', state.message || '登录本人账号后查看私人对话与记忆。')); return; }
         const saved = await sync().assistantMemory(requested);
         if (!current() || busy) return;
         if (!history.length && saved.messages?.length) {
@@ -253,10 +256,13 @@
       // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 退出或会话失效立即清除私人展示，拒绝迟到的搜索、记忆及模型结果。
       accessEpoch++; searchRequest++; memoryRequest++; usageRequest++; clearTimeout(timer);
       busy = false; submit.disabled = chat.disabled = newChat.disabled = false; query.readOnly = false;
-      query.value = ''; online.checked = false; requireLogin(); showUsage(null, '请确认本人登录状态。');
+      query.value = ''; online.checked = false; requireLogin(); showUsage(null, sync().getSessionState?.().message || '请确认本人登录状态。');
       const epoch = accessEpoch, state = await sync().getState('english');
       if (epoch !== accessEpoch) return;
-      if (state.authenticated) status.textContent = '已登录本人账号，输入书名、主题或技能名开始查找。';
+      if (state.authenticated) {
+        status.textContent = '已登录本人账号，输入书名、主题或技能名开始查找。';
+        showMode('search', '站内检索 · 未调用AI');
+      }
       if (dialog.open) { void refreshUsage(); void restoreMemory(memoryPanel.open); }
     });
     function open(focus, { query: initialQuery, submit: shouldSubmit = false } = {}) {

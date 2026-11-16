@@ -27,3 +27,12 @@ test('素材投入排名自动追加保留各项定位键与全局序号',()=>{
   assert.deepEqual(list.children.map(row=>row.attrs.id),groups.map((_,i)=>'practice-rank-'+i));
   assert.deepEqual(list.children.map(row=>row.attrs['data-group']),groups.map(group=>group.id));
 });
+
+
+test('单本搜索不恢复已建目录的整套兜底，也不重复已匹配的动画素材',()=>{
+  const seen=[],resources=[{id:'catalog-series'},{id:'matched-animation'},{id:'unlisted-animation'}];
+  const context={h:element,S:{libraryLayout:'covers'},libraryGrouping:()=> 'books',libraryTopicEntries:()=>[{id:'one',resourceId:'catalog-series'}],filteredResources:()=>resources,libraryCard:r=>{seen.push(r.id);return element('article',{});},window:{EnglishAutomaticList:{tail:()=>null}}};
+  vm.createContext(context);vm.runInContext(section('function librarySearchMaterials(','function libraryResults('),context);
+  context.librarySearchMaterials([{id:'matched-animation',resourceId:'matched-animation',entryKind:'resource'}]);
+  assert.deepEqual(seen,['unlisted-animation']);
+});

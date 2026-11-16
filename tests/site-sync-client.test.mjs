@@ -6,11 +6,13 @@ import vm from 'node:vm';
 const source = await readFile(new URL('../shared/site-sync.js', import.meta.url), 'utf8');
 
 // 只模拟依赖边界，验证调用方可等待的结果，不模拟同步面板或布局。
-function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, xhsJobs = [], assistantResponses = [], bookResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null }, areas } = {}) {
+function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expired = false, configurationFails = false, localTokens = [], sessionTokens, sessionResponses = [], xhsJobs = [], assistantResponses = [], bookResponses = [], initial = { enabled: true, pending: false, error: null, conflict: null }, areas } = {}) {
   let states = structuredClone(areas || { english: initial }), action = async () => {}, calls = 0;
   const syncedAreas = [];
   const previewedAreas = [], enabledAreas = [];
-  const storage = new Map(loggedIn ? [['xiaoya-cloud-session-v2:' + apiBase, 'test-session']] : []);
+  const storage = new Map(sessionTokens || (loggedIn ? [['xiaoya-cloud-session-v2:' + apiBase, 'test-session']] : [])), persistent = new Map(localTokens);
+  const storageAPI = values => ({ getItem: key => values.get(key) || null, setItem: (key,value) => values.set(key,value), removeItem: key => values.delete(key) });
+  let sessionCalls = 0; const popup = { closed: false, close() { this.closed = true; }, focus() {} };
   const engine = {
     async register() {}, async changed() {}, authenticate() {},
     states: () => structuredClone(states),
@@ -38,11 +40,12 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
     XiaoyaSyncModel: { equal: (a, b) => JSON.stringify(a) === JSON.stringify(b) },
     XiaoyaSyncAdapters: { createAdapters: () => Object.fromEntries(Object.keys(states).map(area => [area, {}])) },
     XiaoyaSyncEngine: { createJournal: () => ({}), createEngine: () => engine },
+    localStorage: storageAPI(persistent), open: () => popup,
     navigator: { locks: { request: (_, callback) => callback() } },
   });
   const requests = []; let intervals = 0;
   const context = {
-    window, document, URL, AbortSignal, crypto: { randomUUID: () => 'test-request' },
+    window, document, URL, URLSearchParams, AbortSignal, crypto: { randomUUID: () => 'test-request' },
     location: { protocol: 'https:', hostname: 'pages.example.test' },
     fetch: async (url, options) => {
       if (url.endsWith('cloud-config.json')) {
@@ -62,15 +65,16 @@ function harness({ apiBase = 'https://sync.example.test', loggedIn = true, expir
         const result = assistantResponses.shift() || { status: 200, value: { sources: [] } };
         return { ok: result.status === 200, status: result.status, json: async () => result.value };
       }
-      assert.equal(url, apiBase + '/api/session');
+      assert.equal(url, apiBase + '/api/session'); sessionCalls++;
+      if (sessionResponses.length) return sessionResponses.shift()(options);
       return expired ? { status: 401 } : { status: 200, ok: true, json: async () => ({ user: { id: 1, login: 'test-user' } }) };
     },
-    sessionStorage: { getItem: key => storage.get(key), removeItem: key => storage.delete(key) },
-    setInterval() { intervals++; }, setTimeout(callback) { queueMicrotask(callback); }, clearTimeout() {},
+    sessionStorage: storageAPI(storage),
+    setInterval() { intervals++; }, setTimeout(callback, delay) { if (delay !== 600000) queueMicrotask(callback); }, clearTimeout() {},
   };
   vm.runInNewContext(source, context);
   const client = window.XiaoyaSync.createClient({ profileClient: { subscribe() {} } });
-  return { client, document, window, intervals:()=>intervals, previewedAreas, enabledAreas, requests, syncedAreas, calls: () => calls, setState(value, area = 'english') { states[area] = structuredClone(value); }, onSync(value) { action = value; } };
+  return { client, document, window, popup, storage, persistent, sessionCalls:()=>sessionCalls, intervals:()=>intervals, previewedAreas, enabledAreas, requests, syncedAreas, calls: () => calls, setState(value, area = 'english') { states[area] = structuredClone(value); }, onSync(value) { action = value; } };
 }
 
 test('已同步私人记录不设置轮询，切回和聚焦不拉取；恢复联网只续传未保存修改', async () => {
@@ -247,4 +251,114 @@ test('找书请求期间会话失效，先前成功响应也不得交给页面',
   await assert.rejects(h.client.bookFinderAccounts(), { code: 'AUTH_REQUIRED' });
   finish({ ok: true, status: 200, json: async () => ({ accounts: { epic: 'fake-late' } }) });
   await assert.rejects(first, { code: 'AUTH_REQUIRED' });
+});
+
+
+test('本站短期令牌持久化并迁移旧会话，新页面只核验一次，不缓存本地身份授权', async () => {
+  const key='xiaoya-cloud-session-v2:https://sync.example.test';
+  const first=harness();await first.client.ready;
+  assert.equal(first.persistent.get(key),'test-session');
+  const reopened=harness({loggedIn:false,localTokens:[...first.persistent]});
+  await reopened.client.ready;
+  assert.equal((await reopened.client.getState('english')).authenticated,true);
+  assert.equal((await reopened.client.getState('english')).sessionStatus,'restored');
+  for(let i=0;i<3;i++)await reopened.client.getState('english');
+  await reopened.client.searchAssistant({query:'公开内容'});
+  assert.equal(reopened.sessionCalls(),1);
+  const rejected=harness({loggedIn:false,localTokens:[...first.persistent],expired:true});
+  await rejected.client.ready;
+  assert.equal((await rejected.client.getState('english')).authenticated,false);
+  assert.equal((await rejected.client.getState('english')).sessionStatus,'expired');
+  assert.equal(rejected.persistent.has(key),false);assert.equal(rejected.storage.has(key),false);
+});
+
+test('GitHub登录成功替换本地令牌，其他标签页同令牌不重验，新令牌核验后才恢复私人功能', async () => {
+  const key='xiaoya-cloud-session-v2:https://sync.example.test',next='n'.repeat(43);
+  const h=harness({loggedIn:false});await h.client.open();
+  h.persistent.set(key,'stale-token');
+  const login=h.document.body.querySelectorAll('.site-sync-action').find(b=>b.textContent==='使用本人 GitHub 登录');
+  login.dispatchEvent(new Event('click'));
+  await new Promise(resolve=>setImmediate(resolve));
+  const message=Object.assign(new Event('message'),{origin:'https://sync.example.test',source:h.popup,data:{type:'xiaoya-auth',request:'test-request',token:next}});
+  h.window.dispatchEvent(message);
+  for(let i=0;i<5;i++)await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(h.persistent.get(key),next);assert.equal(h.storage.get(key),next);
+  assert.equal((await h.client.getState('english')).authenticated,true);
+  h.window.dispatchEvent(Object.assign(new Event('storage'),{key}));
+  assert.equal(h.sessionCalls(),1);
+  h.persistent.set(key,'another-token');
+  h.window.dispatchEvent(Object.assign(new Event('storage'),{key}));
+  for(let i=0;i<5;i++)await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(h.sessionCalls(),2);
+  assert.equal((await h.client.getState('english')).authenticated,true);
+  h.persistent.delete(key);h.window.dispatchEvent(Object.assign(new Event('storage'),{key}));
+  assert.equal((await h.client.getState('english')).authenticated,false);assert.equal(h.storage.has(key),false);
+});
+
+test('迟到的旧401不能清除新登录令牌，迟到的旧身份也不恢复退出后的会话',async()=>{
+  const key='xiaoya-cloud-session-v2:https://sync.example.test';
+  let finish;
+  // 通过书目接口保留一个旧会话的在途响应。
+  const late=harness({bookResponses:[()=>new Promise(resolve=>{finish=resolve;})]});await late.client.ready;
+  const reading=late.client.bookFinderAccounts();await new Promise(resolve=>setImmediate(resolve));
+  late.persistent.set(key,'fresh-token');late.window.dispatchEvent(Object.assign(new Event('storage'),{key}));
+  for(let i=0;i<5;i++)await new Promise(resolve=>setImmediate(resolve));
+  finish({status:401});await assert.rejects(reading,{code:'AUTH_REQUIRED'});
+  assert.equal(late.persistent.get(key),'fresh-token');assert.equal((await late.client.getState('english')).authenticated,true);
+  let complete;
+  const pending=harness({sessionResponses:[()=>new Promise(resolve=>{complete=resolve;})]});
+  await new Promise(resolve=>setImmediate(resolve));
+  pending.window.dispatchEvent(Object.assign(new Event('storage'),{key}));
+  complete({status:200,ok:true,json:async()=>({user:{id:1,login:'old-user'}})});
+  await pending.client.ready;assert.equal((await pending.client.getState('english')).authenticated,false);
+});
+
+
+test('localStorage受限仍能复用旧标签页会话，私人接口401同时撤销身份',async()=>{
+  const h=harness({assistantResponses:[{status:401}]});
+  h.window.localStorage={getItem(){throw Error('blocked');},setItem(){throw Error('blocked');},removeItem(){throw Error('blocked');}};
+  await h.client.ready;assert.equal((await h.client.getState('english')).authenticated,true);
+  await assert.rejects(h.client.searchAssistant({query:'test'}),{code:'AUTH_REQUIRED'});
+  assert.equal((await h.client.getState('english')).authenticated,false);assert.equal(h.storage.size,0);
+});
+
+test('缓存令牌自动核验中不要求OAuth，核验成功后自动恢复会话及面板', async () => {
+  let complete;
+  const h = harness({ sessionResponses: [() => new Promise(resolve => { complete = resolve; })] });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(h.client.getSessionState().sessionStatus, 'checking');
+  assert.equal(h.client.getSessionState().canLogin, false);
+  assert.equal(h.client.getSessionState().authenticated, false);
+  await h.client.open();
+  assert.equal(h.document.body.querySelectorAll('.site-sync-action').some(button => button.textContent.includes('GitHub 登录')), false);
+  complete({ ok: true, status: 200, json: async () => ({ user: { id: 1, login: 'restored-user' } }) });
+  await h.client.ready;
+  assert.equal(h.client.getSessionState().sessionStatus, 'restored');
+  assert.match(h.document.body.textContent, /已登录：restored-user/);
+  assert.equal(h.sessionCalls(), 1);
+});
+
+test('网络或身份响应异常保留缓存，不误报过期；重试共用请求且成功恢复', async () => {
+  const key = 'xiaoya-cloud-session-v2:https://sync.example.test';
+  for (const fail of [async () => { throw Error('offline'); }, async () => ({ ok: true, status: 200, json: async () => ({ user: null }) })]) {
+    let complete;
+    const h = harness({ loggedIn: false, localTokens: [[key, 'cached-token']], sessionResponses: [fail, () => new Promise(resolve => { complete = resolve; })] });
+    await h.client.ready;
+    const state = await h.client.sync('english');
+    assert.equal(state.status, 'auth-error'); assert.equal(state.sessionStatus, 'verification-error');
+    assert.equal(state.authenticated, false); assert.equal(state.canLogin, false); assert.equal(state.canRetry, true);
+    assert.equal(h.persistent.get(key), 'cached-token'); assert.equal(h.calls(), 0);
+    await h.client.open();
+    assert.equal(h.document.body.querySelectorAll('.site-sync-action').some(button => button.textContent.includes('GitHub 登录')), false);
+    const first = h.client.retryAuthentication(), second = h.client.retryAuthentication();
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(h.sessionCalls(), 2);
+    complete({ ok: true, status: 200, json: async () => ({ user: { id: 1, login: 'test-user' } }) });
+    await Promise.all([first, second]);
+    assert.equal((await h.client.getState('english')).sessionStatus, 'restored');
+    assert.equal(h.persistent.get(key), 'cached-token');
+  }
+  const anonymous = harness({ loggedIn: false }); await anonymous.client.ready;
+  assert.equal(anonymous.client.getSessionState().sessionStatus, 'signed-out');
+  assert.equal(anonymous.client.getSessionState().canLogin, true);
 });

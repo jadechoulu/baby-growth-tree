@@ -122,6 +122,33 @@ function materialEntries(data,resources,model,volumes){
       appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:record.sourceIds||[],edition:'',level:''}];
   }));
 }
+// 只为检索去除明确的套系前缀；不改原题名、身份或展示。
+function bookSearchTitle(book){
+  const title=String(book.title||'');
+  const series=[book.seriesTitle,book.series?.title,book.resource?.title,...(book.resource?.aliases||[])].filter(Boolean);
+  const clean=value=>normalize(value).replace(/\s*(?:全)?\d+\s*册.*$/,'').trim();
+  const candidates=series.map(clean).filter(Boolean).sort((a,b)=>b.length-a.length);
+  const boundary=title.match(/^(.*?)\s*(?:——+|[：:])\s*(.+)$/);
+  if(boundary){
+    const prefix=clean(boundary[1]).replace(/\s/g,'');
+    if(candidates.some(name=>{const compact=name.replace(/\s/g,'');return prefix.includes(compact)||compact.includes(prefix);}))return boundary[2];
+  }
+  const suffix=title.match(/^(.*)[—－-](.+)$/);
+  if(suffix){
+    const fragment=clean(suffix[2]).replace(/\s/g,'').replace(/(?:第)?\d+(?:册|本)?$/,'');
+    if(fragment.length>=6&&candidates.some(name=>name.replace(/\s/g,'').endsWith(fragment)))return suffix[1];
+  }
+  const normalized=normalize(title);
+  const prefix=candidates.find(name=>normalized===name||normalized.startsWith(name+' ')||normalized.startsWith(name)&&/^\d/.test(normalized.slice(name.length)));
+  return prefix?normalized.slice(prefix.length).replace(/^\s*(?:(?:第)?\d+\s*(?:册|本)?\s*)?/,'').trim():title;
+}
+function searchText(book,data,scope){
+  const resource=book.resource,own=scope==='book'&&book.entryKind!=='resource';
+  return normalize([own?bookSearchTitle(book):book.title,...(book.aliases||[]).map(title=>own?bookSearchTitle({...book,title}):title),
+    ...(!own?[book.seriesTitle,book.series?.title,...(book.searchLabels||[]),book.edition,book.level,resource.title,...(resource.aliases||[])]:[]),
+    ...T.labels(T.expand(topicIds(book,data))),...T.patterns(book.entryKind==='resource'?'resource':'book',book.entryKind==='resource'?resource:book).map(item=>item.text),
+    ...(book.topics||[]).map(id=>(data.topics||[]).find(t=>t.id===id)?.label||id)].join(' '));
+}
 function filter(books,data,filters={}){
   const query=normalize(filters.query);
   const hasTopic=!!(filters.topic&&filters.topic!=='all'||filters.subtopic&&filters.subtopic!=='all');
@@ -134,7 +161,7 @@ function filter(books,data,filters={}){
     if(filters.series&&filters.series!=='all'&&seriesGroup(book,data).id!==filters.series)return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
-    if(query&&!normalize([book.title,...(book.aliases||[]),book.seriesTitle,book.series?.title,...(book.searchLabels||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
+    if(query&&!searchText(book,data,filters.queryScope).includes(query))return false;
     return true;
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
