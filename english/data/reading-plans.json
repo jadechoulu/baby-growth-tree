@@ -126,7 +126,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 1
         },
         {
           "id": "heinemann-gk70-06",
@@ -175,7 +176,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 6
         },
         {
           "id": "heinemann-gk70-07",
@@ -224,7 +226,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 7
         },
         {
           "id": "heinemann-gk70-08",
@@ -273,7 +276,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 8
         },
         {
           "id": "heinemann-gk70-29",
@@ -325,7 +329,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 29
         },
         {
           "id": "heinemann-gk70-38",
@@ -374,7 +379,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 38
         },
         {
           "id": "heinemann-gk70-45",
@@ -423,7 +429,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 45
         },
         {
           "id": "heinemann-gk70-02",
@@ -472,7 +479,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 2
         },
         {
           "id": "heinemann-gk70-14",
@@ -521,7 +529,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 14
         },
         {
           "id": "heinemann-gk70-24",
@@ -570,7 +579,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 24
         },
         {
           "id": "heinemann-gk70-32",
@@ -619,7 +629,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 32
         },
         {
           "id": "heinemann-gk70-49",
@@ -668,7 +679,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 49
         },
         {
           "id": "heinemann-gk70-59",
@@ -837,7 +849,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 18
         },
         {
           "id": "heinemann-gk70-19",
@@ -886,7 +899,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 19
         },
         {
           "id": "heinemann-gk70-22",
@@ -935,7 +949,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 22
         },
         {
           "id": "heinemann-gk70-23",
@@ -984,7 +999,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 23
         },
         {
           "id": "heinemann-gk70-26",
@@ -1033,7 +1049,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 26
         },
         {
           "id": "heinemann-gk70-35",
@@ -1082,7 +1099,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 35
         },
         {
           "id": "heinemann-gk70-36",
@@ -1131,7 +1149,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 36
         },
         {
           "id": "heinemann-gk70-47",
@@ -1180,7 +1199,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 47
         },
         {
           "id": "heinemann-gk70-03",
@@ -1231,7 +1251,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 3
         },
         {
           "id": "heinemann-gk70-16",
@@ -1280,7 +1301,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 16
         },
         {
           "id": "heinemann-gk70-17",
@@ -1329,7 +1351,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 17
         },
         {
           "id": "heinemann-gk70-25",
@@ -1378,7 +1401,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 25
         },
         {
           "id": "heinemann-gk70-30",
@@ -1427,7 +1451,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 30
         },
         {
           "id": "heinemann-gk70-31",
@@ -1476,7 +1501,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 31
         },
         {
           "id": "heinemann-gk70-33",
@@ -1531,7 +1557,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 33
         },
         {
           "id": "heinemann-gk70-46",
@@ -1580,7 +1607,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 46
         },
         {
           "id": "heinemann-gk70-55",
@@ -1751,7 +1779,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 15
         },
         {
           "id": "heinemann-gk70-20",
@@ -1802,7 +1831,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 20
         },
         {
           "id": "heinemann-gk70-21",
@@ -1851,7 +1881,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 21
         },
         {
           "id": "heinemann-gk70-27",
@@ -1900,7 +1931,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 27
         },
         {
           "id": "heinemann-gk70-39",
@@ -1949,7 +1981,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 39
         },
         {
           "id": "heinemann-gk70-48",
@@ -1999,7 +2032,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 48
         },
         {
           "id": "heinemann-gk70-62",
@@ -2117,7 +2151,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 28
         },
         {
           "id": "heinemann-gk70-44",
@@ -2166,7 +2201,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 44
         },
         {
           "id": "heinemann-gk70-04",
@@ -2215,7 +2251,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 4
         },
         {
           "id": "heinemann-gk70-05",
@@ -2264,7 +2301,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 5
         },
         {
           "id": "heinemann-gk70-11",
@@ -2313,7 +2351,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 11
         },
         {
           "id": "heinemann-gk70-13",
@@ -2362,7 +2401,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 13
         },
         {
           "id": "heinemann-gk70-37",
@@ -2411,7 +2451,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 37
         },
         {
           "id": "heinemann-gk70-09",
@@ -2460,7 +2501,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 9
         },
         {
           "id": "heinemann-gk70-10",
@@ -2509,7 +2551,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 10
         },
         {
           "id": "heinemann-gk70-34",
@@ -2558,7 +2601,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 34
         },
         {
           "id": "heinemann-gk70-40",
@@ -2607,7 +2651,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 40
         },
         {
           "id": "heinemann-gk70-42",
@@ -2656,7 +2701,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 42
         },
         {
           "id": "heinemann-gk70-43",
@@ -2705,7 +2751,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 43
         },
         {
           "id": "heinemann-gk70-54",
@@ -2876,7 +2923,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 12
         },
         {
           "id": "heinemann-gk70-41",
@@ -2925,7 +2973,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 41
         },
         {
           "id": "heinemann-gk70-50",
@@ -2974,7 +3023,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 50
         },
         {
           "id": "heinemann-gk70-51",
@@ -3026,7 +3076,8 @@
               "width": 720,
               "height": 1280
             }
-          ]
+          ],
+          "campOrder": 51
         },
         {
           "id": "heinemann-gk70-52",
@@ -3186,6 +3237,20 @@
           "fileCount": 152,
           "completeVideoCount": 51,
           "note": "用户指定分享；逐个抽样完整版开头、第60秒与中段，版本差异另补120秒及约80%位置。当前分享仅覆盖第1–51册，52–70册未找到对应文件。"
+        }
+      ],
+      "readingOrders": [
+        {
+          "id": "pattern",
+          "label": "句型顺序",
+          "field": "order",
+          "note": "按原句型分类表排列，保留原书号。"
+        },
+        {
+          "id": "book",
+          "label": "书籍顺序",
+          "field": "number",
+          "note": "按国内GK70选本原书号1–70排列。"
         }
       ]
     }

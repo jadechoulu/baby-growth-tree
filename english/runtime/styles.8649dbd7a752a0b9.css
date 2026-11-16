@@ -1985,7 +1985,9 @@
 .book-study-guide>span{display:block;margin:3px 0}
 .reading-plan h2{margin:0 0 12px;overflow-wrap:anywhere}
 .reading-plan-toolbar,.reading-plan-filters,.reading-sync-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.reading-plan-filters button{min-height:36px;border:1px solid var(--line,#d3ddd8);border-radius:8px;background:var(--paper,#fff);color:inherit;padding:6px 10px;font:inherit;font-size:15px}
+.reading-plan-toolbar{margin-bottom:8px}
+.reading-plan-orders{margin-bottom:6px}
+.reading-plan-filters button{min-height:28px;border:1px solid var(--line,#d3ddd8);border-radius:6px;background:var(--paper,#fff);color:inherit;padding:3px 8px;font:inherit;font-size:13px;line-height:1.4}
 .reading-plan-filters button[aria-pressed="true"]{background:var(--accent,#2e6954);color:white;border-color:var(--accent,#2e6954)}
 .reading-plan-summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 12px;margin:12px 0 4px}
 .reading-plan-summary small{display:block;width:100%;font-size:12px;color:var(--muted,#64756c)}
@@ -1996,7 +1998,8 @@
 .reading-book-row>.library-book-cover{flex:0 0 48px}
 .reading-book-row input[type="checkbox"]{width:20px;height:20px;flex:0 0 20px;margin:2px 0;accent-color:var(--accent,#2e6954);cursor:pointer}
 .reading-book-row input[disabled]{cursor:default}
-.reading-book-row label{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;flex:1;min-width:0;cursor:pointer}
+.reading-book-info{flex:1;min-width:0;overflow-wrap:anywhere}
+.reading-book-info>label{display:inline;cursor:pointer}
 .reading-book-name{font-size:15px;overflow-wrap:anywhere}
 .reading-book-name small{font-size:12px;display:inline-block;min-width:53px;color:var(--muted,#64756c);margin-right:5px}
 .reading-book-patterns{display:flex;flex-wrap:wrap;gap:2px 10px;color:var(--muted,#64756c);font-size:15px;overflow-wrap:anywhere}
@@ -2105,18 +2108,25 @@
 .series-topic-toolbar .filter-reset{margin-left:auto}
 
 /* 逐册媒体入口沿用公共播放器；不挤占书名及原表句型。 */
-.reading-book-row>.book-video-play{flex:0 0 28px;width:28px;height:32px;min-width:28px;min-height:32px;padding:4px}
+.reading-book-info>.book-video-play{display:inline-flex;vertical-align:middle;width:24px;height:26px;min-width:24px;min-height:26px;padding:3px;margin-left:4px}
 .file-preview-caption,.file-preview-note{margin:4px 0;font-size:12px;overflow-wrap:anywhere}
 .file-preview-note{color:var(--ink);line-height:1.5}
 .file-preview.file-preview-floating{position:fixed;z-index:10000;inset:auto 12px max(76px,env(safe-area-inset-bottom)) auto;margin:0;box-shadow:0 8px 32px #14291d55;grid-template-rows:38px minmax(0,1fr)}
 .file-preview-floating>header{box-sizing:border-box;height:38px;padding:4px;gap:4px;touch-action:none;cursor:move;user-select:none}
-.file-preview-floating h2{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-preview-floating h2{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.file-preview-floating>header>button{width:30px;min-width:30px;padding:0}
+.file-preview-floating>header>button:last-child{margin-left:auto}
 .file-preview-floating>footer,.file-preview-floating .file-preview-controls,.file-preview-floating .file-preview-original,.file-preview-floating .file-preview-download,.file-preview-floating>header>button[aria-label="返回极空间资料目录"]{display:none}
 .file-preview-floating .file-preview-body{padding:0;overflow:hidden}
 .file-preview-floating .file-preview-body video{height:100%;object-fit:contain}
 .file-preview .file-preview-move{touch-action:none;cursor:move;font-size:18px;user-select:none}
 .file-preview .file-preview-resize{position:absolute;right:0;bottom:0;min-width:26px;width:26px;height:26px;min-height:26px;padding:0;border-radius:7px 0 0 0;touch-action:none;cursor:nwse-resize;opacity:.85;user-select:none}
-.file-preview .file-preview-move[hidden],.file-preview .file-preview-resize[hidden]{display:none}
+.file-preview .file-preview-move[hidden],.file-preview .file-preview-resize[hidden],.file-preview .file-preview-listen[hidden]{display:none}
+.file-preview.file-preview-listening{grid-template-rows:54px}
+.file-preview-listening>header{height:54px}
+.file-preview-listening>header>button{width:44px;min-width:44px;height:44px;min-height:44px}
+/* 裁切仍在原位播放的画面，不能用 display:none 或 visibility:hidden 影响媒体播放。 */
+.file-preview-listening .file-preview-body{position:absolute;left:0;top:100%;pointer-events:none}
 
 .hello-graph{width:100%;max-width:100%;min-width:0;box-sizing:border-box;margin-top:5px;font-size:13px}.hello-graph-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}.hello-graph-heading>strong{font-size:14px;overflow-wrap:anywhere}.hello-graph-status{font-size:12px;color:var(--muted,#6c7e72)}.hello-graph-tools{min-width:0;max-width:100%;display:flex;gap:5px;align-items:center;margin:4px 0;flex-wrap:wrap}.hello-graph-tool{height:28px;min-width:28px;padding:1px 6px;border:1px solid var(--line,#dce6dd);border-radius:8px;background:var(--paper,#fff);color:inherit;font:inherit;cursor:pointer}.hello-graph-tool:disabled{opacity:.4;cursor:default}.hello-graph-tools select{width:auto;max-width:150px;min-width:0;min-height:28px;height:28px;font-size:13px;padding-block:2px}.site-enabled .hello-graph-tools select{font-size:13px!important}.hello-graph-canvas{overflow:hidden;min-width:0;border:1px solid var(--line,#dce6dd);border-radius:12px;background:radial-gradient(circle at 1px 1px,#b9c9c044 1px,transparent 0) 0 0/18px 18px;touch-action:pan-y}.hello-graph-canvas>svg{display:block;touch-action:none;max-width:100%}.hello-graph-node{cursor:pointer;outline:none}.hello-graph-node>rect{fill:var(--paper,#fff);stroke:#90ad9e;stroke-width:1.3}.hello-graph-node.is-focus{cursor:default}.hello-graph-node.is-focus>rect{fill:var(--green-soft,#e7f1ea);stroke:var(--green,#2e6954);stroke-width:2}.hello-graph-node.type-scene>rect{stroke:#bf9757}.hello-graph-node.type-rhyme>rect,.hello-graph-node.type-tune>rect{stroke:#9477a5}.hello-graph-node.type-resource>rect{stroke:#608da5}.hello-graph-node:hover>rect,.hello-graph-node:focus>rect{stroke:var(--green,#2e6954);stroke-width:3}.hello-graph-node-copy{font:13px/1.25 system-ui,sans-serif;color:var(--ink,#243d32);overflow-wrap:anywhere;}.hello-graph-node-copy small{display:block;font-size:12px;color:var(--muted,#6c7e72);margin-bottom:2px}.hello-graph-node-copy strong{font-weight:650;display:block}.hello-graph-edge{fill:none;stroke:#9db4a6;stroke-width:1.5}.hello-graph-relation{font:12px system-ui,sans-serif;fill:var(--muted,#6c7e72);paint-order:stroke;stroke:var(--paper,#fff);stroke-width:5px;stroke-linejoin:round}.hello-graph-list,.hello-graph-help{font-size:13px;margin-top:5px}.hello-graph-list>summary,.hello-graph-help>summary{cursor:pointer}.hello-graph-help p{font-size:12px;line-height:1.6;color:var(--muted,#6c7e72)}.hello-graph-neighbors{display:grid;gap:3px;margin-top:4px}.hello-graph-neighbor-row{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--line,#dce6dd);padding:3px 0;min-width:0}.hello-graph-neighbor-row>span,.hello-graph-neighbor-row>small{font-size:12px;color:var(--muted,#6c7e72)}.hello-graph-neighbor-row>button,.hello-graph-neighbor-row>a{font:inherit;color:var(--green,#2e6954);border:0;background:none;text-align:left;padding:0;overflow-wrap:anywhere;cursor:pointer}.hello-graph-neighbor-row>a{max-width:100%}.hello-graph-tool:focus-visible,.hello-graph-neighbor-row>button:focus-visible,.hello-graph-neighbor-row>a:focus-visible{outline:3px solid #a77637;outline-offset:2px}@media(max-width:360px){.hello-graph-tools{gap:4px}.hello-graph-tools select{max-width:115px}.hello-graph-tool{padding-inline:6px}}
 .hello-graph-tune-title{display:inline;padding:0;border:0;background:none;text-align:left;font:650 13px/1.25 system-ui,sans-serif;color:inherit;overflow-wrap:anywhere;cursor:pointer}.hello-graph-tune-title:focus-visible{outline:3px solid #a77637;outline-offset:2px}.hello-graph-heading>strong>button{margin-inline-start:6px}

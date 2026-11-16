@@ -92,10 +92,11 @@ function install({h,asset,originalPath=()=>null,externalUrls=[],onMinimize=()=>u
     const original=info.kind==='web'?null:h('a',{href:info.shareUrl||parent?.info.url||source(),target:'_blank',rel:'noopener noreferrer',class:'file-preview-original','data-preview-original':'true',title:info.shareUrl||parent?'在浏览器打开极空间原分享页':'在新窗口打开原文件'},'原地址 ↗');
     const controls=h('div',{class:'file-preview-controls'}),footer=h('footer',{},info.filename?h('p',{class:'file-preview-caption'},info.filename):null,info.note?h('p',{class:'file-preview-note'},info.note):null,status);
     const mini=info.kind==='video'?button('小窗播放（可继续操作页面）','小窗',()=>setFloating(!state.floating)):null;
+    const listen=info.kind==='video'?button('收起画面，只听声音','♫',()=>setListening(!state.listening)):null;
     const move=info.kind==='video'?button('移动视频小窗（也可用方向键）','⠿',()=>{}):null;
     const resize=info.kind==='video'?button('拖动缩放视频小窗（保持原比例，也可用方向键）','↘',()=>{}):null;
-    if(move){move.className='file-preview-move';move.hidden=true;resize.className='file-preview-resize';resize.hidden=true;}
-    const header=h('header',{},move,heading,mini,original,download,button('关闭资源预览','×',close));
+    if(move){move.className='file-preview-move';move.hidden=true;move.title=(title||info.filename)+' · 移动视频小窗（也可用方向键）';resize.className='file-preview-resize';resize.hidden=true;listen.className='file-preview-listen';listen.hidden=true;listen.setAttribute('aria-pressed','false');}
+    const header=h('header',{},move,heading,listen,mini,original,download,button('关闭资源预览','×',close));
     dialog.append(header,controls,body,footer,resize);
     function fitFrame(){
       if(!state.frame)return;
@@ -105,6 +106,11 @@ function install({h,asset,originalPath=()=>null,externalUrls=[],onMinimize=()=>u
       }else for(const key of ['width','height','transformOrigin','transform'])state.frame.style[key]='';
     }
     function sizeFloating(width=state.size?.width||(root.innerWidth<=600?200:280)){
+      if(state.listening){
+        // 只裁去画面，保留原播放器的布局与播放；不隐藏、卸载或重新请求媒体。
+        body.style.width=(state.size.width-2)+'px';body.style.height=((state.size.width-2)/state.ratio)+'px';
+        dialog.style.width=Math.min(200,root.innerWidth-16)+'px';dialog.style.height=(header.getBoundingClientRect().height+2)+'px';return;
+      }
       state.size=miniVideoSize(width,state.ratio,root.innerWidth,root.innerHeight,header.getBoundingClientRect().height);
       dialog.style.width=state.size.width+'px';dialog.style.height=state.size.height+'px';fitFrame();
     }
@@ -112,6 +118,19 @@ function install({h,asset,originalPath=()=>null,externalUrls=[],onMinimize=()=>u
       const rect=dialog.getBoundingClientRect();
       state.position={left:Math.max(8,Math.min(left,Math.max(8,root.innerWidth-rect.width-8))),top:Math.max(8,Math.min(top,Math.max(8,root.innerHeight-rect.height-8)))};
       dialog.style.left=state.position.left+'px';dialog.style.top=state.position.top+'px';dialog.style.right='auto';dialog.style.bottom='auto';
+    }
+    function updateListening(listening){
+      state.listening=listening;dialog.classList.toggle('file-preview-listening',listening);
+      listen.textContent=listening?'▣':'♫';listen.setAttribute('aria-pressed',String(listening));
+      listen.title=listening?'显示视频画面':'收起画面，只听声音';listen.setAttribute('aria-label',listen.title);
+      resize.hidden=!state.floating||listening;body.inert=listening;
+      if(listening)body.setAttribute('aria-hidden','true');
+      else{body.removeAttribute('aria-hidden');body.style.width='';body.style.height='';}
+    }
+    function setListening(listening){
+      if(state.disposed||!state.floating)return;
+      const rect=dialog.getBoundingClientRect();updateListening(listening);sizeFloating();position(rect.left,rect.top);
+      listen.focus({preventScroll:true});
     }
     function setFloating(floating){
       if(state.disposed||!!state.floating===floating)return;
@@ -123,9 +142,9 @@ function install({h,asset,originalPath=()=>null,externalUrls=[],onMinimize=()=>u
         // 保留父目录和播放器节点；只撤销模态约束，不移除或重建 iframe。
         for(const layer of parents){layer.suspended=true;layer.dialog.close();}
       }
-      state.changingMode=true;state.floating=floating;dialog.close();
-      dialog.classList.toggle('file-preview-floating',floating);move.hidden=!floating;resize.hidden=!floating;
-      mini.textContent=floating?'恢复':'小窗';mini.setAttribute('aria-label',floating?'恢复视频大窗':'小窗播放（可继续操作页面）');mini.title=floating?'恢复视频大窗':'小窗播放（可继续操作页面）';
+      state.changingMode=true;state.floating=floating;updateListening(false);dialog.close();
+      dialog.classList.toggle('file-preview-floating',floating);move.hidden=!floating;listen.hidden=!floating;
+      mini.textContent=floating?'⤢':'小窗';mini.setAttribute('aria-label',floating?'恢复视频大窗':'小窗播放（可继续操作页面）');mini.title=floating?'恢复视频大窗':'小窗播放（可继续操作页面）';
       if(floating){dialog.show();document.body.style.overflow=state.pageOverflow;}
       else{
         for(const layer of parents.reverse()){layer.suspended=false;layer.dialog.showModal();}
@@ -144,9 +163,9 @@ function install({h,asset,originalPath=()=>null,externalUrls=[],onMinimize=()=>u
       move.addEventListener('keydown',event=>{if(!state.floating||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();event.stopPropagation();const rect=dialog.getBoundingClientRect();position(rect.left+({ArrowLeft:-24,ArrowRight:24}[event.key]||0),rect.top+({ArrowUp:-24,ArrowDown:24}[event.key]||0));});
       let scaling;
       resize.addEventListener('pointerdown',event=>{if(event.button!==0)return;const rect=dialog.getBoundingClientRect();scaling={x:event.clientX,y:event.clientY,width:rect.width,left:rect.left,top:rect.top};resize.setPointerCapture(event.pointerId);event.preventDefault();});
-      resize.addEventListener('pointermove',event=>{if(!scaling||!state.floating)return;const dx=event.clientX-scaling.x,dy=(event.clientY-scaling.y)*state.ratio;sizeFloating(scaling.width+(Math.abs(dx)>=Math.abs(dy)?dx:dy));position(scaling.left,scaling.top);});
+      resize.addEventListener('pointermove',event=>{if(!scaling||!state.floating||state.listening)return;const dx=event.clientX-scaling.x,dy=(event.clientY-scaling.y)*state.ratio;sizeFloating(scaling.width+(Math.abs(dx)>=Math.abs(dy)?dx:dy));position(scaling.left,scaling.top);});
       for(const event of ['pointerup','pointercancel','lostpointercapture'])resize.addEventListener(event,()=>{scaling=null;});
-      resize.addEventListener('keydown',event=>{if(!state.floating||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();event.stopPropagation();sizeFloating(state.size.width+(['ArrowLeft','ArrowUp'].includes(event.key)?-24:24));const rect=dialog.getBoundingClientRect();position(rect.left,rect.top);});
+      resize.addEventListener('keydown',event=>{if(!state.floating||state.listening||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();event.stopPropagation();sizeFloating(state.size.width+(['ArrowLeft','ArrowUp'].includes(event.key)?-24:24));const rect=dialog.getBoundingClientRect();position(rect.left,rect.top);});
       state.resize=()=>{if(state.floating){sizeFloating();if(state.position)position(state.position.left,state.position.top);}};root.addEventListener('resize',state.resize);
     }
     if(parent)dialog.querySelector('header').prepend(button('返回极空间资料目录','‹ 返回',close));

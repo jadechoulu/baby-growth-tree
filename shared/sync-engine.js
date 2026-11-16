@@ -31,9 +31,9 @@
     }
     return { update, get: key => update(key, value => value) };
   }
-  function createEngine({ journal, request, lock = (_, job) => job(), onStatus = () => {}, debounceMs = 0, retryMs = 5000 }) {
+  function createEngine({ journal, request, lock = (_, job) => job(), onStatus = () => {}, debounceMs = 0, retryMs = 5000, autoRestoreAreas = [] }) {
     const adapters = new Map(), states = new Map(), timers = new Map(), running = new Map(), rerun = new Set();
-    let authenticated = false, closed = false;
+    let authenticated = false, closed = false, authRevision = 0;
     const keyFor = area => area;
     const report = (area, status) => { states.set(area, { ...states.get(area), ...status }); onStatus(area, M.copy(states.get(area))); };
     function schedule(area, delay = debounceMs) {
@@ -72,9 +72,29 @@
       // 确认时再次核对两侧，避免预览期间变化后仍沿用旧决议。
       const current = await preview(area);
       if (!M.equal(current.local, reviewed.local) || !M.equal(current.remote, reviewed.remote)) throw new Error('预览期间记录已变化，请重新查看后连接。');
-      await journal.update(keyFor(area), entry => ({ ...entry, enabled: true, migrations: [...(entry.migrations || []), { local: reviewed.local, remote: reviewed.remote, at: new Date().toISOString() }] }));
+      await journal.update(keyFor(area), entry => ({ ...entry, enabled: true, paused: false, migrations: [...(entry.migrations || []), { local: reviewed.local, remote: reviewed.remote, at: new Date().toISOString() }] }));
       report(area, { enabled: true });
       return sync(area);
+    }
+    function restoreExisting(area) {
+      const revision = authRevision;
+      return run(area, async () => {
+        const entry = await journal.get(keyFor(area));
+        // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 仅本人身份核验后恢复既有云端，退出后的迟到结果不得接入私人记录。
+        if (!authenticated || revision !== authRevision || closed || entry.enabled || entry.paused || entry.migrations?.length) return;
+        const reviewed = await preview(area);
+        if (!authenticated || revision !== authRevision || closed || !reviewed.remote.snapshot) return;
+        let connected = false;
+        await journal.update(keyFor(area), current => {
+          if (!authenticated || revision !== authRevision || current.enabled || current.paused || current.migrations?.length) return current;
+          connected = true;
+          return { ...current, enabled: true, migrations: [...(current.migrations || []), { local: reviewed.local, remote: reviewed.remote, at: new Date().toISOString(), automatic: true }] };
+        });
+        if (!connected) return;
+        report(area, { enabled: true });
+        // 继续原三方合并、冲突及回执链；同字段冲突不自动选择任一侧。
+        await perform(area);
+      }).catch(error => report(area, { error: error.message, pending: true }));
     }
     async function applyReceipt(area, receipt) {
       // 回执先持久化再合入领域库；页面在这两步之间关闭时，下次打开继续处理。
@@ -174,8 +194,8 @@
       register, changed, preview, enable, sync, resolve,
       states: () => Object.fromEntries([...states].map(([key, value]) => [key, M.copy(value)])),
       // 每次打开或刷新后，身份确认即读取一次服务端；后续仅编辑、手动同步或待保存重试触发。
-      authenticate(value) { authenticated = value; return value ? Promise.all([...adapters.keys()].map(sync)) : Promise.resolve(); },
-      async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false })); if (timers.has(area)) clearTimeout(timers.get(area)); report(area, { enabled: false }); },
+      authenticate(value) { authenticated = value; authRevision++; return value ? Promise.all([...adapters.keys()].map(area => !states.get(area)?.enabled && autoRestoreAreas.includes(area) ? restoreExisting(area) : sync(area))) : Promise.resolve(); },
+      async disable(area) { await journal.update(keyFor(area), entry => ({ ...entry, enabled: false, paused: true })); if (timers.has(area)) clearTimeout(timers.get(area)); report(area, { enabled: false }); },
       destroy() { closed = true; for (const timer of timers.values()) clearTimeout(timer); },
     };
   }

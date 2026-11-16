@@ -145,6 +145,7 @@
         const journal = root.XiaoyaSyncEngine.createJournal(root.indexedDB);
         const scope = apiBase || 'local-only';
         engine = root.XiaoyaSyncEngine.createEngine({
+          autoRestoreAreas: ['english'],
           journal: { get: area => journal.get(scope + '|' + area), update: (area, change) => journal.update(scope + '|' + area, change) },
           request, lock,
           onStatus() { updateButtons(); emit('sync-state'); },

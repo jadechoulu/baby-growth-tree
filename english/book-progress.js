@@ -24,8 +24,9 @@ function planForResource(data,id,directory,catalog,scope){
   return null;
 }
 function groupForStage(plan,stageId){return plan?.stageGroups?.[stageId]||'all';}
-function books(plan,group='all'){
-  return [...new Map((plan?.books||[]).filter(book=>group==='all'||book.group===group).map(book=>[book.id,book])).values()].sort((a,b)=>a.order-b.order);
+function books(plan,group='all',order){
+  const field=plan?.readingOrders?.find(item=>item.id===order)?.field||'order';
+  return [...new Map((plan?.books||[]).filter(book=>group==='all'||(Array.isArray(group)?group.includes(book.group):book.group===group)).map(book=>[book.id,book])).values()].sort((a,b)=>(a[field]??Infinity)-(b[field]??Infinity)||a.order-b.order);
 }
 function externalFacts(records){
   return Object.entries(records||{}).filter(([key,record])=>key.startsWith(EXTERNAL)&&record?.status==='done').flatMap(([key,record])=>{
@@ -78,7 +79,7 @@ function progress(records,plan,group='all',legacy){
 }
 function sourcePriority(records,plan,group='all'){
   if(plan.catalog){
-    const selected=plan.groups.filter(item=>group==='all'||item.id===group);
+    const selected=plan.groups.filter(item=>group==='all'||(Array.isArray(group)?group.includes(item.id):item.id===group));
     return selected.length>0&&selected.every(item=>scopeAuthority(records,item.publicationScope));
   }
   const record=records?.[AUTHORITY+plan.id],meta=parse(record?.note);
