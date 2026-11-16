@@ -60,7 +60,7 @@ function audioVersions(resources){const counts=new Map(),seen=new Map();for(cons
 function rhymeMatchesTune(data,book,rhyme,tune){return tune==='all'||tuneNames(rhyme).includes(tune)||packageVideos(data,book,{rhymeId:rhyme.id}).some(resource=>(resource.tunes||[]).includes(tune));}
 function partTopics(data,book,part){return [...new Set(Topics.entryTopics('hello-part',part).concat(partRhymes(data,book,part).flatMap(r=>Topics.entryTopics('hello-rhyme',r))))];}
 function rhymeTopics(data,book,rhyme){return [...new Set(Topics.entryTopics('hello-rhyme',rhyme).concat(book.parts.filter(p=>(rhyme.partIds||[]).includes(book.id+'-part-'+p.part)).flatMap(p=>Topics.entryTopics('hello-part',p))))];}
-function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part='',topic='all',subtopic='all'}={}){
+function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part='',topic='all',subtopic='all',queryScope='series'}={}){
   const words=normalize(query).split(' ').filter(Boolean),matches=text=>searchMatches(text,query);
   if(edition!=='numbered')return [];
   return data.books.filter(b=>matchesBook(book,b.id)).map(b=>{
@@ -70,8 +70,8 @@ function filter(data,{edition='numbered',book='all',scene='all',tune='all',query
     if(tune!=='all')parts=parts.filter(p=>byPart.get(p.part).some(r=>tuned.includes(r))||packageVideos(data,b,{partId:b.id+'-part-'+p.part}).some(resource=>(resource.tunes||[]).includes(tune)));
     const resourceText=b.resources.flatMap(r=>[r.label,...(r.originalNames||[])]).join(' '),materialText=materials(data,{bookId:b.id}).flatMap(item=>[item.title,materialLabel(item),item.sourceName]).join(' ');
     if(words.length&&!matches(b.title)){
-      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...Topics.labels(Topics.expand(partTopics(data,b,p))),...packageVideos(data,b,{partId:b.id+'-part-'+p.part}).flatMap(resource=>[resource.label,...(resource.tunes||[])]),...audioResources(data,b,{partId:b.id+'-part-'+p.part}).map(resource=>resource.label),...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
-      if(found.length)parts=found;else if(!matches(resourceText+' '+materialText))parts=[];
+      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...Topics.labels(Topics.expand(partTopics(data,b,p))),...(queryScope==='book'?[]:packageVideos(data,b,{partId:b.id+'-part-'+p.part}).flatMap(resource=>[resource.label,...(resource.tunes||[])])),...(queryScope==='book'?[]:audioResources(data,b,{partId:b.id+'-part-'+p.part}).map(resource=>resource.label)),...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
+      if(found.length)parts=found;else if(queryScope==='book'||!matches(resourceText+' '+materialText))parts=[];
     }
     const scoped=part||scene!=='all'||tune!=='all'||topic!=='all'||subtopic!=='all'||words.length;
     const rhymes=tuned.filter(r=>(!scoped||parts.some(p=>byPart.get(p.part).includes(r)))&&Topics.matches(rhymeTopics(data,b,r),{topic,subtopic}));

@@ -4,12 +4,15 @@ const list=value=>Array.isArray(value)?value:[],unique=values=>[...new Set(value
 const byId=new Map(data.nodes.map(item=>[item.id,item]));
 const byLabel=new Map(data.nodes.map(item=>[item.label,item]));
 const legacyLabels=Object.fromEntries(Object.entries(data.legacyBookLabels).map(([label,id])=>[id,label]));
+const patternGroups=list(data.patternGroups);
+const patternGroupByMember=new Map(patternGroups.flatMap(group=>group.members.map(id=>[id,group])));
+for(const group of patternGroups){byId.set(group.id,group);byLabel.set(group.label,group);}
 function node(id){return byId.get(id)||byLabel.get(id);}
 function roots(){return data.nodes.filter(item=>!item.parentId).sort((a,b)=>Number(b.id==='patterns')-Number(a.id==='patterns'));}
-function children(parentId){return data.nodes.filter(item=>item.parentId===parentId);}
+function children(parentId){return parentId==='patterns'&&patternGroups.length?patternGroups:data.nodes.filter(item=>item.parentId===parentId);}
 function label(id){return node(id)?.label||id;}
 function labels(ids){return unique(list(ids).map(label));}
-function expand(ids){return unique(list(ids).flatMap(id=>{const item=node(id);return item?.parentId?[item.id,item.parentId]:[item?.id||id];}));}
+function expand(ids){return unique(list(ids).flatMap(id=>{const item=node(id);const group=patternGroupByMember.get(item?.id)||(item?.parentId==='patterns'&&!patternGroups.includes(item)?patternGroups.find(group=>group.id==='patterns.group-other'):null);return item?.parentId?[item.id,...(group?[group.id]:[]),item.parentId]:[item?.id||id];}));}
 function matches(ids,{topic='all',subtopic='all'}={}){
   const values=expand(ids),parent=topic&&topic!=='all'?node(topic)?.id||topic:null,child=subtopic&&subtopic!=='all'?node(subtopic)?.id||subtopic:null;
   if(parent&&!values.includes(parent))return false;

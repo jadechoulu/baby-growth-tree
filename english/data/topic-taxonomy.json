@@ -139986,5 +139986,377 @@
         }
       ]
     }
-  }
+  },
+  "patternGroups": [
+    {
+      "id": "patterns.group-see",
+      "label": "I / we can see",
+      "parentId": "patterns",
+      "members": [
+        "patterns.e5fd16b27853",
+        "patterns.ba0ecc536459",
+        "patterns.5ed8cb50aec4",
+        "patterns.dd7dcfded977",
+        "patterns.5d256418f64f",
+        "patterns.64ab6d18760b",
+        "patterns.8d22bf053887",
+        "patterns.70aa0ccecb8f",
+        "patterns.5617809f1855",
+        "patterns.1759c0f26b25",
+        "patterns.b3c23e473bdd"
+      ]
+    },
+    {
+      "id": "patterns.group-like",
+      "label": "like / love",
+      "parentId": "patterns",
+      "members": [
+        "patterns.30ddfa587488",
+        "patterns.7abe0c4f91f8",
+        "patterns.90b1cef91d85",
+        "patterns.4bad9dd162af",
+        "patterns.86e1506cadd2",
+        "patterns.438be143073d",
+        "patterns.caa54b0f54aa",
+        "patterns.633c8d7a44c8",
+        "patterns.445a0884f11a",
+        "patterns.7bf058700d17",
+        "patterns.299804a6dfe8",
+        "patterns.edbbcf039f67",
+        "patterns.77696e275df7",
+        "patterns.0e22c8f6c415",
+        "patterns.702dc4b6192e"
+      ]
+    },
+    {
+      "id": "patterns.group-here",
+      "label": "Here is / are",
+      "parentId": "patterns",
+      "members": [
+        "patterns.b5ae5df5d025",
+        "patterns.45a7492b35ae",
+        "patterns.58a9b268bbb1",
+        "patterns.bf86443673f4",
+        "patterns.93815539d9c3"
+      ]
+    },
+    {
+      "id": "patterns.group-look",
+      "label": "Look at",
+      "parentId": "patterns",
+      "members": [
+        "patterns.67ccc5d6b095",
+        "patterns.45b93316de37",
+        "patterns.5a035d4590f5",
+        "patterns.6c0c740244c6",
+        "patterns.de537b8f7143",
+        "patterns.ad258c1fb32c",
+        "patterns.ef96e99a370d",
+        "patterns.ef7f391fa5b1",
+        "patterns.3fe5aaa92eb5",
+        "patterns.f235300c5fac"
+      ]
+    },
+    {
+      "id": "patterns.group-have",
+      "label": "has / have",
+      "parentId": "patterns",
+      "members": [
+        "patterns.c5dea9c5500e",
+        "patterns.77edf524163e",
+        "patterns.9a182d196c3d",
+        "patterns.b41b5b337778",
+        "patterns.d3d92ef9bd9e",
+        "patterns.908b36f13fe9",
+        "patterns.7ff652501820"
+      ]
+    },
+    {
+      "id": "patterns.group-be",
+      "label": "This / here / it is",
+      "parentId": "patterns",
+      "members": [
+        "patterns.4c15909c4a21",
+        "patterns.dad6d2f810ed",
+        "patterns.b7c260838e9e",
+        "patterns.a176aa4e00db",
+        "patterns.2b6eaf9fe5ef",
+        "patterns.ca86399f9fb2",
+        "patterns.f987d7a9542d",
+        "patterns.7c7def6bff08",
+        "patterns.efaae379c922",
+        "patterns.cfb4904f83bc",
+        "patterns.c5d06c0a8799",
+        "patterns.57b884e2de43",
+        "patterns.61a7c56cabbf",
+        "patterns.6a1d6eb2a47b",
+        "patterns.4f8bb74e1c42",
+        "patterns.0a1d81b5575a",
+        "patterns.8a6a3aa5313a",
+        "patterns.d457e3a99392",
+        "patterns.d35753ff380e",
+        "patterns.464ebadfbeda",
+        "patterns.19bd503fb361",
+        "patterns.783a0ecea330",
+        "patterns.ca994cca59ac",
+        "patterns.2507de0c98b0",
+        "patterns.813b1ec3db44",
+        "patterns.0891122acf75",
+        "patterns.0ecf9e0646ea",
+        "patterns.d2e0b66e3660",
+        "patterns.3e650be3be08",
+        "patterns.7debfa2e0c8c",
+        "patterns.c41b69cc61d1",
+        "patterns.d456387dc3bd",
+        "patterns.285ad6c5d56e",
+        "patterns.17489516c156",
+        "patterns.111d14cdca39",
+        "patterns.18eb7d295e1a",
+        "patterns.4c00a3da647c",
+        "patterns.bdffc4174d5d",
+        "patterns.8a8b6fbdf9c3"
+      ]
+    },
+    {
+      "id": "patterns.group-come-see",
+      "label": "Come and see",
+      "parentId": "patterns",
+      "members": [
+        "patterns.2ce708c2e9d1",
+        "patterns.93908cdf7141",
+        "patterns.9b1830e02c89"
+      ]
+    },
+    {
+      "id": "patterns.group-doing",
+      "label": "is / are doing",
+      "parentId": "patterns",
+      "members": [
+        "patterns.95e50905d65d",
+        "patterns.d9569423271d",
+        "patterns.81c574cc58c7",
+        "patterns.40311796568a",
+        "patterns.9f18885aa2ed",
+        "patterns.be9c7f9c7150",
+        "patterns.9450d53acbb6",
+        "patterns.3f49de4f937c",
+        "patterns.f46eb2a2f948",
+        "patterns.4ec66f8d412f",
+        "patterns.3128478ced80",
+        "patterns.4d1393c2162a",
+        "patterns.dcf9e8456501"
+      ]
+    },
+    {
+      "id": "patterns.group-can",
+      "label": "can do",
+      "parentId": "patterns",
+      "members": [
+        "patterns.5478280e125b",
+        "patterns.76e45008b82b",
+        "patterns.f7f34b1ddf96",
+        "patterns.e136194677c0",
+        "patterns.50553d77df33",
+        "patterns.a5058fa7175f",
+        "patterns.046c9e823993",
+        "patterns.740cadc2a282",
+        "patterns.2742e19ed9da",
+        "patterns.e8372ec49108",
+        "patterns.9d088d9dc0b6",
+        "patterns.42238a68cb14",
+        "patterns.88f4001baa91",
+        "patterns.2043c3a42ba2",
+        "patterns.de83204eec73",
+        "patterns.63d1c91d6456",
+        "patterns.7aff5c60444f",
+        "patterns.2a43bef616ef",
+        "patterns.fceacd427268",
+        "patterns.22c5ab8a571e",
+        "patterns.b580f34bc9ac",
+        "patterns.2679abd1bf58",
+        "patterns.e10752f9032a",
+        "patterns.e137be6d5cd9",
+        "patterns.8e5a7e056367",
+        "patterns.b85757a4efa1"
+      ]
+    },
+    {
+      "id": "patterns.group-there",
+      "label": "There is / are",
+      "parentId": "patterns",
+      "members": [
+        "patterns.66e6b6553138",
+        "patterns.47f296f5a0ad"
+      ]
+    },
+    {
+      "id": "patterns.group-questions",
+      "label": "疑问句",
+      "parentId": "patterns",
+      "members": [
+        "patterns.12dca1058f21",
+        "patterns.7a5e3e3887bd",
+        "patterns.329b999ea105",
+        "patterns.d45e8fc215f6",
+        "patterns.1cc5dbd0b09d",
+        "patterns.5a7c23c842ab",
+        "patterns.f15228a873fd",
+        "patterns.65f86639ab3d",
+        "patterns.1fd635f4dd12",
+        "patterns.7b56b0c5ca75",
+        "patterns.721891a5bf74",
+        "patterns.1bb8c77e063c",
+        "patterns.1367d0025a73",
+        "patterns.7b75639ad1b9",
+        "patterns.76179ad2a768",
+        "patterns.53a0ca0d89ad",
+        "patterns.4d2db0425ed5",
+        "patterns.b5e62fc39d12",
+        "patterns.ce78f02abccd",
+        "patterns.f556e27cbf77",
+        "patterns.eaf73209216f",
+        "patterns.1cf996182a01",
+        "patterns.751deb037dd0",
+        "patterns.bf06a6b8c2e9",
+        "patterns.20f8ef7c60c2"
+      ]
+    },
+    {
+      "id": "patterns.group-let",
+      "label": "Let’s / Let me",
+      "parentId": "patterns",
+      "members": [
+        "patterns.5b9dea25a855",
+        "patterns.65cf4e97d0a4",
+        "patterns.e235fea4bf2a",
+        "patterns.26a629069366",
+        "patterns.630ebb0b21aa",
+        "patterns.cb50ac3a7b39",
+        "patterns.e41ad442174e"
+      ]
+    },
+    {
+      "id": "patterns.group-requests",
+      "label": "祈使句／请求",
+      "parentId": "patterns",
+      "members": [
+        "patterns.05b9d9cbcea3",
+        "patterns.12ea69dc378d",
+        "patterns.32bd6bc7c877",
+        "patterns.13381f6d5fbb",
+        "patterns.fbcc22d416f7",
+        "patterns.45b7af452da3",
+        "patterns.77af4bfa79b3",
+        "patterns.b9193e6e2308",
+        "patterns.f9f66731b45d",
+        "patterns.ee42861e601f",
+        "patterns.746f8a95186e",
+        "patterns.3cf7465edca3",
+        "patterns.47f0eb0c50ef",
+        "patterns.fc73f3c55f2c",
+        "patterns.982729639c15",
+        "patterns.7533dad15b63",
+        "patterns.5191609ec3c3"
+      ]
+    },
+    {
+      "id": "patterns.group-go",
+      "label": "go / went",
+      "parentId": "patterns",
+      "members": [
+        "patterns.155ae65d86e5",
+        "patterns.d9fc8403ab12",
+        "patterns.df8efffb85dd",
+        "patterns.b7a9e490b59c",
+        "patterns.6da5570b024d",
+        "patterns.50b06cb94ebd",
+        "patterns.92c1668dc14b",
+        "patterns.abcff5396ec1",
+        "patterns.0147c1939ecf",
+        "patterns.1d05e4770fca",
+        "patterns.abc1b9e0ab0b",
+        "patterns.a49ef128e324"
+      ]
+    },
+    {
+      "id": "patterns.group-future",
+      "label": "will / going to",
+      "parentId": "patterns",
+      "members": [
+        "patterns.a9cc64dcb5b5",
+        "patterns.73a3dff67fff",
+        "patterns.9f59b39876d3",
+        "patterns.f175a335a714",
+        "patterns.2d42154d7201",
+        "patterns.f58377dc97aa"
+      ]
+    },
+    {
+      "id": "patterns.group-location",
+      "label": "位置表达",
+      "parentId": "patterns",
+      "members": [
+        "patterns.12c68048e300",
+        "patterns.c2cacdb53d86",
+        "patterns.810ce8dcf471",
+        "patterns.82806a362e28",
+        "patterns.991fe2068432",
+        "patterns.82e48dcbf33e",
+        "patterns.7dc49c4615e6",
+        "patterns.b3df3981d04d",
+        "patterns.1c88bc7a70fa",
+        "patterns.41c895a64a33",
+        "patterns.2f5dc0bbc1e0"
+      ]
+    },
+    {
+      "id": "patterns.group-senses",
+      "label": "感官表达",
+      "parentId": "patterns",
+      "members": [
+        "patterns.8873d3681954",
+        "patterns.895ece5b448b",
+        "patterns.023c9278d85e",
+        "patterns.9e197b1961bf",
+        "patterns.0f6dee9e0529",
+        "patterns.73f12313e9e9"
+      ]
+    },
+    {
+      "id": "patterns.group-other",
+      "label": "其他",
+      "parentId": "patterns",
+      "members": [
+        "patterns.d31ecda36979",
+        "patterns.afe90d871583",
+        "patterns.12d8c07d7755",
+        "patterns.445e61546406",
+        "patterns.86d35cda2eb5",
+        "patterns.c4aff20c57cb",
+        "patterns.c09b3faafda3",
+        "patterns.5c6d1a97c36b",
+        "patterns.b2b8220d7361",
+        "patterns.d3dbca204a2f",
+        "patterns.cd8df3aececf",
+        "patterns.4d664d02d741",
+        "patterns.7b7f24544023",
+        "patterns.ef0b19d15c5b",
+        "patterns.47bf8284c467",
+        "patterns.c8efa83852ec",
+        "patterns.87584f320af9",
+        "patterns.dfee15e5aa43",
+        "patterns.9b4b2d6b0e42",
+        "patterns.7f47fbc20951",
+        "patterns.bbdae22e716e",
+        "patterns.235b4baf1ddf",
+        "patterns.42f184bbbdb7",
+        "patterns.7b742ba5e59e",
+        "patterns.10c178895dee",
+        "patterns.84e4bd493e44",
+        "patterns.d9c1a7964903",
+        "patterns.5c81697bd40d",
+        "patterns.e885f86c7b30"
+      ]
+    }
+  ]
 }

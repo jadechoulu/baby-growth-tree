@@ -423,7 +423,7 @@
   function createClient({ siteRoot = './', profileClient }) {
     if (singleton) return singleton;
     let apiBase = '', token = '', user = null, configurationError = '', dialog, popup, nonce, authTimer, engine, sessionKey;
-    let initialized = false;
+    let initialized = false, verifiedToken = '', authTask, sessionStatus = 'checking', sessionError = '';
     let allSyncTask;
     let allSync = { busy: false, results: [], skipped: [] };
     const applying = new Set();
@@ -436,27 +436,58 @@
       indexedDB: root.indexedDB, localStorage: root.localStorage, profileClient,
       notify(area) { emit(area); channel?.postMessage({ area }); },
     });
+    function savedToken() {
+      try { const saved = root.localStorage?.getItem(sessionKey); if (saved) return saved; } catch { /* 受限存储回退至当前标签页。 */ }
+      try { return sessionStorage.getItem(sessionKey) || ''; } catch { return ''; }
+    }
+    function saveToken(value) {
+      // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 本机仅保存短期本站会话令牌，不保存 GitHub OAuth 凭据或私人账号。
+      try { root.localStorage?.setItem(sessionKey, value); } catch { /* 保留标签页／内存会话。 */ }
+      try { sessionStorage.setItem(sessionKey, value); } catch { /* 保留内存会话。 */ }
+    }
+    function getSessionState() {
+      const messages = {
+        checking: '正在自动核验本地登录状态…', restored: '已恢复本人登录',
+        'signed-out': '请使用本人 GitHub 登录。', expired: '登录已过期，请重新登录本人 GitHub。',
+        'verification-error': '登录状态暂未核验成功，本地登录缓存已保留。',
+        'not-configured': '同步服务尚未配置。', 'configuration-error': '同步配置暂不可用。',
+      };
+      return { sessionStatus, authenticated: sessionStatus === 'restored' && !!user,
+        canLogin: ['signed-out', 'expired'].includes(sessionStatus), canRetry: sessionStatus === 'verification-error',
+        message: messages[sessionStatus], ...(sessionError ? { error: sessionError } : {}) };
+    }
+    function clearSession(expected = token, status = 'signed-out') {
+      if (token !== expected) return;
+      token = ''; verifiedToken = ''; user = null; sessionStatus = status; sessionError = ''; engine?.authenticate(false);
+      try { if (root.localStorage?.getItem(sessionKey) === expected) root.localStorage.removeItem(sessionKey); } catch { /* 仍清除内存。 */ }
+      try { sessionStorage.removeItem(sessionKey); } catch { /* 仍清除内存。 */ }
+      updateButtons(); emit('auth');
+      if (dialog?.open) void open();
+    }
     async function request(area, method, body) {
       if (!token) throw Object.assign(new Error('请登录本人 GitHub 账号后同步。'), { code: 'AUTH_REQUIRED' });
+      const requestToken = token;
       let response;
       const path = { 'book-accounts': '/api/book-finder/accounts', 'assistant': '/api/assistant', 'assistant-search': '/api/assistant/search', 'assistant-memory': '/api/assistant/memory', 'xhs-sync': '/api/xiaohuasheng/sync', 'xhs-backup': '/api/xiaohuasheng/backup' }[area] || (['session', 'logout'].includes(area) ? '/api/' + area : '/api/data/' + area);
       try {
         // @CfSecAICode 遵循消费金融安全编码 BE-SECRET-001 规范: 只有短期会话令牌进入固定 API 授权头，GitHub 密钥不进入前端。
-        response = await fetch(apiBase + path + (area === 'assistant-memory' && method === 'GET' && body?.conversationId ? '?conversationId=' + encodeURIComponent(body.conversationId) : ''), { method, redirect: 'error', cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json', Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body && method !== 'GET' ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(area.startsWith('assistant') ? 40000 : 25000) });
-      } catch { throw new Error(area.startsWith('assistant') ? '智能服务连接未完成，已保留站内结果；不会自动重试。' : '云端连接失败，记录已保存在本机，将自动重试。'); }
+        response = await fetch(apiBase + path + (area === 'assistant-memory' && method === 'GET' && body?.conversationId ? '?conversationId=' + encodeURIComponent(body.conversationId) : ''), { method, redirect: 'error', cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json', Authorization: 'Bearer ' + requestToken, ...(body ? { 'Content-Type': 'application/json' } : {}) }, ...(body && method !== 'GET' ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(area.startsWith('assistant') ? 40000 : 25000) });
+      } catch { throw new Error(area === 'session' ? '登录状态核验连接失败，请重试；本地登录缓存已保留。' : area.startsWith('assistant') ? '智能服务连接未完成，已保留站内结果；不会自动重试。' : '云端连接失败，记录已保存在本机，将自动重试。'); }
       if (response.status === 401) {
-        token = ''; user = null; engine?.authenticate(false);
-        try { sessionStorage.removeItem(sessionKey); } catch { /* 已清除内存会话；受限存储不影响本机记录。 */ }
-        updateButtons(); emit('auth');
+        clearSession(requestToken, 'expired');
         throw Object.assign(new Error('登录已过期，本机记录保留，重新登录后继续。'), { code: 'AUTH_REQUIRED' });
       }
       let value;
       try { value = await response.json(); } catch { throw new Error('同步服务响应无效，记录仍在本机。'); }
       if (!response.ok) throw Object.assign(new Error(value.message || '同步失败，记录仍在本机。'), { code: response.status === 409 ? 'VERSION_CONFLICT' : response.status === 403 ? 'ACCESS_DENIED' : value.code });
+      // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 会话变更后丢弃旧请求的成功响应。
+      if (token !== requestToken) throw Object.assign(new Error('登录会话已变更，请重试。'), { code: 'AUTH_REQUIRED' });
       return value;
     }
     function label() {
       if (!apiBase) return '仅本机';
+      if (sessionStatus === 'checking') return '正在恢复登录';
+      if (sessionStatus === 'verification-error') return '登录核验待重试';
       if (!user) return '登录同步';
       const states = Object.values(engine?.states() || {});
       if (states.some(state => state.conflict)) return '同步冲突';
@@ -469,7 +500,7 @@
     function updateButtons() {
       const syncAllButton = dialog?.querySelector('[data-sync-all]');
       if (syncAllButton) {
-        syncAllButton.disabled = allSync.busy || !user;
+        syncAllButton.disabled = allSync.busy || !getSessionState().authenticated;
         syncAllButton.textContent = allSync.busy ? '同步中…' : user && !Object.values(engine?.states() || {}).some(state => state.enabled) ? '连接并同步' : '一键同步';
       }
       const syncAllStatus = dialog?.querySelector('[data-sync-all-status]');
@@ -533,15 +564,46 @@
           async apply(next, base) { applying.add(area); try { return await adapter.apply(next, base); } finally { applying.delete(area); } },
         });
         sessionKey = 'xiaoya-cloud-session-v2:' + apiBase;
-        try { token = sessionStorage.getItem(sessionKey) || ''; } catch { /* 会话存储不可用时保留内存会话。 */ }
-        if (apiBase && token) await authenticate();
-      } catch (error) { if (error.code !== 'AUTH_REQUIRED') configurationError = error.message; }
-      initialized = true; updateButtons();
+        token = savedToken();
+        sessionStatus = !apiBase ? 'not-configured' : token ? 'checking' : 'signed-out';
+      } catch (error) { configurationError = error.message; sessionStatus = 'configuration-error'; }
+      initialized = true;
+      if (!configurationError && apiBase && token) {
+        try { await authenticate(); } catch { /* 核验结果由共享会话状态呈现，临时失败不清除令牌。 */ }
+      }
+      updateButtons();
     }
-    async function authenticate() {
-      const result = await request('session', 'GET');
-      if (!Number.isSafeInteger(result.user?.id) || typeof result.user.login !== 'string') throw new Error('登录身份响应无效。');
-      user = result.user; await engine.authenticate(true); updateButtons(); emit('auth');
+    function authenticate() {
+      // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 仅复用本页面已由服务端核验的同一令牌，不用本地缓存身份放行私人功能。
+      if (sessionStatus === 'restored' && user && verifiedToken === token) return Promise.resolve();
+      const currentToken = token;
+      if (authTask?.token === currentToken) return authTask.promise;
+      if (!currentToken) return Promise.resolve();
+      sessionStatus = 'checking'; sessionError = ''; updateButtons(); emit('auth');
+      const promise = (async () => {
+        const result = await request('session', 'GET');
+        if (token !== currentToken) return;
+        if (!Number.isSafeInteger(result.user?.id) || typeof result.user.login !== 'string') throw new Error('登录身份响应无效。');
+        user = result.user; verifiedToken = currentToken; saveToken(currentToken);
+        await engine.authenticate(true);
+        if (token !== currentToken) return;
+        sessionStatus = 'restored';
+        updateButtons(); emit('auth');
+        if (dialog?.open) void open();
+      })().catch(error => {
+        if (token === currentToken) {
+          user = null; verifiedToken = ''; sessionStatus = 'verification-error'; sessionError = error.message;
+          engine?.authenticate(false); updateButtons(); emit('auth');
+          if (dialog?.open) void open();
+        }
+        throw error;
+      }).finally(() => { if (authTask?.token === currentToken) authTask = null; });
+      authTask = { token: currentToken, promise }; return promise;
+    }
+    async function retryAuthentication() {
+      await ready;
+      try { await authenticate(); } finally { if (dialog?.open) await open(); }
+      return getSessionState();
     }
     function login() {
       if (!apiBase) return;
@@ -557,9 +619,9 @@
       if (!apiBase || event.origin !== apiBase || event.source !== popup || !nonce || event.data?.type !== 'xiaoya-auth' || event.data.request !== nonce) return;
       nonce = null; clearTimeout(authTimer); popup?.close(); popup = null;
       if (event.data.error || !/^[A-Za-z0-9_-]{43}$/.test(event.data.token || '')) { showError('登录未完成，请使用指定的本人 GitHub 账号重试。'); return; }
-      token = event.data.token;
-      try { sessionStorage.setItem(sessionKey, token); } catch { /* 保留内存会话。 */ }
-      try { await authenticate(); await open(); } catch (error) { showError(error.message); }
+      token = event.data.token; verifiedToken = ''; user = null; engine?.authenticate(false);
+      saveToken(token);
+      try { await authenticate(); await open(); } catch (error) { await open(); showError(error.message); }
     });
     function showError(message) {
       if (dialog?.open) dialog.querySelector('[data-sync-error]').textContent = message;
@@ -662,16 +724,18 @@
       body.append(element('p', '一键同步已连接的档案与记录；重新抓取小花生书架请使用“小花生同步”。'));
       const syncAllStatus = element('p'); syncAllStatus.dataset.syncAllStatus = ''; syncAllStatus.setAttribute('role', 'status'); body.append(syncAllStatus);
       if (!apiBase) body.append(element('p', '同步服务尚未配置，当前仅保存在此浏览器。请继续保留 JSON 备份。'));
-      else if (!user) body.append(action('使用本人 GitHub 登录', login));
+      else if (!getSessionState().authenticated) {
+        body.append(element('p', getSessionState().message));
+        if (getSessionState().canLogin) body.append(action('使用本人 GitHub 登录', login));
+        if (getSessionState().canRetry) body.append(action('重试登录核验', retryAuthentication));
+      }
       else {
         body.append(element('p', '已登录：' + user.login));
         for (const area of Object.keys(names)) {
           body.append(createCard(area));
         }
         body.append(action('退出登录（保留本机记录）', async () => {
-          await request('logout', 'POST'); token = ''; user = null; engine.authenticate(false);
-          try { sessionStorage.removeItem(sessionKey); } catch { /* 受限存储不阻止退出内存会话。 */ }
-          updateButtons(); emit('auth'); await open();
+          const currentToken = token; await request('logout', 'POST'); clearSession(currentToken); await open();
         }));
       }
       dialog.append(header, body); document.body.append(dialog);
@@ -690,15 +754,16 @@
     function areaState(area) {
       if (!Object.hasOwn(names, area)) throw new Error('未知记录分类。');
       const state = engine?.states()[area] || {};
-      const status = configurationError ? 'configuration-error' : !apiBase ? 'not-configured' : !user ? 'auth-required' : !state.enabled ? 'connection-required' : state.conflict ? 'conflict' : state.error ? 'error' : state.syncing ? 'syncing' : state.pending ? 'pending' : 'synced';
-      return { ...state, status, configured: !!apiBase, authenticated: !!user, ok: status === 'synced', ...(configurationError ? { error: configurationError } : {}) };
+      const session = getSessionState();
+      const status = configurationError ? 'configuration-error' : !apiBase ? 'not-configured' : sessionStatus === 'checking' ? 'auth-checking' : sessionStatus === 'verification-error' ? 'auth-error' : !session.authenticated ? 'auth-required' : !state.enabled ? 'connection-required' : state.conflict ? 'conflict' : state.error ? 'error' : state.syncing ? 'syncing' : state.pending ? 'pending' : 'synced';
+      return { ...state, ...session, status, configured: !!apiBase, ok: status === 'synced', ...(configurationError ? { error: configurationError } : {}) };
     }
     async function getState(area) { await ready; return areaState(area); }
     async function sync(area) {
       await ready;
       const before = areaState(area);
       // 未登录或未确认连接时不擅自迁入；调用方可打开原同步面板继续原有确认流程。
-      if (['configuration-error', 'not-configured', 'auth-required', 'connection-required'].includes(before.status)) return before;
+      if (!before.authenticated || before.status === 'connection-required') return before;
       await engine.sync(area);
       updateButtons();
       // 引擎将网络错误与冲突保存在分类状态中；Promise结束不代表同步成功。
@@ -747,11 +812,21 @@
       if (engine && user) for (const [area,state] of Object.entries(engine.states())) if (state.enabled && state.pending && !state.conflict) void engine.sync(area);
     });
     if (channel) channel.onmessage = event => { if (names[event.data?.area]) { emit(event.data.area); void engine?.changed(event.data.area); } };
-    root.addEventListener('storage', event => { if (event.key === 'little-leaf-english-v1') { emit('english'); void engine?.changed('english'); } });
+    root.addEventListener('storage', event => {
+      if (sessionKey && (event.key === sessionKey || event.key === null)) {
+        let next = ''; try { next = root.localStorage?.getItem(sessionKey) || ''; } catch { return; }
+        if (next === token) return;
+        token = next; verifiedToken = ''; user = null; engine?.authenticate(false);
+        try { sessionStorage.removeItem(sessionKey); } catch { /* 清除本标签页的旧令牌。 */ }
+        if (token) void authenticate().catch(showError);
+        else clearSession(next);
+        return;
+      }
+      if (event.key === 'little-leaf-english-v1') { emit('english'); void engine?.changed('english'); } });
     profileClient.subscribe((profile, error) => { if (!error && !applying.has('profile')) void changed('profile').catch(showError); });
     const ready = init();
     singleton = {
-      ready, open, changed, sync, syncAll, getState,
+      ready, open, changed, sync, syncAll, getState, getSessionState, retryAuthentication,
       async bookFinderAccounts() {
         await ready;
         const currentToken = token;
@@ -1075,7 +1150,7 @@
       try {
         const state = await sync().getState('english');
         if (epoch !== accessEpoch) return;
-        if (!state.authenticated) { if (request === usageRequest) showUsage(null, '全站搜索与智能对话仅限本人 GitHub 账号。'); return; }
+        if (!state.authenticated) { if (request === usageRequest) showUsage(null, state.message || '全站搜索与智能对话仅限本人 GitHub 账号。'); return; }
         const response = await sync().assistantStatus();
         if (request === usageRequest) {
           showUsage(response.usage, response.enabled ? '用量暂不可读取' : 'AI尚未启用；暂无用量统计。', response.platformUsage, response.model);
@@ -1130,11 +1205,14 @@
         results.append(link);
       }
     }
-    function requireLogin() {
+    function requireLogin(state = sync().getSessionState?.()) {
       results.replaceChildren(); answer.hidden = true; answer.replaceChildren(); external.replaceChildren(); memoryBody.replaceChildren(); history = [];
-      status.textContent = '全站搜索与智能对话仅限本人 GitHub 账号。';
-      showMode('unavailable', '请先登录 · 未调用AI');
-      status.append(' ', button('登录本人 GitHub', () => { dialog.close(); void sync().open(); }));
+      status.textContent = state?.message || '全站搜索与智能对话仅限本人 GitHub 账号。';
+      showMode('unavailable', state && !state.canLogin ? '登录核验未完成 · 未调用AI' : '请先登录 · 未调用AI');
+      if (!state || state.canLogin || state.canRetry) status.append(' ', button(state?.canRetry ? '重试登录核验' : '登录本人 GitHub', () => {
+        if (state?.canRetry) void sync().retryAuthentication().catch(error => { status.textContent = error.message; });
+        else { dialog.close(); void sync().open(); }
+      }));
     }
     async function localSearch(force = false) {
       if (busy && !force) return null;
@@ -1144,7 +1222,7 @@
       try {
         const state = await sync().getState('english');
         if (!current()) return null;
-        if (!state.authenticated) { requireLogin(); return null; }
+        if (!state.authenticated) { requireLogin(state); return null; }
         if (!q) { results.replaceChildren(); status.textContent = '输入书名、主题或技能名开始查找。'; return []; }
         // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 先由服务端验证本人会话，再检索本机私人素材；不提供匿名本机检索兜底。
         const response = await sync().searchAssistant({ query: q, section: scope });
@@ -1221,7 +1299,7 @@
       try {
         const state = await sync().getState('english');
         if (!current()) return;
-        if (!state.authenticated) { if (showList) memoryBody.replaceChildren(node('p', '登录本人账号后查看私人对话与记忆。')); return; }
+        if (!state.authenticated) { if (showList) memoryBody.replaceChildren(node('p', state.message || '登录本人账号后查看私人对话与记忆。')); return; }
         const saved = await sync().assistantMemory(requested);
         if (!current() || busy) return;
         if (!history.length && saved.messages?.length) {
@@ -1255,10 +1333,13 @@
       // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 退出或会话失效立即清除私人展示，拒绝迟到的搜索、记忆及模型结果。
       accessEpoch++; searchRequest++; memoryRequest++; usageRequest++; clearTimeout(timer);
       busy = false; submit.disabled = chat.disabled = newChat.disabled = false; query.readOnly = false;
-      query.value = ''; online.checked = false; requireLogin(); showUsage(null, '请确认本人登录状态。');
+      query.value = ''; online.checked = false; requireLogin(); showUsage(null, sync().getSessionState?.().message || '请确认本人登录状态。');
       const epoch = accessEpoch, state = await sync().getState('english');
       if (epoch !== accessEpoch) return;
-      if (state.authenticated) status.textContent = '已登录本人账号，输入书名、主题或技能名开始查找。';
+      if (state.authenticated) {
+        status.textContent = '已登录本人账号，输入书名、主题或技能名开始查找。';
+        showMode('search', '站内检索 · 未调用AI');
+      }
       if (dialog.open) { void refreshUsage(); void restoreMemory(memoryPanel.open); }
     });
     function open(focus, { query: initialQuery, submit: shouldSubmit = false } = {}) {
@@ -1751,12 +1832,15 @@ const list=value=>Array.isArray(value)?value:[],unique=values=>[...new Set(value
 const byId=new Map(data.nodes.map(item=>[item.id,item]));
 const byLabel=new Map(data.nodes.map(item=>[item.label,item]));
 const legacyLabels=Object.fromEntries(Object.entries(data.legacyBookLabels).map(([label,id])=>[id,label]));
+const patternGroups=list(data.patternGroups);
+const patternGroupByMember=new Map(patternGroups.flatMap(group=>group.members.map(id=>[id,group])));
+for(const group of patternGroups){byId.set(group.id,group);byLabel.set(group.label,group);}
 function node(id){return byId.get(id)||byLabel.get(id);}
 function roots(){return data.nodes.filter(item=>!item.parentId).sort((a,b)=>Number(b.id==='patterns')-Number(a.id==='patterns'));}
-function children(parentId){return data.nodes.filter(item=>item.parentId===parentId);}
+function children(parentId){return parentId==='patterns'&&patternGroups.length?patternGroups:data.nodes.filter(item=>item.parentId===parentId);}
 function label(id){return node(id)?.label||id;}
 function labels(ids){return unique(list(ids).map(label));}
-function expand(ids){return unique(list(ids).flatMap(id=>{const item=node(id);return item?.parentId?[item.id,item.parentId]:[item?.id||id];}));}
+function expand(ids){return unique(list(ids).flatMap(id=>{const item=node(id);const group=patternGroupByMember.get(item?.id)||(item?.parentId==='patterns'&&!patternGroups.includes(item)?patternGroups.find(group=>group.id==='patterns.group-other'):null);return item?.parentId?[item.id,...(group?[group.id]:[]),item.parentId]:[item?.id||id];}));}
 function matches(ids,{topic='all',subtopic='all'}={}){
   const values=expand(ids),parent=topic&&topic!=='all'?node(topic)?.id||topic:null,child=subtopic&&subtopic!=='all'?node(subtopic)?.id||subtopic:null;
   if(parent&&!values.includes(parent))return false;
@@ -4533,6 +4617,33 @@ function materialEntries(data,resources,model,volumes){
       appearances:resource.custom?resource.stageRefs||[]:resource.appearances||[],sourceIds:record.sourceIds||[],edition:'',level:''}];
   }));
 }
+// 只为检索去除明确的套系前缀；不改原题名、身份或展示。
+function bookSearchTitle(book){
+  const title=String(book.title||'');
+  const series=[book.seriesTitle,book.series?.title,book.resource?.title,...(book.resource?.aliases||[])].filter(Boolean);
+  const clean=value=>normalize(value).replace(/\s*(?:全)?\d+\s*册.*$/,'').trim();
+  const candidates=series.map(clean).filter(Boolean).sort((a,b)=>b.length-a.length);
+  const boundary=title.match(/^(.*?)\s*(?:——+|[：:])\s*(.+)$/);
+  if(boundary){
+    const prefix=clean(boundary[1]).replace(/\s/g,'');
+    if(candidates.some(name=>{const compact=name.replace(/\s/g,'');return prefix.includes(compact)||compact.includes(prefix);}))return boundary[2];
+  }
+  const suffix=title.match(/^(.*)[—－-](.+)$/);
+  if(suffix){
+    const fragment=clean(suffix[2]).replace(/\s/g,'').replace(/(?:第)?\d+(?:册|本)?$/,'');
+    if(fragment.length>=6&&candidates.some(name=>name.replace(/\s/g,'').endsWith(fragment)))return suffix[1];
+  }
+  const normalized=normalize(title);
+  const prefix=candidates.find(name=>normalized===name||normalized.startsWith(name+' ')||normalized.startsWith(name)&&/^\d/.test(normalized.slice(name.length)));
+  return prefix?normalized.slice(prefix.length).replace(/^\s*(?:(?:第)?\d+\s*(?:册|本)?\s*)?/,'').trim():title;
+}
+function searchText(book,data,scope){
+  const resource=book.resource,own=scope==='book'&&book.entryKind!=='resource';
+  return normalize([own?bookSearchTitle(book):book.title,...(book.aliases||[]).map(title=>own?bookSearchTitle({...book,title}):title),
+    ...(!own?[book.seriesTitle,book.series?.title,...(book.searchLabels||[]),book.edition,book.level,resource.title,...(resource.aliases||[])]:[]),
+    ...T.labels(T.expand(topicIds(book,data))),...T.patterns(book.entryKind==='resource'?'resource':'book',book.entryKind==='resource'?resource:book).map(item=>item.text),
+    ...(book.topics||[]).map(id=>(data.topics||[]).find(t=>t.id===id)?.label||id)].join(' '));
+}
 function filter(books,data,filters={}){
   const query=normalize(filters.query);
   const hasTopic=!!(filters.topic&&filters.topic!=='all'||filters.subtopic&&filters.subtopic!=='all');
@@ -4545,7 +4656,7 @@ function filter(books,data,filters={}){
     if(filters.series&&filters.series!=='all'&&seriesGroup(book,data).id!==filters.series)return false;
     if(filters.type&&filters.type!=='all'&&resource.type!==filters.type)return false;
     if(filters.sharedOnly&&new Set(book.appearances.map(a=>a.routeId)).size<2)return false;
-    if(query&&!normalize([book.title,...(book.aliases||[]),book.seriesTitle,book.series?.title,...(book.searchLabels||[]),book.edition,book.level,resource.title,...(resource.aliases||[]),...T.labels(T.expand(topicIds(book,data))),...(book.topics||[]).map(id=>data.topics.find(t=>t.id===id)?.label||id)].join(' ')).includes(query))return false;
+    if(query&&!searchText(book,data,filters.queryScope).includes(query))return false;
     return true;
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
@@ -5070,7 +5181,7 @@ function audioVersions(resources){const counts=new Map(),seen=new Map();for(cons
 function rhymeMatchesTune(data,book,rhyme,tune){return tune==='all'||tuneNames(rhyme).includes(tune)||packageVideos(data,book,{rhymeId:rhyme.id}).some(resource=>(resource.tunes||[]).includes(tune));}
 function partTopics(data,book,part){return [...new Set(Topics.entryTopics('hello-part',part).concat(partRhymes(data,book,part).flatMap(r=>Topics.entryTopics('hello-rhyme',r))))];}
 function rhymeTopics(data,book,rhyme){return [...new Set(Topics.entryTopics('hello-rhyme',rhyme).concat(book.parts.filter(p=>(rhyme.partIds||[]).includes(book.id+'-part-'+p.part)).flatMap(p=>Topics.entryTopics('hello-part',p))))];}
-function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part='',topic='all',subtopic='all'}={}){
+function filter(data,{edition='numbered',book='all',scene='all',tune='all',query='',part='',topic='all',subtopic='all',queryScope='series'}={}){
   const words=normalize(query).split(' ').filter(Boolean),matches=text=>searchMatches(text,query);
   if(edition!=='numbered')return [];
   return data.books.filter(b=>matchesBook(book,b.id)).map(b=>{
@@ -5080,8 +5191,8 @@ function filter(data,{edition='numbered',book='all',scene='all',tune='all',query
     if(tune!=='all')parts=parts.filter(p=>byPart.get(p.part).some(r=>tuned.includes(r))||packageVideos(data,b,{partId:b.id+'-part-'+p.part}).some(resource=>(resource.tunes||[]).includes(tune)));
     const resourceText=b.resources.flatMap(r=>[r.label,...(r.originalNames||[])]).join(' '),materialText=materials(data,{bookId:b.id}).flatMap(item=>[item.title,materialLabel(item),item.sourceName]).join(' ');
     if(words.length&&!matches(b.title)){
-      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...Topics.labels(Topics.expand(partTopics(data,b,p))),...packageVideos(data,b,{partId:b.id+'-part-'+p.part}).flatMap(resource=>[resource.label,...(resource.tunes||[])]),...audioResources(data,b,{partId:b.id+'-part-'+p.part}).map(resource=>resource.label),...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
-      if(found.length)parts=found;else if(!matches(resourceText+' '+materialText))parts=[];
+      const found=parts.filter(p=>matches([b.title,p.title,p.scene,p.note,...Topics.labels(Topics.expand(partTopics(data,b,p))),...(queryScope==='book'?[]:packageVideos(data,b,{partId:b.id+'-part-'+p.part}).flatMap(resource=>[resource.label,...(resource.tunes||[])])),...(queryScope==='book'?[]:audioResources(data,b,{partId:b.id+'-part-'+p.part}).map(resource=>resource.label)),...byPart.get(p.part).flatMap(r=>[r.title,...tuneNames(r),...(r.themes||[]),...b.resources.filter(a=>(a.rhymeIds||[]).includes(r.id)).map(a=>a.label)])].join(' ')));
+      if(found.length)parts=found;else if(queryScope==='book'||!matches(resourceText+' '+materialText))parts=[];
     }
     const scoped=part||scene!=='all'||tune!=='all'||topic!=='all'||subtopic!=='all'||words.length;
     const rhymes=tuned.filter(r=>(!scoped||parts.some(p=>byPart.get(p.part).includes(r)))&&Topics.matches(rhymeTopics(data,b,r),{topic,subtopic}));
@@ -5803,11 +5914,11 @@ async function syncXiaohuashengRead({automatic=false}={}){
   }catch(error){readingSync={busy:false,result:null,error};}
   render();if(S.modal?.kind==='xhs-sync')renderModal();else if(!automatic)openModal('xhs-sync');
   if(automatic&&readingSync.error)toast('小花生自动同步未完成，原进度保留；可点击同步图标重试。');
-  if(!automatic&&readingSync.result?.mode==='cloud'&&['auth-required','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
+  if(!automatic&&readingSync.result?.mode==='cloud'&&['auth-required','auth-error','auth-checking','connection-required','conflict'].includes(readingSync.result.cloud.status))await siteSync.open();
 }
 function readingSyncDetail(){
   const {busy,result,error}=readingSync,X=window.EnglishXiaohuashengSync,local=X.localEntry(location),meta=result?.receipt||X.receipt(S.records);
-  const cloudMessages={'not-configured':'此入口尚未配置私人同步服务。','configuration-error':'私人同步配置暂不可用。','auth-required':'请先在记录同步中登录本人 GitHub，完成后返回此处重新获取小花生。','connection-required':'请先在记录同步中预览并连接英语记录，完成后返回此处重新获取小花生。',conflict:'私人记录存在冲突，请核对选择后再重新获取小花生。',error:'云端暂未确认，请打开记录同步重试。',pending:'本机记录已保留，仍在等待云端确认。',syncing:'私人记录仍在同步，请稍后重试。'};
+  const cloudMessages={'not-configured':'此入口尚未配置私人同步服务。','configuration-error':'私人同步配置暂不可用。','auth-checking':'正在自动核验本地登录状态，请稍候。','auth-error':'登录状态暂未核验成功，本地登录缓存已保留；请重试登录核验。','auth-required':'请先在记录同步中登录本人 GitHub，完成后返回此处重新获取小花生。','connection-required':'请先在记录同步中预览并连接英语记录，完成后返回此处重新获取小花生。',conflict:'私人记录存在冲突，请核对选择后再重新获取小花生。',error:'云端暂未确认，请打开记录同步重试。',pending:'本机记录已保留，仍在等待云端确认。',syncing:'私人记录仍在同步，请稍后重试。'};
   const progress=readingSync.progress,phase=progress?.phase;
   const progressText=phase==='local'?'正在通过本机授权读取小花生完整书架…':phase==='bookcase'?'云端正在读取书架，已取得 '+progress.books+' 本…':phase==='catalog'?'云端正在核对书目 '+progress.resolved+'／'+progress.total+' 本…':phase==='collections'?'云端正在核对套系 '+progress.resolved+'／'+progress.total+'…':phase==='queued'?'云端正在准备读取小花生完整书架…':'正在准备同步进度…';
   return h('div',{class:'reading-sync-detail'},h('h2',{},'同步小花生进度'),
@@ -5884,7 +5995,7 @@ function bookFinderDetail(){
     modal.available?.includes(item.id)?h('button',{type:'button',class:'icon-button book-finder-copy',title:'复制'+item.name+'账号','aria-label':'复制'+item.name+'账号',onclick:event=>copyBookFinderAccount(item.id,event)},icon('copy')):null))),
     modal.loading?h('p',{class:'small-note',role:'status'},'正在读取账号…'):null,
     modal.error?h('p',{class:'small-note',role:'alert'},modal.error,h('button',{type:'button',class:'text-link',onclick:()=>loadBookFinder(modal)},'重试')):null,
-    !modal.loading&&!modal.error&&!modal.available?.length?h('p',{class:'small-note'},'登录本人 GitHub 后可复制账号。',h('button',{type:'button',class:'text-link',disabled:!siteSync,onclick:()=>siteSync.open()},'登录')):null);
+    !modal.loading&&!modal.error&&!modal.available?.length?ownerAuthNotice('登录本人 GitHub 后可复制账号。'):null);
 }
 function englishActions(){return h('div',{class:'top-actions'},h('label',{class:'english-site-search'},icon('search'),h('input',{id:'library-search',type:'search',value:S.search,placeholder:'搜索全部素材，提问按回车…','aria-label':'搜索素材或输入问题后按回车',oninput:applyEnglishSearch,oncompositionend:applyEnglishSearch,onkeydown:askEnglishSearch})),h('button',{id:'book-finder',type:'button',class:'button english-book-finder','aria-haspopup':'dialog','aria-label':'找书',onclick:openBookFinder},icon('book'),h('span',{},'找书')),h('button',{id:'reading-sync',type:'button',class:'button english-reading-sync',disabled:!profileReady||readingSync.busy,'aria-label':readingSync.busy?'正在同步小花生阅读进度':'同步小花生阅读进度',title:readingSync.busy?'正在同步小花生阅读进度':'同步小花生阅读进度','aria-busy':String(readingSync.busy),onclick:syncXiaohuashengRead},icon('sync')));}
 function englishGlobalActions(){return window.XiaoyaSite.createActionMenu(h('div',{class:'top-actions'},siteSync?.createButton(),btn([icon('settings'),h('span',{},'宝宝资料')],'profile',{'aria-label':'编辑宝宝资料',disabled:!profileReady},'icon-button'),btn([icon('download'),h('span',{},'备份')],'backup',{'aria-label':'备份英语启蒙记录'},'icon-button')));}
@@ -5909,6 +6020,11 @@ function thumb(r,cls='mini-thumb'){if(r.cover)return h('img',{class:cls,src:asse
 const V=window.EnglishVocabulary;
 const vocabState={channel:'listening',type:'word',category:'all',search:'',folds:new Map(),filteredFolds:new Map(),limits:new Map(),drafts:{}};
 let englishOwnerAuthenticated=false,englishOwnerAuthVersion=0;
+function ownerAuthNotice(loginMessage){
+  const session=siteSync?.getSessionState()||{message:'正在自动核验本地登录状态…'};
+  return h('p',{class:'small-note',role:'status'},session.canLogin?loginMessage:session.message,
+    session.canLogin||session.canRetry?h('button',{type:'button',class:'text-link',onclick:()=>session.canRetry?void siteSync.retryAuthentication().catch(error=>toast(error.message)):void siteSync.open()},session.canRetry?'重试登录核验':'登录 GitHub'):null);
+}
 function requireVocabularyAuth(){if(!englishOwnerAuthenticated)throw new Error('请先使用本人 GitHub 登录后查看和编辑语言记录。');}
 async function refreshEnglishOwnerAuth(){
   const version=++englishOwnerAuthVersion;
@@ -5972,7 +6088,7 @@ function vocabularyToolbar(stats){
   return h('div',{class:'vocabulary-toolbar'},h('div',{class:'vocabulary-type-tabs',role:'group','aria-label':'语言内容类型'},Object.entries(V.TYPES).map(([id,label])=>btn([label,h('small',{},stats[vocabState.channel][id].unique)],'vocab-type',{'data-type':id,id:'vocab-type-'+id,'aria-pressed':id===vocabState.type},id===vocabState.type?'active':''))),h('div',{class:'vocabulary-toolbar-actions'},btn('−','vocab-folds',{id:'vocabulary-fold-toggle','aria-label':'全部折叠',title:'全部折叠','aria-controls':'vocabulary-results'},'icon-button'),add,search),menu,filters);
 }
 function vocabularyPanel(){
-  if(!englishOwnerAuthenticated)return h('section',{class:'vocabulary-panel'},h('h1',{id:'vocabulary-title'},'宝宝的语言记录'),h('p',{class:'small-note'},'请使用本人 GitHub 登录后查看和编辑语言记录。'),h('button',{type:'button',class:'button',onclick:()=>siteSync?.open()},'登录 GitHub'));
+  if(!englishOwnerAuthenticated)return h('section',{class:'vocabulary-panel'},h('h1',{id:'vocabulary-title'},'宝宝的语言记录'),ownerAuthNotice('请使用本人 GitHub 登录后查看和编辑语言记录。'));
   const stats=V.summary(S.records),ch=vocabState.channel;
   return h('section',{class:'vocabulary-panel','aria-labelledby':'vocabulary-title'},
     h('div',{class:'vocabulary-heading'},h('h1',{id:'vocabulary-title'},'宝宝的语言记录'),h('div',{class:'vocabulary-tools'},btn(icon('download'),'vocab-import',{'aria-label':'批量导入词汇',title:'批量导入'},'icon-button'))),
@@ -7247,7 +7363,7 @@ function bookRow(book,{detail=false}={}){
     h('div',{class:'library-book-topics'},topicIds.length?topicUI.tags(topicIds):h('span',{class:'small-note'},'主题待核对'),bookTopicFallbackLabel(book)?h('span',{class:'small-note'},bookTopicFallbackLabel(book)):null),!detail?studyGuideInfo(book,{showOriginal:false}):null,
     detail&&destinations.length?h('details',{class:'library-book-stages',open:libraryUsageFolds.get(book.id)??false,ontoggle:e=>{if(e.target===e.currentTarget&&e.currentTarget.isConnected){libraryUsageFolds.set(book.id,e.currentTarget.open);}}},h('summary',{},book.custom?'个人阶段参考':book.unleveledSeries?'套系使用阶段参考 · '+destinations.length:'路线使用阶段 · '+destinations.length),destinations.map(a=>btn((routes.get(a.routeId)?.name||'')+' · '+(stages.get(a.stageId)?.title||a.stageId),'stage',{'data-id':a.stageId},'text-link')),book.custom?h('p',{class:'small-note'},'个人选用，不代表作者书单。'):null):null));
 }
-function filteredLibraryBooks({allSeries=false,ignoreTopic=false}={}){return EnglishModel.sortLibraryMaterials(C,LB.filter(libraryTopicEntries(),BOOKS,{route:S.route,stageIds:libraryStageIds(),topic:ignoreTopic?'all':S.libraryTopic,subtopic:ignoreTopic?'all':S.librarySubtopic,series:allSeries||ignoreTopic||S.libraryTopic==='all'?'all':S.librarySeries,query:libraryQuery(),type:S.type,sharedOnly:S.sharedOnly}).filter(b=>S.materialStatus==='all'||(b.privateShelf?shelfBookStatus(b):resourceProgress(byId.get(b.resourceId)).status)===S.materialStatus),{route:S.route,stageIds:libraryStageIds()});}
+function filteredLibraryBooks({allSeries=false,ignoreTopic=false}={}){return EnglishModel.sortLibraryMaterials(C,LB.filter(libraryTopicEntries(),BOOKS,{route:S.route,stageIds:libraryStageIds(),topic:ignoreTopic?'all':S.libraryTopic,subtopic:ignoreTopic?'all':S.librarySubtopic,series:allSeries||ignoreTopic||S.libraryTopic==='all'?'all':S.librarySeries,query:libraryQuery(),queryScope:libraryGrouping()==='books'?'book':'series',type:S.type,sharedOnly:S.sharedOnly}).filter(b=>S.materialStatus==='all'||(b.privateShelf?shelfBookStatus(b):resourceProgress(byId.get(b.resourceId)).status)===S.materialStatus),{route:S.route,stageIds:libraryStageIds()});}
 function librarySeriesTabs(groups,total,{state=S,prefix='library',refresh=()=>{document.querySelector('.library-results')?.replaceWith(libraryBookResults());}}={}){
   const options=[{id:'all',label:'全部',count:total},...groups];
   function select(index){
@@ -7275,9 +7391,9 @@ function libraryBookResults({search=false}={}){
   const bookList=h('div',{class:grouped?'resource-grid library-grid'+(S.libraryLayout==='covers'?' library-cover-grid':''):'library-book-list'+(S.libraryLayout==='covers'?' library-book-cover-grid library-cover-grid':'')});
   const visible=result.slice(0,S.libraryLimit);
   const stage=S.age.startsWith('stage:')?stages.get(S.age.slice(6))?.title:S.age==='current'?'宝宝当前浏览起点':'';
-  return h('div',{class:'library-results'},libraryCollection==='all'&&!englishOwnerAuthenticated?h('p',{class:'small-note',role:'status'},'当前搜索公共素材（含路线、Hello、廖彩杏）；登录本人 GitHub 后纳入“其他”私人书架。',h('button',{type:'button',class:'text-link',disabled:!siteSync,onclick:()=>siteSync?.open()},'登录 GitHub')):null,libraryTopicSummary(),showSeries?librarySeriesTabs(groups,matching.length):null,h('div',{class:'library-results-head'},h('p',{class:'result-count',role:'status'},[libraryCollection==='all'?'全部素材':'路线素材',stage,stage&&S.libraryStageScope==='lower'?'含更低阶段':'','匹配 '+result.length+(grouped?' 个套系／素材':' 条书目／素材')+' · 从易到难'].filter(Boolean).join(' · ')),libraryLayoutToggle()),
+  return h('div',{class:'library-results'},libraryCollection==='all'&&!englishOwnerAuthenticated?ownerAuthNotice('当前搜索公共素材（含路线、Hello、廖彩杏）；登录本人 GitHub 后纳入“其他”私人书架。'):null,libraryTopicSummary(),showSeries?librarySeriesTabs(groups,matching.length):null,h('div',{class:'library-results-head'},h('p',{class:'result-count',role:'status'},[libraryCollection==='all'?'全部素材':'路线素材',stage,stage&&S.libraryStageScope==='lower'?'含更低阶段':'','匹配 '+result.length+(grouped?' 个套系／素材':' 条书目／素材')+' · 从易到难'].filter(Boolean).join(' · ')),libraryLayoutToggle()),
     h('div',{id:'library-topic-books',role:showSeries?'tabpanel':null,'aria-labelledby':showSeries?'library-series-tab-'+(S.librarySeries==='all'?0:groups.findIndex(group=>group.id===S.librarySeries)+1):null},
-    result.length?(bookList.append(...visible.map(renderEntry)),bookList):h('div',{class:'empty'},h('p',{},search?'公共目录没有匹配的单册；下方继续显示其他匹配素材。':'当前书目及素材中没有匹配结果，可清除条件或返回套系浏览。'),btn('清除筛选','clear-filters',{},'button soft')),
+    result.length?(bookList.append(...visible.map(renderEntry)),bookList):h('div',{class:'empty'},h('p',{},search?'没有匹配的单册；可调整关键词或切换套系模式。':'当前书目及素材中没有匹配结果，可清除条件或返回套系浏览。'),btn('清除筛选','clear-filters',{},'button soft')),
     window.EnglishAutomaticList.tail({total:result.length,limit:S.libraryLimit,step:18,load:(from,to)=>{S.libraryLimit=to;bookList.append(...result.slice(from,to).map(renderEntry));}})),search&&!hasTopic?librarySearchMaterials(matching):null,libraryCollection==='all'?allHelloResults():null);
 }
 function librarySeriesCount(resource){
@@ -7504,7 +7620,7 @@ function shelfSearchResults(query){
   return h('section',{class:'shelf-search-results'},h('p',{class:'result-count',role:'status'},'其他英文书架：'+groups.length+' 个匹配套系／单本'),list,window.EnglishAutomaticList.tail({total:groups.length,limit:18,step:18,load:(from,to)=>list.append(...groups.slice(from,to).map(shelfSeriesCard))}));
 }
 function librarySearchMaterials(books){
-  const represented=new Set(books.flatMap(book=>book.resourceIds||[book.resourceId])),resources=filteredResources().filter(resource=>!represented.has(resource.id));
+  const represented=new Set(books.concat(libraryGrouping()==='books'?libraryTopicEntries().filter(book=>book.entryKind!=='resource'):[]).flatMap(book=>book.resourceIds||[book.resourceId])),resources=filteredResources().filter(resource=>!represented.has(resource.id));
   const list=h('div',{class:'resource-grid library-grid'+(S.libraryLayout==='covers'?' library-cover-grid':'')},resources.slice(0,18).map(libraryCard));
   return resources.length?h('section',{},h('p',{class:'result-count',role:'status'},'另有 '+resources.length+' 个匹配素材'),list,window.EnglishAutomaticList.tail({total:resources.length,limit:18,step:18,load:(from,to)=>list.append(...resources.slice(from,to).map(libraryCard))})):null;
 }
@@ -7545,7 +7661,7 @@ function shelfSeriesDetail(id){
 }
 function shelfSeriesCard(group){return h('article',{class:'library-card shelf-card'},h('button',{type:'button',class:'shelf-open',onclick:()=>openModal('shelf-series',group.id),'aria-label':'查看'+group.title+'全部书目与阅读状态'},libraryBookCover({...group,id:group.series?null:group.books[0].id,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),h('strong',{},group.title)),h('div',{class:'shelf-card-progress'},h('span',{},'书架 '+group.completed+'／'+group.total+'本'),h('span',{},P.STATUS[group.status])),h('progress',{max:group.total,value:group.completed,'aria-label':group.title+'已阅读 '+group.completed+'／'+group.total+' 本'}));}
 function otherShelfResults(){
-  const matching=LB.filter(shelfEntries(),BOOKS,{topic:otherShelfState.libraryTopic,subtopic:otherShelfState.librarySubtopic,query:otherShelfState.query}).filter(book=>otherShelfState.status==='all'||shelfBookStatus(book)===otherShelfState.status);
+  const matching=LB.filter(shelfEntries(),BOOKS,{topic:otherShelfState.libraryTopic,subtopic:otherShelfState.librarySubtopic,query:otherShelfState.query,queryScope:libraryGrouping('other')==='books'?'book':'series'}).filter(book=>otherShelfState.status==='all'||shelfBookStatus(book)===otherShelfState.status);
   const groups=LB.seriesGroups(matching,BOOKS),hasTopic=otherShelfState.libraryTopic!=='all',grouped=libraryGrouping('other')==='series',showSeries=hasTopic||!grouped;
   if(!showSeries||!groups.some(group=>group.id===otherShelfState.librarySeries))otherShelfState.librarySeries='all';
   const matched=LB.filter(matching,BOOKS,{series:otherShelfState.librarySeries});
@@ -7571,8 +7687,8 @@ function collectionSearchControl(collection){
 function allHelloResults(){
   if(S.route!=='all'||S.age!=='all'||S.sharedOnly||S.librarySeries!=='all'||!['all','book'].includes(S.type)||S.materialStatus!=='all')return null;
   if(!helloLoader.ready)return deferredContent(helloLoader,()=>{if(S.view==='library'&&libraryCollection==='all')document.querySelector('.library-results')?.replaceWith(libraryResults());});
-  const data=window.ROADMAP_RAW.helloReading,query=libraryQuery().replace(/hello\s*(杂志)?/ig,'').trim();
-  const matches=window.EnglishHello.filter(data,{query,topic:S.libraryTopic,subtopic:S.librarySubtopic});
+  const data=window.ROADMAP_RAW.helloReading,query=libraryGrouping()==='series'?libraryQuery().replace(/hello\s*(杂志)?/ig,'').trim():libraryQuery();
+  const matches=window.EnglishHello.filter(data,{query,queryScope:libraryGrouping()==='books'?'book':'series',topic:S.libraryTopic,subtopic:S.librarySubtopic});
   if(!matches.length)return null;
   if(libraryGrouping()==='series')return h('section',{class:'all-hello-results'},h('div',{class:'resource-grid library-grid library-cover-grid'},h('article',{class:'library-card'},h('button',{type:'button',class:'hello-series-open',onclick:()=>selectLibraryCollection('hello'),'aria-label':'查看Hello杂志匹配书册'},h('img',{class:'hello-book-cover',src:asset(matches[0].book.cover),alt:'Hello杂志封面',loading:'lazy'}),h('strong',{},'Hello 杂志'),h('small',{},matches.length+' 本匹配书册')))));
   const list=h('div',{class:'library-book-list library-book-cover-grid library-cover-grid'},matches.slice(0,18).map(row=>card(row)));
@@ -7580,7 +7696,7 @@ function allHelloResults(){
   return h('section',{class:'all-hello-results'},h('p',{class:'result-count',role:'status'},'Hello 杂志：'+matches.length+' 本'),list,window.EnglishAutomaticList.tail({total:matches.length,limit:18,step:18,load:(from,to)=>list.append(...matches.slice(from,to).map(card))}));
 }
 function otherLibraryView(){
-  const available=LB.filter(shelfEntries(),BOOKS,{query:otherShelfState.query}).filter(book=>otherShelfState.status==='all'||shelfBookStatus(book)===otherShelfState.status).flatMap(book=>TOPICS.entryTopics('book',book));
+  const available=LB.filter(shelfEntries(),BOOKS,{query:otherShelfState.query,queryScope:libraryGrouping('other')==='books'?'book':'series'}).filter(book=>otherShelfState.status==='all'||shelfBookStatus(book)===otherShelfState.status).flatMap(book=>TOPICS.entryTopics('book',book));
   const picker=topicUI.picker({id:'other-topic',compact:true,available,topic:otherShelfState.libraryTopic,subtopic:otherShelfState.librarySubtopic,onchange:(topic,subtopic)=>{otherShelfState.libraryTopic=topic;otherShelfState.librarySubtopic=subtopic;otherShelfState.librarySeries='all';refreshOtherShelf();}});
   return h('div',{class:'library-view'},libraryCollectionTabs(),h('div',{class:'library-filterbar other-shelf-filters'},collectionSearchControl('other'),h('select',{'aria-label':'筛选其他书架阅读状态',onchange:e=>{otherShelfState.status=e.target.value;refreshOtherShelf();}},[['all','状态'],...Object.entries(P.STATUS)].map(([value,label])=>h('option',{value,selected:value===otherShelfState.status},label))),picker.element,filterResetControl('other-reset',()=>{Object.assign(otherShelfState,{query:'',status:'all',limit:18,libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0});render();document.getElementById('other-reset')?.focus({preventScroll:true});}),libraryGroupingToggle('other')),otherShelfResults());
 }
@@ -7598,7 +7714,7 @@ function libraryView(){
   const options=(key,entries,id)=>h('div',{class:'library-filter-choices'},entries.map(([value,label])=>h('button',{type:'button','aria-pressed':String(S[key]===value),onclick:()=>libraryFilterApply(key,value,id+'-toggle')},label)));
   const types=[['all','类型'],...['reader','book','animation','song','flashcard','other'].map(type=>[type,TYPES[type]])];
   const result=h('div',{class:'library-view'},libraryCollectionTabs(),
-    h('div',{class:'library-filterbar',role:'group','aria-label':'素材筛选与显示'},collectionSearchControl(libraryCollection),
+    h('div',{class:'library-filterbar library-filterbar-single',role:'group','aria-label':'素材筛选与显示'},collectionSearchControl(libraryCollection),
       libraryPopover('library-route','按路线筛选：'+(S.route==='all'?'全部路线':(S.route==='other'?'其他':routes.get(S.route).name)),'路线',options('route',[['all','全部路线'],...['xu','qing','banana'].map(id=>[id,routes.get(id).name]),['other','其他']],'library-route'),S.route!=='all'),
       libraryStageFilter(),
       libraryStageScopeFilter(),

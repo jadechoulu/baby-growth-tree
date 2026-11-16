@@ -165,3 +165,11 @@ test('1册理发视频使用已校验完整原文件的新分享，不使用下�
  assert.ok(!H.packageVideos(data,book,{partId:'hello-01-part-3'}).includes(video));
  assert.ok(!JSON.stringify(book.resources).includes('nIDaS1o9X76'));
 });
+
+
+test('全部素材的Hello单本搜索不以通用资料文件名命中整套',()=>{
+  const sample={...data,books:[{id:'scope-book',title:'第一期',parts:[{part:1,title:'My Cat',scene:'动物',note:''}],resources:[{label:'Hello 杂志全套音频',kind:'audio'}]}],rhymes:[]};
+  assert.equal(H.filter(sample,{query:'Hello'}).length,1);
+  assert.equal(H.filter(sample,{query:'Hello',queryScope:'book'}).length,0);
+  assert.equal(H.filter(sample,{query:'Cat',queryScope:'book'}).length,1);
+});

@@ -307,3 +307,20 @@ test('单册搜索保留书架原始套系名和目录标签，未选主题也�
   assert.deepEqual(B.filter([book],directory,{query:'ride',series:groups[0].id}),[book]);
   assert.deepEqual(B.filter([book],directory,{query:'ride',series:'other-series'}),[]);
 });
+
+
+test('套系命中不展开单本，单册只匹配本册内容并剥除明确套系前缀',()=>{
+  const resource={id:'series-search',title:'新东方彩虹糖幼儿英语启蒙绘本基础级(40册)',type:'book',aliases:['Rainbow Candy']};
+  const books=['新东方—彩虹糖幼儿英语启蒙绘本基础级03——family sports day','新东方—彩虹糖幼儿英语启蒙绘本基础级04——at home'].map((title,i)=>({id:'search-'+i,title,seriesTitle:resource.title,resource,resourceId:resource.id,topics:[],appearances:[]}));
+  const catalog={sources:[],topics:[]};
+  assert.equal(B.filter(books,catalog,{query:'彩虹糖',queryScope:'series'}).length,2);
+  assert.equal(B.filter(books,catalog,{query:'彩虹糖',queryScope:'book'}).length,0);
+  assert.equal(B.filter(books,catalog,{query:'Rainbow Candy',queryScope:'book'}).length,0);
+  assert.deepEqual(B.filter(books,catalog,{query:'family sports',queryScope:'book'}).map(b=>b.id),['search-0']);
+  const suffix={...books[0],title:'hide-and-seek-彩虹糖幼儿英语启蒙绘本基础级09'};
+  assert.equal(B.filter([suffix],catalog,{query:'彩虹糖',queryScope:'book'}).length,0);
+  assert.equal(B.filter([suffix],catalog,{query:'hide-and-seek',queryScope:'book'}).length,1);
+  assert.equal(books[0].title,'新东方—彩虹糖幼儿英语启蒙绘本基础级03——family sports day');
+  const ordinary={...books[0],title:'My Family: Sports Day',seriesTitle:'Other Series',resource:{...resource,title:'Other Series',aliases:[]}};
+  assert.equal(B.filter([ordinary],catalog,{query:'My Family',queryScope:'book'}).length,1,'非套系的冒号题名保留');
+});

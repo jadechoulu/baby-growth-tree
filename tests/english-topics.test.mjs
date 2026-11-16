@@ -272,3 +272,20 @@ test('范围主题选项只保留有结果的路径，切换目录清除已失�
   assert.deepEqual(calls,[['animals','all']]);assert.deepEqual(secondary.children.map(item=>item.value),['all','animals.farm']);
   picker.sync('all','all',[]);assert.equal(picker.element.hidden,true);
 });
+
+
+test('句型按GK原表顺序聚合，跨来源同类表达共用筛选且保留原文',()=>{
+  const groups=T.children('patterns');
+  assert.deepEqual(groups.slice(0,9).map(g=>g.label),['I / we can see','like / love','Here is / are','Look at','has / have','This / here / it is','Come and see','is / are doing','can do']);
+  assert.equal(groups.at(-1).label,'其他');
+  const members=groups.flatMap(g=>g.members);
+  assert.equal(new Set(members).size,members.length);
+  for(const item of taxonomy.nodes.filter(n=>n.parentId==='patterns'))assert.ok(members.includes(item.id),item.label);
+  for(const text of ['I like…','We like to …','… likes …','I love …','I don’t like …']){
+    const item=taxonomy.nodes.find(n=>n.parentId==='patterns'&&n.label===text);
+    assert.ok(T.matches([item.id],{topic:'patterns',subtopic:'patterns.group-like'}),text);
+    assert.equal(T.matches([item.id],{topic:'patterns',subtopic:'patterns.group-can'}),false);
+    assert.equal(T.label(item.id),text);
+    assert.deepEqual(T.options([item.id],'patterns').map(g=>g.id),['patterns.group-like']);
+  }
+});

@@ -1346,6 +1346,14 @@
   .library-filterbar .icon{width:16px;height:16px}
 }
 
+/* 筛选保持一行；极窄屏只在工具栏内横滑，原生弹层仍置于顶层。 */
+.library-filterbar-single{flex-wrap:nowrap;max-width:100%;overflow-x:auto;scrollbar-width:none;padding:1px 0 3px}
+.library-filterbar-single::-webkit-scrollbar{display:none}
+.library-filterbar-single .library-filter-button{font-size:14px;padding:2px 4px}
+.library-filterbar-single .library-filter-select{field-sizing:fixed;font-size:14px;flex:none;padding:2px;width:58px}
+.library-filterbar-single #library-status-filter{width:74px}
+.library-filterbar-single #library-stage-scope{width:122px}
+
 /* 单本目录按版本呈现；主题与阶段取交集，不重复套系卡片。 */
 .library-topic-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
 .library-topic-choices button{min-width:0;min-height:30px;padding:3px 6px;border:1px solid var(--line);border-radius:5px;background:transparent;color:inherit;text-align:left;font-size:15px;overflow-wrap:anywhere}
