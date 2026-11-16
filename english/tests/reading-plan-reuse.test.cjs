@@ -149,8 +149,9 @@ test('海尼曼公共书目按原计划分组参与许密杉五节点筛选，�
   const entries=LB.entries(merged,[resource],M,catalog);
   assert.equal(entries.length,70);
   for(const entry of entries){
-    const original=plan.books.find(book=>book.id===entry.id),stage=original.group==='C'?'xu-node-800':'xu-node-500';
+    const original=plan.books.find(book=>book.id===entry.id),stage=original.group==='C'?'xu-5':'xu-node-500';
     assert.ok(entry.appearances.some(appearance=>appearance.stageId===stage),entry.title+'应能按其原GK70组别筛入对应节点');
+    if(original.group==='C')assert.ok(!entry.appearances.some(appearance=>appearance.stageId==='xu-node-800'),'历史GK C不再冒充800词牛津树节点');
     assert.ok(entry.appearances.every(appearance=>appearance.routeId!=='banana'),'不将另一GK分级体系当作相同目录');
   }
   const unrelated=P.bookScopes(resource.id,['A'],catalog).find(scope=>scope.edition==='LLI Orange Grade K');

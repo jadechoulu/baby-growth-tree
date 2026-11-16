@@ -283,26 +283,39 @@
           route.summary = current.description;
         }
         var listeningPlan = (((raw.routePlan || {}).routes || {}).xu || {}).listening || {};
-        // 词量节点只组合原阶段引用；原始阶段、材料身份与个人记录键保持独立。
+        // 词量节点组合有据的来源引用；原始阶段、材料身份与个人记录键保持独立。
         if (array(listeningPlan.stageGroups).length) {
-          var nodeVariant = { id: listeningPlan.defaultVariantId, label: '听力词量节点', stages: [], description: listeningPlan.summary };
+          var nodeVariant = { id: listeningPlan.defaultVariantId, label: '听力词量节点', sourceId: listeningPlan.sourceId,
+            stages: [], description: listeningPlan.summary, notes: [listeningPlan.summary,
+              '按孩子实际理解选择材料与用量；同阶段材料不要求全部读完，词数不自动决定晋级。'] };
           listeningPlan.stageGroups.forEach(function (group, index) {
             var members = array(group.sourceStageIds).map(function (id) { return stageIndex[id]; }).filter(Boolean);
             if (!members.length) return;
             var first = members[0];
+            var extraMaterials = array(group.additionalMaterials).flatMap(function (ref) {
+              var source = stageIndex[ref.stageId];
+              return source ? source.materials.filter(function (material) {
+                return material.resourceId === canonicalId(routeId, ref.resourceId, source.sourceId);
+              }).map(function (material) { return Object.assign({}, material, { recordStageId: source.id }); }) : [];
+            });
             var node = Object.assign({}, first, { id: group.id, title: group.title, shortTitle: group.title, order: index + 1,
               variantId: nodeVariant.id, variantLabel: nodeVariant.label, sourceStageIds: group.sourceStageIds.slice(),
               goal: group.goal || members.map(function (s) { return s.title + '：' + s.goal; }).join('；'),
               entry: unique(members.map(function (s) { return s.entry; })).join('；'),
               exit: members.filter(function (s) { return s.exit; }).map(function (s) { return s.title + '：' + s.exit; }).join('；'),
-              notes: unique(members.flatMap(function (s) { return s.notes; })),
-              activities: members.flatMap(function (s) { return s.activities; }).filter(function (activity, i, all) {
+              notes: group.notes || unique(members.flatMap(function (s) { return s.notes; })),
+              activities: group.activities ? group.activities.map(function (activity) {
+                return Object.assign({}, activity, { resourceIds: array(activity.materials).map(function (id) {
+                  return canonicalId(routeId, id, activity.sourceId);
+                }) });
+              }) : members.flatMap(function (s) { return s.activities; }).filter(function (activity, i, all) {
                 return all.findIndex(function (other) { return other.title === activity.title && other.sourceId === activity.sourceId && other.method === activity.method; }) === i;
               }),
-              raw: Object.assign({}, first.raw, { listeningTargetWords: group.targetWords, sourceStageIds: group.sourceStageIds.slice() }),
+              raw: Object.assign({}, first.raw, { listeningTargetWords: group.targetWords, sourceStageIds: group.sourceStageIds.slice(),
+                detailGoals: array(group.detailGoals), method: group.method || '' }),
               materials: members.flatMap(function (s) { return s.materials.map(function (material) {
                 return Object.assign({}, material, { recordStageId: s.id });
-              }); }) });
+              }); }).concat(extraMaterials) });
             node.materials.forEach(function (material) {
               byResource[material.resourceId].appearances.push(Object.assign({}, material, { stageId: node.id, routeId: routeId, variantId: node.variantId }));
             });

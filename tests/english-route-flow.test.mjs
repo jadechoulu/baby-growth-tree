@@ -8,19 +8,20 @@ const raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read(
 const catalog=M.normalize(raw);
 const profile={birthDate:'2024-11-24',asOf:'2026-11-03'};
 
-test('许密杉以五个词量节点引用六阶段要求，原阶段与记录身份保留',()=>{
+test('许密杉五节点采用当前选材，原阶段与记录身份保留',()=>{
   const plan=M.getRoutePlan(catalog,'xu','listening',profile),route=catalog.routes.find(r=>r.id==='xu');
   assert.deepEqual(plan.stageIds,['xu-node-300','xu-node-500','xu-node-800','xu-node-1000','xu-node-2000']);
   assert.deepEqual(plan.stages.map(stage=>stage.title),['300词','500词','800词','1000词','2000词']);
   assert.equal(route.defaultVariantId,'xu-word-nodes');
   assert.deepEqual(route.stages,plan.stages);
   const flow=M.getStageFlow(catalog,'xu-node-300',profile);
-  assert.equal(flow.parallel.length,2);
-  assert.ok(flow.parallel.every(item=>item.resourceIds.length>0));
-  assert.deepEqual(flow.parallel.map(item=>[item.sourceId,item.page]),[['xu-live-core',2],['xu-live-notes',1]]);
+  assert.ok(plan.stages[0].activities.every(item=>item.resourceIds.length>0));
+  assert.ok(plan.stages[0].activities.every(item=>item.sourceId==='xu-live-core'));
+  for(const title of ['巴蒂英语','悠游'])assert.ok(M.getStageMaterials(catalog,plan.stages[0]).some(item=>item.resource.title===title),title);
   assert.equal(flow.nextStageId,'xu-node-500');
   assert.equal(flow.later.length,0);
-  assert.equal(plan.legacyStages.length,0,'默认选择器不重复列出旧节点');
+  assert.ok(plan.legacyStages.some(stage=>stage.id==='xu-5'),'旧GKC记录保留回看入口');
+  assert.ok(plan.legacyStages.some(stage=>stage.id==='xu-6'),'旧牛津树3–5记录保留回看入口');
   assert.equal(M.getStageFlow(catalog,'xu-current-300',profile),null,'旧五节点不再重复作为执行路线');
   assert.equal(M.getStageFlow(catalog,'xu-panorama-reading-literacy',profile),null);
   for(const [id,level] of [['xu-3','A'],['xu-4','B'],['xu-5','C'],['xu-6','3-5']]){
@@ -34,9 +35,11 @@ test('许密杉以五个词量节点引用六阶段要求，原阶段与记录�
     const scopes=M.publicationLevelScopes(volumes,main.resource.id,[level],id);
     assert.equal(scopes.find(scope=>scope.default).total,total,'复用已确认GK70公共分级数量，不在路线重复维护');
   }
-  const detail=plan.stages[2].activities;
-  assert.match(detail.find(a=>a.title==='精听四步法').method,/家长说生词，孩子指画面/);
-  assert.equal(detail.find(a=>a.title==='精听四步法').sourceId,'xu-live-notes','文字笔记不能冒充截图逐字原文');
+  const oxford=M.getStageMaterials(catalog,plan.stages[2]).find(item=>item.resource.title.includes('牛津'));
+  assert.equal(oxford.material.level,'1–3');
+  const bridge=M.getStageMaterials(catalog,plan.stages[3]);
+  for(const title of ['苍蝇小子','蛙小弟','皮特猫','大马泽','Wow English'])assert.ok(bridge.some(item=>item.resource.title.includes(title)),title);
+  assert.ok(!M.getStageMaterials(catalog,plan.stages[2]).some(item=>item.resource.title.includes('海尼曼')),'GKC不再取代800词的牛津树');
   const r=catalog.resources.find(r=>r.title==='大猫分级');
   assert.ok(M.getSeriesProgression(catalog,r.id).flatMap(g=>g.stages).every(s=>!plan.legacyStageIds.includes(s.stageId)&&!plan.supersededStageIds.includes(s.stageId)));
 });
