@@ -271,6 +271,14 @@ test('合并词量节点逐项引用原阶段记录键，GK A与B分别保留且
   const restored=Sync.normalize('english',wrap({[key]:record}));
   const projected=M.getStageMaterials(catalog,node).find(i=>i.material.level==='A'&&i.role.kind==='main');
   assert.equal(P.unitRecord(restored.records,P.unitKey(node,projected)).percent,20);
+  for(const id of ['xu-5','xu-6']){
+    const history=M.getRoutePlan(catalog,'xu','listening').legacyStages.find(s=>s.id===id);
+    const material=M.getStageMaterials(catalog,history).find(i=>i.role.kind==='main'),oldKey=P.unitKey(history,material);
+    const saved=Sync.normalize('english',wrap({[oldKey]:P.unitUpdate('using','保留旧级别手记','2026-11-01')}));
+    assert.equal(P.unitRecord(saved.records,oldKey).text,'保留旧级别手记');
+    const replacement=catalog.stages.find(s=>s.id===(id==='xu-5'?'xu-node-800':'xu-node-1000'));
+    assert.ok(M.getStageMaterials(catalog,replacement).every(i=>P.unitKey(replacement,i)!==oldKey),'旧级别不能自动变成新范围的完成');
+  }
 });
 
 test('素材百分比保留备注并映射状态，通过原同步和备份契约往返',()=>{

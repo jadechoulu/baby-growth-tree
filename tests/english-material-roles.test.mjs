@@ -130,8 +130,11 @@ test('六阶段路线、进度分项与图鉴共用逐项证据，移除证据�
       const appearance=item.resource.appearances.find(a=>a.stageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
       assert.deepEqual(appearance.roleEvidence,evidence,'素材图鉴引用须保留同一次用途依据');
       const node=M.getRoutePlan(catalog,'xu','listening').stages.find(s=>s.sourceStageIds.includes(stage.id));
-      const usage=M.getSeriesProgression(catalog,item.resource.id).flatMap(group=>group.stages).find(a=>a.stageId===node.id&&a.recordStageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
-      assert.deepEqual(usage.roleEvidence,evidence,'路线使用明细不单独维护用途');
+      const uses=M.getSeriesProgression(catalog,item.resource.id).flatMap(group=>group.stages);
+      if(node){
+        const usage=uses.find(a=>a.stageId===node.id&&a.recordStageId===stage.id&&a.original===item.material.original&&a.level===item.material.level);
+        assert.deepEqual(usage.roleEvidence,evidence,'当前路线使用明细不单独维护用途');
+      }else assert.ok(!uses.some(a=>a.stageId===stage.id),'原阶段保留资料但不重复进入当前使用明细');
       const original=previous.find(i=>i.material.original===item.material.original&&i.material.role===item.material.role);
       assert.equal(original.role.kind,'reference','缺少依据时不由阶段ID或main/parallel字段补角色');
       assert.equal(P.unitKey(stage,item),P.unitKey(stage,original),'补齐用途不得改变个人记录键');

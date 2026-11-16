@@ -24,7 +24,7 @@
   "routes": {
     "xu": {
       "listening": {
-        "summary": "按300／500／800／1000／2000词浏览；300词并行使用闪卡与闪卡式绘本，500词保留GK A、B两组要求，800词保留GK C要求，1000词保留牛津树3–5要求，2000词沿用全景图安排。词量是路线节点，不替代具体材料、句长与理解要求。",
+        "summary": "按300／500／800／1000／2000词浏览：闪卡与闪卡式绘本并行起步，海尼曼GK和平行绘本建立句子理解，接牛津树1–3、桥梁书，再到初章书。",
         "stageIds": [
           "xu-node-300",
           "xu-node-500",
@@ -35,7 +35,7 @@
         "supportingStageIds": [
           "xu-thousand-1"
         ],
-        "sourceId": "xu",
+        "sourceId": "xu-panorama",
         "page": 1,
         "flow": {
           "laterNote": "口语可与听力并行发展；识字、自读和写作分别查阅原文安排。全景图没有把这些能力的启动绑定到某个听力词数节点。",
@@ -48,7 +48,19 @@
           "laterLabel": "口语可并行，读写按条件加入"
         },
         "defaultVariantId": "xu-word-nodes",
-        "legacyStageIds": [],
+        "legacyStageIds": [
+          "xu-1",
+          "xu-2",
+          "xu-3",
+          "xu-4",
+          "xu-5",
+          "xu-6",
+          "xu-current-300",
+          "xu-current-500",
+          "xu-current-800",
+          "xu-current-1000",
+          "xu-current-2000"
+        ],
         "supersededStageIds": [
           "xu-1",
           "xu-2",
@@ -75,7 +87,48 @@
             "sourceStageIds": [
               "xu-1",
               "xu-2"
-            ]
+            ],
+            "goal": "闪卡与闪卡式绘本并行，用实物、动作和短句积累约300个听力词。",
+            "detailGoals": [
+              {
+                "title": "闪卡目标",
+                "text": "理解核心约200个名词及动词词组，用实物指认和动作建立词义。"
+              },
+              {
+                "title": "闪卡式绘本目标",
+                "text": "理解5词以下的短句，结合画面与共读积累约300个听力词。"
+              }
+            ],
+            "notes": [
+              "闪卡和闪卡式绘本在同一阶段并行，按兴趣和理解调整用量。"
+            ],
+            "additionalMaterials": [
+              {
+                "stageId": "xu-current-300",
+                "resourceId": "xu-panorama-badi"
+              },
+              {
+                "stageId": "xu-current-300",
+                "resourceId": "xu-panorama-youyou"
+              }
+            ],
+            "activities": [
+              {
+                "title": "并行起步",
+                "materials": [
+                  "xu-shiguang-nouns",
+                  "xu-abubabu-verbs",
+                  "xu-pearson-vocabulary",
+                  "xu-bigcat",
+                  "xu-panorama-badi",
+                  "xu-panorama-youyou"
+                ],
+                "method": "闪卡配合实物和动作，闪卡式绘本由家长结合画面共读；两类材料一起使用。",
+                "sourceId": "xu-live-core",
+                "page": 2
+              }
+            ],
+            "method": "先通过共读理解句子，再在生活和其他绘本中迁移，最后用匹配难度的动画复习句型、拓展词汇。 场景营可作为家长生活表达的补充，选洗脸、玩玩具、开关水和灯等当下场景搭配；按孩子理解选用。"
           },
           {
             "id": "xu-node-500",
@@ -84,23 +137,32 @@
             "sourceStageIds": [
               "xu-3",
               "xu-4"
-            ]
+            ],
+            "goal": "通过海尼曼和同难度绘本，逐步理解约5–7词句子，并在不同画面和生活场景中理解相同句型。",
+            "method": "先通过共读理解句子，再在生活和其他绘本中迁移，最后用匹配难度的动画复习句型、拓展词汇。 场景营可作为家长生活表达的补充，选洗脸、玩玩具、开关水和灯等当下场景搭配；按孩子理解选用。"
           },
           {
             "id": "xu-node-800",
             "title": "800词",
             "targetWords": 800,
             "sourceStageIds": [
-              "xu-5"
-            ]
+              "xu-current-800"
+            ],
+            "goal": "用牛津树1–3及同难度绘本扩展句子理解，结合画面跟随连续情节。",
+            "method": "先通过共读理解句子，再在生活和其他绘本中迁移，最后用匹配难度的动画复习句型、拓展词汇。"
           },
           {
             "id": "xu-node-1000",
             "title": "1000词",
             "targetWords": 1000,
             "sourceStageIds": [
-              "xu-6"
-            ]
+              "xu-current-1000"
+            ],
+            "goal": "共读苍蝇小子、蛙小弟、皮特猫等桥梁书，用匹配难度的大马泽、WOW复习句型、拓展词汇。",
+            "notes": [
+              "桥梁书由家长共读，按实际理解选择；原图未给单册顺序、级别或动画季数。"
+            ],
+            "method": "先通过共读理解句子，再在生活和其他绘本中迁移，最后用匹配难度的动画复习句型、拓展词汇。"
           },
           {
             "id": "xu-node-2000",
@@ -108,7 +170,9 @@
             "targetWords": 2000,
             "sourceStageIds": [
               "xu-current-2000"
-            ]
+            ],
+            "goal": "继续拓展初章书与小猪佩奇的听力理解；原图未列具体初章书单或动画季数。",
+            "method": "先通过共读理解句子，再在生活和其他绘本中迁移，最后用匹配难度的动画复习句型、拓展词汇。"
           }
         ]
       },
