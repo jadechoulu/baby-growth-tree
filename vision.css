@@ -27,3 +27,12 @@
 .vision-panel>.vision-input-note{font-size:12px;line-height:1.7;color:#6b8178;margin:0 18px 10px}
 
 .vision-reference-range{stroke:#76a994;stroke-width:8;stroke-opacity:.45;pointer-events:none}
+
+.vision-education-band{fill:#dfa55d;fill-opacity:.25}.vision-chart-scroll svg .vision-education-line{stroke:#b57a32;stroke-width:2;stroke-dasharray:6 3}
+.vision-chart-controls .vision-chart-add{flex:0 0 36px;width:36px;min-width:36px;height:36px;min-height:36px;padding:0;font-size:24px;line-height:1;margin-left:auto}
+@media(max-width:600px){.vision-chart-controls select{padding:5px 4px}.vision-chart-controls select:first-child{max-width:125px}.vision-chart-controls .vision-chart-add{flex-basis:34px;width:34px;min-width:34px;height:34px;min-height:34px}}
+.vision-chart-heading{display:flex;align-items:center;gap:12px;margin:0 18px;padding:0 0 0 6%;font-size:12px;color:#48655a}.vision-chart-heading>span{min-width:0;overflow-wrap:anywhere}.vision-chart-heading .vision-check-label{flex:none;margin-left:auto;min-height:36px}
+@media(max-width:600px){.vision-chart-heading{margin:0 12px}}
+.vision-label-leader{fill:none;stroke:#8ca397;stroke-width:1}.vision-label-backdrop{fill:#fffdf8;fill-opacity:.94}.vision-chart-scroll svg .vision-curve-label text{fill:#536f61;font-size:12px}.vision-curve-label-education .vision-label-leader{stroke:#b57a32}.vision-chart-scroll svg .vision-curve-label-education text{fill:#97652a}
+.vision-reference-sources{display:flex;flex-wrap:wrap;gap:4px 14px;min-width:0;margin:0 18px 8px;padding:4px 8px 8px;border:1px solid #e1e7df;border-radius:8px}.vision-reference-sources legend{font-size:12px;color:#73867e;padding:0 4px}.vision-reference-sources .vision-check-label{margin:0;min-height:32px;white-space:normal;font-size:12px}.vision-reference-sources input{flex:none}.vision-reference-sources:has(input:disabled){opacity:.6}
+@media(max-width:600px){.vision-reference-sources{margin:0 12px 8px}}

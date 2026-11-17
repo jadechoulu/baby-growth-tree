@@ -1,9 +1,9 @@
-import { emptyVision, EYES, METHODS, METRICS, KNOWLEDGE, TEMPLATE_IMAGES, SOURCE_SITES, NHC_URL, RESEARCH_URL, visits, points, references, referenceWindow, referenceNote, metricInputNote, comparison, ageYears, equivalentSphere, acuityDecimal, acuityLabel, signed } from './lib/vision-model.mjs?v=20261117-reference-band';
+import { emptyVision, EYES, METHODS, METRICS, KNOWLEDGE, TEMPLATE_IMAGES, SOURCE_SITES, NHC_URL, RESEARCH_URL, visits, points, references, referenceWindow, referenceNote, referenceSources, metricInputNote, comparison, ageYears, equivalentSphere, acuityDecimal, acuityLabel, signed } from './lib/vision-model.mjs?v=20261117-source-picker';
 import { localDateString } from './lib/model.mjs';
 
 const M = window.XiaoyaSyncModel;
 const profile = window.XiaoyaBabyProfile.createClient();
-const state = { view: new URLSearchParams(location.hash.slice(1)).get('view') === 'chart' ? 'chart' : 'table', metric: 'se', sex: 'none', range: 'young', eye: 'both', notation: 'decimal', reference: true, date: '' };
+const state = { view: new URLSearchParams(location.hash.slice(1)).get('view') === 'chart' ? 'chart' : 'table', metric: 'se', sex: 'none', range: 'young', eye: 'both', notation: 'decimal', reference: true, referenceSources: {}, date: '' };
 let store, sync, shell, snapshot = null, writing = false, dialog = null, errorMessage = '', notice = '';
 const n = (tag, cls = '', text) => { const el = document.createElement(tag); el.className = cls; if (text !== undefined) el.textContent = text; return el; };
 const button = (label, action, cls = 'vision-button') => { const el = n('button', cls, label); el.type = 'button'; el.addEventListener('click', action); return el; };
@@ -94,13 +94,22 @@ function chartView() {
     ...(!METRICS[state.metric].referenceOnly ? [picker('显示眼别', [['both', '双眼'], ...EYES], state.eye, value => { state.eye = value; render(); })] : []),
     picker('年龄范围', [['all', '全部年龄'], ['young', '0～6岁'], ['school', '6～15岁']], state.range, value => { state.range = value; render(); }));
   if (state.metric === 'axialLength') controls.append(picker('眼轴参考人群', [['none', '选择参考人群'], ['female', '中国女孩 · 6～15岁'], ['male', '中国男孩 · 6～15岁']], state.sex, value => { state.sex = value; render(); }));
-  const refLabel = n('label', 'vision-check-label'), ref = n('input'); ref.type = 'checkbox'; ref.checked = state.reference; ref.addEventListener('change', () => { state.reference = ref.checked; render(); }); refLabel.append(ref, document.createTextNode('参考')); controls.append(refLabel); section.append(controls);
-  const chartActions = n('div', 'vision-chart-actions'), add = button('＋ 新增检查', () => editVisit()); add.disabled = writing;
-  chartActions.append(n('span', '', '点击点位查看数值'), add); section.append(chartActions, n('p', 'vision-help vision-input-note', metricInputNote(state.metric)));
+  const refLabel = n('label', 'vision-check-label'), ref = n('input'); ref.type = 'checkbox'; ref.checked = state.reference; ref.addEventListener('change', () => { state.reference = ref.checked; render(); }); refLabel.append(ref, document.createTextNode('参考')); section.append(controls);
+  const add = button('＋', () => editVisit(), 'icon-button vision-chart-add'); add.disabled = writing; add.title = '新增检查'; add.setAttribute('aria-label', '新增检查');
+  controls.append(add); section.append(n('p', 'vision-help vision-input-note', metricInputNote(state.metric)));
   const metric = METRICS[state.metric], all = points(snapshot, profile.get().birthDate, state.metric).filter(p => state.eye === 'both' || state.eye === p.eye);
   const bounds = state.range === 'young' ? [0, 6] : state.range === 'school' ? [6, 15] : [Math.min(0, ...all.map(p => Math.floor(p.age))), Math.max(16, ...all.map(p => Math.ceil(p.age)))];
   const visible = all.filter(p => p.age >= bounds[0] && p.age <= bounds[1]);
-  const refs = state.reference ? references(state.metric, state.sex) : [];
+  const sourceOptions = referenceSources(state.metric, state.sex);
+  const selectedSources = sourceOptions.length ? (state.referenceSources[state.metric] ||= [sourceOptions[0].source]) : [];
+  const sourcePicker = n('fieldset', 'vision-reference-sources');
+  sourcePicker.append(n('legend', '', '参考资料（可多选）'));
+  for (const option of sourceOptions) {
+    const label = n('label', 'vision-check-label'), checkbox = n('input'); checkbox.type = 'checkbox'; checkbox.checked = selectedSources.includes(option.source); checkbox.disabled = !state.reference;
+    checkbox.addEventListener('change', () => { state.referenceSources[state.metric] = checkbox.checked ? [...selectedSources, option.source] : selectedSources.filter(source => source !== option.source); render(); });
+    label.append(checkbox, document.createTextNode(option.label)); sourcePicker.append(label);
+  }
+  const refs = state.reference ? references(state.metric, state.sex).filter(reference => selectedSources.includes(reference.source)) : [];
   const activeRefs = refs.filter(r => referenceWindow(r, bounds).length);
   const refValues = activeRefs.flatMap(r => referenceWindow(r, bounds).map(([, v]) => v));
   const min = Math.floor(Math.min(metric.min, ...visible.map(p => p.value), ...refValues) * 2) / 2, max = Math.ceil(Math.max(metric.max, ...visible.map(p => p.value), ...refValues) * 2) / 2;
@@ -118,10 +127,10 @@ function chartView() {
     const content = [n('p', '', `${reference.ageLabel || ageLabel(age)} · ${reference.label}：${Number(value.toFixed(3))} ${metric.unit}`)];
     if (reference.band) {
       const limits = activeRefs.filter(r => r.band === reference.band).map(r => ({ label: r.label, value: r.values.find(([a]) => a === age)?.[1] }));
-      content.splice(0, 1, n('p', '', `${ageLabel(age)} · ${reference.band === 'teller' ? '单眼TAC II视力95%预测区间' : '散瞳SE 95%参考区间'}`));
+      content.splice(0, 1, n('p', '', `${reference.ageLabel || ageLabel(age)} · ${reference.bandLabel || (reference.band === 'teller' ? '单眼TAC II视力95%预测区间' : '散瞳SE 95%参考区间')}`));
       for (const limit of limits) if (Number.isFinite(limit.value)) content.push(n('p', '', `${limit.label}：${limit.value} ${metric.unit}`));
     }
-    content.push(n('p', 'vision-help', referenceNote(state.metric)), link('查看参考来源 ↗', reference.source));
+    content.push(n('p', 'vision-help', reference.note || referenceNote(state.metric)), link('查看参考来源 ↗', reference.source));
     showDetail('参考点 · 原始资料', content, trigger);
   };
   const activate = (el, label, action) => {
@@ -130,7 +139,7 @@ function chartView() {
   };
   const create = (tag, attrs, text) => { const el = document.createElementNS(svg.namespaceURI, tag); for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value); if (text !== undefined) el.textContent = text; svg.append(el); return el; };
   const x = age => 64 + (age - bounds[0]) / (bounds[1] - bounds[0]) * 710, y = value => 320 - (value - min) / (max - min) * 270;
-  create('text', { x: 64, y: 24, class: 'vision-chart-unit' }, `${metric.label} / ${metric.unit}`);
+  const chartHeading = n('div', 'vision-chart-heading'); chartHeading.append(n('span', '', `${metric.label} / ${metric.unit}`), refLabel);
   for (let i = 0; i <= 6; i++) { const value = min + (max - min) * i / 6; create('line', { x1: 64, x2: 774, y1: y(value), y2: y(value), class: 'vision-grid' }); create('text', { x: 53, y: y(value) + 4, 'text-anchor': 'end' }, value.toFixed(state.metric.includes('Acuity') || state.metric === 'acuity' ? 2 : 1)); }
   const step = Math.max(1, Math.ceil((bounds[1] - bounds[0]) / 10));
   for (let age = bounds[0]; age <= bounds[1]; age += step) { create('line', { x1: x(age), x2: x(age), y1: 50, y2: 320, class: 'vision-grid' }); create('text', { x: x(age), y: 347, 'text-anchor': 'middle' }, age + '岁'); }
@@ -142,27 +151,45 @@ function chartView() {
     if (lower[0][0] === lower.at(-1)[0]) {
       create('line', { x1: x(lower[0][0]), x2: x(lower[0][0]), y1: y(lower[0][1]), y2: y(upper[0][1]), class: 'vision-reference-range' });
     } else {
-      create('polygon', { points: [...lower, ...upper.reverse()].map(([a,v]) => `${x(a)},${y(v)}`).join(' '), class: 'vision-reference-band' });
+      create('polygon', { points: [...lower, ...upper.reverse()].map(([a,v]) => `${x(a)},${y(v)}`).join(' '), class: `vision-reference-band${band[0].category === 'education' ? ' vision-education-band' : ''}` });
     }
   }
-  const referenceLabels = new Set();
   for (const [index, reference] of activeRefs.entries()) {
     const inside = referenceWindow(reference, bounds);
     if (reference.kind === 'segment' && inside.length >= 2) {
-      const line = create('polyline', { points: inside.map(([a, v]) => `${x(a)},${y(v)}`).join(' '), class: 'vision-reference-line', 'data-reference': index });
+      const line = create('polyline', { points: inside.map(([a, v]) => `${x(a)},${y(v)}`).join(' '), class: `vision-reference-line${reference.category === 'education' ? ' vision-education-line' : ''}`, 'data-reference': index });
       const title = document.createElementNS(svg.namespaceURI, 'title'); title.textContent = `${reference.label} · ${reference.band === 'teller' ? '1～36月龄' : reference.ageLabel || `${reference.values[0][0]}～${reference.values.at(-1)[0]}岁`}`; line.append(title);
     }
-    if (inside.length >= 2 && reference.kind === 'segment' && !referenceLabels.has(reference.label)) {
-      referenceLabels.add(reference.label);
-      const last = inside.at(-1); create('text', { x: x(last[0]) - 5, y: y(last[1]) - 7, 'text-anchor': 'end' }, reference.label);
-    }
+  }
+  // 先按曲线高度排列，再为名称分配不重叠的位置；引导线保留对应关系。
+  const curveLabels = [...new Map(activeRefs.map(reference => [reference.label, reference])).values()]
+    .map(reference => ({ reference, point: referenceWindow(reference, bounds).at(-1) }))
+    .filter(item => item.point)
+    .map(item => ({ ...item, targetY: y(item.point[1]) }))
+    .sort((a, b) => a.targetY - b.targetY);
+  const labelGap = 23;
+  for (let i = 0; i < curveLabels.length; i++) {
+    const item = curveLabels[i];
+    item.labelY = Math.max(65, item.targetY - 9, i ? curveLabels[i - 1].labelY + labelGap : 65);
+  }
+  for (let i = curveLabels.length - 1; i >= 0; i--) {
+    const item = curveLabels[i];
+    item.labelY = Math.min(item.labelY, i === curveLabels.length - 1 ? 302 : curveLabels[i + 1].labelY - labelGap);
+  }
+  for (const { reference, point, labelY } of curveLabels) {
+    const labelX = 748, width = Math.min(360, [...reference.label].length * 12 + 12);
+    const group = create('g', { class: `vision-curve-label${reference.category === 'education' ? ' vision-curve-label-education' : ''}`, 'pointer-events': 'none' });
+    const labelPart = (tag, attrs, text) => { const part = document.createElementNS(svg.namespaceURI, tag); for (const [key,value] of Object.entries(attrs)) part.setAttribute(key,value); if (text) part.textContent = text; group.append(part); };
+    labelPart('polyline', { points: `${x(point[0])},${y(point[1])} 763,${labelY - 4} ${labelX + 4},${labelY - 4}`, class: 'vision-label-leader' });
+    labelPart('rect', { x: labelX - width, y: labelY - 14, width, height: 19, rx: 3, class: 'vision-label-backdrop' });
+    labelPart('text', { x: labelX - 5, y: labelY, 'text-anchor': 'end' }, reference.label);
   }
   // 点击只查看原始参考值，裁剪出的线段端点不冒充新增标准点。
-  for (const reference of activeRefs) for (const [age, value] of reference.values.filter(([a]) => a >= bounds[0] && a <= bounds[1])) {
+  for (const reference of activeRefs) for (const [age, value] of reference.values.filter(([a], i) => a >= bounds[0] && a <= bounds[1] && !(reference.endExclusive && i === reference.values.length - 1))) {
     const group = create('g', { class: 'vision-reference-point' });
     const dot = document.createElementNS(svg.namespaceURI, 'circle'); dot.setAttribute('cx', x(age)); dot.setAttribute('cy', y(value)); dot.setAttribute('r', reference.kind === 'dots' ? 4 : 2.5); dot.setAttribute('class', 'vision-reference-dot');
     const hit = document.createElementNS(svg.namespaceURI, 'circle'); hit.setAttribute('cx', x(age)); hit.setAttribute('cy', y(value)); hit.setAttribute('r', 12); hit.setAttribute('class', 'vision-point-hit'); group.append(dot, hit);
-    activate(group, `${reference.label}，${ageLabel(age)}，${value} ${metric.unit}，查看参考点`, trigger => showReference(reference, age, value, trigger));
+    activate(group, `${reference.label}，${reference.ageLabel || ageLabel(age)}，${value} ${metric.unit}，查看参考点`, trigger => showReference(reference, age, value, trigger));
   }
   for (const [eye] of EYES) for (const method of Object.keys(METHODS)) {
     const series = visible.filter(p => p.eye === eye && p.method === method);
@@ -183,15 +210,22 @@ function chartView() {
       });
     }
   }
-  graph.append(svg); section.append(graph, detail);
+  graph.append(svg); section.append(chartHeading); if (sourceOptions.length) section.append(sourcePicker); section.append(graph, detail);
   const legend = n('div', 'vision-chart-legend'); if (!metric.referenceOnly) legend.append(n('span', 'vision-right', '● 右眼 R'), n('span', 'vision-left', '■ 左眼 L'), n('span', '', '实线：散瞳 · 虚线：未散瞳 · 未注明仅显示点'));
+  if (state.metric === 'se') {
+    if (activeRefs.some(r => r.category === 'education')) legend.append(n('span', 'vision-education-key', '橙线／带：科普年龄参考'));
+    if (activeRefs.some(r => r.band === 'se-consensus')) legend.append(n('span', '', '绿带：散瞳SE 95%区间'));
+    if (activeRefs.some(r => r.endExclusive && r.category !== 'education')) legend.append(n('span', '', '灰线：推荐下限'));
+  }
+  if (state.metric !== 'se') for (const label of new Set(activeRefs.map(reference => reference.label))) legend.append(n('span', 'vision-reference-key', label));
   section.append(legend);
   if (!visible.length && !metric.referenceOnly) section.append(n('p', 'vision-help', visits(snapshot).length && !profile.get().birthDate ? '请在设置里填写宝宝生日，才能按检查日计算年龄。' : '当前范围暂无该指标的检查数值；添加检查后，双眼数据将显示在图中。'));
   const changes = n('div', 'vision-changes');
   for (const [eye, label] of EYES) { const delta = comparison(snapshot, eye, state.metric); if (delta) changes.append(n('span', '', `${label} · 较上次 ${signed(delta.delta)} ${metric.unit} / ${delta.days}天`)); }
   section.append(changes);
   section.append(n('p', 'vision-help', referenceNote(state.metric)));
-  if (state.reference && !activeRefs.length) section.append(n('p', 'vision-help', state.metric === 'axialLength' && state.sex === 'none' ? '请选择眼轴参考人群；已核定的参考数据从6岁开始。' : '当前年龄范围没有适用的参考线，不向范围外延伸。'));
+  if (state.reference && !selectedSources.length) section.append(n('p', 'vision-help', '未选参考资料，仅显示个人检查。'));
+  if (state.reference && selectedSources.length && !activeRefs.length) section.append(n('p', 'vision-help', state.metric === 'axialLength' && state.sex === 'none' ? '请选择眼轴参考人群；已核定的参考数据从6岁开始。' : '当前年龄范围没有适用的参考线，不向范围外延伸。'));
   const referenceList = n('div', 'vision-reference-summary');
   for (const reference of activeRefs) {
     const values = referenceWindow(reference, bounds);
@@ -204,7 +238,7 @@ function chartView() {
   if (referenceList.childNodes.length) section.append(referenceList);
   if (metric.referenceOnly) section.append(n('p', 'vision-help', '这是婴幼儿视力参考图；查看自己的裸眼视力、度数或眼轴，请切换上方“趋势指标”。'));
   const sources = [...new Set(activeRefs.map(r => r.source))];
-  for (const url of sources) section.append(link('查看' + (url === NHC_URL ? '2024指南' : url.includes('PMC') ? 'Teller研究表A1' : url.includes('cqcdc') ? '2026实施标准解读' : url.includes('gzzoc') ? '2022共识参考区间' : '眼轴研究') + ' ↗', url));
+  for (const url of sources) section.append(link('查看' + (url === NHC_URL ? '2024指南' : url.includes('PMC') ? 'Teller研究表A1' : url.includes('cqcdc') ? '2026实施标准解读' : url.includes('hzfuturehos') ? '科普年龄参考表' : url.includes('gzzoc') ? '2022共识参考区间' : '眼轴研究') + ' ↗', url));
   return section;
 }
 function modal(title) {
