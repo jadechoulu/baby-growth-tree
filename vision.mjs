@@ -118,7 +118,7 @@ function chartView() {
     const content = [n('p', '', `${reference.ageLabel || ageLabel(age)} · ${reference.label}：${Number(value.toFixed(3))} ${metric.unit}`)];
     if (reference.band) {
       const limits = activeRefs.filter(r => r.band === reference.band).map(r => ({ label: r.label, value: r.values.find(([a]) => a === age)?.[1] }));
-      content.splice(0, 1, n('p', '', `${ageLabel(age)} · 单眼TAC II视力95%预测区间`));
+      content.splice(0, 1, n('p', '', `${ageLabel(age)} · ${reference.band === 'teller' ? '单眼TAC II视力95%预测区间' : '散瞳SE 95%参考区间'}`));
       for (const limit of limits) if (Number.isFinite(limit.value)) content.push(n('p', '', `${limit.label}：${limit.value} ${metric.unit}`));
     }
     content.push(n('p', 'vision-help', referenceNote(state.metric)), link('查看参考来源 ↗', reference.source));
