@@ -61,7 +61,7 @@ test('参考按适用指标人群提供，眼轴不套到6岁以下，不生成�
   assert.deepEqual(referenceWindow(curves[1], [0, 5]), []);
   assert.deepEqual(references('se').find(r => r.kind === 'dots').values, [[6, 1.38], [15, .31]]);
   assert.deepEqual(referenceWindow(references('se')[0], [0, 2]), []);
-  assert.deepEqual(referenceWindow(references('se')[0], [6, 15]), []);
+  assert.deepEqual(referenceWindow(references('se').find(r => r.endExclusive), [6, 15]), []);
   assert.equal(references('sphere').length, 0);
   assert.equal(references('correctedAcuity').length, 0);
   const lower = references('acuity')[1];
@@ -115,4 +115,13 @@ test('婴幼儿条栅视力区间与普通裸眼视力、屈光度及个人事�
   assert.equal(upper.values.find(([age]) => age === 12.096/12)[1], 15.061);
   assert.deepEqual(points(snapshot({'vision-a': record()}), '2024-01-01', 'tellerReference'), []);
   assert.equal(references('acuity').some(r => r.band), false);
+});
+
+test('散瞳SE参考带使用原表上下界，不向6岁以下外推', () => {
+  const band = references('se').filter(r => r.band === 'se-consensus');
+  assert.equal(band.length, 2);
+  assert.deepEqual(band.map(r => r.values[0]), [[6,.38],[6,3.63]]);
+  assert.deepEqual(band.map(r => r.values.at(-1)), [[15,-.38],[15,1.13]]);
+  for (const curve of band) assert.deepEqual(referenceWindow(curve, [0,5]), []);
+  for (let i=0;i<10;i++) assert.ok(band[0].values[i][1] < band[1].values[i][1]);
 });

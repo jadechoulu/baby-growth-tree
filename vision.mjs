@@ -1,9 +1,9 @@
-import { emptyVision, EYES, METHODS, METRICS, KNOWLEDGE, TEMPLATE_IMAGES, SOURCE_SITES, NHC_URL, RESEARCH_URL, visits, points, references, referenceWindow, referenceNote, comparison, ageYears, equivalentSphere, acuityDecimal, acuityLabel, signed } from './lib/vision-model.mjs';
+import { emptyVision, EYES, METHODS, METRICS, KNOWLEDGE, TEMPLATE_IMAGES, SOURCE_SITES, NHC_URL, RESEARCH_URL, visits, points, references, referenceWindow, referenceNote, metricInputNote, comparison, ageYears, equivalentSphere, acuityDecimal, acuityLabel, signed } from './lib/vision-model.mjs?v=20261117-reference-band';
 import { localDateString } from './lib/model.mjs';
 
 const M = window.XiaoyaSyncModel;
 const profile = window.XiaoyaBabyProfile.createClient();
-const state = { view: new URLSearchParams(location.hash.slice(1)).get('view') === 'chart' ? 'chart' : 'table', metric: Number.isFinite(ageYears(profile.get().birthDate, localDateString())) && ageYears(profile.get().birthDate, localDateString()) < 3 ? 'tellerReference' : 'acuity', sex: 'none', range: 'young', eye: 'both', notation: 'decimal', reference: true, date: '' };
+const state = { view: new URLSearchParams(location.hash.slice(1)).get('view') === 'chart' ? 'chart' : 'table', metric: 'se', sex: 'none', range: 'young', eye: 'both', notation: 'decimal', reference: true, date: '' };
 let store, sync, shell, snapshot = null, writing = false, dialog = null, errorMessage = '', notice = '';
 const n = (tag, cls = '', text) => { const el = document.createElement(tag); el.className = cls; if (text !== undefined) el.textContent = text; return el; };
 const button = (label, action, cls = 'vision-button') => { const el = n('button', cls, label); el.type = 'button'; el.addEventListener('click', action); return el; };
@@ -90,13 +90,13 @@ function emptyState(title, text) {
 }
 function chartView() {
   const section = n('section', 'vision-panel'), controls = n('div', 'vision-chart-controls');
-  controls.append(picker('趋势指标', Object.entries(METRICS).map(([key, item]) => [key, item.label + ' · ' + item.unit]), state.metric, value => { state.metric = value; render(); }),
+  controls.append(picker('趋势指标', Object.entries(METRICS).map(([key, item]) => [key, (key === 'se' ? '远视储备' : item.label) + ' · ' + item.unit]), state.metric, value => { state.metric = value; render(); }),
     ...(!METRICS[state.metric].referenceOnly ? [picker('显示眼别', [['both', '双眼'], ...EYES], state.eye, value => { state.eye = value; render(); })] : []),
     picker('年龄范围', [['all', '全部年龄'], ['young', '0～6岁'], ['school', '6～15岁']], state.range, value => { state.range = value; render(); }));
   if (state.metric === 'axialLength') controls.append(picker('眼轴参考人群', [['none', '选择参考人群'], ['female', '中国女孩 · 6～15岁'], ['male', '中国男孩 · 6～15岁']], state.sex, value => { state.sex = value; render(); }));
   const refLabel = n('label', 'vision-check-label'), ref = n('input'); ref.type = 'checkbox'; ref.checked = state.reference; ref.addEventListener('change', () => { state.reference = ref.checked; render(); }); refLabel.append(ref, document.createTextNode('参考')); controls.append(refLabel); section.append(controls);
   const chartActions = n('div', 'vision-chart-actions'), add = button('＋ 新增检查', () => editVisit()); add.disabled = writing;
-  chartActions.append(n('span', '', '点击点位查看数值'), add); section.append(chartActions);
+  chartActions.append(n('span', '', '点击点位查看数值'), add); section.append(chartActions, n('p', 'vision-help vision-input-note', metricInputNote(state.metric)));
   const metric = METRICS[state.metric], all = points(snapshot, profile.get().birthDate, state.metric).filter(p => state.eye === 'both' || state.eye === p.eye);
   const bounds = state.range === 'young' ? [0, 6] : state.range === 'school' ? [6, 15] : [Math.min(0, ...all.map(p => Math.floor(p.age))), Math.max(16, ...all.map(p => Math.ceil(p.age)))];
   const visible = all.filter(p => p.age >= bounds[0] && p.age <= bounds[1]);
@@ -118,7 +118,7 @@ function chartView() {
     const content = [n('p', '', `${reference.ageLabel || ageLabel(age)} · ${reference.label}：${Number(value.toFixed(3))} ${metric.unit}`)];
     if (reference.band) {
       const limits = activeRefs.filter(r => r.band === reference.band).map(r => ({ label: r.label, value: r.values.find(([a]) => a === age)?.[1] }));
-      content.splice(0, 1, n('p', '', `${ageLabel(age)} · 单眼TAC II视力95%预测区间`));
+      content.splice(0, 1, n('p', '', `${ageLabel(age)} · ${reference.band === 'teller' ? '单眼TAC II视力95%预测区间' : '散瞳SE 95%参考区间'}`));
       for (const limit of limits) if (Number.isFinite(limit.value)) content.push(n('p', '', `${limit.label}：${limit.value} ${metric.unit}`));
     }
     content.push(n('p', 'vision-help', referenceNote(state.metric)), link('查看参考来源 ↗', reference.source));
@@ -134,14 +134,23 @@ function chartView() {
   for (let i = 0; i <= 6; i++) { const value = min + (max - min) * i / 6; create('line', { x1: 64, x2: 774, y1: y(value), y2: y(value), class: 'vision-grid' }); create('text', { x: 53, y: y(value) + 4, 'text-anchor': 'end' }, value.toFixed(state.metric.includes('Acuity') || state.metric === 'acuity' ? 2 : 1)); }
   const step = Math.max(1, Math.ceil((bounds[1] - bounds[0]) / 10));
   for (let age = bounds[0]; age <= bounds[1]; age += step) { create('line', { x1: x(age), x2: x(age), y1: 50, y2: 320, class: 'vision-grid' }); create('text', { x: x(age), y: 347, 'text-anchor': 'middle' }, age + '岁'); }
-  const band = activeRefs.filter(r => r.band === 'teller');
-  if (band.length === 2) create('polygon', { points: [...referenceWindow(band[0], bounds), ...referenceWindow(band[1], bounds).reverse()].map(([a,v]) => `${x(a)},${y(v)}`).join(' '), class: 'vision-reference-band' });
+  for (const bandId of new Set(activeRefs.map(r => r.band).filter(Boolean))) {
+    const band = activeRefs.filter(r => r.band === bandId);
+    if (band.length !== 2) continue;
+    const lower = referenceWindow(band[0], bounds), upper = referenceWindow(band[1], bounds);
+    if (!lower.length || !upper.length) continue;
+    if (lower[0][0] === lower.at(-1)[0]) {
+      create('line', { x1: x(lower[0][0]), x2: x(lower[0][0]), y1: y(lower[0][1]), y2: y(upper[0][1]), class: 'vision-reference-range' });
+    } else {
+      create('polygon', { points: [...lower, ...upper.reverse()].map(([a,v]) => `${x(a)},${y(v)}`).join(' '), class: 'vision-reference-band' });
+    }
+  }
   const referenceLabels = new Set();
   for (const [index, reference] of activeRefs.entries()) {
     const inside = referenceWindow(reference, bounds);
     if (reference.kind === 'segment' && inside.length >= 2) {
       const line = create('polyline', { points: inside.map(([a, v]) => `${x(a)},${y(v)}`).join(' '), class: 'vision-reference-line', 'data-reference': index });
-      const title = document.createElementNS(svg.namespaceURI, 'title'); title.textContent = `${reference.label} · ${reference.band ? '1～36月龄' : reference.ageLabel || `${reference.values[0][0]}～${reference.values.at(-1)[0]}岁`}`; line.append(title);
+      const title = document.createElementNS(svg.namespaceURI, 'title'); title.textContent = `${reference.label} · ${reference.band === 'teller' ? '1～36月龄' : reference.ageLabel || `${reference.values[0][0]}～${reference.values.at(-1)[0]}岁`}`; line.append(title);
     }
     if (inside.length >= 2 && reference.kind === 'segment' && !referenceLabels.has(reference.label)) {
       referenceLabels.add(reference.label);
@@ -195,7 +204,7 @@ function chartView() {
   if (referenceList.childNodes.length) section.append(referenceList);
   if (metric.referenceOnly) section.append(n('p', 'vision-help', '这是婴幼儿视力参考图；查看自己的裸眼视力、度数或眼轴，请切换上方“趋势指标”。'));
   const sources = [...new Set(activeRefs.map(r => r.source))];
-  for (const url of sources) section.append(link('查看' + (url === NHC_URL ? '2024指南' : url.includes('PMC') ? 'Teller研究表A1' : url.includes('cqcdc') ? '2026实施标准解读' : '眼轴研究') + ' ↗', url));
+  for (const url of sources) section.append(link('查看' + (url === NHC_URL ? '2024指南' : url.includes('PMC') ? 'Teller研究表A1' : url.includes('cqcdc') ? '2026实施标准解读' : url.includes('gzzoc') ? '2022共识参考区间' : '眼轴研究') + ' ↗', url));
   return section;
 }
 function modal(title) {
@@ -225,14 +234,14 @@ async function removeVisit(id, base = structuredClone(snapshot)) {
 }
 function editVisit(id) {
   const opened = modal(id ? '编辑视力检查' : '记录一次视力检查'); if (!opened) return;
-  const { el, body } = opened, base = structuredClone(snapshot), original = snapshot?.records[id] || { date: state.view === 'table' && state.date ? state.date : localDateString(), cycloplegia: 'unknown', chart: 'decimal', right: {}, left: {} }, fields = {};
+  const { el, body } = opened, base = structuredClone(snapshot), original = snapshot?.records[id] || { date: state.view === 'table' && state.date ? state.date : localDateString(), cycloplegia: 'no', chart: 'decimal', right: {}, left: {} }, fields = {};
   const form = n('form', 'vision-form');
   const addField = (parent, label, key, type = 'text', value = '', attrs = {}) => { const wrap = n('label', '', label), input = n('input'); input.type = type; input.name = key; input.setAttribute('aria-label', label); input.value = value; for (const [name, val] of Object.entries(attrs)) input.setAttribute(name, val); wrap.append(input); parent.append(wrap); fields[key] = input; return input; };
   const top = n('div', 'vision-form-grid');
   addField(top, '检查日期', 'date', 'date', original.date, { required: '', max: localDateString(), ...(profile.get().birthDate ? { min: profile.get().birthDate } : {}) });
   const methodLabel = n('label', '', '散瞳验光'), method = picker('散瞳验光', Object.entries(METHODS), original.cycloplegia, () => {}); method.name = 'cycloplegia'; methodLabel.append(method); top.append(methodLabel); fields.cycloplegia = method;
   const notationLabel = n('label', '', '报告视力记录法'), notation = picker('报告视力记录法', [['decimal', '小数（如0.8、1.0）'], ['logarithmic', '五分（如4.9、5.0）']], original.chart, () => {}); notation.name = 'chart'; notationLabel.append(notation); top.append(notationLabel); fields.chart = notation;
-  addField(top, '检查机构（选填）', 'institution', 'text', original.institution || '', { maxlength: 120 }); form.append(top, n('p', 'vision-help', '按报告填写，空白保留未测；0需要明确输入。近视100度＝球镜−1.00D，近视150度＝−1.50D；远视用正号。左右眼分别填，散光另填柱镜C；裸眼视力0.5、1.0与度数不能换算。'));
+  addField(top, '检查机构（选填）', 'institution', 'text', original.institution || '', { maxlength: 120 }); form.append(top, n('p', 'vision-help', '宝宝生日自动读取全局资料，无需重复填写。儿保报告有哪项就填哪项：视力填“裸眼视力”；屈光筛查单的S／SPH填球镜，C／CYL填散光柱镜，A／AXIS填轴位。仅写“正常／异常”或检查未提供数值时，可记在检查备注，不要填0代替。红光反射、眼位、追视等儿保项目也可在备注中照录。本次默认未散瞳，可按实际修改；未散瞳筛查不能直接按散瞳远视储备下限判断。近视100度填−1.00D，远视100度填+1.00D；视力与度数不能换算。'));
   const eyes = n('div', 'vision-eye-fields');
   for (const [eye, label] of EYES) {
     const group = n('fieldset'); group.append(n('legend', '', label)); const grid = n('div', 'vision-form-grid');

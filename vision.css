@@ -19,3 +19,11 @@
 .vision-chart-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 18px 10px;color:#73837b;font-size:12px}.vision-chart-actions button{min-height:44px;font-size:14px;white-space:nowrap}.vision-point-hit{fill:transparent;stroke:none;cursor:pointer}.vision-reference-point,.vision-personal-point{cursor:pointer}.vision-reference-point:focus,.vision-personal-point:focus{outline:none}.vision-reference-point:is(:focus-visible,.is-selected) .vision-reference-dot{stroke:#287b78;stroke-width:3;r:5}.vision-personal-point:is(:focus-visible,.is-selected) .vision-data-dot{stroke:#153f40;stroke-width:3}.vision-point-detail{margin:0 18px 14px;padding:12px 14px;border:1px solid #b8d7cf;border-radius:10px;background:#f0f7f3;font-size:14px;line-height:1.8;overflow-wrap:anywhere}.vision-point-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}.vision-point-detail p{margin:8px 0}.vision-point-detail a{font-size:13px;color:#287b78}.vision-point-detail .icon-button{border:0;background:transparent}.vision-point-detail>.vision-button{margin-top:6px}
 @media(max-width:600px){.vision-chart-actions{padding:0 12px 8px}.vision-point-detail{margin:0 12px 12px;padding:10px 12px}}
 @media print{.vision-chart-actions,.vision-point-detail{display:none}}
+
+/* 趋势筛选保持单行，窄屏只在栏内横滑，不撑开页面。 */
+.vision-chart-controls{flex-wrap:nowrap;overflow-x:auto;padding:10px 12px;gap:6px}.vision-chart-controls select{flex:0 0 auto;width:auto;max-width:220px;min-height:34px;padding:5px 7px;font-size:14px}.vision-chart-controls .vision-check-label{flex:none;margin-left:0;min-height:34px;font-size:13px}.vision-chart-controls select:first-child{max-width:180px}
+@media(max-width:600px){.vision-chart-controls{padding:8px;gap:5px}.vision-chart-controls select{font-size:14px;max-width:150px}.vision-chart-controls select:first-child{max-width:140px}}
+
+.vision-panel>.vision-input-note{font-size:12px;line-height:1.7;color:#6b8178;margin:0 18px 10px}
+
+.vision-reference-range{stroke:#76a994;stroke-width:8;stroke-opacity:.45;pointer-events:none}
