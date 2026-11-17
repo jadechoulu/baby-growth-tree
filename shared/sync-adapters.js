@@ -10,6 +10,34 @@
   function createAdapters({ indexedDB, localStorage, profileClient, notify = () => {} }) {
     let opening;
     let healthOpening;
+    let visionOpening;
+    function visionDatabase() {
+      if (!visionOpening) visionOpening = new Promise((resolve, reject) => {
+        const request = indexedDB.open('xiaoya-vision', 1);
+        request.onupgradeneeded = () => request.result.createObjectStore('documents');
+        request.onblocked = () => reject(new Error('视力记录被旧页面占用。'));
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => { const db = request.result; db.onversionchange = () => { db.close(); visionOpening = null; }; resolve(db); };
+      }).catch(error => { visionOpening = null; throw error; });
+      return visionOpening;
+    }
+    async function visionTransaction(write, next, base) {
+      const db = await visionDatabase();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('documents', write ? 'readwrite' : 'readonly');
+        const store = tx.objectStore('documents'), request = store.get('default');
+        let result, error;
+        request.onsuccess = () => {
+          try {
+            const current = M.normalize('vision', request.result ?? null);
+            result = write ? M.normalize('vision', conflict(M.merge(base, current, next))) : current;
+            if (write && result) store.put(result, 'default');
+          } catch (failure) { error = failure; tx.abort(); }
+        };
+        tx.oncomplete = () => { if (write) notify('vision'); resolve(result); };
+        tx.onabort = tx.onerror = () => reject(error || tx.error || new Error('视力记录保存失败。'));
+      });
+    }
     function healthDatabase() {
       if (!healthOpening) healthOpening = new Promise((resolve, reject) => {
         const request = indexedDB.open('xiaoya-health', 1);
@@ -98,6 +126,7 @@
       },
       growth: { read: () => growthTransaction(false), apply: (next, base) => growthTransaction(true, next, base) },
       health: { read: () => healthTransaction(false), apply: (next, base) => healthTransaction(true, next, base) },
+      vision: { read: () => visionTransaction(false), apply: (next, base) => visionTransaction(true, next, base) },
       english: {
         read: async () => readEnglish(),
         async apply(next, base) {

@@ -3,12 +3,13 @@ import assert from 'node:assert/strict';
 import { createAssistantMemory } from '../backend/assistant-memory.mjs';
 import { AuthState, createWorker } from '../worker/index.mjs';
 
-test('四类记录固定私有文件独立读写；两成长版本互不覆盖，英语不包含姓名生日', async () => {
+test('五类记录固定私有文件独立读写；成长版本和视力互不覆盖，英语不包含姓名生日', async () => {
   const app = setup(); const token = await app.login();
   const values = {
     profile: { version: 1, name: '测试宝宝', birthDate: '2024-11-24' },
     growth: { version: 1, records: snapshot().records },
     health: { version: 1, standard: 'WS/T 580—2017', records: { 'wst580-138': { status: 'observed', observedAt: '2026-10-30', note: '家庭观察' } } },
+    vision: { version: 1, kind: 'vision', records: { 'vision-test': { date: '2026-11-16', cycloplegia: 'yes', chart: 'decimal', right: { sphere: 0, cylinder: -0.5 }, left: { axialLength: 22.5 } } } },
     english: { version: 1, profile: { vocabulary: 70, mode: 'audio' }, favorites: ['sss'], records: { sss: { status: 'using', note: '喜欢' } } },
   };
   for (const [area, value] of Object.entries(values)) {
@@ -21,6 +22,11 @@ test('四类记录固定私有文件独立读写；两成长版本互不覆盖�
   }
   assert.equal((await app.api('/api/data/other', token)).status, 404);
   assert.equal((await app.api('/api/data/health')).status, 401);
+  assert.equal((await app.api('/api/data/vision')).status, 401);
+  assert.equal((await app.api('/api/data/vision', token, { headers: { Origin: 'https://untrusted.example' } })).status, 403);
+  const visionConflict = await app.api('/api/data/vision', token, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: values.vision, revision: null }) });
+  assert.equal(visionConflict.status, 409);
+  assert.deepEqual((await visionConflict.json()).snapshot, values.vision);
   assert.equal((await app.api('/api/data/health', token, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: { ...values.health, records: { 'wst580-262': {} } }, revision: SHA_A }) })).status, 400);
   assert.equal((await app.api('/api/data/english', token, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot: { ...values.english, token: 'fake-NOT-A-CREDENTIAL' }, revision: SHA_A }) })).status, 400);
   app.private(false); assert.equal((await app.api('/api/data/english', token)).status, 503);
@@ -135,7 +141,7 @@ function setup(overrides = {}) {
     if (url.startsWith('https://api.github.com/repos/example/private-records/contents/private/book-finder.json')) {
       return bookAccounts ? Response.json({ sha: SHA_A, encoding: 'base64', content: Buffer.from(JSON.stringify(bookAccounts)).toString('base64') }) : Response.json({}, { status: 404 });
     }
-    const match = /^https:\/\/api\.github\.com\/repos\/example\/private-records\/contents\/records\/(profile|growth|health|english)\.json/.exec(url);
+    const match = /^https:\/\/api\.github\.com\/repos\/example\/private-records\/contents\/records\/(profile|growth|health|vision|english)\.json/.exec(url);
     if (match) {
       const area = match[1], current = documents.get(area);
       if (options.method === 'PUT') {

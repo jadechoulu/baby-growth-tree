@@ -24,6 +24,35 @@
       if (!name || value.birthDate !== '2024-11-24') throw new Error('宝宝档案格式无效。');
       return { version: 1, name, birthDate: value.birthDate };
     }
+    if (area === 'vision') {
+      // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 视力备份与私人接口仅接受独立领域白名单，不接受模板或其他领域快照。
+      fields(value, ['version', 'kind', 'records']);
+      if (value.kind !== 'vision' || !object(value.records)) throw new Error('视力记录格式无效。');
+      const date = value => {
+        if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000') || !Number.isFinite(Date.parse(value + 'T00:00:00Z')) || new Date(value + 'T00:00:00Z').toISOString().slice(0, 10) !== value) throw new Error('检查日期无效。');
+        return value;
+      };
+      const ranges = { acuity: [0.01, 3], correctedAcuity: [0.01, 3], sphere: [-40, 40], cylinder: [-20, 20], axis: [0, 180], axialLength: [10, 40] };
+      const records = Object.fromEntries(Object.entries(value.records).map(([key, record]) => {
+        if (!/^vision-[a-zA-Z0-9-]{1,80}$/.test(key)) throw new Error('视力记录标识无效。');
+        fields(record, ['date', 'cycloplegia', 'chart', 'institution', 'correction', 'note', 'right', 'left', 'deleted']);
+        if (!['yes', 'no', 'unknown'].includes(record.cycloplegia) || !['decimal', 'logarithmic'].includes(record.chart)) throw new Error('验光方式或视力记录法无效。');
+        const next = { date: date(record.date), cycloplegia: record.cycloplegia, chart: record.chart };
+        for (const name of ['institution', 'correction', 'note']) if (Object.hasOwn(record, name)) next[name] = text(record[name], name === 'note' ? 2000 : 120);
+        if (Object.hasOwn(record, 'deleted')) { if (typeof record.deleted !== 'boolean') throw new Error('删除标记无效。'); next.deleted = record.deleted; }
+        for (const eye of ['right', 'left']) {
+          fields(record[eye], Object.keys(ranges)); next[eye] = {};
+          for (const [field, value] of Object.entries(record[eye])) {
+            const [min, max] = ranges[field];
+            if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max || (field === 'axis' && !Number.isInteger(value))) throw new Error('眼部数值无效：' + field);
+            next[eye][field] = value;
+          }
+        }
+        if (!Object.keys(next.right).length && !Object.keys(next.left).length) throw new Error('请至少填写一项左右眼检查数值。');
+        return [key, next];
+      }));
+      return { version: 1, kind: 'vision', records };
+    }
     if (area === 'health') {
       fields(value, ['version', 'standard', 'records']);
       if (value.standard !== 'WS/T 580—2017' || !object(value.records)) throw new Error('卫健委观察记录格式无效。');

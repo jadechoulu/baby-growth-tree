@@ -282,11 +282,16 @@ body.site-navigation-open{overflow:hidden}
 .site-sync-bulk .site-sync-action { margin:0; flex:1; }
 @media (max-width:600px) { .site-sync-button span { display:none; } .site-sync-button { padding:6px; } .site-sync-dialog { width:calc(100% - 16px); } }
 /* 同一成长分类内的版本切换，正文和详情使用同一入口。 */
-.growth-versions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:0 0 12px;padding:3px;width:fit-content;border:1px solid #dedcec;border-radius:10px;background:#f3f1fa;font-size:14px}
+.growth-versions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 12px;width:fit-content;font-size:14px}
+.growth-assessment-versions{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid #cfdbef;border-radius:10px;background:var(--site-accent-soft)}
+.growth-vision-entry{border-left:1px solid #cfdbef;padding-left:10px}
+.growth-vision-entry>a{border:1px solid #cfdbef;background:var(--site-surface);color:var(--site-accent)}
+.growth-versions .growth-vision-entry>a[aria-current=page]{background:var(--site-accent-soft);border-color:var(--site-accent)}
 .growth-version-tab{display:inline-flex;align-items:center;flex:none;border-radius:7px}
-.growth-version-tab:has(>a[aria-current=page]){background:#fff;box-shadow:0 1px 3px #332a4115}
+.growth-assessment-versions>.growth-version-tab:has(>a[aria-current=page]){background:#fff;box-shadow:0 1px 3px #332a4115}
 .growth-versions a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:6px 13px;border-radius:7px;text-decoration:none;line-height:1.4}
-.growth-versions a[aria-current=page]{color:#5235a3;font-weight:650}
+.growth-versions a{color:var(--site-accent)}
+.growth-versions a[aria-current=page]{color:var(--site-accent);font-weight:650}
 .growth-version-tab:has(>.growth-version-help)>a{padding-right:5px}
 .growth-references{display:flex;align-items:flex-start;gap:6px;margin:0 0 12px;padding:8px 10px;border:1px solid #dedcec;border-radius:10px;background:#f8f7fb;min-width:0}
 .growth-references details{flex:1;min-width:0}

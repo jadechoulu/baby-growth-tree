@@ -6,6 +6,12 @@
 
 英语记录复用本站缓存的短期令牌，服务端确认本人身份后，自动读取并接回已存在的云端英语库；无需再点击首次连接。原同步日志仍保存迁移前双方快照，三方合并无冲突直接继续，字段有差异保留双方并提示核对，云端确认并合入本机后才报告已同步。不存在云端英语库时不自动创建空库，主动暂停不自动重连。档案、成长及卫健委仍沿用逐类预览确认；下文历史首次连接说明对英语依本条更新。自动接回已通过隔离测试；真实入口恢复与自动新入口测试分别记录，不以清空私人存储验收。此改动尚未发布。
 
+## 2026-11-17 独立视力记录（网页发布，后端受平台额度阻断）
+
+新增领域`vision`：本机为IndexedDB `xiaoya-vision/documents`的`default`，私有仓固定`records/vision.json`，API为`GET/PUT /api/data/vision`。复用本人身份、Origin、私仓校验、SHA条件保存、三方合并、日志及回执；不复用毛老师／卫健委的领域事实。已有云端记录可在核验本人后自动接回，云端为空不自动建库，主动暂停不重连。首次创建仍经原预览连接流程。前后端代码已接入。2026-11-17尝试发布既有Netlify站点，平台返回HTTP403：Account credit usage exceeded - new deploys are blocked until credits are added。未充值或升级；本批网页仍通过受保护PR发布，本机增删改查可用，新增视力云端接口未上线，真实云端读写尚未验证。
+
+快照为`{version:1,kind:'vision',records:{'vision-<uuid>':{...}}}`，检查按日期显示、允许同日多条，删除保留`deleted:true`墓碑供恢复；没有复查预约或提醒字段。导入白名单拒绝跨领域快照，检查数据与模板原图不进入公开发布包。网站共享生日仅用于派生检查时年龄，视力检查不写入宝宝基础档案或其他分类。
+
 ## 实现与上线状态
 
 2026-10-30 用户授权发布卫健委版本，已先更新 Netlify 生产后端，部署 `6ae451e76b7257575e039df8` 为 ready，新增观察领域 `health`。沿用本人 OAuth、首次预览连接、三方合并、持久回执及离线重试；新记录独立保存在 `xiaoya-health`，私有仓文件为 `records/health.json`。现有 `growth` 文件只存毛老师版。网页由本批 PR 通过 verify 后合入 main，再由统一 Pages 工作流发布；最终网页部署结果以 Actions 为准。上线检查核对健康接口及未登录/非受信来源保护，未代用户初始化、迁入或修改 health 文件；新版真实登录后的跨设备观察读写仍需单独验收。
@@ -31,6 +37,7 @@ GitHub Pages 放公开网页；私有 GitHub 仓库放个人 JSON 与版本历�
 | 档案 | `records/profile.json` | 全站昵称、固定生日 |
 | 毛老师成长 | `records/growth.json` | 技能完成日期与手记 |
 | 卫健委观察 | `records/health.json` | 家庭观察状态、日期与手记 |
+| 视力（待发布） | `records/vision.json` | 双眼检查、日期、散瞳条件、机构与备注、可恢复删除 |
 | 英语 | `records/english.json` | 词汇、呈现偏好、收藏、素材状态与笔记 |
 
 API 分别为 `/api/data/profile`、`/api/data/growth`、`/api/data/health`、`/api/data/english`，使用 `GET` / `PUT`。写入携带最近 GitHub 文件 SHA；冲突重新读取并做字段级三方合并。旧 `/api/records` 保留兼容原成长快照。

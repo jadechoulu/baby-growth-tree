@@ -88,19 +88,19 @@ test('已同步私人记录不设置轮询，切回和聚焦不拉取；恢复�
   await new Promise(resolve=>setImmediate(resolve)); assert.equal(h.calls(), 1);
 });
 
-test('全未连接时顶部动作先预览四类记录，明确确认后才连接并执行一键同步', async () => {
-  const h = harness({ areas: Object.fromEntries(['profile', 'growth', 'health', 'english'].map(area => [area, { enabled: false }])) });
+test('全未连接时顶部动作先预览五类记录，明确确认后才连接并执行一键同步', async () => {
+  const h = harness({ areas: Object.fromEntries(['profile', 'growth', 'health', 'vision', 'english'].map(area => [area, { enabled: false }])) });
   await h.client.open();
   const trigger = h.document.body.querySelector('[data-sync-all]');
   assert.equal(trigger.textContent, '连接并同步'); trigger.dispatchEvent(new Event('click'));
   for (let i = 0; i < 8; i++) await new Promise(resolve => setImmediate(resolve));
-  assert.deepEqual(h.previewedAreas, ['profile', 'growth', 'health', 'english']);
+  assert.deepEqual(h.previewedAreas, ['profile', 'growth', 'health', 'vision', 'english']);
   assert.deepEqual(h.enabledAreas, []); assert.equal(h.calls(), 0);
   const preview = h.document.body.querySelector('[data-sync-connect-all]');
   const confirm = preview.children.find(child => child.tag === 'button');
   assert.equal(confirm.textContent, '确认连接全部并同步'); confirm.dispatchEvent(new Event('click'));
   for (let i = 0; i < 8; i++) await new Promise(resolve => setImmediate(resolve));
-  assert.deepEqual(h.enabledAreas, ['profile', 'growth', 'health', 'english']);
+  assert.deepEqual(h.enabledAreas, ['profile', 'growth', 'health', 'vision', 'english']);
   assert.deepEqual(h.syncedAreas, h.enabledAreas);
   assert.equal(h.document.body.querySelector('[data-sync-all]').textContent, '一键同步');
 });
@@ -116,7 +116,7 @@ test('一键同步只处理已连接分类，逐项等待真实结果；失败�
   assert.equal(result.ok, false);
   assert.deepEqual(h.syncedAreas, ['profile', 'growth', 'english']);
   assert.deepEqual(Array.from(result.results, item => item.status), ['synced', 'conflict', 'error']);
-  assert.deepEqual(Array.from(result.skipped), ['health']);
+  assert.deepEqual(Array.from(result.skipped), ['health', 'vision']);
   assert.equal((await h.client.getState('health')).enabled, false);
 });
 

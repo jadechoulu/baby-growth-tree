@@ -238,7 +238,7 @@ function render() {
   const actions = node('div', 'topbar-actions');
   const saved = btn('', openBackup, 'save-status'); saved.id = 'health-save-status';
   const savedLabel = node('span'); savedLabel.dataset.saveLabel = ''; saved.append(node('span', 'save-status-dot'), savedLabel);
-  const original = pdfLink(''); original.classList.add('icon-button', 'source-link'); original.setAttribute('aria-label', '卫健委版：查看原始标准 PDF'); original.title = '卫健委版原始标准'; original.append(window.XiaoyaSite.icon('book'), node('span', '', '原始标准'));
+  const original = pdfLink(''); original.classList.add('icon-button', 'source-link'); original.setAttribute('aria-label', '卫健委版：查看原始标准 PDF'); original.title = '卫健委版原始标准'; original.append(window.XiaoyaSite.icon('book'));
   const editProfile = iconButton('settings', '编辑宝宝资料', openProfile); editProfile.append(node('span', '', '宝宝资料'));
   actions.append(sync.createButton(), editProfile, saved, iconButton('source', '本版记录与备份', openBackup)); shell.actions.replaceChildren(versions(), original); shell.globalActions.replaceChildren(window.XiaoyaSite.createActionMenu(actions)); updateSaveStatus();
   const main = node('div', `health-content health-view-${state.view}`);
