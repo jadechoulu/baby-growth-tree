@@ -1,0 +1,19 @@
+vision.mjs
+  s_655a201aff35d2::t_9cca0973d077c5 121
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9117008a14d54aed658338c168baa294b3530198",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
