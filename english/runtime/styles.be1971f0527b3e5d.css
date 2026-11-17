@@ -2069,7 +2069,7 @@
 }
 
 /* 英语分类栏的书单同步是领域动作，与设置中的私人记录同步区分。 */
-.site-actions .english-reading-sync{width:44px;min-width:44px;height:44px;min-height:44px;padding:10px;flex:none}
+.site-actions .english-reading-sync{width:44px;min-width:44px;height:var(--site-page-control-height,44px);min-height:var(--site-page-control-height,44px);padding:7px;flex:none}
 .english-reading-sync .icon{width:20px;height:20px}
 .english-reading-sync[aria-busy="true"] .icon{animation:english-sync-turn 1.2s linear infinite}
 @keyframes english-sync-turn{to{transform:rotate(360deg)}}
@@ -2079,14 +2079,14 @@
 .site-actions .top-actions:has(.english-reading-sync) .top-search span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* 分类栏搜索直接输入，图鉴不再复制全局搜索浮层。 */
-.site-actions .english-site-search{display:flex;align-items:center;gap:8px;flex:1;min-width:0;max-width:520px;height:44px;padding:0 10px;border:1px solid var(--site-border);border-radius:7px;background:var(--paper);color:var(--muted)}
+.site-actions .english-site-search{display:flex;align-items:center;gap:8px;flex:1;min-width:0;max-width:520px;height:var(--site-page-control-height,44px);padding:0 10px;border:1px solid var(--site-border);border-radius:7px;background:var(--paper);color:var(--muted)}
 .english-site-search>.icon{width:16px;height:16px;flex:none}
 .english-site-search input{width:100%;min-width:0;border:0;background:transparent;outline:none;font:inherit;font-size:16px;color:var(--ink)}
 .english-site-search input:focus-visible{outline:none}
 .english-site-search:focus-within{outline:2px solid var(--green);outline-offset:2px}
 @media(max-width:420px){.site-actions .english-site-search{padding:0 6px;gap:4px}}
 
-.site-actions .english-book-finder{display:flex;align-items:center;gap:5px;flex:none;height:44px;min-height:44px;padding:8px;font-size:14px;white-space:nowrap}
+.site-actions .english-book-finder{display:flex;align-items:center;gap:5px;flex:none;height:var(--site-page-control-height,44px);min-height:var(--site-page-control-height,44px);padding:5px 8px;font-size:14px;white-space:nowrap}
 .english-book-finder .icon{width:18px;height:18px}
 @media(max-width:600px){
   .site-page-bar:has(.english-book-finder)>.site-page-heading{display:none}
@@ -2170,7 +2170,7 @@
 .hello-topic-picker{flex:1;min-width:0;position:static}.hello-topic-picker>summary{display:flex;align-items:center;justify-content:space-between;gap:3px;box-sizing:border-box;height:28px;padding:2px 6px;border:1px solid var(--line,#dce6dd);border-radius:6px;background:var(--paper,#fff);color:inherit;font-size:13px;line-height:1.4;list-style:none;cursor:pointer}.hello-topic-picker>summary::-webkit-details-marker{display:none}.hello-topic-picker>summary>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hello-topic-picker>summary:focus-visible{outline:3px solid #a77637;outline-offset:2px}.hello-topic-menu{position:absolute;top:calc(100% + 4px);left:0;z-index:25;box-sizing:border-box;width:min(360px,100%);max-height:65dvh;overflow-y:auto;padding:10px;border:1px solid var(--line,#dce6dd);border-radius:9px;background:var(--paper,#fff);color:var(--ink,#243b35);box-shadow:0 8px 28px #172b2126}.hello-original-scene{display:grid;gap:4px;margin-top:10px;font-size:12px}.hello-topic-menu select,.site-enabled .hello-topic-menu select{font-size:16px!important;min-height:36px;height:auto;max-width:100%;width:100%;padding:5px 24px 5px 6px}.hello-topic-menu p{margin:7px 0 0;font-size:12px;line-height:1.5}
 
 /* 小芽共享框架：分类只覆盖颜色变量，布局与交互不分叉。 */
-:root{--site-accent:#6b4aba;--site-accent-soft:#f0eaff;--site-surface:#fffdf8;--site-bg:#faf7f0;--site-text:#302c3b;--site-muted:#746f7f;--site-border:#e6e1ec;--site-sidebar:228px;--site-bar-height:64px;--site-page-bar-height:66px;--site-space:28px;--site-font:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}
+:root{--site-accent:#6b4aba;--site-accent-soft:#f0eaff;--site-surface:#fffdf8;--site-bg:#faf7f0;--site-text:#302c3b;--site-muted:#746f7f;--site-border:#e6e1ec;--site-sidebar:228px;--site-bar-height:64px;--site-page-bar-height:52px;--site-page-control-height:36px;--site-space:28px;--site-font:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}
 body[data-site-section=growth]{--site-accent:#2f5db6;--site-accent-soft:#edf3ff}
 body[data-site-section=english]{--site-accent:#286b53;--site-accent-soft:#e8f2eb;--site-surface:#fffefa;--site-bg:#f6f7f2;--site-text:#263c33;--site-muted:#687b70;--site-border:#dde6df}
 body[data-site-section=home]{--site-accent:#536d60;--site-accent-soft:#eaf0e9;--site-bg:#f6f7f2}
@@ -2193,7 +2193,7 @@ body.site-enabled{margin:0;background:var(--site-bg);color:var(--site-text)}
 .site-baby-age{white-space:normal;word-break:keep-all;font-weight:650;line-height:1.3}
 .site-category-link:hover,.site-category-link[aria-current=page]{background:#e6edd9;color:#385c39}
 .site-category-link[aria-current=page]{font-weight:700}
-.site-page-bar{position:sticky;top:var(--site-bar-height);z-index:44;display:flex;align-items:center;gap:20px;min-height:var(--site-page-bar-height);padding:10px var(--site-space);border-bottom:1px solid var(--site-border);background:var(--site-accent-soft)}
+.site-page-bar{position:sticky;top:var(--site-bar-height);z-index:44;display:flex;align-items:center;gap:20px;min-height:var(--site-page-bar-height);padding:6px var(--site-space);border-bottom:1px solid var(--site-border);background:var(--site-accent-soft)}
 .site-page-bar[hidden]{display:none}
 .site-page-heading{display:flex;align-items:center;gap:10px;flex-shrink:0;color:var(--site-accent)}
 .site-page-title{font-size:16px;font-weight:700;white-space:nowrap}
@@ -2264,11 +2264,11 @@ body.site-navigation-open{overflow:hidden}
 .site-enabled .graph-is-expanded .site-bar{z-index:45}
 @media(max-width:1100px){.site-bar,.site-page-bar{gap:12px}:root{--site-sidebar:205px;--site-space:24px}}
 @media(max-width:900px){
- :root{--site-bar-height:50px;--site-page-bar-height:50px;--site-space:16px}
+ :root{--site-bar-height:50px;--site-page-bar-height:44px;--site-space:16px}
  .site-bar{gap:8px;padding:2px 12px}
  .site-brand{font-size:21px;min-height:44px}.site-brand>.site-icon{width:25px;height:25px;flex-basis:25px}
  .site-category-link{padding:8px 12px;font-size:13px}
- .site-page-bar{gap:10px;min-height:50px;padding:2px 12px}
+ .site-page-bar{gap:10px;min-height:var(--site-page-bar-height);padding:3px 12px}
  .site-page-heading{flex-direction:column;align-items:flex-start;gap:0}
  .site-page-heading>.site-icon{display:none}
  .site-page-title{font-size:14px;line-height:1.5}
@@ -2453,11 +2453,16 @@ body.site-navigation-open{overflow:hidden}
 .site-sync-bulk .site-sync-action { margin:0; flex:1; }
 @media (max-width:600px) { .site-sync-button span { display:none; } .site-sync-button { padding:6px; } .site-sync-dialog { width:calc(100% - 16px); } }
 /* 同一成长分类内的版本切换，正文和详情使用同一入口。 */
-.growth-versions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:0 0 12px;padding:3px;width:fit-content;border:1px solid #dedcec;border-radius:10px;background:#f3f1fa;font-size:14px}
+.growth-versions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 12px;width:fit-content;font-size:14px}
+.growth-assessment-versions{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid #cfdbef;border-radius:10px;background:var(--site-accent-soft)}
+.growth-version-tab.growth-vision-entry{border-left:1px solid #cfdbef;border-radius:0;padding-left:10px}
+.growth-vision-entry>a{border:1px solid #cfdbef;background:var(--site-surface);color:var(--site-accent)}
+.growth-versions .growth-vision-entry>a[aria-current=page]{background:var(--site-accent-soft);border-color:var(--site-accent)}
 .growth-version-tab{display:inline-flex;align-items:center;flex:none;border-radius:7px}
-.growth-version-tab:has(>a[aria-current=page]){background:#fff;box-shadow:0 1px 3px #332a4115}
+.growth-assessment-versions>.growth-version-tab:has(>a[aria-current=page]){background:#fff;box-shadow:0 1px 3px #332a4115}
 .growth-versions a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:6px 13px;border-radius:7px;text-decoration:none;line-height:1.4}
-.growth-versions a[aria-current=page]{color:#5235a3;font-weight:650}
+.growth-versions a{color:var(--site-accent)}
+.growth-versions a[aria-current=page]{color:var(--site-accent);font-weight:650}
 .growth-version-tab:has(>.growth-version-help)>a{padding-right:5px}
 .growth-references{display:flex;align-items:flex-start;gap:6px;margin:0 0 12px;padding:8px 10px;border:1px solid #dedcec;border-radius:10px;background:#f8f7fb;min-width:0}
 .growth-references details{flex:1;min-width:0}
@@ -2488,13 +2493,15 @@ body.site-navigation-open{overflow:hidden}
 :is(.site-actions,.site-global-actions) .site-action-popover .save-status [data-save-label]{position:static;width:auto;height:auto;padding:0;overflow:visible;clip-path:none;white-space:normal}
 :is(.site-actions,.site-global-actions) .site-action-popover .save-status.has-error{color:#a43131}
 .site-actions>.growth-versions{margin:0 auto 0 0;flex-wrap:nowrap;flex-shrink:0}
+.site-actions>.growth-versions .growth-assessment-versions{padding:0;border:0;box-shadow:inset 0 0 0 1px #cfdbef}
+.site-actions>.growth-versions a{height:var(--site-page-control-height);min-height:var(--site-page-control-height)}
 .site-actions:has(>.growth-versions)>.topbar-actions{flex:0 0 auto}
 @media(max-width:900px){
  .site-page-bar:has(.site-actions>.growth-versions){gap:8px}
  .site-page-bar:has(.site-actions>.growth-versions)>.site-page-heading{display:none}
  .site-actions:has(>.growth-versions){gap:8px}
- .site-actions>.growth-versions{font-size:12px;gap:2px;padding:2px}
- .site-actions>.growth-versions a{min-height:40px;padding:5px 6px;white-space:nowrap}
+ .site-actions>.growth-versions{font-size:12px;gap:6px;padding:0}
+ .site-actions>.growth-versions a{height:var(--site-page-control-height);min-height:var(--site-page-control-height);padding:5px 6px;white-space:nowrap}
  .site-actions:has(>.growth-versions)>.topbar-actions{width:auto;gap:6px}
 }
 @media(max-width:420px){
@@ -2585,3 +2592,10 @@ body.site-navigation-open{overflow:hidden}
   .site-search-trigger{width:40px;height:44px;flex-basis:40px;padding:9px}
   .site-search-dialog h2{font-size:16px}
 }
+
+/* 分类栏紧凑尺寸由共享变量提供，全站栏与弹出菜单保持原尺寸。 */
+.site-page-bar>.site-directory-button,
+.site-page-bar>.site-search-trigger,
+.site-page-bar>.site-actions>:is(button,a),
+.site-page-bar>.site-actions>:is(.top-actions,.topbar-actions)>:is(button,a){height:var(--site-page-control-height);min-height:var(--site-page-control-height);padding-top:5px;padding-bottom:5px}
+.site-page-bar>.site-actions>:is(.top-actions,.topbar-actions)>.top-search{height:var(--site-page-control-height)}

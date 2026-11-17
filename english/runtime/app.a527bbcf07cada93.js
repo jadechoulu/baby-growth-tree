@@ -24,6 +24,35 @@
       if (!name || value.birthDate !== '2024-11-24') throw new Error('宝宝档案格式无效。');
       return { version: 1, name, birthDate: value.birthDate };
     }
+    if (area === 'vision') {
+      // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 视力备份与私人接口仅接受独立领域白名单，不接受模板或其他领域快照。
+      fields(value, ['version', 'kind', 'records']);
+      if (value.kind !== 'vision' || !object(value.records)) throw new Error('视力记录格式无效。');
+      const date = value => {
+        if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000') || !Number.isFinite(Date.parse(value + 'T00:00:00Z')) || new Date(value + 'T00:00:00Z').toISOString().slice(0, 10) !== value) throw new Error('检查日期无效。');
+        return value;
+      };
+      const ranges = { acuity: [0.01, 3], correctedAcuity: [0.01, 3], sphere: [-40, 40], cylinder: [-20, 20], axis: [0, 180], axialLength: [10, 40] };
+      const records = Object.fromEntries(Object.entries(value.records).map(([key, record]) => {
+        if (!/^vision-[a-zA-Z0-9-]{1,80}$/.test(key)) throw new Error('视力记录标识无效。');
+        fields(record, ['date', 'cycloplegia', 'chart', 'institution', 'correction', 'note', 'right', 'left', 'deleted']);
+        if (!['yes', 'no', 'unknown'].includes(record.cycloplegia) || !['decimal', 'logarithmic'].includes(record.chart)) throw new Error('验光方式或视力记录法无效。');
+        const next = { date: date(record.date), cycloplegia: record.cycloplegia, chart: record.chart };
+        for (const name of ['institution', 'correction', 'note']) if (Object.hasOwn(record, name)) next[name] = text(record[name], name === 'note' ? 2000 : 120);
+        if (Object.hasOwn(record, 'deleted')) { if (typeof record.deleted !== 'boolean') throw new Error('删除标记无效。'); next.deleted = record.deleted; }
+        for (const eye of ['right', 'left']) {
+          fields(record[eye], Object.keys(ranges)); next[eye] = {};
+          for (const [field, value] of Object.entries(record[eye])) {
+            const [min, max] = ranges[field];
+            if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max || (field === 'axis' && !Number.isInteger(value))) throw new Error('眼部数值无效：' + field);
+            next[eye][field] = value;
+          }
+        }
+        if (!Object.keys(next.right).length && !Object.keys(next.left).length) throw new Error('请至少填写一项左右眼检查数值。');
+        return [key, next];
+      }));
+      return { version: 1, kind: 'vision', records };
+    }
     if (area === 'health') {
       fields(value, ['version', 'standard', 'records']);
       if (value.standard !== 'WS/T 580—2017' || !object(value.records)) throw new Error('卫健委观察记录格式无效。');
@@ -322,6 +351,34 @@
   function createAdapters({ indexedDB, localStorage, profileClient, notify = () => {} }) {
     let opening;
     let healthOpening;
+    let visionOpening;
+    function visionDatabase() {
+      if (!visionOpening) visionOpening = new Promise((resolve, reject) => {
+        const request = indexedDB.open('xiaoya-vision', 1);
+        request.onupgradeneeded = () => request.result.createObjectStore('documents');
+        request.onblocked = () => reject(new Error('视力记录被旧页面占用。'));
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => { const db = request.result; db.onversionchange = () => { db.close(); visionOpening = null; }; resolve(db); };
+      }).catch(error => { visionOpening = null; throw error; });
+      return visionOpening;
+    }
+    async function visionTransaction(write, next, base) {
+      const db = await visionDatabase();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('documents', write ? 'readwrite' : 'readonly');
+        const store = tx.objectStore('documents'), request = store.get('default');
+        let result, error;
+        request.onsuccess = () => {
+          try {
+            const current = M.normalize('vision', request.result ?? null);
+            result = write ? M.normalize('vision', conflict(M.merge(base, current, next))) : current;
+            if (write && result) store.put(result, 'default');
+          } catch (failure) { error = failure; tx.abort(); }
+        };
+        tx.oncomplete = () => { if (write) notify('vision'); resolve(result); };
+        tx.onabort = tx.onerror = () => reject(error || tx.error || new Error('视力记录保存失败。'));
+      });
+    }
     function healthDatabase() {
       if (!healthOpening) healthOpening = new Promise((resolve, reject) => {
         const request = indexedDB.open('xiaoya-health', 1);
@@ -410,6 +467,7 @@
       },
       growth: { read: () => growthTransaction(false), apply: (next, base) => growthTransaction(true, next, base) },
       health: { read: () => healthTransaction(false), apply: (next, base) => healthTransaction(true, next, base) },
+      vision: { read: () => visionTransaction(false), apply: (next, base) => visionTransaction(true, next, base) },
       english: {
         read: async () => readEnglish(),
         async apply(next, base) {
@@ -432,7 +490,7 @@
 (function (root) {
   'use strict';
   const M = root.XiaoyaSyncModel;
-  const names = { profile: '宝宝档案', growth: '成长记录 · 毛老师版', health: '卫健委观察记录', english: '英语记录' };
+  const names = { profile: '宝宝档案', growth: '成长记录 · 毛老师版', health: '卫健委观察记录', vision: '视力检查记录', english: '英语记录' };
   let singleton;
   function element(tag, text, className) {
     const node = document.createElement(tag);
@@ -575,7 +633,7 @@
         const journal = root.XiaoyaSyncEngine.createJournal(root.indexedDB);
         const scope = apiBase || 'local-only';
         engine = root.XiaoyaSyncEngine.createEngine({
-          autoRestoreAreas: ['english'],
+          autoRestoreAreas: ['english', 'vision'],
           journal: { get: area => journal.get(scope + '|' + area), update: (area, change) => journal.update(scope + '|' + area, change) },
           request, lock,
           onStatus() { updateButtons(); emit('sync-state'); },
@@ -660,6 +718,7 @@
       if (!data) return '暂无记录';
       if (area === 'profile') return data.name;
       if (area === 'growth') return Object.values(data.records).filter(r => r.completedAt).length + ' 项完成 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
+      if (area === 'vision') return Object.values(data.records).filter(r => !r.deleted).length + ' 次检查 · ' + Object.values(data.records).filter(r => r.deleted).length + ' 条可恢复记录';
       if (area === 'health') return Object.values(data.records).filter(r => r.status === 'observed').length + ' 项已观察到 · ' + Object.values(data.records).filter(r => r.status === 'not-yet').length + ' 项暂未观察到 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
       return data.profile.vocabulary + ' 听力词汇 · ' + Object.keys(data.records).length + ' 份素材记录';
     }
@@ -1413,6 +1472,8 @@
     arrow: 'M4 12h16m-6-6 6 6-6 6',
     network: 'M12 8V4M8 16l-3 3M16 16l3 3M12 8l-4 8h8l-4-8ZM9 1h6v4H9ZM1 19h7v4H1ZM16 19h7v4h-7Z',
     source: 'M14 3H4v18h16V9ZM14 3v6h6M8 13h8M8 17h5',
+    info: 'M12 11v6M12 7h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+    refresh: 'M3 10a9 9 0 1 1 1 7M3 4v6h6',
     settings: 'M4 7h16M4 17h16M8 4v6M16 14v6',
     gear: 'M10 2h4l.5 2.8 1.3.5 2.3-1.6 2.8 2.8-1.6 2.3.5 1.3L22 10v4l-2.8.5-.5 1.3 1.6 2.3-2.8 2.8-2.3-1.6-1.3.5L14 22h-4l-.5-2.8-1.3-.5-2.3 1.6-2.8-2.8 1.6-2.3-.5-1.3L2 14v-4l2.8-.5.5-1.3-1.6-2.3 2.8-2.8 2.3 1.6 1.3-.5L10 2ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
     menu: 'M4 6h16M4 12h16M4 18h16',

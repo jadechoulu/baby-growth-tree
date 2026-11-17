@@ -60,8 +60,8 @@ test('参考按适用指标人群提供，眼轴不套到6岁以下，不生成�
   assert.deepEqual(curves[1].values, [[6, 22.54], [9, 23.72], [15, 24.37]]);
   assert.deepEqual(referenceWindow(curves[1], [0, 5]), []);
   assert.deepEqual(references('se').find(r => r.kind === 'dots').values, [[6, 1.38], [15, .31]]);
-  assert.deepEqual(referenceWindow(references('se')[0], [0, 2]), []);
-  assert.deepEqual(referenceWindow(references('se').find(r => r.endExclusive), [6, 15]), []);
+  assert.deepEqual(referenceWindow(references('se').find(r => r.endExclusive && r.category !== 'education'), [0, 2]), []);
+  assert.deepEqual(referenceWindow(references('se').find(r => r.endExclusive && r.category !== 'education'), [6, 15]), []);
   assert.equal(references('sphere').length, 0);
   assert.equal(references('correctedAcuity').length, 0);
   const lower = references('acuity')[1];
@@ -124,4 +124,15 @@ test('散瞳SE参考带使用原表上下界，不向6岁以下外推', () => {
   assert.deepEqual(band.map(r => r.values.at(-1)), [[15,-.38],[15,1.13]]);
   for (const curve of band) assert.deepEqual(referenceWindow(curve, [0,5]), []);
   for (let i=0;i<10;i++) assert.ok(band[0].values[i][1] < band[1].values[i][1]);
+});
+
+test('科普单值不生成上下界，周岁分组不外推或替换现行标准', () => {
+  const refs = references('se');
+  const edu = refs.filter(r => r.category === 'education');
+  assert.deepEqual(edu[0].values, [[0,3],[4,3]]);
+  assert.equal(edu[0].band, undefined);
+  assert.deepEqual(referenceWindow(edu[0], [4,6]), []);
+  assert.deepEqual(edu.filter(r => r.band === 'education-4').map(r => r.values), [[[4,1.5],[6,1.5]],[[4,2],[6,2]]]);
+  assert.deepEqual(edu.filter(r => r.band === 'education-6').map(r => r.values[0][1]), [1,1.5]);
+  assert.ok(refs.some(r => r.category !== 'education' && r.endExclusive && r.values[0][0] === 3 && r.values[0][1] === 2.05));
 });
