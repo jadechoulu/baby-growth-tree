@@ -63,17 +63,23 @@
       if (itemId) return createReferences(current, itemId, onHelp);
       const nav = document.createElement('nav');
       nav.className = 'growth-versions';
-      nav.setAttribute('aria-label', '成长内容版本');
-      for (const [id, label, entry] of [['mao', '毛老师版', './index.html?area=growth'], ['health', '卫健委版', './health.html']]) {
+      nav.setAttribute('aria-label', '成长板块');
+      const assessment = document.createElement('div');
+      assessment.className = 'growth-assessment-versions';
+      assessment.setAttribute('role', 'group');
+      assessment.setAttribute('aria-label', '发育评估版本');
+      nav.append(assessment);
+      for (const [id, label, entry] of [['mao', '毛老师版', './index.html?area=growth'], ['health', '卫健委版', './health.html'], ['vision', '视力', './vision.html']]) {
         const tab = document.createElement('span'); tab.className = 'growth-version-tab';
         const link = document.createElement('a'); link.href = entry; link.setAttribute('aria-label', label);
         const full = document.createElement('span'); full.className = 'growth-version-full'; full.textContent = label;
-        const short = document.createElement('span'); short.className = 'growth-version-short'; short.textContent = label.slice(0, -1); short.setAttribute('aria-hidden', 'true');
+        const short = document.createElement('span'); short.className = 'growth-version-short'; short.textContent = label.endsWith('版') ? label.slice(0, -1) : label; short.setAttribute('aria-hidden', 'true');
         link.append(full, short);
         if (current === id) link.setAttribute('aria-current', 'page');
         tab.append(link);
         if (id === 'health' && onHelp) tab.append(helpButton(onHelp));
-        nav.append(tab);
+        if (id === 'vision') { tab.classList.add('growth-vision-entry'); nav.append(tab); }
+        else assessment.append(tab);
       }
       return nav;
     },

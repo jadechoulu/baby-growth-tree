@@ -2,7 +2,7 @@
 (function (root) {
   'use strict';
   const M = root.XiaoyaSyncModel;
-  const names = { profile: '宝宝档案', growth: '成长记录 · 毛老师版', health: '卫健委观察记录', english: '英语记录' };
+  const names = { profile: '宝宝档案', growth: '成长记录 · 毛老师版', health: '卫健委观察记录', vision: '视力检查记录', english: '英语记录' };
   let singleton;
   function element(tag, text, className) {
     const node = document.createElement(tag);
@@ -145,7 +145,7 @@
         const journal = root.XiaoyaSyncEngine.createJournal(root.indexedDB);
         const scope = apiBase || 'local-only';
         engine = root.XiaoyaSyncEngine.createEngine({
-          autoRestoreAreas: ['english'],
+          autoRestoreAreas: ['english', 'vision'],
           journal: { get: area => journal.get(scope + '|' + area), update: (area, change) => journal.update(scope + '|' + area, change) },
           request, lock,
           onStatus() { updateButtons(); emit('sync-state'); },
@@ -230,6 +230,7 @@
       if (!data) return '暂无记录';
       if (area === 'profile') return data.name;
       if (area === 'growth') return Object.values(data.records).filter(r => r.completedAt).length + ' 项完成 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
+      if (area === 'vision') return Object.values(data.records).filter(r => !r.deleted).length + ' 次检查 · ' + Object.values(data.records).filter(r => r.deleted).length + ' 条可恢复记录';
       if (area === 'health') return Object.values(data.records).filter(r => r.status === 'observed').length + ' 项已观察到 · ' + Object.values(data.records).filter(r => r.status === 'not-yet').length + ' 项暂未观察到 · ' + Object.values(data.records).filter(r => r.note).length + ' 篇手记';
       return data.profile.vocabulary + ' 听力词汇 · ' + Object.keys(data.records).length + ' 份素材记录';
     }

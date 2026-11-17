@@ -169,7 +169,7 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
   function repoPath(config) { return `/repos/${config.GITHUB_DATA_REPO}`; }
   function contentPath(config, area) {
     // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-001 规范: 客户端分类只能映射到固定文件，不接受任意仓库路径。
-    const file = area === 'legacy' ? config.GITHUB_DATA_PATH : { profile: 'records/profile.json', growth: 'records/growth.json', health: 'records/health.json', english: 'records/english.json' }[area];
+    const file = area === 'legacy' ? config.GITHUB_DATA_PATH : { profile: 'records/profile.json', growth: 'records/growth.json', health: 'records/health.json', vision: 'records/vision.json', english: 'records/english.json' }[area];
     return `${repoPath(config)}/contents/${file.split('/').map(encodeURIComponent).join('/')}`;
   }
 
@@ -223,7 +223,7 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
   async function saveRecords(config, area, incoming) {
     const savedAt = new Date(now()).toISOString();
     const file = { ...incoming.snapshot, savedAt };
-    const body = { message: area === 'legacy' ? '保存宝宝成长记录' : `保存小芽${({ profile: '档案', growth: '成长', health: '卫健委观察', english: '英语' })[area]}记录`, branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(file, null, 2))), ...(incoming.revision ? { sha: incoming.revision } : {}) };
+    const body = { message: area === 'legacy' ? '保存宝宝成长记录' : `保存小芽${({ profile: '档案', growth: '成长', health: '卫健委观察', vision: '视力', english: '英语' })[area]}记录`, branch: config.GITHUB_DATA_BRANCH, content: toBase64(encoder.encode(JSON.stringify(file, null, 2))), ...(incoming.revision ? { sha: incoming.revision } : {}) };
     const saved = await github(config, contentPath(config, area), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     if (saved.status === 409 || saved.status === 422) return { conflict: true, ...(await loadRecords(config, area)) };
     if (!saved.ok) throw new HttpError(502, 'GITHUB_UNAVAILABLE', '保存云端记录失败，当前修改尚未同步，请稍后重试。');
@@ -378,7 +378,7 @@ export function createWorker({ fetch: network = globalThis.fetch, now = Date.now
           const result = await config.XIAOHUASHENG_SYNC(backup ? 'backup' : request.method === 'GET' ? 'status' : 'start', snapshot);
           return responseHeaders(json(result.ok ? result.value : { code: result.code, message: result.message }, result.ok ? 200 : 503), origin);
         }
-        const area = url.pathname === '/api/records' ? 'legacy' : /^\/api\/data\/(profile|growth|health|english)$/.exec(url.pathname)?.[1];
+        const area = url.pathname === '/api/records' ? 'legacy' : /^\/api\/data\/(profile|growth|health|vision|english)$/.exec(url.pathname)?.[1];
         if (!area) throw new HttpError(404, 'NOT_FOUND', '接口不存在。');
         if (!['GET', 'PUT'].includes(request.method)) throw new HttpError(405, 'METHOD_NOT_ALLOWED', '请求方法不支持。');
         let incoming;
