@@ -752,14 +752,27 @@
   }
 
   function libraryMaterialRole(catalog, entry, filters) {
-    // 不给整套固定用途；只汇总当前明确选中阶段内、本条目实际具备的引用。
-    if (!filters || !array(filters.stageIds).length || entry.custom) return null;
+    // 指定路线时跟随其最早使用阶段；明确阶段范围时汇总该范围，不给整套固定用途。
+    if (!filters || entry.custom || !array(filters.stageIds).length && (!filters.route || ['all', 'other'].indexOf(filters.route) !== -1)) return null;
     var resource = entry.resource || entry;
     var stages = new Map(array(catalog.stages).map(function (stage) { return [stage.id, stage]; }));
-    var matched = array(entry.appearances).filter(function (appearance) {
-      return filters.stageIds.indexOf(appearance.stageId) !== -1 &&
+    var appearances = array(entry.appearances).filter(function (appearance) {
+      return (!array(filters.stageIds).length || filters.stageIds.indexOf(appearance.stageId) !== -1) &&
         (!filters.route || filters.route === 'all' || appearance.routeId === filters.route);
-    }).map(function (appearance) {
+    });
+    if (!array(filters.stageIds).length) {
+      var plan = ((((catalog.raw || {}).routePlan || {}).routes || {})[filters.route] || {}).listening;
+      var primary = array(plan && plan.stageIds);
+      var current = appearances.filter(function (appearance) { return primary.indexOf(appearance.stageId) !== -1; });
+      if (current.length) appearances = current;
+      function order(appearance) {
+        var index = primary.indexOf(appearance.stageId), stage = stages.get(appearance.stageId);
+        return current.length ? index : stage ? stage.order : Infinity;
+      }
+      var earliest = Math.min.apply(null, appearances.map(order));
+      appearances = appearances.filter(function (appearance) { return order(appearance) === earliest; });
+    }
+    var matched = appearances.map(function (appearance) {
       var stage = stages.get(appearance.stageId);
       return stage ? materialRole(stage, appearance, resource) : null;
     }).filter(Boolean);
