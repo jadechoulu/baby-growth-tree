@@ -5529,6 +5529,13 @@
       "checkedAt": "2026-11-18",
       "locator": "公共resource-books目录与material-resource-topics逐项标题",
       "note": "仅在缺少原表、正文、简介或小红书句型依据时使用；按明确题名结构归入现有句型聚合，不确定时归其他，并保留原题名、规则和弱依据说明。"
+    },
+    {
+      "id": "user-optional-title-20261118",
+      "title": "公共目录可选项的同名单册共享已读状态",
+      "kind": "user-confirmed-alternative-reading",
+      "checkedAt": "2026-11-18",
+      "note": "同一resourceId内题名规范化后完全一致的多版／多目录条目视为二选一同册，共享已读事实；仅用于完成状态与阅读次数，不传播内容主题、句型证据或个人选版。"
     }
   ],
   "books": [
@@ -197946,6 +197953,1420 @@
         "xhs-same-isbn-9780007512683"
       ],
       "checkedAt": "2026-11-11"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A Garden",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-49d7dd0d7aa2c280",
+        "book-b59735f4f1870500"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A Home",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-768b273e90f7c0ef",
+        "book-952f345458a00781"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A Monster House",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-13b0f18dacc5ee71",
+        "book-4283b2d7b7675eef"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A ride",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-3648afdeb96fc665",
+        "book-8dd48ff8affc9b02"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Here is a Bird",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-018b3344a3283ba9",
+        "book-6f92f666b5e5d97e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am a bee",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-441564395ac2df6f",
+        "book-707c4f2d0a7c75b7"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am a painter",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-bb4f068a40586cf0",
+        "book-eb0ec2c4eb6006c8"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am jumping",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-5466c0ae9fdc7056",
+        "book-fe8fbfabc7484b64"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am working",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-03697b85a0ababc0",
+        "book-1688fb7a30e67068"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can laugh",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-16038c65195efac2",
+        "book-86c3980ee616244e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can swim",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-6c6f080a8d255bd3",
+        "book-81ad478de3bb863a"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-c040ac0b98897149",
+        "book-cfa70ea07c2bf37b"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like elephants",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-64fe568e3e820da7",
+        "book-da8be3c1501f96e4"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like hats",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-685d82ef9a75bb28",
+        "book-c1f7c71995bf888f"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like riding",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-29d35e890d99b212",
+        "book-e38347b4b1931c87"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like birds",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-28d01919cace0b8c",
+        "book-41654efcf4af7af7"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Monkeys",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-561bafdff965336f",
+        "book-9737ae1a0f275fb4"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My Alien",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-0d0453ac4ee461b9",
+        "book-1843c5b72f5fbfe2"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My clothes",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-c32a14991351a5e4",
+        "book-f4bd54cb09182c33"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My family",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-42a24118f0b43845",
+        "book-db98393899a01cef"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My things",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-37b4179fbda7ed2a",
+        "book-37bf620c6c564465"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Sailors",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-7ec492cade351d3f",
+        "book-8eb8dff8df1f3864"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The animals",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-11ecb49c101a1430",
+        "book-336b2f2a8433708a"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The day",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4028f22316a88d49",
+        "book-6447286436b0097a"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The family",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-b788b0d467b35098",
+        "book-e9df5dbbf59cdb57"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The farm",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-3d5c495368de7155",
+        "book-b30de0c24adbc74e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The goats",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-e6088a4bc92696c0",
+        "book-fa631a0a5e2fa5cf"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The jungle",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4573d2be2bc20fab",
+        "book-7ccd491f73790d1f"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The monster's clothes",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-55e0feb2ca25dec1",
+        "book-ad92f2508610d4e1"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The party",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-436c7b88025e5ccd",
+        "book-875b228eb120188f"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The show",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-1c71a66663dd69bb",
+        "book-c7249dbaa46bd867"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The water park",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-2d3122aa1416c34b",
+        "book-b181db4117080fb4"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A boat",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-8856517def4aa560",
+        "book-9f0e086222e962b2"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A house",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-1a3934608bf3d3c4",
+        "book-87c20a381ec76c42"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "A shoe",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-aee0902b288b1851",
+        "book-f72ffb59d80bc1ca"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Dinner",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-3032f57215270557",
+        "book-f7f3cdff940e2a65"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Hats",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-2826cb459a938647",
+        "book-d05dfba5cbe9cf0f"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like boxes",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-5cf5f96031d51b37",
+        "book-7275b0c0a4172a44"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I like jam",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-005a85a44b6f7234",
+        "book-f1e5ca60a0eefeb1"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "In the garden",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4392ff504fb9029d",
+        "book-85b8cd36129b98bf"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "In the mud",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-40bb3ea5ac35c681",
+        "book-91bd010128130089"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Look at the animals",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-96fd24663465780a",
+        "book-d200b250beebd6aa"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Look at the robot",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-5fa4d445ac77f5a5",
+        "book-7696b24fbc1ed7e8"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My hat",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-03f701263b3a1628",
+        "book-8f58e2fc1df1392b"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "My trip",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-015cd0f7074be3bd",
+        "book-b4f3d4b6ae83fc28"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Our day",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-a59336b8e4714d42",
+        "book-a7c9ce54fd755a57"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Rainbow town",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4529d856de2a2654",
+        "book-d319b92455229d3e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Shopping",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-51b2b50575007b2f",
+        "book-84e0026532ab4c5e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The balloon ride",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4f965199dbff2a9c",
+        "book-8869db370aa8297e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bears",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-9ad6ea2a7850c216",
+        "book-f8d1e4f7b24b267c"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bird",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-624fd40162342a9a",
+        "book-78f4a223cc9549fe"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The hole",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-1a9ac431aef1f691",
+        "book-e4ceed7a0aca77ab"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The holiday",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-6626b5a6b33689d2",
+        "book-e12d0c3dc7fd87a9"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The mice",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-7b48393ad93df409",
+        "book-9689d607435638ab"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The monster town",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-120467d83dfe4093",
+        "book-a3a637d685ab33d6"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The moon",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-b95d05ad98148d34",
+        "book-cd2932456bc86e57"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The pets",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-33f385f073835fa9",
+        "book-e80fc20d13494a03"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The presents",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-850fd4e6e70f1beb",
+        "book-e756b1ce8c362847"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The rally car",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-0c5598d891b2ac4d",
+        "book-ba22b1a02e38476d"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The snake",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-38c00c28045d766d",
+        "book-4567446b5697222e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The snowman",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-1526ade2bed21b3d",
+        "book-3e985931b9b37fd6"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The spy",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-456af7f9945ec472",
+        "book-877ef68a42b8d67b"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Wheels",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-291cc3ccc6043a14",
+        "book-ee39b1051769b39c"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The new house",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-1548055f58ae755c",
+        "book-e900847f5f77b694"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Come in the grass",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-844ce5402a2f949c",
+        "book-ca84bb7c0547fbbb"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Come",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-85d40b977117fb5b",
+        "book-8b11fd8e25a52694"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Cooking",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-05095a1a9731890a",
+        "book-2fb0e3f8a9854e07"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Elephant trick",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-03c3c89a49c6744c",
+        "book-12cafd56c5e70667"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Going shopping",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4b97ef58794668ff",
+        "book-e2c47a7cde1bc39e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Going to bed",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-1ae614d9f958257e",
+        "book-51224792459693a9"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Grass for dinner",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-54ec8da961f8c123",
+        "book-771fab0c46b09011"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I am here",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-9cc0f2b934cfc148",
+        "book-be471a8db3ab7b27"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "I can help",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-57510c54e97256ba",
+        "book-b94663a7d97d65d2"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Ice cream",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-21354110c6b1301d",
+        "book-227a5fa1147bf844"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Mice",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-6deb7ded286b6a0f",
+        "book-8ec33d4be2545232"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Naughty Monkey",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-80c84be4d2f293d6",
+        "book-bee60e110f2900f8"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Silly tricks",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-afd2fa35fa099cd9",
+        "book-bd6c81f03292b102"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The ants",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-090d5aa035a73149",
+        "book-dfbe1d6140039505"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The balloons",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4cc2593dfb07b6c2",
+        "book-f17b8ef2da20540c"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bike race",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-320c04563c44beae",
+        "book-8adfe8ec1430dd6e"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The birthday",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-c2eb159cecf62918",
+        "book-e6dbbb1b57ebe355"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The bumper cars",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-04ff1deb851e8ca1",
+        "book-ca6541e9ea434197"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The kites",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-2e598ee4c4197a86",
+        "book-5a5328d8d47cf745"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The market",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-7054723c806e738e",
+        "book-a02055c16e08b70a"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The rides",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-28fc04d5ca931c85",
+        "book-b4cd0243a0707a95"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The robot",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-72d7c22dba2e7444",
+        "book-c192bde391ca1118"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The snow",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-21e86cee84b768fb",
+        "book-4f0bc3b5383b5cc1"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The spider",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-67b032fb69b8b7fe",
+        "book-fdf80bb0913faf35"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The spies",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-2a75ab4a65c7e7c9",
+        "book-45d6675dc056fc78"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The trucks",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-25b993f27409ec47",
+        "book-c9b5044b42646ced"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The tunnel",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-0b83fe3c2c0e3421",
+        "book-b66bf71fee7a8222"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The turkey",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-38ff64f4d3c17bcc",
+        "book-f058f468878be0d7"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "The water",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-a76a9f7e70d7bb2e",
+        "book-d6052bb89173b5e8"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "This is for me",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-77e25dc3f2c500ed",
+        "book-85d8f160896fc0a8"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1nuqi5t",
+      "title": "Zoo dinners",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-015245ef2a251744",
+        "book-bb1301eb4c59c5ab"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-g7xvo5",
+      "title": "In the Desert",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-6a2d7fc7208504de",
+        "book-c1186ce222496a26"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-g7xvo5",
+      "title": "Come to the Circus",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-335f8d1279127a1d",
+        "book-a12d35aa680e0111"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-g7xvo5",
+      "title": "Fly Away Home",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-26581f808039e4a8",
+        "book-5bcadc845b924cee"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Ten",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-c0e6110407ac8b6d",
+        "book-guide-raz-aa-038"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1qnd5uh",
+      "title": "Jessica Loves Soccer (RAZ L)",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-03bf15542ff99cf8",
+        "book-e486fbe0f3511e18"
+      ],
+      "checkedAt": "2026-11-18"
+    },
+    {
+      "kind": "same-title",
+      "resourceId": "resource-1pinwiv",
+      "title": "HELLO",
+      "sourceIds": [
+        "user-optional-title-20261118"
+      ],
+      "scope": "same-resource-reading-choice",
+      "bookIds": [
+        "book-4ad5bdc19705420d",
+        "book-f83e1e7870bc5d93"
+      ],
+      "checkedAt": "2026-11-18"
     }
   ]
 }

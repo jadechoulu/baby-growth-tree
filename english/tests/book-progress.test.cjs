@@ -47,6 +47,26 @@ test('有同ISBN证据的目录引用共用一次外部事实，各自范围只�
   assert.equal(B.bookState(completed,'original-book',directory).done,true);
 });
 
+test('同一资源同名可选项共享已读状态，撤销兼容原有勾选与外部次数',()=>{
+  const directory={books:[
+    {id:'subject-choice',resourceId:'resource-one',title:'A Garden',edition:'词汇妙趣屋'},
+    {id:'basic-choice',resourceId:'resource-one',title:'A Garden',edition:'基础词汇'},
+    {id:'unrelated',resourceId:'resource-two',title:'A Garden',edition:'其他'}
+  ],readingEquivalences:[{kind:'same-title',resourceId:'resource-one',title:'A Garden',sourceIds:['user-choice'],scope:'same-resource-reading-choice',bookIds:['subject-choice','basic-choice']}]};
+  const manual=B.manualUpdate({},directory.books[1],true,directory);
+  assert.equal(B.bookState(manual,directory.books[0],directory).done,true);
+  let cleared={...manual,...B.manualUpdate(manual,directory.books[1],false,directory)};
+  assert.equal(B.bookState(cleared,directory.books[0],directory).done,false);
+  const external={[B.EXTERNAL+'reader:exact']:{status:'done',note:JSON.stringify({version:1,sourceKind:'xiaohuasheng_bookcase_read',publicBookId:'subject-choice',readCount:3})}};
+  assert.equal(B.bookState(external,directory.books[1],directory).done,true);
+  assert.equal(B.bookState(external,directory.books[1],directory).readCount,3);
+  assert.equal(B.bookState(external,directory.books[2],directory).done,false);
+  const legacy={[B.MANUAL+'basic-choice']:{status:'done'}};
+  assert.equal(B.bookState(legacy,directory.books[0],directory).done,true);
+  cleared={...legacy,...B.manualUpdate(legacy,directory.books[0],false,directory)};
+  assert.equal(B.bookState(cleared,directory.books[1],directory).done,false);
+});
+
 test('RAZ按明确级别和完整题名同步单册，部分目录不当出版分母',()=>{
   const directory=require('../data/resource-books.json'),catalog=require('../data/resource-volumes.json');
   const book=directory.books.find(book=>book.resourceId==='resource-1qnd5uh'&&book.level==='aa');
@@ -616,7 +636,7 @@ test('早期阶段完整分项目录共用手工与公开身份事实，缺目�
     if(chosen.externalIds?.xiaohuasheng?.length){
       const result=B.applyReadSnapshot(manual,{plans:[]},snapshot([entry(chosen.externalIds.xiaohuasheng[0],'外站题名更新')]),{directory,catalog,sourcePriority:true});
       assert.equal(result.matched.length,1);
-      assert.equal(result.matched[0].publicBookId,chosen.id);
+      assert.ok(selected.flatMap(book=>book.readingIds||[book.id]).includes(result.matched[0].publicBookId),result.matched[0].publicBookId+'应为同关系单册');
       assert.equal(B.projectScopeQuantity({...manual,...result.changes},rid,scope,{completed:0},catalog,directory).completed,1,'手工和外部事实不能重复计数');
     }
   }
