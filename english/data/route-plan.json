@@ -283,8 +283,32 @@
           "advanceNote": "按理解和实际读书状态调整；原表年龄与计划月份不作为自动晋级条件。"
         },
         "stageComparison": {
-          "strategy": "material-overlap",
-          "basis": "按素材及级别重合度关联阶段，双向保留最佳关联与并列；只作选材参考，不换算词数、时数或晋级条件。"
+          "strategy": "estimated-vocabulary",
+          "anchorRoutes": [
+            "xu",
+            "qing"
+          ],
+          "summary": "以许密杉、庆爸执行阶段中素材及级别重合度最高的节点估计词数参考区间；并列保留全部锚点，不改原文或个人阶段。无有效锚点则明确未估计。",
+          "checkedAt": "2026-11-18",
+          "goalAnchors": {
+            "banana-chapter": {
+              "stageId": "xu-node-2000",
+              "confidence": "low",
+              "basis": "双方目标均为初章书泛听／听力理解；仅按内容形态估计，未核定逐册难度。",
+              "sources": [
+                {
+                  "sourceId": "banana",
+                  "page": 17,
+                  "quote": "初章泛听泛读；听力入章后开始/继续自拼"
+                },
+                {
+                  "sourceId": "xu-panorama",
+                  "page": 1,
+                  "quote": "2000词：初章书和小猪佩奇"
+                }
+              ]
+            }
+          }
         }
       },
       "speaking": {
@@ -314,6 +338,130 @@
         "supportingStageIds": [],
         "sourceId": "banana",
         "page": 1
+      }
+    },
+    "low-age": {
+      "listening": {
+        "summary": "按六阶段组织实物、动作、生活认知、短故事、故事扩展与兴趣轻科普；用阶段目标词数与其他路线作参考对照。",
+        "stageIds": [
+          "low-age-1",
+          "low-age-2",
+          "low-age-3",
+          "low-age-4",
+          "low-age-5",
+          "low-age-6"
+        ],
+        "sourceId": "low-age",
+        "page": 1,
+        "flow": {
+          "advanceNote": "观察实际理解与兴趣后由家长确认阶段；词数、素材完成率与生日不自动晋级。",
+          "laterNote": "口语交流与共读自然并行，自主识字及写作不由本表听力词数推定。",
+          "domains": [
+            "speaking",
+            "reading",
+            "writing"
+          ]
+        },
+        "stageComparison": {
+          "strategy": "vocabulary-targets",
+          "summary": "按相邻阶段目标上限划分词数积累区间，与其他路线作词数参考对照；原目标与准入不改写。",
+          "bands": {
+            "low-age-1": {
+              "min": 0,
+              "max": 50,
+              "targetLabel": "约50词",
+              "sourceId": "low-age",
+              "page": 1,
+              "sourceCell": "C7:F7"
+            },
+            "low-age-2": {
+              "min": 50,
+              "max": 100,
+              "targetLabel": "约100词",
+              "sourceId": "low-age",
+              "page": 1,
+              "sourceCell": "I7:L7"
+            },
+            "low-age-3": {
+              "min": 100,
+              "max": 150,
+              "targetLabel": "约150词",
+              "sourceId": "low-age",
+              "page": 1,
+              "sourceCell": "P7:S7"
+            },
+            "low-age-4": {
+              "min": 150,
+              "max": 300,
+              "targetLabel": "约300词",
+              "sourceId": "low-age",
+              "page": 1,
+              "sourceCell": "W7:Z7"
+            },
+            "low-age-5": {
+              "min": 300,
+              "max": 700,
+              "targetLabel": "500–700词",
+              "sourceId": "low-age",
+              "page": 1,
+              "sourceCell": "AD7:AG7"
+            },
+            "low-age-6": {
+              "min": 700,
+              "max": 1000,
+              "targetLabel": "800–1000词",
+              "sourceId": "low-age",
+              "page": 1,
+              "sourceCell": "AK7:AN7"
+            }
+          },
+          "checkedAt": "2026-11-18"
+        }
+      },
+      "speaking": {
+        "summary": "生活交流和TPR可与共读并行，接受看、指、动作回应；原表没有独立口语阶段，不要求跟读或复述。",
+        "stageIds": [],
+        "sourceId": "low-age",
+        "page": 1,
+        "flow": {
+          "advanceNote": "观察实际理解与兴趣后由家长确认阶段；词数、素材完成率与生日不自动晋级。",
+          "laterNote": "口语交流与共读自然并行，自主识字及写作不由本表听力词数推定。",
+          "domains": [
+            "speaking",
+            "reading",
+            "writing"
+          ]
+        }
+      },
+      "reading": {
+        "summary": "原表是家长陪伴的绘本／分级共读安排，不是宝宝自主识字路线；没有独立解码或自读阶段。",
+        "stageIds": [],
+        "sourceId": "low-age",
+        "page": 1,
+        "flow": {
+          "advanceNote": "观察实际理解与兴趣后由家长确认阶段；词数、素材完成率与生日不自动晋级。",
+          "laterNote": "口语交流与共读自然并行，自主识字及写作不由本表听力词数推定。",
+          "domains": [
+            "speaking",
+            "reading",
+            "writing"
+          ]
+        }
+      },
+      "writing": {
+        "summary": "原表未设置低幼书写任务；不从听力词数或年龄安排抄写、拼写。",
+        "stageIds": [],
+        "sourceId": "low-age",
+        "page": 1,
+        "flow": {
+          "advanceNote": "观察实际理解与兴趣后由家长确认阶段；词数、素材完成率与生日不自动晋级。",
+          "laterNote": "口语交流与共读自然并行，自主识字及写作不由本表听力词数推定。",
+          "domains": [
+            "speaking",
+            "reading",
+            "writing"
+          ]
+        }
       }
     }
   }

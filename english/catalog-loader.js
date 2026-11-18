@@ -1,7 +1,7 @@
 /* 普通站点按需读取公共书目；离线单文件仍使用内嵌目录。 */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EnglishCatalogLoader=api;})(typeof window==='object'?window:globalThis,function(){
 'use strict';
-function needsBooks(view,collection){return ['qing-progress','xu-progress'].includes(view)||(view==='library'&&!['hello','liao'].includes(collection));}
+function needsBooks(view,collection){return ['qing-progress','xu-progress','low-age-progress'].includes(view)||(view==='library'&&!['hello','liao'].includes(collection));}
 function create(target,url,fetcher,{timeout=30000,validate=data=>data&&Array.isArray(data.books)&&Array.isArray(data.sources),apply=data=>Object.assign(target,data)}={}){
   let ready=!url,pending=null;
   return {get ready(){return ready;},load(){

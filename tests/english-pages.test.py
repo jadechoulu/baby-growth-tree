@@ -59,10 +59,11 @@ class EnglishPagesTests(unittest.TestCase):
         self.assertEqual(self.data['resourceBooks']['books'], [])
         self.assertGreater(len(self.directory['books']), 3000)
 
-    def test_all_three_routes_and_xu_supplements_are_preserved(self):
-        for route in ['banana', 'xu', 'qing']:
+    def test_all_four_routes_and_xu_supplements_are_preserved(self):
+        for route in ['banana', 'xu', 'qing', 'low-age']:
             self.assertIn(route, self.data)
         self.assertEqual(len(self.data['xuSupplements']), 2)
+        self.assertEqual(self.directory['shelfTopicBooks'], json.loads((ROOT / 'english/data/shelf-book-topics.json').read_text())['books'])
 
     def test_lazy_data_restores_all_original_book_and_topic_evidence(self):
         import runpy

@@ -5,7 +5,7 @@ import argparse, json, base64, mimetypes, re, shutil, hashlib, subprocess
 ROOT = Path(__file__).resolve().parent
 subprocess.run(['python3', str(ROOT.parent / 'scripts/build-workbook-previews.py')], check=True)
 subprocess.run(['node', str(ROOT.parent / 'scripts/build-search-index.mjs')], check=True)
-RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','editorial']}
+RAW = {name: json.loads((ROOT / 'data' / (name + '.json')).read_text()) for name in ['banana','xu','qing','low-age','editorial']}
 RAW['resourceCovers'] = json.loads((ROOT / 'data' / 'resource-covers.json').read_text())
 RAW['resourcePrices'] = json.loads((ROOT / 'data' / 'resource-prices.json').read_text())
 RAW['resourceVolumes'] = json.loads((ROOT / 'data' / 'resource-volumes.json').read_text())
@@ -48,6 +48,7 @@ RAW['resourceBooks'] = json.loads(subprocess.run(
     ['node', '-e', "const fs=require('node:fs'),BP=require('./english/book-progress.js');const raw=JSON.parse(fs.readFileSync(0,'utf8'));process.stdout.write(JSON.stringify(BP.withReadingPlans(raw.directory,raw.plans,raw.catalog)));"],
     input=json.dumps({'directory': RAW['resourceBooks'], 'plans': RAW['readingPlans'], 'catalog': RAW['resourceVolumes']}),
     text=True, capture_output=True, check=True, cwd=ROOT.parent).stdout)
+RAW['resourceBooks']['shelfTopicBooks'] = json.loads((ROOT / 'data' / 'shelf-book-topics.json').read_text())['books']
 RAW['filePreviewAssets'] = [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/vendor/pdfjs').rglob('*')) if path.is_file()]
 RAW['filePreviewAssets'] += [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets/sources/reading-guides').glob('*.preview.html'))]
 RAW['sssSongs'] = json.loads((ROOT / 'data' / 'sss-songs.json').read_text())
@@ -70,7 +71,7 @@ for item in sections:
 config='// 自动生成自 site-sections.json，请勿手改。\nwindow.XIAOYA_SITE_SECTIONS='+inline_json(sections)+';\n'
 config_path=ROOT.parent/'shared/site-config.js'
 if not config_path.exists() or config_path.read_text()!=config: config_path.write_text(config)
-js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js','material-library.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/assistant-workflow.js').read_text()+'\n'+(ROOT.parent/'shared/search-core.js').read_text()+'\n'+(ROOT.parent/'shared/site-search.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['automatic-list.js','topics.js','title-topic-rules.js','topic-ui.js','model.js','material-ui.js','practice.js','book-progress.js','shelf-library.js','catalog-loader.js','xiaohuasheng-sync.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','../shared/assistant-context.js','app.js'])
+js='\n'.join((ROOT.parent/'shared'/file).read_text() for file in ['sync-model.js','sync-engine.js','sync-adapters.js','site-sync.js','material-library.js'])+'\n'+(ROOT.parent/'shared/baby-profile.js').read_text()+'\n'+(ROOT.parent/'shared/assistant-workflow.js').read_text()+'\n'+(ROOT.parent/'shared/search-core.js').read_text()+'\n'+(ROOT.parent/'shared/site-search.js').read_text()+'\n'+(ROOT.parent/'shared/site-shell.js').read_text()+'\n'+'\n'.join((ROOT/file).read_text() for file in ['automatic-list.js','topics.js','title-topic-rules.js','topic-ui.js','model.js','material-ui.js','practice.js','low-age.js','book-progress.js','shelf-library.js','catalog-loader.js','xiaohuasheng-sync.js','vocabulary.js','library-custom.js','library-books.js','audio-player.js','file-preview.js','hello-reading.js','hello-graph.js','liao-reading.js','../shared/assistant-context.js','app.js'])
 assert not re.search(r'</script', js, re.I), '脚本包含意外的结束标签'
 
 BASE='''<!doctype html>
@@ -176,7 +177,7 @@ def write(path, assets, raw=RAW, script=js, site=None):
         template = template.replace('<script>__JS__</script>', '<script id="english-data" src="./' + files['data'] + '" defer onerror="EnglishStartupFailed()"></script>\n<script src="./' + files['app'] + '" defer onerror="EnglishStartupFailed()"></script>')
         template = template.replace('window.ROADMAP_RAW=__RAW__;', '')
         # 深链接在解析HTML时并行读取当前页必需的目录或Hello资料，消除脚本后的串行等待。
-        preload = '<script>{const [view,query=""]=location.hash.slice(1).split("?"),collection=new URLSearchParams(query).get("collection"),list=["qing-progress","xu-progress"].includes(view)||(view==="library"&&!["hello","liao"].includes(collection))?' + inline_json(books_urls) + ':view==="library"&&collection==="hello"?[' + inline_json(chunks['helloReading']) + '] :[];for(const href of list){const link=document.createElement("link");link.rel="preload";link.as="fetch";link.crossOrigin="anonymous";link.href=href;document.head.append(link);}}</script>'
+        preload = '<script>{const [view,query=""]=location.hash.slice(1).split("?"),collection=new URLSearchParams(query).get("collection"),list=["qing-progress","xu-progress","low-age-progress"].includes(view)||(view==="library"&&!["hello","liao"].includes(collection))?' + inline_json(books_urls) + ':view==="library"&&collection==="hello"?[' + inline_json(chunks['helloReading']) + '] :[];for(const href of list){const link=document.createElement("link");link.rel="preload";link.as="fetch";link.crossOrigin="anonymous";link.href=href;document.head.append(link);}}</script>'
         template = template.replace('</head>', preload + '\n</head>')
         startup = '''<script>
 window.EnglishStartupFailed=function(){const box=document.querySelector('#app>.loading');if(!box)return;box.replaceChildren(document.createTextNode('页面暂时未能加载。'));const retry=document.createElement('button');retry.type='button';retry.textContent='重新加载';retry.onclick=function(){location.reload();};box.append(retry);};

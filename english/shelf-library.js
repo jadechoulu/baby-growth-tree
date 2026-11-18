@@ -29,22 +29,24 @@ function metadata(records){
   });
 }
 function exclusions(books,options){
-  const publicIds=new Set(),seriesIds=new Set(),names=new Set((options.liao?.books||[]).concat(options.liao?.supplementaryBooks||[]).map(b=>BP.normalize(b.title)));
-  for(const resource of options.resources||[])if(resource.appearances?.length||resource.liaoBookId){
-    for(const title of [resource.title,...(resource.aliases||[])])if(typeof title==='string')names.add(BP.normalize(title));
-  }
-  const routeIds=new Set((options.resources||[]).filter(resource=>resource.appearances?.length).flatMap(resource=>[resource.id,...(resource.mergedResourceIds||[])]));
-  for(const series of options.catalog?.series||[])if(routeIds.has(series.resourceId))for(const source of series.sources||[]){
-    const match=source.url?.match(/^https:\/\/(?:www\.)?xiaohuasheng.cn\/(?:book|series)\/([a-zA-Z0-9_-]+)(?:[/?#]|$)/);
-    if(match)seriesIds.add(match[1]);
+  const publicIds=new Set(),identities=new Map(),works=new Set((options.liao?.books||[]).concat(options.liao?.supplementaryBooks||[]).map(b=>BP.normalize(b.title)));
+  for(const book of options.directory?.books||[])for(const guid of book.externalIds?.xiaohuasheng||[]){
+    if(book.isCollection)continue;
+    if(!identities.has(guid))identities.set(guid,new Map());
+    identities.get(guid).set(book.id,book);
   }
   for(const book of books){
-    const match=BP.matchEntry(options.plans,book,options.directory,options.catalog);
-    if(match.candidates.length||match.conflicts.length||names.has(BP.normalize(book.title))){
-      publicIds.add(book.bookId);
+    const exact=identities.get(book.bookId);
+    if(exact?.size){
+      // 单册身份必须唯一；双ID冲突不退回题名或套系名隐藏另一版。
+      if(exact.size===1){const found=[...exact.values()][0];if(found.appBookId===undefined||String(found.appBookId)===book.appBookId)publicIds.add(book.bookId);}
+      continue;
     }
+    const match=BP.matchEntry(options.plans,book,options.directory,options.catalog);
+    if(match.candidates.length===1&&!match.conflicts.length||works.has(BP.normalize(book.title)))publicIds.add(book.bookId);
   }
-  return book=>publicIds.has(book.bookId)||book.series&&(seriesIds.has(book.series.id)||names.has(BP.normalize(book.series.title)));
+  // 公共套系存在不等于其书架每一册、版次均已收录；只排除逐册已匹配身份。
+  return book=>publicIds.has(book.bookId);
 }
 function apply(records,snapshot,options={}){
   const {owner}=BP.validateSnapshot(snapshot),catalog=snapshot.shelfCatalog;
@@ -124,7 +126,7 @@ function groups(records,options={}){
   }).sort((a,b)=>a.title.localeCompare(b.title,'zh-CN'));
 }
 function entries(records,options={}){
-  const topics=options.topics,classifier=options.titleClassifier;
+  const topics=options.topics,classifier=options.titleClassifier,index=topicIndex(options);
   const byExternal=new Map(),byIsbn=new Map(),isbnKey=value=>String(value||'').replace(/[^0-9X]/gi,'').toUpperCase();
   for(const book of options.directory?.books||[]){
     for(const id of book.externalIds?.xiaohuasheng||[])byExternal.set(id,[...(byExternal.get(id)||[]),book]);
@@ -134,7 +136,9 @@ function entries(records,options={}){
     // 只沿精确外站身份或唯一ISBN借用公共单册分类；同名或同套不建立关系。
     const isbn=isbnKey(book.isbn),matches=[...new Set([...(byExternal.get(book.bookId)||[]),...(isbn.length>=10?byIsbn.get(isbn)||[]:[])])];
     const publicBook=matches.length===1?matches[0]:null;
-    const record=publicBook&&topics?.entryTopics('book',publicBook).length?{...topics.entryEvidence('book',publicBook),topics:topics.entryTopics('book',publicBook),patterns:topics.patterns('book',publicBook)}:classifier?.classify(book);
+    const publicRecord=publicBook&&topics?.entryTopics('book',publicBook).length?{...topics.entryEvidence('book',publicBook),topics:topics.entryTopics('book',publicBook),patterns:topics.patterns('book',publicBook)}:null;
+    const indexed=index.get(book.bookId);
+    const record=indexed?{...(publicRecord||{}),topics:[...new Set([...(publicRecord?.topics||[]),...indexed.topics])],patterns:publicRecord?.patterns||[],status:indexed.topicStatus,topicStatus:indexed.topicStatus,evidence:[...(publicRecord?.evidence||[]),...indexed.topicEvidence]}:publicRecord||classifier?.classify(book);
     return {...book,searchLabels:[book.seriesTitle,book.series?.title,...(book.catalogTags||[])].filter(Boolean),privateShelf:true,shelfGroupId:group.id,resourceId:group.id,resourceIds:[group.id],seriesTitle:group.title,edition:'私人小花生书架',level:'',appearances:[],resource:{id:group.id,title:group.title,type:'book',aliases:[],appearances:[]},topicRecord:record||{topics:[],patterns:[],status:'pending'},sourceIds:[],topics:record?.topics||[]};
   }));
 }
@@ -145,5 +149,31 @@ function displaySeries(book){
   if([book.title,book.series?.title].some(label=>/construction\s+site|晚安工地上的车/i.test(label||'')))return {id:'curated-construction-site',title:'Construction Site'};
   return book.series;
 }
-return {PREFIX,metadata,apply,groups,displaySeries,entries};
+function topicIndex(options={}){
+  const index=new Map();
+  for(const book of [...(options.directory?.books||[]),...(options.topicDirectory?.books||[])]){
+    if(!['content-verified','classification-verified','title-inferred'].includes(book.topicStatus))continue;
+    const topics=(options.topics?.entryTopics('book',book)||[]).filter(id=>options.topics.node(id));
+    const rank=book.topicStatus==='title-inferred'?1:2;
+    for(const id of book.externalIds?.xiaohuasheng||[]){
+      const existing=index.get(id);
+      if(existing&&existing.rank>rank)continue;
+      index.set(id,{topics:[...new Set((existing?.rank===rank?existing.topics:[]).concat(topics))],rank,topicStatus:book.topicStatus,topicEvidence:book.topicEvidence||[]});
+    }
+  }
+  return index;
+}
+function filterGroups(groups,filters={},options={}){
+  const words=(filters.query||'').trim().toLowerCase().split(/\s+/).filter(Boolean),index=topicIndex(options);
+  return groups.flatMap(group=>{
+    if(filters.status&&filters.status!=='all'&&group.status!==filters.status)return [];
+    const matchingBooks=group.books.filter(book=>{
+      if(!words.every(word=>(group.title+' '+book.title).toLowerCase().includes(word)))return false;
+      const topics=index.get(book.bookId)?.topics||[];
+      return filters.topic==='pending'?topics.length===0:!filters.topic||filters.topic==='all'||!!options.topics?.matches(topics,filters);
+    }).map(book=>({...book,...index.get(book.bookId),topics:index.get(book.bookId)?.topics||[]}));
+    return matchingBooks.length?[{...group,matchingBooks,matchedTotal:matchingBooks.length}]:[];
+  });
+}
+return {PREFIX,metadata,apply,groups,displaySeries,entries,topicIndex,filterGroups};
 });

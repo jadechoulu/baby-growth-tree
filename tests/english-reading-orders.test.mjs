@@ -12,7 +12,7 @@ const detail=source.slice(source.indexOf('function readingPlanDetail('),source.i
 test('详情切换顺序保留级别、主题及完成事实，重置分页并继续复用播放入口',()=>{
   const records=BP.manualUpdate({},'heinemann-gk70-02',true),modal={readingGroup:'all',readingBrowser:{topic:'animals',subtopic:'all',limit:48}};
   let nodes=[],listed=[],focus;
-  const context={S:{modal,records},BP,BOOKS:{},READING:{plans:[plan]},byId:new Map(),
+  const context={window:{ROADMAP_RAW:{resourceVolumes:require('../english/data/resource-volumes.json')}},S:{modal,records},BP,BOOKS:{},READING:{plans:[plan]},byId:new Map(),
     libraryReadingScope(){},readingPlanForResource:()=>plan,
     sharedReadingProgress:(_plan,group)=>BP.progress(records,plan,group),
     TOPICS:{patterns:()=>[]},profileReady:false,readingSync:{busy:false},syncXiaohuashengRead(){},

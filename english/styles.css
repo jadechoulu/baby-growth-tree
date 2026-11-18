@@ -764,6 +764,16 @@
 .stage-resource-tags>button.shared-material,.detail-resource-row .shared-material{font-weight:750;color:var(--material-ink)}
 .material-role-key,.material-use-role{display:inline-block;max-width:100%;padding:2px 7px;border-radius:4px;line-height:1.6;overflow-wrap:anywhere}
 .material-selection{display:inline-block;max-width:100%;margin-inline-start:4px;padding:0 4px;border:1px dashed var(--line);border-radius:4px;font-size:12px;line-height:1.5;font-weight:400;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
+.material-choice-list{display:grid;gap:12px;min-width:0;margin-top:12px}
+.material-choice-group{min-width:0;padding:12px;border:1px solid var(--line);border-radius:9px;background:#fff}
+.material-choice-heading{margin-bottom:8px}
+.material-choice-heading h4{margin:0;font-size:13px;line-height:1.6;color:var(--ink)}
+.material-choice-heading .material-choice-rule{margin:3px 0 0;font-size:13px;line-height:1.6;font-weight:600;color:var(--ink)}
+.material-choice-branch{margin-top:10px;border-radius:5px;border-width:0 0 0 3px;background:#f7f9f5;padding:8px 10px}
+.material-choice-group .stage-resource-tags{margin-top:0}
+.material-choice-group .practice-material-list{margin:0}
+.material-choice-group .practice-material-row{padding-inline:0}
+.material-choice-details{display:grid;gap:6px;min-width:0}
 [data-material-role] .material-selection{color:var(--muted)}
 .material-legend{gap:6px;margin:10px 0 12px}
 .material-legend strong{font-weight:750;color:#435145}
@@ -855,7 +865,21 @@
 .route-journey.sequential button{flex:0 0 auto;min-width:0;width:auto;height:auto}
 .domain-reference-fold,.route-reference-panel{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:0 0 10px;background:#f7f8f3;min-width:0}
 .domain-reference-fold>summary,.route-reference-panel>summary{font-size:13px;min-height:30px;cursor:pointer;color:var(--green)}
-.domain-reference-fold>summary>small{font-size:12px;margin-left:8px;color:var(--muted)}
+.domain-reference-fold>summary{display:flex;align-items:center;gap:4px;min-height:44px;list-style:none}
+.domain-reference-fold>summary::-webkit-details-marker{display:none}
+.domain-reference-fold>summary::before{content:'▸';flex-shrink:0}
+.domain-reference-fold[open]>summary::before{content:'▾'}
+.route-domain-label{flex:1;min-width:0}
+.route-domain-label>small{font-size:12px;margin-left:8px;color:var(--muted)}
+.route-domain-source{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;min-height:44px;padding:0;color:var(--green);text-decoration:none}
+.route-domain-source:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.source-text-scroll{display:block;padding:16px;overflow:auto}
+.source-text-sheet{max-width:900px;margin:0 auto;padding:20px;background:var(--paper);border-radius:8px;overflow-wrap:anywhere;text-align:left}
+.source-text-sheet section{padding:14px 0;border-bottom:1px solid var(--line)}
+.source-text-sheet h2{font-size:20px}.source-text-sheet h3{font-size:16px}
+.source-text-sheet small{font-size:12px;color:var(--muted)}
+.source-text-sheet p{font-size:15px;line-height:1.8;white-space:pre-wrap;margin:8px 0 0}
+.source-text-sheet details{margin-top:14px}.source-text-sheet summary{min-height:44px;cursor:pointer}
 .domain-reference-fold .route-domain-options{margin-top:8px}
 .domain-reference-fold .route-domain-options button{font-size:15px;padding:6px}
 .domain-reference-fold .route-domain-options small{display:block;font-size:12px;font-weight:400}
@@ -1946,14 +1970,14 @@
 .stage-match-evidence>summary::after{content:'＋';margin-left:auto;flex-shrink:0;color:var(--green);font-size:16px;font-weight:400}
 .stage-match-evidence[open]>summary::after{content:'−'}
 
-/* 对照按正文可用宽度排三列，不借用全站目录断点。 */
+/* 对照按正文可用宽度排四列，不借用全站目录断点。 */
 .comparison-panel{container:route-comparison / inline-size}
 .comparison-panel .complete-comparison>.comparison-head{display:none}
 .comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:minmax(0,1fr)}
 .comparison-panel .complete-comparison>.stage-comparison-row>.route-tab-inactive{display:none}
-@container route-comparison (min-width:720px){
-  .comparison-panel .complete-comparison>.comparison-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-  .comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:repeat(3,minmax(0,1fr));padding:6px;gap:8px}
+@container route-comparison (min-width:960px){
+  .comparison-panel .complete-comparison>.comparison-head{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .comparison-panel .complete-comparison>.stage-comparison-row{grid-template-columns:repeat(4,minmax(0,1fr));padding:6px;gap:8px}
   .comparison-panel .complete-comparison>.stage-comparison-row>[data-aligned-route]{display:flex;order:0}
   .comparison-panel .complete-comparison .stage-card{padding:10px}
   .comparison-panel .complete-comparison .stage-card h3{font-size:15px}
@@ -2045,3 +2069,38 @@
 .file-preview-listening>header>button{width:44px;min-width:44px;height:44px;min-height:44px}
 /* 裁切仍在原位播放的画面，不能用 display:none 或 visibility:hidden 影响媒体播放。 */
 .file-preview-listening .file-preview-body{position:absolute;left:0;top:100%;pointer-events:none}
+/* 低幼路线复用公共素材标签与进度组件。 */
+.chip.low-age{background:#f4e9df;color:#8a5f3c}
+.practice-low-age{--route:#a5744e}
+.low-age-guide{margin-bottom:16px;min-width:0}
+.low-age-choice-summary{margin:4px 0 10px;padding-left:20px;min-width:0}
+.low-age-choice-summary li{margin:3px 0;overflow-wrap:anywhere;color:var(--ink)}
+.low-age-choice-summary strong{font-weight:600}
+.practice-page .low-age-status-control{display:flex;align-items:center;justify-content:space-between;gap:3px;min-height:32px}
+.low-age-status-control .low-age-status-option{flex:1;min-width:0;min-height:28px;padding:3px 0;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--muted);font-family:inherit;font-size:12px;line-height:1.3;white-space:nowrap}
+.low-age-status-control .low-age-status-option[aria-pressed="true"]{border-color:var(--green);background:var(--green-soft);color:var(--green);font-weight:650}
+.low-age-status-control .low-age-status-option.done[aria-pressed="true"]{border-color:#3b528f;background:#edf1fc;color:#3b528f}
+.low-age-guide>p{margin:10px 0}
+.low-age-guide details{border-top:1px solid var(--line);padding:8px 0}
+.low-age-guide summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:14px}
+.low-age-guide details p{font-size:14px;line-height:1.8;margin:10px 0;overflow-wrap:anywhere}
+.low-age-source-group{padding:10px 0;border-bottom:1px solid var(--line)}
+.low-age-source-group small{font-size:12px;color:var(--muted)}
+.phase-overview-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+.alignment-remaining-grid{grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))}
+.route-author-options{flex-wrap:wrap}
+@media(max-width:900px){.route-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.low-age-guide summary::after{content:'＋';margin-left:auto;padding-left:10px;color:var(--green);font-size:18px;flex-shrink:0}
+.low-age-guide details[open]>summary::after{content:'−'}
+.low-age-guide summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+.route-author-options{grid-template-columns:repeat(4,minmax(0,auto)) 44px 44px}
+@media(max-width:480px){
+  .route-author-options{grid-template-columns:repeat(4,minmax(0,1fr));width:100%}
+  .route-author-options>[data-browse-author]{font-size:14px;white-space:nowrap;padding-inline:3px}
+  .route-author-options .route-mode-toggle{grid-column:3;justify-self:end}
+  .route-author-options>.library-filter-button{grid-column:4;justify-self:end}
+  .phase-overview-row{grid-template-columns:95px minmax(0,1fr)}
+  .phase-overview-row>.text-link{grid-row:span 3}
+}

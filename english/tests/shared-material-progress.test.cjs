@@ -49,9 +49,9 @@ function setBook(fixture,book,checked){
 }
 
 test('未选版的阶段也能查看本级完整目录，不自动选择或修改进度',()=>{
-  const context={BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},byId:new Map()};
+  const context={BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},byId:new Map(),stages:new Map()};
   vm.createContext(context);
-  vm.runInContext(between('function practiceCatalogChoices(','function practiceCatalogLinks('),context);
+  vm.runInContext(between('function practiceSelectableScopes(','function practiceCatalogLinks('),context);
   const id='resource-1cn6i3m',resource={id,title:'学乐小读者',type:'reader'};
   const item={resource,materials:[{level:'A'}]};
   const before=JSON.stringify(resourceVolumes);
@@ -64,9 +64,9 @@ test('未选版的阶段也能查看本级完整目录，不自动选择或修�
 });
 
 test('未确认的书虫只提供小书虫同级候选目录，不合并书目或旧记录',()=>{
-  const context={BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},byId:new Map()};
+  const context={BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},byId:new Map(),stages:new Map()};
   vm.createContext(context);
-  vm.runInContext(between('function practiceCatalogChoices(','function practiceCatalogLinks('),context);
+  vm.runInContext(between('function practiceSelectableScopes(','function practiceCatalogLinks('),context);
   const id='resource-149sp5j',resource={id,title:'书虫',type:'reader'};
   const choices=context.practiceCatalogChoices({resourceId:id,item:{resource,materials:[{level:'1'}]},bookScopes:P.bookScopes(id,['1'],resourceVolumes)});
   assert.equal(choices.length,1);

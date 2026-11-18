@@ -10,15 +10,36 @@ function create({h,roles,levelNodes,types={}}){
     return h('span',{class:['material-role-key','material-role-'+role.kind,extraClass].filter(Boolean).join(' '),title:[roles[role.kind],role.usage&&'原文用途：'+role.usage,role.basis].filter(Boolean).join('；')},roles[role.kind]);
   }
   function roleGroups(items,renderItem){
+    if(items.some(item=>item.role.selection?.groupPath?.length))return selectionGroups(items,renderItem);
     return h('div',{class:'stage-resource-tags'},Object.keys(roles).flatMap(kind=>
-      items.filter(item=>item.role.kind===kind).map(renderItem)));
+      items.filter(item=>item.role.kind===kind).map(item=>renderItem(item))));
+  }
+  function selectionGroups(items,renderItem,{itemOf=item=>item,contentClass='stage-resource-tags'}={}){
+    // 按显式选择路径组织候选；嵌套关系不受主辅排序、搜索或公共素材归并打散。
+    function renderGroup(members,depth=0){
+      const groups=new Map(),ungrouped=[];
+      for(const member of members){
+        const group=itemOf(member).role.selection?.groupPath?.[depth];
+        if(!group){ungrouped.push(member);continue;}
+        if(!groups.has(group.id))groups.set(group.id,{...group,members:[]});
+        groups.get(group.id).members.push(member);
+      }
+      return [ungrouped.length?h('div',{class:contentClass},ungrouped.map(item=>renderItem(item))):null,
+        [...groups.values()].sort((a,b)=>a.order-b.order).map(group=>h('section',{
+          class:'material-choice-group'+(depth?' material-choice-branch':''),'data-choice-group':group.id,
+          'aria-label':[group.title,group.rule].filter(Boolean).join('：')},
+          h('div',{class:'material-choice-heading'},h('h4',{},group.title),group.rule?h('p',{class:'material-choice-rule'},group.rule):null),
+          renderGroup(group.members,depth+1)))];
+    }
+    return h('div',{class:'material-choice-list'},renderGroup(items));
   }
   function typeTag(type){
     const label=type==='book'?'绘本':types[type]||types.other||'其他';
     return h('span',{class:'material-type-tag',title:'素材类型：'+label},label);
   }
   function selectionTag(selection){
-    return selection?h('small',{class:'material-selection',title:'原文选材要求：'+selection.basis,'aria-label':'原文选材要求：'+selection.basis},selection.label):null;
+    const label=selection?.displayLabel??selection?.label;
+    return label&&!selection.groupPath?.length?h('small',{class:'material-selection',title:'原文选材要求：'+selection.basis,'aria-label':'原文选材要求：'+selection.basis},label):null;
   }
   function title({name:label,shared,levels=[],selection}){
     // 原级别已含“任选2部”等原文时不重复显示，完整要求仍在ⓘ保留。
@@ -43,7 +64,7 @@ function create({h,roles,levelNodes,types={}}){
       h('p',{class:'small-note'},h('b',{},'套系名称加粗'),'：当前比较范围的多路线共用；',h('b',{},'级别加粗'),'：该范围的实际重叠级别。加粗不表示主线或必读。'),
       h('p',{class:'small-note'},'进度状态按实际记录显示，与用途色分别表达。普通标签只说明含义；可操作入口使用按钮或链接，提供焦点、完整提示及无障碍名称。'));
   }
-  return {name,roleTag,roleGroups,typeTag,selectionTag,title,evidence,legend};
+  return {name,roleTag,roleGroups,selectionGroups,typeTag,selectionTag,title,evidence,legend};
 }
 const api={create};root.EnglishMaterialUI=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;

@@ -17,7 +17,8 @@ test('已核同套系只有一个素材实体，原路线引用、版本与单�
     assert.ok(resource,alias.resourceId);
     assert.ok(resource.mergedResourceIds.includes(alias.resourceId));
     assert.ok(catalog.stages.every(s=>s.materials.every(m=>m.resourceId!==alias.resourceId)));
-    assert.ok(M.publicationScopes(volumes,resource.id).length);
+    const publication=M.publicationEntry(volumes,resource.id);
+    assert.ok(M.publicationScopes(volumes,resource.id).length||publication.countOnlyReason,'同素材身份已确认但数量未核时须保留明确原因，不虚填总量');
     const expected=books.books.filter(b=>[resource.id,alias.resourceId].includes(b.resourceId));
     assert.ok(expected.every(b=>entries.some(entry=>entry.id===b.id&&entry.resource===resource)));
   }
