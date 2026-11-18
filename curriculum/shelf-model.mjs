@@ -9,6 +9,10 @@ export function validShelfRecord(key,record){
  if(key===shelfReceipt)return identity(book?.accountId)&&Number.isFinite(Date.parse(book.fetchedAt))&&Number.isSafeInteger(book.count)&&book.count>=0;
  if(!book||!identity(book.accountId)||!identity(book.bookId)||!/^\d{1,20}$/.test(book.appBookId)||key!==shelfPrefix+book.accountId+':'+book.bookId||typeof book.title!=='string'||!book.title.trim()||typeof book.read!=='boolean'||typeof book.isCollection!=='boolean'||!chineseLanguages.includes(book.language))return false;
  if(book.cover!==undefined&&(typeof book.cover!=='string'||!book.cover.startsWith('https://img.xiaohuasheng.cn/')))return false;
+ if(book.catalogTags!==undefined&&(!Array.isArray(book.catalogTags)||book.catalogTags.length>100||book.catalogTags.some(tag=>typeof tag!=='string'||!tag.trim()||tag.length>2000)))return false;
+ for(const field of ['booklistId','booklistRank','booklistCount'])if(book[field]!==undefined&&(!Number.isSafeInteger(book[field])||book[field]<0))return false;
+ if(book.booklistName!==undefined&&book.booklistName!==null&&(typeof book.booklistName!=='string'||book.booklistName.length>1000))return false;
+ for(const field of ['booklists','publicBooklistArray'])if(book[field]!==undefined&&book[field]!==null&&(!Array.isArray(book[field])||book[field].some(list=>!list||typeof list.id!=='string'||!/^\d{1,20}$/.test(list.id)||typeof list.title!=='string'||!list.title.trim()||list.title.length>1000||Object.keys(list).some(key=>!['id','title','bookCount'].includes(key))||list.bookCount!==undefined&&(!Number.isSafeInteger(list.bookCount)||list.bookCount<0))))return false;
  return !book.series||(identity(book.series.id)&&typeof book.series.title==='string');
 }
 export function isChineseBook(book){return chineseLanguages.includes(book.language)&&!/双语|中英对照|中英文|英汉|汉英|英语(?:启蒙|教材|绘本|读物)|英文(?:启蒙|绘本|童谣|儿歌|读物)|bilingual/i.test(book.title+' '+(book.series?.title||''));}
@@ -27,11 +31,16 @@ export function plannedIdentities(catalogs){
  return {books,series};
 }
 export function outsidePlan(book,planned){return !planned.books.has(book.bookId)&&!(book.series&&planned.series.has(book.series.id))&&!(book.isCollection&&planned.series.has(book.bookId));}
+// 按本人指定的明确分类标签归组，不改原站套系、单册身份或进度键。
+export function displaySeries(book){
+ if(book.catalogTags?.some(tag=>tag.trim()==='巧虎'))return {id:'curated-qiaohu',title:'巧虎',coverTitle:'巧虎21月龄 谢谢 谢谢'};
+ return book.series;
+}
 export function shelfGroups(books){
  const groups=new Map();
  for(const book of books){
-  const id=book.series?'series-'+book.series.id:book.isCollection?'series-'+book.bookId:book.id;
-  if(!groups.has(id))groups.set(id,{id,title:book.series?.title||book.title,books:[],container:null});
+  const series=displaySeries(book),id=series?'series-'+series.id:book.isCollection?'series-'+book.bookId:book.id;
+  if(!groups.has(id))groups.set(id,{id,title:series?.title||book.title,series,books:[],container:null});
   const group=groups.get(id);if(book.isCollection)group.container=book;else group.books.push(book);
  }
  return [...groups.values()];
@@ -52,11 +61,17 @@ export function prepareChineseShelf(records,snapshot){
   const key=shelfPrefix+owner+':'+book.bookId,old=parse(records[key]?.note),reading=read.get(book.bookId);
   if(old&&old.appBookId!==book.appBookId)throw Error('中文书目身份发生变化，原记录保留。');
   const value={accountId:owner,bookId:book.bookId,appBookId:book.appBookId,title:book.title,language:book.language,read:book.read,isCollection:book.isCollection};
-  for(const field of ['author','publisher','isbn'])if(typeof book[field]==='string')value[field]=book[field];
+  for(const field of ['author','publisher','isbn','seriesTitle'])if(typeof book[field]==='string')value[field]=book[field];
+  for(const field of ['catalogTags','booklistId','booklistName','booklistRank','booklistCount','booklists','publicBooklistArray']){
+   if(book[field]!==undefined)value[field]=book[field];
+   else if(old?.[field]!==undefined)value[field]=old[field];
+  }
   if(book.cover?.startsWith('https://img.xiaohuasheng.cn/'))value.cover=book.cover;
   if(book.series&&identity(book.series.id)&&typeof book.series.title==='string')value.series={id:book.series.id,title:book.series.title};
   const readCount=reading?.readCount??old?.readCount;if(Number.isSafeInteger(readCount)&&readCount>=0)value.readCount=readCount;
-  active.add(key);changes[key]={status:'using',note:JSON.stringify(value)};count++;
+  const record={status:'using',note:JSON.stringify(value)};
+  if(!validShelfRecord(key,record))throw Error('中文书目元信息无效，原记录保留。');
+  active.add(key);changes[key]=record;count++;
  }
  if([...read.keys()].some(id=>!seen.has(id)))throw Error('已读书目缺少目录身份，未导入。');
  for(const [key,record]of Object.entries(records))if(key.startsWith(shelfPrefix+owner+':')&&record.status==='using'&&!active.has(key))changes[key]={...record,status:'paused'};

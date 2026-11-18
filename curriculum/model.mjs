@@ -1,5 +1,5 @@
 import { isCharacterKey } from './literacy-model.mjs';
-import { validShelfRecord } from './shelf-model.mjs?v=20261118-baby-v4';
+import { validShelfRecord } from './shelf-model.mjs?v=20261119-qiaohu';
 export const statuses = { candidate: '待选', planned: '计划中', using: '进行中', done: '已完成', paused: '已暂停' };
 export function materialKey(id, grade) { return `material:${id}:${grade}`; }
 export function goalKey(id, grade, subject) { return `goal:${grade}:${subject}:${id}`; }

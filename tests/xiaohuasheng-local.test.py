@@ -45,15 +45,29 @@ class DerivationTests(unittest.TestCase):
             with mock.patch.object(bridge, 'TOOL_ROOT', root), self.assertRaises(bridge.SyncFailure):
                 bridge.shelf_catalog(data, out, detail, save)
             self.assertTrue((out / 'details/1.json').is_file())
-            self.assertFalse((root / 'private/shelf-metadata-v2/1.json').exists())
+            self.assertFalse((root / 'private/shelf-metadata-v3/1.json').exists())
 
     def test_catalog_metadata_preserves_public_labels_not_private_fields(self):
         metadata = bridge.catalog_metadata({'pk': 1, 'guid': 'guid-1', 'name': 'Book', 'category': '英文，lovevery，Lovevery', 'seriesTitle': 'Lovevery', 'press': 'Lovevery', 'myComment': 'private'})
         self.assertEqual(metadata['catalogTags'], ['英文', 'lovevery', 'Lovevery'])
         self.assertEqual(metadata['seriesTitle'], 'Lovevery')
         self.assertEqual(metadata['publisher'], 'Lovevery')
-        self.assertEqual(metadata['catalogSchemaVersion'], 2)
+        self.assertEqual(metadata['catalogSchemaVersion'], 3)
         self.assertNotIn('myComment', metadata)
+
+    def test_booklists_keep_titles_counts_and_ranking_without_community_fields(self):
+        metadata = bridge.catalog_metadata({'pk': 1, 'guid': 'guid-1', 'name': 'Book',
+            'booklistId': 12, 'booklistName': '推荐书单', 'booklistRank': 3, 'booklistCount': 564,
+            'booklists': [{'pk': 12, 'name': '推荐书单', 'bookCount': 100, 'userId': 88, 'creatorName': '不传播', 'myComment': 'private'}],
+            'publicBooklistArray': None})
+        self.assertEqual(metadata['booklists'], [{'id': '12', 'title': '推荐书单', 'bookCount': 100}])
+        self.assertEqual(metadata['booklistId'], 12)
+        self.assertEqual(metadata['booklistName'], '推荐书单')
+        self.assertEqual(metadata['booklistRank'], 3)
+        self.assertEqual(metadata['booklistCount'], 564)
+        self.assertIsNone(metadata['publicBooklistArray'])
+        for field in ['userId', 'creatorName', 'myComment', 'complete']:
+            self.assertNotIn(field, json.dumps(metadata))
 
     def test_real_source_guid_numeric_identity_and_readed_predicate(self):
         data = fixture()
@@ -144,12 +158,16 @@ class DerivationTests(unittest.TestCase):
             details_called.append(book_id)
             return {'pk': book_id, 'guid': 'guid-' + str(book_id), 'name': 'Book ' + str(book_id),
                     'language': '英文', 'frontCover': '1/Book/test.jpg', 'readingChildCount': 100,
+                    'booklistCount': 20, 'booklists': [{'pk': 12, 'name': '公开书单', 'bookCount': 100, 'creatorName': '不传播'}],
                     'privateCommunityData': 'never browser'}, {'status': 200, 'M': '1001'}
 
         catalog_module = SimpleNamespace(detail_value=detail, collection_books=lambda *_args, **_kwargs: None)
         original_path = list(sys.path)
         try:
             with tempfile.TemporaryDirectory() as directory:
+                old_cache = Path(directory) / 'private/shelf-metadata-v2'
+                old_cache.mkdir(parents=True)
+                private_json(old_cache / '1.json', {'catalogSchemaVersion': 2, 'bookId': 'guid-1', 'appBookId': '1'})
                 with mock.patch.object(bridge, 'TOOL_ROOT', Path(directory)), mock.patch.dict(sys.modules, {
                     'xhs_standalone_bookcase': bookcase_module, 'xhs_request_signing': signing_module,
                     'xhs_catalog_client': catalog_module,
@@ -167,7 +185,10 @@ class DerivationTests(unittest.TestCase):
                 self.assertEqual(calls.count(True), 2)
                 self.assertEqual(len(details_called), 31)
                 self.assertEqual(first['shelfCatalog']['total'], 31)
+                self.assertEqual(first['shelfCatalog']['books'][0]['booklists'], [{'id': '12', 'title': '公开书单', 'bookCount': 100}])
+                self.assertTrue((Path(directory) / 'private/shelf-metadata-v3/1.json').is_file())
                 self.assertNotIn('privateCommunityData', json.dumps(first))
+                self.assertNotIn('creatorName', json.dumps(first))
                 self.assertFalse(first['shelfCatalog']['books'][1]['read'])
         finally:
             sys.path[:] = original_path
