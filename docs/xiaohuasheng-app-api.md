@@ -65,6 +65,8 @@ tools/mitmproxy-venv/bin/python xhs_catalog_client.py detail 694453 --out privat
 
 ## 最新证据与能力边界
 
+2026-11-19中文书架补充：同一个原始单册详情确有`booklistId/booklistName/booklistRank/booklistCount`及`booklists/publicBooklistArray`。网站本机执行器直接从`detail_value()`原始返回中派生白名单，云端使用同一语义；两者元信息契约为3。书单数组仅保留`pk→id/name→title/bookCount`，不引入创建者、读者或评论。详情可能只返回部分书单，数量字段独立保留，不标完整。原CLI的通用公开目录导出仍排除完整社区书单对象，不因本次需求放开该排除规则。中文导入及发布边界见[全科中文书架](curriculum-baby.md)。
+
 以下是2026-11-08已保存验收样本，不是固定总数、未来成功保证或本次重新在线获取的结果：
 
 | 范围 | 最终验收 |

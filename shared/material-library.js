@@ -19,9 +19,9 @@
       return h('article',{...attrs,class:'library-card shelf-card '+(attrs.class||'')},
         h('button',{type:'button',class:'shelf-open',onclick:onOpen,
           'aria-label':'查看'+title+'全部书目与阅读状态','aria-haspopup':'dialog',title:'查看完整详情'},
-          cover,h('strong',{},title)),
-        h('div',{class:'shelf-card-progress'},h('span',{},total?'书架 '+completed+'／'+total+'本':note),total?h('span',{},status):null),
-        total?h('progress',{max:total,value:completed,'aria-label':title+'已阅读 '+completed+'／'+total+' 本'}):null);
+          cover,h('span',{class:'shelf-card-heading'},h('strong',{},title),
+            h('span',{class:'shelf-card-progress'},h('span',{},total?'书架 '+completed+'／'+total+'本':note),total?h('span',{},status):null),
+            total?h('progress',{max:total,value:completed,'aria-label':title+'已阅读 '+completed+'／'+total+' 本'}):null)));
     }
     function completionControl({id,title,done,external,disabled=external,onChange}) {
       return h('input',{id,type:'checkbox',class:'book-completion'+(external?' is-imported':''),checked:done,disabled,

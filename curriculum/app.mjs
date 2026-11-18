@@ -1,23 +1,23 @@
 import { grades, subjects, types, phases, goals, milestones, abilityMetrics, discrepancies, materials } from './plan.mjs?v=20261118-unified-tabs';
 import { goalCurve } from './charts.mjs?v=20261118-unified-tabs';
-import { statuses, materialKey, goalKey, statusOf, filterMaterials, summary, validateBackup } from './model.mjs?v=20261118-baby-v4';
-import { createStore, empty } from './store.mjs?v=20261118-baby-v4';
+import { statuses, materialKey, goalKey, statusOf, filterMaterials, summary, validateBackup } from './model.mjs?v=20261119-qiaohu';
+import { createStore, empty } from './store.mjs?v=20261119-qiaohu';
 import { loadCatalog, groupsFor, ownBookState, ownBookUpdate } from './catalog.mjs?v=20261118-books';
 import { catalogIndex } from './catalog-index.mjs?v=20261118-poetry-cover';
 import { createEnglishBooks } from './english-records.mjs?v=20261118-books';
 import { bookEntries, filterBookEntries, matchesQuery, defaultCatalogGroup } from './library-model.mjs';
-import { shelfBooks, shelfGroups, shelfState, plannedIdentities, outsidePlan, prepareChineseShelf, shelfReceipt } from './shelf-model.mjs?v=20261118-baby-v4';
+import { shelfBooks, shelfGroups, displaySeries, shelfState, plannedIdentities, outsidePlan, prepareChineseShelf, shelfReceipt } from './shelf-model.mjs?v=20261119-qiaohu-cover';
 import { targetProgress, englishListeningCount, poetryCompletedCount } from './baby-progress.mjs?v=20261119-poetry';
 import { babyStage } from './baby-model.mjs?v=20261118-baby-v4';
 import { characterEntries, characterSummary, characterDraft, characterKey } from './literacy-model.mjs?v=20261118-baby-v4';
 const site=window.XiaoyaSite, store=createStore(window.indexedDB), profile=window.XiaoyaBabyProfile.createClient();
-let data=empty(), ready=false, view='baby', grade='junior', subject='', phase='', type='', status='', search='', layout='list', grouping='series', series='', catalog='', completion='';
+let data=empty(), ready=false, view='baby', grade='junior', subject='', phase='', type='', status='', search='', layout='covers', grouping='series', series='', catalog='', completion='';
 let activeDialog=null, listGeneration=0;
 let goalMode='chart';
 let babyGrade='',babyMaterials='using',babyEnglishWords=null,babyEnglishVersion=0;
 let literacySearch='',literacyChannel='recognition',literacyOpen=true;
 let materialCollection='plan',shelfSearch='',shelfFilter='',shelfAuthenticated=false,shelfAuthVersion=0,shelfBusy=false,shelfClient;
-const collectionViews={plan:{grouping:'series',layout:'list'},other:{grouping:'series',layout:'list'}};
+const collectionViews={plan:{grouping:'series',layout:'covers'},other:{grouping:'series',layout:'covers'}};
 const curveMetrics=new Map();
 const compact=window.matchMedia('(max-width:1100px)');
 let overviewOpen=!compact.matches, overviewTouched=false;
@@ -305,7 +305,7 @@ async function updateOtherResults(host){
  try{
   const planned=await chinesePlannedCatalogs();if(!valid()||!shelfAuthenticated)return;
   const all=shelfBooks(data.records).filter(book=>outsidePlan(book,planned));
-  const books=all.filter(book=>(!shelfFilter||shelfState(data.records,book).done===(shelfFilter==='done'))&&matchesQuery(shelfSearch,book.title,book.series?.title));
+  const books=all.filter(book=>(!shelfFilter||shelfState(data.records,book).done===(shelfFilter==='done'))&&matchesQuery(shelfSearch,book.title,book.series?.title,displaySeries(book)?.title,book.booklistName,...(book.booklists||[]).map(list=>list.title),...(book.publicBooklistArray||[]).map(list=>list.title)));
   const fullGroups=new Map(shelfGroups(all).map(group=>[group.id,group]));
   const groups=shelfGroups(books),rows=grouping==='series'?groups:books,grid=h('div',{class:grouping==='series'?'resource-grid library-grid other-shelf-grid'+(layout==='covers'?' library-cover-grid library-book-cover-grid':''):'library-book-list'+(layout==='covers'?' library-book-cover-grid':'')});
   host.append(materialLibrary.resultsHead(grouping==='series'?groups.length+' 组':books.length+' 本',libraryControls()));
@@ -325,12 +325,13 @@ function shelfBookControl(book){
 function shelfCover(book,open){return materialLibrary.bookCover({src:book.cover,title:book.title,readCount:book.readCount,onOpen:open});}
 function shelfBookCard(book,{detail=false}={}){
  const state=shelfState(data.records,book),open=()=>shelfDetail({id:book.id,title:book.title,books:book.isCollection?[]:[book],container:book.isCollection?book:null});
- return materialLibrary.bookCard({attrs:{class:'subject-chinese'},cover:shelfCover({...book,readCount:state.readCount},detail?null:open),title:detail?h('strong',{class:'library-book-name'},book.title):button(book.title,open,{class:'text-link library-book-name','aria-haspopup':'dialog',title:'查看完整详情'}),context:book.series?.title,topics:book.isCollection?small('套装条目 · 逐册目录待补'):null,actions:[shelfBookControl(book)]});
+ return materialLibrary.bookCard({attrs:{class:'subject-chinese'},cover:shelfCover({...book,readCount:state.readCount},detail?null:open),title:detail?h('strong',{class:'library-book-name'},book.title):button(book.title,open,{class:'text-link library-book-name','aria-haspopup':'dialog',title:'查看完整详情'}),context:displaySeries(book)?.title,topics:book.isCollection?small('套装条目 · 逐册目录待补'):null,actions:[shelfBookControl(book)]});
 }
 function shelfSeriesCard(group,fullGroup=group){
- if(group.books.length===1&&!group.container&&!group.books[0].series)return shelfBookCard(group.books[0]);
+ if(group.books.length===1&&!group.container&&!group.series)return shelfBookCard(group.books[0]);
  const done=fullGroup.books.filter(book=>shelfState(data.records,book).done).length;
- return materialLibrary.shelfCard({attrs:{class:'subject-chinese'},cover:shelfCover({cover:group.container?.cover||group.books[0]?.cover,title:group.title}),title:group.title,onOpen:()=>shelfDetail(fullGroup),completed:done,total:fullGroup.books.length,status:done===fullGroup.books.length?'已完成':done?'进行中':'未开始',note:'套装条目 · 逐册目录待补'});
+ const preferredCover=fullGroup.books.find(book=>book.title===fullGroup.series?.coverTitle&&book.cover);
+ return materialLibrary.shelfCard({attrs:{class:'subject-chinese'},cover:shelfCover({cover:preferredCover?.cover||group.container?.cover||group.books[0]?.cover,title:preferredCover?.title||group.title}),title:group.title,onOpen:()=>shelfDetail(fullGroup),completed:done,total:fullGroup.books.length,status:done===fullGroup.books.length?'已完成':done?'进行中':'未开始',note:'套装条目 · 逐册目录待补'});
 }
 function shelfDetail(group){
  if(!shelfAuthenticated)return;
@@ -342,8 +343,8 @@ async function syncChineseShelf(){
  const client=chineseShelfClient();await refreshShelfAuth();if(!shelfAuthenticated){client.open();return;}
  shelfBusy=true;render();
  try{
-  const state=await client.getState('english'),local=window.EnglishXiaohuashengSync.localEntry(location);
-  const snapshot=local&&!state.enabled?await window.EnglishXiaohuashengSync.read():await client.readXiaohuasheng({onProgress:()=>message('正在读取小花生中文书架…')});
+  const local=window.EnglishXiaohuashengSync.localEntry(location);
+  const snapshot=local?await window.EnglishXiaohuashengSync.read():await client.readXiaohuasheng({onProgress:()=>message('正在读取小花生中文书架…')});
   if(!(await client.getState('english')).authenticated)throw Error('登录状态已失效，未导入私人书架。');
   const base=await store.read(),result=prepareChineseShelf(base.records,snapshot);
   data=await store.saveShelf({records:result.changes},base);channel?.postMessage('saved');message('中文书架已同步到当前浏览器；英文素材未导入。');

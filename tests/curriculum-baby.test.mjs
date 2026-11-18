@@ -5,7 +5,7 @@ import {targetProgress,englishListeningCount,poetryCompletedCount} from '../curr
 import vocabulary from '../english/vocabulary.js';
 import {characterDraft,characterSummary,characterKey} from '../curriculum/literacy-model.mjs';
 import {patchDocument,validateBackup,mergeBackup} from '../curriculum/model.mjs';
-import {prepareChineseShelf,shelfBooks,shelfState,shelfGroups,plannedIdentities,outsidePlan,shelfReceipt} from '../curriculum/shelf-model.mjs';
+import {prepareChineseShelf,shelfBooks,shelfState,shelfGroups,displaySeries,plannedIdentities,outsidePlan,shelfReceipt} from '../curriculum/shelf-model.mjs';
 const date=value=>new Date(value+'T12:00:00');
 const empty=()=>({kind:'curriculum',version:1,records:{},custom:[]});
 test('宝宝班级按入园截止日和学年切换估算，入园前不冒充在园',()=>{
@@ -75,6 +75,39 @@ test('计划排除按外站精确单册和套系身份，不按同名或相似�
  assert.equal(outsidePlan(cn('new',false,{series:{id:'known-set'}}),planned),false);
  assert.equal(outsidePlan(cn('different',false,{title:'同名书'}),planned),true);
  const books=[cn('1',false,{series:{id:'a',title:'同名'}}),cn('2',false,{series:{id:'b',title:'同名'}})];assert.equal(shelfGroups(books).length,2);
+});
+test('巧虎分类标签跨原套系归组，重同步保留单册身份、完成与次数，不按题名猜分组',()=>{
+ const books=[cn('1',true,{title:'故事甲',catalogTags:['故事','巧虎'],series:{id:'first',title:'原套系甲'}}),cn('2',false,{title:'故事乙',catalogTags:[' 巧虎 '],series:{id:'second',title:'原套系乙'}}),cn('3',false,{title:'巧虎同名书'}),cn('4',false,{catalogTags:['巧虎相关']})];
+ const initial=prepareChineseShelf({},snapshot(books)),records=patchDocument(empty(),{records:initial.changes}).records;
+ const actual=shelfBooks(records),manualKey='book:'+actual[1].id;
+ records[manualKey]={status:'done'};
+ const group=shelfGroups(actual).find(group=>group.title==='巧虎');
+ assert.deepEqual(group.books.map(book=>book.bookId),['1','2']);
+ assert.equal(group.books.filter(book=>shelfState(records,book).done).length,2);
+ assert.equal(shelfState(records,group.books[0]).readCount,2);
+ assert.equal(actual[0].series.id,'first');assert.equal(displaySeries(actual[0]).title,'巧虎');
+ assert.equal(shelfGroups(actual).length,3);validateBackup({...empty(),records});
+ const refreshed=prepareChineseShelf(records,snapshot(books.map(({catalogTags,...book})=>book),'2026-11-19T12:00:00Z'));
+ const next={...records,...refreshed.changes},regrouped=shelfGroups(shelfBooks(next)).find(group=>group.title==='巧虎');
+ assert.deepEqual(regrouped.books.map(book=>book.id),group.books.map(book=>book.id));
+ assert.equal(next[manualKey].status,'done');
+ const cleared=prepareChineseShelf(next,snapshot(books.map(book=>({...book,catalogTags:[]})),'2026-11-20T12:00:00Z'));
+ assert.equal(shelfGroups(shelfBooks({...next,...cleared.changes})).some(group=>group.title==='巧虎'),false);
+ assert.throws(()=>prepareChineseShelf({},snapshot([cn('1',false,{catalogTags:'巧虎'})])),/元信息/);
+});
+test('中文书单元信息随导入和备份保留，重同步补缺不清旧书单，明确空值可撤回',()=>{
+ const fields={catalogTags:['巧虎'],booklistId:12,booklistName:'亲子书单',booklistRank:2,booklistCount:53,booklists:[{id:'12',title:'亲子书单',bookCount:100}],publicBooklistArray:null};
+ const imported=prepareChineseShelf({},snapshot([cn('1',true,fields)]));
+ const records=imported.changes,book=shelfBooks(records)[0];
+ for(const [key,value]of Object.entries(fields))assert.deepEqual(book[key],value);
+ assert.equal(displaySeries(book).title,'巧虎');
+ const backup=JSON.parse(JSON.stringify({...empty(),records}));validateBackup(backup);
+ assert.deepEqual(shelfBooks(mergeBackup(empty(),backup).value.records)[0].booklists,fields.booklists);
+ const refreshed=prepareChineseShelf(records,snapshot([cn('1',true)],'2026-11-19T12:00:00Z'));
+ assert.deepEqual(shelfBooks({...records,...refreshed.changes})[0].booklists,fields.booklists);
+ const cleared=prepareChineseShelf(records,snapshot([cn('1',true,{booklists:[],booklistName:null,booklistId:0,booklistRank:0,booklistCount:0})],'2026-11-19T12:00:00Z'));
+ const updated=shelfBooks({...records,...cleared.changes})[0];assert.deepEqual(updated.booklists,[]);assert.equal(updated.booklistName,null);assert.equal(updated.booklistCount,0);
+ for(const extra of [{booklists:[{id:'12',title:'书单',creatorName:'不可传播'}]},{booklistCount:-1},{booklistName:22}])assert.throws(()=>prepareChineseShelf({},snapshot([cn('1',true,extra)])),/元信息/);
 });
 test('源站中文标签与明确英文教材或双语名称冲突时不导入，旧记录仍可备份且即时隐藏',()=>{
  const books=[cn('1'),cn('2',false,{title:'幼儿英语启蒙绘本'}),cn('3',false,{series:{id:'english',title:'唱游英文童谣'}}),cn('4',false,{title:'英汉对照故事'})];

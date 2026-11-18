@@ -31,7 +31,7 @@ def catalog_metadata(value):
     if not isinstance(title, str) or not title.strip() or len(title) > 1000:
         raise SyncFailure('INCOMPLETE')
     # @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 外站详情仅按白名单派生，不把社区、本人状态或未知字段交给网页。
-    result = {'catalogSchemaVersion': 2, 'bookId': guid, 'appBookId': app_id, 'title': title.strip(),
+    result = {'catalogSchemaVersion': 3, 'bookId': guid, 'appBookId': app_id, 'title': title.strip(),
               'language': value.get('language') if isinstance(value.get('language'), str) else ''}
     cover = value.get('frontCover')
     if isinstance(cover, str) and cover and len(cover) <= 1500:
@@ -47,6 +47,25 @@ def catalog_metadata(value):
         result['seriesTitle'] = value['seriesTitle'].strip()
     if isinstance(value.get('category'), str) and len(value['category']) <= 2000:
         result['catalogTags'] = list(dict.fromkeys(tag.strip() for tag in re.split(r'[，,、]', value['category']) if tag.strip()))
+    for field in ['booklistId', 'booklistRank', 'booklistCount']:
+        if type(value.get(field)) is int and 0 <= value[field] <= 9007199254740991:
+            result[field] = value[field]
+    if 'booklistName' in value and (value['booklistName'] is None or isinstance(value['booklistName'], str) and len(value['booklistName']) <= 1000):
+        result['booklistName'] = value['booklistName']
+    # @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 书单仅保留身份、名称和册数，排除创建者、用户状态与评论。
+    for field in ['booklists', 'publicBooklistArray']:
+        if field in value and value[field] is None:
+            result[field] = None
+        elif isinstance(value.get(field), list):
+            result[field] = []
+            for item in value[field]:
+                if (not isinstance(item, dict) or not re.fullmatch(r'[1-9][0-9]*', str(item.get('pk', '')))
+                        or not isinstance(item.get('name'), str) or not item['name'].strip() or len(item['name']) > 1000):
+                    continue
+                entry = {'id': str(item['pk']), 'title': item['name']}
+                if type(item.get('bookCount')) is int and 0 <= item['bookCount'] <= 9007199254740991:
+                    entry['bookCount'] = item['bookCount']
+                result[field].append(entry)
     series_id, series_guid, series_title = value.get('taoxiId'), value.get('taoxiGuid'), value.get('taoxiName')
     if (re.fullmatch(r'[1-9][0-9]*', str(series_id)) and isinstance(series_guid, str)
             and re.fullmatch(r'[a-zA-Z0-9_-]{1,80}', series_guid) and isinstance(series_title, str)
@@ -57,7 +76,7 @@ def catalog_metadata(value):
 
 def shelf_catalog(bookcase, out, fetch_detail, private_json, fetch_collection=None):
     """书架目录与已读一次同步；公共元信息按单册缓存，失败不能清空旧目录。"""
-    cache = TOOL_ROOT / 'private' / 'shelf-metadata-v2'
+    cache = TOOL_ROOT / 'private' / 'shelf-metadata-v3'
     cache.mkdir(mode=0o700, parents=True, exist_ok=True)
     rows = bookcase['books']
 
@@ -67,7 +86,7 @@ def shelf_catalog(bookcase, out, fetch_detail, private_json, fetch_collection=No
         metadata = None
         if path.is_file():
             saved = json.loads(path.read_text(encoding='utf-8'))
-            if saved.get('bookId') == guid and saved.get('appBookId') == app_id:
+            if saved.get('catalogSchemaVersion') == 3 and saved.get('bookId') == guid and saved.get('appBookId') == app_id:
                 metadata = saved
         if metadata is None:
             raw, response = fetch_detail(int(app_id))

@@ -110,9 +110,10 @@ input.book-completion:focus-visible{outline:2px solid var(--accent,#2e6954);outl
 .library-book-context{display:flex;flex-wrap:wrap;gap:1px 8px;color:var(--muted);font-size:12px;line-height:1.5}
 .other-shelf-grid .shelf-card{min-width:0;padding:6px;display:flex;flex-direction:column;gap:6px}
 .shelf-card .shelf-open{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;font:inherit;cursor:pointer;min-width:0}
-.shelf-card .shelf-open strong{display:block;font-size:15px;line-height:1.45;overflow-wrap:anywhere;margin-top:6px}
+.shelf-card-heading{display:flex;flex-direction:column;gap:4px;min-width:0;margin-top:6px}
+.shelf-card .shelf-open strong{display:block;font-size:15px;line-height:1.45;overflow-wrap:anywhere;margin:0}
 .shelf-card .shelf-open .library-book-cover{width:100%;height:152px}
-.shelf-card-progress{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px;font-size:12px;color:var(--muted)}
+.shelf-card-progress{display:flex;flex-wrap:wrap;gap:4px 8px;font-size:12px;color:var(--muted)}
 .shelf-card progress{display:block;width:100%;height:6px;accent-color:var(--accent)}
 .resource-grid.library-grid.library-cover-grid,.library-book-list.library-book-cover-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,136px),1fr));gap:10px;align-items:start}
 .library-book-cover-grid .library-book-row{--library-book-cover-height:152px;position:relative;grid-template-columns:minmax(0,1fr);gap:6px;padding:6px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
@@ -165,4 +166,4 @@ input.book-completion:focus-visible{outline:2px solid var(--accent,#2e6954);outl
 .other-shelf-grid:not(.library-cover-grid) .shelf-card{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;padding:8px}
 .other-shelf-grid:not(.library-cover-grid) .shelf-card .shelf-open{display:flex;align-items:center;gap:8px}
 .other-shelf-grid:not(.library-cover-grid) .shelf-card .shelf-open .library-book-cover{width:48px;height:64px;flex:none}
-.other-shelf-grid:not(.library-cover-grid) .shelf-card .shelf-open strong{margin:0}
+.other-shelf-grid:not(.library-cover-grid) .shelf-card-heading{flex:1;margin:0}

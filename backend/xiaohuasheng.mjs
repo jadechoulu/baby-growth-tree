@@ -86,7 +86,7 @@ export function catalogMetadata(row) {
   const appBookId = identity(row, 'pk');
   if (typeof row.name !== 'string' || !row.name.trim() || row.name.length > 1000) fail();
   // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 详情仅提取书目白名单，社区、孩子、评论和未知私人字段不交网页。
-  const result = { catalogSchemaVersion: 2, bookId: row.guid, appBookId, title: row.name.trim(), language: typeof row.language === 'string' ? row.language : '' };
+  const result = { catalogSchemaVersion: 3, bookId: row.guid, appBookId, title: row.name.trim(), language: typeof row.language === 'string' ? row.language : '' };
   let cover = row.frontCover;
   if (typeof cover === 'string' && cover.length <= 1500) {
     if (cover && !/^(https?:|\/\/)/.test(cover)) cover = 'https://img.xiaohuasheng.cn/' + cover.replace(/^\/+/, '');
@@ -95,6 +95,14 @@ export function catalogMetadata(row) {
   for (const [from, to] of [['isbn13', 'isbn'], ['author', 'author'], ['press', 'publisher']]) if (typeof row[from] === 'string' && row[from].length <= 300) result[to] = row[from];
   if (typeof row.seriesTitle === 'string' && row.seriesTitle.length <= 500) result.seriesTitle = row.seriesTitle.trim();
   if (typeof row.category === 'string' && row.category.length <= 2000) result.catalogTags = [...new Set(row.category.split(/[，,、]/).map(tag => tag.trim()).filter(Boolean))];
+  for (const field of ['booklistId', 'booklistRank', 'booklistCount']) if (Number.isSafeInteger(row[field]) && row[field] >= 0) result[field] = row[field];
+  if (row.booklistName === null || typeof row.booklistName === 'string' && row.booklistName.length <= 1000) result.booklistName = row.booklistName;
+  // @CfSecAICode 遵循消费金融安全编码 BE-AUTH-002 规范: 书单只保留身份、名称和册数，不传播创建者、用户状态或评论。
+  for (const field of ['booklists', 'publicBooklistArray']) if (row[field] === null) result[field] = null;
+  else if (Array.isArray(row[field])) result[field] = row[field].flatMap(list => {
+    if (!list || !ID.test(String(list.pk)) || typeof list.name !== 'string' || !list.name.trim() || list.name.length > 1000) return [];
+    return [{ id: String(list.pk), title: list.name, ...(Number.isSafeInteger(list.bookCount) && list.bookCount >= 0 ? { bookCount: list.bookCount } : {}) }];
+  });
   if (ID.test(String(row.taoxiId)) && typeof row.taoxiGuid === 'string' && GUID.test(row.taoxiGuid) && typeof row.taoxiName === 'string' && row.taoxiName.trim() && row.taoxiName.length <= 500) result.series = { id: row.taoxiGuid, appBookId: String(row.taoxiId), title: row.taoxiName.trim() };
   return result;
 }
@@ -142,7 +150,7 @@ export async function fetchSnapshot({ config, client, store, history, now = Date
   async function detail(id, guid) {
     const key = 'catalog/' + config.userId + '/' + id;
     let value = await get(store, key);
-    if (!value || value.catalogSchemaVersion !== 2 || value.appBookId !== String(id) || guid && value.bookId !== guid) {
+    if (!value || value.catalogSchemaVersion !== 3 || value.appBookId !== String(id) || guid && value.bookId !== guid) {
       const raw = await client.get('/book/getBookInfo5/' + id);
       value = catalogMetadata(raw);
       if (value.appBookId !== String(id) || guid && value.bookId !== guid) fail();
@@ -160,7 +168,7 @@ export async function fetchSnapshot({ config, client, store, history, now = Date
   for (const parent of books.filter(book => book.isCollection && book.language === '英文')) {
     const key = 'collection/' + config.userId + '/' + parent.appBookId;
     let collection = await get(store, key);
-    if (!collection || collection.catalogSchemaVersion !== 2 || collection.parentId !== parent.bookId || collection.complete !== true) {
+    if (!collection || collection.catalogSchemaVersion !== 3 || collection.parentId !== parent.bookId || collection.complete !== true) {
       const parentRaw = await client.get('/book/getBookInfo5/' + parent.appBookId), total = parentRaw?.bookCount;
       if (identity(parentRaw, 'pk') !== parent.appBookId || parentRaw.guid !== parent.bookId || !Number.isSafeInteger(total) || total < 1) fail();
       const members = [], seen = new Set(), seenGuids = new Set();
@@ -174,7 +182,7 @@ export async function fetchSnapshot({ config, client, store, history, now = Date
         }
       }
       if (members.length !== total) fail();
-      collection = { catalogSchemaVersion: 2, parentId: parent.bookId, appBookId: parent.appBookId, title: parent.title, total, complete: true, books: await parallel(members, row => detail(row.id, row.guid)) };
+      collection = { catalogSchemaVersion: 3, parentId: parent.bookId, appBookId: parent.appBookId, title: parent.title, total, complete: true, books: await parallel(members, row => detail(row.id, row.guid)) };
       await store.setJSON(key, collection);
     }
     collections.push({ ...collection, books: collection.books.map(book => ({ ...book, read: readIds.has(book.bookId), isCollection: false, series: { id: parent.bookId, appBookId: parent.appBookId, title: parent.title } })) });

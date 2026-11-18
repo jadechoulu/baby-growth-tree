@@ -1,4 +1,4 @@
-import { patchDocument, mergeBackup } from './model.mjs?v=20261118-baby-v4';
+import { patchDocument, mergeBackup } from './model.mjs?v=20261119-qiaohu';
 export const empty = () => ({ kind: 'curriculum', version: 1, records: {}, custom: [] });
 export function createStore(indexedDB) {
  let opening;

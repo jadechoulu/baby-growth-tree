@@ -26,13 +26,24 @@ test('书目标签和出版字段按白名单升级缓存，下一次同步仍�
   const metadata=catalogMetadata(detail(1,{category:'英文，lovevery，Lovevery',seriesTitle:'Lovevery',press:'Lovevery',author:'Author',myComment:'private'}));
   assert.deepEqual(metadata.catalogTags,['英文','lovevery','Lovevery']);assert.equal(metadata.publisher,'Lovevery');assert.equal(metadata.seriesTitle,'Lovevery');assert.equal(metadata.myComment,undefined);
   const store=memoryStore();await store.setJSON('catalog/123/1',catalogMetadata(detail(1)));
-  const cached=store.entries.get('catalog/123/1');delete cached.data.catalogSchemaVersion;
+  const cached=store.entries.get('catalog/123/1');cached.data.catalogSchemaVersion=2;
   let calls=0,read=true;
   const client={async get(path){if(path.startsWith('/bookroom/'))return [row(1,{readedFlag:read?1:0}),row(2)];calls++;return detail(Number(path.split('/').at(-1)),{category:'英文，lovevery'});}};
   let result=await fetchSnapshot({config:settings(),client,store,history:'history/first'});
   assert.equal(calls,2);assert.deepEqual(result.shelfCatalog.books[0].catalogTags,['英文','lovevery']);
   calls=0;read=false;result=await fetchSnapshot({config:settings(),client,store,history:'history/second'});
   assert.equal(calls,0);assert.equal(result.shelfCatalog.books[0].read,false);assert.equal(result.books.length,1);
+});
+
+test('书单保留源站推荐、排名及返回清单，白名单排除创建者和评论且不声称清单完整',()=>{
+  const metadata=catalogMetadata(detail(1,{booklistId:12,booklistName:'推荐书单',booklistRank:3,booklistCount:564,booklists:[{pk:12,name:'推荐书单',bookCount:100,userId:88,creatorName:'不传播',myComment:'private'}],publicBooklistArray:null}));
+  assert.equal(metadata.catalogSchemaVersion,3);
+  assert.deepEqual(metadata.booklists,[{id:'12',title:'推荐书单',bookCount:100}]);
+  assert.equal(metadata.booklistId,12);assert.equal(metadata.booklistName,'推荐书单');assert.equal(metadata.booklistRank,3);assert.equal(metadata.booklistCount,564);
+  assert.equal(metadata.publicBooklistArray,null);
+  assert.doesNotMatch(JSON.stringify(metadata),/userId|creatorName|myComment|不传播|complete/);
+  const empty=catalogMetadata(detail(1,{booklistName:null,booklists:[],publicBooklistArray:[{pk:13,name:'另一书单'}]}));
+  assert.equal(empty.booklistName,null);assert.deepEqual(empty.booklists,[]);assert.deepEqual(empty.publicBooklistArray,[{id:'13',title:'另一书单'}]);
 });
 
 test('云端按当前时间签名固定本人HTTPS路由，续取令牌；拒绝跳转且不泄漏上游凭据', async () => {
