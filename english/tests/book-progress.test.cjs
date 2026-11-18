@@ -13,6 +13,28 @@ const entry=(bookId,title)=>({bookId,title});
 const imported=(records,items)=>B.applyReadSnapshot(records,data,snapshot(items));
 const wrap=records=>({version:1,profile:{vocabulary:0,mode:'audio'},favorites:[],records});
 
+test('一批读取只解析一次外部事实，下一批及时读取原对象中的同步和撤回',()=>{
+  let parses=0;
+  const fact={version:1,sourceKind:'xiaohuasheng_bookcase_read',publicBookId:'one',readCount:3};
+  const external={status:'done',get note(){parses++;return JSON.stringify(fact);}};
+  const records={[B.EXTERNAL+'reader:one']:external};
+  const directory={books:[{id:'one'},{id:'choice'}],readingEquivalences:[{bookIds:['one','choice']}]};
+  B.withReadScope(()=>{
+    for(let i=0;i<100;i++)assert.equal(B.bookState(records,'choice',directory).readCount,3);
+    B.withReadScope(()=>assert.equal(B.bookState(records,'one',directory).done,true));
+  });
+  assert.equal(parses,1,'不能随卡片／封面／勾选次数反复解析整份事实');
+  external.status='not-started';
+  B.withReadScope(()=>assert.equal(B.bookState(records,'choice',directory).done,false));
+  records[B.MANUAL+'one']={status:'done'};
+  B.withReadScope(()=>assert.equal(B.bookState(records,'choice',directory).done,true));
+  records[B.MANUAL+'one'].status='not-started';
+  assert.equal(B.bookState(records,'choice',directory).done,false);
+  assert.throws(()=>B.withReadScope(()=>{B.bookState(records,'choice',directory);throw Error('绘制中断');}));
+  external.status='done';fact.readCount=4;
+  assert.equal(B.bookState(records,'choice',directory).readCount,4,'异常退出也不能泄漏旧快照');
+});
+
 test('有同ISBN证据的目录引用共用一次外部事实，各自范围只计一本并兼容原映射',()=>{
   const edition=name=>({id:name,edition:name,parts:[{label:'A',count:1,directoryMatch:{edition:name}}]});
   const catalog={series:[{resourceId:'series',unit:'本',scopes:[edition('original'),edition('selection')]}]};

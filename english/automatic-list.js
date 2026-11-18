@@ -39,8 +39,9 @@ function createManager(env){
     frame=null;
     for(const [node,entry] of entries){
       if(!node.isConnected){release(node);continue;}
-      if(entry.busy||!visible(node))continue;
-      if(observer){observer.unobserve(node);observer.observe(node);}
+      if(entry.busy)continue;
+      if(!visible(node)){if(entry.observed){observer.unobserve(node);entry.observed=false;}continue;}
+      if(observer){if(!entry.observed){observer.observe(node);entry.observed=true;}}
       else{
         // 旧浏览器仍支持页面及嵌套弹窗滚动，不退回需要点击的分页按钮。
         const rect=node.getBoundingClientRect();let top=0,bottom=env.innerHeight;
@@ -52,7 +53,7 @@ function createManager(env){
         if(rect.top<=bottom+160&&rect.bottom>=top)advance(node);
       }
     }
-    if(!entries.size&&watching){mutations.disconnect();doc.removeEventListener('scroll',schedule,true);env.removeEventListener('resize',schedule);watching=false;}
+    if(!entries.size&&watching){mutations.disconnect();if(!observer){doc.removeEventListener('scroll',schedule,true);env.removeEventListener('resize',schedule);}watching=false;}
   }
   const mutations=new env.MutationObserver(schedule);
   function schedule(){if(frame===null)frame=env.requestAnimationFrame(scan);}
@@ -63,7 +64,8 @@ function createManager(env){
       entries.set(node,{load,busy:false});
       if(!watching){
         mutations.observe(doc.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['open','hidden','inert']});
-        doc.addEventListener('scroll',schedule,true);env.addEventListener('resize',schedule);watching=true;
+        // 原生观察器负责滚动和裁剪，不在每个滚动帧再次读取整份长列表的布局。
+        if(!observer){doc.addEventListener('scroll',schedule,true);env.addEventListener('resize',schedule);}watching=true;
       }
       schedule();
     }

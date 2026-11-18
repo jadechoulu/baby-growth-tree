@@ -46,7 +46,7 @@ function mediaLinks(book,{h,asset,compact=false,chapters=null}){
     shares.map((share,index)=>chapters&&shares.length>1&&!chapters.includes(index+1)?null:link(share.url,'在当前页查看'+book.title+(shares.length>1?'第'+(index+1)+'章':'')+'的极空间资料',shares.length>1?(index+1)+'章':'资料 ↗')));
 }
 function render(data,ui){
-  const {h,icon,popover,asset,onResource,sourceBtn}=ui;
+  const {h,icon,popover,asset,onResource,sourceBtn,renderBatch=read=>read()}=ui;
   const area=h('section',{class:'liao-reading','aria-label':'廖彩杏书单'});
   const topicOptions=()=>({query:state.query,topic:state.topic,subtopic:state.subtopic,topics:ui.topics,resourceForBook:ui.resourceForBook});
   const isFiltered=()=>!!state.query||state.topic!=='all'||state.subtopic!=='all';
@@ -64,7 +64,7 @@ function render(data,ui){
   function bookList(matched,{key=state.mode,entries=null}={}){
     const limit=state.limits.get(key)||18,visible=matched.slice(0,limit);
     const body=h('div',{class:'liao-books'},h('ol',{class:'liao-book-list library-book-list library-book-cover-grid'},visible.map(book=>bookRow(book,entries?.get(book.id)))));
-    body.append(root.EnglishAutomaticList.tail({total:matched.length,limit,step:18,load:(from,to)=>{state.limits.set(key,to);body.querySelector('ol').append(...matched.slice(from,to).map(book=>bookRow(book,entries?.get(book.id))));}}));
+    body.append(root.EnglishAutomaticList.tail({total:matched.length,limit,step:18,load:(from,to)=>renderBatch(()=>{state.limits.set(key,to);body.querySelector('ol').append(...matched.slice(from,to).map(book=>bookRow(book,entries?.get(book.id))));})}));
     return body;
   }
   function stagePlan(stage){
@@ -113,7 +113,7 @@ function render(data,ui){
   const weekLegend=popover('liao-week-legend','周次图例',icon('legend'),h('div',{},h('p',{},h('span',{class:'liao-week-key'},'引入周'),' 按原表引入新书。'),h('p',{},h('span',{class:'liao-week-key liao-week-review'},'复习周'),' 浅紫色、虚线边框，重听指定周段的书单；同一复习段内各周共用书目。'),h('p',{},h('span',{class:'liao-week-key liao-week-current'},'当前周'),h('span',{class:'liao-week-key liao-week-review liao-week-current'},'当前复习周'),' 选中时底色加深、边框变为实线。'),h('p',{class:'small-note'},'颜色只区分周次安排，不表示书本完成状态或难度。')));
   weekLegend.hidden=state.mode!=='plan';
   function syncTopics(){if(topicPicker)Object.assign(state,topicPicker.sync(state.topic,state.subtopic,availableTopics(data,{...topicOptions(),order:state.mode==='picture'?'picture':'plan'})));}
-  function refreshResults(){syncTopics();weekLegend.hidden=state.mode!=='plan';area.querySelector('.liao-results').replaceWith(results());}
+  function refreshResults(){renderBatch(()=>{syncTopics();weekLegend.hidden=state.mode!=='plan';area.querySelector('.liao-results').replaceWith(results());});}
   const search=h('input',{id:'liao-query',type:'search',value:state.query,placeholder:'书名、英文名或原表写法','aria-label':'搜索廖彩杏书目',oninput:e=>{if(e.isComposing)return;state.query=e.target.value;state.limits.clear();refreshResults();},oncompositionend:e=>{state.query=e.target.value;state.limits.clear();refreshResults();}});
   const modeButtons=['picture','plan'].map(mode=>button(mode==='picture'?'建议顺序 · 130本':'52周 · 100本',()=>{state.mode=mode;modeButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(['picture','plan'][i]===mode)));refreshResults();},{class:'liao-mode-button','aria-pressed':String(state.mode===mode)}));
   const controls=h('div',{class:'liao-controls'},popover('liao-search','搜索廖彩杏书目',icon('search'),h('div',{class:'library-search-box'},search),!!state.query),ui.resetControl('liao-reset',()=>{Object.assign(state,{query:'',topic:'all',subtopic:'all'});state.limits.clear();state.weeks.clear();search.value='';topicPicker?.sync('all','all');refreshResults();},'重置廖彩杏全部筛选'),ui.groupingControl);
