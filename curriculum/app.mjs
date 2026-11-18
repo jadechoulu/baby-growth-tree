@@ -3,7 +3,7 @@ import { goalCurve } from './charts.mjs?v=20261118-unified-tabs';
 import { statuses, materialKey, goalKey, statusOf, filterMaterials, summary, validateBackup } from './model.mjs?v=20261118-books';
 import { createStore, empty } from './store.mjs?v=20261118-books';
 import { loadCatalog, groupsFor, ownBookState, ownBookUpdate } from './catalog.mjs?v=20261118-books';
-import { catalogIndex } from './catalog-index.mjs?v=20261118-books';
+import { catalogIndex } from './catalog-index.mjs?v=20261118-poetry-cover';
 import { createEnglishBooks } from './english-records.mjs?v=20261118-books';
 const site=window.XiaoyaSite, store=createStore(window.indexedDB), profile=window.XiaoyaBabyProfile.createClient();
 let data=empty(), ready=false, view='goals', grade='junior', subject='', phase='', type='', status='', search='', layout='cards';
@@ -236,7 +236,7 @@ async function seriesBooks(host,item){
   const panel=h('div',{class:'book-catalog'}),list=h('div'),info=h('p',{class:'muted',role:'status'});
   if(item.id==='little-sheep'&&item.ref.grade==='senior')panel.append(small('当前公共目录已核对至第7级；原计划的第8—10级待补，可补充手头书目。'));
   const preference=seriesViews.get(seriesKey(item))||{};
-  let chosen=groups.some(g=>g.id===preference.chosen)?preference.chosen:groups.length===1?groups[0].id:'',query=preference.query||'',completion=preference.completion||'';
+  let chosen=groups.some(g=>g.id===preference.chosen)?preference.chosen:groups[0]?.id||'',query=preference.query||'',completion=preference.completion||'';
   const remember=()=>seriesViews.set(seriesKey(item),{chosen,query,completion});
   const picker=chooser(item.title+'的目录版本',Object.fromEntries(groups.map(group=>[group.id,group.title+' · '+group.books.length+'本'])),chosen,value=>{chosen=value;draw();},groups.length>1?'选择级别 / 版本':null);
   const searchBox=h('input',{type:'search',placeholder:'搜索本目录书名','aria-label':item.title+'的单册搜索',value:query,onInput:event=>{if(event.isComposing)return;query=event.target.value;draw();},onCompositionend:event=>{query=event.target.value;draw();}});

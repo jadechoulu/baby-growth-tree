@@ -5,7 +5,7 @@ export const englishResources = {
  'frog-toad':'resource-var8qr', mercy:'resource-cy521f', winnie:'resource-45qugp', owl:'resource-152pfrt',
  robot:'resource-1b0dlwg', 'press-start':'resource-sfumgq', 'magic-tree':'resource-1mnq6y8', 'dragon-masters':'resource-4meiec'
 };
-export const catalogIds = [...new Set([...Object.keys(englishResources),'little-sheep','mobi-reading','mobi-math','mobi-calculation','shichida','seven-skills'])];
+export const catalogIds = [...new Set([...Object.keys(englishResources),'little-sheep','mobi-reading','mobi-math','mobi-calculation','shichida','seven-skills','pearson','jones','dogman','nate','amelia','zebra','poetry-shelf'])];
 export function groupsFor(groups, item, phase = '') {
  let selected=groups.filter(group=>group.grades.includes(item.ref.grade));
  if(item.id==='raz') {
