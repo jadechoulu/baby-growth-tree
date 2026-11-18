@@ -1,0 +1,44 @@
+english/catalog-loader.js
+  s_655a201aff35d2::t_908d7ed8c2cac3 24-59,88
+english/index.html
+  s_655a201aff35d2::t_c124a63c821f9b 10,20,22
+tests/english-catalog-loader.test.mjs
+  s_655a201aff35d2::t_908d7ed8c2cac3 4,73-90
+  s_655a201aff35d2::t_b012b89ca35327 91
+english/build.py
+  s_655a201aff35d2::t_908d7ed8c2cac3 95-102,132,136-148,150,168,173,179
+english/runtime/book-index-manifest.8bedc7a6b3dabd1a.json
+  s_655a201aff35d2::t_c124a63c821f9b 1
+tests/english-pages.test.py
+  s_655a201aff35d2::t_908d7ed8c2cac3 23-29,31
+english/runtime/book-index.af8fcb99654af98e.json
+  s_655a201aff35d2::t_c124a63c821f9b 1
+english/runtime/book-index.de742e8a95011b90.json
+  s_655a201aff35d2::t_c124a63c821f9b 1
+english/runtime/book-index.acfa538b4c2ca397.json
+  s_655a201aff35d2::t_c124a63c821f9b 1
+english/runtime/book-index.741ec8fae2fc338d.json
+  s_655a201aff35d2::t_c124a63c821f9b 1
+english/runtime/app.7d8ed1f63b8970f4.js
+  s_655a201aff35d2::t_c124a63c821f9b 4355-4390,4419,6059
+english/app.js
+  s_655a201aff35d2::t_908d7ed8c2cac3 9
+english/runtime/book-index-meta.730ffba361c7f209.json
+  s_655a201aff35d2::t_c124a63c821f9b 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0363c8c3b5d447a485089e6a9c063302b47cb274",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "Kimi-K3.1-Pro:glink_domestic"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
