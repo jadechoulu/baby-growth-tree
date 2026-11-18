@@ -6,7 +6,7 @@ const LIAO=window.ROADMAP_RAW.liaoReading;
 function liaoResource(id){return C.resources.find(resource=>resource.liaoBookId===id);}
 function openLiaoResource(id){openModal('resource',liaoResource(id)?.id);}
 const LB=window.EnglishLibraryBooks,BOOKS=window.ROADMAP_RAW.resourceBooks;
-const bookLoader=window.EnglishCatalogLoader.create(BOOKS,window.ROADMAP_BOOKS_URL,window.fetch.bind(window));
+const bookLoader=window.EnglishCatalogLoader.catalog(BOOKS,window.ROADMAP_BOOKS_URL,window.fetch.bind(window));
 const helloLoader=window.EnglishCatalogLoader.create(window.ROADMAP_RAW.helloReading,window.ROADMAP_CHUNKS?.helloReading,window.fetch.bind(window),{validate:data=>Array.isArray(data?.books)&&Array.isArray(data.rhymes)});
 const bookDetailLoader=window.EnglishCatalogLoader.details(BOOKS,window.ROADMAP_RAW.topicTaxonomy,window.fetch.bind(window));
 const resourceTopicLoader=window.EnglishCatalogLoader.resourceTopics(window.ROADMAP_RAW.topicTaxonomy,window.ROADMAP_CHUNKS?.resourceTopics,window.fetch.bind(window));
