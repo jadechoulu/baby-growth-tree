@@ -8,6 +8,8 @@ dist/
 .env
 .env.*
 .wrangler/
+.vercel/
+.netlify/
 backups/
 output/
 tmp/
@@ -16,3 +18,7 @@ tmp/
 *启蒙记录备份*.json
 迁移清单_*.json
 MEMORY.md
+
+
+# 离线生成的服务端知识片段与倒排索引
+shared/assistant-knowledge.json

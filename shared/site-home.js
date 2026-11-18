@@ -13,6 +13,11 @@
   const footer = document.createElement('footer');
   footer.className = 'site-home-footer';
   footer.textContent = '陪伴有节奏，成长不赶路。各分类的个人记录保存在当前浏览器。';
+  const profile = window.XiaoyaBabyProfile.createClient();
+  profile.init().then(() => {
+    const sync = window.XiaoyaSync.createClient({siteRoot:'./',profileClient:profile});
+    header.append(sync.createButton());
+  }).catch(() => {});
   shell.content.append(header, shell.createSectionCards(), footer);
   document.querySelector('#app').replaceChildren(shell.element);
 })();

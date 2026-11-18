@@ -1,9 +1,10 @@
-import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261028-training-paths';
-import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261028-compact-nodes';
+import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-notes-v5';
+import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
 import { createSaveQueue, sameGrowth } from './lib/save-queue.mjs';
 import { combineLocalImports, mergeImportedGrowth } from './lib/import.mjs';
+import { mountGrowthSearch } from './lib/growth-search.mjs?v=20261104-search-suggestions';
 
 const app = document.querySelector('#app');
 const sharedProfile = window.XiaoyaBabyProfile.createClient();
@@ -13,7 +14,9 @@ let resources = {};
 let skillGuides = { sources: {}, categories: {}, skills: {} };
 let toastTimer;
 let pendingImport;
-const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'cognition', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, stageFocus: null, graphZoom: .85, graphExpanded: false, storageError: '', lastUndo: null };
+let skillSearchControl;
+function defaultGraphZoom() { return window.matchMedia('(max-width:900px)').matches ? .7 : .85; }
+const state = { profile: { ...DEFAULT_PROFILE }, records: {}, view: 'baby', stage: 's5', domain: 'cognition', status: 'all', search: '', treeDomain: 'cognition', treeCategory: 'all', treeMode: 'lineage', treeFocus: null, stageFocus: null, graphZoom: defaultGraphZoom(), graphExpanded: false, storageError: '', lastUndo: null };
 state.savedAt = null;
 state.viewStorageError = '';
 state.savePending = false;
@@ -24,12 +27,14 @@ let saveRevision = 0;
 let apiBase = '';
 let sessionToken = '';
 let cloudStore = null;
+let siteSync = null;
 let localStore = null;
 state.localMode = false;
 state.localLoaded = false;
 let saveController = null;
 let cloudConflict = null;
 let cloudRefreshing = false;
+let growthRefreshPending = false;
 let authPopup = null;
 let authRequest = null;
 let authTimer = null;
@@ -41,6 +46,7 @@ state.cloudLoaded = false;
 state.cloudEmpty = true;
 let currentGraph = null;
 let graphViewportAction = null;
+let renderFrame = null;
 let lastCalendarDate = localDateString();
 let lastCurrentStage = null;
 const mobileGraphLayout = window.matchMedia('(max-width: 760px)');
@@ -96,16 +102,19 @@ function html(strings, ...values) {
 }
 
 const paths = {
+  grid: ['M3 3h7v7H3ZM14 3h7v7h-7ZM3 14h7v7H3ZM14 14h7v7h-7Z'],
   sprout: ['M12 21v-9', 'M12 14C5 15 3 9 3 5c7-1 10 3 9 9Z', 'M12 10c0-6 4-8 9-7 0 6-3 9-9 7Z'],
   baby: ['M9 3a9 9 0 1 0 6 0', 'M9 3c0 4 6 4 6 0', 'M8 11h.01M16 11h.01', 'M9 16c2 2 4 2 6 0'],
   calendar: ['M8 2v4M16 2v4', 'M3 10h18', 'M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z', 'M8 14h2M14 14h2M8 18h2'],
   tree: ['M12 3v18M5 21v-5h14v5M5 10V7h14v3', 'M9 3h6v5H9zM2 10h6v5H2zM16 10h6v5h-6zM9 17h6v5H9z'],
   cognition: ['M9 18h6M9 21h6', 'M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3Z', 'M12 3V1M3 9H1M23 9h-2'],
   sensory: ['M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z', 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z'],
+  language: ['M21 11a8 8 0 0 1-8 8H7l-5 3 2-6a8 8 0 1 1 17-5Z', 'M8 10h8M8 14h5'],
   gross: ['M14 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z', 'M6 9l5-3 4 3 5 1M11 6l-2 7 5 3 1 6M9 13l-4 7'],
   fine: ['M8 13V6a2 2 0 0 1 4 0v6-8a2 2 0 0 1 4 0v8-5a2 2 0 0 1 4 0v8c0 4-3 7-7 7-3 0-5-2-7-5l-3-4a2 2 0 0 1 3-3l2 3Z'],
   menu: ['M4 6h16M4 12h16M4 18h16'],
   chevron: ['m9 5 7 7-7 7'],
+  locate: ['M12 2v4M12 18v4M2 12h4M18 12h4', 'M19 12a7 7 0 1 0-14 0 7 7 0 0 0 14 0Z', 'M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z'],
   check: ['m5 12 4 4L19 6'],
   close: ['m6 6 12 12M6 18 18 6'],
   search: ['M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z', 'm17 17 4 4'],
@@ -118,6 +127,7 @@ const paths = {
   heart: ['M20 5c-3-3-6-1-8 1-2-2-5-4-8-1-6 6 8 15 8 15S26 11 20 5Z'],
   info: ['M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z', 'M12 11v6M12 7h.01'],
   expand: ['M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5'],
+  fit: ['M8 3v5H3M16 3v5h5M21 16h-5v5M3 16h5v5', 'm3 3 5 5M21 3l-5 5m5 13-5-5M3 21l5-5'],
 };
 function icon(name, className = '') {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -207,7 +217,7 @@ function updateSaveStatus() {
 
 function persistView() {
   if (!viewRestored) return;
-  const raw = JSON.stringify({ version: 1, view: state.view, stage: state.stage, followsCurrent: state.view === 'baby' && state.stage === currentStage()?.id, domain: state.domain, treeDomain: state.treeDomain, treeCategory: state.treeCategory, treeMode: state.treeMode, treeFocus: state.treeFocus });
+  const raw = JSON.stringify({ version: 1, view: state.view, stage: state.stage, followsCurrent: state.view === 'baby' && state.stage === currentStage()?.id, domain: state.domain, stageFocus: state.stageFocus, treeDomain: state.treeDomain, treeCategory: state.treeCategory, treeMode: state.treeMode, treeFocus: state.treeFocus });
   if (raw === lastSavedView) return;
   try {
     localStorage.setItem(VIEW_STORAGE_KEY, raw);
@@ -237,6 +247,9 @@ function restoreView() {
   if (['lineage', 'overview'].includes(view.treeMode)) state.treeMode = view.treeMode;
   if (view.treeCategory === 'all' || catalog.some(skill => skill.domain === state.treeDomain && skill.category === view.treeCategory)) state.treeCategory = view.treeCategory;
   if (catalog.some(skill => skill.domain === state.treeDomain && skill.id === view.treeFocus)) state.treeFocus = view.treeFocus;
+  // 空字符串表示用户主动清除，null 仍沿用首次进入时的默认追踪。
+  if (view.stage === state.stage && (view.stageFocus === '' || catalog.some(skill => skill.domain === state.domain && skill.id === view.stageFocus))) state.stageFocus = view.stageFocus;
+  currentGraph = null;
   graphViewportAction = 'focus';
 }
 
@@ -309,6 +322,7 @@ function configureSaveQueue(store = cloudStore) {
       state.storageError = status.error?.message || '';
       if (status.error?.code === 'AUTH_REQUIRED') { state.auth = 'expired'; setSessionToken(''); }
       updateSaveStatus();
+      if (growthRefreshPending && !cloudRefreshing && !status.pending && !status.dirty) queueMicrotask(() => void syncGrowth());
     },
     onConflict: conflict => { cloudConflict = conflict; render(); openConflicts(); },
   });
@@ -422,7 +436,10 @@ function conflictLabel(conflict) {
 }
 function openConflicts() {
   if (!cloudConflict) return;
-  showDialog(html`${dialogHeader('双方内容均保留，等待你的选择', '处理同步冲突')}<form id="conflict-form">${cloudConflict.conflicts.map((item, index) => html`<fieldset class="conflict-field"><legend>${conflictLabel(item)}</legend><label><input type="radio" name="conflict-${index}" value="local" required /> 保留本页内容<pre>${item.local || '（清空／未完成）'}</pre></label><label><input type="radio" name="conflict-${index}" value="remote" required /> 保留${state.localMode ? '本机数据库' : '云端'}内容<pre>${item.remote || '（清空／未完成）'}</pre></label></fieldset>`)}<div class="form-actions"><button type="button" class="secondary-button" data-action="export">先导出本页</button><button class="primary-button" type="submit">确认选择并${state.localMode ? '保存' : '同步'}</button></div></form>`, 'conflict-dialog');
+  const dialog = showDialog(html`${dialogHeader('双方内容均保留，等待你的选择', '处理同步冲突')}<form id="conflict-form"><div class="form-actions"><button type="button" class="secondary-button" data-conflict-side="remote">全部选${state.localMode ? '本机数据库' : '云端'}</button><button type="button" class="secondary-button" data-conflict-side="local">全部选本页</button></div>${cloudConflict.conflicts.map((item, index) => html`<fieldset class="conflict-field"><legend>${conflictLabel(item)}</legend><label><input type="radio" name="conflict-${index}" value="local" required /> 保留本页内容<pre>${item.local || '（清空／未完成）'}</pre></label><label><input type="radio" name="conflict-${index}" value="remote" required /> 保留${state.localMode ? '本机数据库' : '云端'}内容<pre>${item.remote || '（清空／未完成）'}</pre></label></fieldset>`)}<div class="form-actions"><button type="button" class="secondary-button" data-action="export">先导出本页</button><button class="primary-button" type="submit">确认选择并${state.localMode ? '保存' : '同步'}</button></div></form>`, 'conflict-dialog');
+  for (const button of dialog.querySelectorAll('[data-conflict-side]')) button.addEventListener('click', () => {
+    for (const input of dialog.querySelectorAll('input[type="radio"]')) input.checked = input.value === button.dataset.conflictSide;
+  });
 }
 
 function notify(message, undo = false) {
@@ -436,6 +453,7 @@ function notify(message, undo = false) {
 let siteShell;
 function growthNavigation() {
   return [
+    { id: 'versions', title: '内容版本', items: [{ id: 'health-version', label: '卫健委版 · 五能区观察', icon: 'source' }] },
     { id: 'views', title: '一起慢慢长大', items: [
       { id: 'baby', label: '宝宝视角', icon: 'baby', shortcut: true },
       { id: 'tree', label: '技能全景', icon: 'tree', shortcut: true },
@@ -449,6 +467,7 @@ function growthNavigation() {
   ];
 }
 function navigateGrowth(id) {
+  if (id === 'health-version') { location.href = './health.html'; return; }
   if (id.startsWith('stage:')) { state.view = 'baby'; state.graphExpanded = false; changeStage(id.slice(6)); }
   else if (id === 'profile') openProfile();
   else if (id === 'backup') openBackup();
@@ -472,7 +491,12 @@ function plant() {
 
 function hero() {
   const overall = getStats(catalog, state.records);
-  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+  return html`<section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> 陪伴小小的你，探索大大的世界</div><h1><span class="hero-title-full">小小的进步，<br />慢慢长成大大的世界<span>。</span></span><span class="hero-title-mobile">每一小步，都是成长。</span></h1><p>陪${state.profile.name}探索，收藏每一个「我会啦」的瞬间。</p></div>${plant()}<div class="hero-counter"><strong>${overall.completed}<span> / ${overall.total}</span></strong><small>颗成长小芽已点亮 · ${overall.percent}%</small><span class="counter-leaves">${icon('sprout')}</span></div></section>`;
+}
+
+function overallProgress() {
+  const stats = getStats(catalog, state.records);
+  return html`<div class="growth-overall-progress" aria-label="整体成长进度"><span>${icon('sprout')} 累计点亮 <strong>${stats.completed} / ${stats.total}</strong></span><span class="overall-progress-track" aria-hidden="true"><i style="width:${stats.percent}%"></i></span><strong>${stats.percent}%</strong></div>`;
 }
 
 function stageCompleteBadge(stageId) {
@@ -482,10 +506,10 @@ function stageCompleteBadge(stageId) {
 function stageCompleteButton(stageId) {
   const stage = STAGES.find(item => item.id === stageId);
   const stats = getStats(getStageSkills(catalog, stageId), state.records);
-  return html`<button class="stage-complete-button" data-complete-stage="${stageId}" aria-label="${stage.label}全部完成" title="将${stage.label}四个领域的全部 ${stats.total} 项技能标记完成；已有完成日期和手记保留" disabled="${!stats.remaining}">${icon('check')}${stats.remaining ? '全部完成' : '全部已完成'}</button>`;
+  return html`<button class="stage-complete-button" data-complete-stage="${stageId}" aria-label="${stage.label}全部完成" title="将${stage.label}${DOMAINS.length}个领域的全部 ${stats.total} 项技能标记完成；已有完成日期和手记保留" disabled="${!stats.remaining}">${icon('check')}<span>${stats.remaining ? '全部完成' : '全部已完成'}</span></button>`;
 }
 function graphStageHeading(stage) {
-  return html`<div class="graph-stage-heading"><div class="graph-stage-title"><strong>${stage.label}</strong>${stageCompleteButton(stage.id)}</div><div class="graph-stage-badges">${currentStage()?.id === stage.id ? html`<small class="stage-current-badge">宝宝在这里</small>` : ''}${stageCompleteBadge(stage.id)}</div></div>`;
+  return html`<div class="graph-stage-heading"><div class="graph-stage-title"><span class="graph-stage-label"><strong>${stage.label}</strong>${currentStage()?.id === stage.id ? html`<small class="stage-current-badge">宝宝在这里</small>` : ''}</span>${stageCompleteButton(stage.id)}</div><div class="graph-stage-badges">${stageCompleteBadge(stage.id)}</div></div>`;
 }
 
 function stageNavigator() {
@@ -495,8 +519,8 @@ function stageNavigator() {
   const preview = state.view === 'baby' && Boolean(current) && current.id !== stage.id;
   return html`<section class="stage-picker" aria-label="切换成长阶段">
     <div class="stage-picker-heading"><span class="section-kicker">跟着宝宝的节奏</span><span class="swipe-hint">左右滑动，看看前后阶段 ${icon('arrow')}</span></div>
-    <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><label class="stage-select-label"><span>当前阶段</span><select id="growth-stage-select" aria-label="选择成长阶段">${STAGES.map(item => html`<option value="${item.id}" selected="${item.id === stage.id}">${item.label}${item.id === current?.id ? ' · 宝宝当前阶段' : ''}</option>`)}</select></label><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}${getStats(getStageSkills(catalog, item.id), state.records).remaining === 0 ? icon('check', 'stage-pill-check') : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button></div>
-    ${preview ? html`<div class="preview-caption">正在预览 ${stage.label}<button class="text-button" data-action="current-stage">回到宝宝当前阶段 ${icon('arrow')}</button></div>` : !current && state.view === 'baby' ? html`<div class="preview-caption">${babyAge() ? '宝宝已超出图谱年龄范围，可以继续回顾每个阶段。' : state.profile.birthDate ? '宝宝还未出生，可以先预览各阶段。' : state.localMode ? '导入记录或建立宝宝资料后自动定位。' : '先浏览各个阶段，登录并建立宝宝资料后自动定位。'}</div>` : ''}
+    <div class="stage-picker-controls"><button class="circle-button" data-action="prev-stage" aria-label="前一阶段" disabled="${index === 0}">${icon('chevron', 'rotate')}</button><label class="stage-select-label"><span>当前阶段</span><select id="growth-stage-select" aria-label="选择成长阶段">${STAGES.map(item => html`<option value="${item.id}" selected="${item.id === stage.id}">${item.label}${item.id === current?.id ? ' · 当前' : ''}</option>`)}</select></label><div class="stage-track" id="stage-track">${STAGES.map(item => html`<button class="stage-pill ${item.id === stage.id ? 'active' : ''}" data-stage="${item.id}" aria-pressed="${item.id === stage.id}"><span>${item.shortLabel}</span>${item.id === current?.id ? html`<span class="current-stage-dot" title="宝宝当前阶段"></span>` : ''}${getStats(getStageSkills(catalog, item.id), state.records).remaining === 0 ? icon('check', 'stage-pill-check') : ''}</button>`)}</div><button class="circle-button" data-action="next-stage" aria-label="下一阶段" disabled="${index === STAGES.length - 1}">${icon('chevron')}</button>${stageCompleteButton(stage.id)}${preview ? html`<button type="button" class="circle-button stage-current-button" data-action="current-stage" aria-label="回到宝宝当前阶段" title="回到宝宝当前阶段：${current.label}">${icon('baby')}</button>` : ''}</div>
+    ${!current && state.view === 'baby' ? html`<div class="preview-caption">${babyAge() ? '宝宝已超出图谱年龄范围，可以继续回顾每个阶段。' : state.profile.birthDate ? '宝宝还未出生，可以先预览各阶段。' : state.localMode ? '导入记录或建立宝宝资料后自动定位。' : '先浏览各个阶段，登录并建立宝宝资料后自动定位。'}</div>` : ''}
   </section>`;
 }
 
@@ -504,19 +528,43 @@ function domainCards() {
   const stageSkills = getStageSkills(catalog, state.stage);
   return html`<section class="domain-cards" aria-label="各领域进度">${DOMAINS.map(domain => {
     const stats = getStats(stageSkills.filter(skill => skill.domain === domain.id), state.records);
-    return html`<button class="domain-card domain-${domain.id} ${state.domain === domain.id ? 'chosen' : ''}" data-domain="${domain.id}" aria-pressed="${state.domain === domain.id}"><span class="domain-card-top"><span class="domain-icon">${icon(domain.id)}</span><span class="domain-count"><strong>${stats.completed}</strong> / ${stats.total}</span></span><span class="domain-card-label">${domain.label}<span>${stats.percent}%</span></span><span class="progress-track"><span style="width: ${stats.percent}%"></span></span></button>`;
+    return html`<button class="domain-card domain-${domain.id} ${state.domain === domain.id ? 'chosen' : ''}" data-domain="${domain.id}" aria-pressed="${state.domain === domain.id}"><span class="domain-card-top"><span class="domain-icon">${icon(domain.id)}</span><span class="domain-count"><strong>${stats.completed}</strong> / ${stats.total}</span></span><span class="domain-card-label"><span class="domain-name">${domain.label}</span><span class="domain-percent">${stats.percent}%</span></span><span class="progress-track"><span style="width: ${stats.percent}%"></span></span></button>`;
   })}</section>`;
 }
 
-function skillRow(skill, tree = false) {
+function skillRow(skill, tree = false, timing = '') {
   const record = state.records[skill.id];
   const done = isDone(skill.id);
-  return html`<article class="skill-row ${done ? 'completed' : ''} ${tree ? 'tree-node' : ''}" data-node="${tree ? skill.id : ''}" data-skill-id="${skill.id}"><button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button><button class="skill-open" data-detail="${skill.id}" title="点击查看通俗解释、陪玩方法与手记"><span class="skill-title">${skill.title}</span><span class="skill-category">${skill.category}${record?.note ? html`<span class="has-note">${icon('note')} 有手记</span>` : ''}</span></button><button class="lineage-entry" data-lineage="${skill.id}" aria-label="查看${skill.title}完整脉络">${icon('tree')}<span>脉络</span></button>${tree ? '' : html`<button class="detail-arrow" data-detail="${skill.id}" aria-label="查看${skill.title}解释与手记">${icon('chevron')}</button>`}</article>`;
+  return html`<article class="skill-row ${done ? 'completed' : ''} ${tree ? 'tree-node' : ''} ${timing ? `next-skill-card timing-${timing}` : ''}" data-next-skill="${timing ? skill.id : ''}" data-node="${tree ? skill.id : ''}" data-skill-id="${skill.id}">
+    <button class="skill-check ${done ? 'is-checked' : ''}" data-toggle="${skill.id}" aria-label="${done ? '撤销完成：' : '标记完成：'}${skill.title}" aria-pressed="${done}">${done ? icon('check') : ''}</button>
+    <div class="skill-label">
+      <div class="skill-name-row">
+        <button class="skill-open" data-detail="${skill.id}" title="点击查看通俗解释、陪玩方法与手记"><span class="skill-title">${skill.title}</span></button>
+        <button class="lineage-entry" data-lineage="${skill.id}" title="查看${skill.title}完整脉络" aria-label="查看${skill.title}完整脉络">${icon('tree')}<span>脉络</span></button>
+      </div>
+      <span class="skill-category">${skill.category}${timing ? html`<span class="next-skill-age">${skillStageLabel(skill)}<span class="next-skill-timing"> · ${{ current: '当前阶段', earlier: '此前阶段', next: '下一月龄', later: '更后阶段', unknown: '可探索' }[timing]}</span></span>` : ''}${record?.note ? html`<span class="has-note">${icon('note')} 有手记</span>` : ''}</span>
+    </div>
+  </article>`;
 }
 
 function resourceSection(config) {
   if (!config || (!config.guidance && !config.enrichment?.length && !config.toyIdeas?.length)) return '';
   return html`<section class="resource-section"><h3>${icon('book')} 陪伴与探索</h3>${config.guidance ? html`<p>${config.guidance}</p>` : ''}${config.enrichment?.length ? html`<h4>全科启蒙</h4><ul>${config.enrichment.map(item => html`<li>${item}</li>`)}</ul>` : ''}${config.toyIdeas?.length ? html`<h4>玩具候选</h4><ul>${config.toyIdeas.map(item => html`<li>${item}</li>`)}</ul>` : ''}</section>`;
+}
+
+function languageOriginalNote(key, expanded = false) {
+  const notes = skillGuides.languageNotes;
+  const note = notes?.originalNotes?.[key];
+  if (!note) return '';
+  const content = html`<details class="guide-concept language-original-note"><summary>原图原文 · ${note.title}${icon('chevron')}</summary>${note.paragraphs.map(paragraph => html`<p>${paragraph}</p>`)}<p class="concept-example"><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${note.sourceLabel} · 查看完整原图</a>${note.transcriptionNote ? ` · ${note.transcriptionNote}` : ''}</p></details>`;
+  content.querySelector('details').open = expanded;
+  return content;
+}
+
+function languageReferenceContent() {
+  const notes = skillGuides.languageNotes;
+  if (!notes) return '';
+  return html`<p>${notes.intro}</p><h3>语言领域说明</h3>${languageOriginalNote('general', true)}<h3>特殊现象 · 查阅说明</h3><ul>${notes.phenomena.map(item => html`<li>${item.title} · ${item.minMonths}–${item.maxMonths}个月</li>`)}</ul><p><strong>本站整理：</strong>${notes.note}</p><h3>完整原图</h3><p><a href="${notes.coreMap.url}" target="_blank" rel="noopener">${notes.coreMap.title}</a> · <a href="${notes.coreMap.pdf}" target="_blank" rel="noopener">原始图谱第6页</a></p><h3>讲解截图补充</h3><ul>${notes.sources.map(source => html`<li><a href="${source.url}" target="_blank" rel="noopener">${source.title} · ${source.file}</a></li>`)}</ul><p>截图中的月龄为这份资料的参考位置；发音术语沿用原图，相关疑点可在技能解释中查看。</p>`;
 }
 
 function skillGuideSection(skill) {
@@ -525,12 +573,12 @@ function skillGuideSection(skill) {
   const concept = skillGuides.categories[skill.category];
   const sourceIds = [...new Set([...(guide.sources || []), ...(concept?.sources || [])])];
   return html`<section class="skill-guide" aria-label="${skill.title}的详细解释">
-    <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>从日常小事理解成长</small></div>
+    <div class="guide-heading"><span>${icon('book')} 看懂这个技能</span><small>${skill.domain === 'language' ? '本站整理 · 释义与观察' : '从日常小事理解成长'}</small></div>
     <h3>这是什么意思？</h3><p class="guide-meaning">${guide.meaning}</p>
     <div class="guide-example"><h4>生活里的样子</h4><p>${guide.example}</p></div>
     <details class="growth-reading-fold"><summary>陪玩方法与观察要点</summary><div class="guide-practice"><section><h4>${icon('sprout')} 可以这样陪玩</h4><p>${guide.play}</p></section><section><h4>${icon('check')} 可以观察什么</h4><p>${guide.observe}</p></section></div></details>
     ${guide.note ? html`<aside class="guide-note">${icon('info')}<p>${guide.note}</p></aside>` : ''}
-    ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary><p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p></details>` : ''}
+    ${concept ? html`<details class="guide-concept"><summary>认识这个概念 · ${skill.category}${icon('chevron')}</summary>${skill.domain === 'language' ? html`<p><strong>本站整理</strong></p>` : ''}<p>${concept.meaning}</p><p class="concept-example">比如：${concept.example}</p>${concept.originalNote ? languageOriginalNote(concept.originalNote) : ''}${concept.note ? html`<p><strong>本站整理 · 原文阅读提示：</strong>${concept.note}</p>` : ''}</details>` : ''}
     <details class="guide-sources"><summary>参考资料 · ${sourceIds.length} 项${icon('chevron')}</summary><p>以下资料用于解释相关能力与活动，原图的月龄、名称和进阶顺序不等于这些资料的统一标准。</p><ul>${sourceIds.map(id => {
       const source = skillGuides.sources[id];
       return source ? html`<li><a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.title}${icon('arrow')}</a><span>${source.publisher}</span></li>` : '';
@@ -541,34 +589,19 @@ function skillGuideSection(skill) {
 function milestoneList() {
   const stage = selectedStage();
   const allStageSkills = getStageSkills(catalog, stage.id);
-  const stats = getStats(allStageSkills, state.records);
   const domainSkills = allStageSkills.filter(skill => skill.domain === state.domain);
   const filterStats = getStats(domainSkills, state.records);
-  const needle = state.search.trim().toLocaleLowerCase();
-  const skills = domainSkills.filter(skill => (state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id))) && (!needle || `${skill.title} ${skill.category}`.toLocaleLowerCase().includes(needle)));
-  return html`<section class="milestones" id="milestones"><div class="section-title-row"><div><div class="section-kicker">属于这个阶段的小发现</div><h2>${stage.label}<span>的小小里程碑</span>${currentStage()?.id === stage.id ? html`<small class="current-badge">当前阶段</small>` : ''}${stageCompleteBadge(stage.id)}</h2><p>年龄是一份参考，成长有自己的节奏。</p></div><div class="stage-summary-actions">${stageCompleteButton(stage.id)}<div class="stage-summary"><strong>${stats.completed}<span> / ${stats.total}</span></strong><small>个技能已点亮</small></div></div></div>
+  const skills = domainSkills.filter(skill => state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id)));
+  return html`<section class="milestones" id="milestones" aria-label="${stage.label}技能清单">
     <div class="list-toolbar"><div class="status-tabs" role="group" aria-label="完成状态"><button data-status="all" class="${state.status === 'all' ? 'active' : ''}" aria-pressed="${state.status === 'all'}">全部 <small>${filterStats.total}</small></button><button data-status="pending" class="${state.status === 'pending' ? 'active' : ''}" aria-pressed="${state.status === 'pending'}">探索中 <small>${filterStats.remaining}</small></button><button data-status="done" class="${state.status === 'done' ? 'active' : ''}" aria-pressed="${state.status === 'done'}">已完成 <small>${filterStats.completed}</small></button></div><label class="search-box">${icon('search')}<input id="skill-search" type="search" value="${state.search}" placeholder="找一个小技能" aria-label="搜索本阶段技能" autocomplete="off" /></label></div>
     <div class="filter-caption">正在查看：${domainInfo(state.domain).label} · 在上方进度卡片切换领域</div>
     ${skills.length ? html`<div class="skill-groups">${DOMAINS.filter(domain => skills.some(skill => skill.domain === domain.id)).map(domain => {
       const items = skills.filter(skill => skill.domain === domain.id);
       const domainStats = getStats(allStageSkills.filter(skill => skill.domain === domain.id), state.records);
-      return html`<section class="skill-group domain-${domain.id}"><header class="group-heading"><span class="domain-icon">${icon(domain.id)}</span><div><h3>${domain.label}</h3><p>${domain.description}</p></div><span class="group-count">${domainStats.completed} / ${domainStats.total}</span></header><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></section>`;
-    })}</div>` : html`<div class="empty-state">${icon(state.status === 'done' ? 'sprout' : 'search')}<h3>${state.search ? '还没找到这个技能' : state.status === 'done' ? '第一颗小芽，等你来点亮' : '这里的小技能都探索过啦'}</h3><p>${state.search ? '换个词试试，或清除筛选看看。' : state.status === 'done' ? '点一下技能旁的圆圈，记下宝宝的成长。' : '可以回顾已完成的技能，或看看下一阶段。'}</p><button class="secondary-button" data-action="clear-filters">清除筛选</button></div>`}
+      return html`<details class="skill-group domain-${domain.id}"><summary class="group-heading" title="展开或收起技能清单"><span class="domain-icon">${icon(domain.id)}</span><span class="group-label"><strong>${domain.label}</strong><span>${domain.description}</span></span><span class="group-count">${domainStats.completed} / ${domainStats.total}</span>${icon('chevron', 'group-fold-icon')}</summary><div class="skill-items">${items.map(skill => skillRow(skill))}</div><div class="group-footer">${icon('sprout')} ${domainStats.completed ? `已经发现 ${domainStats.completed} 份小小的成长` : '新的探索，从这里开始'}</div></details>`;
+    })}</div>` : html`<div class="empty-state">${icon(state.status === 'done' ? 'sprout' : 'search')}<h3>${state.status === 'done' ? '第一颗小芽，等你来点亮' : '这里的小技能都探索过啦'}</h3><p>${state.status === 'done' ? '点一下技能旁的圆圈，记下宝宝的成长。' : '可以回顾已完成的技能，或看看下一阶段。'}</p><button class="secondary-button" data-action="clear-filters">清除筛选</button></div>`}
     ${resourceSection(resources[stage.id])}
-    <div class="list-footnote">${icon('info')} 点圆圈记录完成，再点一次即可回退；点技能名称看解释、陪玩方法或写手记。</div>
   </section>`;
-}
-
-function nextTrainingCard(skill, timing) {
-  const guide = skillGuides.skills[skill.id];
-  const parents = catalog.filter(item => skill.parents.includes(item.id));
-  return html`<article class="next-skill-card timing-${timing}" data-next-skill="${skill.id}">
-    <div class="next-skill-meta"><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>
-    <h3>${skill.title}</h3>${guide?.meaning ? html`<p class="next-skill-meaning">${guide.meaning}</p>` : ''}
-    <p class="next-prerequisites">${parents.length ? `接着练：${parents.map(item => item.title).join('、')} → ${skill.title}` : '本分支的起点 · 原图未列前置技能'}</p>
-    ${guide?.observe || guide?.play ? html`<details class="next-practice"><summary>怎么观察、怎么陪玩 ${icon('chevron')}</summary><div class="next-skill-tips">${guide.observe ? html`<div><h4>怎么观察</h4><p>${guide.observe}</p></div>` : ''}${guide.play ? html`<div><h4>可以这样陪玩</h4><p>${guide.play}</p></div>` : ''}</div></details>` : ''}
-    <div class="next-skill-actions"><button class="primary-button" data-toggle="${skill.id}" aria-label="标记完成：${skill.title}">${icon('check')} 标记完成</button><button class="secondary-button" data-detail="${skill.id}" aria-label="查看${skill.title}解释与手记">${icon('book')} 解释与手记</button><button class="text-button" data-lineage="${skill.id}" aria-label="查看${skill.title}完整脉络">${icon('tree')} 完整脉络</button></div>
-  </article>`;
 }
 
 function nextStepView() {
@@ -586,18 +619,18 @@ function nextStepView() {
   const undo = state.lastUndo;
   const canUndo = undo?.id && !undo.previous?.completedAt && isDone(undo.id);
   return html`<section class="next-step-view domain-${domain.id}" aria-label="下一步待完成技能">
-    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p><span class="next-current-age">${current ? `当前 ${current.label}` : '训练建议'}<button class="text-button" data-action="profile">编辑资料</button></span></header>
+    <header class="next-step-header"><div class="section-kicker">每条脉络，都有下一小步</div><h1>现在可以练这些。</h1><p>汇总各条脉络上前置已完成的首个未完成技能，跨月龄也会继续展示。完成一项后，列表自动推进。</p></header>
     <div class="lineage-domains next-domains" role="group" aria-label="下一步技能领域">${DOMAINS.map(item => {
       const count = getNextSkills(catalog, state.records, item.id, current?.id).length;
       return html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>可探索 ${count}</span></button>`;
     })}</div>
-    <div class="next-age-legend" aria-label="月龄颜色图例"><span class="timing-current">蓝 · 当前阶段</span><span class="timing-next">橙 · 下一月龄</span><span class="timing-later">紫 · 更后阶段</span><span class="timing-earlier">灰 · 此前阶段</span><small>月龄仅作参考，可按宝宝的兴趣选择；同一技能只列一次。</small></div>
+    <div class="next-age-legend" aria-label="月龄颜色图例"><span class="timing-current">当前 ${current?.label || '阶段'}</span><span class="timing-next">橙 · 下一月龄</span><span class="timing-later">紫 · 更后阶段</span><span class="timing-earlier">灰 · 此前阶段</span><small>月龄仅作参考，可按宝宝的兴趣选择；同一技能只列一次。</small></div>
     ${canUndo ? html`<div class="next-undo"><span>刚刚完成：${catalog.find(item => item.id === undo.id)?.title}</span><button class="text-button" data-action="undo">撤销上次完成</button></div>` : ''}
     <div class="next-results-summary" role="status">${domain.label} · ${skills.length} 项可探索${pending.length > skills.length ? ` · 另有 ${pending.length - skills.length} 项等待前置完成或进入相应月龄` : ''}</div>
-    ${skills.length ? groups.map(group => {
+    ${skills.length ? html`<div class="next-training-groups">${groups.map(group => {
       const items = skills.filter(skill => getSkillAgeStatus(skill, current?.id) === group.id);
-      return items.length ? html`<section class="next-training-group timing-${group.id}" aria-label="${group.label}"><h2><span class="next-timing-label">${group.label}</span><small>${items.length} 项</small></h2><div class="next-training-grid">${items.map(skill => nextTrainingCard(skill, group.id))}</div></section>` : '';
-    }) : html`<div class="next-complete"><span>${icon(pending.length ? 'sprout' : 'check')}</span><h2>${pending.length ? '当前没有前置已完成的技能' : `${domain.label}的技能已全部点亮`}</h2><p>${pending.length ? '可以在其他领域补充前置技能，或在宝宝视角核对完成记录；新的独立分支会在相应月龄出现。' : '可以切换其他领域，或在技能全景回顾、回退完成状态。'}</p></div>`}
+      return items.length ? html`<section class="next-training-group timing-${group.id}" aria-label="${group.label}"><h2><span class="next-timing-label">${group.label}</span><small>${items.length} 项</small></h2><div class="next-training-grid">${items.map(skill => skillRow(skill, false, group.id))}</div></section>` : '';
+    })}</div>` : html`<div class="next-complete"><span>${icon(pending.length ? 'sprout' : 'check')}</span><h2>${pending.length ? '当前没有前置已完成的技能' : `${domain.label}的技能已全部点亮`}</h2><p>${pending.length ? '可以在其他领域补充前置技能，或在宝宝视角核对完成记录；新的独立分支会在相应月龄出现。' : '可以切换其他领域，或在技能全景回顾、回退完成状态。'}</p></div>`}
     <p class="next-step-rule">有多项前置时，全部标注完成后才列出后续技能；路径中的分叉可同时展示。这里与宝宝视角、技能全景共用完成记录，回退后也会重新计算。</p>
   </section>`;
 }
@@ -613,7 +646,7 @@ function focusSkill() {
   if (!skill) {
     skill = getStageSkills(candidates, state.stage).find(item => item.parents?.length && catalog.some(child => child.parents?.includes(item.id)))
       || getStageSkills(candidates, state.stage)[0] || candidates[0];
-    state.treeFocus = skill?.id;
+    if (state.treeMode !== 'overview') state.treeFocus = skill?.id;
   }
   return skill;
 }
@@ -631,35 +664,29 @@ function graphNode(skill, position, relations, categories, contextIds) {
   </article>`;
 }
 
-function neighborList(skills, direction) {
-  return html`<section class="neighbor-column neighbors-${direction}"><h3>${direction === 'before' ? html`${icon('arrow', 'rotate')} 直接前序` : html`直接后续 ${icon('arrow')}`}<span>${skills.length}</span></h3>${skills.length ? html`<div class="neighbor-items">${skills.map(skill => html`<button class="neighbor-skill ${isDone(skill.id) ? 'done' : ''}" data-focus-skill="${skill.id}"><span>${skill.title}</span><small>${skillStageLabel(skill)}${isDone(skill.id) ? ' · 已完成' : ''}</small>${icon('chevron')}</button>`)}</div>` : html`<p class="neighbor-empty">${direction === 'before' ? '这是原图中这条脉络的起点' : '这是原图中这条脉络的末端'}</p>`}</section>`;
-}
-
 function graphWorkspace(graph, layout, relations, categories) {
   categories = [...new Set([...categories, ...graph.nodes.map(skill => skill.category)])];
-  return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools"><button data-action="graph-zoom-out" aria-label="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树">＋</button><button data-action="graph-fit">一屏看全</button><button data-action="graph-locate">定位当前技能</button><button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button></div></div>
-      <details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
+  return html`<div class="graph-workspace ${state.graphExpanded ? 'is-expanded' : ''}" id="graph-workspace"><div class="graph-toolbar"><div class="graph-tools" role="group" aria-label="图谱工具栏">
+      <div class="graph-zoom-tools" role="group" aria-label="图谱缩放"><button data-action="graph-zoom-out" aria-label="缩小技能树" title="缩小技能树">−</button><output id="graph-zoom-label">${Math.round(state.graphZoom * 100)}%</output><button data-action="graph-zoom-in" aria-label="放大技能树" title="放大技能树">＋</button></div>
+      <div class="graph-view-tools" role="group" aria-label="图谱视图"><button data-action="graph-fit" aria-label="一屏看全" title="一屏看全：缩放当前图谱，不切换技能范围">${icon('fit')}</button><button data-action="graph-locate" aria-label="定位当前技能" title="定位当前技能" disabled="${!currentGraph?.focusId}">${icon('locate')}</button>${state.view === 'tree' ? html`<button type="button" data-action="graph-current-age" aria-label="回到宝宝当前月龄" title="回到宝宝当前月龄${currentStage() ? `：${currentStage().label}` : ''}">${icon('calendar')}</button>` : ''}<button data-action="graph-expand" aria-label="${state.graphExpanded ? '退出放大画布' : '放大画布'}" title="${state.graphExpanded ? '退出放大画布' : '放大画布'}">${icon(state.graphExpanded ? 'close' : 'expand')}</button><button class="graph-legend-button" data-action="graph-legend" aria-label="查看图例" title="图例：连线与颜色" aria-haspopup="dialog">${icon('info')}</button></div>
+    </div></div>
+      <div class="graph-legend-panel"><details class="graph-legend-disclosure"><summary><span>图例 · 连线与颜色</span><span class="legend-disclosure-hint">点击<span class="legend-expand-label">展开</span><span class="legend-collapse-label">收起</span>${icon('chevron')}</span></summary>
       <div class="graph-key" role="group" aria-label="技能卡片颜色图例">
         <div class="graph-legend" aria-label="关系连线图例"><strong>连线</strong><span><i class="legend-ancestor" aria-hidden="true"></i>前序脉络</span><span><i class="legend-descendant" aria-hidden="true"></i>后续发展</span><span><i class="legend-supporting" aria-hidden="true"></i>跨分支前置</span><span><i class="legend-neutral" aria-hidden="true"></i>其他关系</span></div>
         <div class="graph-legend"><strong>左侧色条 · 技能分支</strong>${categories.filter(category => graph.nodes.some(skill => skill.category === category)).map(category => html`<span><i class="legend-branch" style="background:${branchColor(category, categories)}" aria-hidden="true"></i>${category}</span>`)}</div>
         <div class="graph-legend"><strong>卡片底色</strong><span><i class="legend-card legend-card-plain" aria-hidden="true"></i>白色：待探索</span><span><i class="legend-card legend-card-supporting" aria-hidden="true"></i>淡黄：跨分支前置</span><span><i class="legend-card legend-card-done" aria-hidden="true">✓</i>淡绿：已完成</span><span><i class="legend-card legend-card-focus" aria-hidden="true"></i>紫色：正在追踪</span></div>
         <p>跨分支前置：后续发展还需要的其他分支技能。完成状态以右下角的 √ 为准。</p>
-      </div></details>
+      </div></details></div>
       <div class="graph-viewport" id="graph-viewport" tabindex="0" aria-label="${domainInfo(relations.skill.domain).label}完整技能脉络，可拖动或滚动查看"><div class="graph-scale-space" id="graph-scale-space" style="width:${layout.width * state.graphZoom}px;height:${layout.height * state.graphZoom}px"><div class="graph-scene" id="graph-scene" style="width:${layout.width}px;height:${layout.height}px;transform:scale(${state.graphZoom})">${layout.stages.map((stage, index) => html`<div class="graph-age-band ${graph.stageIds && stage.id === state.stage ? 'selected-age-band' : ''} ${index % 2 ? 'alternate' : ''}" style="left:${stage.x}px;width:${stage.width}px;height:${layout.height}px">${graphStageHeading(stage)}${graph.stageIds && stage.id === state.stage ? html`<span class="selected-age-label">正在看这个阶段</span>` : ''}</div>`)}<svg id="graph-edges" width="${layout.width}" height="${layout.height}" aria-hidden="true"></svg>${layout.nodes.map(position => graphNode(catalog.find(item => item.id === position.id), position, relations, categories, graph.contextIds))}</div></div></div>
       <div class="graph-bottom-bar"><span>${icon('arrow')} 箭头指向下一项技能 · 拖动画布或横向滚动</span><span>${graph.nodes.length} 个技能 · ${graph.edges.length} 条关系${graph.stageIds ? ` · ${graph.stageIds.length} 项属于所选阶段` : graph.contextIds.length ? ` · 已保留 ${graph.contextIds.length} 项跨分支前序` : ''}</span></div>
     </div>`;
-}
-
-function directRelations(relations) {
-  const skill = relations.skill;
-  return html`<section class="direct-relations" aria-label="当前技能的直接前序与后续">${neighborList(relations.parents, 'before')}<div class="relation-focus-card"><span>当前技能 · ${skillStageLabel(skill)}</span><h3>${skill.title}</h3><p class="relation-completion ${isDone(skill.id) ? 'done' : ''}">${icon(isDone(skill.id) ? 'check' : 'sprout')}${isDone(skill.id) ? '已完成' : '探索中'}</p><div><button class="primary-button" data-detail="${skill.id}">${icon('book')} 技能解释与手记</button><button class="secondary-button" data-toggle="${skill.id}" aria-pressed="${isDone(skill.id)}">${isDone(skill.id) ? '回退完成' : '标记完成'}</button></div></div>${neighborList(relations.children, 'after')}</section>`;
 }
 
 function stageTreeView() {
   const stage = selectedStage();
   const domain = domainInfo(state.domain);
   const graphKey = `stage:${stage.id}:${domain.id}`;
-  if (currentGraph?.key !== graphKey) state.stageFocus = null;
+  if (currentGraph && currentGraph.key !== graphKey) state.stageFocus = null;
   const graph = getStageGraph(catalog, stage.id, domain.id);
   if (state.stageFocus && !graph.nodes.some(item => item.id === state.stageFocus)) {
     const extra = getSkillRelations(catalog, state.stageFocus);
@@ -678,46 +705,51 @@ function stageTreeView() {
     currentGraph = null;
     return html`<section class="stage-lineage"><h2>${stage.label}的成长脉络</h2>${domainCards()}<p class="neighbor-empty">原图在这个阶段未列出${domain.label}技能，可以切换领域或阶段查看。</p></section>`;
   }
-  state.stageFocus = skill.id;
+  const hasFocus = state.stageFocus !== '';
+  if (hasFocus) state.stageFocus = skill.id;
   const relations = getSkillRelations(catalog, skill.id);
+  if (!hasFocus) Object.assign(relations, { ancestors: [], descendants: [], supporting: [], edges: [] });
   const relationEdges = new Map(relations.edges.map(edge => [`${edge.from}:${edge.to}`, edge.kind]));
   graph.edges = graph.edges.map(edge => ({ ...edge, kind: relationEdges.get(`${edge.from}:${edge.to}`) || 'neutral' }));
   const layout = layoutGraph(graph.nodes, graph.edges);
-  if (currentGraph?.key !== graphKey) graphViewportAction = 'focus';
-  currentGraph = { ...graph, layout, relations, focusId: skill.id, key: graphKey };
+  if (currentGraph?.key !== graphKey && graphViewportAction !== 'current-age') graphViewportAction = 'focus';
+  currentGraph = { ...graph, layout, relations, focusId: hasFocus ? skill.id : null, key: graphKey };
   const categories = [...new Set(graph.nodes.map(item => item.category))];
   return html`<section class="stage-lineage domain-${domain.id}" aria-label="本阶段技能脉络">
-    <div class="section-title-row"><div><div class="section-kicker">把小技能，连成一条成长路线</div><h2>${stage.label}<span>的成长脉络</span></h2><p>高亮区域是所选阶段，左右保留前序与后续；点技能追踪它从哪里来、向哪里去。</p></div></div>
+    <div class="section-title-row lineage-title-row"><h2>${stage.label}<span>的成长脉络</span></h2></div>
     ${domainCards()}
-    <div class="stage-lineage-focus"><span>${icon('tree')} 正在追踪：<strong>${skill.title}</strong><small>${skillStageLabel(skill)}</small></span><button class="text-button" data-action="stage-graph-current">定位本阶段 ${icon('arrow')}</button><button class="text-button" data-lineage="${skill.id}">在技能全景展开 ${icon('arrow')}</button></div>
+    ${hasFocus ? html`<button type="button" class="stage-lineage-clear" data-action="clear-stage-focus" aria-label="清除当前技能追踪" title="清除当前技能追踪">${icon('close')}</button>` : ''}
+    <span class="stage-lineage-counts" title="当前图中全部技能的完成进度（含其他月龄）">${getStats(graph.nodes, state.records).completed}/${graph.nodes.length} 已完成</span>
     ${graphWorkspace(graph, layout, relations, categories)}
-    ${directRelations(relations)}
-    <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。下方清单的筛选不会隐藏这里的依赖关系。</p>
+    <p class="lineage-footnote">${icon('info')} 连线沿用原始图谱的发展关系，年龄与前后关系仅作参考；前序未标记，也可以记录后续技能。技能清单的筛选不会隐藏这里的依赖关系。</p>
   </section>`;
 }
 
 function treeView() {
+  if (!state.treeFocus) state.treeMode = 'overview';
   const domain = domainInfo(state.treeDomain);
   const skill = focusSkill();
+  const hasFocus = Boolean(state.treeFocus);
   const relations = getSkillRelations(catalog, skill.id);
+  if (!hasFocus) Object.assign(relations, { ancestors: [], descendants: [], supporting: [], edges: [] });
   const categories = [...new Set(catalog.filter(item => item.domain === domain.id).map(item => item.category))];
   const branch = getBranchGraph(catalog, domain.id, state.treeCategory);
   const graph = state.treeMode === 'lineage' ? { nodes: relations.nodes, edges: relations.edges, contextIds: [] } : branch;
   const relationEdges = new Map(relations.edges.map(edge => [`${edge.from}:${edge.to}`, edge.kind]));
   if (state.treeMode === 'overview') graph.edges = graph.edges.map(edge => ({ ...edge, kind: relationEdges.get(`${edge.from}:${edge.to}`) || (edge.kind === 'supporting' ? 'supporting' : 'neutral') }));
   const layout = layoutGraph(graph.nodes, graph.edges);
-  currentGraph = { ...graph, layout, relations, focusId: skill.id, key: 'tree' };
-  const stats = getStats(graph.nodes, state.records);
+  currentGraph = { ...graph, layout, relations, focusId: hasFocus ? skill.id : null, key: 'tree' };
   return html`<section class="lineage-view domain-${domain.id}">
     <header class="lineage-header"><div><span class="lineage-eyebrow">小技能，大脉络</span><h1>成长的来龙去脉，一眼看懂<span>。</span></h1><p>从哪一步走来，再向哪里生长。点一个技能，顺着箭头一路看下去。</p></div><span class="lineage-header-icon">${icon('tree')}</span></header>
-    <div class="lineage-domains" role="group" aria-label="技能树领域">${DOMAINS.map(item => html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-tree-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span>${catalog.filter(node => node.domain === item.id).length} 个技能</span></button>`)}</div>
-    <div class="lineage-controls"><div class="graph-mode-tabs" role="group" aria-label="脉络查看范围"><button data-tree-mode="lineage" class="${state.treeMode === 'lineage' ? 'active' : ''}" aria-pressed="${state.treeMode === 'lineage'}">${icon('tree')} 这项技能的完整脉络</button><button data-tree-mode="overview" class="${state.treeMode === 'overview' ? 'active' : ''}" aria-pressed="${state.treeMode === 'overview'}">整个领域全景</button></div><label class="lineage-picker"><span>定位技能</span><select id="tree-focus" aria-label="定位技能">${STAGES.map(stage => {
+    <div class="lineage-domains" role="group" aria-label="技能树领域">${DOMAINS.map(item => {
+      const stats = getStats(catalog.filter(node => node.domain === item.id), state.records);
+      return html`<button class="lineage-domain domain-${item.id} ${item.id === domain.id ? 'active' : ''}" data-tree-domain="${item.id}" aria-pressed="${item.id === domain.id}">${icon(item.id)}<strong>${item.label}</strong><span class="domain-progress-summary" aria-label="已完成 ${stats.completed} / ${stats.total}，${stats.percent}%"><span>${stats.completed} / ${stats.total}</span><span>${stats.percent}%</span></span></button>`;
+    })}</div>
+    <div class="lineage-controls graph-reading-controls"><div class="graph-mode-tabs" role="group" aria-label="脉络查看范围"><button data-tree-mode="lineage" aria-label="这项技能的完整脉络" title="${hasFocus ? '这项技能的完整脉络' : '请先选择一项技能，再查看单项脉络'}" disabled="${!hasFocus}" class="${state.treeMode === 'lineage' ? 'active' : ''}" aria-pressed="${state.treeMode === 'lineage'}">${icon('tree')}<span>单项脉络</span></button><button data-tree-mode="overview" aria-label="整个领域全景" title="整个领域全景：显示本领域全部技能" class="${state.treeMode === 'overview' ? 'active' : ''}" aria-pressed="${state.treeMode === 'overview'}">${icon('grid')}<span>领域全景</span></button></div><div class="lineage-picker"><label for="tree-focus">定位技能</label><div class="lineage-focus-input"><select id="tree-focus" aria-label="定位技能" title="${hasFocus ? skill.title : '全部技能'}"><option value="" selected="${!hasFocus}">全部技能</option>${STAGES.map(stage => {
       const items = catalog.filter(item => item.domain === domain.id && item.stage === stage.id);
-      return items.length ? html`<optgroup label="${stage.label}">${items.map(item => html`<option value="${item.id}" selected="${item.id === skill.id}">${item.title}</option>`)}</optgroup>` : '';
-    })}</select></label>${state.treeMode === 'overview' ? html`<label class="lineage-picker branch-picker"><span>能力分支</span><select id="tree-category" aria-label="选择技能分支"><option value="all" selected="${state.treeCategory === 'all'}">全部分支</option>${categories.map(category => html`<option value="${category}" selected="${state.treeCategory === category}">${category}</option>`)}</select></label>` : ''}</div>
-    <div class="focus-strip"><span class="focus-strip-icon">${icon(domain.id)}</span><div><span class="focus-strip-kicker">正在追踪 · ${skillStageLabel(skill)}</span><h2>${skill.title}</h2></div><div class="trace-counts"><span><strong>${relations.ancestors.length}</strong> 项上游</span><span><strong>${relations.descendants.length}</strong> 项后续</span><span><strong>${stats.completed}/${stats.total}</strong> 已完成</span></div></div>
+      return items.length ? html`<optgroup label="${stage.label}">${items.map(item => html`<option value="${item.id}" selected="${hasFocus && item.id === skill.id}">${item.title}</option>`)}</optgroup>` : '';
+    })}</select><button type="button" class="lineage-clear" data-action="clear-tree-focus" aria-label="清除技能筛选，查看整个领域" title="清除技能筛选" disabled="${!hasFocus && state.treeCategory === 'all'}">${icon('close')}</button></div></div>${state.treeMode === 'overview' ? html`<label class="lineage-picker branch-picker"><span>能力分支</span><select id="tree-category" aria-label="选择技能分支"><option value="all" selected="${state.treeCategory === 'all'}">全部分支</option>${categories.map(category => html`<option value="${category}" selected="${state.treeCategory === category}">${category}</option>`)}</select></label>` : ''}</div>
     ${graphWorkspace(graph, layout, relations, categories)}
-    ${directRelations(relations)}
     <p class="lineage-footnote">${icon('info')} 脉络来自原始图谱的发展关系，支持跨年龄、跨分支查看；前序尚未标注，也可以记录后续技能。</p>
   </section>`;
 }
@@ -731,7 +763,7 @@ function navigateToLineage(id) {
   state.treeFocus = id;
   state.treeMode = 'lineage';
   state.treeCategory = 'all';
-  state.graphZoom = .85;
+  state.graphZoom = defaultGraphZoom();
   graphViewportAction = 'focus';
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -756,13 +788,20 @@ function selectGraphSkill(id) {
 const growthReadingState = new Map();
 function organizeGrowthReading() {
   const narrow = window.matchMedia('(max-width:900px)').matches;
+  siteShell.content.querySelectorAll('details.skill-group').forEach(fold => {
+    const key = `skill-list:${state.stage}:${state.domain}`;
+    fold.open = growthReadingState.get(key) ?? false;
+    fold.addEventListener('toggle', () => {
+      if (fold.isConnected) growthReadingState.set(key, fold.open);
+    });
+  });
   const wrap = (key, label, nodes) => {
     const items = nodes.filter(Boolean);
     if (!items.length) return;
     const fold = document.createElement('details');
     fold.className = 'growth-mobile-fold';
     fold.dataset.readingKey = key;
-    fold.open = !narrow || (growthReadingState.get(key) ?? key === 'stage-graph');
+    fold.open = !narrow || (growthReadingState.get(key) ?? false);
     const summary = document.createElement('summary'); summary.textContent = label;
     items[0].before(fold); fold.append(summary, ...items);
     fold.addEventListener('toggle', () => {
@@ -772,7 +811,14 @@ function organizeGrowthReading() {
   };
   if (state.view === 'baby') {
     const lineage = siteShell.content.querySelector('.stage-lineage');
-    if (lineage) wrap('stage-graph', '阶段图谱、前后关系与完整脉络', [...lineage.children].filter(child => child.matches('.graph-workspace,.direct-relations,.lineage-footnote')));
+    if (lineage?.querySelector('.graph-workspace')) {
+      const panel = document.createElement('section');
+      panel.className = 'growth-stage-graph';
+      panel.setAttribute('aria-label', '阶段图谱与完整脉络');
+      const graph = lineage.querySelector('.graph-workspace');
+      graph.before(panel);
+      panel.append(...[graph, lineage.querySelector('.lineage-footnote')].filter(Boolean));
+    }
     const resource = siteShell.content.querySelector('.milestones>.resource-section');
     if (resource) wrap('stage-resources', '本阶段的陪伴与启蒙参考', [resource]);
     layoutGrowthStageReading();
@@ -781,27 +827,35 @@ function organizeGrowthReading() {
 function layoutGrowthStageReading() {
   const content = siteShell?.content;
   const lineage = content?.querySelector('.stage-lineage');
-  const fold = content?.querySelector('[data-reading-key="stage-graph"]');
+  const fold = content?.querySelector('.growth-stage-graph');
   if (!lineage || !fold) return;
   const heading = content.querySelector('.stage-lineage>.section-title-row') || fold.querySelector('.section-title-row');
-  const focus = content.querySelector('.stage-lineage-focus');
+  const clearFocus = content.querySelector('.stage-lineage-clear');
   const milestones = content.querySelector('.milestones');
+  if (clearFocus) fold.querySelector('.graph-view-tools')?.append(clearFocus);
+  const counts = lineage.querySelector(':scope > .stage-lineage-counts');
+  if (counts && heading) heading.append(counts);
   if (window.matchMedia('(max-width:900px)').matches) {
-    // 先阶段、领域、技能；完整图谱放在技能清单之后，展开时仍使用原节点。
-    fold.querySelector('summary').after(...[heading, focus].filter(Boolean));
+    // 窄屏先读技能清单，完整图谱直接展示，不再增加外层折叠标题。
+    fold.prepend(...[heading].filter(Boolean));
     milestones?.after(fold);
   } else {
     if (heading) lineage.prepend(heading);
-    lineage.querySelector('.domain-cards')?.after(...[focus, fold].filter(Boolean));
+    lineage.querySelector('.domain-cards')?.after(fold);
   }
 }
 window.matchMedia('(max-width:900px)').addEventListener('change', event => {
   layoutGrowthStageReading();
-  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? fold.dataset.readingKey === 'stage-graph'); });
+  document.querySelectorAll('.growth-mobile-fold').forEach(fold => { fold.open = !event.matches || (growthReadingState.get(fold.dataset.readingKey) ?? false); });
 });
 
 function render() {
   const active = document.activeElement;
+  const searchOpen = skillSearchControl?.isOpen();
+  skillSearchControl?.destroy(); skillSearchControl = null;
+  const settings = siteShell?.globalActions;
+  const settingsOpen = settings?.querySelector('.site-action-popover')?.matches(':popover-open');
+  const settingsFocus = settings?.contains(active) ? [...settings.querySelectorAll('button,a[href]')].indexOf(active) : -1;
   const focusId = active?.id === 'skill-search' ? active.id : null;
   const selection = focusId ? active.selectionStart : 0;
   const graphViewport = document.querySelector('#graph-viewport');
@@ -813,10 +867,31 @@ function render() {
   }
   const viewLabel = state.view === 'baby' ? '宝宝视角' : state.view === 'next' ? '下一步' : '技能全景';
   siteShell.update({ navigation: growthNavigation(), activeId: state.view, title: viewLabel });
-  siteShell.actions.replaceChildren(html`<div class="topbar-actions"><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><a class="icon-button source-link" href="./assets/original.pdf" target="_blank" rel="noopener" aria-label="查看原始 PDF">${icon('book')}<span>原始图谱</span></a><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
-  siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
+  siteShell.globalActions.replaceChildren(html`<div class="topbar-actions">${siteSync?.createButton()}<button class="icon-button" data-action="profile" aria-label="编辑宝宝资料">${icon('settings')}<span>宝宝资料</span></button><button class="save-status ${saveProblem() ? 'has-error' : ''}" data-action="storage-status" aria-label="保存状态：${saveLabel()}" title="${saveProblem() || saveTimeLabel()}"><span class="save-status-dot"></span><span data-save-label aria-live="polite">${saveLabel()}</span></button><span class="today-label">${new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })}</span><button class="icon-button" data-action="backup" aria-label="管理备份">${icon('download')}<span>备份</span></button></div>`);
+  siteShell.content.replaceChildren(html`<div class="growth-content ${state.view === 'tree' ? 'graph-main' : state.view === 'next' ? 'next-main' : ''}"><div id="storage-warning" class="storage-warning" role="alert" hidden="${!saveProblem()}"><span data-storage-error>${saveProblem()}</span><button data-action="retry-save">重试保存</button><button data-action="export">导出备份</button></div>${cloudBanner()}${overallProgress()}${state.view === 'tree' ? treeView() : state.view === 'next' ? nextStepView() : html`${hero()}${stageNavigator()}${stageTreeView()}${milestoneList()}`}<footer class="page-footer"><span>${icon('sprout')} 陪伴，比进度更重要。</span><span>内容源于 MAMAHAHA 宝宝发展技能树 · ${state.localMode ? '个人记录保存在此浏览器' : '个人记录登录后同步到私有云端'}</span></footer></div>`);
+  siteShell.actions.replaceChildren(window.XiaoyaGrowthVersions.create('mao'), html`<a class="icon-button source-link" href="./assets/original-with-language.pdf" target="_blank" rel="noopener" aria-label="毛老师版：查看原始图谱 PDF" title="毛老师版原始图谱">${icon('book')}</a>${(state.view === 'tree' ? state.treeDomain : state.domain) === 'language' ? html`<button class="icon-button" data-action="language-sources" aria-label="查看语言原图与特殊现象" title="语言原图与特殊现象">${icon('language')}<span>语言原图</span></button>` : ''}`);
+  siteShell.globalActions.append(window.XiaoyaSite.createActionMenu(siteShell.globalActions.querySelector('.topbar-actions')));
 
   organizeGrowthReading();
+  const searchInput = document.getElementById('skill-search');
+  if (searchInput) skillSearchControl = mountGrowthSearch(searchInput.closest('.list-toolbar'), {
+    box: searchInput.closest('.search-box'), input: searchInput, filters: document.querySelector('.list-toolbar .status-tabs'), open: searchOpen,
+    onQuery(value) { state.search = value; },
+    getSuggestions(query) {
+      const needle = query.trim().toLocaleLowerCase();
+      return getStageSkills(catalog, selectedStage().id).filter(skill => skill.domain === state.domain
+        && (state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id)))
+        && `${skill.title} ${skill.category}`.toLocaleLowerCase().includes(needle)).map(skill => ({
+          id: skill.id, title: skill.title, meta: `${selectedStage().label} · ${skill.category}`,
+        }));
+    },
+    onSelect(match) {
+      state.search = ''; state.view = 'tree'; state.treeDomain = catalog.find(skill => skill.id === match.id).domain;
+      state.treeMode = 'lineage'; state.treeCategory = 'all'; selectGraphSkill(match.id);
+      document.getElementById('tree-focus')?.focus({ preventScroll: true });
+    },
+  });
+  window.XiaoyaSite.balanceSkillLists(document.querySelectorAll('.milestones .skill-items'));
   if (state.graphExpanded) document.querySelector('.graph-toolbar')?.append(siteShell.createSectionSwitch());
   syncGraphLegend();
   document.querySelector('.graph-legend-disclosure > summary')?.addEventListener('click', event => {
@@ -824,17 +899,24 @@ function render() {
   });
   persistView();
   updateSaveStatus();
+  // 本机回读和同步重绘保留全站设置菜单及其键盘焦点。
+  if (settingsOpen) siteShell.globalActions.querySelector('.site-action-popover')?.showPopover();
+  if (settingsFocus >= 0) siteShell.globalActions.querySelectorAll('button,a[href]')[settingsFocus]?.focus({ preventScroll: true });
   if (focusId) {
     const input = document.getElementById(focusId);
     input?.focus({ preventScroll: true });
     if (selection !== null && input) input.setSelectionRange(selection, selection);
   }
-  requestAnimationFrame(() => {
+  // 连续重绘只执行最后一次画布定位，避免旧回调用过期滚动位置覆盖焦点。
+  if (renderFrame !== null) cancelAnimationFrame(renderFrame);
+  renderFrame = requestAnimationFrame(() => {
+    renderFrame = null;
     drawTree();
     const viewport = document.querySelector('#graph-viewport');
     if (viewport) {
       if (graphViewportAction === 'fit') fitGraph();
       else if (graphViewportAction === 'focus') locateGraphFocus();
+      else if (graphViewportAction === 'current-age') locateCurrentAgeStage(false);
       else { viewport.scrollTop = graphScroll.top; viewport.scrollLeft = graphScroll.left; }
       graphViewportAction = null;
     }
@@ -873,7 +955,9 @@ function drawTree() {
     path.setAttribute('marker-end', `url(#graph-arrow-${edge.kind})`);
     const title = document.createElementNS(ns, 'title');
     title.textContent = `${catalog.find(item => item.id === edge.from).title} → ${catalog.find(item => item.id === edge.to).title}`;
-    group.append(title, path);
+    const halo = document.createElementNS(ns, 'path');
+    halo.setAttribute('class', 'graph-edge-halo'); halo.setAttribute('d', edge.path);
+    group.append(title, halo, path);
     svg.append(group);
   }
 }
@@ -909,28 +993,64 @@ function locateGraphFocus() {
   const viewport = document.querySelector('#graph-viewport');
   const position = currentGraph?.layout.nodes.find(node => node.id === currentGraph.focusId);
   if (!viewport || !position) return;
-  if (state.graphZoom < .6) setGraphZoom(.85, false);
+  if (state.graphZoom < .6) setGraphZoom(defaultGraphZoom(), false);
   viewport.scrollLeft = (position.x + position.width / 2) * state.graphZoom - viewport.clientWidth / 2;
   viewport.scrollTop = (position.y + position.height / 2) * state.graphZoom - viewport.clientHeight / 2;
 }
 
-function showDialog(content, kind = '') {
+function locateCurrentAgeStage(rebuild = true) {
+  const current = currentStage();
+  if (!current) { notify('当前月龄不在图谱范围内'); return; }
+  const stage = currentGraph?.layout.stages.find(item => item.id === current.id);
+  if (!stage && rebuild) {
+    const domain = state.view === 'tree' ? state.treeDomain : state.domain;
+    if (!getStageSkills(catalog, current.id).some(skill => skill.domain === domain)) {
+      notify('当前领域在这个月龄暂无技能，可切换领域查看');
+      return;
+    }
+    if (state.view === 'tree') {
+      state.treeMode = 'overview';
+      state.treeCategory = 'all';
+    } else {
+      state.stage = current.id;
+      state.stageFocus = null;
+    }
+    graphViewportAction = 'current-age';
+    render();
+    return;
+  }
+  const viewport = document.querySelector('#graph-viewport');
+  if (!viewport || !stage) return;
+  if (state.graphZoom < .6) setGraphZoom(defaultGraphZoom(), false);
+  viewport.scrollLeft = stage.x * state.graphZoom - Math.max(12, (viewport.clientWidth - stage.width * state.graphZoom) / 2);
+  viewport.scrollTop = 0;
+}
+
+function showDialog(content, kind = '', skillId = null) {
   document.querySelector('#app-dialog')?.remove();
   const dialog = document.createElement('dialog');
   dialog.id = 'app-dialog';
   dialog.className = `app-dialog ${kind}`;
   dialog.setAttribute('aria-labelledby', 'dialog-title');
   dialog.append(content);
+  dialog.querySelector('.dialog-header')?.after(window.XiaoyaGrowthVersions.create('mao', skillId));
   document.body.append(dialog);
   dialog.addEventListener('click', event => {
     const bounds = dialog.getBoundingClientRect();
     if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
   });
-  dialog.addEventListener('close', () => { dialog.remove(); render(); });
+  dialog.addEventListener('close', () => { dialog.remove(); render(); if (growthRefreshPending) void syncGrowth(); });
   dialog.showModal();
   return dialog;
 }
 function dialogHeader(kicker, title) { return html`<header class="dialog-header"><div><span class="section-kicker">${kicker}</span><h2 id="dialog-title">${title}</h2></div>${siteShell.createSectionSwitch()}<button class="circle-button" data-action="close-dialog" aria-label="关闭">${icon('close')}</button></header>`; }
+
+function openGraphLegend() {
+  const key = document.querySelector('.graph-legend-panel .graph-key');
+  if (!key) return;
+  const dialog = showDialog(html`${dialogHeader('', '图例 · 连线与颜色')}${key.cloneNode(true)}`, 'graph-legend-dialog');
+  dialog.addEventListener('close', () => document.querySelector('[data-action="graph-legend"]')?.focus({ preventScroll: true }));
+}
 
 function openDetail(id) {
   const skill = catalog.find(item => item.id === id);
@@ -939,10 +1059,13 @@ function openDetail(id) {
   const parents = (skill.parents || []).map(parent => catalog.find(item => item.id === parent)).filter(Boolean);
   const children = catalog.filter(item => item.parents?.includes(id));
   const done = isDone(id);
-  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>${skillGuideSection(skill)}<form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>${state.localMode ? '手记与完成状态自动保存到本机' : '手记与完成状态自动同步到私有云端'}</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">原始图谱第 ${skill.sourcePage} 页 · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog');
+  const dialog = showDialog(html`${dialogHeader('每一个「我会啦」，都很珍贵', skill.title)}<div class="detail-tags domain-${skill.domain}"><span>${icon(skill.domain)}${domainInfo(skill.domain).label}</span><span>${skill.category}</span><span>${skillStageLabel(skill)}</span></div>${skillGuideSection(skill)}<form id="skill-form" data-id="${id}"><div class="detail-status ${done ? 'done' : ''}"><span>${icon(done ? 'check' : 'sprout')}<strong>${done ? '这颗成长小芽，已点亮' : '正在慢慢探索'}</strong></span><button type="button" class="${done ? 'secondary-button' : 'primary-button'}" data-toggle="${id}">${done ? '回退为探索中' : '标记已完成'}</button></div>${done ? html`<label class="form-field">学会的日子<input type="date" name="completedAt" value="${record.completedAt}" max="${localDateString()}" min="${state.profile.birthDate}" required /></label>` : ''}<label class="form-field">成长手记 <span>可选 · 留住这一刻</span><textarea id="skill-note" name="note" rows="4" maxlength="2000" placeholder="今天宝宝有了什么新发现？">${record.note || ''}</textarea></label><div class="form-actions"><small>${state.localMode ? '手记与完成状态自动保存到本机' : '手记与完成状态自动同步到私有云端'}</small><button class="primary-button" type="submit">保存手记 ${icon('check')}</button></div></form>${parents.length || children.length ? html`<div class="skill-relations"><h3>一路长大的足迹</h3><button class="detail-lineage-button" data-lineage="${id}">${icon('tree')} 查看这项技能的完整脉络 ${icon('arrow')}</button>${parents.length ? html`<p>直接前序</p><div>${parents.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}${children.length ? html`<p>直接后续</p><div>${children.map(item => html`<button class="relation-chip ${isDone(item.id) ? 'done' : ''}" data-detail="${item.id}">${isDone(item.id) ? icon('check') : icon('sprout')}${item.title}${icon('chevron')}</button>`)}</div>` : ''}</div>` : ''}${resourceSection(skill)}<div class="detail-source">${skill.sourceImage ? html`<a href="${skill.sourceImage}" target="_blank" rel="noopener">${skill.sourceLabel} · 完整原图（原始图谱第 ${skill.sourcePage} 页）</a>` : `原始图谱第 ${skill.sourcePage} 页`} · 年龄与进阶关系仅作陪伴参考</div>`, 'detail-dialog', id);
   dialog.dataset.skillId = id;
   updateSaveStatus();
 }
+window.addEventListener('xiaoya:search-result', event => {
+  if (event.detail?.kind === 'skill') openDetail(event.detail.id.slice('growth:skill:'.length));
+});
 
 function openProfile() {
   if (!requireEditable(false)) return;
@@ -962,10 +1085,10 @@ async function openBackup() {
       <h3>${icon(saveProblem() ? 'info' : 'check')}${saveLabel()}</h3>
       <p>${saveProblem() || (local ? '完成标记、日期、手记和宝宝资料自动保存在本机，刷新后会恢复。' : apiBase ? '个人记录以 GitHub 私有仓库为主存储。重新登录后可跨设备恢复。' : '云端配置未能加载，请重试。')}</p>
       <p>${saveTimeLabel()}</p>
-      <p>${local ? '本机记录只在此浏览器、此网页地址下可用。换设备或地址时，请使用 JSON 备份迁移。' : '仅云端确认后显示“已同步”。未同步内容暂留本页，请重试或导出后再离开。'}</p>
+      <p>${local ? '本机记录按网页地址隔离。连接全站记录同步后，可在其他设备登录恢复；JSON 备份仍可用于迁移。' : '仅云端确认后显示“已同步”。未同步内容暂留本页，请重试或导出后再离开。'}</p>
       ${state.viewStorageError ? html`<p>${state.viewStorageError}</p>` : ''}
     </section>
-    <div class="cloud-actions">${local ? !state.localLoaded ? html`<button class="primary-button" data-action="reload-local">重新读取本机</button>` : state.storageError ? html`<button class="secondary-button" data-action="retry-save">重试保存到本机</button>` : '' : state.auth === 'ready' ? html`<button class="secondary-button" data-action="logout">退出登录</button>` : apiBase ? html`<button class="primary-button" data-action="login">使用本人 GitHub 登录</button>` : ''}
+    <div class="cloud-actions">${siteSync ? html`<button class="secondary-button" data-action="site-sync">全站记录同步</button>` : ''}${local ? !state.localLoaded ? html`<button class="primary-button" data-action="reload-local">重新读取本机</button>` : state.storageError ? html`<button class="secondary-button" data-action="retry-save">重试保存到本机</button>` : '' : state.auth === 'ready' ? html`<button class="secondary-button" data-action="logout">退出登录</button>` : apiBase ? html`<button class="primary-button" data-action="login">使用本人 GitHub 登录</button>` : ''}
       ${cloudConflict ? html`<button class="primary-button" data-action="resolve-conflicts">处理保存冲突</button>` : !local && state.storageError && state.auth === 'ready' ? html`<button class="secondary-button" data-action="retry-save">重试同步</button>` : !local && state.auth === 'error' && sessionToken ? html`<button class="secondary-button" data-action="reload-cloud">重新读取云端</button>` : ''}
     </div>
     ${state.profile.birthDate ? html`<button class="backup-option" data-action="export">${icon('download')}<span><strong>导出本页成长记录</strong><small>含当前宝宝资料、完成日期和手记，包括尚未保存的修改</small></span>${icon('chevron')}</button>` : ''}
@@ -973,7 +1096,7 @@ async function openBackup() {
     <label class="backup-option" tabindex="0" role="button" id="import-label">${icon('upload')}<span><strong>导入 JSON 备份</strong><small>${local ? '从电脑选择备份，支持多选；校验和预览后保存到本机' : '支持多选；登录并读取云端后，校验、预览并确认合并'}</small></span>${icon('chevron')}<input type="file" id="import-file" accept=".json,application/json" multiple hidden /></label>
     <p class="form-error" data-import-error role="alert" hidden></p>
     ${localMigrations.length ? html`<section class="local-migration"><h3>可导入的本机记录</h3><p>可逐份预览，也可全部导入。重复技能只计算一次；原始备份文件和旧版记录保持原样。</p>${localMigrations.map((item, index) => html`<div class="migration-item"><strong>${item.label}</strong>${item.snapshot ? html`<span>${getStats(catalog, item.snapshot.records).completed} 项已完成</span>` : ''}<div><button class="secondary-button" data-action="export-local" data-index="${index}">导出原记录</button>${item.snapshot ? html`<button class="primary-button" data-action="migrate-local" data-index="${index}">预览迁入</button>` : ''}</div></div>`)}</section>` : ''}
-    <p class="backup-footnote">${local ? '当前使用本机保存。清理此网站的浏览器数据会移除记录，请定期导出备份。云端同步尚未启用。' : '网页和技能目录公开；个人记录由本人身份保护。旧本机数据仅作为迁移来源。'}</p>`);
+    <p class="backup-footnote">${local ? '本机保存始终保留。云端连接与确认状态请查看“全站记录同步”；清理浏览器数据前请确认同步或另存 JSON 备份。' : '网页和技能目录公开；个人记录由本人身份保护。旧本机数据仅作为迁移来源。'}</p>`);
 }
 async function downloadBackup(raw, label) {
   const filename = `小芽${label}_${localDateString()}.json`;
@@ -1080,7 +1203,10 @@ async function completeStage(stageId) {
 document.addEventListener('click', async event => {
   const element = event.target.closest('button, a[data-action], [data-view], [data-stage]');
   if (!element) return;
-  if (element.dataset.view) {
+  if (element.dataset.action === 'language-sources') {
+    showDialog(html`${dialogHeader('毛老师版 · 语言', '语言原图与特殊现象')}${languageReferenceContent()}`, 'language-reference-dialog');
+  }
+  else if (element.dataset.view) {
     const previousView = state.view;
     state.view = element.dataset.view;
     state.search = '';
@@ -1107,15 +1233,32 @@ document.addEventListener('click', async event => {
       case 'home': event.preventDefault(); state.view = 'baby'; state.graphExpanded = false; state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0'); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); break;
       case 'prev-stage': if (index > 0) changeStage(STAGES[index - 1].id); break;
       case 'next-stage': if (index < STAGES.length - 1) changeStage(STAGES[index + 1].id); break;
-      case 'current-stage': if (currentStage()) changeStage(currentStage().id); break;
+      case 'current-stage':
+        if (currentStage()) {
+          changeStage(currentStage().id);
+          const select = document.getElementById('growth-stage-select');
+          (select?.getClientRects().length ? select : document.querySelector('.stage-pill.active'))?.focus({ preventScroll: true });
+        }
+        break;
       case 'clear-filters': state.search = ''; state.status = 'all'; render(); break;
+      case 'clear-tree-focus': state.treeFocus = null; state.treeMode = 'overview'; state.treeCategory = 'all'; graphViewportAction = 'fit'; render(); document.getElementById('tree-focus')?.focus(); break;
+      case 'clear-stage-focus': {
+        state.stageFocus = '';
+        const params = new URLSearchParams(location.hash.slice(1));
+        if (params.has('skill')) { params.delete('skill'); history.replaceState(null, '', params.size ? '#' + params : location.pathname + location.search); }
+        graphViewportAction = 'fit'; render();
+        document.getElementById('graph-viewport')?.focus({ preventScroll: true });
+        break;
+      }
       case 'graph-zoom-in': setGraphZoom(state.graphZoom + .15); break;
       case 'graph-zoom-out': setGraphZoom(state.graphZoom - .15); break;
       case 'graph-fit': fitGraph(); break;
-      case 'stage-graph-current': state.stageFocus = null; graphViewportAction = 'focus'; render(); break;
+      case 'graph-legend': openGraphLegend(); break;
       case 'graph-locate': locateGraphFocus(); break;
+      case 'graph-current-age': locateCurrentAgeStage(); break;
       case 'graph-expand': state.graphExpanded = !state.graphExpanded; graphViewportAction = 'focus'; render(); break;
       case 'profile': openProfile(); break;
+      case 'site-sync': await siteSync?.open(); break;
       case 'backup': case 'storage-status': openBackup(); break;
       case 'export': await exportBackup(); break;
       case 'login': loginCloud(); break;
@@ -1197,7 +1340,6 @@ document.addEventListener('click', async event => {
 });
 
 document.addEventListener('input', event => {
-  if (event.target.id === 'skill-search') { state.search = event.target.value; render(); }
   if (event.target.id === 'skill-note') {
     if (!requireEditable()) return;
     const id = event.target.form.dataset.id;
@@ -1221,7 +1363,10 @@ document.addEventListener('change', event => {
     graphViewportAction = 'fit';
     render();
   }
-  if (event.target.id === 'tree-focus') selectGraphSkill(event.target.value);
+  if (event.target.id === 'tree-focus') {
+    if (event.target.value) selectGraphSkill(event.target.value);
+    else { state.treeFocus = null; state.treeMode = 'overview'; state.treeCategory = 'all'; graphViewportAction = 'fit'; render(); document.getElementById('tree-focus')?.focus(); }
+  }
   if (event.target.id === 'import-file') void importBackup(event.target.files);
 });
 document.addEventListener('keydown', event => {
@@ -1331,12 +1476,14 @@ document.addEventListener('wheel', event => {
 }, { passive: false });
 async function syncGrowth(force = false) {
   const store = state.localMode ? localStore : cloudStore;
+  growthRefreshPending = true;
   if (!store || !canEdit() || cloudRefreshing || state.savePending || state.hasUnsavedChanges || (!force && document.querySelector('#app-dialog'))) return;
+  growthRefreshPending = false;
   cloudRefreshing = true;
   const editRevision = saveRevision;
   try {
     const loaded = await store.load();
-    if (!canEdit() || state.savePending || state.hasUnsavedChanges || editRevision !== saveRevision) return;
+    if (!canEdit() || state.savePending || state.hasUnsavedChanges || editRevision !== saveRevision || (!force && document.querySelector('#app-dialog'))) { growthRefreshPending = true; return; }
     if (!loaded.snapshot) { state.profile = sharedProfile.get(); state.records = {}; }
     saveController.adopt(loaded);
     state.storageError = '';
@@ -1346,7 +1493,7 @@ async function syncGrowth(force = false) {
     state.storageError = error.message;
     if (error.code === 'AUTH_REQUIRED') { state.auth = 'expired'; setSessionToken(''); }
     updateSaveStatus();
-  } finally { cloudRefreshing = false; }
+  } finally { cloudRefreshing = false; if (growthRefreshPending) queueMicrotask(() => void syncGrowth()); }
 }
 window.addEventListener('beforeunload', event => {
   if (!state.savePending && !state.hasUnsavedChanges) return;
@@ -1371,30 +1518,36 @@ async function start() {
       render();
     });
     await findLocalMigrations();
-    try {
-      const response = await fetch('./cloud-config.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error('云端配置读取失败');
-      const config = await response.json();
-      if (!config.apiBase) {
-        state.localMode = true;
-        localStore = createLocalSaveStore(window.indexedDB, catalog.map(skill => skill.id));
-        await connectLocal();
-      } else {
-        const url = new URL(config.apiBase);
-        const local = ['localhost', '127.0.0.1'].includes(url.hostname) && ['localhost', '127.0.0.1'].includes(location.hostname);
-        if ((url.protocol !== 'https:' && !(local && url.protocol === 'http:')) || url.username || url.password || url.search || url.hash || (url.pathname !== '/' && url.pathname !== '')) throw new Error('云端地址配置无效');
-        apiBase = url.origin;
-        cloudStore = createCloudStore({ apiBase, validIds: catalog.map(skill => skill.id), getToken: () => sessionToken });
-        state.auth = 'signed-out';
-        try { sessionToken = sessionStorage.getItem(SESSION_KEY) || ''; } catch { /* 仅内存会话。 */ }
-      }
-    } catch (error) { state.storageError = error.message; }
+    state.localMode = true;
+    localStore = createLocalSaveStore(window.indexedDB, catalog.map(skill => skill.id));
+    await connectLocal();
+    siteSync = window.XiaoyaSync.createClient({ siteRoot: './', profileClient: sharedProfile });
+    const saveLocal = localStore.save;
+    localStore.save = async (...args) => {
+      const result = await saveLocal(...args);
+      try { await siteSync.changed('growth'); }
+      catch (error) { state.viewStorageError = '本机记录已保存，但同步队列暂不可用：' + error.message; }
+      return result;
+    };
+    siteSync.subscribe(area => { if (area === 'growth') void syncGrowth(); });
     state.stage = currentStage()?.id || (babyAge() ? 's8' : 's0');
     lastCurrentStage = currentStage()?.id;
     restoreView();
+    // URL 中的稳定技能 ID 优先于旧查看偏好；非法或已移除 ID 正常退回原视图。
+    const linkedId = new URLSearchParams(location.hash.slice(1)).get('skill');
+    const linkedSkill = catalog.find(skill => skill.id === linkedId);
+    if (linkedSkill) {
+      state.view = 'tree';
+      state.treeDomain = linkedSkill.domain;
+      state.treeFocus = linkedSkill.id;
+      state.treeMode = 'lineage';
+      state.treeCategory = 'all';
+      graphViewportAction = 'focus';
+    }
     viewRestored = true;
     render();
-    if (sessionToken) await connectCloud();
+    if (linkedSkill) openDetail(linkedSkill.id);
+
   } catch (error) {
     app.replaceChildren(html`<main class="load-error">${icon('sprout')}<h1>小芽还没准备好</h1><p>${error.message}</p><p>请通过本地服务打开网页，避免直接双击 HTML 文件。</p><button class="primary-button" id="retry-button">重新加载</button></main>`);
     document.querySelector('#retry-button').addEventListener('click', () => location.reload());
