@@ -428,3 +428,6 @@ body.site-navigation-open{overflow:hidden}
 .site-page-bar>.site-actions>:is(button,a),
 .site-page-bar>.site-actions>:is(.top-actions,.topbar-actions)>:is(button,a){height:var(--site-page-control-height);min-height:var(--site-page-control-height);padding-top:5px;padding-bottom:5px}
 .site-page-bar>.site-actions>:is(.top-actions,.topbar-actions)>.top-search{height:var(--site-page-control-height)}
+
+/* 三个同级分类在窄屏保持完整可见，宝宝年龄允许自然换行。 */
+@media(max-width:600px){.site-bar{gap:8px}.site-category-link{padding-inline:6px}.site-baby-age{word-break:normal;overflow-wrap:anywhere}.site-categories{flex-shrink:0}}

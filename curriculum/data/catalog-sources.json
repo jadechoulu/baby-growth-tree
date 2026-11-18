@@ -1,0 +1,4881 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-4329462",
+      "title": "第1级",
+      "edition": "小羊上山儿童汉语分级读物第1级(全10册)",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787115545824",
+      "cover": "https://img.xiaohuasheng.cn/1501497/Book/20251212081805.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/27f62b46345a8fc7",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-153761798a4c1ed0",
+          "externalIds": {
+            "xiaohuasheng": "153761798a4c1ed0",
+            "xiaohuashengApp": 4483929
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：藏西瓜",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144659.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/153761798a4c1ed0",
+          "order": 1
+        },
+        {
+          "id": "xhs-9b3dd1c62e4dc941",
+          "externalIds": {
+            "xiaohuasheng": "9b3dd1c62e4dc941",
+            "xiaohuashengApp": 4483924
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：爸爸是我的天空",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144509.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9b3dd1c62e4dc941",
+          "order": 2
+        },
+        {
+          "id": "xhs-5caae4d7f2724689",
+          "externalIds": {
+            "xiaohuasheng": "5caae4d7f2724689",
+            "xiaohuashengApp": 4904555
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：不高兴的毛毛虫",
+          "cover": "https://img.xiaohuasheng.cn/1605795/Book/20210616223255.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5caae4d7f2724689",
+          "order": 3
+        },
+        {
+          "id": "xhs-c106d8ddaa4ba48f",
+          "externalIds": {
+            "xiaohuasheng": "c106d8ddaa4ba48f",
+            "xiaohuashengApp": 4483931
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：天啊, 我的跳跳虫",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144729.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c106d8ddaa4ba48f",
+          "order": 4
+        },
+        {
+          "id": "xhs-f2c07c620a4cd774",
+          "externalIds": {
+            "xiaohuasheng": "f2c07c620a4cd774",
+            "xiaohuashengApp": 4483927
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：我是?",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144611.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f2c07c620a4cd774",
+          "order": 5
+        },
+        {
+          "id": "xhs-472de39c6a4b3c0d",
+          "externalIds": {
+            "xiaohuasheng": "472de39c6a4b3c0d",
+            "xiaohuashengApp": 4483932
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：我吃我吃我吃吃吃",
+          "cover": "https://img.xiaohuasheng.cn/2191675/Book/20240725203610.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/472de39c6a4b3c0d",
+          "order": 6
+        },
+        {
+          "id": "xhs-db0ad9cbfa736fef",
+          "externalIds": {
+            "xiaohuasheng": "db0ad9cbfa736fef",
+            "xiaohuashengApp": 4904545
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：小小的, 大大的",
+          "cover": "https://img.xiaohuasheng.cn/1605795/Book/20210616223143.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/db0ad9cbfa736fef",
+          "order": 7
+        },
+        {
+          "id": "xhs-70b4c52689ce3a58",
+          "externalIds": {
+            "xiaohuasheng": "70b4c52689ce3a58",
+            "xiaohuashengApp": 4483923
+          },
+          "title": "小羊上山儿童汉语分级读物第1级：生日快乐, 小兔!",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144440.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/70b4c52689ce3a58",
+          "order": 8
+        },
+        {
+          "id": "xhs-e8617eefaa4d6718",
+          "externalIds": {
+            "xiaohuasheng": "e8617eefaa4d6718",
+            "xiaohuashengApp": 4483926
+          },
+          "title": "小羊上山儿童汉语分级读物第1级: 我爱问妈妈",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144534.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e8617eefaa4d6718",
+          "order": 9
+        },
+        {
+          "id": "xhs-35c563460a4acf71",
+          "externalIds": {
+            "xiaohuasheng": "35c563460a4acf71",
+            "xiaohuashengApp": 4483934
+          },
+          "title": "小羊上山儿童汉语分级读物第1级: 七只小山羊",
+          "cover": "https://img.xiaohuasheng.cn/1854884/Book/20221206221831.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/35c563460a4acf71",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-4327531",
+      "title": "第2级",
+      "edition": "小羊上山儿童汉语分级读物第2级（全10册）",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787115545831",
+      "cover": "https://img.xiaohuasheng.cn/1382029/Book/20210203163544821.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/4de56440b6746f86",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-3ee844e115ea1cff",
+          "externalIds": {
+            "xiaohuasheng": "3ee844e115ea1cff",
+            "xiaohuashengApp": 4483935
+          },
+          "title": "小羊上山儿童汉语分级读物第2级1: 小红帽",
+          "cover": "https://img.xiaohuasheng.cn/1178635/Book/20250515200751.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3ee844e115ea1cff",
+          "order": 1
+        },
+        {
+          "id": "xhs-d17255c80249bdcb",
+          "externalIds": {
+            "xiaohuasheng": "d17255c80249bdcb",
+            "xiaohuashengApp": 4483936
+          },
+          "title": "小羊上山儿童汉语分级读物第2级2: 白云白云飞飞",
+          "cover": "https://img.xiaohuasheng.cn/2327013/Book/20250525212244.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d17255c80249bdcb",
+          "order": 2
+        },
+        {
+          "id": "xhs-e5ef49bb2ac96289",
+          "externalIds": {
+            "xiaohuasheng": "e5ef49bb2ac96289",
+            "xiaohuashengApp": 4483937
+          },
+          "title": "小羊上山儿童汉语分级读物第2级3: 小熊和妈妈",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212144958.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e5ef49bb2ac96289",
+          "order": 3
+        },
+        {
+          "id": "xhs-c661b315aa48f1b9",
+          "externalIds": {
+            "xiaohuasheng": "c661b315aa48f1b9",
+            "xiaohuashengApp": 4483939
+          },
+          "title": "小羊上山儿童汉语分级读物第2级4: 大山下的小白马",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212145027.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c661b315aa48f1b9",
+          "order": 4
+        },
+        {
+          "id": "xhs-4ca82c5f4a4889b1",
+          "externalIds": {
+            "xiaohuasheng": "4ca82c5f4a4889b1",
+            "xiaohuashengApp": 4483940
+          },
+          "title": "小羊上山儿童汉语分级读物第2级5: 小狗牙牙找蝴蝶",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212145053.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4ca82c5f4a4889b1",
+          "order": 5
+        },
+        {
+          "id": "xhs-e0d7769a6d48216f",
+          "externalIds": {
+            "xiaohuasheng": "e0d7769a6d48216f",
+            "xiaohuashengApp": 4483941
+          },
+          "title": "小羊上山儿童汉语分级读物第2级6: 月亮奶",
+          "cover": "https://img.xiaohuasheng.cn/2304733/Book/20251002225932.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e0d7769a6d48216f",
+          "order": 6
+        },
+        {
+          "id": "xhs-7424db76aa47bfb9",
+          "externalIds": {
+            "xiaohuasheng": "7424db76aa47bfb9",
+            "xiaohuashengApp": 4483944
+          },
+          "title": "小羊上山儿童汉语分级读物第2级7: 小红门开开",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212145144.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7424db76aa47bfb9",
+          "order": 7
+        },
+        {
+          "id": "xhs-9bf66e49aa476037",
+          "externalIds": {
+            "xiaohuasheng": "9bf66e49aa476037",
+            "xiaohuashengApp": 4483945
+          },
+          "title": "小羊上山儿童汉语分级读物第2级8: 跳跳虫哭了",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212145209.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9bf66e49aa476037",
+          "order": 8
+        },
+        {
+          "id": "xhs-f7f0dbdbce270b3d",
+          "externalIds": {
+            "xiaohuasheng": "f7f0dbdbce270b3d",
+            "xiaohuashengApp": 4483946
+          },
+          "title": "小羊上山儿童汉语分级读物第2级9: 冬爷爷",
+          "cover": "https://img.xiaohuasheng.cn/2441641/Book/20260418105215.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f7f0dbdbce270b3d",
+          "order": 9
+        },
+        {
+          "id": "xhs-99808d2db646b4b9",
+          "externalIds": {
+            "xiaohuasheng": "99808d2db646b4b9",
+            "xiaohuashengApp": 4483947
+          },
+          "title": "小羊上山儿童汉语分级读物第2级10: 春天到",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20201212145253.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/99808d2db646b4b9",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-4974628",
+      "title": "第3级",
+      "edition": "小羊上山儿童汉语分级读物第3级（全10册）",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787115561473",
+      "cover": "https://img.xiaohuasheng.cn/360913/Book/20210620225224.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/114f7de069f86352",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-d5ef85b988a8183",
+          "externalIds": {
+            "xiaohuasheng": "d5ef85b988a8183",
+            "xiaohuashengApp": 5024318
+          },
+          "title": "小羊上山儿童汉语分级读物第3级1 牛牛找姐姐",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200355.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d5ef85b988a8183",
+          "order": 1
+        },
+        {
+          "id": "xhs-454c50dd388a174c",
+          "externalIds": {
+            "xiaohuasheng": "454c50dd388a174c",
+            "xiaohuashengApp": 5024319
+          },
+          "title": "小羊上山儿童汉语分级读物第3级2 小兔哥哥去买菜",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200422.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/454c50dd388a174c",
+          "order": 2
+        },
+        {
+          "id": "xhs-8dee797029c9b10f",
+          "externalIds": {
+            "xiaohuasheng": "8dee797029c9b10f",
+            "xiaohuashengApp": 5024320
+          },
+          "title": "小羊上山儿童汉语分级读物第3级3 小黑不见了",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200448.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8dee797029c9b10f",
+          "order": 3
+        },
+        {
+          "id": "xhs-c039ae0638895107",
+          "externalIds": {
+            "xiaohuasheng": "c039ae0638895107",
+            "xiaohuashengApp": 5024321
+          },
+          "title": "小羊上山儿童汉语分级读物第3级4 飞飞对对子",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200513.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c039ae0638895107",
+          "order": 4
+        },
+        {
+          "id": "xhs-2e245f8f3688d296",
+          "externalIds": {
+            "xiaohuasheng": "2e245f8f3688d296",
+            "xiaohuashengApp": 5024322
+          },
+          "title": "小羊上山儿童汉语分级读物第3级5 竹林里的大熊猫",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200546.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2e245f8f3688d296",
+          "order": 5
+        },
+        {
+          "id": "xhs-105c0067d8885bbc",
+          "externalIds": {
+            "xiaohuasheng": "105c0067d8885bbc",
+            "xiaohuashengApp": 5024324
+          },
+          "title": "小羊上山儿童汉语分级读物第3级6 藏猫猫幼儿园",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200616.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/105c0067d8885bbc",
+          "order": 6
+        },
+        {
+          "id": "xhs-6f6edec45c27f045",
+          "externalIds": {
+            "xiaohuasheng": "6f6edec45c27f045",
+            "xiaohuashengApp": 5024325
+          },
+          "title": "小羊上山儿童汉语分级读物第3级7 云飞的小公园",
+          "cover": "https://img.xiaohuasheng.cn/1707892/Book/20241008092115.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6f6edec45c27f045",
+          "order": 7
+        },
+        {
+          "id": "xhs-fea00ef78879628",
+          "externalIds": {
+            "xiaohuasheng": "fea00ef78879628",
+            "xiaohuashengApp": 5024326
+          },
+          "title": "小羊上山儿童汉语分级读物第3级8 你有多爱我",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200707.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fea00ef78879628",
+          "order": 8
+        },
+        {
+          "id": "xhs-d2b06771c8730b5",
+          "externalIds": {
+            "xiaohuasheng": "d2b06771c8730b5",
+            "xiaohuashengApp": 5024327
+          },
+          "title": "小羊上山儿童汉语分级读物第3级9 飞吧, 小春",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200733.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d2b06771c8730b5",
+          "order": 9
+        },
+        {
+          "id": "xhs-283bf1c2218b0617",
+          "externalIds": {
+            "xiaohuasheng": "283bf1c2218b0617",
+            "xiaohuashengApp": 5024317
+          },
+          "title": "小羊上山儿童汉语分级读物第3级10 月亮公主",
+          "cover": "https://img.xiaohuasheng.cn/1278556/Book/20210601200321.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/283bf1c2218b0617",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-5338846",
+      "title": "第4级",
+      "edition": "小羊上山儿童汉语分级读物第4级(全10册)",
+      "grades": [
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787115585813",
+      "cover": "https://img.xiaohuasheng.cn/49906/Book/20220418005106.png",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/7f8d714402b9798b",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-20a96810560aafa0",
+          "externalIds": {
+            "xiaohuasheng": "20a96810560aafa0",
+            "xiaohuashengApp": 5339236
+          },
+          "title": "小羊上山儿童汉语分级读物第4级1 木木的生日礼物",
+          "cover": "https://img.xiaohuasheng.cn/1801057/Book/20231219193540.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/20a96810560aafa0",
+          "order": 1
+        },
+        {
+          "id": "xhs-4e053407641d59ea",
+          "externalIds": {
+            "xiaohuasheng": "4e053407641d59ea",
+            "xiaohuashengApp": 5341189
+          },
+          "title": "小羊上山儿童汉语分级读物第4级2 了不起的多多",
+          "cover": "https://img.xiaohuasheng.cn/1979776/Book/20230501093323.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4e053407641d59ea",
+          "order": 2
+        },
+        {
+          "id": "xhs-2703031db6adc41",
+          "externalIds": {
+            "xiaohuasheng": "2703031db6adc41",
+            "xiaohuashengApp": 5433646
+          },
+          "title": "小羊上山儿童汉语分级读物第4级3 不爱说话的小光",
+          "cover": "https://img.xiaohuasheng.cn/1595918/Book/20220518212202.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2703031db6adc41",
+          "order": 3
+        },
+        {
+          "id": "xhs-496b65bfd41bcef1",
+          "externalIds": {
+            "xiaohuasheng": "496b65bfd41bcef1",
+            "xiaohuashengApp": 5341194
+          },
+          "title": "小羊上山儿童汉语分级读物第4级4 大米王国做五花饭",
+          "cover": "https://img.xiaohuasheng.cn/1330032/Book/20230425220848.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/496b65bfd41bcef1",
+          "order": 4
+        },
+        {
+          "id": "xhs-2a57ba366abdcf32",
+          "externalIds": {
+            "xiaohuasheng": "2a57ba366abdcf32",
+            "xiaohuashengApp": 5417297
+          },
+          "title": "小羊上山儿童汉语分级读物第4级5 老头子是不会错的",
+          "cover": "https://img.xiaohuasheng.cn/1595918/Book/20220504212840.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2a57ba366abdcf32",
+          "order": 5
+        },
+        {
+          "id": "xhs-e50e74ab39134dcf",
+          "externalIds": {
+            "xiaohuasheng": "e50e74ab39134dcf",
+            "xiaohuashengApp": 5341613
+          },
+          "title": "小羊上山儿童汉语分级读物第4级6 巨人的花园",
+          "cover": "https://img.xiaohuasheng.cn/1493179/Book/20220225112857.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e50e74ab39134dcf",
+          "order": 6
+        },
+        {
+          "id": "xhs-798361d4eaaf0aa6",
+          "externalIds": {
+            "xiaohuasheng": "798361d4eaaf0aa6",
+            "xiaohuashengApp": 5343061
+          },
+          "title": "小羊上山儿童汉语分级读物第4级7 龙的图书馆",
+          "cover": "https://img.xiaohuasheng.cn/1789870/Book/20240914162146.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/798361d4eaaf0aa6",
+          "order": 7
+        },
+        {
+          "id": "xhs-c623ba23350f2e3b",
+          "externalIds": {
+            "xiaohuasheng": "c623ba23350f2e3b",
+            "xiaohuashengApp": 5341628
+          },
+          "title": "小羊上山儿童汉语分级读物第4级8 红叶子,黄叶子",
+          "cover": "https://img.xiaohuasheng.cn/1260838/Book/20221106105431.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c623ba23350f2e3b",
+          "order": 8
+        },
+        {
+          "id": "xhs-646a9c86110da16d",
+          "externalIds": {
+            "xiaohuasheng": "646a9c86110da16d",
+            "xiaohuashengApp": 5341633
+          },
+          "title": "小羊上山儿童汉语分级读物第4级9 小树和小宝贝",
+          "cover": "https://img.xiaohuasheng.cn/1493179/Book/20220225113509.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/646a9c86110da16d",
+          "order": 9
+        },
+        {
+          "id": "xhs-d7ca9c21e80c87e7",
+          "externalIds": {
+            "xiaohuasheng": "d7ca9c21e80c87e7",
+            "xiaohuashengApp": 5341638
+          },
+          "title": "小羊上山儿童汉语分级读物第4级10 我想长大",
+          "cover": "https://img.xiaohuasheng.cn/1493179/Book/20220225113621.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d7ca9c21e80c87e7",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-5642517",
+      "title": "第5级",
+      "edition": "小羊上山儿童汉语分级读物第5级(10册)",
+      "grades": [
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787115603067",
+      "cover": "https://img.xiaohuasheng.cn/1622593/Book/20230201154136.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/ea80275fc5c3f97e",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-34f921e1bc80f413",
+          "externalIds": {
+            "xiaohuasheng": "34f921e1bc80f413",
+            "xiaohuashengApp": 5691744
+          },
+          "title": "小羊上山•第5级•公主想要一个月亮",
+          "cover": "https://img.xiaohuasheng.cn/1872232/Book/20230216215200.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/34f921e1bc80f413",
+          "order": 1
+        },
+        {
+          "id": "xhs-8fc832ea292b6f2e",
+          "externalIds": {
+            "xiaohuasheng": "8fc832ea292b6f2e",
+            "xiaohuashengApp": 5990680
+          },
+          "title": "小羊上山•第5级•花灯为什么少1个",
+          "cover": "https://img.xiaohuasheng.cn/1164829/Book/20230812212030.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8fc832ea292b6f2e",
+          "order": 2
+        },
+        {
+          "id": "xhs-663771f9a579d1bc",
+          "externalIds": {
+            "xiaohuasheng": "663771f9a579d1bc",
+            "xiaohuashengApp": 5691764
+          },
+          "title": "小羊上山第5级•想不到吧?",
+          "cover": "https://img.xiaohuasheng.cn/1200342/Book/20240512130559.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/663771f9a579d1bc",
+          "order": 3
+        },
+        {
+          "id": "xhs-f8e598c7683c62f2",
+          "externalIds": {
+            "xiaohuasheng": "f8e598c7683c62f2",
+            "xiaohuashengApp": 5691755
+          },
+          "title": "小羊上山第5级•谁是小北的好朋友",
+          "cover": "https://img.xiaohuasheng.cn/1872232/Book/20230216215659.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f8e598c7683c62f2",
+          "order": 4
+        },
+        {
+          "id": "xhs-323dc467bdfb156c",
+          "externalIds": {
+            "xiaohuasheng": "323dc467bdfb156c",
+            "xiaohuashengApp": 5691760
+          },
+          "title": "小羊上山第5级•小丽做娃娃",
+          "cover": "https://img.xiaohuasheng.cn/1872232/Book/20230216215825.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/323dc467bdfb156c",
+          "order": 5
+        },
+        {
+          "id": "xhs-69e276890583f94f",
+          "externalIds": {
+            "xiaohuasheng": "69e276890583f94f",
+            "xiaohuashengApp": 5691735
+          },
+          "title": "小羊上山•第5级•跳跳虫不回家",
+          "cover": "https://img.xiaohuasheng.cn/1872232/Book/20230216214842.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/69e276890583f94f",
+          "order": 6
+        },
+        {
+          "id": "xhs-13036dd9a578560a",
+          "externalIds": {
+            "xiaohuasheng": "13036dd9a578560a",
+            "xiaohuashengApp": 5691765
+          },
+          "title": "小羊上山第5级•我想当领唱",
+          "cover": "https://img.xiaohuasheng.cn/1872232/Book/20230216220125.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/13036dd9a578560a",
+          "order": 7
+        },
+        {
+          "id": "xhs-193a184dc57dd903",
+          "externalIds": {
+            "xiaohuasheng": "193a184dc57dd903",
+            "xiaohuashengApp": 5691753
+          },
+          "title": "小羊上山第5级•知了的一生",
+          "cover": "https://img.xiaohuasheng.cn/1872232/Book/20230216215523.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/193a184dc57dd903",
+          "order": 8
+        },
+        {
+          "id": "xhs-9bb265502cd5ea1b",
+          "externalIds": {
+            "xiaohuasheng": "9bb265502cd5ea1b",
+            "xiaohuashengApp": 5641473
+          },
+          "title": "小羊上山第5级•乐乐猜字谜",
+          "cover": "https://img.xiaohuasheng.cn/1426028/Book/20230123110751.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9bb265502cd5ea1b",
+          "order": 9
+        },
+        {
+          "id": "xhs-1aa9ef0c09d6ede0",
+          "externalIds": {
+            "xiaohuasheng": "1aa9ef0c09d6ede0",
+            "xiaohuashengApp": 5691770
+          },
+          "title": "小羊上山第5级•太阳和八大行星",
+          "cover": "https://img.xiaohuasheng.cn/1812132/Book/20250211202343.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1aa9ef0c09d6ede0",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-6411352",
+      "title": "第6级",
+      "edition": "小羊上山儿童汉语分级读物第6级(10册)",
+      "grades": [
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787115637543",
+      "cover": "https://img.xiaohuasheng.cn/1501497/Book/20251212082208.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/51c07e337b20535d",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-6e8acfa9c530562a",
+          "externalIds": {
+            "xiaohuasheng": "6e8acfa9c530562a",
+            "xiaohuashengApp": 6762259
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 小七练书法",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090542.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6e8acfa9c530562a",
+          "order": 1
+        },
+        {
+          "id": "xhs-a9169902912facac",
+          "externalIds": {
+            "xiaohuasheng": "a9169902912facac",
+            "xiaohuashengApp": 6762261
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 雪人要不要穿毛衣",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090632.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a9169902912facac",
+          "order": 2
+        },
+        {
+          "id": "xhs-64d62dd943af3ca0",
+          "externalIds": {
+            "xiaohuasheng": "64d62dd943af3ca0",
+            "xiaohuashengApp": 6762262
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 跳跳虫老了",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090704.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/64d62dd943af3ca0",
+          "order": 3
+        },
+        {
+          "id": "xhs-fbe339dd112ed98e",
+          "externalIds": {
+            "xiaohuasheng": "fbe339dd112ed98e",
+            "xiaohuashengApp": 6762264
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 谁是最出色的诗人",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090729.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fbe339dd112ed98e",
+          "order": 4
+        },
+        {
+          "id": "xhs-4a8d746d912e6444",
+          "externalIds": {
+            "xiaohuasheng": "4a8d746d912e6444",
+            "xiaohuashengApp": 6762265
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 国王的新衣",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090759.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4a8d746d912e6444",
+          "order": 5
+        },
+        {
+          "id": "xhs-b95988a2512dbbbf",
+          "externalIds": {
+            "xiaohuasheng": "b95988a2512dbbbf",
+            "xiaohuashengApp": 6762268
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 爸爸的高台狮舞",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090841.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b95988a2512dbbbf",
+          "order": 6
+        },
+        {
+          "id": "xhs-7e922825912d4948",
+          "externalIds": {
+            "xiaohuasheng": "7e922825912d4948",
+            "xiaohuashengApp": 6762269
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 米朵的小耳机",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090912.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7e922825912d4948",
+          "order": 7
+        },
+        {
+          "id": "xhs-5831e42c912cd8c5",
+          "externalIds": {
+            "xiaohuasheng": "5831e42c912cd8c5",
+            "xiaohuashengApp": 6762270
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 我要去远方!",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009090941.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5831e42c912cd8c5",
+          "order": 8
+        },
+        {
+          "id": "xhs-3edf6bac912c4bc1",
+          "externalIds": {
+            "xiaohuasheng": "3edf6bac912c4bc1",
+            "xiaohuashengApp": 6762271
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 我心里有一个大房子",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009091013.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3edf6bac912c4bc1",
+          "order": 9
+        },
+        {
+          "id": "xhs-403363f84d2bce8e",
+          "externalIds": {
+            "xiaohuasheng": "403363f84d2bce8e",
+            "xiaohuashengApp": 6762274
+          },
+          "title": "小羊上山儿童汉语分级读物第6级: 树木",
+          "cover": "https://img.xiaohuasheng.cn/2016554/Book/20241009091049.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/403363f84d2bce8e",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "little-sheep",
+      "id": "xhs-collection-8039744",
+      "title": "第7级",
+      "edition": "小羊上山儿童汉语分级读物第7级(10册)",
+      "grades": [
+        "middle",
+        "senior"
+      ],
+      "isbn": "",
+      "cover": "https://img.xiaohuasheng.cn/124244/Book/20260812145558.png",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/e8881cd39e5e4b07",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "已核对本级10册。",
+      "books": [
+        {
+          "id": "xhs-e7f2d33fdcbadaa4",
+          "externalIds": {
+            "xiaohuasheng": "e7f2d33fdcbadaa4",
+            "xiaohuashengApp": 8021569
+          },
+          "title": "小羊上山儿童汉语分级读物第7级: 快跑, 玉米、土豆和南瓜",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001312.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e7f2d33fdcbadaa4",
+          "order": 1
+        },
+        {
+          "id": "xhs-f11d90e1bd321623",
+          "externalIds": {
+            "xiaohuasheng": "f11d90e1bd321623",
+            "xiaohuashengApp": 8021571
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:花木兰",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001402.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f11d90e1bd321623",
+          "order": 2
+        },
+        {
+          "id": "xhs-78a17b49dc3108a8",
+          "externalIds": {
+            "xiaohuasheng": "78a17b49dc3108a8",
+            "xiaohuashengApp": 8021573
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:石头, 石头, 开门吧!",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001512.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/78a17b49dc3108a8",
+          "order": 3
+        },
+        {
+          "id": "xhs-6445db2f2c2fca5c",
+          "externalIds": {
+            "xiaohuasheng": "6445db2f2c2fca5c",
+            "xiaohuashengApp": 8021575
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:乐乐种小麦",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001633.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6445db2f2c2fca5c",
+          "order": 4
+        },
+        {
+          "id": "xhs-46a2519a4c2f13e1",
+          "externalIds": {
+            "xiaohuasheng": "46a2519a4c2f13e1",
+            "xiaohuashengApp": 8021576
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:边巴和狼",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001719.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/46a2519a4c2f13e1",
+          "order": 5
+        },
+        {
+          "id": "xhs-28b9f08d4c2e8d08",
+          "externalIds": {
+            "xiaohuasheng": "28b9f08d4c2e8d08",
+            "xiaohuashengApp": 8021577
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:跳跳虫去上学",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001753.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/28b9f08d4c2e8d08",
+          "order": 6
+        },
+        {
+          "id": "xhs-518859c04c2e0117",
+          "externalIds": {
+            "xiaohuasheng": "518859c04c2e0117",
+            "xiaohuashengApp": 8021578
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:一棵苹果树",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001830.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/518859c04c2e0117",
+          "order": 7
+        },
+        {
+          "id": "xhs-49c696f96c2d98f0",
+          "externalIds": {
+            "xiaohuasheng": "49c696f96c2d98f0",
+            "xiaohuashengApp": 8021580
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:青蛙王子",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001856.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/49c696f96c2d98f0",
+          "order": 8
+        },
+        {
+          "id": "xhs-7488085e6c2cfed3",
+          "externalIds": {
+            "xiaohuasheng": "7488085e6c2cfed3",
+            "xiaohuashengApp": 8021581
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:我的小鸭船长",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001936.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7488085e6c2cfed3",
+          "order": 9
+        },
+        {
+          "id": "xhs-9b0071904c3053e2",
+          "externalIds": {
+            "xiaohuasheng": "9b0071904c3053e2",
+            "xiaohuashengApp": 8021574
+          },
+          "title": "小羊上山儿童汉语分级读物第7级:石蜂的家",
+          "cover": "https://img.xiaohuasheng.cn/2098164/Book/20260731001557.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9b0071904c3053e2",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-reading",
+      "id": "xhs-collection-5656867",
+      "title": "萌芽篇",
+      "edition": "摩比汉语分级阅读萌芽篇",
+      "grades": [
+        "junior"
+      ],
+      "isbn": "9787507557701",
+      "cover": "https://img.xiaohuasheng.cn/2411494/Book/20260117212348.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/8df5aad7509a45bf",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "",
+      "books": [
+        {
+          "id": "xhs-7bd5f44d3491b219",
+          "externalIds": {
+            "xiaohuasheng": "7bd5f44d3491b219",
+            "xiaohuashengApp": 5661326
+          },
+          "title": "摩比汉语分级阅读萌芽篇01-你好, 小兔",
+          "cover": "https://img.xiaohuasheng.cn/2421184/Book/20260127214018.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7bd5f44d3491b219",
+          "order": 1
+        },
+        {
+          "id": "xhs-304c1347d8141c02",
+          "externalIds": {
+            "xiaohuasheng": "304c1347d8141c02",
+            "xiaohuashengApp": 5669320
+          },
+          "title": "摩比汉语分级阅读萌芽篇02-好饿的毛毛虫",
+          "cover": "https://img.xiaohuasheng.cn/1690838/Book/20241222130143.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/304c1347d8141c02",
+          "order": 2
+        },
+        {
+          "id": "xhs-7dde0a7ff335b423",
+          "externalIds": {
+            "xiaohuasheng": "7dde0a7ff335b423",
+            "xiaohuashengApp": 5670242
+          },
+          "title": "摩比汉语分级阅读萌芽篇03-三二一, 飞",
+          "cover": "https://img.xiaohuasheng.cn/2283989/Book/20260215191832.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7dde0a7ff335b423",
+          "order": 3
+        },
+        {
+          "id": "xhs-339b8619429b68c7",
+          "externalIds": {
+            "xiaohuasheng": "339b8619429b68c7",
+            "xiaohuashengApp": 5670067
+          },
+          "title": "摩比汉语分级阅读萌芽篇04-猪小弟和他的朋友",
+          "cover": "https://img.xiaohuasheng.cn/2185108/Book/20260811214148.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/339b8619429b68c7",
+          "order": 4
+        },
+        {
+          "id": "xhs-c6cb238a9b3f4a4f",
+          "externalIds": {
+            "xiaohuasheng": "c6cb238a9b3f4a4f",
+            "xiaohuashengApp": 5681412
+          },
+          "title": "摩比汉语分级阅读萌芽篇05-谁在跳跳跳",
+          "cover": "https://img.xiaohuasheng.cn/2424371/Book/20260206192645.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c6cb238a9b3f4a4f",
+          "order": 5
+        },
+        {
+          "id": "xhs-4e3d85302d4363fb",
+          "externalIds": {
+            "xiaohuasheng": "4e3d85302d4363fb",
+            "xiaohuashengApp": 5670246
+          },
+          "title": "摩比汉语分级阅读萌芽篇06-和爸爸一起玩",
+          "cover": "https://img.xiaohuasheng.cn/2283989/Book/20260217145050.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4e3d85302d4363fb",
+          "order": 6
+        },
+        {
+          "id": "xhs-d06bfda585447fc2",
+          "externalIds": {
+            "xiaohuasheng": "d06bfda585447fc2",
+            "xiaohuashengApp": 5670244
+          },
+          "title": "摩比汉语分级阅读萌芽篇07-小老鼠不睡觉",
+          "cover": "https://img.xiaohuasheng.cn/2185108/Book/20260822132921.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d06bfda585447fc2",
+          "order": 7
+        },
+        {
+          "id": "xhs-d51a89ac1d43d99c",
+          "externalIds": {
+            "xiaohuasheng": "d51a89ac1d43d99c",
+            "xiaohuashengApp": 5670245
+          },
+          "title": "摩比汉语分级阅读萌芽篇08-这是谁的家",
+          "cover": "https://img.xiaohuasheng.cn/2185108/Book/20260825191926.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d51a89ac1d43d99c",
+          "order": 8
+        },
+        {
+          "id": "xhs-47a85f3758c110fe",
+          "externalIds": {
+            "xiaohuasheng": "47a85f3758c110fe",
+            "xiaohuashengApp": 5681408
+          },
+          "title": "摩比汉语分级阅读萌芽篇09-好天气去哪玩",
+          "cover": "https://img.xiaohuasheng.cn/2414341/Book/20260111171902.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/47a85f3758c110fe",
+          "order": 9
+        },
+        {
+          "id": "xhs-da316eba5e90a0b3",
+          "externalIds": {
+            "xiaohuasheng": "da316eba5e90a0b3",
+            "xiaohuashengApp": 5661328
+          },
+          "title": "摩比汉语分级阅读萌芽篇10-我的小小手",
+          "cover": "https://img.xiaohuasheng.cn/2106466/Book/20250718104144.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/da316eba5e90a0b3",
+          "order": 10
+        },
+        {
+          "id": "xhs-625806dff2c20ea9",
+          "externalIds": {
+            "xiaohuasheng": "625806dff2c20ea9",
+            "xiaohuashengApp": 5681401
+          },
+          "title": "摩比汉语分级阅读萌芽篇11-我想有件花衣裳",
+          "cover": "https://img.xiaohuasheng.cn/2185108/Book/20260922221358.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/625806dff2c20ea9",
+          "order": 11
+        },
+        {
+          "id": "xhs-d64af5b87ff53d64",
+          "externalIds": {
+            "xiaohuasheng": "d64af5b87ff53d64",
+            "xiaohuashengApp": 5670243
+          },
+          "title": "摩比汉语分级阅读萌芽篇12-小花生长大了",
+          "cover": "https://img.xiaohuasheng.cn/1750403/Book/20251203114419.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d64af5b87ff53d64",
+          "order": 12
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-reading",
+      "id": "xhs-collection-5660289",
+      "title": "飞跃篇",
+      "edition": "学而思 摩比汉语分级阅读飞跃篇",
+      "grades": [
+        "middle"
+      ],
+      "isbn": "9787507557565",
+      "cover": "https://img.xiaohuasheng.cn/1832677/Book/20230402191421.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/a0f81e9b63c66662",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "",
+      "books": [
+        {
+          "id": "xhs-d8488d229d256d3e",
+          "externalIds": {
+            "xiaohuasheng": "d8488d229d256d3e",
+            "xiaohuashengApp": 5659640
+          },
+          "title": "摩比汉语分级阅读飞跃篇1-神奇的南瓜",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260117175937.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d8488d229d256d3e",
+          "order": 1
+        },
+        {
+          "id": "xhs-214d6c29e7a6a220",
+          "externalIds": {
+            "xiaohuasheng": "214d6c29e7a6a220",
+            "xiaohuashengApp": 5659638
+          },
+          "title": "摩比汉语分级阅读飞跃篇2-谁喝光了蜂蜜",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260117180028.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/214d6c29e7a6a220",
+          "order": 2
+        },
+        {
+          "id": "xhs-580bb78652c2b45",
+          "externalIds": {
+            "xiaohuasheng": "580bb78652c2b45",
+            "xiaohuashengApp": 5659627
+          },
+          "title": "摩比汉语分级阅读飞跃篇3-绿豆芽",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260117180134.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/580bb78652c2b45",
+          "order": 3
+        },
+        {
+          "id": "xhs-567fb4dcec4b0733",
+          "externalIds": {
+            "xiaohuasheng": "567fb4dcec4b0733",
+            "xiaohuashengApp": 5659630
+          },
+          "title": "摩比汉语分级阅读飞跃篇4-关灯后的大怪物",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192132.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/567fb4dcec4b0733",
+          "order": 4
+        },
+        {
+          "id": "xhs-4b447a22b231c8dd",
+          "externalIds": {
+            "xiaohuasheng": "4b447a22b231c8dd",
+            "xiaohuashengApp": 5670510
+          },
+          "title": "摩比汉语分级阅读飞跃篇5-我送星星回家",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192402.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4b447a22b231c8dd",
+          "order": 5
+        },
+        {
+          "id": "xhs-3b3e92b08f2d8554",
+          "externalIds": {
+            "xiaohuasheng": "3b3e92b08f2d8554",
+            "xiaohuashengApp": 5659626
+          },
+          "title": "摩比汉语分级阅读飞跃篇6-小黑羊的新毛衣",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192500.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3b3e92b08f2d8554",
+          "order": 6
+        },
+        {
+          "id": "xhs-71b404ba83ae9f27",
+          "externalIds": {
+            "xiaohuasheng": "71b404ba83ae9f27",
+            "xiaohuashengApp": 5659623
+          },
+          "title": "摩比汉语分级阅读飞跃篇7-小海龟历险记",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192558.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/71b404ba83ae9f27",
+          "order": 7
+        },
+        {
+          "id": "xhs-d66d90205133579d",
+          "externalIds": {
+            "xiaohuasheng": "d66d90205133579d",
+            "xiaohuashengApp": 5659615
+          },
+          "title": "摩比汉语分级阅读飞跃篇8-我的影子朋友",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192650.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d66d90205133579d",
+          "order": 8
+        },
+        {
+          "id": "xhs-3de5da58ec8de2f",
+          "externalIds": {
+            "xiaohuasheng": "3de5da58ec8de2f",
+            "xiaohuashengApp": 5661275
+          },
+          "title": "摩比汉语分级阅读飞跃篇9-不一样的一天",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192734.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3de5da58ec8de2f",
+          "order": 9
+        },
+        {
+          "id": "xhs-f35e34cc43b63e44",
+          "externalIds": {
+            "xiaohuasheng": "f35e34cc43b63e44",
+            "xiaohuashengApp": 5670963
+          },
+          "title": "摩比汉语分级阅读飞跃篇10-谁都找不到",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192828.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f35e34cc43b63e44",
+          "order": 10
+        },
+        {
+          "id": "xhs-7cea73a7271b238",
+          "externalIds": {
+            "xiaohuasheng": "7cea73a7271b238",
+            "xiaohuashengApp": 5670033
+          },
+          "title": "摩比汉语分级阅读飞跃篇11-第一次坐动车",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118192918.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7cea73a7271b238",
+          "order": 11
+        },
+        {
+          "id": "xhs-588ba4bb1e78a77e",
+          "externalIds": {
+            "xiaohuasheng": "588ba4bb1e78a77e",
+            "xiaohuashengApp": 5671452
+          },
+          "title": "摩比汉语分级阅读飞跃篇12-暴风雨来了",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118193008.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/588ba4bb1e78a77e",
+          "order": 12
+        },
+        {
+          "id": "xhs-cbe3bb2251d6e605",
+          "externalIds": {
+            "xiaohuasheng": "cbe3bb2251d6e605",
+            "xiaohuashengApp": 5673671
+          },
+          "title": "摩比汉语分级阅读飞跃篇13-点点生气了",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118193053.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cbe3bb2251d6e605",
+          "order": 13
+        },
+        {
+          "id": "xhs-f9565e34f9d5f8ca",
+          "externalIds": {
+            "xiaohuasheng": "f9565e34f9d5f8ca",
+            "xiaohuashengApp": 5673672
+          },
+          "title": "摩比汉语分级阅读飞跃篇14-了不起的人",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118193148.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f9565e34f9d5f8ca",
+          "order": 14
+        },
+        {
+          "id": "xhs-b6ebe60cc7b1998",
+          "externalIds": {
+            "xiaohuasheng": "b6ebe60cc7b1998",
+            "xiaohuashengApp": 5672439
+          },
+          "title": "摩比汉语分级阅读飞跃篇15-海马爸爸生孩子",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260118193225.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b6ebe60cc7b1998",
+          "order": 15
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-reading",
+      "id": "xhs-collection-5660288",
+      "title": "成长篇",
+      "edition": "学而思 摩比汉语分级阅读成长篇",
+      "grades": [
+        "senior"
+      ],
+      "isbn": "9787507557695",
+      "cover": "https://img.xiaohuasheng.cn/1216817/Book/20250421065800.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/5cebbc67f3c6946a",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "",
+      "books": [
+        {
+          "id": "xhs-3728f63bc9d418f7",
+          "externalIds": {
+            "xiaohuasheng": "3728f63bc9d418f7",
+            "xiaohuashengApp": 5673673
+          },
+          "title": "摩比汉语分级阅读成长篇-纸飞机和狗狗",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128175020.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3728f63bc9d418f7",
+          "order": 1
+        },
+        {
+          "id": "xhs-aebf1d3d3d881f59",
+          "externalIds": {
+            "xiaohuasheng": "aebf1d3d3d881f59",
+            "xiaohuashengApp": 5915553
+          },
+          "title": "摩比汉语分级阅读成长篇-海上奇遇记",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128173735.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/aebf1d3d3d881f59",
+          "order": 2
+        },
+        {
+          "id": "xhs-d738ea64d7c74867",
+          "externalIds": {
+            "xiaohuasheng": "d738ea64d7c74867",
+            "xiaohuashengApp": 5915555
+          },
+          "title": "摩比汉语分级阅读成长篇-胖胖的也很好",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128173627.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d738ea64d7c74867",
+          "order": 3
+        },
+        {
+          "id": "xhs-d25bdb1aed857939",
+          "externalIds": {
+            "xiaohuasheng": "d25bdb1aed857939",
+            "xiaohuashengApp": 5915557
+          },
+          "title": "摩比汉语分级阅读成长篇-乡下老鼠和城里老鼠",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174948.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d25bdb1aed857939",
+          "order": 4
+        },
+        {
+          "id": "xhs-1b8d397cef848d68",
+          "externalIds": {
+            "xiaohuasheng": "1b8d397cef848d68",
+            "xiaohuashengApp": 5915558
+          },
+          "title": "摩比汉语分级阅读成长篇-猪小黑和猪小白",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128173924.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1b8d397cef848d68",
+          "order": 5
+        },
+        {
+          "id": "xhs-23bc3f8185838c6e",
+          "externalIds": {
+            "xiaohuasheng": "23bc3f8185838c6e",
+            "xiaohuashengApp": 5915560
+          },
+          "title": "摩比汉语分级阅读成长篇-小骨头大秘密",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260130092926.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/23bc3f8185838c6e",
+          "order": 6
+        },
+        {
+          "id": "xhs-9313de12c382b409",
+          "externalIds": {
+            "xiaohuasheng": "9313de12c382b409",
+            "xiaohuashengApp": 5915563
+          },
+          "title": "摩比汉语分级阅读成长篇-中国名片",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260130092956.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9313de12c382b409",
+          "order": 7
+        },
+        {
+          "id": "xhs-70e886dd1e4ce81",
+          "externalIds": {
+            "xiaohuasheng": "70e886dd1e4ce81",
+            "xiaohuashengApp": 5721857
+          },
+          "title": "摩比汉语分级阅读成长篇-中国二十四节气",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174654.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/70e886dd1e4ce81",
+          "order": 8
+        },
+        {
+          "id": "xhs-197b7daa4414068",
+          "externalIds": {
+            "xiaohuasheng": "197b7daa4414068",
+            "xiaohuashengApp": 5915569
+          },
+          "title": "摩比汉语分级阅读成长篇-一只猫的秘密果园",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174213.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/197b7daa4414068",
+          "order": 9
+        },
+        {
+          "id": "xhs-dac68310d65377e1",
+          "externalIds": {
+            "xiaohuasheng": "dac68310d65377e1",
+            "xiaohuashengApp": 5915572
+          },
+          "title": "摩比汉语分级阅读成长篇-松鸦爷爷的礼物",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174257.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/dac68310d65377e1",
+          "order": 10
+        },
+        {
+          "id": "xhs-14355c3fcf7e8b40",
+          "externalIds": {
+            "xiaohuasheng": "14355c3fcf7e8b40",
+            "xiaohuashengApp": 5915574
+          },
+          "title": "摩比汉语分级阅读成长篇-一只耳朵的小兔",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174336.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/14355c3fcf7e8b40",
+          "order": 11
+        },
+        {
+          "id": "xhs-f94ce8f7e57dc373",
+          "externalIds": {
+            "xiaohuasheng": "f94ce8f7e57dc373",
+            "xiaohuashengApp": 5915578
+          },
+          "title": "摩比汉语分级阅读成长篇-奶奶忘了什么?",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174424.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f94ce8f7e57dc373",
+          "order": 12
+        },
+        {
+          "id": "xhs-70c059dc957c4dde",
+          "externalIds": {
+            "xiaohuasheng": "70c059dc957c4dde",
+            "xiaohuashengApp": 5915583
+          },
+          "title": "摩比汉语分级阅读成长篇-晶晶的夏天",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174506.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/70c059dc957c4dde",
+          "order": 13
+        },
+        {
+          "id": "xhs-11e97964e57b85e8",
+          "externalIds": {
+            "xiaohuasheng": "11e97964e57b85e8",
+            "xiaohuashengApp": 5915584
+          },
+          "title": "摩比汉语分级阅读成长篇-我下了一颗大金蛋",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174611.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/11e97964e57b85e8",
+          "order": 14
+        },
+        {
+          "id": "xhs-113b32c6a57994af",
+          "externalIds": {
+            "xiaohuasheng": "113b32c6a57994af",
+            "xiaohuashengApp": 5915590
+          },
+          "title": "摩比汉语分级阅读成长篇-你好, 红裙子姐姐",
+          "cover": "https://img.xiaohuasheng.cn/2033115/Book/20260128174729.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/113b32c6a57994af",
+          "order": 15
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-math",
+      "id": "xhs-collection-6379231",
+      "title": "新版萌芽篇",
+      "edition": "摩比爱数学(新版)萌芽篇（10篇））",
+      "grades": [
+        "junior"
+      ],
+      "isbn": "9787572271397",
+      "cover": "https://img.xiaohuasheng.cn/2066657/Book/20240309230128.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/b554bd2054444c0e",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "新版10册目录，与原计划全年10本相符；上学期未指定具体哪5册，不擅自拆分。",
+      "books": [
+        {
+          "id": "xhs-6432a605010632b9",
+          "externalIds": {
+            "xiaohuasheng": "6432a605010632b9",
+            "xiaohuashengApp": 6958703
+          },
+          "title": "摩比爱数学(新版)萌芽篇1",
+          "cover": "https://img.xiaohuasheng.cn/2041756/Book/20250113220133.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6432a605010632b9",
+          "order": 1
+        },
+        {
+          "id": "xhs-ab09039eced16b4a",
+          "externalIds": {
+            "xiaohuasheng": "ab09039eced16b4a",
+            "xiaohuashengApp": 6977683
+          },
+          "title": "摩比爱数学(新版)萌芽篇2",
+          "cover": "https://img.xiaohuasheng.cn/2041756/Book/20250122212213.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ab09039eced16b4a",
+          "order": 2
+        },
+        {
+          "id": "xhs-2149245e5f4e947d",
+          "externalIds": {
+            "xiaohuasheng": "2149245e5f4e947d",
+            "xiaohuashengApp": 6517267
+          },
+          "title": "摩比爱数学(新版)萌芽篇3",
+          "cover": "https://img.xiaohuasheng.cn/2011937/Book/20240527211551.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2149245e5f4e947d",
+          "order": 3
+        },
+        {
+          "id": "xhs-6700b7b0951e0374",
+          "externalIds": {
+            "xiaohuasheng": "6700b7b0951e0374",
+            "xiaohuashengApp": 6529829
+          },
+          "title": "摩比爱数学(新版)萌芽篇4",
+          "cover": "https://img.xiaohuasheng.cn/2011937/Book/20240604211318.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6700b7b0951e0374",
+          "order": 4
+        },
+        {
+          "id": "xhs-9518bd2ebe02e3a8",
+          "externalIds": {
+            "xiaohuasheng": "9518bd2ebe02e3a8",
+            "xiaohuashengApp": 7198798
+          },
+          "title": "摩比爱数学(新版)萌芽篇5",
+          "cover": "https://img.xiaohuasheng.cn/2041756/Book/20250513221206.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9518bd2ebe02e3a8",
+          "order": 5
+        },
+        {
+          "id": "xhs-7660be66d9bb2a7e",
+          "externalIds": {
+            "xiaohuasheng": "7660be66d9bb2a7e",
+            "xiaohuashengApp": 7211904
+          },
+          "title": "摩比爱数学(新版)萌芽篇6",
+          "cover": "https://img.xiaohuasheng.cn/2041756/Book/20250520231637.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7660be66d9bb2a7e",
+          "order": 6
+        },
+        {
+          "id": "xhs-db34d5d6819b750f",
+          "externalIds": {
+            "xiaohuasheng": "db34d5d6819b750f",
+            "xiaohuashengApp": 6586137
+          },
+          "title": "摩比爱数学(新版)萌芽篇7",
+          "cover": "https://img.xiaohuasheng.cn/2011937/Book/20240706221327.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/db34d5d6819b750f",
+          "order": 7
+        },
+        {
+          "id": "xhs-97cbbeeebd344f07",
+          "externalIds": {
+            "xiaohuasheng": "97cbbeeebd344f07",
+            "xiaohuashengApp": 7428027
+          },
+          "title": "摩比爱数学(新版)萌芽篇8",
+          "cover": "https://img.xiaohuasheng.cn/2160364/Book/20250901090156.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/97cbbeeebd344f07",
+          "order": 8
+        },
+        {
+          "id": "xhs-4614c5bae4eaeb1f",
+          "externalIds": {
+            "xiaohuasheng": "4614c5bae4eaeb1f",
+            "xiaohuashengApp": 6624082
+          },
+          "title": "摩比爱数学(新版)萌芽篇9",
+          "cover": "https://img.xiaohuasheng.cn/2011937/Book/20240726204732.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4614c5bae4eaeb1f",
+          "order": 9
+        },
+        {
+          "id": "xhs-1691c1f76f0de02d",
+          "externalIds": {
+            "xiaohuasheng": "1691c1f76f0de02d",
+            "xiaohuashengApp": 6657543
+          },
+          "title": "摩比爱数学(新版)萌芽篇10",
+          "cover": "https://img.xiaohuasheng.cn/2011937/Book/20240814205209.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1691c1f76f0de02d",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-calculation",
+      "id": "xhs-collection-6811628",
+      "title": "飞跃篇",
+      "edition": "摩比爱计算 飞跃篇（5册）",
+      "grades": [
+        "senior"
+      ],
+      "isbn": "9787548957607",
+      "cover": "https://img.xiaohuasheng.cn/1/Book/20241102204739531.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/433b8fc5981c6537",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "",
+      "books": [
+        {
+          "id": "xhs-4cb009dd3702e9a1",
+          "externalIds": {
+            "xiaohuasheng": "4cb009dd3702e9a1",
+            "xiaohuashengApp": 5910020
+          },
+          "title": "摩比爱计算 飞跃篇  1心算大法",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20260508185926.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4cb009dd3702e9a1",
+          "order": 1
+        },
+        {
+          "id": "xhs-de044889c3796c9e",
+          "externalIds": {
+            "xiaohuasheng": "de044889c3796c9e",
+            "xiaohuashengApp": 5910056
+          },
+          "title": "摩比爱计算 飞跃篇  2加法十二招",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20260508190004.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/de044889c3796c9e",
+          "order": 2
+        },
+        {
+          "id": "xhs-47b95e42d776f996",
+          "externalIds": {
+            "xiaohuasheng": "47b95e42d776f996",
+            "xiaohuashengApp": 6572568
+          },
+          "title": "摩比爱计算飞跃篇3: 减法十二招",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20260508190039.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/47b95e42d776f996",
+          "order": 3
+        },
+        {
+          "id": "xhs-eab27068e2844036",
+          "externalIds": {
+            "xiaohuasheng": "eab27068e2844036",
+            "xiaohuashengApp": 6594356
+          },
+          "title": "摩比爱计算飞跃篇4 巧算十二技",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20260508190122.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/eab27068e2844036",
+          "order": 4
+        },
+        {
+          "id": "xhs-cea5d0ef03764848",
+          "externalIds": {
+            "xiaohuasheng": "cea5d0ef03764848",
+            "xiaohuashengApp": 5910074
+          },
+          "title": "摩比爱计算 飞跃篇  5加减竖式十二技",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20260508190151.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cea5d0ef03764848",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "materialId": "shichida",
+      "id": "xhs-collection-1664836",
+      "title": "4—5岁",
+      "edition": "七田真全脑开发练习册：专注力与记忆力+数学与逻辑思维 4-5岁 （全6册）",
+      "grades": [
+        "junior"
+      ],
+      "isbn": "7122200103520",
+      "cover": "https://img.xiaohuasheng.cn/1/Book/20181125095948022.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/2be3297e9b57bf5e",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "原计划5本，现核公共目录为两类各上中下共6册；作为可选参考版本，不改原计划。",
+      "books": [
+        {
+          "id": "xhs-65b24ec48ba94301",
+          "externalIds": {
+            "xiaohuasheng": "65b24ec48ba94301",
+            "xiaohuashengApp": 4532902
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 4～5岁 上册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230190841.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/65b24ec48ba94301",
+          "order": 1
+        },
+        {
+          "id": "xhs-a6bed7fb8ca5e572",
+          "externalIds": {
+            "xiaohuasheng": "a6bed7fb8ca5e572",
+            "xiaohuashengApp": 4532906
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 4～5岁 上册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191216.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a6bed7fb8ca5e572",
+          "order": 2
+        },
+        {
+          "id": "xhs-8901beb3ca38dd0c",
+          "externalIds": {
+            "xiaohuasheng": "8901beb3ca38dd0c",
+            "xiaohuashengApp": 4532903
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 4～5岁 中册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191001.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8901beb3ca38dd0c",
+          "order": 3
+        },
+        {
+          "id": "xhs-430314d34ca409e5",
+          "externalIds": {
+            "xiaohuasheng": "430314d34ca409e5",
+            "xiaohuashengApp": 4532908
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 4～5岁 中册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191431.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/430314d34ca409e5",
+          "order": 4
+        },
+        {
+          "id": "xhs-32046b894ca6f989",
+          "externalIds": {
+            "xiaohuasheng": "32046b894ca6f989",
+            "xiaohuashengApp": 4532905
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 4～5岁 下册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191125.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/32046b894ca6f989",
+          "order": 5
+        },
+        {
+          "id": "xhs-20552518dba32d76",
+          "externalIds": {
+            "xiaohuasheng": "20552518dba32d76",
+            "xiaohuashengApp": 4532909
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 4～5岁 下册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191529.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/20552518dba32d76",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "materialId": "shichida",
+      "id": "xhs-collection-1664839",
+      "title": "5—6岁",
+      "edition": "七田真全脑开发练习册：专注力与记忆力+数学与逻辑思维 5-6岁 （全6册）",
+      "grades": [
+        "middle"
+      ],
+      "isbn": "7122200103620",
+      "cover": "https://img.xiaohuasheng.cn/1/Book/20181125095949468.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/661e78134eda948d",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "原计划5本，现核目录6册，作为可选参考版本。",
+      "books": [
+        {
+          "id": "xhs-80be62040ca211e7",
+          "externalIds": {
+            "xiaohuasheng": "80be62040ca211e7",
+            "xiaohuashengApp": 4532915
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 5～6岁 上册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191629.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/80be62040ca211e7",
+          "order": 1
+        },
+        {
+          "id": "xhs-af75c6c74ca137cc",
+          "externalIds": {
+            "xiaohuasheng": "af75c6c74ca137cc",
+            "xiaohuashengApp": 4532919
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 5～6岁 中册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191736.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/af75c6c74ca137cc",
+          "order": 2
+        },
+        {
+          "id": "xhs-70c1c443d6207f73",
+          "externalIds": {
+            "xiaohuasheng": "70c1c443d6207f73",
+            "xiaohuashengApp": 4532922
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 5～6岁 下册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191832.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/70c1c443d6207f73",
+          "order": 3
+        },
+        {
+          "id": "xhs-4e7b74494c9f8760",
+          "externalIds": {
+            "xiaohuasheng": "4e7b74494c9f8760",
+            "xiaohuashengApp": 4532925
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 5～6岁 上册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230191922.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4e7b74494c9f8760",
+          "order": 4
+        },
+        {
+          "id": "xhs-16adbaf877e6ba1d",
+          "externalIds": {
+            "xiaohuasheng": "16adbaf877e6ba1d",
+            "xiaohuashengApp": 4532928
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 5～6岁 中册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230192023.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/16adbaf877e6ba1d",
+          "order": 5
+        },
+        {
+          "id": "xhs-23e29397829defb7",
+          "externalIds": {
+            "xiaohuasheng": "23e29397829defb7",
+            "xiaohuashengApp": 4532931
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 5～6岁 下册",
+          "cover": "https://img.xiaohuasheng.cn/1294234/Book/20201230192117.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/23e29397829defb7",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "materialId": "shichida",
+      "id": "xhs-collection-1664841",
+      "title": "幼小衔接",
+      "edition": "七田真全脑开发练习册：专注力与记忆力+数学与逻辑思维 幼小衔接（全6册）",
+      "grades": [
+        "senior"
+      ],
+      "isbn": "7122200103720",
+      "cover": "https://img.xiaohuasheng.cn/1/Book/20181125095949999.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/78e3ce8497e5e4fb",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "原计划5本，现核目录6册，作为可选参考版本。",
+      "books": [
+        {
+          "id": "xhs-bf1a634d2ab81d9c",
+          "externalIds": {
+            "xiaohuasheng": "bf1a634d2ab81d9c",
+            "xiaohuashengApp": 3656367
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 幼小衔接上册",
+          "cover": "https://img.xiaohuasheng.cn/1141123/Book/20200426145816.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bf1a634d2ab81d9c",
+          "order": 1
+        },
+        {
+          "id": "xhs-c2111886785c550e",
+          "externalIds": {
+            "xiaohuasheng": "c2111886785c550e",
+            "xiaohuashengApp": 3985644
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 幼小衔接中册",
+          "cover": "https://img.xiaohuasheng.cn/1137617/Book/20200704102425.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c2111886785c550e",
+          "order": 2
+        },
+        {
+          "id": "xhs-6e0b44e88dd17f15",
+          "externalIds": {
+            "xiaohuasheng": "6e0b44e88dd17f15",
+            "xiaohuashengApp": 3560605
+          },
+          "title": "七田真全脑开发练习册：专注力与记忆力 幼小衔接下册",
+          "cover": "https://img.xiaohuasheng.cn/457537/Book/20200413141614.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6e0b44e88dd17f15",
+          "order": 3
+        },
+        {
+          "id": "xhs-94002eb6ef428c80",
+          "externalIds": {
+            "xiaohuasheng": "94002eb6ef428c80",
+            "xiaohuashengApp": 4909073
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 幼小衔接上册",
+          "cover": "https://img.xiaohuasheng.cn/1506435/Book/20210417105120.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/94002eb6ef428c80",
+          "order": 4
+        },
+        {
+          "id": "xhs-92446bb375d34284",
+          "externalIds": {
+            "xiaohuasheng": "92446bb375d34284",
+            "xiaohuashengApp": 3560599
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 幼小衔接中册",
+          "cover": "https://img.xiaohuasheng.cn/457537/Book/20200413141418.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/92446bb375d34284",
+          "order": 5
+        },
+        {
+          "id": "xhs-4aac5a88b693aa79",
+          "externalIds": {
+            "xiaohuasheng": "4aac5a88b693aa79",
+            "xiaohuashengApp": 3560597
+          },
+          "title": "七田真全脑开发练习册：数学与逻辑思维 幼小衔接下册",
+          "cover": "https://img.xiaohuasheng.cn/457537/Book/20200413141350.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4aac5a88b693aa79",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "materialId": "seven-skills",
+      "id": "xhs-collection-3841825",
+      "title": "4—5岁 · 学前七大能力课堂",
+      "edition": "学而思 学前七大能力课堂思维启蒙第一课 幼儿园中班1-6(4-5岁)图书 幼小衔接",
+      "grades": [
+        "junior"
+      ],
+      "isbn": "",
+      "cover": "https://img.xiaohuasheng.cn/1450600/Book/20200529224907.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/c833aed00717682a",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "原计划未列完整书名；此6册为可选参考版本，请按手头书核对。",
+      "books": [
+        {
+          "id": "xhs-ae8b17a3a743d907",
+          "externalIds": {
+            "xiaohuasheng": "ae8b17a3a743d907",
+            "xiaohuashengApp": 2729590
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-中班1",
+          "cover": "https://img.xiaohuasheng.cn/2029342/Book/20260802131437.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ae8b17a3a743d907",
+          "order": 1
+        },
+        {
+          "id": "xhs-42dafc936e02ebc7",
+          "externalIds": {
+            "xiaohuasheng": "42dafc936e02ebc7",
+            "xiaohuashengApp": 2729593
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-中班2",
+          "cover": "https://img.xiaohuasheng.cn/2029342/Book/20260802131501.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/42dafc936e02ebc7",
+          "order": 2
+        },
+        {
+          "id": "xhs-55c97611a5a1b5bd",
+          "externalIds": {
+            "xiaohuasheng": "55c97611a5a1b5bd",
+            "xiaohuashengApp": 2729597
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-中班3",
+          "cover": "https://img.xiaohuasheng.cn/2029342/Book/20260802131526.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/55c97611a5a1b5bd",
+          "order": 3
+        },
+        {
+          "id": "xhs-aeeb8aebf7348f67",
+          "externalIds": {
+            "xiaohuasheng": "aeeb8aebf7348f67",
+            "xiaohuashengApp": 2729614
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-中班4",
+          "cover": "https://img.xiaohuasheng.cn/2029342/Book/20260802131543.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/aeeb8aebf7348f67",
+          "order": 4
+        },
+        {
+          "id": "xhs-9e02e0fb06c3a484",
+          "externalIds": {
+            "xiaohuasheng": "9e02e0fb06c3a484",
+            "xiaohuashengApp": 2729616
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-中班5",
+          "cover": "https://img.xiaohuasheng.cn/2029342/Book/20260802131603.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9e02e0fb06c3a484",
+          "order": 5
+        },
+        {
+          "id": "xhs-e1a3a60a72d600c",
+          "externalIds": {
+            "xiaohuasheng": "e1a3a60a72d600c",
+            "xiaohuashengApp": 2729625
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-中班6",
+          "cover": "https://img.xiaohuasheng.cn/2029342/Book/20260802131625.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e1a3a60a72d600c",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "materialId": "seven-skills",
+      "id": "xhs-collection-5526612",
+      "title": "5—6岁 · 学前七大能力课堂",
+      "edition": "学而思 学前七大能力课堂思维启蒙第一课·大班(全6册)",
+      "grades": [
+        "middle"
+      ],
+      "isbn": "9787510684098",
+      "cover": "https://img.xiaohuasheng.cn/Douban/Book/20220821213522188_480ad5ad7c273eb9a20e31493ccd3a0c.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/ad2d9bbd3f6284a9",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "原计划未列完整书名；此6册为可选参考版本，请按手头书核对。",
+      "books": [
+        {
+          "id": "xhs-184a7504b73df133",
+          "externalIds": {
+            "xiaohuasheng": "184a7504b73df133",
+            "xiaohuashengApp": 2729778
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-大班1",
+          "cover": "https://img.xiaohuasheng.cn/318153/Book/20191014133342.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/184a7504b73df133",
+          "order": 1
+        },
+        {
+          "id": "xhs-a0fa44e9b73d2551",
+          "externalIds": {
+            "xiaohuasheng": "a0fa44e9b73d2551",
+            "xiaohuashengApp": 2729781
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-大班2",
+          "cover": "https://img.xiaohuasheng.cn/318153/Book/20191014133435.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a0fa44e9b73d2551",
+          "order": 2
+        },
+        {
+          "id": "xhs-c65f5579373c5c4f",
+          "externalIds": {
+            "xiaohuasheng": "c65f5579373c5c4f",
+            "xiaohuashengApp": 2729786
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-大班3",
+          "cover": "https://img.xiaohuasheng.cn/318153/Book/20191014133526.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c65f5579373c5c4f",
+          "order": 3
+        },
+        {
+          "id": "xhs-6163a45e373b2af8",
+          "externalIds": {
+            "xiaohuasheng": "6163a45e373b2af8",
+            "xiaohuashengApp": 2729796
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-大班4",
+          "cover": "https://img.xiaohuasheng.cn/318153/Book/20191014133644.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6163a45e373b2af8",
+          "order": 4
+        },
+        {
+          "id": "xhs-f16a3d4b5d69b6ac",
+          "externalIds": {
+            "xiaohuasheng": "f16a3d4b5d69b6ac",
+            "xiaohuashengApp": 2729802
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-大班5",
+          "cover": "https://img.xiaohuasheng.cn/318153/Book/20191014133820.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f16a3d4b5d69b6ac",
+          "order": 5
+        },
+        {
+          "id": "xhs-fe07b0dfb7388e7d",
+          "externalIds": {
+            "xiaohuasheng": "fe07b0dfb7388e7d",
+            "xiaohuashengApp": 2729805
+          },
+          "title": "学而思-学前七大能力课堂-思维启蒙第1课-大班6",
+          "cover": "https://img.xiaohuasheng.cn/318153/Book/20191014133935.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fe07b0dfb7388e7d",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-math",
+      "id": "xhs-collection-1313148",
+      "title": "探索篇旧版 · 摩比爱数学 探索篇1-3（全3册）",
+      "edition": "摩比爱数学 探索篇1-3（全3册）",
+      "grades": [
+        "middle"
+      ],
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/db91e7634f7c2fc2",
+      "cover": "https://img.xiaohuasheng.cn/124244/Book/20190805111859369.jpg",
+      "checkedAt": "2026-11-18",
+      "note": "此为旧版3册分辑，可供选用；与原计划新版10本不同，不自动替代。",
+      "books": [
+        {
+          "id": "xhs-48f371b2fc3ca70f",
+          "title": "摩比爱数学 探索篇1",
+          "cover": "https://img.xiaohuasheng.cn/2269636/Book/20251105210801.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/48f371b2fc3ca70f"
+        },
+        {
+          "id": "xhs-f8d519e9023c4e81",
+          "title": "摩比爱数学 探索篇2",
+          "cover": "https://img.xiaohuasheng.cn/2269636/Book/20251105210153.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f8d519e9023c4e81"
+        },
+        {
+          "id": "xhs-85188509623bf87b",
+          "title": "摩比爱数学 探索篇3",
+          "cover": "https://img.xiaohuasheng.cn/2269636/Book/20251113000746.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/85188509623bf87b"
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-math",
+      "id": "xhs-collection-1023972",
+      "title": "探索篇旧版 · 摩比爱数学 探索篇4",
+      "edition": "摩比爱数学 探索篇4",
+      "grades": [
+        "middle"
+      ],
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/302b345077194276",
+      "cover": "https://img.xiaohuasheng.cn/1973573/Book/20260516221543.jpg",
+      "checkedAt": "2026-11-18",
+      "note": "此为旧版3册分辑，可供选用；与原计划新版10本不同，不自动替代。",
+      "books": [
+        {
+          "id": "xhs-37a517e2463bc638",
+          "title": "摩比爱数学 探索篇4",
+          "cover": "https://img.xiaohuasheng.cn/2269636/Book/20260209082611.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/37a517e2463bc638"
+        },
+        {
+          "id": "xhs-aadbebb5223b95ce",
+          "title": "摩比爱数学 探索篇5",
+          "cover": "https://img.xiaohuasheng.cn/2269636/Book/20260213090853.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/aadbebb5223b95ce"
+        },
+        {
+          "id": "xhs-922cee76942b6599",
+          "title": "摩比爱数学 探索篇6",
+          "cover": "https://img.xiaohuasheng.cn/2269636/Book/20260302233214.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/922cee76942b6599"
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-math",
+      "id": "xhs-collection-1331050",
+      "title": "飞跃篇旧版 · 摩比爱数学 飞跃篇1-3（全3册）",
+      "edition": "摩比爱数学 飞跃篇1-3（全3册）",
+      "grades": [
+        "senior"
+      ],
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/b3af5f681557427e",
+      "cover": "https://img.xiaohuasheng.cn/124244/Book/20190627175318608.jpg",
+      "checkedAt": "2026-11-18",
+      "note": "此为旧版3册分辑，可供选用；与原计划新版10本不同，不自动替代。",
+      "books": [
+        {
+          "id": "xhs-64c462f5223afbc0",
+          "title": "摩比爱数学 飞跃篇1",
+          "cover": "https://img.xiaohuasheng.cn/1827680/Book/20260921150506.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/64c462f5223afbc0"
+        },
+        {
+          "id": "xhs-6374562f223ad1c6",
+          "title": "摩比爱数学 飞跃篇2",
+          "cover": "https://img.xiaohuasheng.cn/1121637/Book/20190522122046.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6374562f223ad1c6"
+        },
+        {
+          "id": "xhs-4e09e416863aaa7b",
+          "title": "摩比爱数学 飞跃篇3",
+          "cover": "https://img.xiaohuasheng.cn/1121637/Book/20190522122056.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4e09e416863aaa7b"
+        }
+      ]
+    },
+    {
+      "materialId": "mobi-math",
+      "id": "xhs-collection-1023970",
+      "title": "飞跃篇旧版 · 摩比爱数学 飞跃篇4-6（全3册）",
+      "edition": "摩比爱数学 飞跃篇4-6（全3册）",
+      "grades": [
+        "senior"
+      ],
+      "sourceUrl": "https://www.xiaohuasheng.cn/book/13104508f3c1de3b",
+      "cover": "https://img.xiaohuasheng.cn/124244/Book/20190627175313466.jpg",
+      "checkedAt": "2026-11-18",
+      "note": "此为旧版3册分辑，可供选用；与原计划新版10本不同，不自动替代。",
+      "books": [
+        {
+          "id": "xhs-3a2a1bd1fa3a7e5e",
+          "title": "摩比爱数学 飞跃篇4",
+          "cover": "https://img.xiaohuasheng.cn/1121637/Book/20190522122107.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3a2a1bd1fa3a7e5e"
+        },
+        {
+          "id": "xhs-1c4c9e0aa23a488c",
+          "title": "摩比爱数学 飞跃篇5",
+          "cover": "https://img.xiaohuasheng.cn/1121637/Book/20190522122121.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1c4c9e0aa23a488c"
+        },
+        {
+          "id": "xhs-f890da57523a0a17",
+          "title": "摩比爱数学 飞跃篇6",
+          "cover": "https://img.xiaohuasheng.cn/1121637/Book/20190522122137.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f890da57523a0a17"
+        }
+      ]
+    },
+    {
+      "materialId": "jones",
+      "id": "xhs-collection-3775253",
+      "title": "朱尼·琼斯 Junie B. Jones",
+      "edition": "朱尼·琼斯 Junie B. Jones",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "",
+      "cover": "https://img.xiaohuasheng.cn/1306524/Book/20200525130942662.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/series/3828f53a80948430",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "唯一书目数与套装声明册数一致",
+      "books": [
+        {
+          "id": "xhs-c19a865317dc82f0",
+          "externalIds": {
+            "xiaohuasheng": "c19a865317dc82f0",
+            "xiaohuashengApp": 7299
+          },
+          "title": "Junie B. Jones #1: Junie B. Jones and the Stupid Smelly Bus",
+          "cover": "https://img.xiaohuasheng.cn/149/Book/20150130204338.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c19a865317dc82f0",
+          "order": 0
+        },
+        {
+          "id": "xhs-9b9b64483df5ef74",
+          "externalIds": {
+            "xiaohuasheng": "9b9b64483df5ef74",
+            "xiaohuashengApp": 32372
+          },
+          "title": "Junie B. Jones #21: Junie B., First Grader: Cheater Pants",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162911803.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9b9b64483df5ef74",
+          "order": 0
+        },
+        {
+          "id": "xhs-a07d836f1b042116",
+          "externalIds": {
+            "xiaohuasheng": "a07d836f1b042116",
+            "xiaohuashengApp": 32406
+          },
+          "title": "Junie B. Jones #17: Junie B. Jones Is a Graduation Girl",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162023944.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a07d836f1b042116",
+          "order": 0
+        },
+        {
+          "id": "xhs-cb1ad158afc8dee9",
+          "externalIds": {
+            "xiaohuasheng": "cb1ad158afc8dee9",
+            "xiaohuashengApp": 32629
+          },
+          "title": "Junie B. Jones #6: Junie B. Jones and That Meanie Jim's Birthday",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162230038.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cb1ad158afc8dee9",
+          "order": 0
+        },
+        {
+          "id": "xhs-437c288c72f7908b",
+          "externalIds": {
+            "xiaohuasheng": "437c288c72f7908b",
+            "xiaohuashengApp": 32654
+          },
+          "title": "Junie B. Jones #7: Junie B. Jones Loves Handsome Warren",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227161826038.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/437c288c72f7908b",
+          "order": 0
+        },
+        {
+          "id": "xhs-9cab0521579e695c",
+          "externalIds": {
+            "xiaohuasheng": "9cab0521579e695c",
+            "xiaohuashengApp": 32669
+          },
+          "title": "Junie B. Jones #12: Junie B. Jones Smells Something Fishy",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162316428.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9cab0521579e695c",
+          "order": 0
+        },
+        {
+          "id": "xhs-e6e9ad84881906f7",
+          "externalIds": {
+            "xiaohuasheng": "e6e9ad84881906f7",
+            "xiaohuashengApp": 32671
+          },
+          "title": "Junie B. Jones #10: Junie B. Jones Is a Party Animal",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162705413.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e6e9ad84881906f7",
+          "order": 0
+        },
+        {
+          "id": "xhs-8b014dc42860a492",
+          "externalIds": {
+            "xiaohuasheng": "8b014dc42860a492",
+            "xiaohuashengApp": 32679
+          },
+          "title": "Junie B. Jones #8: Junie B. Jones Has a Monster Under Her Bed",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162927006.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8b014dc42860a492",
+          "order": 0
+        },
+        {
+          "id": "xhs-7896c6bb6d715fc8",
+          "externalIds": {
+            "xiaohuasheng": "7896c6bb6d715fc8",
+            "xiaohuashengApp": 32688
+          },
+          "title": "Junie B. Jones #14: Junie B. Jones and the Mushy Gushy Valentime",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227163458225.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7896c6bb6d715fc8",
+          "order": 0
+        },
+        {
+          "id": "xhs-1bf8385016107d63",
+          "externalIds": {
+            "xiaohuasheng": "1bf8385016107d63",
+            "xiaohuashengApp": 32692
+          },
+          "title": "Junie B. Jones #9: Junie B. Jones Is Not a Crook",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162813366.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1bf8385016107d63",
+          "order": 0
+        },
+        {
+          "id": "xhs-87cce5b4374e7d63",
+          "externalIds": {
+            "xiaohuasheng": "87cce5b4374e7d63",
+            "xiaohuashengApp": 32693
+          },
+          "title": "Junie B. Jones #11: Junie B. Jones Is a Beauty Shop Guy",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162511866.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/87cce5b4374e7d63",
+          "order": 0
+        },
+        {
+          "id": "xhs-286923c7c1301afe",
+          "externalIds": {
+            "xiaohuasheng": "286923c7c1301afe",
+            "xiaohuashengApp": 32700
+          },
+          "title": "Junie B. Jones #13: Junie B. Jones Is (almost) a Flower Girl",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227163505631.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/286923c7c1301afe",
+          "order": 0
+        },
+        {
+          "id": "xhs-3dab26d6ceb9b899",
+          "externalIds": {
+            "xiaohuasheng": "3dab26d6ceb9b899",
+            "xiaohuashengApp": 32705
+          },
+          "title": "Junie B. Jones #16: Junie B. Jones Is Captain Field Day",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162713147.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3dab26d6ceb9b899",
+          "order": 0
+        },
+        {
+          "id": "xhs-df7efa035397b899",
+          "externalIds": {
+            "xiaohuasheng": "df7efa035397b899",
+            "xiaohuashengApp": 32707
+          },
+          "title": "Junie B. Jones #15: Junie B. Jones Has a Peep in Her Pocket",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227163323709.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/df7efa035397b899",
+          "order": 0
+        },
+        {
+          "id": "xhs-d5b11187319d5634",
+          "externalIds": {
+            "xiaohuasheng": "d5b11187319d5634",
+            "xiaohuashengApp": 32710
+          },
+          "title": "Junie B. Jones #5: Junie B. Jones and the Yucky Blucky Fruitcake",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162713772.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d5b11187319d5634",
+          "order": 0
+        },
+        {
+          "id": "xhs-bce1b8c48919039d",
+          "externalIds": {
+            "xiaohuasheng": "bce1b8c48919039d",
+            "xiaohuashengApp": 50046
+          },
+          "title": "Junie B. Jones #25: Jingle Bells, Batman Smells!",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227170210866.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bce1b8c48919039d",
+          "order": 0
+        },
+        {
+          "id": "xhs-fd9cf4513029039d",
+          "externalIds": {
+            "xiaohuasheng": "fd9cf4513029039d",
+            "xiaohuashengApp": 50048
+          },
+          "title": "Junie B. Jones #27: Dumb Bunny",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227163120288.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fd9cf4513029039d",
+          "order": 0
+        },
+        {
+          "id": "xhs-7aa82c60007aa138",
+          "externalIds": {
+            "xiaohuasheng": "7aa82c60007aa138",
+            "xiaohuashengApp": 50053
+          },
+          "title": "Junie B. Jones #26:Junie B., First Grader: Aloha-ha-ha!",
+          "cover": "https://img.xiaohuasheng.cn/149/Book/20170924134729771.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7aa82c60007aa138",
+          "order": 0
+        },
+        {
+          "id": "xhs-4939dd9310cc3ed3",
+          "externalIds": {
+            "xiaohuasheng": "4939dd9310cc3ed3",
+            "xiaohuashengApp": 50056
+          },
+          "title": "Junie B. Jones #22:Junie B., First Grader: One-Man Band",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162136444.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4939dd9310cc3ed3",
+          "order": 0
+        },
+        {
+          "id": "xhs-90c917b4ede24091",
+          "externalIds": {
+            "xiaohuasheng": "90c917b4ede24091",
+            "xiaohuashengApp": 50195
+          },
+          "title": "Junie B. Jones #20: Junie B., First Grader: Toothless Wonder",
+          "cover": "https://img.xiaohuasheng.cn/1301104/Book/20210920192539.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/90c917b4ede24091",
+          "order": 0
+        },
+        {
+          "id": "xhs-85e16c905d71962",
+          "externalIds": {
+            "xiaohuasheng": "85e16c905d71962",
+            "xiaohuashengApp": 50200
+          },
+          "title": "Junie B. Jones #18: First Grader (at last!)",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162427616.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/85e16c905d71962",
+          "order": 0
+        },
+        {
+          "id": "xhs-1e1f186279571962",
+          "externalIds": {
+            "xiaohuasheng": "1e1f186279571962",
+            "xiaohuashengApp": 50203
+          },
+          "title": "Junie B. Jones #24: Junie B., First Grader: Boo...and I Mean It!",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162630491.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1e1f186279571962",
+          "order": 0
+        },
+        {
+          "id": "xhs-7024d86fd6c8a68a",
+          "externalIds": {
+            "xiaohuasheng": "7024d86fd6c8a68a",
+            "xiaohuashengApp": 60505
+          },
+          "title": "Junie B. Jones #4: Junie B. Jones and Some Sneaky Peeky Spying",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227162045210.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7024d86fd6c8a68a",
+          "order": 0
+        },
+        {
+          "id": "xhs-50483a6c67112d92",
+          "externalIds": {
+            "xiaohuasheng": "50483a6c67112d92",
+            "xiaohuashengApp": 93572
+          },
+          "title": "Junie B. Jones #2: Junie B. Jones and a Little Monkey Business",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227161419288.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/50483a6c67112d92",
+          "order": 0
+        },
+        {
+          "id": "xhs-63d8235ad25468c4",
+          "externalIds": {
+            "xiaohuasheng": "63d8235ad25468c4",
+            "xiaohuashengApp": 93580
+          },
+          "title": "Junie B. Jones #3: Junie B. Jones and Her Big Fat Mouth",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227161851803.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/63d8235ad25468c4",
+          "order": 0
+        },
+        {
+          "id": "xhs-ddc3e48518664230",
+          "externalIds": {
+            "xiaohuasheng": "ddc3e48518664230",
+            "xiaohuashengApp": 197965
+          },
+          "title": "Junie B. Jones #28: Turkeys We Have Loved and Eaten (and Other Thankful Stuff)",
+          "cover": "https://img.xiaohuasheng.cn/1558600/Book/20230707130940.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ddc3e48518664230",
+          "order": 0
+        },
+        {
+          "id": "xhs-434ab95029bf2050",
+          "externalIds": {
+            "xiaohuasheng": "434ab95029bf2050",
+            "xiaohuashengApp": 209847
+          },
+          "title": "Junie B. Jones #23: Junie B., First Grader: Shipwrecked",
+          "cover": "https://img.xiaohuasheng.cn/1558600/Book/20230527211746.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/434ab95029bf2050",
+          "order": 0
+        },
+        {
+          "id": "xhs-1163cad1a3b09d3b",
+          "externalIds": {
+            "xiaohuasheng": "1163cad1a3b09d3b",
+            "xiaohuashengApp": 252425
+          },
+          "title": "Junie B. Jones #19: Junie B., First Grader: Boss of Lunch",
+          "cover": "https://img.xiaohuasheng.cn/1558600/Book/20230514195651.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1163cad1a3b09d3b",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "materialId": "dogman",
+      "id": "xhs-collection-3775327",
+      "title": "神探狗狗系列 Dog Man series",
+      "edition": "神探狗狗系列 Dog Man series",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "",
+      "cover": "https://img.xiaohuasheng.cn/1706838/Book/20211217173017.png",
+      "sourceUrl": "https://www.xiaohuasheng.cn/series/93efd51c1575bad0",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "唯一书目数与套装声明册数一致",
+      "books": [
+        {
+          "id": "xhs-b9f9e3a6d69f3f31",
+          "externalIds": {
+            "xiaohuasheng": "b9f9e3a6d69f3f31",
+            "xiaohuashengApp": 266350
+          },
+          "title": "Dog Man #1: Dog Man",
+          "cover": "https://img.xiaohuasheng.cn/166278/Book/20210108113302.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b9f9e3a6d69f3f31",
+          "order": 0
+        },
+        {
+          "id": "xhs-2f947e76ec314600",
+          "externalIds": {
+            "xiaohuasheng": "2f947e76ec314600",
+            "xiaohuashengApp": 494481
+          },
+          "title": "Dog Man #2: Unleashed",
+          "cover": "https://img.xiaohuasheng.cn/166278/Book/20210108113344.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2f947e76ec314600",
+          "order": 0
+        },
+        {
+          "id": "xhs-7739b7411cfbf30",
+          "externalIds": {
+            "xiaohuasheng": "7739b7411cfbf30",
+            "xiaohuashengApp": 727410
+          },
+          "title": "Dog Man #3: A Tale of Two Kitties",
+          "cover": "https://img.xiaohuasheng.cn/2003476/Book/20240905155518.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7739b7411cfbf30",
+          "order": 0
+        },
+        {
+          "id": "xhs-75c87e9a2c773e6",
+          "externalIds": {
+            "xiaohuasheng": "75c87e9a2c773e6",
+            "xiaohuashengApp": 922811
+          },
+          "title": "Dog Man #4: Dog Man and Cat Kid",
+          "cover": "https://img.xiaohuasheng.cn/166278/Book/20210108121935.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/75c87e9a2c773e6",
+          "order": 0
+        },
+        {
+          "id": "xhs-a8eeaebb9003eafc",
+          "externalIds": {
+            "xiaohuasheng": "a8eeaebb9003eafc",
+            "xiaohuashengApp": 1436754
+          },
+          "title": "Dog Man #5: Lord of the Fleas",
+          "cover": "https://img.xiaohuasheng.cn/166278/Book/20210108122010.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a8eeaebb9003eafc",
+          "order": 0
+        },
+        {
+          "id": "xhs-f3313a3c607a5cad",
+          "externalIds": {
+            "xiaohuasheng": "f3313a3c607a5cad",
+            "xiaohuashengApp": 1755918
+          },
+          "title": "Dog Man #6: Brawl of The Wild",
+          "cover": "https://img.xiaohuasheng.cn/166278/Book/20210108122040.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f3313a3c607a5cad",
+          "order": 0
+        },
+        {
+          "id": "xhs-7f328666e17171e2",
+          "externalIds": {
+            "xiaohuasheng": "7f328666e17171e2",
+            "xiaohuashengApp": 2101789
+          },
+          "title": "Dog Man #7: For Whom the Ball Rolls",
+          "cover": "https://img.xiaohuasheng.cn/2280883/Book/2025041882111.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7f328666e17171e2",
+          "order": 0
+        },
+        {
+          "id": "xhs-31ea3b9f0db83649",
+          "externalIds": {
+            "xiaohuasheng": "31ea3b9f0db83649",
+            "xiaohuashengApp": 2912619
+          },
+          "title": "Dog Man #8: Fetch-22",
+          "cover": "https://img.xiaohuasheng.cn/2280883/Book/2025041882032.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/31ea3b9f0db83649",
+          "order": 0
+        },
+        {
+          "id": "xhs-600edc7a96fb8927",
+          "externalIds": {
+            "xiaohuasheng": "600edc7a96fb8927",
+            "xiaohuashengApp": 4189942
+          },
+          "title": "Dog Man #9: Grime and Punishment",
+          "cover": "https://img.xiaohuasheng.cn/2280883/Book/2025041881919.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/600edc7a96fb8927",
+          "order": 0
+        },
+        {
+          "id": "xhs-d2bdf599d446376",
+          "externalIds": {
+            "xiaohuasheng": "d2bdf599d446376",
+            "xiaohuashengApp": 4840507
+          },
+          "title": "Dog Man #10: Mothering heights",
+          "cover": "https://img.xiaohuasheng.cn/166278/Book/20210330152546.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d2bdf599d446376",
+          "order": 0
+        },
+        {
+          "id": "xhs-14b5a3746e4b00e9",
+          "externalIds": {
+            "xiaohuasheng": "14b5a3746e4b00e9",
+            "xiaohuashengApp": 5729130
+          },
+          "title": "Dog Man #11:Twenty Thousand Fleas Under the Sea",
+          "cover": "https://img.xiaohuasheng.cn/2280883/Book/2025041882239.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/14b5a3746e4b00e9",
+          "order": 0
+        },
+        {
+          "id": "xhs-4ba07d0a0762090",
+          "externalIds": {
+            "xiaohuasheng": "4ba07d0a0762090",
+            "xiaohuashengApp": 6398185
+          },
+          "title": "Dog Man #12: The Scarlet Shedder",
+          "cover": "https://img.xiaohuasheng.cn/493769/Book/20240518132042.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/4ba07d0a0762090",
+          "order": 0
+        },
+        {
+          "id": "xhs-76cb0440dcbc3b0",
+          "externalIds": {
+            "xiaohuasheng": "76cb0440dcbc3b0",
+            "xiaohuashengApp": 6880825
+          },
+          "title": "Dog Man #13: Big Jim Begins",
+          "cover": "https://img.xiaohuasheng.cn/1438347/Book/20241206170122.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/76cb0440dcbc3b0",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "materialId": "nate",
+      "id": "xhs-collection-3775252",
+      "title": "大侦探内特 Nate the Great（30册）",
+      "edition": "大侦探内特 Nate the Great（30册）",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "",
+      "cover": "https://img.xiaohuasheng.cn/1306524/Book/20200525130944646.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/series/cfe224308da9cf40",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "唯一书目数与套装声明册数一致",
+      "books": [
+        {
+          "id": "xhs-c334673f3aefc475",
+          "externalIds": {
+            "xiaohuasheng": "c334673f3aefc475",
+            "xiaohuashengApp": 110033
+          },
+          "title": "1 Nate the Great",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104184046.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c334673f3aefc475",
+          "order": 0
+        },
+        {
+          "id": "xhs-6e0652f719e10731",
+          "externalIds": {
+            "xiaohuasheng": "6e0652f719e10731",
+            "xiaohuashengApp": 60374
+          },
+          "title": "2 Nate the Great Goes Undercover",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104181556.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6e0652f719e10731",
+          "order": 0
+        },
+        {
+          "id": "xhs-71c43f4f99f64b0d",
+          "externalIds": {
+            "xiaohuasheng": "71c43f4f99f64b0d",
+            "xiaohuashengApp": 55204
+          },
+          "title": "3 Nate the Great and the Lost List",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104152950.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/71c43f4f99f64b0d",
+          "order": 0
+        },
+        {
+          "id": "xhs-d9d4ad5bc78b36e7",
+          "externalIds": {
+            "xiaohuasheng": "d9d4ad5bc78b36e7",
+            "xiaohuashengApp": 102290
+          },
+          "title": "4 Nate the Great and the Phony Clue",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104181226.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d9d4ad5bc78b36e7",
+          "order": 0
+        },
+        {
+          "id": "xhs-74a07d59bc4af4d4",
+          "externalIds": {
+            "xiaohuasheng": "74a07d59bc4af4d4",
+            "xiaohuashengApp": 53588
+          },
+          "title": "5 Nate the Great and the Sticky Case",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104181359.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/74a07d59bc4af4d4",
+          "order": 0
+        },
+        {
+          "id": "xhs-a8c3560e3226af30",
+          "externalIds": {
+            "xiaohuasheng": "a8c3560e3226af30",
+            "xiaohuashengApp": 55324
+          },
+          "title": "6 Nate the Great and the Missing Key",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104181049.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a8c3560e3226af30",
+          "order": 0
+        },
+        {
+          "id": "xhs-f418087ae64736e7",
+          "externalIds": {
+            "xiaohuasheng": "f418087ae64736e7",
+            "xiaohuashengApp": 102291
+          },
+          "title": "7 Nate the Great and the Snowy Trail",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104182751.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f418087ae64736e7",
+          "order": 0
+        },
+        {
+          "id": "xhs-81c5f35b45a45ff3",
+          "externalIds": {
+            "xiaohuasheng": "81c5f35b45a45ff3",
+            "xiaohuashengApp": 55295
+          },
+          "title": "8 Nate the Great and the Fishy Prize",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104180643.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/81c5f35b45a45ff3",
+          "order": 0
+        },
+        {
+          "id": "xhs-cabcb42fd62326dc",
+          "externalIds": {
+            "xiaohuasheng": "cabcb42fd62326dc",
+            "xiaohuashengApp": 110031
+          },
+          "title": "9 Nate the Great Stalks Stupidweed",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104180500.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cabcb42fd62326dc",
+          "order": 0
+        },
+        {
+          "id": "xhs-199551a70ee4259c",
+          "externalIds": {
+            "xiaohuasheng": "199551a70ee4259c",
+            "xiaohuashengApp": 55345
+          },
+          "title": "10 Nate the Great and the Boring Beach Bag",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104180317.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/199551a70ee4259c",
+          "order": 0
+        },
+        {
+          "id": "xhs-47e1b7525f64c138",
+          "externalIds": {
+            "xiaohuasheng": "47e1b7525f64c138",
+            "xiaohuashengApp": 203227
+          },
+          "title": "11 Nate the Great Goes Down in the Dumps",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104153208.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/47e1b7525f64c138",
+          "order": 0
+        },
+        {
+          "id": "xhs-a621234f4d465743",
+          "externalIds": {
+            "xiaohuasheng": "a621234f4d465743",
+            "xiaohuashengApp": 57375
+          },
+          "title": "12 Nate the Great and the Halloween Hunt",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104184609.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a621234f4d465743",
+          "order": 0
+        },
+        {
+          "id": "xhs-62695447e522eb25",
+          "externalIds": {
+            "xiaohuasheng": "62695447e522eb25",
+            "xiaohuashengApp": 36077
+          },
+          "title": "13 Nate the Great and the Musical Note",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104152804.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/62695447e522eb25",
+          "order": 0
+        },
+        {
+          "id": "xhs-3b7618ec5deb73fa",
+          "externalIds": {
+            "xiaohuasheng": "3b7618ec5deb73fa",
+            "xiaohuashengApp": 55317
+          },
+          "title": "14 Nate the Great and the Stolen Base",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104184832.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3b7618ec5deb73fa",
+          "order": 0
+        },
+        {
+          "id": "xhs-882e68651e37996b",
+          "externalIds": {
+            "xiaohuasheng": "882e68651e37996b",
+            "xiaohuashengApp": 55173
+          },
+          "title": "15 Nate the Great and the Pillowcase",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104152334.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/882e68651e37996b",
+          "order": 0
+        },
+        {
+          "id": "xhs-bd17c9cda28c6b3",
+          "externalIds": {
+            "xiaohuasheng": "bd17c9cda28c6b3",
+            "xiaohuashengApp": 55666
+          },
+          "title": "16 Nate the Great and the Mushy Valentine",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104152606.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bd17c9cda28c6b3",
+          "order": 0
+        },
+        {
+          "id": "xhs-b5552172582c2040",
+          "externalIds": {
+            "xiaohuasheng": "b5552172582c2040",
+            "xiaohuashengApp": 203226
+          },
+          "title": "17 Nate the Great and the Tardy Tortoise",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104152047.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b5552172582c2040",
+          "order": 0
+        },
+        {
+          "id": "xhs-3d92bda3a1bfd480",
+          "externalIds": {
+            "xiaohuasheng": "3d92bda3a1bfd480",
+            "xiaohuashengApp": 102292
+          },
+          "title": "18 Nate the Great And the Crunchy Christmas",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104185144.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3d92bda3a1bfd480",
+          "order": 0
+        },
+        {
+          "id": "xhs-2619012e230a30e",
+          "externalIds": {
+            "xiaohuasheng": "2619012e230a30e",
+            "xiaohuashengApp": 60230
+          },
+          "title": "19 Nate the Great Saves the King of Sweden",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104151730.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2619012e230a30e",
+          "order": 0
+        },
+        {
+          "id": "xhs-3a8bf5f61d3191a8",
+          "externalIds": {
+            "xiaohuasheng": "3a8bf5f61d3191a8",
+            "xiaohuashengApp": 203225
+          },
+          "title": "20 Nate the Great and Me The Case of the Fleeing Fang",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104183507.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3a8bf5f61d3191a8",
+          "order": 0
+        },
+        {
+          "id": "xhs-862bba826b1f8b75",
+          "externalIds": {
+            "xiaohuasheng": "862bba826b1f8b75",
+            "xiaohuashengApp": 51457
+          },
+          "title": "21 Nate the Great and the Monster Mess",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104150915.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/862bba826b1f8b75",
+          "order": 0
+        },
+        {
+          "id": "xhs-22e3fc4a7e672e12",
+          "externalIds": {
+            "xiaohuasheng": "22e3fc4a7e672e12",
+            "xiaohuashengApp": 1282985
+          },
+          "title": "22 Nate the Great San Francisco Detective",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104183309.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/22e3fc4a7e672e12",
+          "order": 0
+        },
+        {
+          "id": "xhs-bc017a62cf43ee64",
+          "externalIds": {
+            "xiaohuasheng": "bc017a62cf43ee64",
+            "xiaohuashengApp": 79049
+          },
+          "title": "23 Nate the Great and the Big Sniff",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104184406.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bc017a62cf43ee64",
+          "order": 0
+        },
+        {
+          "id": "xhs-1b9d9e217f6f3100",
+          "externalIds": {
+            "xiaohuasheng": "1b9d9e217f6f3100",
+            "xiaohuashengApp": 121709
+          },
+          "title": "24 Nate the Great on the Owl Express",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104150456.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1b9d9e217f6f3100",
+          "order": 0
+        },
+        {
+          "id": "xhs-2bdbc2a1e5e7c475",
+          "externalIds": {
+            "xiaohuasheng": "2bdbc2a1e5e7c475",
+            "xiaohuashengApp": 110032
+          },
+          "title": "25 Nate the Great Talks Turkey",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104184222.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2bdbc2a1e5e7c475",
+          "order": 0
+        },
+        {
+          "id": "xhs-85c2db3225fa50d7",
+          "externalIds": {
+            "xiaohuasheng": "85c2db3225fa50d7",
+            "xiaohuashengApp": 194239
+          },
+          "title": "26 Nate the Great and the Hungry Book Club",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104183805.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/85c2db3225fa50d7",
+          "order": 0
+        },
+        {
+          "id": "xhs-fe8e27aa95742b38",
+          "externalIds": {
+            "xiaohuasheng": "fe8e27aa95742b38",
+            "xiaohuashengApp": 208154
+          },
+          "title": "Nate the Great Where Are You?",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104150647.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fe8e27aa95742b38",
+          "order": 0
+        },
+        {
+          "id": "xhs-44fb0e3b2c255f9",
+          "externalIds": {
+            "xiaohuasheng": "44fb0e3b2c255f9",
+            "xiaohuashengApp": 2405319
+          },
+          "title": "28 Nate the Great and the Missing Birthday Snake",
+          "cover": "https://img.xiaohuasheng.cn/2008750/Book/20240503004550.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/44fb0e3b2c255f9",
+          "order": 0
+        },
+        {
+          "id": "xhs-710ba315dbb38aa0",
+          "externalIds": {
+            "xiaohuasheng": "710ba315dbb38aa0",
+            "xiaohuashengApp": 3107730
+          },
+          "title": "29 Nate the Great and the Wandering Word",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104151102.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/710ba315dbb38aa0",
+          "order": 0
+        },
+        {
+          "id": "xhs-d4130101d9034916",
+          "externalIds": {
+            "xiaohuasheng": "d4130101d9034916",
+            "xiaohuashengApp": 5448622
+          },
+          "title": "30 Nate the Great and the Earth Day Robot",
+          "cover": "https://img.xiaohuasheng.cn/1772471/Book/20240104151440.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d4130101d9034916",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "materialId": "amelia",
+      "id": "xhs-collection-440430",
+      "title": "糊涂女佣章节书系列 Amelia Bedelia Chapter Book",
+      "edition": "糊涂女佣章节书系列 Amelia Bedelia Chapter Book",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "9780062569813",
+      "cover": "https://img.xiaohuasheng.cn/1306524/Book/20200529194712763.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/series/82da9fdfe4d99eca",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "唯一书目数与套装声明册数一致",
+      "books": [
+        {
+          "id": "xhs-f25387d02e9c779a",
+          "externalIds": {
+            "xiaohuasheng": "f25387d02e9c779a",
+            "xiaohuashengApp": 111746
+          },
+          "title": "Amelia Bedelia chapter book #2: Amelia Bedelia Unleashed",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227165458571.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f25387d02e9c779a",
+          "order": 0
+        },
+        {
+          "id": "xhs-910394db0b21f366",
+          "externalIds": {
+            "xiaohuasheng": "910394db0b21f366",
+            "xiaohuashengApp": 113661
+          },
+          "title": "Amelia Bedelia Chapter Book #1: Amelia Bedelia Means Business",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227170556387.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/910394db0b21f366",
+          "order": 0
+        },
+        {
+          "id": "xhs-dbed07af55a8bab8",
+          "externalIds": {
+            "xiaohuasheng": "dbed07af55a8bab8",
+            "xiaohuashengApp": 170772
+          },
+          "title": "Amelia Bedelia Chapter Book #7: Amelia Bedelia Sets Sail",
+          "cover": "https://img.xiaohuasheng.cn/Douban/Book/20160118220711376.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/dbed07af55a8bab8",
+          "order": 0
+        },
+        {
+          "id": "xhs-6944ecaec868dea8",
+          "externalIds": {
+            "xiaohuasheng": "6944ecaec868dea8",
+            "xiaohuashengApp": 193995
+          },
+          "title": "Amelia Bedelia Chapter Book #8: Amelia Bedelia Dances Off",
+          "cover": "https://img.xiaohuasheng.cn/Douban/Book/20160203200931208.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6944ecaec868dea8",
+          "order": 0
+        },
+        {
+          "id": "xhs-16a611006d0237ee",
+          "externalIds": {
+            "xiaohuasheng": "16a611006d0237ee",
+            "xiaohuashengApp": 242244
+          },
+          "title": "Amelia Bedelia Chapter Book #3: Amelia Bedelia Road Trip!",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227170844796.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/16a611006d0237ee",
+          "order": 0
+        },
+        {
+          "id": "xhs-5ca8b2b35607fabe",
+          "externalIds": {
+            "xiaohuasheng": "5ca8b2b35607fabe",
+            "xiaohuashengApp": 243941
+          },
+          "title": "Amelia Bedelia Chapter Book #9: Amelia Bedelia on the Job",
+          "cover": "https://img.xiaohuasheng.cn/Douban/Book/20160507135703580.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5ca8b2b35607fabe",
+          "order": 0
+        },
+        {
+          "id": "xhs-c373b7d29a006aff",
+          "externalIds": {
+            "xiaohuasheng": "c373b7d29a006aff",
+            "xiaohuashengApp": 243942
+          },
+          "title": "Amelia Bedelia Chapter Book #6: Amelia Bedelia Cleans Up",
+          "cover": "https://img.xiaohuasheng.cn/Douban/Book/20160507135734407.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c373b7d29a006aff",
+          "order": 0
+        },
+        {
+          "id": "xhs-a526c10cd4d0e4f6",
+          "externalIds": {
+            "xiaohuasheng": "a526c10cd4d0e4f6",
+            "xiaohuashengApp": 243943
+          },
+          "title": "Amelia Bedelia Chapter Book #5: Amelia Bedelia Shapes Up",
+          "cover": "https://img.xiaohuasheng.cn/Douban/Book/20160507135750579.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a526c10cd4d0e4f6",
+          "order": 0
+        },
+        {
+          "id": "xhs-721d1d7f64628aa6",
+          "externalIds": {
+            "xiaohuasheng": "721d1d7f64628aa6",
+            "xiaohuashengApp": 243945
+          },
+          "title": "Amelia Bedelia Chapter Book #4: Amelia Bedelia Goes Wild!",
+          "cover": "https://img.xiaohuasheng.cn/Douban/Book/20160507135805720.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/721d1d7f64628aa6",
+          "order": 0
+        },
+        {
+          "id": "xhs-ea95e66d64e19acb",
+          "externalIds": {
+            "xiaohuasheng": "ea95e66d64e19acb",
+            "xiaohuashengApp": 367008
+          },
+          "title": "Amelia Bedelia Chapter Book #10: Amelia Bedelia Ties the knot",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20161227214912009.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ea95e66d64e19acb",
+          "order": 0
+        },
+        {
+          "id": "xhs-87fd27218a60de9d",
+          "externalIds": {
+            "xiaohuasheng": "87fd27218a60de9d",
+            "xiaohuashengApp": 1157219
+          },
+          "title": "Amelia Bedelia Chapter Book #11: Amelia Bedelia",
+          "cover": "https://img.xiaohuasheng.cn/1/Book/20180505201210053.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/87fd27218a60de9d",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "materialId": "pearson",
+      "id": "xhs-collection-4338518",
+      "title": "培生基础词汇(上)(全48册)",
+      "edition": "培生基础词汇(上)(全48册)",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787572107979",
+      "cover": "https://img.xiaohuasheng.cn/2240135/Book/20250528184115.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/series/68501ace1e5a92a",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "唯一书目数与套装声明册数一致",
+      "books": [
+        {
+          "id": "xhs-6d8f08fbb784303a",
+          "externalIds": {
+            "xiaohuasheng": "6d8f08fbb784303a",
+            "xiaohuashengApp": 980610
+          },
+          "title": "培生幼儿英语基础词汇.上 1 My Clothes",
+          "cover": "https://img.xiaohuasheng.cn/2002035/Book/20230912224758.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6d8f08fbb784303a",
+          "order": 0
+        },
+        {
+          "id": "xhs-707ea01caccc98d1",
+          "externalIds": {
+            "xiaohuasheng": "707ea01caccc98d1",
+            "xiaohuashengApp": 980619
+          },
+          "title": "培生幼儿英语.基础词汇.上 2 The Farm",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230924231010.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/707ea01caccc98d1",
+          "order": 0
+        },
+        {
+          "id": "xhs-63d8910cac94dcc5",
+          "externalIds": {
+            "xiaohuasheng": "63d8910cac94dcc5",
+            "xiaohuashengApp": 980656
+          },
+          "title": "培生幼儿英语.基础词汇.上 3 A Garden",
+          "cover": "https://img.xiaohuasheng.cn/2002035/Book/20230912225011.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/63d8910cac94dcc5",
+          "order": 0
+        },
+        {
+          "id": "xhs-508cc44cc3956c1d",
+          "externalIds": {
+            "xiaohuasheng": "508cc44cc3956c1d",
+            "xiaohuashengApp": 980521
+          },
+          "title": "培生幼儿英语基础词汇.上 4 The Jungle",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230904225456.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/508cc44cc3956c1d",
+          "order": 0
+        },
+        {
+          "id": "xhs-75a6902b9cd74f4b",
+          "externalIds": {
+            "xiaohuasheng": "75a6902b9cd74f4b",
+            "xiaohuashengApp": 980517
+          },
+          "title": "培生幼儿英语基础词汇.上 5 My Alien",
+          "cover": "https://img.xiaohuasheng.cn/2002035/Book/20230913234703.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/75a6902b9cd74f4b",
+          "order": 0
+        },
+        {
+          "id": "xhs-18fccb91ecea61c3",
+          "externalIds": {
+            "xiaohuasheng": "18fccb91ecea61c3",
+            "xiaohuashengApp": 980617
+          },
+          "title": "培生幼儿英语.基础词汇.上 6 A Home",
+          "cover": "https://img.xiaohuasheng.cn/2002035/Book/20230912225059.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/18fccb91ecea61c3",
+          "order": 0
+        },
+        {
+          "id": "xhs-440d07174410a943",
+          "externalIds": {
+            "xiaohuasheng": "440d07174410a943",
+            "xiaohuashengApp": 980626
+          },
+          "title": "培生幼儿英语.基础词汇.上 7 The Day",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230928223533.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/440d07174410a943",
+          "order": 0
+        },
+        {
+          "id": "xhs-78b7dd6b67a54d04",
+          "externalIds": {
+            "xiaohuasheng": "78b7dd6b67a54d04",
+            "xiaohuashengApp": 980608
+          },
+          "title": "培生幼儿英语.基础词汇.上 8 My Family",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230928224049.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/78b7dd6b67a54d04",
+          "order": 0
+        },
+        {
+          "id": "xhs-40551a55633c24af",
+          "externalIds": {
+            "xiaohuasheng": "40551a55633c24af",
+            "xiaohuashengApp": 980659
+          },
+          "title": "培生幼儿英语.基础词汇.上 9 A Monster House",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230928224305.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/40551a55633c24af",
+          "order": 0
+        },
+        {
+          "id": "xhs-3174acf3726fbe07",
+          "externalIds": {
+            "xiaohuasheng": "3174acf3726fbe07",
+            "xiaohuashengApp": 980632
+          },
+          "title": "培生幼儿英语.基础词汇.上 10 The Monster's Clothes",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230928222954.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3174acf3726fbe07",
+          "order": 0
+        },
+        {
+          "id": "xhs-a3614931fbcf47dc",
+          "externalIds": {
+            "xiaohuasheng": "a3614931fbcf47dc",
+            "xiaohuashengApp": 980620
+          },
+          "title": "培生幼儿英语.基础词汇.上 11 My Things",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230928223142.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a3614931fbcf47dc",
+          "order": 0
+        },
+        {
+          "id": "xhs-8c659c0ebd62092",
+          "externalIds": {
+            "xiaohuasheng": "8c659c0ebd62092",
+            "xiaohuashengApp": 980514
+          },
+          "title": "培生幼儿英语.基础词汇.上 12 A Ride",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005225757.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8c659c0ebd62092",
+          "order": 0
+        },
+        {
+          "id": "xhs-fec76f46056a1d25",
+          "externalIds": {
+            "xiaohuasheng": "fec76f46056a1d25",
+            "xiaohuashengApp": 980606
+          },
+          "title": "培生幼儿英语.基础词汇.上 13 I Like Birds",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005225935.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fec76f46056a1d25",
+          "order": 0
+        },
+        {
+          "id": "xhs-e2a53e8e25400899",
+          "externalIds": {
+            "xiaohuasheng": "e2a53e8e25400899",
+            "xiaohuashengApp": 980523
+          },
+          "title": "培生幼儿英语.基础词汇.上 14 The Goats",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005230200.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e2a53e8e25400899",
+          "order": 0
+        },
+        {
+          "id": "xhs-c169272ec57985e",
+          "externalIds": {
+            "xiaohuasheng": "c169272ec57985e",
+            "xiaohuashengApp": 980669
+          },
+          "title": "培生幼儿英语.基础词汇.上 15 I Can Laugh",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005230357.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c169272ec57985e",
+          "order": 0
+        },
+        {
+          "id": "xhs-bef777f7ca5da83b",
+          "externalIds": {
+            "xiaohuasheng": "bef777f7ca5da83b",
+            "xiaohuashengApp": 980654
+          },
+          "title": "培生幼儿英语.基础词汇.上 16 I Like Hats",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005230546.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bef777f7ca5da83b",
+          "order": 0
+        },
+        {
+          "id": "xhs-b8a8357276329016",
+          "externalIds": {
+            "xiaohuasheng": "b8a8357276329016",
+            "xiaohuashengApp": 980664
+          },
+          "title": "培生幼儿英语.基础词汇.上 17 I Am A Painter",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005230808.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b8a8357276329016",
+          "order": 0
+        },
+        {
+          "id": "xhs-fd577b90ce10e40d",
+          "externalIds": {
+            "xiaohuasheng": "fd577b90ce10e40d",
+            "xiaohuashengApp": 980650
+          },
+          "title": "培生幼儿英语.基础词汇.上 18 I Can",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005231005.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fd577b90ce10e40d",
+          "order": 0
+        },
+        {
+          "id": "xhs-fa45df3c097b62d3",
+          "externalIds": {
+            "xiaohuasheng": "fa45df3c097b62d3",
+            "xiaohuashengApp": 980671
+          },
+          "title": "培生幼儿英语.基础词汇.上 19 I Like Elephants",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005231206.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fa45df3c097b62d3",
+          "order": 0
+        },
+        {
+          "id": "xhs-2165cbfc905c2b4a",
+          "externalIds": {
+            "xiaohuasheng": "2165cbfc905c2b4a",
+            "xiaohuashengApp": 980628
+          },
+          "title": "培生幼儿英语.基础词汇.上 20 The Family",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231005231315.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2165cbfc905c2b4a",
+          "order": 0
+        },
+        {
+          "id": "xhs-83ff38844b444693",
+          "externalIds": {
+            "xiaohuasheng": "83ff38844b444693",
+            "xiaohuashengApp": 980670
+          },
+          "title": "培生幼儿英语.基础词汇.上 21 I Can Swim",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231006231825.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/83ff38844b444693",
+          "order": 0
+        },
+        {
+          "id": "xhs-9f89f8c153fcc8fa",
+          "externalIds": {
+            "xiaohuasheng": "9f89f8c153fcc8fa",
+            "xiaohuashengApp": 980647
+          },
+          "title": "培生幼儿英语.基础词汇.上 22 I Am A Bee",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231008004458.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9f89f8c153fcc8fa",
+          "order": 0
+        },
+        {
+          "id": "xhs-5b90f7562ad07411",
+          "externalIds": {
+            "xiaohuasheng": "5b90f7562ad07411",
+            "xiaohuashengApp": 980649
+          },
+          "title": "培生基础词汇(上)第23册 The Animals",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231008225133.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5b90f7562ad07411",
+          "order": 0
+        },
+        {
+          "id": "xhs-41b93f01cf9c6a5a",
+          "externalIds": {
+            "xiaohuasheng": "41b93f01cf9c6a5a",
+            "xiaohuashengApp": 980655
+          },
+          "title": "培生幼儿英语.基础词汇.上 24 I Like Riding",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231009223938.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/41b93f01cf9c6a5a",
+          "order": 0
+        },
+        {
+          "id": "xhs-cd9cd81eeecae0ec",
+          "externalIds": {
+            "xiaohuasheng": "cd9cd81eeecae0ec",
+            "xiaohuashengApp": 5972323
+          },
+          "title": "培生幼儿英语.基础词汇.上 25 A Shoe",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230801210635.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cd9cd81eeecae0ec",
+          "order": 0
+        },
+        {
+          "id": "xhs-9049465bdf7070bb",
+          "externalIds": {
+            "xiaohuasheng": "9049465bdf7070bb",
+            "xiaohuashengApp": 5972319
+          },
+          "title": "培生幼儿英语.基础词汇.上 26 A house",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230801210453.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9049465bdf7070bb",
+          "order": 0
+        },
+        {
+          "id": "xhs-da45011de2c82656",
+          "externalIds": {
+            "xiaohuasheng": "da45011de2c82656",
+            "xiaohuashengApp": 5972341
+          },
+          "title": "培生基础词汇(上)第27册in the garden",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230801210934.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/da45011de2c82656",
+          "order": 0
+        },
+        {
+          "id": "xhs-d1aaf756498fabd2",
+          "externalIds": {
+            "xiaohuasheng": "d1aaf756498fabd2",
+            "xiaohuashengApp": 5974218
+          },
+          "title": "培生基础词汇(上)第28册 a boat",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230802212921.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d1aaf756498fabd2",
+          "order": 0
+        },
+        {
+          "id": "xhs-a00acf52d2ce8a15",
+          "externalIds": {
+            "xiaohuasheng": "a00acf52d2ce8a15",
+            "xiaohuashengApp": 5974222
+          },
+          "title": "培生基础词汇(上)第29册the hole",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230802213036.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a00acf52d2ce8a15",
+          "order": 0
+        },
+        {
+          "id": "xhs-7e7dad009d8b9c1e",
+          "externalIds": {
+            "xiaohuasheng": "7e7dad009d8b9c1e",
+            "xiaohuashengApp": 5974242
+          },
+          "title": "培生基础词汇(上)第30册the moon",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230802213348.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7e7dad009d8b9c1e",
+          "order": 0
+        },
+        {
+          "id": "xhs-73392234501d9e50",
+          "externalIds": {
+            "xiaohuasheng": "73392234501d9e50",
+            "xiaohuashengApp": 5975664
+          },
+          "title": "培生基础词汇(上)第31册the monster town",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230803210711.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/73392234501d9e50",
+          "order": 0
+        },
+        {
+          "id": "xhs-8a502315c47d17ef",
+          "externalIds": {
+            "xiaohuasheng": "8a502315c47d17ef",
+            "xiaohuashengApp": 5975665
+          },
+          "title": "培生基础词汇(上)第32册 The Balloon Ride",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230803210746.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/8a502315c47d17ef",
+          "order": 0
+        },
+        {
+          "id": "xhs-5e5891da8ba48edd",
+          "externalIds": {
+            "xiaohuasheng": "5e5891da8ba48edd",
+            "xiaohuashengApp": 5975666
+          },
+          "title": "培生基础词汇(上)第33册rainbow town",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230803210821.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/5e5891da8ba48edd",
+          "order": 0
+        },
+        {
+          "id": "xhs-bfc47b17cbf26334",
+          "externalIds": {
+            "xiaohuasheng": "bfc47b17cbf26334",
+            "xiaohuashengApp": 980666
+          },
+          "title": "培生幼儿英语.基础词汇.上 34 I Am Jumping",
+          "cover": "https://img.xiaohuasheng.cn/2328009/Book/20250622121549.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/bfc47b17cbf26334",
+          "order": 0
+        },
+        {
+          "id": "xhs-24269e542c02181b",
+          "externalIds": {
+            "xiaohuasheng": "24269e542c02181b",
+            "xiaohuashengApp": 5977089
+          },
+          "title": "培生基础词汇(上)第35册the spy",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230804213018.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/24269e542c02181b",
+          "order": 0
+        },
+        {
+          "id": "xhs-f2761312d3c1a9c8",
+          "externalIds": {
+            "xiaohuasheng": "f2761312d3c1a9c8",
+            "xiaohuashengApp": 5977093
+          },
+          "title": "培生基础词汇(上)第36册i like jam",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230804213046.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f2761312d3c1a9c8",
+          "order": 0
+        },
+        {
+          "id": "xhs-ff1a6b9956e07b61",
+          "externalIds": {
+            "xiaohuasheng": "ff1a6b9956e07b61",
+            "xiaohuashengApp": 980599
+          },
+          "title": "培生幼儿英语.基础词汇.上 37 I Am Working",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231023003609.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ff1a6b9956e07b61",
+          "order": 0
+        },
+        {
+          "id": "xhs-fcb282d189dc6b9a",
+          "externalIds": {
+            "xiaohuasheng": "fcb282d189dc6b9a",
+            "xiaohuashengApp": 5978948
+          },
+          "title": "培生基础词汇(上)第38册 my hat",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230805223928.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fcb282d189dc6b9a",
+          "order": 0
+        },
+        {
+          "id": "xhs-81121bb4d85bdc2e",
+          "externalIds": {
+            "xiaohuasheng": "81121bb4d85bdc2e",
+            "xiaohuashengApp": 5978951
+          },
+          "title": "培生基础词汇(上)第39册i like boxes",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230805224004.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/81121bb4d85bdc2e",
+          "order": 0
+        },
+        {
+          "id": "xhs-9bd3d40ab4dde5c4",
+          "externalIds": {
+            "xiaohuasheng": "9bd3d40ab4dde5c4",
+            "xiaohuashengApp": 980601
+          },
+          "title": "培生幼儿英语.基础词汇.上 40 Monkeys",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231028232154.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9bd3d40ab4dde5c4",
+          "order": 0
+        },
+        {
+          "id": "xhs-c8ac835526a7f96f",
+          "externalIds": {
+            "xiaohuasheng": "c8ac835526a7f96f",
+            "xiaohuashengApp": 5979781
+          },
+          "title": "培生基础词汇(上)第41册the snowman",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230806133536.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c8ac835526a7f96f",
+          "order": 0
+        },
+        {
+          "id": "xhs-6cbab97236a7aa0d",
+          "externalIds": {
+            "xiaohuasheng": "6cbab97236a7aa0d",
+            "xiaohuashengApp": 5979782
+          },
+          "title": "培生基础词汇(上)第42册hats",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230806133556.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/6cbab97236a7aa0d",
+          "order": 0
+        },
+        {
+          "id": "xhs-7e7d66d54550043c",
+          "externalIds": {
+            "xiaohuasheng": "7e7d66d54550043c",
+            "xiaohuashengApp": 980639
+          },
+          "title": "培生幼儿英语基础词汇.上 43 Sailors",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230829232420.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/7e7d66d54550043c",
+          "order": 0
+        },
+        {
+          "id": "xhs-13f7b0420fcf2b41",
+          "externalIds": {
+            "xiaohuasheng": "13f7b0420fcf2b41",
+            "xiaohuashengApp": 5982287
+          },
+          "title": "培生基础词汇(上)第44册the rally car",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230807213007.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/13f7b0420fcf2b41",
+          "order": 0
+        },
+        {
+          "id": "xhs-be5afc662fcec0ab",
+          "externalIds": {
+            "xiaohuasheng": "be5afc662fcec0ab",
+            "xiaohuashengApp": 5982290
+          },
+          "title": "培生基础词汇(上)第45册 ice cream",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230807213034.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/be5afc662fcec0ab",
+          "order": 0
+        },
+        {
+          "id": "xhs-ea85b652083f13d3",
+          "externalIds": {
+            "xiaohuasheng": "ea85b652083f13d3",
+            "xiaohuashengApp": 980528
+          },
+          "title": "培生幼儿英语基础词汇.上 46 The Show",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230901231423.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ea85b652083f13d3",
+          "order": 0
+        },
+        {
+          "id": "xhs-fa396d942a95bf06",
+          "externalIds": {
+            "xiaohuasheng": "fa396d942a95bf06",
+            "xiaohuashengApp": 5984022
+          },
+          "title": "培生基础词汇(上)第47册the presents",
+          "cover": "https://img.xiaohuasheng.cn/1974199/Book/20230808215056.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fa396d942a95bf06",
+          "order": 0
+        },
+        {
+          "id": "xhs-e8e58fe568d2fd05",
+          "externalIds": {
+            "xiaohuasheng": "e8e58fe568d2fd05",
+            "xiaohuashengApp": 980661
+          },
+          "title": "培生幼儿英语基础词汇.上 48 Here Is A Bird",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230903230812.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e8e58fe568d2fd05",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "materialId": "pearson",
+      "id": "xhs-collection-4344427",
+      "title": "培生基础词汇(下)(全48册)",
+      "edition": "培生基础词汇(下)(全48册)",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "9787572107894",
+      "cover": "https://img.xiaohuasheng.cn/2049180/Book/20230902210338.jpg",
+      "sourceUrl": "https://www.xiaohuasheng.cn/series/4855af0626ef9247",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "唯一书目数与套装声明册数一致",
+      "books": [
+        {
+          "id": "xhs-1ab88c0c1613a251",
+          "externalIds": {
+            "xiaohuasheng": "1ab88c0c1613a251",
+            "xiaohuashengApp": 980645
+          },
+          "title": "培生幼儿英语.基础词汇.下 50 The Party",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231104224251.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1ab88c0c1613a251",
+          "order": 0
+        },
+        {
+          "id": "xhs-ae7ef0d47598e01b",
+          "externalIds": {
+            "xiaohuasheng": "ae7ef0d47598e01b",
+            "xiaohuashengApp": 5991057
+          },
+          "title": "培生幼儿英语.基础词汇.下 49 Look at the Robot",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230812224707.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ae7ef0d47598e01b",
+          "order": 0
+        },
+        {
+          "id": "xhs-ce52bd4e4f84968c",
+          "externalIds": {
+            "xiaohuasheng": "ce52bd4e4f84968c",
+            "xiaohuashengApp": 5982609
+          },
+          "title": "培生幼儿英语.基础词汇.下 51 The Pets",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230906232034.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/ce52bd4e4f84968c",
+          "order": 0
+        },
+        {
+          "id": "xhs-a16b6ab7dd86ed61",
+          "externalIds": {
+            "xiaohuasheng": "a16b6ab7dd86ed61",
+            "xiaohuashengApp": 5984090
+          },
+          "title": "培生幼儿英语.基础词汇.下 52 Wheels",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230808220707.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a16b6ab7dd86ed61",
+          "order": 0
+        },
+        {
+          "id": "xhs-3482e4b7fc50907c",
+          "externalIds": {
+            "xiaohuasheng": "3482e4b7fc50907c",
+            "xiaohuashengApp": 980651
+          },
+          "title": "培生幼儿英语.基础词汇.下 53 The Water Park",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230908224744.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3482e4b7fc50907c",
+          "order": 0
+        },
+        {
+          "id": "xhs-dec9a5541ffcbf38",
+          "externalIds": {
+            "xiaohuasheng": "dec9a5541ffcbf38",
+            "xiaohuashengApp": 5987753
+          },
+          "title": "培生幼儿英语.基础词汇.下 54 Dinner",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230810231416.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/dec9a5541ffcbf38",
+          "order": 0
+        },
+        {
+          "id": "xhs-f94a7caa2df0f77",
+          "externalIds": {
+            "xiaohuasheng": "f94a7caa2df0f77",
+            "xiaohuashengApp": 6125312
+          },
+          "title": "培生幼儿英语.基础词汇.下 55 This Is For Me",
+          "cover": "https://img.xiaohuasheng.cn/1936702/Book/20231026211617.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f94a7caa2df0f77",
+          "order": 0
+        },
+        {
+          "id": "xhs-83f29c73dcc9934",
+          "externalIds": {
+            "xiaohuasheng": "83f29c73dcc9934",
+            "xiaohuashengApp": 5991043
+          },
+          "title": "培生幼儿英语.基础词汇.下 56 Going Shopping",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230812224303.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/83f29c73dcc9934",
+          "order": 0
+        },
+        {
+          "id": "xhs-cf54235ae1899e5e",
+          "externalIds": {
+            "xiaohuasheng": "cf54235ae1899e5e",
+            "xiaohuashengApp": 5993269
+          },
+          "title": "培生幼儿英语.基础词汇.下 57 Look at the Animals",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230828230019.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/cf54235ae1899e5e",
+          "order": 0
+        },
+        {
+          "id": "xhs-699335160b781817",
+          "externalIds": {
+            "xiaohuasheng": "699335160b781817",
+            "xiaohuashengApp": 5995085
+          },
+          "title": "培生幼儿英语.基础词汇.下 58 The New House",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230814225134.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/699335160b781817",
+          "order": 0
+        },
+        {
+          "id": "xhs-350663347498f672",
+          "externalIds": {
+            "xiaohuasheng": "350663347498f672",
+            "xiaohuashengApp": 5996556
+          },
+          "title": "培生幼儿英语.基础词汇.下 59 The Spies",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230831001421.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/350663347498f672",
+          "order": 0
+        },
+        {
+          "id": "xhs-9213394b4ee7f05e",
+          "externalIds": {
+            "xiaohuasheng": "9213394b4ee7f05e",
+            "xiaohuashengApp": 5998944
+          },
+          "title": "培生幼儿英语.基础词汇.下 60 Shopping",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230817000514.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9213394b4ee7f05e",
+          "order": 0
+        },
+        {
+          "id": "xhs-f5fecd655be5dacd",
+          "externalIds": {
+            "xiaohuasheng": "f5fecd655be5dacd",
+            "xiaohuashengApp": 6000680
+          },
+          "title": "培生幼儿英语.基础词汇.下 61 The Bumper Cars",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230817232536.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/f5fecd655be5dacd",
+          "order": 0
+        },
+        {
+          "id": "xhs-fa5dba24e6ee0235",
+          "externalIds": {
+            "xiaohuasheng": "fa5dba24e6ee0235",
+            "xiaohuashengApp": 6002170
+          },
+          "title": "培生幼儿英语.基础词汇.下 62 Can You See?",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230902223521.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/fa5dba24e6ee0235",
+          "order": 0
+        },
+        {
+          "id": "xhs-96cdf758399d0e31",
+          "externalIds": {
+            "xiaohuasheng": "96cdf758399d0e31",
+            "xiaohuashengApp": 6004105
+          },
+          "title": "培生幼儿英语.基础词汇.下 63 Elephant Trick",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230903230224.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/96cdf758399d0e31",
+          "order": 0
+        },
+        {
+          "id": "xhs-a80c5f8d4f46f984",
+          "externalIds": {
+            "xiaohuasheng": "a80c5f8d4f46f984",
+            "xiaohuashengApp": 6005777
+          },
+          "title": "培生幼儿英语.基础词汇.下 64 The Market",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230904225232.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a80c5f8d4f46f984",
+          "order": 0
+        },
+        {
+          "id": "xhs-eb8f3f703538565e",
+          "externalIds": {
+            "xiaohuasheng": "eb8f3f703538565e",
+            "xiaohuashengApp": 6136335
+          },
+          "title": "培生幼儿英语.基础词汇.下 65My Trip",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231120214605.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/eb8f3f703538565e",
+          "order": 0
+        },
+        {
+          "id": "xhs-dcdcf246d2379dc6",
+          "externalIds": {
+            "xiaohuasheng": "dcdcf246d2379dc6",
+            "xiaohuashengApp": 6136337
+          },
+          "title": "培生幼儿英语.基础词汇.下 66 Our Day",
+          "cover": "https://img.xiaohuasheng.cn/2328009/Book/20250622121819.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/dcdcf246d2379dc6",
+          "order": 0
+        },
+        {
+          "id": "xhs-618b047db536f294",
+          "externalIds": {
+            "xiaohuasheng": "618b047db536f294",
+            "xiaohuashengApp": 6136338
+          },
+          "title": "培生幼儿英语.基础词汇.下 67 The Snake",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20231123195309.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/618b047db536f294",
+          "order": 0
+        },
+        {
+          "id": "xhs-38943712128abd22",
+          "externalIds": {
+            "xiaohuasheng": "38943712128abd22",
+            "xiaohuashengApp": 6014574
+          },
+          "title": "培生幼儿英语.基础词汇.下 68 The Bears",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230829232555.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/38943712128abd22",
+          "order": 0
+        },
+        {
+          "id": "xhs-169d7f01ed72da44",
+          "externalIds": {
+            "xiaohuasheng": "169d7f01ed72da44",
+            "xiaohuashengApp": 6016222
+          },
+          "title": "培生幼儿英语.基础词汇.下 69 The Bird",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230828225906.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/169d7f01ed72da44",
+          "order": 0
+        },
+        {
+          "id": "xhs-c7e84c2c008c738b",
+          "externalIds": {
+            "xiaohuasheng": "c7e84c2c008c738b",
+            "xiaohuashengApp": 6018007
+          },
+          "title": "培生幼儿英语.基础词汇.下 70 The Holiday",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230828225748.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/c7e84c2c008c738b",
+          "order": 0
+        },
+        {
+          "id": "xhs-3c42ed1dc35c0998",
+          "externalIds": {
+            "xiaohuasheng": "3c42ed1dc35c0998",
+            "xiaohuashengApp": 6019800
+          },
+          "title": "培生幼儿英语.基础词汇.下 71 In The Mud",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230828225453.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3c42ed1dc35c0998",
+          "order": 0
+        },
+        {
+          "id": "xhs-a6697450be16bea1",
+          "externalIds": {
+            "xiaohuasheng": "a6697450be16bea1",
+            "xiaohuashengApp": 6021564
+          },
+          "title": "培生幼儿英语.基础词汇.下 72 The Mice",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230902223414.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a6697450be16bea1",
+          "order": 0
+        },
+        {
+          "id": "xhs-d01ce8f7204c737d",
+          "externalIds": {
+            "xiaohuasheng": "d01ce8f7204c737d",
+            "xiaohuashengApp": 6023249
+          },
+          "title": "培生幼儿英语.基础词汇.下 73 The Kites",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230903231427.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/d01ce8f7204c737d",
+          "order": 0
+        },
+        {
+          "id": "xhs-b10a5a277cc487e0",
+          "externalIds": {
+            "xiaohuasheng": "b10a5a277cc487e0",
+            "xiaohuashengApp": 6024963
+          },
+          "title": "培生幼儿英语.基础词汇.下 74 The Balloons",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230902223335.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b10a5a277cc487e0",
+          "order": 0
+        },
+        {
+          "id": "xhs-de8fee79a4e868",
+          "externalIds": {
+            "xiaohuasheng": "de8fee79a4e868",
+            "xiaohuashengApp": 6026637
+          },
+          "title": "培生幼儿英语.基础词汇.下 75 The Tunnel",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230901232719.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/de8fee79a4e868",
+          "order": 0
+        },
+        {
+          "id": "xhs-2145c71da2ab6e7e",
+          "externalIds": {
+            "xiaohuasheng": "2145c71da2ab6e7e",
+            "xiaohuashengApp": 6028678
+          },
+          "title": "培生幼儿英语.基础词汇.下 76 Going to Bed",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230902223815.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/2145c71da2ab6e7e",
+          "order": 0
+        },
+        {
+          "id": "xhs-9aaaa385a466f895",
+          "externalIds": {
+            "xiaohuasheng": "9aaaa385a466f895",
+            "xiaohuashengApp": 6030874
+          },
+          "title": "培生幼儿英语.基础词汇.下 77 Mice",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230903231108.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9aaaa385a466f895",
+          "order": 0
+        },
+        {
+          "id": "xhs-97f274c6434e21bf",
+          "externalIds": {
+            "xiaohuasheng": "97f274c6434e21bf",
+            "xiaohuashengApp": 6032765
+          },
+          "title": "培生幼儿英语.基础词汇.下 78 The Ants",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230904225622.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/97f274c6434e21bf",
+          "order": 0
+        },
+        {
+          "id": "xhs-1e54d8cc84840704",
+          "externalIds": {
+            "xiaohuasheng": "1e54d8cc84840704",
+            "xiaohuashengApp": 6033186
+          },
+          "title": "培生幼儿英语.基础词汇.下 79 The Bike Race",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230905115621.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/1e54d8cc84840704",
+          "order": 0
+        },
+        {
+          "id": "xhs-92f018fd7c89295c",
+          "externalIds": {
+            "xiaohuasheng": "92f018fd7c89295c",
+            "xiaohuashengApp": 6036856
+          },
+          "title": "培生幼儿英语.基础词汇.下 80 Silly Tricks",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230906232252.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/92f018fd7c89295c",
+          "order": 0
+        },
+        {
+          "id": "xhs-db52c4e617be7c0e",
+          "externalIds": {
+            "xiaohuasheng": "db52c4e617be7c0e",
+            "xiaohuashengApp": 6038441
+          },
+          "title": "培生幼儿英语.基础词汇.下 81 Come",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230907232734.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/db52c4e617be7c0e",
+          "order": 0
+        },
+        {
+          "id": "xhs-3a822e058aba7c4c",
+          "externalIds": {
+            "xiaohuasheng": "3a822e058aba7c4c",
+            "xiaohuashengApp": 6039700
+          },
+          "title": "培生幼儿英语.基础词汇.下 82 Come in the Grass",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230908225002.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3a822e058aba7c4c",
+          "order": 0
+        },
+        {
+          "id": "xhs-b02573f585bca28b",
+          "externalIds": {
+            "xiaohuasheng": "b02573f585bca28b",
+            "xiaohuashengApp": 6041234
+          },
+          "title": "培生幼儿英语.基础词汇.下 83 The Turkey",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230909220551.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b02573f585bca28b",
+          "order": 0
+        },
+        {
+          "id": "xhs-dc3b860c8035e057",
+          "externalIds": {
+            "xiaohuasheng": "dc3b860c8035e057",
+            "xiaohuashengApp": 6043502
+          },
+          "title": "培生幼儿英语.基础词汇.下 84 Zoo Dinners",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230910235106.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/dc3b860c8035e057",
+          "order": 0
+        },
+        {
+          "id": "xhs-888aee457b295045",
+          "externalIds": {
+            "xiaohuasheng": "888aee457b295045",
+            "xiaohuashengApp": 6045339
+          },
+          "title": "培生幼儿英语.基础词汇.下 85 I Can Help",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230913224807.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/888aee457b295045",
+          "order": 0
+        },
+        {
+          "id": "xhs-b825352c9f091a72",
+          "externalIds": {
+            "xiaohuasheng": "b825352c9f091a72",
+            "xiaohuashengApp": 6046853
+          },
+          "title": "培生幼儿英语.基础词汇.下 86 Cooking",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230912231613.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/b825352c9f091a72",
+          "order": 0
+        },
+        {
+          "id": "xhs-3ffa42140fca27e8",
+          "externalIds": {
+            "xiaohuasheng": "3ffa42140fca27e8",
+            "xiaohuashengApp": 6048470
+          },
+          "title": "培生幼儿英语.基础词汇.下 87 The Rides",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230913225038.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/3ffa42140fca27e8",
+          "order": 0
+        },
+        {
+          "id": "xhs-e2f41de0bef92b5",
+          "externalIds": {
+            "xiaohuasheng": "e2f41de0bef92b5",
+            "xiaohuashengApp": 6050033
+          },
+          "title": "培生幼儿英语.基础词汇.下 88 Grass for Dinner",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230914222542.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e2f41de0bef92b5",
+          "order": 0
+        },
+        {
+          "id": "xhs-762ef5ff18eb29d0",
+          "externalIds": {
+            "xiaohuasheng": "762ef5ff18eb29d0",
+            "xiaohuashengApp": 6051483
+          },
+          "title": "培生幼儿英语.基础词汇.下 89 Naughty Monkey",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230915225307.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/762ef5ff18eb29d0",
+          "order": 0
+        },
+        {
+          "id": "xhs-9cb744f45d1e1107",
+          "externalIds": {
+            "xiaohuasheng": "9cb744f45d1e1107",
+            "xiaohuashengApp": 6053306
+          },
+          "title": "培生幼儿英语.基础词汇.下 90 I Am Here",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230916233526.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/9cb744f45d1e1107",
+          "order": 0
+        },
+        {
+          "id": "xhs-51fd7fcc94534476",
+          "externalIds": {
+            "xiaohuasheng": "51fd7fcc94534476",
+            "xiaohuashengApp": 6055327
+          },
+          "title": "培生幼儿英语.基础词汇.下 91 The Snow",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230917230520.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/51fd7fcc94534476",
+          "order": 0
+        },
+        {
+          "id": "xhs-e7f0d27557333581",
+          "externalIds": {
+            "xiaohuasheng": "e7f0d27557333581",
+            "xiaohuashengApp": 6057061
+          },
+          "title": "培生幼儿英语.基础词汇.下 92 The Spider",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230918225827.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/e7f0d27557333581",
+          "order": 0
+        },
+        {
+          "id": "xhs-87e1f45f6032c70c",
+          "externalIds": {
+            "xiaohuasheng": "87e1f45f6032c70c",
+            "xiaohuashengApp": 6058490
+          },
+          "title": "培生幼儿英语.基础词汇.下 93 The Robot",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230919221701.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/87e1f45f6032c70c",
+          "order": 0
+        },
+        {
+          "id": "xhs-a474e7f1918cb72",
+          "externalIds": {
+            "xiaohuasheng": "a474e7f1918cb72",
+            "xiaohuashengApp": 6060198
+          },
+          "title": "培生幼儿英语.基础词汇.下 94 The Birthday",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230920231324.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/a474e7f1918cb72",
+          "order": 0
+        },
+        {
+          "id": "xhs-db2ffd9067a3c2c9",
+          "externalIds": {
+            "xiaohuasheng": "db2ffd9067a3c2c9",
+            "xiaohuashengApp": 6062197
+          },
+          "title": "培生幼儿英语.基础词汇.下 95 The Trucks",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230921232927.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/db2ffd9067a3c2c9",
+          "order": 0
+        },
+        {
+          "id": "xhs-da8c82d377157dd2",
+          "externalIds": {
+            "xiaohuasheng": "da8c82d377157dd2",
+            "xiaohuashengApp": 6063689
+          },
+          "title": "培生幼儿英语.基础词汇.下 96 The Water",
+          "cover": "https://img.xiaohuasheng.cn/1779879/Book/20230922230439.jpg",
+          "sourceUrl": "https://www.xiaohuasheng.cn/book/da8c82d377157dd2",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "materialId": "zebra",
+      "id": "web-zebra-s1",
+      "title": "S1（7本）",
+      "edition": "斑马思维训练6+1 S1阶段（全7册）",
+      "grades": [
+        "junior"
+      ],
+      "isbn": "9787200174670",
+      "cover": "",
+      "sourceUrl": "https://www.jd.com/product/斑马思维训练6+1-S1.html",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "公网核验：6本基础训练（数感与模型、图形与空间、逻辑与规律、视听与记忆、动手与益智、实践与规划）+1本综合提升训练。出版社：北京出版社。",
+      "books": [
+        {
+          "id": "web-zebra-s1-1",
+          "title": "数感与模型",
+          "order": 1
+        },
+        {
+          "id": "web-zebra-s1-2",
+          "title": "图形与空间",
+          "order": 2
+        },
+        {
+          "id": "web-zebra-s1-3",
+          "title": "逻辑与规律",
+          "order": 3
+        },
+        {
+          "id": "web-zebra-s1-4",
+          "title": "视听与记忆",
+          "order": 4
+        },
+        {
+          "id": "web-zebra-s1-5",
+          "title": "动手与益智",
+          "order": 5
+        },
+        {
+          "id": "web-zebra-s1-6",
+          "title": "实践与规划",
+          "order": 6
+        },
+        {
+          "id": "web-zebra-s1-7",
+          "title": "综合提升训练",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "materialId": "poetry-shelf",
+      "id": "pdf-poetry-shelf-115",
+      "title": "古诗小书架全文115首",
+      "edition": "宝宝巴士古诗小书架配套PDF（115首，按原文顺序）",
+      "grades": [
+        "junior",
+        "middle",
+        "senior"
+      ],
+      "isbn": "",
+      "cover": "./poetry-shelf-cover.jpg",
+      "sourceUrl": "",
+      "checkedAt": "2026-11-18",
+      "complete": true,
+      "note": "从家长提供的PDF文档逐页提取，按原文页码顺序排列。",
+      "books": [
+        {
+          "id": "poem-1",
+          "title": "咏鹅",
+          "order": 1
+        },
+        {
+          "id": "poem-2",
+          "title": "画",
+          "order": 2
+        },
+        {
+          "id": "poem-3",
+          "title": "悯农",
+          "order": 3
+        },
+        {
+          "id": "poem-4",
+          "title": "江南",
+          "order": 4
+        },
+        {
+          "id": "poem-5",
+          "title": "古朗月行(节选)",
+          "order": 5
+        },
+        {
+          "id": "poem-6",
+          "title": "风",
+          "order": 6
+        },
+        {
+          "id": "poem-7",
+          "title": "春晓",
+          "order": 7
+        },
+        {
+          "id": "poem-8",
+          "title": "寻隐者不遇",
+          "order": 8
+        },
+        {
+          "id": "poem-9",
+          "title": "赠汪伦",
+          "order": 9
+        },
+        {
+          "id": "poem-10",
+          "title": "静夜思",
+          "order": 10
+        },
+        {
+          "id": "poem-11",
+          "title": "池上",
+          "order": 11
+        },
+        {
+          "id": "poem-12",
+          "title": "小池",
+          "order": 12
+        },
+        {
+          "id": "poem-13",
+          "title": "画鸡",
+          "order": 13
+        },
+        {
+          "id": "poem-14",
+          "title": "梅花",
+          "order": 14
+        },
+        {
+          "id": "poem-15",
+          "title": "小儿垂钓",
+          "order": 15
+        },
+        {
+          "id": "poem-16",
+          "title": "登鹳雀楼",
+          "order": 16
+        },
+        {
+          "id": "poem-17",
+          "title": "望庐山瀑布",
+          "order": 17
+        },
+        {
+          "id": "poem-18",
+          "title": "敕勒歌",
+          "order": 18
+        },
+        {
+          "id": "poem-19",
+          "title": "江雪",
+          "order": 19
+        },
+        {
+          "id": "poem-20",
+          "title": "黄鹤楼送孟浩然之广陵",
+          "order": 20
+        },
+        {
+          "id": "poem-21",
+          "title": "村居",
+          "order": 21
+        },
+        {
+          "id": "poem-22",
+          "title": "咏柳",
+          "order": 22
+        },
+        {
+          "id": "poem-23",
+          "title": "赋得古原草送别",
+          "order": 23
+        },
+        {
+          "id": "poem-24",
+          "title": "晓出净慈寺送林子方",
+          "order": 24
+        },
+        {
+          "id": "poem-25",
+          "title": "绝句",
+          "order": 25
+        },
+        {
+          "id": "poem-26",
+          "title": "悯农二首(其一)",
+          "order": 26
+        },
+        {
+          "id": "poem-27",
+          "title": "舟夜书所见",
+          "order": 27
+        },
+        {
+          "id": "poem-28",
+          "title": "所见",
+          "order": 28
+        },
+        {
+          "id": "poem-29",
+          "title": "望洞庭",
+          "order": 29
+        },
+        {
+          "id": "poem-30",
+          "title": "山行",
+          "order": 30
+        },
+        {
+          "id": "poem-31",
+          "title": "夜书所见",
+          "order": 31
+        },
+        {
+          "id": "poem-32",
+          "title": "江上渔者",
+          "order": 32
+        },
+        {
+          "id": "poem-33",
+          "title": "早发白帝城",
+          "order": 33
+        },
+        {
+          "id": "poem-34",
+          "title": "鹿柴",
+          "order": 34
+        },
+        {
+          "id": "poem-35",
+          "title": "望天门山",
+          "order": 35
+        },
+        {
+          "id": "poem-36",
+          "title": "饮湖上初晴后雨",
+          "order": 36
+        },
+        {
+          "id": "poem-37",
+          "title": "采莲曲",
+          "order": 37
+        },
+        {
+          "id": "poem-38",
+          "title": "绝句",
+          "order": 38
+        },
+        {
+          "id": "poem-39",
+          "title": "惠崇春江晚景",
+          "order": 39
+        },
+        {
+          "id": "poem-40",
+          "title": "三衢道中",
+          "order": 40
+        },
+        {
+          "id": "poem-41",
+          "title": "忆江南",
+          "order": 41
+        },
+        {
+          "id": "poem-42",
+          "title": "元日",
+          "order": 42
+        },
+        {
+          "id": "poem-43",
+          "title": "清明",
+          "order": 43
+        },
+        {
+          "id": "poem-44",
+          "title": "九月九日忆山东兄弟",
+          "order": 44
+        },
+        {
+          "id": "poem-45",
+          "title": "滁州西涧",
+          "order": 45
+        },
+        {
+          "id": "poem-46",
+          "title": "大林寺桃花",
+          "order": 46
+        },
+        {
+          "id": "poem-47",
+          "title": "赠刘景文",
+          "order": 47
+        },
+        {
+          "id": "poem-48",
+          "title": "暮江吟",
+          "order": 48
+        },
+        {
+          "id": "poem-49",
+          "title": "题西林壁",
+          "order": 49
+        },
+        {
+          "id": "poem-50",
+          "title": "雪梅",
+          "order": 50
+        },
+        {
+          "id": "poem-51",
+          "title": "别董大",
+          "order": 51
+        },
+        {
+          "id": "poem-52",
+          "title": "嫦娥",
+          "order": 52
+        },
+        {
+          "id": "poem-53",
+          "title": "凉州词",
+          "order": 53
+        },
+        {
+          "id": "poem-54",
+          "title": "出塞",
+          "order": 54
+        },
+        {
+          "id": "poem-55",
+          "title": "夏日绝句",
+          "order": 55
+        },
+        {
+          "id": "poem-56",
+          "title": "逢雪宿芙蓉山主人",
+          "order": 56
+        },
+        {
+          "id": "poem-57",
+          "title": "四时田园杂兴(其二)",
+          "order": 57
+        },
+        {
+          "id": "poem-58",
+          "title": "宿新市徐公店(其二)",
+          "order": 58
+        },
+        {
+          "id": "poem-59",
+          "title": "清平乐·村居",
+          "order": 59
+        },
+        {
+          "id": "poem-60",
+          "title": "卜算子·咏梅",
+          "order": 60
+        },
+        {
+          "id": "poem-61",
+          "title": "江畔独步寻花",
+          "order": 61
+        },
+        {
+          "id": "poem-62",
+          "title": "蜂",
+          "order": 62
+        },
+        {
+          "id": "poem-63",
+          "title": "独坐敬亭山",
+          "order": 63
+        },
+        {
+          "id": "poem-64",
+          "title": "芙蓉楼送辛渐",
+          "order": 64
+        },
+        {
+          "id": "poem-65",
+          "title": "塞下曲",
+          "order": 65
+        },
+        {
+          "id": "poem-66",
+          "title": "墨梅",
+          "order": 66
+        },
+        {
+          "id": "poem-67",
+          "title": "蝉",
+          "order": 67
+        },
+        {
+          "id": "poem-68",
+          "title": "乞巧",
+          "order": 68
+        },
+        {
+          "id": "poem-69",
+          "title": "示儿",
+          "order": 69
+        },
+        {
+          "id": "poem-70",
+          "title": "题临安邸",
+          "order": 70
+        },
+        {
+          "id": "poem-71",
+          "title": "己亥杂诗",
+          "order": 71
+        },
+        {
+          "id": "poem-72",
+          "title": "山居秋瞑",
+          "order": 72
+        },
+        {
+          "id": "poem-73",
+          "title": "枫桥夜泊",
+          "order": 73
+        },
+        {
+          "id": "poem-74",
+          "title": "长相思",
+          "order": 74
+        },
+        {
+          "id": "poem-75",
+          "title": "渔歌子",
+          "order": 75
+        },
+        {
+          "id": "poem-76",
+          "title": "观书有感",
+          "order": 76
+        },
+        {
+          "id": "poem-77",
+          "title": "观书有感其二",
+          "order": 77
+        },
+        {
+          "id": "poem-78",
+          "title": "四时田园杂兴(其三十一)",
+          "order": 78
+        },
+        {
+          "id": "poem-79",
+          "title": "稚子弄冰",
+          "order": 79
+        },
+        {
+          "id": "poem-80",
+          "title": "村晚",
+          "order": 80
+        },
+        {
+          "id": "poem-81",
+          "title": "游子吟",
+          "order": 81
+        },
+        {
+          "id": "poem-82",
+          "title": "鸟鸣涧",
+          "order": 82
+        },
+        {
+          "id": "poem-83",
+          "title": "从军行",
+          "order": 83
+        },
+        {
+          "id": "poem-84",
+          "title": "秋夜将晓出篱门迎凉有感",
+          "order": 84
+        },
+        {
+          "id": "poem-85",
+          "title": "闻官军收河南河北",
+          "order": 85
+        },
+        {
+          "id": "poem-86",
+          "title": "凉州词",
+          "order": 86
+        },
+        {
+          "id": "poem-87",
+          "title": "乡村四月",
+          "order": 87
+        },
+        {
+          "id": "poem-88",
+          "title": "宿建德江",
+          "order": 88
+        },
+        {
+          "id": "poem-89",
+          "title": "六月二十七日望湖楼醉书",
+          "order": 89
+        },
+        {
+          "id": "poem-90",
+          "title": "西江月·夜行黄沙道中",
+          "order": 90
+        },
+        {
+          "id": "poem-91",
+          "title": "过故人庄",
+          "order": 91
+        },
+        {
+          "id": "poem-92",
+          "title": "七律·长征",
+          "order": 92
+        },
+        {
+          "id": "poem-93",
+          "title": "菩萨蛮·大柏地",
+          "order": 93
+        },
+        {
+          "id": "poem-94",
+          "title": "春日",
+          "order": 94
+        },
+        {
+          "id": "poem-95",
+          "title": "回乡偶书(其一)",
+          "order": 95
+        },
+        {
+          "id": "poem-96",
+          "title": "浪淘沙",
+          "order": 96
+        },
+        {
+          "id": "poem-97",
+          "title": "江南春",
+          "order": 97
+        },
+        {
+          "id": "poem-98",
+          "title": "书湖阴先生壁",
+          "order": 98
+        },
+        {
+          "id": "poem-99",
+          "title": "寒食",
+          "order": 99
+        },
+        {
+          "id": "poem-100",
+          "title": "迢迢牵牛星",
+          "order": 100
+        },
+        {
+          "id": "poem-101",
+          "title": "十五夜望月",
+          "order": 101
+        },
+        {
+          "id": "poem-102",
+          "title": "马诗(其五)",
+          "order": 102
+        },
+        {
+          "id": "poem-103",
+          "title": "石灰吟",
+          "order": 103
+        },
+        {
+          "id": "poem-104",
+          "title": "竹石",
+          "order": 104
+        },
+        {
+          "id": "poem-105",
+          "title": "采薇(节选)",
+          "order": 105
+        },
+        {
+          "id": "poem-106",
+          "title": "送元二使安西",
+          "order": 106
+        },
+        {
+          "id": "poem-107",
+          "title": "泊船瓜洲",
+          "order": 107
+        },
+        {
+          "id": "poem-108",
+          "title": "游园不值",
+          "order": 108
+        },
+        {
+          "id": "poem-109",
+          "title": "春夜喜雨",
+          "order": 109
+        },
+        {
+          "id": "poem-110",
+          "title": "早春呈水部张十八员外",
+          "order": 110
+        },
+        {
+          "id": "poem-111",
+          "title": "浣溪沙",
+          "order": 111
+        },
+        {
+          "id": "poem-112",
+          "title": "清平乐",
+          "order": 112
+        },
+        {
+          "id": "poem-113",
+          "title": "卜算子·送鲍浩然之浙东",
+          "order": 113
+        },
+        {
+          "id": "poem-114",
+          "title": "长歌行",
+          "order": 114
+        },
+        {
+          "id": "poem-115",
+          "title": "夜宿山寺",
+          "order": 115
+        }
+      ]
+    }
+  ]
+}

@@ -1815,15 +1815,15 @@ function customBookForm(){
     }},'删除素材'),h('button',{type:'submit',class:'button primary'},'保存修改')));
   return form;
 }
+const materialLibrary=window.XiaoyaMaterialLibrary.create({h,icon});
 function libraryCard(r){
   if(r.custom)return customLibraryCard(r);
   const title=materialUI.name(r.title,sharedRoutes(r).length>1,{className:'library-series-name',role:EnglishModel.libraryMaterialRole(C,r,{route:S.route,stageIds:libraryStageIds()})});
-  return h('article',{class:'resource-card library-card'+(sharedRoutes(r).length>1?' shared':'')},h('div',{class:'resource-body'},
-    h('div',{class:'library-card-head'},btn(familyCover(r),'resource',{id:'library-cover-'+r.id,'data-id':r.id,'aria-label':'查看'+r.title,'aria-haspopup':'dialog',title:'查看完整详情'},'card-view-btn library-card-cover'),
-      h('div',{class:'library-card-heading'},
-        h('div',{class:'resource-title'},h('h3',{class:'library-series-heading'},h('a',{href:'#library',class:'card-view-btn','data-action':'resource',id:'library-title-'+r.id,'data-id':r.id,'aria-label':r.title+'完整详情','aria-haspopup':'dialog',title:'查看完整详情'},title))))),
-    h('div',{class:'library-card-tools'},r.liaoBookId?h('span',{class:'small-note'},'廖彩杏书单'):libraryReferenceCount(r.appearances.length),resourceStatusControl(r,false,true),
-      songResourceIds.has(r.id)?btn(icon('music'),'sss-songs',{id:'library-songs-'+r.id,'data-id':r.id,'aria-label':r.title+'分类歌单',title:'分类歌单'},'icon-button library-song-link'):null)));
+  return materialLibrary.card({attrs:{class:sharedRoutes(r).length>1?'shared':''},
+    cover:btn(familyCover(r),'resource',{id:'library-cover-'+r.id,'data-id':r.id,'aria-label':'查看'+r.title,'aria-haspopup':'dialog',title:'查看完整详情'},'card-view-btn library-card-cover'),
+    title:h('div',{class:'resource-title'},h('h3',{class:'library-series-heading'},h('a',{href:'#library',class:'card-view-btn','data-action':'resource',id:'library-title-'+r.id,'data-id':r.id,'aria-label':r.title+'完整详情','aria-haspopup':'dialog',title:'查看完整详情'},title))),
+    tools:[r.liaoBookId?h('span',{class:'small-note'},'廖彩杏书单'):libraryReferenceCount(r.appearances.length),resourceStatusControl(r,false,true),
+      songResourceIds.has(r.id)?btn(icon('music'),'sss-songs',{id:'library-songs-'+r.id,'data-id':r.id,'aria-label':r.title+'分类歌单',title:'分类歌单'},'icon-button library-song-link'):null]});
 }
 function updatePopoverLabel(id,label){
   const trigger=document.getElementById(id+'-toggle'),panel=document.getElementById(id);
@@ -1862,22 +1862,20 @@ function resetLibraryFilters(){
 const collectionGrouping=new Map();
 function libraryGrouping(collection=libraryCollection){return collectionGrouping.get(collection)||'series';}
 function filterResetControl(id,reset,label='重置全部筛选'){
-  return h('button',{id,type:'button',class:'library-filter-button filter-reset',title:label,'aria-label':label,onclick:reset},'↺');
+  return materialLibrary.reset({id,onReset:reset,label});
 }
 function libraryGroupingToggle(collection=libraryCollection){
-  const grouped=libraryGrouping(collection)==='series',label=grouped?'按套系展示，切换为单本展示':'按单本展示，切换为套系展示';
-  return h('button',{type:'button',class:'library-filter-button library-grouping-toggle',title:label,'aria-label':label,'aria-pressed':String(grouped),onclick:()=>{collectionGrouping.set(collection,grouped?'books':'series');S.libraryKey='';render();document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true});}},icon(grouped?'layers':'book'));
+  return materialLibrary.groupingToggle({value:libraryGrouping(collection),onChange:value=>{collectionGrouping.set(collection,value);S.libraryKey='';render();document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true});}});
 }
 function libraryLayoutToggle(){
-  return h('div',{class:'library-layout-toggle',role:'group','aria-label':'素材显示方式'},libraryGroupingToggle(),[['list','menu','列表视图'],['covers','grid','封面视图']].map(([value,name,label])=>h('button',{id:'library-layout-'+value,type:'button',class:'icon-button','aria-label':label,title:label,'aria-pressed':String(S.libraryLayout===value),onclick:()=>{
+  return materialLibrary.layoutControls({grouping:libraryGrouping(),onGrouping:value=>{collectionGrouping.set(libraryCollection,value);S.libraryKey='';render();document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true});},layout:S.libraryLayout,onLayout:value=>{
     const anchor=[...document.querySelectorAll('.library-results .library-card,.library-results .library-book-row')].find(card=>{const rect=card.getBoundingClientRect();return rect.bottom>200&&rect.top<innerHeight;}),top=anchor?.getBoundingClientRect().top;
     S.libraryLayout=value;
     document.querySelector('.library-grid')?.classList.toggle('library-cover-grid',value==='covers');
     document.querySelector('.library-results .library-book-list')?.classList.toggle('library-book-cover-grid',value==='covers');
     document.querySelector('.library-results .library-book-list')?.classList.toggle('library-cover-grid',value==='covers');
-    document.querySelectorAll('.library-layout-toggle button').forEach(button=>button.setAttribute('aria-pressed',String(button.id==='library-layout-'+value)));
     if(anchor&&top!==undefined)window.scrollBy(0,anchor.getBoundingClientRect().top-top);
-  }},icon(name))));
+  }});
 }
 function shelfSearchResults(query){
   if(!englishOwnerAuthenticated||S.route!=='all'||S.age!=='all'||S.libraryTopic!=='all'||S.sharedOnly||!['all','reader','book'].includes(S.type))return null;
