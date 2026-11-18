@@ -2101,6 +2101,8 @@
   .route-author-options>[data-browse-author]{font-size:14px;white-space:nowrap;padding-inline:3px}
   .route-author-options .route-mode-toggle{grid-column:3;justify-self:end}
   .route-author-options>.library-filter-button{grid-column:4;justify-self:end}
+}
+@media(max-width:760px){
   .phase-overview-row{grid-template-columns:95px minmax(0,1fr)}
   .phase-overview-row>.text-link{grid-row:span 3}
 }
