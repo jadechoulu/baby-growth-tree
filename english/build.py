@@ -92,6 +92,14 @@ BASE='''<!doctype html>
 </body>
 </html>'''
 
+BOOK_INDEX_CHUNK_COUNT = 4
+
+def stable_bucket(book_id):
+    salt = 0
+    for byte in book_id.encode('utf-8'):
+        salt = (salt * 31 + byte) & 0xffffffff
+    return salt % BOOK_INDEX_CHUNK_COUNT
+
 def split_runtime_data(raw, store):
     """索引保留筛选、身份与进度字段；逐册证据只在查看该册时读取。"""
     raw = {**raw}
@@ -121,14 +129,25 @@ def split_runtime_data(raw, store):
         batch = directory['books'][offset:offset + 48]
         details = {'books': [{key: value for key, value in book.items() if key == 'id' or key in detail_fields} for book in batch], 'topics': {book['id']: taxonomy['bookOverrides'][book['id']] for book in batch if book['id'] in taxonomy['bookOverrides']}}
         detail_files.append(store('book-details', 'json', inline_json(details)))
-        for book in batch:
+        for position, book in enumerate(batch, offset):
             index = {key: value for key, value in book.items() if key not in detail_fields}
             if book.get('coverSource'):
                 index['coverSource'] = {'kind': book['coverSource'].get('kind')}
-            books.append({**index, 'detailChunk': len(detail_files) - 1})
-    books_url = store('books', 'json', inline_json({**directory, 'books': books, 'detailFiles': detail_files}))
+            books.append({**index, 'detailChunk': len(detail_files) - 1, 'sortIndex': position})
+    buckets = [[] for _ in range(BOOK_INDEX_CHUNK_COUNT)]
+    for book in books:
+        if not isinstance(book.get('id'), str) or not book['id']:
+            raise ValueError('公共书目必须包含稳定非空 ID')
+        buckets[stable_bucket(book['id'])].append(book)
+    meta = {key: value for key, value in directory.items() if key != 'books'}
+    meta['detailFiles'] = detail_files
+    meta_url = store('book-index-meta', 'json', inline_json(meta))
+    chunk_urls = [store('book-index', 'json', inline_json({'books': bucket})) for bucket in buckets]
+    manifest_url = store('book-index-manifest', 'json', inline_json({'schemaVersion': 1, 'totalBooks': len(books), 'meta': meta_url, 'chunks': chunk_urls, 'detailFiles': detail_files}))
+    books_url = manifest_url
+    books_urls = [manifest_url, meta_url, *chunk_urls]
     raw['resourceBooks'] = {'books': [], 'sources': []}
-    return raw, books_url, {'helloReading': hello_url, 'resourceTopics': resource_topics_url}
+    return raw, books_url, books_urls, {'helloReading': hello_url, 'resourceTopics': resource_topics_url}
 
 def write(path, assets, raw=RAW, script=js, site=None):
     site = site or {'home':'../home.html','growth':'../index.html'}
@@ -146,18 +165,18 @@ def write(path, assets, raw=RAW, script=js, site=None):
             (path.parent / relative).write_text(content)
             generated.add(relative)
             return relative
-        raw, books_url, chunks = split_runtime_data(raw, store)
+        raw, books_url, books_urls, chunks = split_runtime_data(raw, store)
         payload = 'window.ROADMAP_RAW=' + inline_json(raw) + ';\nwindow.ROADMAP_CHUNKS=' + inline_json(chunks) + ';\n'
         for name, suffix, content in [('data', 'js', payload), ('app', 'js', script), ('styles', 'css', css)]:
             files[name] = store(name, suffix, content)
         for previous in runtime.iterdir():
-            if previous.is_file() and re.fullmatch(r'(data|app|styles|hello|books|book-details|resource-topics)\.[0-9a-f]{16}\.(js|css|json)', previous.name) and 'runtime/' + previous.name not in generated:
+            if previous.is_file() and re.fullmatch(r'(data|app|styles|hello|books|book-details|resource-topics|book-index|book-index-meta|book-index-manifest)\.[0-9a-f]{16}\.(js|css|json)', previous.name) and 'runtime/' + previous.name not in generated:
                 previous.unlink()
         template = BASE.replace('<style>__CSS__</style>', '<link rel="stylesheet" href="./' + files['styles'] + '">')
         template = template.replace('<script>__JS__</script>', '<script id="english-data" src="./' + files['data'] + '" defer onerror="EnglishStartupFailed()"></script>\n<script src="./' + files['app'] + '" defer onerror="EnglishStartupFailed()"></script>')
         template = template.replace('window.ROADMAP_RAW=__RAW__;', '')
         # 深链接在解析HTML时并行读取当前页必需的目录或Hello资料，消除脚本后的串行等待。
-        preload = '<script>{const [view,query=""]=location.hash.slice(1).split("?"),collection=new URLSearchParams(query).get("collection"),url=["qing-progress","xu-progress"].includes(view)||(view==="library"&&!["hello","liao"].includes(collection))?' + inline_json(books_url) + ':view==="library"&&collection==="hello"?' + inline_json(chunks['helloReading']) + ':null;if(url){const link=document.createElement("link");link.rel="preload";link.as="fetch";link.crossOrigin="anonymous";link.href=url;document.head.append(link);}}</script>'
+        preload = '<script>{const [view,query=""]=location.hash.slice(1).split("?"),collection=new URLSearchParams(query).get("collection"),list=["qing-progress","xu-progress"].includes(view)||(view==="library"&&!["hello","liao"].includes(collection))?' + inline_json(books_urls) + ':view==="library"&&collection==="hello"?[' + inline_json(chunks['helloReading']) + '] :[];for(const href of list){const link=document.createElement("link");link.rel="preload";link.as="fetch";link.crossOrigin="anonymous";link.href=href;document.head.append(link);}}</script>'
         template = template.replace('</head>', preload + '\n</head>')
         startup = '''<script>
 window.EnglishStartupFailed=function(){const box=document.querySelector('#app>.loading');if(!box)return;box.replaceChildren(document.createTextNode('页面暂时未能加载。'));const retry=document.createElement('button');retry.type='button';retry.textContent='重新加载';retry.onclick=function(){location.reload();};box.append(retry);};
