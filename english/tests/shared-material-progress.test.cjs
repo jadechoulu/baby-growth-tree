@@ -89,7 +89,7 @@ test('公共选版决定图鉴书单：默认新版、显式旧版及历史手�
   assert.equal(app.S.records[P.LIBRARY+pearson].note,'原来的普通手记');
 });
 
-test('图鉴勾选与撤回通过同一单册事实投影路线数量，切版不继承完成',()=>{
+test('图鉴勾选与撤回通过同一单册事实投影，同资源同名选版共享完成',()=>{
   const app=appFixture(),plan=app.readingPlanForResource(pearson,upper);
   const book=BP.books(plan,BP.scopeGroup(plan,upper))[0];
   setBook(app,book,true);
@@ -97,9 +97,9 @@ test('图鉴勾选与撤回通过同一单册事实投影路线数量，切版�
   assert.equal(BP.projectQuantity(app.S.records,plan,upper,{completed:0}).completed,1);
   assert.equal(app.bookCompletionControl(book,'other-entry').props.checked,true);
   const old=app.readingPlanForResource(pearson,editionScope(older));
-  assert.equal(app.sharedReadingProgress(old).completed,0);
+  assert.equal(app.sharedReadingProgress(old).completed,1,'同resourceId同名可选目录共享已读');
   app.S.records={...app.S.records,...P.sharedEditionUpdate(pearson,publication.recordingEditions,older.id)};
-  assert.equal(app.resourceProgress(app.resource).completed,0);
+  assert.equal(app.resourceProgress(app.resource).completed,1);
   app.S.records={...app.S.records,...P.sharedEditionUpdate(pearson,publication.recordingEditions,newer.id)};
   assert.equal(app.resourceProgress(app.resource).completed,1);
   setBook(app,book,false);

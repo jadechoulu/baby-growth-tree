@@ -49,6 +49,16 @@ test('共用审计读取公共同ISBN关系并回放旧手工撤回与外部阅�
   assert.ok(auditReadingReuse(input).issues.some(row=>row.kind==='invalid-equivalence-evidence'));
 });
 
+test('共用审计校验同资源同名可选关系并回放状态共用',()=>{
+  const input=sample();input.directory.sources=[{id:'user-choice'}];
+  input.directory.books.push({...input.directory.books[0],id:'other-title',edition:'other',title:'Example'});
+  input.directory.readingEquivalences=[{kind:'same-title',resourceId:'canonical',title:'Example',sourceIds:['user-choice'],bookIds:['book','other-title']}];
+  const result=auditReadingReuse(input);
+  assert.equal(result.summary.sameTitleEquivalences,1);assert.deepEqual(result.issues,[]);
+  input.directory.readingEquivalences[0].resourceId='not-this-resource';
+  assert.ok(auditReadingReuse(input).issues.some(row=>row.kind==='invalid-equivalence-evidence'));
+});
+
 test('共用审计在同一运行目录派生原表单册，原表内容不另建身份',()=>{
   const input=sample();input.reading={plans:[{id:'authored',resourceId:'canonical',edition:'authored',source:{title:'原表'},groups:[{id:'A'}],books:[{id:'authored-book',title:'From authored plan',group:'A',order:1,patterns:['I see …']}]}]};
   const result=auditReadingReuse(input);

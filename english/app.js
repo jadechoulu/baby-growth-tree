@@ -45,7 +45,7 @@ const sharedProfileReady=sharedProfile.init();sharedProfileReady.catch(()=>{});
 let profileEditBase=null;
 let siteSync=null;
 const S={view:'baby',route:'all',type:'all',search:'',age:'all',sharedOnly:false,roadmapMode:'compare',compareRoute:'xu',compareStage:null,routeDomain:'listening',relationMode:'resource',focus:null,relationPage:0,libraryLimit:18,libraryKey:'',libraryLayout:'covers',profile:Object.assign({name:'宝宝',birthDate:'',vocabulary:0,mode:'audio'},saved.profile||{},commonProfile),records:saved.records||{},modal:null,preview:null,songCategory:'all',songScene:'all',songSearch:'',soundBookOverlap:'all',songSoundBookOnly:false};
-Object.assign(S,{libraryStageScope:'current',libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0,songTopic:'all',songSubtopic:'all',songActivity:'all',libraryBookMode:false,materialStatus:'all',practiceStages:{},practiceDomain:'listening',practiceSearch:'',practiceLogLimit:12});
+Object.assign(S,{libraryStageScope:'lower',libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0,songTopic:'all',songSubtopic:'all',songActivity:'all',libraryBookMode:false,materialStatus:'all',practiceStages:{},practiceDomain:'listening',practiceSearch:'',practiceLogLimit:12});
 // 已下线收藏功能；旧字段只随保存、同步与备份原样往返，避免丢失历史数据。
 let legacyFavorites=saved.favorites||[];
 const songResources=EnglishModel.getSongResources(C,SSS);
@@ -1553,7 +1553,7 @@ function libraryStageIds(){
 }
 function libraryStageScopeFilter(){
   if(S.age==='all')return null;
-  const lower=S.libraryStageScope==='lower',label=lower?'包含更低阶段':'只看当前阶段';
+  const lower=S.libraryStageScope==='lower',label=lower?'包含更低':'当前阶段';
   return h('button',{id:'library-stage-scope',type:'button',class:'library-filter-button library-grouping-toggle library-stage-scope-toggle'+(lower?' active':''),title:label,'aria-label':'阶段范围：'+label,'aria-pressed':String(lower),onclick:()=>libraryFilterApply('libraryStageScope',lower?'current':'lower','library-stage-scope')},icon('layers'));
 }
 function libraryTopicSummary(state=S){return state.libraryTopic==='all'?null:h('p',{class:'library-topic-summary',role:'status'},h('span',{},'一级主题：'+TOPICS.label(state.libraryTopic)),h('span',{},'二级主题：'+(state.librarySubtopic==='all'?'全部':TOPICS.label(state.librarySubtopic))));}
@@ -1858,12 +1858,12 @@ function libraryPopover(id,label,content,body,active=false){
 }
 function libraryFilterApply(key,value,triggerId){
   if(key==='route')S.age=EnglishModel.libraryStageForRoute(C,S.age,value,S.profile);
-  if(key==='age'||key==='route'&&S.age==='all')S.libraryStageScope='current';
+  if(key==='age'||key==='route'&&S.age==='all')S.libraryStageScope='lower';
   S[key]=value;render();document.getElementById(triggerId)?.focus({preventScroll:true});
 }
 function resetLibraryFilters(){
   if(libraryCollection==='routes')S.libraryRouteSearch='';else S.search='';
-  Object.assign(S,{type:'all',route:'all',age:'all',libraryStageScope:'current',sharedOnly:false,materialStatus:'all',libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0,libraryBookMode:false});
+  Object.assign(S,{type:'all',route:'all',age:'all',libraryStageScope:'lower',sharedOnly:false,materialStatus:'all',libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0,libraryBookMode:false});
   render();document.getElementById('library-reset')?.focus({preventScroll:true});
 }
 const collectionGrouping=new Map();
@@ -1909,7 +1909,7 @@ function libraryResults(){
 }
 let libraryCollection='routes';
 const otherShelfState={query:'',status:'all',limit:18,libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0};
-const collectionFilters=new Map(),collectionFilterDefaults={route:'all',type:'all',age:'all',libraryStageScope:'current',sharedOnly:false,materialStatus:'all',libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0,libraryBookMode:false};
+const collectionFilters=new Map(),collectionFilterDefaults={route:'all',type:'all',age:'all',libraryStageScope:'lower',sharedOnly:false,materialStatus:'all',libraryTopic:'all',librarySubtopic:'all',librarySeries:'all',librarySeriesScroll:0,libraryBookMode:false};
 function selectLibraryCollection(id){
   if(['routes','all'].includes(libraryCollection))collectionFilters.set(libraryCollection,Object.fromEntries(Object.keys(collectionFilterDefaults).map(key=>[key,S[key]])));
   libraryCollection=id;
@@ -2313,7 +2313,7 @@ function renderPreview(){
   const focus=focusAction?previewRoot.querySelector('[data-action="'+focusAction+'"]'):focusSelect?previewRoot.querySelector('select'):null;
   if(active)(focus&&!focus.disabled?focus:previewRoot.querySelector('[data-action="close-preview"]'))?.focus({preventScroll:true});
 }
-function navigate(view,{keepPracticeStage=false,collection='routes'}={}){if(!keepPracticeStage&&['xu-progress','qing-progress'].includes(view))delete S.practiceStages[view.replace('-progress','')+':'+(view==='xu-progress'?S.practiceDomain:'listening')];S.view=view;S.route='all';if(view==='library'){libraryCollection=collection;S.type='all';S.age='all';S.libraryStageScope='current';S.libraryTopic='all';S.librarySubtopic='all';S.librarySeries='all';S.librarySeriesScroll=0;S.libraryBookMode=false;}render();window.scrollTo(0,0);history.replaceState(null,'','#'+view+(view==='library'&&collection!=='routes'?'?collection='+collection:''));}
+function navigate(view,{keepPracticeStage=false,collection='routes'}={}){if(!keepPracticeStage&&['xu-progress','qing-progress'].includes(view))delete S.practiceStages[view.replace('-progress','')+':'+(view==='xu-progress'?S.practiceDomain:'listening')];S.view=view;S.route='all';if(view==='library'){libraryCollection=collection;S.type='all';S.age='all';S.libraryStageScope='lower';S.libraryTopic='all';S.librarySubtopic='all';S.librarySeries='all';S.librarySeriesScroll=0;S.libraryBookMode=false;}render();window.scrollTo(0,0);history.replaceState(null,'','#'+view+(view==='library'&&collection!=='routes'?'?collection='+collection:''));}
 async function backup(){
   const payload={version:1,exportedAt:new Date().toISOString(),profile:S.profile,favorites:legacyFavorites,records:S.records};
   const content=JSON.stringify(payload,null,2),filename='小芽英语-启蒙记录备份.json';

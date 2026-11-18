@@ -30,10 +30,16 @@ function auditReadingReuse({volumes,directory,reading={plans:[]},catalog={resour
   }
   for(const row of series.values())if(row.catalogResourceId){const target=canonical(row.resourceId);if(target)aliases.push({resourceId:row.resourceId,target});}
   const books=directory.books||[],byBook=groupBy(books,b=>b.id);
+  const normalize=title=>String(title||'').replace(/[’']/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim().toLowerCase();
   for(const [id,rows] of byBook)if(rows.length>1)issues.push({kind:'duplicate-public-id',bookId:id});
   const equivalences=directory.readingEquivalences||[],linkedIds=new Set(),sourceIds=new Set((directory.sources||[]).map(source=>source.id));
+  const validEquivalence=group=>{
+    if(group.bookIds?.length<2||!group.sourceIds?.length||group.sourceIds.some(id=>!sourceIds.has(id)))return false;
+    if(group.kind==='same-isbn')return /^\d{13}$/.test(group.isbn);
+    return group.kind==='same-title'&&!!group.resourceId&&group.bookIds.every(id=>byBook.get(id)?.[0]?.resourceId===group.resourceId&&normalize(byBook.get(id)?.[0]?.title)===normalize(group.title));
+  };
   for(const group of equivalences){
-    if(group.kind!=='same-isbn'||!/^\d{13}$/.test(group.isbn)||group.bookIds?.length<2||!group.sourceIds?.length||group.sourceIds.some(id=>!sourceIds.has(id))){issues.push({kind:'invalid-equivalence-evidence',bookIds:group.bookIds});continue;}
+    if(!validEquivalence(group)){issues.push({kind:'invalid-equivalence-evidence',bookIds:group.bookIds});continue;}
     for(const id of group.bookIds){
       if(!byBook.has(id)||linkedIds.has(id))issues.push({kind:'invalid-equivalence-member',bookId:id});
       linkedIds.add(id);
@@ -91,7 +97,7 @@ function auditReadingReuse({volumes,directory,reading={plans:[]},catalog={resour
     if(compat.candidates.some(row=>!overlap.has(row.publicBookId)))editionMatchConflicts.push({guid,title,resourceId:book.resourceId,direct:direct.candidates.map(row=>row.publicBookId),compat:compat.candidates.map(row=>row.publicBookId)});
   }
   const statuses=rows=>Object.fromEntries(['逐本共用','只有数量','待选目录','范围待核'].map(status=>[status,rows.filter(row=>row.status===status).length]));
-  const summary={books:books.length,sourceBooks,authoredDerivedBooks:books.length-sourceBooks,publicationEntries:series.size,aliases:aliases.length,readingEquivalences:equivalences.length,bookResources:catalog.resources.filter(row=>['book','reader'].includes(row.type)).length,ranges:ranges.length,perBookRanges:ranges.filter(row=>row.status==='逐本共用').length,references:references.length,executionReferences:references.filter(row=>row.execution).length,executionStatuses:statuses(references.filter(row=>row.execution)),duplicateExternalIds:duplicateExternalIds.length,duplicateIsbns:duplicateIsbns.length,editionMatchConflicts:editionMatchConflicts.length,issues:issues.length};
+  const summary={books:books.length,sourceBooks,authoredDerivedBooks:books.length-sourceBooks,publicationEntries:series.size,aliases:aliases.length,readingEquivalences:equivalences.length,sameTitleEquivalences:equivalences.filter(row=>row.kind==='same-title').length,sameIsbnEquivalences:equivalences.filter(row=>row.kind==='same-isbn').length,bookResources:catalog.resources.filter(row=>['book','reader'].includes(row.type)).length,ranges:ranges.length,perBookRanges:ranges.filter(row=>row.status==='逐本共用').length,references:references.length,executionReferences:references.filter(row=>row.execution).length,executionStatuses:statuses(references.filter(row=>row.execution)),duplicateExternalIds:duplicateExternalIds.length,duplicateIsbns:duplicateIsbns.length,editionMatchConflicts:editionMatchConflicts.length,issues:issues.length};
   return {summary,issues,ranges,references,aliases,duplicateExternalIds,duplicateIsbns,editionMatchConflicts};
 }
 
@@ -116,7 +122,7 @@ function reportMarkdown(result){
   }
   lines.push('','## 身份与映射','',
     `- 历史套系映射、完整目录成员、同册证据及进度投影错误：${issues.length}项。`,
-    `- 已核定同ISBN的书目引用${s.readingEquivalences}组，读取同一已有事实；没有逐册证据的不同版本继续隔离。`,
+    `- 已核定的同册关系${s.readingEquivalences}组，读取同一已有事实；其中同ISBN${s.sameIsbnEquivalences}组、同资源同名${s.sameTitleEquivalences}组。没有显式关系的不同版本继续隔离。`,
     `- 重复外站GUID：${s.duplicateExternalIds}组；待结合逐册证据核定的重复ISBN：${s.duplicateIsbns}组；精确GUID与旧匹配规则冲突：${s.editionMatchConflicts}条。`,'');
   for(const issue of issues)lines.push('- '+JSON.stringify(issue));
   for(const [route,name] of Object.entries(routeNames)){
