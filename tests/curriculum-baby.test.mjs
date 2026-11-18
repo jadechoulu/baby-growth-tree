@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {babyStage} from '../curriculum/baby-model.mjs';
-import {targetProgress,englishListeningCount} from '../curriculum/baby-progress.mjs';
+import {targetProgress,englishListeningCount,poetryCompletedCount} from '../curriculum/baby-progress.mjs';
 import vocabulary from '../english/vocabulary.js';
 import {characterDraft,characterSummary,characterKey} from '../curriculum/literacy-model.mjs';
 import {patchDocument,validateBackup,mergeBackup} from '../curriculum/model.mjs';
@@ -85,4 +85,15 @@ test('源站中文标签与明确英文教材或双语名称冲突时不导入�
  validateBackup(legacy);
  const refreshed=prepareChineseShelf(legacy.records,snapshot(books));
  assert.equal(refreshed.changes['shelf:v1:123:2'].status,'paused');
+});
+
+test('古诗进度复用逐首完成，跨班级与重复目录不重计，同名不同作品保持独立',()=>{
+ const groups=[{books:[{id:'poem-1',title:'绝句'},{id:'poem-2',title:'绝句'},{id:'poem-3'}]},{books:[{id:'poem-1'}]},{english:true,books:[{id:'english-1'}]}];
+ const records={'book:poem-1':{status:'done'},'book:poem-2':{status:'done'},'book:poem-3':{status:'planned'},'book:english-1':{status:'done'},'book:unrelated':{status:'done'},'material:poetry-shelf:junior':{status:'done'},'goal:junior:chinese:poetry':{status:'done'}};
+ assert.equal(poetryCompletedCount({},groups),0);
+ assert.equal(poetryCompletedCount(records,groups),2);
+ for(const total of [90,115,155])assert.equal(targetProgress(poetryCompletedCount(records,groups),total).current,2);
+ const withdrawn={...records,'book:poem-1':{status:'planned'}};
+ assert.equal(poetryCompletedCount(withdrawn,groups),1);
+ assert.equal(poetryCompletedCount(records,[...groups,{books:[{id:'poem-3'}]}]),2);
 });
