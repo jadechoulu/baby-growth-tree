@@ -23,7 +23,7 @@ function fixture(){
     between('function stageMaterials(','function materialUse('),
     between('function stageMaterialAttrs(','function seriesGroups('),
     between('function practicePlan(','function practiceBookLabel('),
-    between('function practiceCatalogChoices(','function practiceEditionControls('),
+    between('function practiceSelectableScopes(','function practiceEditionControls('),
     between('function readingPlanForResource(','function refreshReadingPlan('),
     between('function stageResourceUnit(','function activityDetail(')
   ].join('\n'),app);

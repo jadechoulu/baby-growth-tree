@@ -1,12 +1,18 @@
 (function(root,factory){const common=typeof module==='object'&&module.exports;const api=factory(common?require('./data/topic-taxonomy.json'):root.ROADMAP_RAW.topicTaxonomy,common?require('./data/resource-books.json'):root.ROADMAP_RAW.resourceBooks);if(common)module.exports=api;else root.EnglishTopics=api;})(typeof window==='object'?window:globalThis,function(data,directory){
 'use strict';
 const list=value=>Array.isArray(value)?value:[],unique=values=>[...new Set(values)];
-const byId=new Map(data.nodes.map(item=>[item.id,item]));
-const byLabel=new Map(data.nodes.map(item=>[item.label,item]));
-const legacyLabels=Object.fromEntries(Object.entries(data.legacyBookLabels).map(([label,id])=>[id,label]));
-const patternGroups=list(data.patternGroups);
-const patternGroupByMember=new Map(patternGroups.flatMap(group=>group.members.map(id=>[id,group])));
-for(const group of patternGroups){byId.set(group.id,group);byLabel.set(group.label,group);}
+let byId,byLabel,legacyLabels,patternGroups,patternGroupByMember;
+function build(nextData){
+  data=nextData;
+  byId=new Map(list(data.nodes).map(item=>[item.id,item]));
+  byLabel=new Map(list(data.nodes).map(item=>[item.label,item]));
+  legacyLabels=Object.fromEntries(Object.entries(data.legacyBookLabels||{}).map(([label,id])=>[id,label]));
+  patternGroups=list(data.patternGroups);
+  patternGroupByMember=new Map(patternGroups.flatMap(group=>group.members.map(id=>[id,group])));
+  for(const group of patternGroups){byId.set(group.id,group);byLabel.set(group.label,group);}
+}
+build(data);
+function hydrate(nextData){if(nextData)build(nextData);}
 function node(id){return byId.get(id)||byLabel.get(id);}
 function roots(){return data.nodes.filter(item=>!item.parentId).sort((a,b)=>Number(b.id==='patterns')-Number(a.id==='patterns'));}
 function children(parentId){return parentId==='patterns'&&patternGroups.length?patternGroups:data.nodes.filter(item=>item.parentId===parentId);}
@@ -110,5 +116,5 @@ function entryEvidence(domain,entry={}){
   const values=originalLabels(domain,entry);
   return {basis:'原场景／主题名称保留，按已确认的公共两级目录关联。',mappings:values.map(value=>({originalLabel:value,...data.helloScenes[value]})),override:helloOverride(domain,entry)};
 }
-return {roots,children,node,label,labels,expand,matches,options,entryTopics,entryActivities,originalLabels,entryEvidence,patterns,activities:data.activities,sources:data.sources};
+return {hydrate,roots,children,node,label,labels,expand,matches,options,entryTopics,entryActivities,originalLabels,entryEvidence,patterns,get activities(){return data.activities;},get sources(){return data.sources;}};
 });

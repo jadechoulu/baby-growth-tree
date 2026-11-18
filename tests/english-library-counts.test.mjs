@@ -184,3 +184,39 @@ test('未知路线子集显示具名出版总量参考，不能将其变成阶�
   assert.equal(reference('resource-1yfs7b5','E、F').gap,'级别待对应');
   assert.equal(reference('resource-1pinwiv','1、2').label,'2套各12本');
 });
+
+test('用户确认的时光学与许密杉名词闪卡共用身份和图片，旧阶段进度键不漂移',()=>{
+  const P=require('../english/practice.js');
+  const base={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],resourceVolumes:volumes,resourceCovers:read('resource-covers')};
+  const current=M.normalize(base),oldRaw=structuredClone(base);
+  const ids=['resource-1xi6ik1','resource-19cnwh8','resource-kgt2tw'];
+  for(const entry of oldRaw.resourceVolumes.series)if(ids.slice(1).includes(entry.resourceId))delete entry.catalogResourceId;
+  const before=M.normalize(oldRaw),card=current.resources.find(r=>r.id===ids[0]);
+  assert.equal(current.resources.filter(r=>ids.includes(r.id)).length,1);
+  assert.deepEqual([...card.mergedResourceIds].sort(),[...ids].sort());
+  assert.match(card.cover,/shiguang-noun-cards-user-20261118\.png$/);
+  assert.ok(fs.existsSync(new URL('../english/'+card.cover,import.meta.url)));
+  let compared=0;
+  for(const stage of before.stages)for(const item of M.getStageMaterials(before,stage)){
+    if(!ids.includes(item.resource.id))continue;
+    const next=M.getStageMaterials(current,stage.id).find(v=>v.material.sourceId===item.material.sourceId&&v.material.original===item.material.original);
+    assert.ok(next);assert.equal(next.resource.id,ids[0]);
+    assert.equal(P.unitKey(stage,item),P.unitKey(current.stages.find(s=>s.id===stage.id),next));compared++;
+  }
+  assert.equal(compared,4);
+  assert.equal(M.publicationEntry(volumes,ids[0]).unit,'张');
+  assert.equal(M.publicationEntry(volumes,ids[0]).scopes.length,0,'不拿图中25主题或其他学科卡片推算英语名词卡张数');
+});
+
+test('图鉴按路线筛选全部阶段时正常展示，阶段专用名称仅在适用引用中生效',async()=>{
+  const vm=await import('node:vm'),source=fs.readFileSync(new URL('../english/app.js',import.meta.url),'utf8');
+  const start=source.indexOf('function libraryResources('),end=source.indexOf('function libraryStageFilter(',start);
+  const C={stages:[{id:'one',routeId:'low-age'},{id:'other',routeId:'low-age'},{id:'two',routeId:'xu'}],resources:[{id:'sample',title:'公共名称',appearances:[{routeId:'low-age',stageId:'one',displayTitle:'低幼名称'},{routeId:'xu',stageId:'two'}]}]};
+  const context={C,EnglishModel:M,LC:{resources:()=>[]},S:{route:'low-age',age:'all',records:{}},rec:()=>({routeStages:{'low-age':'one'}})};
+  vm.createContext(context);vm.runInContext(source.slice(start,end),context);
+  assert.equal(context.libraryResources()[0].title,'低幼名称');
+  context.S.age='stage:one';assert.equal(context.libraryResources()[0].title,'低幼名称');
+  context.S.age='stage:other';assert.equal(context.libraryResources()[0].title,'公共名称');
+  context.S.age='all';context.S.route='xu';assert.equal(context.libraryResources()[0].title,'公共名称');
+  assert.equal(C.resources[0].title,'公共名称','筛选名称投影不修改公共身份');
+});

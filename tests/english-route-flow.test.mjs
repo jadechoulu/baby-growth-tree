@@ -1,12 +1,35 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import vm from 'node:vm';
 import { createRequire } from 'node:module';
 const M=createRequire(import.meta.url)('../english/model.js');
 const read=id=>JSON.parse(fs.readFileSync(new URL('../english/data/'+id+'.json',import.meta.url)));
 const raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan')};
 const catalog=M.normalize(raw);
 const profile={birthDate:'2024-11-24',asOf:'2026-11-03'};
+
+test('能力入口按实际阶段或配套内容筛选，切换路线回退并保留仍有效的领域',()=>{
+  const source=fs.readFileSync(new URL('../english/app.js',import.meta.url),'utf8');
+  const start=source.indexOf('function availableRouteDomains('),end=source.indexOf('function routeDomainPanel(',start);
+  assert.ok(start>=0&&end>start);
+  const C=M.normalize({...raw,'low-age':read('low-age')});
+  const S={profile,routeDomain:'writing',compareStage:'xu-panorama-writing',records:{keep:{status:'done'}}};
+  const context={S,C,EnglishModel:M,window:{ROADMAP_RAW:{routePlan:raw.routePlan}}};
+  vm.createContext(context);vm.runInContext(source.slice(start,end),context);
+  const ids=id=>Array.from(context.availableRouteDomains(id),domain=>domain.id);
+  assert.deepEqual(ids('low-age'),['listening']);
+  assert.deepEqual(ids('qing'),['listening']);
+  assert.deepEqual(ids('xu'),['listening','speaking','reading','writing']);
+  assert.ok(ids('banana').includes('speaking'),'有配套执行内容的领域仍可查看');
+  assert.ok(!ids('banana').includes('writing'));
+  context.ensureRouteDomain('low-age');
+  assert.equal(S.routeDomain,'listening');assert.equal(S.compareStage,null);
+  S.routeDomain='reading';S.compareStage='xu-panorama-reading-literacy';
+  context.ensureRouteDomain('xu');
+  assert.equal(S.routeDomain,'reading');assert.equal(S.compareStage,'xu-panorama-reading-literacy');
+  assert.deepEqual(S.records,{keep:{status:'done'}});
+});
 
 test('许密杉五节点采用当前选材，原阶段与记录身份保留',()=>{
   const plan=M.getRoutePlan(catalog,'xu','listening',profile),route=catalog.routes.find(r=>r.id==='xu');
@@ -78,37 +101,38 @@ test('香蕉妈妈已加入的输出留在本阶段并行安排，年龄不明�
   }
 });
 
-test('香蕉妈妈显式按素材重合关联，正反向使用同一组主对照',()=>{
-  const view={...catalog,routes:catalog.routes.map(route=>({...route,stages:M.getRoutePlan(catalog,route.id,'listening',profile).stages}))};
-  const before=structuredClone(view);
-  for(const stage of view.routes.find(r=>r.id==='banana').stages){
-    for(const group of M.compareStages(view,stage.id)){
-      assert.equal(group.materialComparable,true);
-      if(group.matches.some(m=>m.overlapCount||m.unspecifiedCount))assert.ok(group.stageReferences.length>0,stage.id+' 应有素材重合参考');
-      else assert.equal(group.stageReferences.length,0,'级别不重合时不强行关联');
-      for(const match of group.stageReferences){
-        assert.ok(match.materialAlignment.score>0);
-        assert.equal(match.vocabularyAlignment,null);
-        assert.equal(match.startingAlignment,null);
-        const reverse=M.compareStages(view,match.stageId).find(g=>g.routeId==='banana');
-        const back=reverse.stageReferences.find(m=>m.stageId===stage.id);
-        assert.ok(back,stage.id+' ↔ '+match.stageId);
-        assert.equal(back.materialAlignment.score,match.materialAlignment.score);
-      }
-    }
+test('香蕉妈妈以最高同级素材锚点估计词数，初章目标单独标低置信',()=>{
+ const full=M.normalize({...raw,resourceVolumes:read('resource-volumes'),'low-age':read('low-age')});
+ const expected={'banana-pre':[0,300,'qing-s1'],'banana-1':[300,500,'qing-s2'],'banana-2':[500,800,'xu-node-800'],'banana-3':[1000,1200,'qing-s5'],'banana-4':[1500,2000,'qing-s7'],'banana-chapter':[1000,2000,'xu-node-2000']};
+ for(const [id,[min,max,anchor]]of Object.entries(expected)){
+  const groups=M.compareStages(full,id);
+  const refs=groups.flatMap(g=>g.stageReferences);
+  assert.ok(refs.length,id+'应有词数对照');
+  const band=refs[0].vocabularyAlignment.focus;
+  assert.equal(band.estimated,true);assert.equal(band.min,min);assert.equal(band.max,max);
+  assert.ok(band.anchors.some(a=>a.stageId===anchor));
+  assert.ok(band.anchors.every(a=>id==='banana-chapter'||a.materials.length));
+  if(id==='banana-chapter'){assert.equal(band.confidence,'low');assert.equal(band.sources.length,2);}
+  else assert.ok(band.anchors.every(a=>a.score>0));
+  assert.equal(full.stages.find(s=>s.id===id).raw.vocabularyThreshold,null);
+  for(const group of groups)for(const match of group.stageReferences){
+   assert.equal(match.materialAlignment,null);
+   const reverse=M.compareStages(full,match.stageId).find(g=>g.routeId==='banana').stageReferences.find(m=>m.stageId===id);
+   assert.ok(reverse);assert.deepEqual(reverse.vocabularyAlignment.target,band);
   }
-  assert.deepEqual(view,before,'不改阶段、原始引用或晋级条件');
+ }
 });
 
-test('素材重合策略按套系去重，级别不同不计匹配，其他路线仍由词汇目标对应',()=>{
-  const duplicate={...catalog,stages:catalog.stages.map(s=>({...s,materials:s.materials.concat(s.materials)})),routes:catalog.routes.map(r=>({...r,stages:r.stages.map(s=>({...s,materials:s.materials.concat(s.materials)}))}))};
-  for(const stage of catalog.routes.find(r=>r.id==='banana').stages){
-    const summary=c=>M.compareStages(c,stage.id).map(g=>[g.routeId,g.stageReferences.map(m=>[m.stageId,m.materialAlignment.score])]);
-    assert.deepEqual(summary(duplicate),summary(catalog));
-  }
-  const cleared={...catalog,stages:catalog.stages.map(s=>({...s,materials:[]})),routes:catalog.routes.map(r=>({...r,stages:r.stages.map(s=>({...s,materials:[]}))}))};
-  assert.ok(M.compareStages(cleared,'banana-1').every(g=>!g.stageReferences.length));
-  const group=M.compareStages(catalog,'xu-6').find(g=>g.routeId==='qing');
-  assert.equal(group.materialComparable,false);
-  assert.ok(group.stageReferences.every(m=>m.vocabularyAlignment&&!m.materialAlignment));
+test('香蕉词数估计对重复素材稳定，无锚点不凭序号编造',()=>{
+ const full=M.normalize({...raw,resourceVolumes:read('resource-volumes')});
+ const duplicate={...full,stages:full.stages.map(s=>({...s,materials:s.materials.concat(s.materials)}))};
+ for(const stage of full.routes.find(r=>r.id==='banana').stages){
+  const summary=c=>M.compareStages(c,stage.id).map(g=>[g.routeId,g.stageReferences.map(m=>[m.stageId,m.vocabularyAlignment.focus.min,m.vocabularyAlignment.focus.max])]);
+  assert.deepEqual(summary(duplicate),summary(full));
+ }
+ const cleared={...full,stages:full.stages.map(s=>({...s,materials:[]})),routes:full.routes.map(r=>({...r,stages:r.stages.map(s=>({...s,materials:[]}))}))};
+ assert.ok(M.compareStages(cleared,'banana-1').every(g=>!g.stageReferences.length));
+ const group=M.compareStages(full,'xu-6').find(g=>g.routeId==='qing');
+ assert.equal(group.materialComparable,false);
+ assert.ok(group.stageReferences.every(m=>m.vocabularyAlignment&&!m.materialAlignment));
 });

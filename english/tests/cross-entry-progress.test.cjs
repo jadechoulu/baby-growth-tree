@@ -26,6 +26,8 @@ test('未选版的全部多目录套系总览公共书目，不以首份目录�
   const tested=[];
   for(const entry of resourceVolumes.series){
     if(entry.catalogResourceId||entry.recordingEditions?.length)continue;
+    // 明确维护的原表计划有既定默认范围；其公共目录补齐后也不改为未选版套系。
+    if(READING.plans.some(plan=>plan.resourceId===entry.resourceId||plan.resourceIds?.includes(entry.resourceId)))continue;
     const plans=BP.catalogPlans(BOOKS,resourceVolumes,entry.resourceId);
     if(plans.length<2)continue;
     const app=fixture(entry.resourceId),last=plans.at(-1).books[0];
@@ -41,6 +43,16 @@ test('未选版的全部多目录套系总览公共书目，不以首份目录�
   assert.ok(tested.includes('resource-1qnd5uh'),'覆盖RAZ全部级别与虚构范围');
   assert.ok(tested.includes('resource-1n3ix1n'),'覆盖牛津树组合目录');
   assert.ok(tested.includes('resource-1yfs7b5'),'覆盖Hammy不同套装与分级选本');
+});
+
+test('原表计划补齐公共目录后仍沿用既定范围和同一单册完成事实',()=>{
+  const plan=READING.plans.find(plan=>plan.id==='heinemann-gk70'),app=fixture(plan.resourceId);
+  assert.ok(BP.catalogPlans(BOOKS,resourceVolumes,plan.resourceId).length>1);
+  app.S.records=BP.manualUpdate({},plan.books[0].id,true,BOOKS);
+  assert.equal(app.readingPlanForResource(plan.resourceId),plan);
+  assert.equal(app.resourceProgress(app.resource).completed,1);
+  assert.equal(app.resourceProgress(app.resource).total,70);
+  assert.equal(app.resourceProgressDetail(plan.resourceId).kind,'shared-plan');
 });
 
 test('RAZ图鉴明确选择AA范围后与路线AA共用单册，A与B的完成不串入',()=>{

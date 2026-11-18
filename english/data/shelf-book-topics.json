@@ -1,0 +1,2660 @@
+{
+  "version": 1,
+  "books": [
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "751ac6c5ea923304"
+        ]
+      },
+      "title": "大猫英语分级阅读第一级: The Big Splash",
+      "topics": [
+        "daily.bath",
+        "sports.water"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/751ac6c5ea923304",
+          "basis": "简介明确小怪物准备玩具和护目镜，最后在浴缸洗澡。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "c6a797906f523304"
+        ]
+      },
+      "title": "大猫英语分级阅读第一级: The See-Saw",
+      "topics": [
+        "sports.playground",
+        "animals",
+        "social.helping"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/c6a797906f523304",
+          "basis": "简介讲河马玩跷跷板，需要其他动物一起帮忙。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "699a5ecd0ac38d17"
+        ]
+      },
+      "title": "大猫英语分级阅读 第一级 : Monster Mess",
+      "topics": [
+        "concepts.shapes",
+        "arts.art"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/699a5ecd0ac38d17",
+          "basis": "简介明确小怪物画斑点、条纹、方形和三角形。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "bfbca1953089c4a7"
+        ]
+      },
+      "title": "In the Desert",
+      "topics": [
+        "nature.environment",
+        "nature.plants",
+        "animals.habitats"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/bfbca1953089c4a7",
+          "basis": "简介明确介绍沙漠植物、动物及建筑。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "ab52f82fbf170c73"
+        ]
+      },
+      "title": "大猫英语分级阅读第一级: I Can Help",
+      "topics": [
+        "social.helping",
+        "family",
+        "home"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/ab52f82fbf170c73",
+          "basis": "简介跟随男孩一天在家中不同地方帮助家人。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "31edb51fb3dab34b"
+        ]
+      },
+      "title": "David Gets in Trouble",
+      "topics": [
+        "social.manners"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/31edb51fb3dab34b",
+          "basis": "公开简介或分类没有可用主题信息；按标题“David Gets in Trouble”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "3e06524e121f3900"
+        ]
+      },
+      "title": "Heinemann Gk-45:Over the River(海尼曼)",
+      "topics": [
+        "nature.water"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/3e06524e121f3900",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Heinemann Gk-45:Over the River(海尼曼)”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "4fd21efcac0be8e"
+        ]
+      },
+      "title": "Where Is Baby's Belly Button?",
+      "topics": [
+        "body.hands",
+        "body.face",
+        "body.whole"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/4fd21efcac0be8e",
+          "basis": "简介明确介绍宝宝的手、眼睛等身体部位，并结合躲猫猫翻页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "5b90f7562ad07411"
+        ]
+      },
+      "title": "培生基础词汇(上)第23册 The Animals",
+      "topics": [
+        "animals.sounds"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/5b90f7562ad07411",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号23及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-11ecb49c101a1430",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号23行",
+              "originalTopic": "动物",
+              "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A23:E23",
+              "originalTopic": "动物",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "da45011de2c82656"
+        ]
+      },
+      "title": "培生基础词汇(上)第27册in the garden",
+      "topics": [
+        "animals.insects",
+        "nature.plants"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/da45011de2c82656",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号27及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-4392ff504fb9029d",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号27行",
+              "originalTopic": "动物",
+              "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A24:E24",
+              "originalTopic": "动物",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "d1aaf756498fabd2"
+        ]
+      },
+      "title": "培生基础词汇(上)第28册 a boat",
+      "topics": [
+        "animals.sea",
+        "animals.birds",
+        "transport.water"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/d1aaf756498fabd2",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号28及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-9f0e086222e962b2",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号28行",
+              "originalTopic": "生活场景",
+              "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A25:E25；主题分类!A84:E84",
+              "originalTopic": "动物；自然",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "a00acf52d2ce8a15"
+        ]
+      },
+      "title": "培生基础词汇(上)第29册the hole",
+      "topics": [
+        "animals.wild"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/a00acf52d2ce8a15",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号29及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-1a9ac431aef1f691",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号29行",
+              "originalTopic": "动物",
+              "summary": "原图将本册列入“动物”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A26:E26",
+              "originalTopic": "动物",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "7e7dad009d8b9c1e"
+        ]
+      },
+      "title": "培生基础词汇(上)第30册the moon",
+      "topics": [
+        "nature",
+        "science.space"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/7e7dad009d8b9c1e",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号30及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-b95d05ad98148d34",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号30行",
+              "originalTopic": "自然场景",
+              "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A85:E85",
+              "originalTopic": "自然",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "73392234501d9e50"
+        ]
+      },
+      "title": "培生基础词汇(上)第31册the monster town",
+      "topics": [
+        "transport.places"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/73392234501d9e50",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号31及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-a3a637d685ab33d6",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号31行",
+              "originalTopic": "生活场景",
+              "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A122:E122",
+              "originalTopic": "户外",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "8a502315c47d17ef"
+        ]
+      },
+      "title": "培生基础词汇(上)第32册 The Balloon Ride",
+      "topics": [
+        "transport.air"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/8a502315c47d17ef",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号32及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-8869db370aa8297e",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号32行",
+              "originalTopic": "生活场景",
+              "summary": "原图将本册列入“生活场景”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A123:E123",
+              "originalTopic": "户外",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "5e5891da8ba48edd"
+        ]
+      },
+      "title": "培生基础词汇(上)第33册rainbow town",
+      "topics": [
+        "concepts.colors"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/5e5891da8ba48edd",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号33及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-4529d856de2a2654",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号33行",
+              "originalTopic": "颜色",
+              "summary": "原图将本册列入“颜色”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A106:E106",
+              "originalTopic": "颜色",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "24269e542c02181b"
+        ]
+      },
+      "title": "培生基础词汇(上)第35册the spy",
+      "topics": [
+        "clothing.clothes",
+        "clothing.accessories"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/24269e542c02181b",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号35及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-877ef68a42b8d67b",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号35行",
+              "originalTopic": "服装",
+              "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A9:E9",
+              "originalTopic": "衣服",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "f2761312d3c1a9c8"
+        ]
+      },
+      "title": "培生基础词汇(上)第36册i like jam",
+      "topics": [
+        "food",
+        "food.vegetables",
+        "food.snacks"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/f2761312d3c1a9c8",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号36及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-005a85a44b6f7234",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号36行",
+              "originalTopic": "食物",
+              "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A50:E50",
+              "originalTopic": "食物",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "fcb282d189dc6b9a"
+        ]
+      },
+      "title": "培生基础词汇(上)第38册 my hat",
+      "topics": [
+        "clothing.clothes",
+        "clothing.shoes",
+        "clothing.accessories"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/fcb282d189dc6b9a",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号38及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-8f58e2fc1df1392b",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号38行",
+              "originalTopic": "服装",
+              "summary": "原图将本册列入“服装”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A10:E10",
+              "originalTopic": "衣服",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "81121bb4d85bdc2e"
+        ]
+      },
+      "title": "培生基础词汇(上)第39册i like boxes",
+      "topics": [
+        "nature.environment",
+        "nature.plants",
+        "home.objects"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/81121bb4d85bdc2e",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号39及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-5cf5f96031d51b37",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号39行",
+              "originalTopic": "自然场景",
+              "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A86:E86",
+              "originalTopic": "自然",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "c8ac835526a7f96f"
+        ]
+      },
+      "title": "培生基础词汇(上)第41册the snowman",
+      "topics": [
+        "body.whole"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/c8ac835526a7f96f",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号41及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-1526ade2bed21b3d",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号41行",
+              "originalTopic": "身体部位",
+              "summary": "原图将本册列入“身体部位”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A60:E60",
+              "originalTopic": "身体",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "6cbab97236a7aa0d"
+        ]
+      },
+      "title": "培生基础词汇(上)第42册hats",
+      "topics": [
+        "nature.plants",
+        "clothing.accessories"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/6cbab97236a7aa0d",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号42及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-2826cb459a938647",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号42行",
+              "originalTopic": "自然场景",
+              "summary": "原图将本册列入“自然场景”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A87:E87",
+              "originalTopic": "自然",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "13f7b0420fcf2b41"
+        ]
+      },
+      "title": "培生基础词汇(上)第44册the rally car",
+      "topics": [
+        "transport.land"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/13f7b0420fcf2b41",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号44及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-0c5598d891b2ac4d",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号44行",
+              "originalTopic": "交通工具",
+              "summary": "原图将本册列入“交通工具”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A69:E69",
+              "originalTopic": "生活",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "be5afc662fcec0ab"
+        ]
+      },
+      "title": "培生基础词汇(上)第45册 ice cream",
+      "topics": [
+        "food.snacks"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/be5afc662fcec0ab",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号45及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-21354110c6b1301d",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号45行",
+              "originalTopic": "食物",
+              "summary": "原图将本册列入“食物”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A51:E51",
+              "originalTopic": "食物",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "fa396d942a95bf06"
+        ]
+      },
+      "title": "培生基础词汇(上)第47册the presents",
+      "topics": [
+        "daily",
+        "festivals.parties",
+        "fantasy.characters",
+        "jobs.people"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/fa396d942a95bf06",
+          "basis": "公开套系字段确认基础词汇上辑48本版；册号47及完整题名与已有单册目录一致，复用该版逐册主题证据。",
+          "referencedBookId": "book-e756b1ce8c362847",
+          "evidence": [
+            {
+              "kind": "source-classification",
+              "sourceId": "pearson-xhs-basic-themes",
+              "locator": "图4，书号47行",
+              "originalTopic": "人",
+              "summary": "原图将本册列入“人”，同时列出对应词汇；本站据此映射主题。"
+            },
+            {
+              "kind": "source-classification",
+              "sourceId": "guide-pearson-basic",
+              "locator": "主题分类!A80:E80",
+              "originalTopic": "人物",
+              "summary": "按用户原表分类与本条字词句内容核定公共主题；保留原表顺序和分组，不将语法词性当作内容主题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "7c69b30a150ab4ca"
+        ]
+      },
+      "title": "Trucktown 12 Tires",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/7c69b30a150ab4ca",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "72b5f164f691c2aa"
+        ]
+      },
+      "title": "Trucktown 14 Rita Ran to Rosie",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/72b5f164f691c2aa",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "f3b8b84dc065067f"
+        ]
+      },
+      "title": "Trucktown 13 LUCY CAN NAP",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/f3b8b84dc065067f",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "c2b08ea5e5cd6d0"
+        ]
+      },
+      "title": "Trucktown 11 Pete can dig",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/c2b08ea5e5cd6d0",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "fbeeb2c2246603b"
+        ]
+      },
+      "title": "听儿歌学英语",
+      "topics": [
+        "arts.singing"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/fbeeb2c2246603b",
+          "basis": "公开简介或分类没有可用主题信息；按标题“听儿歌学英语”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "d76be9e2d596a057"
+        ]
+      },
+      "title": "Goodnight, Goodnight Construction Site",
+      "topics": [
+        "transport.land",
+        "daily.sleep",
+        "jobs.work"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/d76be9e2d596a057",
+          "basis": "简介讲起重机、水泥搅拌车等工程车完成工作后休息睡觉。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "12c168e643de460d"
+        ]
+      },
+      "title": "Eating",
+      "topics": [
+        "daily.meals"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/12c168e643de460d",
+          "basis": "简介明确围兜、勺子和幼儿坐下来吃饭的流程。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "a9f6103e45660e55"
+        ]
+      },
+      "title": "Bathing",
+      "topics": [
+        "daily.bath"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/a9f6103e45660e55",
+          "basis": "简介明确注水、洗头、浴缸玩船及擦干身体。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "3a7a998f1e24a479"
+        ]
+      },
+      "title": "Sleeping",
+      "topics": [
+        "daily.sleep"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/3a7a998f1e24a479",
+          "basis": "简介讲睡衣、奶瓶、玩偶及入睡前的日常流程。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "72c47bceb66a60f2"
+        ]
+      },
+      "title": "Playing",
+      "topics": [
+        "sports"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/72c47bceb66a60f2",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Playing”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "10acdb4a46265ca4"
+        ]
+      },
+      "title": "Clothes",
+      "topics": [
+        "daily.dress",
+        "clothing.dressing",
+        "clothing.shoes"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/10acdb4a46265ca4",
+          "basis": "简介明确穿衣、穿袜和穿鞋。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "3d7a8c87318b63a3"
+        ]
+      },
+      "title": "It's My Birthday",
+      "topics": [
+        "festivals.birthday",
+        "festivals.parties"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/3d7a8c87318b63a3",
+          "basis": "简介讲生日装饰、来客和蛋糕派对。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "c2c1ee931e0bcee2"
+        ]
+      },
+      "title": "我的小小世界 SET2 Sounds",
+      "topics": [
+        "body.senses"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/c2c1ee931e0bcee2",
+          "basis": "公开简介或分类没有可用主题信息；按标题“我的小小世界 SET2 Sounds”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "3ce77a4f0cceb19"
+        ]
+      },
+      "title": "我的小小世界 SET2 Friends",
+      "topics": [
+        "social.friends"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/3ce77a4f0cceb19",
+          "basis": "公开简介或分类没有可用主题信息；按标题“我的小小世界 SET2 Friends”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "8238710cf0cac404"
+        ]
+      },
+      "title": "我的小小世界 SET2 Spring Joy",
+      "topics": [
+        "nature.seasons"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/8238710cf0cac404",
+          "basis": "公开简介或分类没有可用主题信息；按标题“我的小小世界 SET2 Spring Joy”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "65ab06ed0c9c292"
+        ]
+      },
+      "title": "我的小小世界 SET2 Summer Beach Day",
+      "topics": [
+        "nature.seasons",
+        "nature.ocean"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/65ab06ed0c9c292",
+          "basis": "公开简介或分类没有可用主题信息；按标题“我的小小世界 SET2 Summer Beach Day”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "49362aabd6e8c2a6"
+        ]
+      },
+      "title": "我的小小世界 SET2 Fall Leaves",
+      "topics": [
+        "nature.seasons",
+        "nature.plants"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/49362aabd6e8c2a6",
+          "basis": "公开简介或分类没有可用主题信息；按标题“我的小小世界 SET2 Fall Leaves”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "350c374b29a7d416"
+        ]
+      },
+      "title": "我的小小世界 SET2 Winter Snow",
+      "topics": [
+        "nature.seasons",
+        "nature.weather"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/350c374b29a7d416",
+          "basis": "公开简介或分类没有可用主题信息；按标题“我的小小世界 SET2 Winter Snow”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "ff68ca6a153aa5a3"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级01——my family and me",
+      "topics": [
+        "family",
+        "body.self"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/ff68ca6a153aa5a3",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级01——my family and me”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "1d50c25d96d11cb9"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级02——colourful fruits",
+      "topics": [
+        "food.fruit",
+        "concepts.colors"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/1d50c25d96d11cb9",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级02——colourful fruits”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "f5cacdabe1f66bb6"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级03——family sports day",
+      "topics": [
+        "family",
+        "sports"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/f5cacdabe1f66bb6",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级03——family sports day”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "ee969fe293b88fb"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级04——my pet",
+      "topics": [
+        "animals.pets"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/ee969fe293b88fb",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级04——my pet”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "863866a6c139ffea"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级07——I spy numbers",
+      "topics": [
+        "concepts.counting"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/863866a6c139ffea",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级07——I spy numbers”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "b66b59b35c985c9a"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级08——where's my teddy bear",
+      "topics": [
+        "sports.toys",
+        "sports.hiding"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/b66b59b35c985c9a",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级08——where's my teddy bear”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "6b7a78029d370e04"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级05——what a show",
+      "topics": [
+        "arts.performance"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/6b7a78029d370e04",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级05——what a show”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e54bfb992febaaeb"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级15——in the garden",
+      "topics": [
+        "nature.plants"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e54bfb992febaaeb",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级15——in the garden”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "15474d0d9f62f338"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级16——things i like to do",
+      "topics": [
+        "actions"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/15474d0d9f62f338",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级16——things i like to do”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "8850489f54607234"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级10——can you help me",
+      "topics": [
+        "social.helping"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/8850489f54607234",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级10——can you help me”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "b1989b2ad4aced7"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级17——A veggie train",
+      "topics": [
+        "food.vegetables",
+        "transport.land"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/b1989b2ad4aced7",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级17——A veggie train”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "f1fccc372548df60"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级20——watch out",
+      "topics": [
+        "daily.safety"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/f1fccc372548df60",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级20——watch out”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "199fe469d72828c2"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级19——mummy, I love you!",
+      "topics": [
+        "family.parent-child",
+        "actions.affection"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/199fe469d72828c2",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级19——mummy, I love you!”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "fcfbf2dead4671be"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级22——can you find my robot",
+      "topics": [
+        "sports.toys",
+        "sports.hiding"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/fcfbf2dead4671be",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级22——can you find my robot”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "508cc507cd45dc48"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级23——we are a team",
+      "topics": [
+        "social.participation"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/508cc507cd45dc48",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级23——we are a team”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "6071146ffdafed57"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级25——The dressing-up box",
+      "topics": [
+        "clothing.dressing"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/6071146ffdafed57",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级25——The dressing-up box”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "ea620be9bde4f637"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级33——fast or slow",
+      "topics": [
+        "concepts.opposites"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/ea620be9bde4f637",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级33——fast or slow”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e13fc237e7e47344"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级31——being together",
+      "topics": [
+        "social"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e13fc237e7e47344",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级31——being together”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "67904ede0ec3d496"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级32——where's my soccer",
+      "topics": [
+        "sports.ball",
+        "sports.hiding"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/67904ede0ec3d496",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级32——where's my soccer”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "6c5a331099e3534d"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级30——robot itech",
+      "topics": [
+        "sports.toys"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/6c5a331099e3534d",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级30——robot itech”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "a6986c317bf6c118"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级28——at the zoo",
+      "topics": [
+        "animals.wild"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/a6986c317bf6c118",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级28——at the zoo”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "8f43730a9e129d9"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级27——a picnic",
+      "topics": [
+        "daily.meals",
+        "sports.outdoor"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/8f43730a9e129d9",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级27——a picnic”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "958b0ffa9fbd2148"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级36——The magic word",
+      "topics": [
+        "social.manners"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/958b0ffa9fbd2148",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级36——The magic word”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "99d5b55e1fbc9710"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级35——fruit fun",
+      "topics": [
+        "food.fruit"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/99d5b55e1fbc9710",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级35——fruit fun”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e67b4c93e9bb74ea"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级34——I'm a sunflower",
+      "topics": [
+        "nature.plants"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e67b4c93e9bb74ea",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级34——I'm a sunflower”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "d0b6f82e9fbac50a"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级37——we see",
+      "topics": [
+        "body.senses"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/d0b6f82e9fbac50a",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级37——we see”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "4fbb879f5fb9f894"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级38——left and right",
+      "topics": [
+        "concepts.position"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/4fbb879f5fb9f894",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级38——left and right”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "5d1094373fb95d45"
+        ]
+      },
+      "title": "新东方—彩虹糖幼儿英语启蒙绘本基础级40——busy wheels",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/5d1094373fb95d45",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方—彩虹糖幼儿英语启蒙绘本基础级40——busy wheels”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "321a41a8cfd4ea8b"
+        ]
+      },
+      "title": "hide-and-seek-彩虹糖幼儿英语启蒙绘本基础级09",
+      "topics": [
+        "sports.hiding"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/321a41a8cfd4ea8b",
+          "basis": "公开简介或分类没有可用主题信息；按标题“hide-and-seek-彩虹糖幼儿英语启蒙绘本基础级09”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "a5235d1716d3afb0"
+        ]
+      },
+      "title": "Sunday-彩虹糖幼儿英语启蒙绘本基础级11",
+      "topics": [
+        "concepts.calendar"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/a5235d1716d3afb0",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Sunday-彩虹糖幼儿英语启蒙绘本基础级11”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "1f660e9519d2f389"
+        ]
+      },
+      "title": "yum!yum!-彩虹糖幼儿英语启蒙绘本基础级12",
+      "topics": [
+        "food"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/1f660e9519d2f389",
+          "basis": "公开简介或分类没有可用主题信息；按标题“yum!yum!-彩虹糖幼儿英语启蒙绘本基础级12”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "df0e4552d436869c"
+        ]
+      },
+      "title": "新东方彩虹糖幼儿英语启蒙绘本基础级06 my best friend",
+      "topics": [
+        "social.friends"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/df0e4552d436869c",
+          "basis": "公开简介或分类没有可用主题信息；按标题“新东方彩虹糖幼儿英语启蒙绘本基础级06 my best friend”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "be5bed8558d8d029"
+        ]
+      },
+      "title": "the balloon-彩虹糖幼儿英语启蒙绘本基础级13",
+      "topics": [
+        "sports.toys"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/be5bed8558d8d029",
+          "basis": "公开简介或分类没有可用主题信息；按标题“the balloon-彩虹糖幼儿英语启蒙绘本基础级13”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "5b91bdcb23d2d70c"
+        ]
+      },
+      "title": "I'm a seed-彩虹糖幼儿英语启蒙绘本基础级14",
+      "topics": [
+        "nature.plants",
+        "science.life"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/5b91bdcb23d2d70c",
+          "basis": "公开简介或分类没有可用主题信息；按标题“I'm a seed-彩虹糖幼儿英语启蒙绘本基础级14”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "947d3d55bf54105f"
+        ]
+      },
+      "title": "A visit with captain Shelby",
+      "topics": [
+        "jobs.people"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/947d3d55bf54105f",
+          "basis": "公开简介或分类没有可用主题信息；按标题“A visit with captain Shelby”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "86b430e9548b222c"
+        ]
+      },
+      "title": "Animals",
+      "topics": [
+        "animals",
+        "body.senses"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/86b430e9548b222c",
+          "basis": "简介介绍触摸小猫、蜥蜴等动物的不同质感。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "2a7e56f195d9e1a6"
+        ]
+      },
+      "title": "From Head to Toe",
+      "topics": [
+        "actions.imitation",
+        "actions.stretch",
+        "body.whole",
+        "animals"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/2a7e56f195d9e1a6",
+          "basis": "简介邀请孩子模仿动物跺脚、弯脖和挥臂。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "b86fc7c0732a077e"
+        ]
+      },
+      "title": "Bea Gets a Checkup",
+      "topics": [
+        "body"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/b86fc7c0732a077e",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Bea Gets a Checkup”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "4c180fd8a1a029f0"
+        ]
+      },
+      "title": "Bedtime for Zoe",
+      "topics": [
+        "daily.sleep"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/4c180fd8a1a029f0",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Bedtime for Zoe”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "f7a123045da3b135"
+        ]
+      },
+      "title": "bulldozer",
+      "topics": [
+        "transport.land"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/f7a123045da3b135",
+          "basis": "公开简介或分类没有可用主题信息；按标题“bulldozer”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "538ce5d4d548905a"
+        ]
+      },
+      "title": "Busy Machines: Diggers",
+      "topics": [
+        "transport.land",
+        "jobs.tools"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/538ce5d4d548905a",
+          "basis": "简介明确挖掘机及各类建筑机械。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "252debcad54927f1"
+        ]
+      },
+      "title": "Busy Machines: Trucks",
+      "topics": [
+        "transport.land"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/252debcad54927f1",
+          "basis": "简介明确大小卡车及怪兽卡车。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "88f9b0e42fb2b112"
+        ]
+      },
+      "title": "Colorful Foods",
+      "topics": [
+        "food",
+        "concepts.colors"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/88f9b0e42fb2b112",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Colorful Foods”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "d70eb6098d23f2e3"
+        ]
+      },
+      "title": "Construction Site: Road Crew, Coming Through!",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/d70eb6098d23f2e3",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "97778c468670252e"
+        ]
+      },
+      "title": "Dear Zoo",
+      "topics": [
+        "animals.wild",
+        "animals.pets"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/97778c468670252e",
+          "basis": "简介讲动物园送来各种动物作为宠物，最后选中小狗。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "39b8a2646249deb8"
+        ]
+      },
+      "title": "Fire Truck (Wheelie Books)",
+      "topics": [
+        "transport.land"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/39b8a2646249deb8",
+          "basis": "简介介绍消防车等带车轮的车辆造型书。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "ebe50913fe52b4e4"
+        ]
+      },
+      "title": "Flubby Will Not Take a Bath",
+      "topics": [
+        "animals.pets",
+        "daily.bath"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/ebe50913fe52b4e4",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Flubby Will Not Take a Bath”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e27bd7d8004cb30"
+        ]
+      },
+      "title": "Flubby will Not Go to Sleep",
+      "topics": [
+        "animals.pets",
+        "family"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e27bd7d8004cb30",
+          "basis": "小花生公开分类明确列为猫、家庭生活。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "276f9461198f3619"
+        ]
+      },
+      "title": "Flubby Is Not a Good Pet!",
+      "topics": [
+        "animals.pets",
+        "emotions.scared"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/276f9461198f3619",
+          "basis": "简介明确宠物猫拒绝唱歌、抓取和跳跃，害怕的情境使它和主人互相需要。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "d178ba816fa96283"
+        ]
+      },
+      "title": "Flubby Will Not Play with That",
+      "topics": [
+        "animals.pets",
+        "sports.toys"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/d178ba816fa96283",
+          "basis": "简介讲主人为猫带来玩具，猫逐一拒绝后发现合适的选择。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "d2f1fc991d29898e"
+        ]
+      },
+      "title": "Flubby Does NOT Like Snow",
+      "topics": [
+        "animals.pets",
+        "nature.weather"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/d2f1fc991d29898e",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Flubby Does NOT Like Snow”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e635724e45890ede"
+        ]
+      },
+      "title": "Good Night, Gorilla",
+      "topics": [
+        "animals.wild",
+        "daily.sleep"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e635724e45890ede",
+          "basis": "简介明确动物管理员夜间巡视及猩猩释放其他动物；公开分类同时列为睡觉读物。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "a98c75beab146d2f"
+        ]
+      },
+      "title": "Goodnight Sleeping Bear",
+      "topics": [
+        "daily.sleep",
+        "animals"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/a98c75beab146d2f",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Goodnight Sleeping Bear”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "577ffabdf05b21b1"
+        ]
+      },
+      "title": "Graham Turns Two",
+      "topics": [
+        "festivals.birthday"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/577ffabdf05b21b1",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Graham Turns Two”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "4a849fbad3bed269"
+        ]
+      },
+      "title": "I Like to Read: Car Goes Far",
+      "topics": [
+        "transport.land",
+        "transport.places"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/4a849fbad3bed269",
+          "basis": "简介讲汽车穿过城镇和工地变脏后去洗车。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "c1a81a430b42aea8"
+        ]
+      },
+      "title": "I love you all the time",
+      "topics": [
+        "family.parent-child",
+        "actions.affection"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/c1a81a430b42aea8",
+          "basis": "公开简介或分类没有可用主题信息；按标题“I love you all the time”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "98f650c4b9816ca4"
+        ]
+      },
+      "title": "唱游英文童谣4  happy farm",
+      "topics": [
+        "animals.farm",
+        "arts.singing"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/98f650c4b9816ca4",
+          "basis": "公开简介或分类没有可用主题信息；按标题“唱游英文童谣4  happy farm”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "f4ee5236f85f4a16"
+        ]
+      },
+      "title": "唱游英文童谣6 hello.,world",
+      "topics": [
+        "social.greetings",
+        "arts.singing"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/f4ee5236f85f4a16",
+          "basis": "公开简介或分类没有可用主题信息；按标题“唱游英文童谣6 hello.,world”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "6e724986859682e7"
+        ]
+      },
+      "title": "LaLaLa唱游英文童谣—3.I can count",
+      "topics": [
+        "concepts.counting",
+        "arts.singing"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/6e724986859682e7",
+          "basis": "公开简介或分类没有可用主题信息；按标题“LaLaLa唱游英文童谣—3.I can count”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e0b67f053b61e659"
+        ]
+      },
+      "title": "Let's Find Momo!  A Hide-and-Seek Board Book",
+      "topics": [
+        "family"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e0b67f053b61e659",
+          "basis": "小花生公开分类明确列为家庭生活；未按单词书类别推导额外主题。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "327dadd25239978"
+        ]
+      },
+      "title": "Life Around Me",
+      "topics": [
+        "daily"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/327dadd25239978",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Life Around Me”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "97b6cec34cbed212"
+        ]
+      },
+      "title": "llama llama nighty-night",
+      "topics": [
+        "daily.sleep"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/97b6cec34cbed212",
+          "basis": "公开简介或分类没有可用主题信息；按标题“llama llama nighty-night”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "22635a2362f65cdd"
+        ]
+      },
+      "title": "Llama Llama Zippity-Zoom",
+      "topics": [
+        "sports.playground",
+        "sports.outdoor"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/22635a2362f65cdd",
+          "basis": "简介明确操场、滑板车及滑梯。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "9168bf9fc20dbc92"
+        ]
+      },
+      "title": "llama llama wakey-wake",
+      "topics": [
+        "daily.wake"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/9168bf9fc20dbc92",
+          "basis": "公开简介或分类没有可用主题信息；按标题“llama llama wakey-wake”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e2f86390c1f6f976"
+        ]
+      },
+      "title": "llama llama hoppity-hop",
+      "topics": [
+        "actions.locomotion"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e2f86390c1f6f976",
+          "basis": "公开简介或分类没有可用主题信息；按标题“llama llama hoppity-hop”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "bb7b71faba421db9"
+        ]
+      },
+      "title": "Maisy's bus",
+      "topics": [
+        "transport.land",
+        "social.friends"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/bb7b71faba421db9",
+          "basis": "简介讲Maisy开公交接朋友。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "e0c1c212d2074e7d"
+        ]
+      },
+      "title": "Mighty, Mighty Construction Site",
+      "topics": [
+        "transport.land",
+        "social.helping",
+        "social.participation"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/e0c1c212d2074e7d",
+          "basis": "简介明确工程车团队合作完成大型工作。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "8c6511e4ff79d1c2"
+        ]
+      },
+      "title": "More opposites",
+      "topics": [
+        "concepts.opposites"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/8c6511e4ff79d1c2",
+          "basis": "公开简介或分类没有可用主题信息；按标题“More opposites”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "c5051e77aea3cceb"
+        ]
+      },
+      "title": "My Favorite Nature Buddy",
+      "topics": [
+        "nature",
+        "social.friends"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/c5051e77aea3cceb",
+          "basis": "公开简介或分类没有可用主题信息；按标题“My Favorite Nature Buddy”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "908b7135d74bae5c"
+        ]
+      },
+      "title": "Where's Spot?",
+      "topics": [
+        "sports.hiding"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/908b7135d74bae5c",
+          "basis": "简介明确翻开页面寻找Spot的活动。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "4e50d2f22ab5d88"
+        ]
+      },
+      "title": "My Very Busy Mother Goose 鹅妈妈英文童谣",
+      "topics": [
+        "arts.singing"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/4e50d2f22ab5d88",
+          "basis": "公开简介或分类没有可用主题信息；按标题“My Very Busy Mother Goose 鹅妈妈英文童谣”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "cb63ec43d3e6fbce"
+        ]
+      },
+      "title": "Now That I'm Three",
+      "topics": [
+        "body.self"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/cb63ec43d3e6fbce",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Now That I'm Three”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "3ea9a2ffaf630352"
+        ]
+      },
+      "title": "Olivia goes to the Dentist",
+      "topics": [
+        "body.face",
+        "jobs.people"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/3ea9a2ffaf630352",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Olivia goes to the Dentist”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "5b7911c11778bb67"
+        ]
+      },
+      "title": "On the Go Awesome",
+      "topics": [
+        "transport.land",
+        "transport.air",
+        "jobs.people"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/5b7911c11778bb67",
+          "basis": "简介明确火车、飞机、挖掘机、火箭及扮演驾驶员。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "4e23ff47fd638568"
+        ]
+      },
+      "title": "On The Road!",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/4e23ff47fd638568",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "6a710e4333f60a7b"
+        ]
+      },
+      "title": "Open the Barn Door",
+      "topics": [
+        "animals.farm",
+        "animals.sounds"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/6a710e4333f60a7b",
+          "basis": "简介明确在农场寻找发出不同叫声的动物。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "cc567b08c3891e3a"
+        ]
+      },
+      "title": "Police Cars (Blastoff! Readers: Mighty Machines) (Blastoff Readers. Level 1)",
+      "topics": [
+        "transport.land",
+        "transport.safety",
+        "jobs.work",
+        "jobs.tools"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/cc567b08c3891e3a",
+          "basis": "简介明确警车巡逻、制止危险驾驶及警用设备。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "521be3378b5bfe50"
+        ]
+      },
+      "title": "Ready to Go: Pee",
+      "topics": [
+        "daily",
+        "body.self"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/521be3378b5bfe50",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Ready to Go: Pee”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "b66b479256dd4ab9"
+        ]
+      },
+      "title": "Ready to Go: Poop",
+      "topics": [
+        "daily",
+        "body.self"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/b66b479256dd4ab9",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Ready to Go: Poop”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "bed7587744f8f3e0"
+        ]
+      },
+      "title": "step into reading 1: I Like Fish",
+      "topics": [
+        "animals.sea"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/bed7587744f8f3e0",
+          "basis": "简介明确鱼类、水下世界和多种鱼的插图。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "a170165bd701963"
+        ]
+      },
+      "title": "Things I Can Do",
+      "topics": [
+        "actions",
+        "body.self"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/a170165bd701963",
+          "basis": "公开简介或分类没有可用主题信息；按标题“Things I Can Do”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "93bfa1acaa83bde1"
+        ]
+      },
+      "title": "Trains (Machines with Power!)",
+      "topics": [
+        "transport"
+      ],
+      "topicStatus": "classification-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/93bfa1acaa83bde1",
+          "basis": "小花生公开分类明确列为汽车和交通工具或车车主题；没有进一步细分依据。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "3a22b2d42a860387"
+        ]
+      },
+      "title": "Unicorn and Horse",
+      "topics": [
+        "fantasy.characters",
+        "emotions",
+        "social.helping"
+      ],
+      "topicStatus": "content-verified",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/3a22b2d42a860387",
+          "basis": "简介明确马嫉妒独角兽、独角兽被绑架及马决定如何应对。"
+        }
+      ]
+    },
+    {
+      "externalIds": {
+        "xiaohuasheng": [
+          "441322dc3756a7b7"
+        ]
+      },
+      "title": "When you love a living thing",
+      "topics": [
+        "nature",
+        "actions.affection"
+      ],
+      "topicStatus": "title-inferred",
+      "topicEvidence": [
+        {
+          "url": "https://www.xiaohuasheng.cn/book/441322dc3756a7b7",
+          "basis": "公开简介或分类没有可用主题信息；按标题“When you love a living thing”推测，非网站主题分类，尚未核对内页。"
+        }
+      ]
+    }
+  ]
+}

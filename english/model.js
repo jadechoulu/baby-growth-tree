@@ -5,7 +5,8 @@
   var ROUTES = {
     banana: { name: '香蕉妈妈', color: '#e7ab43' },
     xu: { name: '许密杉', color: '#588c79' },
-    qing: { name: '庆爸', color: '#7389bd' }
+    qing: { name: '庆爸', color: '#7389bd' },
+    'low-age': { name: '低幼路线', color: '#b17c52' }
   };
   var TYPE_NAMES = {
     book: 'book', picturebook: 'book', pictureBook: 'book', 绘本: 'book', 科普: 'book', '故事/绘本': 'book', 初章: 'book',
@@ -20,7 +21,7 @@
     ['牛津树', '牛津树拓展阅读', '牛津阅读树', 'Oxford Reading Tree'],
     ['大猫分级', '大猫', 'Collins Big Cat'],
     ['培生启明星', '培生启明星分级', '启明星'],
-    ['培生词汇妙趣屋', '词汇妙趣屋', '培生幼儿英语·基础词汇', '培生幼儿英语基础词汇', '培生幼儿基础词汇'],
+    ['培生词汇妙趣屋', '词汇妙趣屋', '培生幼儿英语·基础词汇', '培生幼儿英语基础词汇', '培生幼儿基础词汇', '培生基础词汇'],
     ['培生儿童英语', '培生儿童英语分级阅读'],
     ['培生亲子故事屋', '培生亲子故事屋分级'],
     ['Yakka Dee', 'Yakka dee'],
@@ -28,7 +29,7 @@
     ['小 P 优优', '小P优优'],
     ['小猪佩奇', 'Peppa Pig'],
     ['Super Hammy', 'Super hammy'],
-    ['Buddy Reader', 'Buddy reader', 'Buddy Readers'],
+    ['Buddy Reader', 'Buddy reader', 'Buddy Readers', '学乐巴蒂小读者'],
     ['QPlay奇问妙想国', 'Q-play'],
     ['WPlay词汇妙趣国', 'W-play'],
     ['I can read', 'I Can Read'],
@@ -42,6 +43,12 @@
     ['My Weird School 疯狂学校', '疯狂学校'],
     ['Geronimo Stilton 老鼠记者', '老鼠记者'],
     ['学乐', '学乐（未注明套系）'],
+    ['Sight Word Stories', '学乐高频词故事版'],
+    ['Guided Science Readers', '学乐小读者科普版'],
+    ['First Little Comics', '学乐小读者漫画版'],
+    ['国家地理', '美国国家地理英语分级读物'],
+    ['托马斯和朋友', '托马斯小火车'],
+    ['Jump百科分级·蝌蚪', 'Jump百科分级'],
     ['海尼曼', '海尼曼GK'],
     ['大马泽', '大马泽（Big muzzy）']
   ];
@@ -161,7 +168,10 @@
       var original = material.original || material.label || (rawResource && (rawResource.label || rawResource.title || rawResource.name)) || byResource[resourceId].title;
       var item = { resourceId: resourceId, level: level, role: role, page: page, original: original, sourceId: sourceId, variantId: stage.variantId };
       var recordId = recordResourceIds[sourceId + ':' + (material.resourceId || (rawResource && rawResource.id))];
-      if (recordId && recordId !== resourceId) item.recordResourceId = recordId;
+      if (material.recordResourceId) {
+        item.recordResourceId = material.recordResourceId;
+        byResource[resourceId].mergedResourceIds = unique(byResource[resourceId].mergedResourceIds.concat([material.recordResourceId]));
+      } else if (recordId && recordId !== resourceId) item.recordResourceId = recordId;
       var sourceTitle = recordResourceTitles[sourceId + ':' + (material.resourceId || (rawResource && rawResource.id))];
       // 原素材名隐含的分套标尺移入级别，统一名称后仍不混淆GK70与LLI字母级。
       if (recordId !== resourceId && /GK70\s*$/i.test(sourceTitle || '') && /^[A-Z](?:[、&/-][A-Z])*$/i.test(level)) {
@@ -169,7 +179,10 @@
         item.level = 'GK70 ' + level;
         level = item.level;
       }
+      if (Object.prototype.hasOwnProperty.call(material, 'recordLevel')) item.recordLevel = material.recordLevel;
+      if (material.displayTitle) item.displayTitle = material.displayTitle;
       if (material.roleEvidence) item.roleEvidence = material.roleEvidence;
+      ['sourceCell', 'matchBasis', 'selection', 'displayTitle'].forEach(function (field) { if (material[field]) item[field] = material[field]; });
       // 同一素材在同一阶段的不同级别/角色都保留，重复的引用只展示一次。
       var signature = [resourceId, level, role, page, original, sourceId].join('|');
       if (stage.materials.some(function (entry) { return [entry.resourceId, entry.level, entry.role, entry.page, entry.original, entry.sourceId].join('|') === signature; })) return;
@@ -177,6 +190,7 @@
       var appearance = { routeId: stage.routeId, stageId: stage.id, level: level, role: role, page: page, original: original, sourceId: sourceId, variantId: stage.variantId,
         preview: material.preview || (rawResource && previewOf(rawResource)) || stage.preview };
       if (material.roleEvidence) appearance.roleEvidence = material.roleEvidence;
+      ['sourceCell', 'matchBasis', 'selection', 'displayTitle'].forEach(function (field) { if (material[field]) appearance[field] = material[field]; });
       byResource[resourceId].appearances.push(appearance);
       byResource[resourceId].levels = unique(byResource[resourceId].levels.concat(level));
     }
@@ -256,7 +270,7 @@
       return variant;
     }
 
-    ['banana', 'xu', 'qing'].forEach(function (routeId) {
+    ['banana', 'xu', 'qing', 'low-age'].forEach(function (routeId) {
       var data = raw[routeId];
       if (!data) return;
       var route = { id: routeId, name: ROUTES[routeId].name, color: ROUTES[routeId].color,
@@ -462,7 +476,7 @@
       var mainVariant = route.id === 'xu' && array(route.variants).find(function (variant) { return variant.id === (route.defaultVariantId || 'xu-listening'); });
       var recommendationStages = mainVariant ? mainVariant.stages : route.stages;
       var candidate = recommendationStages[0];
-      if (!start) recommendationStages.forEach(function (stage) { if (vocabularyFloor(stage) > 0 && vocabularyFloor(stage) <= words) candidate = stage; });
+      if (!start && route.id !== 'low-age') recommendationStages.forEach(function (stage) { if (vocabularyFloor(stage) > 0 && vocabularyFloor(stage) <= words) candidate = stage; });
       if (candidate) { routeStages[route.id] = candidate.id; selected.push(candidate); }
     });
     var resourceMap = {}; array(catalog.resources).forEach(function (r) { resourceMap[r.id] = r; });
@@ -748,7 +762,7 @@
     var selectionMatch = selectionText.match(/任选(?:\d+(?:[–—-]\d+)?(?:部|套|本|辑))?|挑选|选\d+(?:[–—-]\d+)?(?:部|套|本|辑)|二选一/);
     var selection = selectionMatch ? { label: selectionMatch[0], basis: selectionText } :
       role === 'optional' ? { label: '可选', basis: '原引用明确标为optional' } : null;
-    return { kind: kind, label: MATERIAL_ROLES[kind], usage: materialUsageLabel(label), basis: basis, selection: selection, evidence: evidence };
+    return { kind: kind, label: MATERIAL_ROLES[kind], usage: materialUsageLabel(label), basis: basis, selection: material.selection || selection, evidence: evidence };
   }
 
   function libraryMaterialRole(catalog, entry, filters) {
@@ -885,7 +899,9 @@
     array(catalog.resources).forEach(function (resource) { resources[resource.id] = resource; });
     var groups = [];
     array(stage.materials).forEach(function (material, index) {
-      var resource = resources[material.resourceId], role = materialRole(stage, material, resource);
+      var resource = resources[material.resourceId];
+      if (material.displayTitle) resource = Object.assign({}, resource, {title: material.displayTitle});
+      var role = materialRole(stage, material, resource);
       var parts = levelParts(material.level, resource);
       // 只合并同用途、同标尺且限定一致的级别；数量保留在原引用，避免丢失逐级册数。
       var mergeable = parts && parts.tokens.length && !parts.quantities.length;
@@ -916,8 +932,11 @@
           if (parts) parts.tokens.forEach(function (token) { common.add(token.id); });
         });
       });
+      var segments = levelSegmentsFromParts(group.parts, common, group.material.level, resource);
+      // 未核级别保留原文，不能因无法解析变为空范围、继而借用整套分母。
+      if (stage.routeId === 'low-age' && !segments.length && group.material.level) segments = [{ text: group.material.level, shared: false }];
       return { material: group.material, materials: group.materials, resource: resource, role: group.role, shared: other.length > 0, overlap: overlap,
-        levelSegments: levelSegmentsFromParts(group.parts, common, group.material.level, resource), originalIndex: group.originalIndex };
+        levelSegments: segments, originalIndex: group.originalIndex };
     }).sort(function (a, b) {
       var ranks = { main: 0, auxiliary: 1, reference: 2 };
       return ranks[a.role.kind] - ranks[b.role.kind] || Number(b.overlap) - Number(a.overlap) || Number(b.shared) - Number(a.shared) || a.originalIndex - b.originalIndex;
@@ -950,8 +969,36 @@
   function listeningComparisonBand(stage, catalog) {
     var raw = stage.raw || {};
     if (stage.domain && stage.domain !== 'listening') return null;
+    var config = (((((catalog.raw || {}).routePlan || {}).routes || {})[stage.routeId] || {}).listening || {}).stageComparison || {};
+    var configured = (config.bands || {})[stage.id];
+    if (configured) return Object.assign({}, configured, { label: configured.min + '–' + configured.max + '词（目标' + configured.targetLabel + '）', basis: '按相邻目标上限整理积累区间，非准入门槛' });
+    if (config.strategy === 'estimated-vocabulary') {
+      var resourceMap = {}, best = 0, anchors = [];
+      array(catalog.resources).forEach(function (resource) { resourceMap[resource.id] = resource; });
+      array(config.anchorRoutes).forEach(function (routeId) {
+        var plan = (((catalog.raw || {}).routePlan || {}).routes || {})[routeId] || {};
+        array((plan.listening || {}).stageIds).forEach(function (id) {
+          var anchor = array(catalog.stages).find(function (item) { return item.id === id; });
+          if (!anchor) return;
+          var band = listeningComparisonBand(anchor, catalog), score = materialOverlapScore(stage, anchor, resourceMap);
+          if (!band || score <= 0) return;
+          if (score > best) { best = score; anchors = []; }
+          if (score === best) anchors.push({ stageId: anchor.id, title: anchor.title, band: band, score: score, sourceId: anchor.sourceId, pages: anchor.pages,
+            materials: array(stage.materials).flatMap(function (left) { return array(anchor.materials).filter(function (right) { return right.resourceId === left.resourceId && compareLevels(left, right, resourceMap[left.resourceId]).kind !== 'different'; }).map(function (right) { return { resourceId: left.resourceId, title: resourceMap[left.resourceId].title, level: left.level, targetLevel: right.level }; }); }) });
+        });
+      });
+      if (!anchors.length) {
+        var goalAnchor = (config.goalAnchors || {})[stage.id];
+        var goalStage = goalAnchor && array(catalog.stages).find(function (item) { return item.id === goalAnchor.stageId; });
+        var goalBand = goalStage && listeningComparisonBand(goalStage, catalog);
+        return goalBand ? { min: goalBand.min, max: goalBand.max, label: goalBand.min + '–' + goalBand.max + '词（按初章目标估计）', estimated: true, confidence: goalAnchor.confidence,
+          anchors: [{ stageId: goalStage.id, title: goalStage.title, band: goalBand, materials: [], sourceId: goalStage.sourceId, pages: goalStage.pages }], sources: goalAnchor.sources, basis: goalAnchor.basis } : null;
+      }
+      var min = Math.min(...anchors.map(function (anchor) { return anchor.band.min; })), max = Math.max(...anchors.map(function (anchor) { return anchor.band.max; }));
+      return { min: min, max: max, label: min + '–' + max + '词（按共用级别估计）', estimated: true, anchors: anchors, basis: '取许密杉、庆爸当前执行节点中素材与级别重合度最高的词数区间，仅为本站估计；不是香蕉妈妈原文词数。' };
+    }
     if (stage.routeId === 'qing' && raw.vocabularyMin != null && raw.vocabularyMax != null) {
-      return { min: raw.vocabularyMin, max: raw.vocabularyMax, label: raw.vocabularyMin + '–' + raw.vocabularyMax + '词' };
+      return { min: raw.entry === '零基础' ? 0 : raw.vocabularyMin, max: raw.vocabularyMax, label: (raw.entry === '零基础' ? '0–' + raw.vocabularyMax + '词（零基础至目标' + raw.vocabularyMin + '–' + raw.vocabularyMax + '词）' : raw.vocabularyMin + '–' + raw.vocabularyMax + '词') };
     }
     if (stage.routeId !== 'xu' || stage.domain !== 'listening') return null;
     var vocabulary = raw.vocabulary || {};
@@ -1073,7 +1120,7 @@
     var resourceMap = {}, focusBand = listeningComparisonBand(focus, catalog);
     array(catalog.resources).forEach(function (resource) { resourceMap[resource.id] = resource; });
     return array(catalog.routes).filter(function (route) { return route.id !== focus.routeId; }).map(function (route) {
-      var materialComparable = materialComparisonEnabled(catalog, focus) || array(route.stages).some(function (target) { return materialComparisonEnabled(catalog, target); });
+      var materialComparable = focus.routeId !== 'low-age' && route.id !== 'low-age' && (materialComparisonEnabled(catalog, focus) || array(route.stages).some(function (target) { return materialComparisonEnabled(catalog, target); }));
       var focusRoute = array(catalog.routes).find(function (item) { return item.id === focus.routeId; });
       var overlapPairs = materialComparable ? array(focusRoute && focusRoute.stages).flatMap(function (left) {
         return array(route.stages).map(function (right) { return { left: left.id, right: right.id, score: materialOverlapScore(left, right, resourceMap) }; });
@@ -1089,7 +1136,7 @@
         var startingAlignment = startingComparable && targetStart && targetStart.kind === 'route-start' ?
           { focus: focusStart.basis, target: targetStart.basis, basis: '各自路线的起步方式参考；不表示词汇量、素材难度或整阶段等同。' } : null;
         var vocabularyAlignment = !materialComparable && focusBand && targetBand && Math.max(focusBand.min, targetBand.min) < Math.min(focusBand.max, targetBand.max) ?
-          { focus: focusBand, target: targetBand, basis: '按听力词汇目标区间粗略对照；许密杉相邻节点之间的范围为本站整理，不代表两阶段执行要求相同。' } : null;
+          { focus: focusBand, target: targetBand, basis: '按词数积累区间粗略对照；节点间范围由相邻目标上限整理，香蕉妈妈区间按共用素材级别估计。原目标、测试与时数条件各自保留，不自动晋级。' } : null;
         array(focus.materials).forEach(function (left) {
           array(target.materials).filter(function (right) { return right.resourceId === left.resourceId; }).forEach(function (right) {
             var resource = resourceMap[left.resourceId];
@@ -1117,7 +1164,8 @@
         route.stages.findIndex(function (stage) { return stage.id === a.stageId; }) - route.stages.findIndex(function (stage) { return stage.id === b.stageId; }); });
       // 显式启用素材重合策略的路线使用统一素材关联；其他路线仍按词汇或起步依据。
       var stageReferences = matches.filter(function (match) { return match.materialAlignment || match.vocabularyAlignment || match.startingAlignment; });
-      return { routeId: route.id, materialComparable: materialComparable, vocabularyComparable: vocabularyComparable, startingComparable: !!startingComparable, stageReferences: stageReferences, matches: matches };
+      var estimatedMissing = (focus.routeId === 'banana' && !focusBand || route.id === 'banana' && route.stages.every(function (stage) { return !listeningComparisonBand(stage, catalog); }));
+      return { routeId: route.id, materialComparable: materialComparable, vocabularyComparable: vocabularyComparable, startingComparable: !!startingComparable, referenceNote: estimatedMissing ? '没有可核实的同级素材锚点，尚未估计词数范围；保留独立路线。' : '', stageReferences: stageReferences, matches: matches };
     });
   }
 
@@ -1237,7 +1285,18 @@
     // 保留原文中的虚构、选读及版本限定，不能仅凭数字相同借用整级数量。
     var exactKeys = new Set();
     var exactMatches = scopes.filter(function (scope) { return selected.length === 1 && (scope.level === selected[0] || array(scope.levelAliases).indexOf(selected[0]) !== -1); });
-    var exact = exactMatches.filter(function (scope) {
+    // 原图常用“第一辑”“粉色A”等别名指同一出版分项；命中分项时只投影该分项册数。
+    var partMatches = selected.length === 1 ? scopes.flatMap(function (scope) {
+      var part = scope.parts.find(function (part) {
+        return part.level === selected[0] || part.label === selected[0] || array(part.levelAliases).indexOf(selected[0]) !== -1;
+      });
+      if (!part) return [];
+      return [Object.assign({}, scope, {
+        id: scope.id + '-part-' + hash(selected[0]), level: selected[0], label: selected[0], parts: [Object.assign({}, part)],
+        total: part.count
+      })];
+    }) : [];
+    var exact = exactMatches.concat(partMatches).filter(function (scope) {
       if (array(scope.includedIn).some(function (id) { return exactMatches.some(function (s) { return s.id === id; }); })) return false;
       if (!(selected.length === 1 && (scope.level === selected[0] || array(scope.levelAliases).indexOf(selected[0]) !== -1))) return false;
       var key = JSON.stringify([scope.edition, scope.unit, scope.parts]);

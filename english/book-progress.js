@@ -39,15 +39,75 @@ function readingIds(book,directory){
   return directory?.readingEquivalences?.find(group=>group.bookIds.includes(id))?.bookIds||book.readingIds||[id];
 }
 function completedBook(records,book,directory,known){return readingIds(book,directory).some(id=>records?.[MANUAL+id]?.status==='done'||known.has(id));}
-function bookState(records,book,directory){
+// 公共目录后来收录同一单册时，只读投影旧“其他”事实；不改原记录、键或同步快照。
+// 同时核对公开guid与App数字ID，不按题名匹配，也不把套装已读传给成员。
+const publicIdentityCache=new WeakMap();
+function publicRecordView(records,directory,catalog){
+  if(!records||!directory?.books?.length)return records;
+  let index=publicIdentityCache.get(directory);
+  if(!index||index.books!==directory.books){
+    const identities=new Map();
+    for(const book of directory.books)for(const guid of book.externalIds?.xiaohuasheng||[]){
+      if(book.isCollection)continue;
+      if(!identities.has(guid))identities.set(guid,new Map());
+      identities.get(guid).set(book.id,book);
+    }
+    index={books:directory.books,identities};publicIdentityCache.set(directory,index);
+  }
+  const shelf=new Map(),observed=[];
+  for(const [key,record] of Object.entries(records)){
+    if(key.startsWith('reading.shelf.v1:')&&record?.status==='using'){
+      const meta=parse(record.note);
+      if(meta?.version===1&&!meta.isCollection&&key==='reading.shelf.v1:'+meta.accountId+':'+meta.bookId){
+        shelf.set(meta.accountId+':'+meta.bookId,meta);observed.push(meta);
+      }
+    }
+  }
+  const resolve=entry=>{
+    const candidates=index.identities.get(entry.bookId||entry.externalBookId);
+    if(!candidates?.size||entry.isCollection||entry.appBookId===undefined)return null;
+    const matches=[...candidates.values()],identities=new Set(matches.map(book=>readingIds(book,directory)[0]));
+    // 仅已核定的公共阅读等价组可折叠重复guid；普通重名或未核重复身份仍拒绝。
+    if(identities.size!==1||matches.some(book=>book.appBookId!==undefined&&String(entry.appBookId)!==String(book.appBookId)))return null;
+    return matches.find(book=>book.appBookId!==undefined&&String(entry.appBookId)===String(book.appBookId))||null;
+  };
+  let view=records;
+  const put=(key,value)=>{if(view===records)view={...records};view[key]=value;};
+  for(const [key,record] of Object.entries(records)){
+    if(!key.startsWith(EXTERNAL)||record?.status!=='done')continue;
+    const fact=parse(record.note);
+    if(fact?.version!==1||fact.sourceKind!=='xiaohuasheng_bookcase_read'||key!==EXTERNAL+fact.accountId+':'+fact.externalBookId||fact.publicBookId!=='shelf-book-'+fact.accountId+'-'+fact.externalBookId)continue;
+    const meta=shelf.get(fact.accountId+':'+fact.externalBookId);
+    if(meta?.isCollection)continue;
+    const entry={...meta,...fact,bookId:fact.externalBookId,appBookId:fact.appBookId??meta?.appBookId};
+    const book=resolve(entry);
+    if(!book)continue;
+    observed.push(entry);
+    put(key,{...record,note:JSON.stringify({...fact,publicBookId:book.id,...(catalog?{
+      resourceId:catalogResource(catalog,book.resourceId)?.resourceId||book.resourceId,
+      publicationScopes:bookPublicationScopes(book,catalog)}:{})})});
+  }
+  for(const entry of observed){
+    const book=resolve(entry);
+    if(!book)continue;
+    const old=records[MANUAL+'shelf-book-'+entry.accountId+'-'+(entry.bookId||entry.externalBookId)];
+    const ids=readingIds(book,directory);
+    if(old&&!ids.some(id=>Object.hasOwn(records,MANUAL+id)))put(MANUAL+ids[0],old);
+  }
+  return view;
+}
+function bookState(records,book,directory,catalog){
+  if(directory)records=publicRecordView(records,directory,catalog);
   const ids=readingIds(book,directory);
   const manual=ids.some(id=>records?.[MANUAL+id]?.status==='done');
   const external=externalFacts(records).filter(fact=>ids.includes(fact.publicBookId));
+
   // 同一本的重复外部身份取最大值，不把同步次数、手工勾选或套装次数相加。
   const counts=external.map(fact=>fact.readCount).filter(count=>Number.isSafeInteger(count)&&count>=0);
   return {done:manual||external.length>0,manual,external,readCount:counts.length?Math.max(...counts):null};
 }
 function directoryProgress(records,directory,catalog,resourceId){
+  records=publicRecordView(records,directory,catalog);
   const canonical=catalogResource(catalog,resourceId)?.resourceId||resourceId;
   const selected=directoryIndex(directory,catalog).byResource.get(canonical)||[],known=new Set(externalFacts(records).map(fact=>fact.publicBookId));
   const completed=new Set(selected.filter(book=>completedBook(records,book,directory,known)).map(book=>readingIds(book,directory)[0])).size;
@@ -70,6 +130,7 @@ function manualUpdate(records,book,done,directory){
 function internalized(records,bookId){return records?.[INTERNALIZED+bookId]?.status==='done';}
 function internalizationUpdate(records,bookId,value){return bookUpdate(records,INTERNALIZED,bookId,value);}
 function progress(records,plan,group='all',legacy){
+  records=publicRecordView(records,{books:plan?.books||[]});
   const selected=books(plan,group),known=new Set(externalFacts(records).map(fact=>fact.publicBookId));
   const identifiedCompleted=selected.filter(book=>completedBook(records,book,undefined,known)).length;
   const legacyCompleted=Number.isSafeInteger(legacy?.completed)&&legacy.completed>=0?legacy.completed:0;
@@ -117,16 +178,18 @@ function catalogResource(catalog,resourceId){
   return entry?.catalogResourceId?catalogResource(catalog,entry.catalogResourceId):entry;
 }
 function withReadingPlans(directory,data,catalog){
-  const books=[...(directory.books||[])],sources=[...(directory.sources||[])],ids=new Set(books.map(book=>book.id));
+  const books=[...(directory.books||[])],sources=[...(directory.sources||[])],positions=new Map(books.map((book,index)=>[book.id,index]));
   for(const plan of data?.plans||[]){
     const sourceId='reading-plan-'+plan.id,resourceId=catalogResource(catalog,plan.resourceId)?.resourceId||plan.resourceId;
     if(!sources.some(source=>source.id===sourceId))sources.push({id:sourceId,...plan.source,kind:'authored-reading-plan',edition:plan.edition});
-    for(const book of plan.books||[])if(!ids.has(book.id)){
+    for(const book of plan.books||[]){
       const group=plan.groups.find(group=>group.id===book.group),entry=catalogResource(catalog,plan.resourceId);
       const level=entry?.scopes?.find(scope=>group?.scopeIds?.includes(scope.id))?.levelAliases?.[0]||book.group;
-      books.push({...book,resourceId,seriesTitle:plan.title,edition:plan.edition,level,topics:[],sourceIds:[sourceId],
-        studyGuide:{sourceId,sourceOrder:book.order,patterns:(book.patterns||[]).map(text=>({text})),patternGroup:book.patternGroup}});
-      ids.add(book.id);
+      const position=positions.get(book.id),existing=position===undefined?{}:books[position];
+      // 公共目录后来补齐同ID身份时仍由原计划提供顺序、句型和媒体，不复制维护另一份。
+      const projected={...existing,...book,resourceId,seriesTitle:plan.title,edition:plan.edition,level,topics:existing.topics||[],sourceIds:[...new Set([...(existing.sourceIds||[]),sourceId])],
+        studyGuide:{...existing.studyGuide,sourceId,sourceOrder:book.order,patterns:(book.patterns||[]).map(text=>({text})),patternGroup:book.patternGroup}};
+      if(position===undefined){positions.set(book.id,books.length);books.push(projected);}else books[position]=projected;
     }
   }
   return {...directory,books,sources};
@@ -210,6 +273,7 @@ function scopeAuthority(records,scope){
     ?record?.status==='done'&&meta.policy==='source-priority':false;
 }
 function projectScopeQuantity(records,resourceId,scope,legacy,catalog,directory){
+  records=publicRecordView(records,directory,catalog);
   if(!scope||scope.origin==='personal')return legacy;
   const entry=catalogResource(catalog,resourceId),unit=scope.unit||entry?.unit||legacy?.unit||'本';
   if(!entry||unit!=='本')return legacy;
@@ -244,7 +308,12 @@ function matchEntry(data,entry,directory,catalog){
   };
   // 已核定的公开书目身份优先于外站可变题名；重复身份仍交由多候选流程拒绝。
   const identified=(directory?.books||[]).filter(book=>book.externalIds?.xiaohuasheng?.includes(entry.bookId));
-  if(identified.length)return {candidates:[...new Map(identified.map(book=>{const match=directoryMatch(book);return [match.publicBookId,match];})).values()],conflicts};
+  if(identified.length){
+    const candidates=[...new Map(identified.map(book=>{const match=directoryMatch(book);return [match.publicBookId,match];})).values()];
+    if(entry.appBookId!==undefined&&identified.some(book=>book.appBookId!==undefined&&String(book.appBookId)!==String(entry.appBookId)))return {candidates:[],conflicts:candidates.map(item=>({...item,reason:'public-app-id-conflict'}))};
+    return {candidates,conflicts};
+  }
+
   for(const plan of data?.plans||[]){
     for(const prefix of plan.externalMatch?.prefixes||[]){
       const head=normalize(prefix);
@@ -314,7 +383,7 @@ function applyReadSnapshot(records,data,snapshot,options={}){
     const {candidates,conflicts}=matchEntry(data,entry,options.directory,options.catalog);
     if(!candidates.length&&!conflicts.length&&options.shelfMatches?.has(entry.bookId))candidates.push(options.shelfMatches.get(entry.bookId));
     if(candidates.length!==1){
-      if(candidates.length>1||conflicts.length)ambiguous.push({...entry,candidates:candidates.length?candidates:conflicts,reason:conflicts.length?'number-conflict':'multiple-books'});
+      if(candidates.length>1||conflicts.length)ambiguous.push({...entry,candidates:candidates.length?candidates:conflicts,reason:conflicts.length?(conflicts[0].reason||'number-conflict'):'multiple-books'});
       else unmatched.push({...entry,reason:'no-exact-edition-match'});
       continue;
     }
@@ -360,5 +429,6 @@ function applyReadSnapshot(records,data,snapshot,options={}){
   }
   return {changes,matched,unmatched,ambiguous};
 }
-return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,withReadingPlans,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
+return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,withReadingPlans,publicRecordView,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
+
 });

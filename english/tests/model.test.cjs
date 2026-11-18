@@ -21,7 +21,7 @@ test('图鉴切换路线复用执行主表阶段对应，不保留旧路线阶�
   }
   assert.equal(model.libraryStageForRoute(c, 'stage:xu-node-500', 'banana'), 'stage:banana-1');
   assert.equal(model.libraryStageForRoute(c, 'stage:banana-1', 'xu'), 'stage:xu-node-500');
-  assert.equal(model.libraryStageForRoute(c, 'stage:banana-chapter', 'xu'), 'all');
+  assert.equal(model.libraryStageForRoute(c, 'stage:banana-chapter', 'xu'), 'stage:xu-node-2000');
   assert.equal(model.libraryStageForRoute(c, 'stage:xu-node-500', 'other'), 'all');
   assert.equal(model.libraryStageForRoute(c, 'stage:missing', 'qing'), 'all');
   for (const route of ['all', 'xu', 'qing', 'banana', 'other']) {

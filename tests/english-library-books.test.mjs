@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url),B=require('../english/library-books.js'),M=require('../english/model.js');
 const read=id=>JSON.parse(fs.readFileSync(new URL('../english/data/'+id+'.json',import.meta.url)));
-const data=read('resource-books'),raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan')},catalog=M.normalize(raw);
+const data=read('resource-books'),raw={banana:read('banana'),qing:read('qing'),xu:read('xu'),'low-age':read('low-age'),xuCurrent:read('xu-current'),xuSupplements:[read('xu-panorama'),read('xu-thousand')],routePlan:read('route-plan')},catalog=M.normalize(raw);
 
 test('全部及三条路线的每个阶段均保留原套系入口，不用未对应单册代替整套引用',()=>{
   const {audit,inputs}=require('../scripts/audit-library-route-coverage.cjs'),input=inputs(),before=JSON.stringify(input.directory.books);

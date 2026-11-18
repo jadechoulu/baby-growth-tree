@@ -87,5 +87,9 @@ test('牛津单级和组合范围由公共目录提供，组合包与已包含�
   assert.equal(count('resource-gfdta7'),220); // 词卡使用张，不写成220本。
   const gk=P.bookScopes('resource-9fvmjt',['GK'],catalog)[0];
   assert.equal(gk.id,'heinemann-gk-70');
-  assert.deepEqual(gk.parts,[{label:'GK',count:70}]); // 补分级资料不能拆散已有GK个人记录。
+  assert.deepEqual(gk.parts.map(({label,count})=>({label,count})),[{label:'GK',count:70}]); // 补目录身份不能拆散已有GK个人记录。
+  const ids=gk.parts[0].directoryMatch.bookIds;
+  assert.equal(ids.length,70);
+  assert.equal(new Set(ids).size,70);
+  assert.ok(ids.every(id=>/^heinemann-gk70-\d{2}$/.test(id)),'完整范围复用原70个单册身份');
 });

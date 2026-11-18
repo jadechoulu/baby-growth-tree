@@ -42,13 +42,13 @@ test('英文版本按真实套系归组，中文、双语、未知语言与廖�
   assert.equal(BP.bookState(r.changes,'shelf-book-owner-a').external.length,1);
   assert.ok(!JSON.stringify(r.changes).includes('Book c'));
 });
-test('公共单册只排除本册，明确路线套系身份才排除整个套系',()=>{
+test('公共单册只排除本册，公共套系来源不隐藏未收录的同套或另版单册',()=>{
   const series={id:'set',appBookId:'901',title:'Set'},snap=snapshot([book('a',{series}),book('b',{series})]);
   const config={...options,directory:{books:[{id:'public-a',resourceId:'r',title:'Public A',externalIds:{xiaohuasheng:['a']}}]}};
   const remaining=Shelf.groups(Shelf.apply({},snap,config).changes,config);
   assert.equal(remaining.length,1);assert.deepEqual(remaining[0].books.map(b=>b.bookId),['b']);
   const source={...options,resources:[{id:'r',title:'Other name',appearances:[{}]}],catalog:{series:[{resourceId:'r',sources:[{url:'https://www.xiaohuasheng.cn/series/set'}]}]}};
-  assert.equal(Shelf.groups(Shelf.apply({},snap,source).changes,source).length,0);
+  assert.equal(Shelf.groups(Shelf.apply({},snap,source).changes,source)[0].total,2);
 });
 test('有内容专区但没有公共单册完成映射的套系仍保留书架与阅读状态',()=>{
   const series={id:'hello-set',appBookId:'901',title:'Magazine Collection'};
@@ -58,6 +58,7 @@ test('有内容专区但没有公共单册完成映射的套系仍保留书架�
   assert.equal(groups.length,1);assert.equal(groups[0].total,2);assert.equal(groups[0].completed,1);
   assert.equal(BP.bookState(saved,'shelf-book-owner-a').done,true);
 });
+
 test('同名不同外部身份不硬绑；无套系依据保留独立单本',()=>{
   const snap=snapshot([book('a',{title:'Same'}),book('b',{title:'Same'})]);
   const config={...options,directory:{books:[{id:'public',title:'Same',externalIds:{xiaohuasheng:['other']}}]}};
@@ -67,7 +68,7 @@ test('已核ISBN的大猫外站身份复用公共单册，历史书架入口不�
   const directory=require('../data/resource-books.json');
   const ids=['751ac6c5ea923304','c6a797906f523304','699a5ecd0ac38d17','bfbca1953089c4a7','ab52f82fbf170c73'];
   const series={id:'synthetic-series',appBookId:'901',title:'Synthetic Series'};
-  const entries=ids.map((id,i)=>book(id,{appBookId:String(9000+i),title:'Synthetic Book '+i,series,read:i===0}));
+  const entries=ids.map((id,i)=>book(id,{appBookId:String(directory.books.find(b=>b.externalIds?.xiaohuasheng?.includes(id))?.appBookId||9000+i),title:'Synthetic Book '+i,series,read:i===0}));
   const config={...options,directory};
   const legacy=Shelf.apply({},snapshot(entries),options).changes;
   assert.equal(Shelf.groups(legacy,options).length,1);
@@ -157,4 +158,87 @@ test('私人书目只在唯一精确ISBN时复用已核单册主题，同名与�
   assert.deepEqual(T.entryTopics('book',derived.find(book=>book.bookId==='b')),[]);
   const multiple=Shelf.entries(records,{...options,directory:{books:[publicBook,{...publicBook,id:'second'}]},topics:T,titleClassifier:classifier});
   assert.deepEqual(T.entryTopics('book',multiple.find(book=>book.bookId==='a')),[]);
+});
+test('其他书架共用两级主题，主题与搜索状态取交集，完整进度分母不随筛选变化',()=>{
+  const topics=require('../topics.js'),series={id:'set',appBookId:'901',title:'A Real Series'};
+  const records=Shelf.apply({},snapshot([book('a',{series,read:true}),book('b',{series,title:'Banana Picnic'}),book('c')]),options).changes;
+  const groups=Shelf.groups(records,options),original=JSON.stringify({records,groups});
+  const config={...options,topics,topicDirectory:{books:[
+    {title:'Verified Animal',topics:['animals.pets'],topicStatus:'content-verified',externalIds:{xiaohuasheng:['a']}},
+    {title:'Verified Food',topics:['food.fruit'],topicStatus:'classification-verified',externalIds:{xiaohuasheng:['b']}},
+    {title:'Book c',topics:['animals.pets'],topicStatus:'title-fallback',externalIds:{xiaohuasheng:['wrong-id']}}
+  ]}};
+  const animals=Shelf.filterGroups(groups,{topic:'animals',status:'using',query:'real'},config);
+  assert.equal(animals.length,1);assert.equal(animals[0].matchedTotal,1);
+  assert.equal(animals[0].matchingBooks[0].bookId,'a');assert.equal(animals[0].total,2);assert.equal(animals[0].completed,1);
+  assert.equal(Shelf.filterGroups(groups,{topic:'animals',subtopic:'animals.sea'},config).length,0);
+  assert.equal(Shelf.filterGroups(groups,{topic:'animals',subtopic:'animals.pets',status:'done'},config).length,0);
+  assert.equal(Shelf.filterGroups(groups,{topic:'animals',query:'picnic'},config).length,0,'不同单册的搜索与主题不能拼成一次命中');
+  assert.deepEqual(Shelf.filterGroups(groups,{topic:'pending'},config).flatMap(g=>g.matchingBooks.map(b=>b.bookId)),['c']);
+  assert.equal(Shelf.filterGroups(groups,{topic:'all'},config).reduce((n,g)=>n+g.matchedTotal,0),3);
+  assert.equal(JSON.stringify({records,groups}),original,'筛选不修改个人记录或原完整套系');
+});
+
+test('其他主题只按外站稳定单册身份复用，不借同名、套装或未核主题',()=>{
+  const topics=require('../topics.js');
+  const config={...options,topics,topicDirectory:{books:[
+    {title:'Book a',topics:['animals.pets'],topicStatus:'content-verified',externalIds:{xiaohuasheng:['other']}},
+    {title:'parent',topics:['animals.wild'],topicStatus:'content-verified',externalIds:{xiaohuasheng:['parent']}},
+    {title:'Book a',topics:['food'],topicStatus:'pending',externalIds:{xiaohuasheng:['a']}}
+  ]}};
+  const records=Shelf.apply({},snapshot([book('a',{series:{id:'parent',appBookId:'901',title:'parent'}})]),options).changes;
+  const groups=Shelf.groups(records,options);
+  assert.equal(Shelf.filterGroups(groups,{topic:'animals'},config).length,0);
+  assert.equal(Shelf.filterGroups(groups,{topic:'pending'},config).length,1);
+});
+
+test('来源分类优先，缺失时题名推测参与筛选并保留可见来源标记',()=>{
+  const topics=require('../topics.js'),config={...options,topics,topicDirectory:{books:[
+    {topics:['body'],topicStatus:'title-inferred',externalIds:{xiaohuasheng:['a']}},
+    {topics:['animals.pets'],topicStatus:'content-verified',externalIds:{xiaohuasheng:['a']}},
+    {topics:['transport.land'],topicStatus:'title-inferred',externalIds:{xiaohuasheng:['b']}}
+  ]}};
+  const records=Shelf.apply({},snapshot([book('a'),book('b')]),options).changes,groups=Shelf.groups(records,options);
+  assert.equal(Shelf.filterGroups(groups,{topic:'body'},config).length,0);
+  assert.equal(Shelf.filterGroups(groups,{topic:'animals'},config)[0].matchingBooks[0].topicStatus,'content-verified');
+  const guessed=Shelf.filterGroups(groups,{topic:'transport'},config)[0].matchingBooks[0];
+  assert.equal(guessed.bookId,'b');assert.equal(guessed.topicStatus,'title-inferred');
+  assert.equal(Shelf.filterGroups(groups,{topic:'pending'},config).length,0);
+});
+
+test('公共单册去重核对双ID与唯一性，冲突和另版仍留在其他',()=>{
+  const snap=snapshot([book('a'),book('b'),book('c'),book('d')]);
+  const config={...options,directory:{books:[
+    {id:'public-a',appBookId:book('a').appBookId,externalIds:{xiaohuasheng:['a']}},
+    {id:'public-b',appBookId:'999',externalIds:{xiaohuasheng:['b']}},
+    {id:'public-c1',externalIds:{xiaohuasheng:['c']}},
+    {id:'public-c2',externalIds:{xiaohuasheng:['c']}}
+  ]}};
+  const records=Shelf.apply({},snap,config).changes;
+  assert.deepEqual(Shelf.groups(records,config).flatMap(g=>g.books.map(b=>b.bookId)).sort(),['b','c','d']);
+});
+
+test('其他主题公共索引只含公共元信息，主题与外站身份有效且不公开私人事实',()=>{
+  const topics=require('../topics.js'),data=require('../data/shelf-book-topics.json'),guids=new Set();
+  assert.equal(data.version,1);assert.ok(data.books.length>0);
+  for(const entry of data.books){
+    assert.ok(['content-verified','classification-verified','title-inferred'].includes(entry.topicStatus));
+    assert.ok(entry.topicEvidence.length>0&&entry.topicEvidence.every(item=>item.basis));
+    assert.ok(entry.topics.length>0&&entry.topics.every(id=>topics.node(id)));
+    for(const guid of entry.externalIds.xiaohuasheng){assert.equal(guids.has(guid),false);guids.add(guid);}
+    assert.ok(Object.keys(entry).every(key=>['title','externalIds','topics','topicStatus','topicEvidence'].includes(key)));
+  }
+});
+
+test('私人单册检索优先读取已核外站主题，保留推测标记和完整套系进度',()=>{
+  const topics=require('../topics.js'),classifier={classify:()=>({topics:['body'],patterns:[],status:'title-fallback'})};
+  const records=Shelf.apply({},snapshot([book('a',{read:true}),book('b')]),options).changes,before=structuredClone(records);
+  const derived=Shelf.entries(records,{...options,topics,titleClassifier:classifier,topicDirectory:{books:[
+    {topics:['animals.pets'],topicStatus:'content-verified',topicEvidence:[{basis:'内容核对'}],externalIds:{xiaohuasheng:['a']}},
+    {topics:['transport.land'],topicStatus:'title-inferred',topicEvidence:[{basis:'按标题推测'}],externalIds:{xiaohuasheng:['b']}}
+  ]}});
+  assert.deepEqual(topics.entryTopics('book',derived.find(b=>b.bookId==='a')),['animals.pets']);
+  assert.equal(topics.entryEvidence('book',derived.find(b=>b.bookId==='b')).status,'title-inferred');
+  assert.equal(BP.bookState(records,derived.find(b=>b.bookId==='a').id).done,true);
+  assert.deepEqual(records,before);
 });

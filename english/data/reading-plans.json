@@ -83,7 +83,9 @@
           "id": "heinemann-gk70-01",
           "number": 1,
           "title": "At the market",
-          "aliases": [],
+          "aliases": [
+            "At the Market"
+          ],
           "group": "A",
           "order": 1,
           "patternGroup": "I / we can see",
@@ -127,13 +129,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 1
+          "campOrder": 1,
+          "appBookId": 156069,
+          "isbn": "9780325014685"
         },
         {
           "id": "heinemann-gk70-06",
           "number": 6,
           "title": "At the zoo",
-          "aliases": [],
+          "aliases": [
+            "At the Zoo"
+          ],
           "group": "A",
           "order": 2,
           "patternGroup": "I / we can see",
@@ -177,13 +183,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 6
+          "campOrder": 6,
+          "appBookId": 156085,
+          "isbn": "9780325014104"
         },
         {
           "id": "heinemann-gk70-07",
           "number": 7,
           "title": "On the way to school",
-          "aliases": [],
+          "aliases": [
+            "On the Way to School"
+          ],
           "group": "A",
           "order": 3,
           "patternGroup": "I / we can see",
@@ -227,13 +237,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 7
+          "campOrder": 7,
+          "appBookId": 156087,
+          "isbn": "9780325014128"
         },
         {
           "id": "heinemann-gk70-08",
           "number": 8,
           "title": "The park",
-          "aliases": [],
+          "aliases": [
+            "The Park"
+          ],
           "group": "A",
           "order": 4,
           "patternGroup": "I / we can see",
@@ -277,7 +291,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 8
+          "campOrder": 8,
+          "appBookId": 156088,
+          "isbn": "9780325014166"
         },
         {
           "id": "heinemann-gk70-29",
@@ -330,13 +346,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 29
+          "campOrder": 29,
+          "appBookId": 156159,
+          "isbn": "9780325014265"
         },
         {
           "id": "heinemann-gk70-38",
           "number": 38,
           "title": "At the pond",
-          "aliases": [],
+          "aliases": [
+            "At the Pond"
+          ],
           "group": "A",
           "order": 6,
           "patternGroup": "I / we can see",
@@ -380,13 +400,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 38
+          "campOrder": 38,
+          "appBookId": 156195,
+          "isbn": "9780325014326"
         },
         {
           "id": "heinemann-gk70-45",
           "number": 45,
           "title": "Over the river",
-          "aliases": [],
+          "aliases": [
+            "Over the River"
+          ],
           "group": "B",
           "order": 7,
           "patternGroup": "I / we can see",
@@ -430,7 +454,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 45
+          "campOrder": 45,
+          "appBookId": 156077,
+          "isbn": "9780325014708"
         },
         {
           "id": "heinemann-gk70-02",
@@ -480,13 +506,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 2
+          "campOrder": 2,
+          "appBookId": 156073,
+          "isbn": "9780325014760"
         },
         {
           "id": "heinemann-gk70-14",
           "number": 14,
           "title": "My room",
-          "aliases": [],
+          "aliases": [
+            "My Room"
+          ],
           "group": "A",
           "order": 9,
           "patternGroup": "like / love",
@@ -530,7 +560,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 14
+          "campOrder": 14,
+          "appBookId": 156094,
+          "isbn": "9780325014258"
         },
         {
           "id": "heinemann-gk70-24",
@@ -580,13 +612,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 24
+          "campOrder": 24,
+          "appBookId": 156129,
+          "isbn": "9780325014371"
         },
         {
           "id": "heinemann-gk70-32",
           "number": 32,
           "title": "At school",
-          "aliases": [],
+          "aliases": [
+            "At School"
+          ],
           "group": "A",
           "order": 11,
           "patternGroup": "like / love",
@@ -630,13 +666,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 32
+          "campOrder": 32,
+          "appBookId": 156171,
+          "isbn": "9780325014074"
         },
         {
           "id": "heinemann-gk70-49",
           "number": 49,
           "title": "Playing together",
-          "aliases": [],
+          "aliases": [
+            "Playing Together"
+          ],
           "group": "B",
           "order": 12,
           "patternGroup": "like / love",
@@ -680,7 +720,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 49
+          "campOrder": 49,
+          "appBookId": 156122,
+          "isbn": "9780325014425"
         },
         {
           "id": "heinemann-gk70-59",
@@ -710,7 +752,9 @@
             "xiaohuasheng": [
               "9cc2ed995b9dc3c8"
             ]
-          }
+          },
+          "appBookId": 156081,
+          "isbn": "9780325014746"
         },
         {
           "id": "heinemann-gk70-53",
@@ -740,13 +784,17 @@
             "xiaohuasheng": [
               "bbb6e16cc235ce57"
             ]
-          }
+          },
+          "appBookId": 156150,
+          "isbn": "9780325014449"
         },
         {
           "id": "heinemann-gk70-58",
           "number": 58,
           "title": "My big brother",
-          "aliases": [],
+          "aliases": [
+            "My Big Brother"
+          ],
           "group": "B",
           "order": 15,
           "patternGroup": "like / love",
@@ -770,13 +818,17 @@
             "xiaohuasheng": [
               "fdd21e75241c2ce8"
             ]
-          }
+          },
+          "appBookId": 156174,
+          "isbn": "9780325014470"
         },
         {
           "id": "heinemann-gk70-66",
           "number": 66,
           "title": "Going on a train ride",
-          "aliases": [],
+          "aliases": [
+            "Going on a Train Ride"
+          ],
           "group": "C",
           "order": 16,
           "patternGroup": "like / love",
@@ -800,13 +852,17 @@
             "xiaohuasheng": [
               "22ba70a792ad7f8"
             ]
-          }
+          },
+          "appBookId": 156197,
+          "isbn": "9780325014586"
         },
         {
           "id": "heinemann-gk70-18",
           "number": 18,
           "title": "My lunch",
-          "aliases": [],
+          "aliases": [
+            "My Lunch"
+          ],
           "group": "A",
           "order": 17,
           "patternGroup": "Here is / are",
@@ -850,7 +906,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 18
+          "campOrder": 18,
+          "appBookId": 156100,
+          "isbn": "9780325014241"
         },
         {
           "id": "heinemann-gk70-19",
@@ -900,13 +958,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 19
+          "campOrder": 19,
+          "appBookId": 156101,
+          "isbn": "9780325014180"
         },
         {
           "id": "heinemann-gk70-22",
           "number": 22,
           "title": "Setting the table",
-          "aliases": [],
+          "aliases": [
+            "Setting the Table"
+          ],
           "group": "A",
           "order": 19,
           "patternGroup": "Here is / are",
@@ -950,13 +1012,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 22
+          "campOrder": 22,
+          "appBookId": 156113,
+          "isbn": "9780325014081"
         },
         {
           "id": "heinemann-gk70-23",
           "number": 23,
           "title": "The flower",
-          "aliases": [],
+          "aliases": [
+            "The Flower"
+          ],
           "group": "A",
           "order": 20,
           "patternGroup": "Here is / are",
@@ -1000,13 +1066,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 23
+          "campOrder": 23,
+          "appBookId": 156120,
+          "isbn": "9780325014043"
         },
         {
           "id": "heinemann-gk70-26",
           "number": 26,
           "title": "The pet store",
-          "aliases": [],
+          "aliases": [
+            "The Pet Store"
+          ],
           "group": "A",
           "order": 21,
           "patternGroup": "Here is / are",
@@ -1050,13 +1120,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 26
+          "campOrder": 26,
+          "appBookId": 156145,
+          "isbn": "9780325014197"
         },
         {
           "id": "heinemann-gk70-35",
           "number": 35,
           "title": "The play",
-          "aliases": [],
+          "aliases": [
+            "The Play"
+          ],
           "group": "A",
           "order": 22,
           "patternGroup": "Here is / are",
@@ -1100,13 +1174,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 35
+          "campOrder": 35,
+          "appBookId": 156183,
+          "isbn": "9780325014098"
         },
         {
           "id": "heinemann-gk70-36",
           "number": 36,
           "title": "Making a pizza",
-          "aliases": [],
+          "aliases": [
+            "Making a Pizza"
+          ],
           "group": "A",
           "order": 23,
           "patternGroup": "Here is / are",
@@ -1150,13 +1228,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 36
+          "campOrder": 36,
+          "appBookId": 156190,
+          "isbn": "9780325014036"
         },
         {
           "id": "heinemann-gk70-47",
           "number": 47,
           "title": "Making soup",
-          "aliases": [],
+          "aliases": [
+            "Making Soup"
+          ],
           "group": "B",
           "order": 24,
           "patternGroup": "Here is / are",
@@ -1200,14 +1282,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 47
+          "campOrder": 47,
+          "appBookId": 156079,
+          "isbn": "9780325014647"
         },
         {
           "id": "heinemann-gk70-03",
           "number": 3,
           "title": "Funny things",
           "aliases": [
-            "Funny"
+            "Funny",
+            "Funny Things"
           ],
           "group": "A",
           "order": 25,
@@ -1252,13 +1337,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 3
+          "campOrder": 3,
+          "appBookId": 123602,
+          "isbn": "9780325014722"
         },
         {
           "id": "heinemann-gk70-16",
           "number": 16,
           "title": "Going sledding",
-          "aliases": [],
+          "aliases": [
+            "Going Sledding"
+          ],
           "group": "A",
           "order": 26,
           "patternGroup": "Look at",
@@ -1302,13 +1391,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 16
+          "campOrder": 16,
+          "appBookId": 156097,
+          "isbn": "9780325014289"
         },
         {
           "id": "heinemann-gk70-17",
           "number": 17,
           "title": "Making a snowman",
-          "aliases": [],
+          "aliases": [
+            "Making a Snowman"
+          ],
           "group": "A",
           "order": 27,
           "patternGroup": "Look at",
@@ -1352,13 +1445,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 17
+          "campOrder": 17,
+          "appBookId": 156098,
+          "isbn": "9780325014333"
         },
         {
           "id": "heinemann-gk70-25",
           "number": 25,
           "title": "The sidewalk",
-          "aliases": [],
+          "aliases": [
+            "The Sidewalk"
+          ],
           "group": "A",
           "order": 28,
           "patternGroup": "Look at",
@@ -1402,13 +1499,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 25
+          "campOrder": 25,
+          "appBookId": 156142,
+          "isbn": "9780325014388"
         },
         {
           "id": "heinemann-gk70-30",
           "number": 30,
           "title": "My baby sister",
-          "aliases": [],
+          "aliases": [
+            "My Baby Sister"
+          ],
           "group": "A",
           "order": 29,
           "patternGroup": "Look at",
@@ -1452,13 +1553,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 30
+          "campOrder": 30,
+          "appBookId": 156166,
+          "isbn": "9780325014005"
         },
         {
           "id": "heinemann-gk70-31",
           "number": 31,
           "title": "The parade",
-          "aliases": [],
+          "aliases": [
+            "The Parade"
+          ],
           "group": "A",
           "order": 30,
           "patternGroup": "Look at",
@@ -1502,14 +1607,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 31
+          "campOrder": 31,
+          "appBookId": 156168,
+          "isbn": "9780325014296"
         },
         {
           "id": "heinemann-gk70-33",
           "number": 33,
           "title": "Get ready",
           "aliases": [
-            "Getting ready"
+            "Getting ready",
+            "Getting Ready"
           ],
           "group": "A",
           "order": 31,
@@ -1558,13 +1666,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 33
+          "campOrder": 33,
+          "appBookId": 156175,
+          "isbn": "9780325014029"
         },
         {
           "id": "heinemann-gk70-46",
           "number": 46,
           "title": "My big bear",
-          "aliases": [],
+          "aliases": [
+            "My Big Bear"
+          ],
           "group": "B",
           "order": 32,
           "patternGroup": "Look at",
@@ -1608,7 +1720,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 46
+          "campOrder": 46,
+          "appBookId": 156078,
+          "isbn": "9780325014609"
         },
         {
           "id": "heinemann-gk70-55",
@@ -1638,13 +1752,17 @@
             "xiaohuasheng": [
               "6afd5067332245c0"
             ]
-          }
+          },
+          "appBookId": 156161,
+          "isbn": "9780325014456"
         },
         {
           "id": "heinemann-gk70-56",
           "number": 56,
           "title": "So big",
-          "aliases": [],
+          "aliases": [
+            "So Big!"
+          ],
           "group": "B",
           "order": 34,
           "patternGroup": "Look at",
@@ -1668,13 +1786,17 @@
             "xiaohuasheng": [
               "7e590d15bad574f8"
             ]
-          }
+          },
+          "appBookId": 156167,
+          "isbn": "9780325014487"
         },
         {
           "id": "heinemann-gk70-61",
           "number": 61,
           "title": "Play and ride",
-          "aliases": [],
+          "aliases": [
+            "Play and Ride"
+          ],
           "group": "C",
           "order": 35,
           "patternGroup": "Look at",
@@ -1698,14 +1820,17 @@
             "xiaohuasheng": [
               "e51a4ba51707ef10"
             ]
-          }
+          },
+          "appBookId": 156176,
+          "isbn": "9780325014531"
         },
         {
           "id": "heinemann-gk70-67",
           "number": 67,
           "title": "Playing with blocks",
           "aliases": [
-            "Play with blocks"
+            "Play with blocks",
+            "Playing with Blocks"
           ],
           "group": "C",
           "order": 36,
@@ -1730,13 +1855,17 @@
             "xiaohuasheng": [
               "807145fb977dcfc8"
             ]
-          }
+          },
+          "appBookId": 156200,
+          "isbn": "9780325014562"
         },
         {
           "id": "heinemann-gk70-15",
           "number": 15,
           "title": "The baby",
-          "aliases": [],
+          "aliases": [
+            "The Baby"
+          ],
           "group": "A",
           "order": 37,
           "patternGroup": "has / have",
@@ -1780,14 +1909,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 15
+          "campOrder": 15,
+          "appBookId": 156095,
+          "isbn": "9780325014012"
         },
         {
           "id": "heinemann-gk70-20",
           "number": 20,
           "title": "Little things",
           "aliases": [
-            "Little thing"
+            "Little thing",
+            "Little Things"
           ],
           "group": "A",
           "order": 38,
@@ -1832,13 +1964,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 20
+          "campOrder": 20,
+          "appBookId": 156152,
+          "isbn": "9780325014272"
         },
         {
           "id": "heinemann-gk70-21",
           "number": 21,
           "title": "Packing my bag",
-          "aliases": [],
+          "aliases": [
+            "Packing My Bag"
+          ],
           "group": "A",
           "order": 39,
           "patternGroup": "has / have",
@@ -1882,7 +2018,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 21
+          "campOrder": 21,
+          "appBookId": 156104,
+          "isbn": "9780325014050"
         },
         {
           "id": "heinemann-gk70-27",
@@ -1932,7 +2070,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 27
+          "campOrder": 27,
+          "appBookId": 156148,
+          "isbn": "9780325014302"
         },
         {
           "id": "heinemann-gk70-39",
@@ -1982,13 +2122,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 39
+          "campOrder": 39,
+          "appBookId": 156199,
+          "isbn": "9780325014357"
         },
         {
           "id": "heinemann-gk70-48",
           "number": 48,
           "title": "My family",
-          "aliases": [],
+          "aliases": [
+            "My Family"
+          ],
           "group": "B",
           "order": 42,
           "patternGroup": "This / here / it is",
@@ -2033,14 +2177,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 48
+          "campOrder": 48,
+          "appBookId": 156080,
+          "isbn": "9780325014623"
         },
         {
           "id": "heinemann-gk70-62",
           "number": 62,
           "title": "What is very long?",
           "aliases": [
-            "What is long?"
+            "What is long?",
+            "What Is Very Long?"
           ],
           "group": "C",
           "order": 43,
@@ -2067,14 +2214,17 @@
             "xiaohuasheng": [
               "16d7204d1524b990"
             ]
-          }
+          },
+          "appBookId": 156179,
+          "isbn": "9780325014555"
         },
         {
           "id": "heinemann-gk70-63",
           "number": 63,
           "title": "Our pet",
           "aliases": [
-            "Our pets"
+            "Our pets",
+            "Our Pets"
           ],
           "group": "C",
           "order": 44,
@@ -2102,13 +2252,17 @@
             "xiaohuasheng": [
               "6f031569aee553b8"
             ]
-          }
+          },
+          "appBookId": 156188,
+          "isbn": "9780325014548"
         },
         {
           "id": "heinemann-gk70-28",
           "number": 28,
           "title": "The show",
-          "aliases": [],
+          "aliases": [
+            "The Show"
+          ],
           "group": "A",
           "order": 45,
           "patternGroup": "Come and see",
@@ -2152,13 +2306,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 28
+          "campOrder": 28,
+          "appBookId": 156153,
+          "isbn": "9780325014227"
         },
         {
           "id": "heinemann-gk70-44",
           "number": 44,
           "title": "The baby animals",
-          "aliases": [],
+          "aliases": [
+            "The Baby Animals"
+          ],
           "group": "B",
           "order": 46,
           "patternGroup": "Come and see",
@@ -2202,7 +2360,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 44
+          "campOrder": 44,
+          "appBookId": 156076,
+          "isbn": "9780325014661"
         },
         {
           "id": "heinemann-gk70-04",
@@ -2252,7 +2412,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 4
+          "campOrder": 4,
+          "appBookId": 156083,
+          "isbn": "9780325014135"
         },
         {
           "id": "heinemann-gk70-05",
@@ -2302,7 +2464,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 5
+          "campOrder": 5,
+          "appBookId": 156084,
+          "isbn": "9780325014111"
         },
         {
           "id": "heinemann-gk70-11",
@@ -2352,13 +2516,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 11
+          "campOrder": 11,
+          "appBookId": 156091,
+          "isbn": "9780325014159"
         },
         {
           "id": "heinemann-gk70-13",
           "number": 13,
           "title": "Little cub",
-          "aliases": [],
+          "aliases": [
+            "Little Cub"
+          ],
           "group": "A",
           "order": 50,
           "patternGroup": "is / are doing",
@@ -2402,7 +2570,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 13
+          "campOrder": 13,
+          "appBookId": 156093,
+          "isbn": "9780325014210"
         },
         {
           "id": "heinemann-gk70-37",
@@ -2452,7 +2622,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 37
+          "campOrder": 37,
+          "appBookId": 156192,
+          "isbn": "9780325014234"
         },
         {
           "id": "heinemann-gk70-09",
@@ -2502,13 +2674,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 9
+          "campOrder": 9,
+          "appBookId": 286895,
+          "isbn": "9780325014173"
         },
         {
           "id": "heinemann-gk70-10",
           "number": 10,
           "title": "I can read",
-          "aliases": [],
+          "aliases": [
+            "I Can Read"
+          ],
           "group": "A",
           "order": 53,
           "patternGroup": "can do",
@@ -2552,13 +2728,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 10
+          "campOrder": 10,
+          "appBookId": 156090,
+          "isbn": "9780325014142"
         },
         {
           "id": "heinemann-gk70-34",
           "number": 34,
           "title": "My bear",
-          "aliases": [],
+          "aliases": [
+            "My Bear"
+          ],
           "group": "A",
           "order": 54,
           "patternGroup": "can do",
@@ -2602,7 +2782,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 34
+          "campOrder": 34,
+          "appBookId": 156177,
+          "isbn": "9780325014340"
         },
         {
           "id": "heinemann-gk70-40",
@@ -2652,7 +2834,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 40
+          "campOrder": 40,
+          "appBookId": 156206,
+          "isbn": "9780325014395"
         },
         {
           "id": "heinemann-gk70-42",
@@ -2702,13 +2886,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 42
+          "campOrder": 42,
+          "appBookId": 156217,
+          "isbn": "9780325014067"
         },
         {
           "id": "heinemann-gk70-43",
           "number": 43,
           "title": "Things that go fast",
-          "aliases": [],
+          "aliases": [
+            "Things That Go Fast"
+          ],
           "group": "A",
           "order": 57,
           "patternGroup": "can do",
@@ -2752,13 +2940,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 43
+          "campOrder": 43,
+          "appBookId": 156224,
+          "isbn": "9780325014364"
         },
         {
           "id": "heinemann-gk70-54",
           "number": 54,
           "title": "Hop hop hop",
-          "aliases": [],
+          "aliases": [
+            "Hop,Hop,Hop"
+          ],
           "group": "B",
           "order": 58,
           "patternGroup": "can do",
@@ -2782,13 +2974,17 @@
             "xiaohuasheng": [
               "676bdc84b076a228"
             ]
-          }
+          },
+          "appBookId": 156156,
+          "isbn": "9780325014494"
         },
         {
           "id": "heinemann-gk70-65",
           "number": 65,
           "title": "Flap flap fly",
-          "aliases": [],
+          "aliases": [
+            "Flap, Flap, Fly"
+          ],
           "group": "C",
           "order": 59,
           "patternGroup": "can do",
@@ -2812,7 +3008,9 @@
             "xiaohuasheng": [
               "46c3aaa2f06f06a8"
             ]
-          }
+          },
+          "appBookId": 156193,
+          "isbn": "9780325014517"
         },
         {
           "id": "heinemann-gk70-68",
@@ -2843,13 +3041,17 @@
             "xiaohuasheng": [
               "4839308631bcd968"
             ]
-          }
+          },
+          "appBookId": 156207,
+          "isbn": "9780325014524"
         },
         {
           "id": "heinemann-gk70-70",
           "number": 70,
           "title": "Animals that go fast",
-          "aliases": [],
+          "aliases": [
+            "Animals That Go Fast"
+          ],
           "group": "C",
           "order": 61,
           "patternGroup": "can do",
@@ -2874,13 +3076,17 @@
             "xiaohuasheng": [
               "3b34b812cd5fa4c0"
             ]
-          }
+          },
+          "appBookId": 156219,
+          "isbn": "9780325014593"
         },
         {
           "id": "heinemann-gk70-12",
           "number": 12,
           "title": "Playing dress up",
-          "aliases": [],
+          "aliases": [
+            "Playing Dress Up"
+          ],
           "group": "A",
           "order": 62,
           "patternGroup": "其他",
@@ -2924,7 +3130,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 12
+          "campOrder": 12,
+          "appBookId": 156092,
+          "isbn": "9780325014203"
         },
         {
           "id": "heinemann-gk70-41",
@@ -2974,13 +3182,17 @@
               "height": 1280
             }
           ],
-          "campOrder": 41
+          "campOrder": 41,
+          "appBookId": 156209,
+          "isbn": "9780325014319"
         },
         {
           "id": "heinemann-gk70-50",
           "number": 50,
           "title": "At the farm",
-          "aliases": [],
+          "aliases": [
+            "At the Farm"
+          ],
           "group": "B",
           "order": 64,
           "patternGroup": "其他",
@@ -3024,7 +3236,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 50
+          "campOrder": 50,
+          "appBookId": 156136,
+          "isbn": "9780325014463"
         },
         {
           "id": "heinemann-gk70-51",
@@ -3077,7 +3291,9 @@
               "height": 1280
             }
           ],
-          "campOrder": 51
+          "campOrder": 51,
+          "appBookId": 156144,
+          "isbn": "9780325014418"
         },
         {
           "id": "heinemann-gk70-52",
@@ -3107,13 +3323,17 @@
             "xiaohuasheng": [
               "af1190d05ed1b180"
             ]
-          }
+          },
+          "appBookId": 156147,
+          "isbn": "9780325014432"
         },
         {
           "id": "heinemann-gk70-57",
           "number": 57,
           "title": "Fun at school",
-          "aliases": [],
+          "aliases": [
+            "Fun at School"
+          ],
           "group": "B",
           "order": 67,
           "patternGroup": "其他",
@@ -3137,7 +3357,9 @@
             "xiaohuasheng": [
               "3d9eb3a8fad09278"
             ]
-          }
+          },
+          "appBookId": 156169,
+          "isbn": "9780325014401"
         },
         {
           "id": "heinemann-gk70-60",
@@ -3165,14 +3387,17 @@
             "xiaohuasheng": [
               "375c00a2ef7d1cd8"
             ]
-          }
+          },
+          "appBookId": 156082,
+          "isbn": "9780325014784"
         },
         {
           "id": "heinemann-gk70-64",
           "number": 64,
           "title": "A visit from aunt bee",
           "aliases": [
-            "A visit from Aunt Bee"
+            "A visit from Aunt Bee",
+            "A Visit from Aunt Bee"
           ],
           "group": "C",
           "order": 69,
@@ -3195,7 +3420,9 @@
             "xiaohuasheng": [
               "e7fbdd3abaab45a8"
             ]
-          }
+          },
+          "appBookId": 156191,
+          "isbn": "9780325014500"
         },
         {
           "id": "heinemann-gk70-69",
@@ -3223,7 +3450,9 @@
             "xiaohuasheng": [
               "5fff3a7196b87a18"
             ]
-          }
+          },
+          "appBookId": 156214,
+          "isbn": "9780325014579"
         }
       ],
       "mediaSources": [

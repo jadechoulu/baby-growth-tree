@@ -66,8 +66,17 @@ function miniVideoSize(width,ratio,viewportWidth,viewportHeight,headerHeight){
 }
 function install({h,asset,originalPath=()=>null,externalUrls=[],onMinimize=()=>undefined}){
   let current=null,libraryPromise;
-  const external=new Set(externalUrls.map(url=>new URL(url,document.baseURI).href));
-  const describe=href=>{const file=fileInfo(originalPath(href)||href,document.baseURI);if(file)return file;let url;try{url=new URL(href,document.baseURI).href;}catch{return null;}return external.has(url)?{kind:'web',url}:null;};
+  const toList=value=>Array.isArray(value)?value:typeof value==='function'?value():[];
+  const canonical=url=>{try{return new URL(url,document.baseURI).href;}catch{return null;}};
+  const external=new Set();
+  // helloReading 等大件可能在首屏渲染后才按需加载，预览打开时再提取一次可用 URL。
+  function resolveMediaUrls(){
+    external.clear();
+    for(const url of toList(externalUrls)){const href=canonical(url);if(href)external.add(href);}
+  }
+  resolveMediaUrls();
+  const describe=href=>{resolveMediaUrls();const file=fileInfo(originalPath(href)||href,document.baseURI);if(file)return file;let url;try{url=new URL(href,document.baseURI).href;}catch{return null;}return external.has(url)?{kind:'web',url}:null};
+
   const library=()=>libraryPromise||(libraryPromise=import(new URL(asset('assets/vendor/pdfjs/pdf.min.mjs'),document.baseURI).href).then(pdf=>{pdf.GlobalWorkerOptions.workerSrc=new URL(asset('assets/vendor/pdfjs/pdf.worker.min.mjs'),document.baseURI).href;return pdf;}).catch(error=>{libraryPromise=null;throw error;}));
   function close(){if(current){const floating=current.floating;do{const state=current;state.dialog.close();state.dispose();}while(floating&&current);}}
   function open(href,title,trigger=document.activeElement){
