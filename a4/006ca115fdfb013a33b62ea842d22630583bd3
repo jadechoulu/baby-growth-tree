@@ -1,0 +1,34 @@
+english/app.js
+  s_1198451ddc00f5::t_04c34a3b610f52 9
+english/catalog-loader.js
+  s_1198451ddc00f5::t_5b484e2461e3c4 24-59,88
+english/build.py
+  s_1198451ddc00f5::t_10229c8419ef2c 95-102,137-141,144-148,150
+  s_1198451ddc00f5::t_5a3d5667837694 142
+  s_1198451ddc00f5::t_31b195c033a6c8 168,179
+  s_1198451ddc00f5::t_0f3864335eb30b 173
+  s_1198451ddc00f5::t_7f302545514527 132,136
+  s_1198451ddc00f5::t_007bcb6c9802db 143
+tests/english-catalog-loader.test.mjs
+  s_1198451ddc00f5::t_0ef4010e90e4d4 4,73-88,90
+  s_1198451ddc00f5::t_d9b81455de6ab3 89
+  s_1198451ddc00f5::t_7bd9fc99d96398 91
+tests/english-pages.test.py
+  s_1198451ddc00f5::t_b735a97bd9c22f 23-29,31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a4006ca115fdfb013a33b62ea842d22630583bd3",
+  "prompts": {},
+  "sessions": {
+    "s_1198451ddc00f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e86f-ca08-71c2-af4b-869044a41be1",
+        "model": "GLM-5.3:glink_domestic"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
