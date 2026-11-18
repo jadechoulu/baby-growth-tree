@@ -74,7 +74,7 @@ function render(){
  if(focusKey){const candidates=[...shell.element.querySelectorAll('button,select,input,[data-chart-point]')];candidates.find(el=>(el.getAttribute('data-site-item')||el.getAttribute('aria-label'))===focusKey)?.focus({preventScroll:true});}else if(focusText){[...shell.content.querySelectorAll('button')].find(el=>el.textContent===focusText)?.focus({preventScroll:true});}
 }
 function renderGoals(){
- shell.content.append(titleBlock('三年有方向，每天一小步','语文慢速打底，英语持续输入，数学在游戏里理解。选择班级和学科，查看目标与对应素材。'),choices({chart:'目标曲线',details:'目标详情'},goalMode,value=>{goalMode=value;render();},'目标查看方式'),filters());
+ shell.content.append(titleBlock('幼儿园三年全面规划','语文慢速打底，英语持续输入，数学在游戏里理解。选择班级和学科，查看目标与对应素材。'),choices({chart:'目标曲线',details:'目标详情'},goalMode,value=>{goalMode=value;render();},'目标查看方式'),filters());
  if(goalMode==='chart'){renderGoalCurves();return;}
  const gradeIndex=Object.keys(grades).indexOf(grade);
  const lanes=h('section',{class:'milestones','aria-label':'三年目标刻度'});
