@@ -4352,6 +4352,42 @@ function create(target,url,fetcher,{timeout=30000,validate=data=>data&&Array.isA
     return pending;
   }};
 }
+function catalog(target,url,fetcher,{timeout=30000,validate=data=>data&&Array.isArray(data.books)&&Array.isArray(data.sources),apply=data=>Object.assign(target,data)}={}){
+  let ready=!url,pending=null;
+  async function read(href){
+    if(typeof caches!=='undefined'){
+      try{const cache=await caches.open('english-books-v2');const cached=await cache.match(href);if(cached)return await cached.json();}catch{}
+    }
+    const response=await fetcher(href);
+    if(!response.ok)throw new Error('书目暂时未能加载，请重试。');
+    const data=await response.json();
+    if(typeof caches!=='undefined'){
+      try{const cache=await caches.open('english-books-v2');await cache.put(href,new Response(JSON.stringify(data),{headers:{'content-type':'application/json'}}));}catch{}
+    }
+    return data;
+  }
+  return {get ready(){return ready;},load(){
+    if(ready)return Promise.resolve(target);
+    if(!pending)pending=(async()=>{
+      const controller=new AbortController();
+      let timer;
+      const expired=new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(new Error('书目加载超时，请重试。'));},timeout);});
+      const run=(async()=>{
+        const manifest=await read(url);
+        if(manifest?.schemaVersion!==1||!Array.isArray(manifest.chunks)||!manifest.meta)throw new Error('书目结构不完整，请重试。');
+        const [meta,...parts]=await Promise.all([read(manifest.meta),...manifest.chunks.map(read)]);
+        const books=parts.flatMap(part=>Array.isArray(part?.books)?part.books:[]);
+        const restored=books.slice().sort((a,b)=>a.sortIndex-b.sortIndex).map(book=>{const copy={...book};delete copy.sortIndex;return copy;});
+        if(restored.length!==manifest.totalBooks)throw new Error('书目数量不一致，请重试。');
+        const data={...meta,books:restored};
+        if(!validate(data))throw new Error('书目数据不完整，请重试。');
+        apply(data);ready=true;return target;
+      })();
+      try{await Promise.race([run,expired]);}finally{clearTimeout(timer);}
+    })().catch(error=>{pending=null;throw error;});
+    return pending;
+  }};
+}
 function details(directory,taxonomy,fetcher){
   const chunks=new Map(),groups=new Map();
   function one(id){
@@ -4380,7 +4416,7 @@ function resourceTopics(taxonomy,url,fetcher){
     apply:data=>{for(const [id,item]of Object.entries(data))Object.assign(target[id],item);}
   });
 }
-return {create,needsBooks,details,resourceTopics};
+return {create,catalog,needsBooks,details,resourceTopics};
 });
 
 /* 本机App完整快照导入／正式站私人记录回读；网页旧读取仅供历史兼容。 */
@@ -6020,7 +6056,7 @@ const LIAO=window.ROADMAP_RAW.liaoReading;
 function liaoResource(id){return C.resources.find(resource=>resource.liaoBookId===id);}
 function openLiaoResource(id){openModal('resource',liaoResource(id)?.id);}
 const LB=window.EnglishLibraryBooks,BOOKS=window.ROADMAP_RAW.resourceBooks;
-const bookLoader=window.EnglishCatalogLoader.create(BOOKS,window.ROADMAP_BOOKS_URL,window.fetch.bind(window));
+const bookLoader=window.EnglishCatalogLoader.catalog(BOOKS,window.ROADMAP_BOOKS_URL,window.fetch.bind(window));
 const helloLoader=window.EnglishCatalogLoader.create(window.ROADMAP_RAW.helloReading,window.ROADMAP_CHUNKS?.helloReading,window.fetch.bind(window),{validate:data=>Array.isArray(data?.books)&&Array.isArray(data.rhymes)});
 const bookDetailLoader=window.EnglishCatalogLoader.details(BOOKS,window.ROADMAP_RAW.topicTaxonomy,window.fetch.bind(window));
 const resourceTopicLoader=window.EnglishCatalogLoader.resourceTopics(window.ROADMAP_RAW.topicTaxonomy,window.ROADMAP_CHUNKS?.resourceTopics,window.fetch.bind(window));

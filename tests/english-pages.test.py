@@ -20,9 +20,15 @@ class EnglishPagesTests(unittest.TestCase):
         match = re.search(r'window\.ROADMAP_RAW=(.*?);\n', cls.html)
         cls.data = json.loads(match.group(1))
         cls.books_url = json.loads(re.search(r'window\.ROADMAP_BOOKS_URL=(.*?);', cls.entry).group(1))
-        cls.directory = json.loads((cls.output / cls.books_url).read_text())
+        cls.manifest = json.loads((cls.output / cls.books_url).read_text())
+        meta = json.loads((cls.output / cls.manifest['meta']).read_text())
+        book_chunks = [json.loads((cls.output / url).read_text()) for url in cls.manifest['chunks']]
+        cls.directory = {**meta, 'books': [book for chunk in book_chunks for book in chunk['books']]}
+        cls.directory['books'].sort(key=lambda book: book['sortIndex'])
+        for book in cls.directory['books']:
+            del book['sortIndex']
         cls.chunks = json.loads(re.search(r'window\.ROADMAP_CHUNKS=(.*?);', cls.html).group(1))
-        cls.lazy = {cls.books_url, *cls.chunks.values(), *cls.directory['detailFiles']}
+        cls.lazy = {cls.books_url, cls.manifest['meta'], *cls.manifest['chunks'], *cls.chunks.values(), *cls.directory['detailFiles']}
 
     def test_fixed_birthday_uses_shared_service_without_browser_records(self):
         self.assertNotIn('2020-11-24', self.html)
