@@ -7,7 +7,7 @@ import { catalogIndex } from './catalog-index.mjs?v=20261118-poetry-cover';
 import { createEnglishBooks } from './english-records.mjs?v=20261118-books';
 import { bookEntries, filterBookEntries, matchesQuery, defaultCatalogGroup } from './library-model.mjs';
 import { shelfBooks, shelfGroups, shelfState, plannedIdentities, outsidePlan, prepareChineseShelf, shelfReceipt } from './shelf-model.mjs?v=20261118-baby-v4';
-import { targetProgress, englishListeningCount } from './baby-progress.mjs';
+import { targetProgress, englishListeningCount, poetryCompletedCount } from './baby-progress.mjs?v=20261119-poetry';
 import { babyStage } from './baby-model.mjs?v=20261118-baby-v4';
 import { characterEntries, characterSummary, characterDraft, characterKey } from './literacy-model.mjs?v=20261118-baby-v4';
 const site=window.XiaoyaSite, store=createStore(window.indexedDB), profile=window.XiaoyaBabyProfile.createClient();
@@ -65,7 +65,7 @@ function allMaterials(){return [...materials,...data.custom.filter(x=>!x.deleted
 function currentItems(extra={}) {return filterMaterials(allMaterials(),data.records,{grade,subject,phase:view==='materials'?phase:'',type:view==='materials'?type:'',status:view==='materials'?status:'',search:view==='materials'?search:'',...extra});}
 async function save(changes,expected=data){
  if(!ready)throw new Error('记录尚未读取成功，请重试后保存。');
- data=await store.save(changes,expected);channel?.postMessage('saved');message('已保存到当前浏览器');
+ data=await store.save(changes,expected);refreshPoetryProgress();channel?.postMessage('saved');message('已保存到当前浏览器');
 }
 function titleBlock(title,description){return h('header',{class:'intro'},h('span',{class:'eyebrow'},'一起探索，慢慢长大'),h('div',{class:'title-row'},h('h1',{},title),view!=='sources'?button('📄',()=>navigate('sources'),{class:'source-icon','aria-label':'查看原始计划文档',title:'原始文档'}):null),description?small(description):null);}
 function filters(){
@@ -83,7 +83,7 @@ function render(){
 }
 function goalRow(target,subjectId,currentGrade,showDetail=true){
  const key=goalKey(target.id,currentGrade,subjectId),complete=statusOf(data.records,key)==='done';
- return h('div',{class:'goal-row'},button(complete?'✓':'○',async()=>{try{await save({records:{[key]:{status:complete?'planned':'done'}}});render();}catch(error){message(error.message,true);}},{class:'goal-check','aria-label':`${complete?'撤回':'确认完成'}${subjects[subjectId]}：${target.title}`,'aria-pressed':String(complete)}),h('div',{},h('h3',{},target.title),h('strong',{class:'goal-summary'},target.summary),!showDetail&&subjectId==='chinese'&&target.id==='literacy'?countProgress(characterSummary(data.records).recognized,milestones.find(item=>item.id==='literacy').values[Object.keys(grades).indexOf(currentGrade)],'字'):null,!showDetail&&subjectId==='english'&&target.id==='listening'?(babyEnglishWords===null?small('本人登录后显示英语听力现状'):countProgress(babyEnglishWords,milestones.find(item=>item.id==='vocabulary').values[Object.keys(grades).indexOf(currentGrade)],'词')):null,showDetail?small(target.detail):null));
+ return h('div',{class:'goal-row'},button(complete?'✓':'○',async()=>{try{await save({records:{[key]:{status:complete?'planned':'done'}}});render();}catch(error){message(error.message,true);}},{class:'goal-check','aria-label':`${complete?'撤回':'确认完成'}${subjects[subjectId]}：${target.title}`,'aria-pressed':String(complete)}),h('div',{},h('h3',{},target.title),h('strong',{class:'goal-summary'},target.summary),!showDetail&&subjectId==='chinese'&&target.id==='literacy'?countProgress(characterSummary(data.records).recognized,milestones.find(item=>item.id==='literacy').values[Object.keys(grades).indexOf(currentGrade)],'字'):null,!showDetail&&subjectId==='chinese'&&target.id==='poetry'?babyPoetryProgress(currentGrade):null,!showDetail&&subjectId==='english'&&target.id==='listening'?(babyEnglishWords===null?small('本人登录后显示英语听力现状'):countProgress(babyEnglishWords,milestones.find(item=>item.id==='vocabulary').values[Object.keys(grades).indexOf(currentGrade)],'词')):null,showDetail?small(target.detail):null));
 }
 function renderBaby(){
  const child=profile.get(),suggested=babyStage(child.birthDate),currentGrade=babyGrade||suggested.grade;
@@ -110,6 +110,29 @@ function renderBaby(){
 }
 function countProgress(current,total,unit){
  const progress=targetProgress(current,total);return h('div',{class:'baby-count-progress'},h('span',{},current+' / '+total+' '+unit),h('span',{},progress.percent+'%'),h('progress',{value:Math.min(current,total),max:total,'aria-label':'当前完成 '+current+'，目标 '+total+' '+unit}));
+}
+const poetryControls=new Map();
+function babyPoetryProgress(currentGrade){
+ for(const host of poetryControls.keys())if(!host.isConnected)poetryControls.delete(host);
+ const host=h('div'),total=milestones.find(item=>item.id==='poetry').values[Object.keys(grades).indexOf(currentGrade)];
+ const draw=async()=>{
+  host.replaceChildren(small('正在读取古诗进度…'));
+  try{
+   const items=allMaterials().filter(item=>item.subject==='chinese'&&item.type==='poem');
+   const catalogs=await Promise.all(items.map(item=>loadCatalog(item.id)));
+   if(!host.isConnected)return;
+   const personal=items.flatMap(item=>item.refs.map(ref=>personalCatalog({...item,ref}))).filter(Boolean);
+   const groups=[...catalogs.flatMap(catalog=>catalog.groups),...personal];
+   host.replaceChildren(countProgress(poetryCompletedCount(data.records,groups),total,'首'));
+   poetryControls.set(host,()=>host.replaceChildren(countProgress(poetryCompletedCount(data.records,groups),total,'首')));
+  }catch{
+   if(host.isConnected)host.replaceChildren(small('古诗进度未能读取'),button('重试',()=>void draw(),{class:'text-link'}));
+  }
+ };
+ void draw();return host;
+}
+function refreshPoetryProgress(){
+ for(const [host,refresh]of poetryControls)if(host.isConnected)refresh();else poetryControls.delete(host);
 }
 async function refreshBabyEnglish(){
  const version=++babyEnglishVersion;let count=null;try{const authenticated=(await chineseShelfClient().getState('english')).authenticated===true;if(authenticated){await sharedEnglish();count=englishListeningCount(englishSnapshot,window.EnglishVocabulary,true);}}catch{}
@@ -282,7 +305,7 @@ async function updateOtherResults(host){
   const all=shelfBooks(data.records).filter(book=>outsidePlan(book,planned));
   const books=all.filter(book=>(!shelfFilter||shelfState(data.records,book).done===(shelfFilter==='done'))&&matchesQuery(shelfSearch,book.title,book.series?.title));
   const fullGroups=new Map(shelfGroups(all).map(group=>[group.id,group]));
-  const groups=shelfGroups(books),rows=grouping==='series'?groups:books,grid=h('div',{class:'resource-grid library-grid'+(layout==='covers'?' library-cover-grid':'')});
+  const groups=shelfGroups(books),rows=grouping==='series'?groups:books,grid=h('div',{class:grouping==='series'?'resource-grid library-grid other-shelf-grid'+(layout==='covers'?' library-cover-grid library-book-cover-grid':''):'library-book-list'+(layout==='covers'?' library-book-cover-grid':'')});
   host.append(materialLibrary.resultsHead(grouping==='series'?groups.length+' 组':books.length+' 本',libraryControls()));
   const receipt=data.records[shelfReceipt];if(receipt){const meta=JSON.parse(receipt.note);host.append(small('小花生抓取：'+new Date(meta.fetchedAt).toLocaleString('zh-CN')));}
   host.append(grid);
@@ -292,23 +315,25 @@ async function updateOtherResults(host){
  }catch(error){if(valid())host.append(small('中文书架未能显示：'+error.message),button('重试',()=>void updateResults()));}
 }
 function shelfBookControl(book){
- const state=shelfState(data.records,book),check=h('input',{type:'checkbox',checked:state.done,disabled:state.external||book.isCollection,'aria-label':'完成单本：'+book.title});
- check.addEventListener('change',async()=>{check.disabled=true;try{if(!shelfAuthenticated)throw Error('请重新登录后编辑。');await save({records:ownBookUpdate(book,check.checked)});void updateResults();}catch(error){check.checked=state.done;message(error.message,true);}finally{check.disabled=state.external;}});
+ const state=shelfState(data.records,book),check=materialLibrary.completionControl({title:book.title,done:state.done,external:state.external,disabled:state.external||book.isCollection,onChange:async()=>{
+  check.disabled=true;try{if(!shelfAuthenticated)throw Error('请重新登录后编辑。');await save({records:ownBookUpdate(book,check.checked)});void updateResults();}catch(error){check.checked=state.done;message(error.message,true);}finally{check.disabled=state.external||book.isCollection;}
+ }});
  return check;
 }
-function shelfBookCard(book){
+function shelfCover(book,open){return materialLibrary.bookCover({src:book.cover,title:book.title,readCount:book.readCount,onOpen:open});}
+function shelfBookCard(book,{detail=false}={}){
  const state=shelfState(data.records,book),open=()=>shelfDetail({id:book.id,title:book.title,books:book.isCollection?[]:[book],container:book.isCollection?book:null});
- return materialLibrary.card({attrs:{class:'subject-chinese'},cover:coverButton(book.cover,book.title,open),title:h('div',{class:'resource-title'},h('h3',{},button(book.title,open,{class:'card-view-btn','aria-label':'查看中文书目：'+book.title}))),meta:h('div',{class:'library-card-meta'},book.series?.title||'中文',book.isCollection?'套装条目 · 逐册目录待补':state.external?'小花生已读':state.done?'已完成':'未完成',state.readCount>1?state.readCount+'次':null),tools:[shelfBookControl(book)]});
+ return materialLibrary.bookCard({attrs:{class:'subject-chinese'},cover:shelfCover({...book,readCount:state.readCount},detail?null:open),title:detail?h('strong',{class:'library-book-name'},book.title):button(book.title,open,{class:'text-link library-book-name','aria-haspopup':'dialog',title:'查看完整详情'}),context:book.series?.title,topics:book.isCollection?small('套装条目 · 逐册目录待补'):null,actions:[shelfBookControl(book)]});
 }
 function shelfSeriesCard(group,fullGroup=group){
  if(group.books.length===1&&!group.container&&!group.books[0].series)return shelfBookCard(group.books[0]);
- const done=fullGroup.books.filter(book=>shelfState(data.records,book).done).length,open=()=>shelfDetail(fullGroup),cover=group.container?.cover||group.books[0]?.cover;
- return materialLibrary.card({attrs:{class:'subject-chinese'},cover:coverButton(cover,group.title,open),title:h('div',{class:'resource-title'},h('h3',{},button(group.title,open,{class:'card-view-btn','aria-label':'查看中文套系：'+group.title}))),meta:h('div',{class:'library-card-meta'},group.books.length?'书架已完成 '+done+' / '+fullGroup.books.length+' 本':'套装条目 · 逐册目录待补'),tools:[button('→',open,{'aria-label':'展开'+group.title+'的书架单册'})]});
+ const done=fullGroup.books.filter(book=>shelfState(data.records,book).done).length;
+ return materialLibrary.shelfCard({attrs:{class:'subject-chinese'},cover:shelfCover({cover:group.container?.cover||group.books[0]?.cover,title:group.title}),title:group.title,onOpen:()=>shelfDetail(fullGroup),completed:done,total:fullGroup.books.length,status:done===fullGroup.books.length?'已完成':done?'进行中':'未开始',note:'套装条目 · 逐册目录待补'});
 }
 function shelfDetail(group){
  if(!shelfAuthenticated)return;
- const list=h('div',{class:'book-rows'}),row=book=>h('div',{class:'book-row'},h('label',{},shelfBookControl(book),h('span',{},h('strong',{},book.title),h('small',{},shelfState(data.records,book).external?'小花生已读':'手工记录'))));list.append(...group.books.slice(0,24).map(row));
- const dialog=modal(group.title,h('section',{},small(group.books.length?'仅统计小花生书架内的单册，不代表整套出版总量。':'原站仅有套装条目，未将套装已读扩散到每一册。'),list,window.EnglishAutomaticList.tail({total:group.books.length,limit:24,step:24,load:(start,end)=>{if(list.isConnected)list.append(...group.books.slice(start,end).map(row));}})));dialog.dataset.privateShelf='true';
+ const list=h('div',{class:'library-book-list library-book-cover-grid'}),row=book=>shelfBookCard(book,{detail:true});list.append(...group.books.slice(0,24).map(row));
+ const dialog=modal(group.title,h('section',{class:'shelf-series-detail'},small(group.books.length?'仅统计小花生书架内的单册，不代表整套出版总量。':'原站仅有套装条目，未将套装已读扩散到每一册。'),list,window.EnglishAutomaticList.tail({total:group.books.length,limit:24,step:24,load:(start,end)=>{if(list.isConnected)list.append(...group.books.slice(start,end).map(row));}})));dialog.dataset.privateShelf='true';
 }
 async function syncChineseShelf(){
  if(shelfBusy)return;
@@ -323,8 +348,9 @@ async function syncChineseShelf(){
  }catch(error){message('同步失败：'+error.message,true);}finally{shelfBusy=false;if(view==='materials'&&!activeDialog)render();}
 }
 function setLibraryLayout(value){
- const host=document.getElementById('material-results'),anchor=[...host.querySelectorAll('.library-card')].find(card=>card.getBoundingClientRect().bottom>200),top=anchor?.getBoundingClientRect().top;
+ const host=document.getElementById('material-results'),anchor=[...host.querySelectorAll('.library-card,.library-book-row')].find(card=>card.getBoundingClientRect().bottom>200),top=anchor?.getBoundingClientRect().top;
  layout=value;host.querySelectorAll('.library-grid').forEach(grid=>grid.classList.toggle('library-cover-grid',value==='covers'));
+ host.querySelectorAll('.library-book-list,.other-shelf-grid').forEach(grid=>grid.classList.toggle('library-book-cover-grid',value==='covers'));
  if(anchor)window.scrollBy(0,anchor.getBoundingClientRect().top-top);
 }
 function libraryControls(){return materialLibrary.layoutControls({prefix:'curriculum',grouping,onGrouping:value=>{grouping=value;void updateResults().then(()=>document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true}));},layout,onLayout:setLibraryLayout});}
@@ -502,7 +528,7 @@ function importDialog(){
  const dialog=modal('导入全科备份',h('div',{},small('仅接受全科启蒙JSON。只补缺少的记录，有差异时保留本机值；成长和英语备份不导入。'),input,info,confirm));
  input.addEventListener('change',async()=>{pending=null;confirm.disabled=true;try{const file=input.files[0];if(!file)return;pending=validateBackup(JSON.parse(await file.text()));info.textContent=`待导入：${Object.keys(pending.records).length}条状态/手记，${pending.custom.length}项自选素材。`;confirm.disabled=false;}catch(error){info.textContent=error.message;}});
 }
-channel?.addEventListener('message',async()=>{try{data=await store.read();if(!activeDialog)render();else refreshBookControls();}catch(error){message(error.message,true);}});
+channel?.addEventListener('message',async()=>{try{data=await store.read();if(!activeDialog)render();else {refreshBookControls();refreshPoetryProgress();}}catch(error){message(error.message,true);}});
 window.addEventListener('beforeunload',event=>{if(activeDialog?.dataset.dirty==='true'){event.preventDefault();event.returnValue='';}});
 window.addEventListener('hashchange',()=>{const next=location.hash.slice(1);if(viewIds.includes(next)&&!activeDialog){view=next;render();}});
 view=viewIds.includes(location.hash.slice(1))?location.hash.slice(1):'baby';

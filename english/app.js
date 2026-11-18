@@ -899,13 +899,11 @@ function bookReadCountBadge(bookId,inline=false){
   // 套系封面不代表某一本，不查询或下传成员册的阅读次数。
   if(!bookId)return null;
   const count=BP.bookState(S.records,bookId,BOOKS,window.ROADMAP_RAW.resourceVolumes).readCount;
-  return count>1?h('span',{class:'book-read-count'+(inline?' book-read-count-inline':''),'aria-label':'小花生阅读 '+count+' 次',title:'小花生阅读 '+count+' 次'},count+'次'):null;
+  return materialLibrary.readCountBadge(count,inline);
 }
 function bookCompletionControl(book,id){
   const state=BP.bookState(S.records,book,BOOKS,window.ROADMAP_RAW.resourceVolumes);
-  return h('input',{id,type:'checkbox',class:'book-completion'+(state.external.length?' is-imported':''),checked:state.done,disabled:state.external.length>0&&!state.manual,
-    'aria-label':(state.done?'已阅读：':'标记已阅读：')+book.title+(state.external.length?'（小花生同步已读）':''),
-    title:state.external.length?'小花生已读已同步；原站修正后再核对来源记录':'标记／取消已读',onchange:e=>{
+  return materialLibrary.completionControl({id,title:book.title,done:state.done,external:state.external.length>0,disabled:state.external.length>0&&!state.manual,onChange:e=>{
       if(!savePracticeRecords(BP.manualUpdate(S.records,book.id,e.target.checked,BOOKS))){e.target.checked=state.done;return;}
       refreshReadingPlan(id);
     }});
@@ -1689,16 +1687,7 @@ function libraryResultRow(entry){
   return card;
 }
 function libraryBookCover(book){
-  const frame=h('div',{class:'library-book-cover'}),label=book.coverSource?.kind==='official-book-resource-card'?'单册配图':'单册封面';
-  const fallback=()=>{
-    frame.title=book.title+' · 单册图片待补';
-    frame.classList.add('library-cover-fallback');
-    frame.replaceChildren(h('span',{class:'library-book-placeholder','aria-label':book.title+'单册图片待补'},icon('book')));
-    const badge=bookReadCountBadge(book.id);if(badge)frame.append(badge);
-  };
-  if(book.cover){frame.append(h('img',{src:asset(book.cover),alt:book.title+' · '+label,title:book.title+' · '+label,loading:'lazy',onerror:fallback}));const badge=bookReadCountBadge(book.id);if(badge)frame.append(badge);}
-  else fallback();
-  return frame;
+  return materialLibrary.bookCover({src:book.cover?asset(book.cover):null,title:book.title,caption:book.coverSource?.kind==='official-book-resource-card'?'单册配图':'单册封面',readCount:book.id?BP.bookState(S.records,book.id,BOOKS,window.ROADMAP_RAW.resourceVolumes).readCount:0});
 }
 function bookRow(book,{detail=false}={}){
   const resource=book.resource,topicIds=LB.topicIds(book,BOOKS);
@@ -1997,14 +1986,14 @@ function shelfEntries(){
 }
 function shelfBookStatus(book){return BP.bookState(S.records,book,BOOKS,window.ROADMAP_RAW.resourceVolumes).done?'done':'not-started';}
 function shelfBookCard(book){
-  return h('article',{class:'library-book-row'},libraryBookCover(book),h('div',{class:'library-book-body'},h('button',{type:'button',class:'text-link library-book-name',onclick:()=>openModal('shelf-series',book.shelfGroupId)},book.title),h('span',{class:'library-book-actions'},bookCompletionControl(book,'shelf-complete-'+book.bookId)),h('div',{class:'library-book-context'},book.seriesTitle||book.series?.title||'私人书架'),h('div',{class:'library-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),book.topicRecord?.status==='title-fallback'?h('span',{class:'small-note'},'书名兜底'):book.topicRecord?.status==='title-inferred'||book.topicStatus==='title-inferred'?h('span',{class:'small-note'},'按标题推测'):null),topicUI.evidence('book',book)));
+  return materialLibrary.bookCard({cover:libraryBookCover(book),title:h('button',{type:'button',class:'text-link library-book-name',onclick:()=>openModal('shelf-series',book.shelfGroupId),'aria-haspopup':'dialog',title:'查看完整详情'},book.title),actions:[bookCompletionControl(book,'shelf-complete-'+book.bookId)],context:book.seriesTitle||book.series?.title||'私人书架',topics:h('div',{class:'library-book-topics'},topicUI.tags(TOPICS.entryTopics('book',book)),book.topicRecord?.status==='title-fallback'?h('span',{class:'small-note'},'书名兜底'):book.topicRecord?.status==='title-inferred'||book.topicStatus==='title-inferred'?h('span',{class:'small-note'},'按标题推测'):null),evidence:topicUI.evidence('book',book)});
 }
 function shelfSeriesDetail(id){
   const books=shelfEntries().filter(book=>book.shelfGroupId===id);
   if(!books.length)return h('p',{},'此书目已不在当前英文书架中。');
   return h('div',{class:'shelf-series-detail'},h('h2',{},books[0].seriesTitle),h('p',{class:'small-note'},'书架 '+books.length+' 本 · 已阅读 '+books.filter(book=>shelfBookStatus(book)==='done').length+' 本'),seriesTopicBrowser(id,books,(visible,start=0)=>h('div',{class:'library-book-list library-book-cover-grid'},visible.slice(start).map(shelfBookCard))));
 }
-function shelfSeriesCard(group){return h('article',{class:'library-card shelf-card'},h('button',{type:'button',class:'shelf-open',onclick:()=>openModal('shelf-series',group.id),'aria-label':'查看'+group.title+'全部书目与阅读状态'},libraryBookCover({...group,id:group.series?null:group.books[0].id,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),h('strong',{},group.title)),h('div',{class:'shelf-card-progress'},h('span',{},'书架 '+group.completed+'／'+group.total+'本'),h('span',{},P.STATUS[group.status])),h('progress',{max:group.total,value:group.completed,'aria-label':group.title+'已阅读 '+group.completed+'／'+group.total+' 本'}));}
+function shelfSeriesCard(group){return materialLibrary.shelfCard({cover:libraryBookCover({...group,id:group.series?null:group.books[0].id,title:group.books.find(book=>book.cover===group.cover)?.title||group.title}),title:group.title,onOpen:()=>openModal('shelf-series',group.id),completed:group.completed,total:group.total,status:P.STATUS[group.status]});}
 function otherShelfResults(){
   const matching=LB.filter(shelfEntries(),BOOKS,{topic:otherShelfState.libraryTopic,subtopic:otherShelfState.librarySubtopic,query:otherShelfState.query,queryScope:libraryGrouping('other')==='books'?'book':'series'}).filter(book=>otherShelfState.status==='all'||shelfBookStatus(book)===otherShelfState.status);
   const groups=LB.seriesGroups(matching,BOOKS),hasTopic=otherShelfState.libraryTopic!=='all',grouped=libraryGrouping('other')==='series',showSeries=hasTopic||!grouped;

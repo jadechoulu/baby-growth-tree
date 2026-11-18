@@ -7,7 +7,42 @@
         h('div', {class:'resource-body'},
           h('div', {class:'library-card-head'}, cover,
             h('div', {class:'library-card-heading'}, title, meta)),
-          h('div', {class:'library-card-tools'}, tools), footer));
+          tools.some(Boolean)?h('div', {class:'library-card-tools'}, tools):null, footer));
+    }
+    function bookCard({attrs={},cover,title,actions=[],context,topics,evidence}) {
+      return h('article',{...attrs,class:'library-book-row '+(attrs.class||'')},cover,
+        h('div',{class:'library-book-body'},title,
+          h('span',{class:'library-book-actions'},actions),
+          context?h('div',{class:'library-book-context'},context):null,topics,evidence));
+    }
+    function shelfCard({attrs={},cover,title,onOpen,completed,total,status,note}) {
+      return h('article',{...attrs,class:'library-card shelf-card '+(attrs.class||'')},
+        h('button',{type:'button',class:'shelf-open',onclick:onOpen,
+          'aria-label':'查看'+title+'全部书目与阅读状态','aria-haspopup':'dialog',title:'查看完整详情'},
+          cover,h('strong',{},title)),
+        h('div',{class:'shelf-card-progress'},h('span',{},total?'书架 '+completed+'／'+total+'本':note),total?h('span',{},status):null),
+        total?h('progress',{max:total,value:completed,'aria-label':title+'已阅读 '+completed+'／'+total+' 本'}):null);
+    }
+    function completionControl({id,title,done,external,disabled=external,onChange}) {
+      return h('input',{id,type:'checkbox',class:'book-completion'+(external?' is-imported':''),checked:done,disabled,
+        'aria-label':(done?'已阅读：':'标记已阅读：')+title+(external?'（小花生同步已读）':''),
+        title:external?'小花生已读已同步；原站修正后再核对来源记录':'标记／取消已读',onchange:onChange});
+    }
+    function readCountBadge(count,inline=false) {
+      return count>1?h('span',{class:'book-read-count'+(inline?' book-read-count-inline':''),
+        'aria-label':'小花生阅读 '+count+' 次',title:'小花生阅读 '+count+' 次'},count+'次'):null;
+    }
+    function bookCover({src,title,caption='单册封面',readCount,onOpen}) {
+      const frame=h(onOpen?'button':'div',{class:'library-book-cover'+(onOpen?' card-view-btn':''),
+        ...(onOpen?{type:'button',onclick:onOpen,'aria-label':'查看'+title+'完整详情','aria-haspopup':'dialog',title:'查看完整详情'}:{})});
+      const badge=()=>{const node=readCountBadge(readCount);if(node)frame.append(node);};
+      const fallback=()=>{
+        frame.title=title+' · 单册图片待补';frame.classList.add('library-cover-fallback');
+        frame.replaceChildren(h('span',{class:'library-book-placeholder','aria-label':title+'单册图片待补'},icon('book')));badge();
+      };
+      if(src){frame.append(h('img',{src,alt:title+' · '+caption,title:title+' · '+caption,loading:'lazy',onerror:fallback}));badge();}
+      else fallback();
+      return frame;
     }
     function groupingToggle({value, onChange}) {
       const grouped=value==='series';
@@ -34,7 +69,7 @@
     function resultsHead(count, controls) {
       return h('div', {class:'library-results-head'},h('p', {class:'result-count',role:'status'},count),controls);
     }
-    return {card,groupingToggle,layoutControls,reset,resultsHead};
+    return {card,bookCard,shelfCard,bookCover,completionControl,readCountBadge,groupingToggle,layoutControls,reset,resultsHead};
   }
   function defaultIcon(name) {
     const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');

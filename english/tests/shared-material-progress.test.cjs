@@ -36,6 +36,8 @@ function appFixture(records={},units=[]){
       S.records={...S.records,...changes};return true;
     },refreshReadingPlan:id=>context.refreshes.push(id)};
   vm.createContext(context);
+  vm.runInContext(fs.readFileSync(path.join(__dirname,'../../shared/material-library.js'),'utf8'),context);
+  context.materialLibrary=context.window.XiaoyaMaterialLibrary.create({h:context.h,icon:()=>null});
   vm.runInContext([
     between('function readingPlanForResource(','function refreshReadingPlan('),
     between('function bookCompletionControl(','function readingPlanDetail('),
