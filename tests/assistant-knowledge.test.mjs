@@ -13,12 +13,12 @@ test('构建倒排索引保留全文后段、原始资源身份和出处；线�
   const result = restore('星际恐龙');
   assert.equal(result.length, 1); assert.equal(result[0].id, entry.id); assert.match(result[0].text, /星际恐龙/); assert.equal(result[0].source, entry.source); assert.equal(result[0].href, entry.href);
 });
-test('离线知识覆盖全站公共索引，支持中文和英文检索，保留两个路线入口', async () => {
+test('离线知识覆盖全站公共索引，支持中文和英文检索，保留三条听力路线入口', async () => {
   const index = await buildSearchIndex(), data = buildKnowledge(index.knowledgeEntries, index.version), search = createKnowledgeSearch(data);
   assert.equal(new Set(data.chunks.map(item => item.parentId)).size, index.entries.length);
   assert.ok(search('Brown Bear').some(item => /Brown Bear/.test(item.title)));
   assert.equal(search('拥有短暂记忆')[0].kind, 'skill');
-  const routes = search('路线 阶段', { limit: 20 }).filter(item => item.kind === 'route'); assert.equal(routes.length, 2);
+  const routes = search('路线 阶段', { limit: 20 }).filter(item => item.kind === 'route'); assert.equal(routes.length, 3); assert.ok(routes.some(item => item.parentId === 'english:route:low-age' || item.id.includes(':route:low-age')));
   const liao = index.entries.find(item => item.title === 'My Very First Mother Goose' && item.kind === 'resource');
   assert.match(liao.text, /52周计划/); assert.match(liao.source, /liao-book-source/);
   assert.equal(index.entries.filter(item => item.kind === 'song' && item.id.includes('manhulu-9787533574901')).length, 50);
@@ -27,7 +27,7 @@ test('离线知识覆盖全站公共索引，支持中文和英文检索，保�
   assert.doesNotMatch(JSON.stringify(data), /\/Users\/|originalPath|sourceOriginalPath/);
 });
 
-test('真实离线索引每次只召回至多8份资料，路线保留双依据，完整模型消息不超过预算', async () => {
+test('真实离线索引每次只召回至多8份资料，路线保留三条依据，完整模型消息不超过预算', async () => {
   const index = await buildSearchIndex(), retrieve = createKnowledgeSearch(buildKnowledge(index.knowledgeEntries, index.version));
   let stored, calls = 0;
   const assistant = createAssistant({ env: {}, index, retrieve,
@@ -38,7 +38,7 @@ test('真实离线索引每次只召回至多8份资料，路线保留双依据�
       const content = JSON.parse(payload.messages.at(-1).content);
       assert.ok(Buffer.byteLength(JSON.stringify(payload.messages)) <= AI_LIMITS.inputBytes);
       assert.ok(content.documents.length <= 8);
-      assert.equal(content.documents.filter(doc => doc.id.includes(':route:')).length, 2);
+      assert.equal(content.documents.filter(doc => doc.id.includes(':route:')).length, 3);
       assert.equal(content.context.records, '当前孩子摘要'.repeat(400).slice(0, 3200));
       assert.equal(content.entries, undefined); assert.equal(content.index, undefined);
       return { choices: [{ message: { content: JSON.stringify({ mode: 'answer', answer: '依据片段回答', sourceIds: [content.documents[0].id] }) } }] };
