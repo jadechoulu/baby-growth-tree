@@ -103,7 +103,7 @@ test('统一发布包保留两边入口，子路径互跳和运行时引用完�
     }
   }
   assert.deepEqual(await filesIn(outputDir), [...files].sort());
-  for (const relative of ['home.html', 'index.html', 'english/index.html']) assert.ok(files.has(relative));
+  for (const relative of ['home.html', 'index.html', 'english/index.html', 'curriculum/index.html']) assert.ok(files.has(relative));
   const entry = await readFile(path.join(outputDir, 'english/index.html'), 'utf8');
   const runtimePaths=[...entry.matchAll(/(?:src|href)="\.\/(runtime\/[^"]+)"/g)].map(match=>'english/'+match[1]);
   for(const relative of runtimePaths)assert.ok(files.has(relative));
@@ -119,6 +119,8 @@ test('统一发布包保留两边入口，子路径互跳和运行时引用完�
   const config = await readFile(path.join(outputDir, 'shared/site-config.js'), 'utf8');
   assert.ok(config.includes('english/index.html#baby'));
   assert.ok(config.includes('成长技能树'));
+  assert.ok(config.includes('curriculum/index.html#goals'));
+  for (const file of ['curriculum/app.mjs', 'curriculum/model.mjs', 'curriculum/plan.mjs', 'curriculum/store.mjs', 'english/automatic-list.js']) assert.ok(files.has(file));
   assert.ok(english.includes('XiaoyaSite.createShell'));
   assert.ok((await readFile(path.join(outputDir, 'app.mjs'), 'utf8')).includes('XiaoyaSite.createShell'));
   const storage = await readFile(path.join(outputDir, 'lib/storage.mjs'), 'utf8');

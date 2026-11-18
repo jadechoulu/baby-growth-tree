@@ -28,7 +28,7 @@ XHS_ERRORS = {
 }
 BACKUP_NAME = re.compile(
     r'(?P<stem>小芽(?:成长记录|旧本机记录|卫健委观察)_[0-9]{4}-[0-9]{2}-[0-9]{2}'
-    r'|小芽英语-启蒙记录备份)(?: \([0-9]+\))?\.json'
+    r'|小芽英语-启蒙记录备份|小芽全科-启蒙记录备份)(?: \([0-9]+\))?\.json'
 )
 
 
@@ -64,6 +64,9 @@ def save_backup(filename, content, destination=BACKUP_DIRECTORY):
         if name_match['stem'].startswith('小芽卫健委观察_'):
             if data.get('standard') != 'WS/T 580—2017':
                 raise ValueError('卫健委观察备份的标准标识无效')
+        elif name_match['stem'] == '小芽全科-启蒙记录备份':
+            if data.get('kind') != 'curriculum' or not isinstance(data.get('custom'), list):
+                raise ValueError('全科备份须包含独立分类标识和自选素材列表')
         elif not isinstance(data.get('profile'), dict):
             raise ValueError('成长和英语备份须包含 profile 对象')
 

@@ -37,7 +37,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   try {
     const result = await buildSite({ apiBase: process.env.XIAOYA_API_BASE });
     console.log(`已生成小芽完整站点：${result.outputDir}`);
-    console.log('首页 home.html · 成长技能树 index.html · 英语启蒙 english/index.html');
+    console.log('首页 home.html · 成长技能树 index.html · 英语启蒙 english/index.html · 全科启蒙 curriculum/index.html');
   } catch (error) {
     console.error(`完整站点构建失败：${error.message}`);
     process.exitCode = 1;

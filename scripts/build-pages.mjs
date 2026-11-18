@@ -3,6 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeSearchIndex } from './build-search-index.mjs';
 import { buildSiteConfig } from './build-site-config.mjs';
+import { buildCurriculumCatalogs } from './build-curriculum-catalogs.mjs';
+import { catalogIds } from '../curriculum/catalog.mjs';
 
 const PROJECT_ROOT = fileURLToPath(new URL('../', import.meta.url));
 
@@ -27,6 +29,26 @@ export const PUBLIC_FILES = Object.freeze([
   'shared/growth-versions.js',
   'shared/growth-references.js',
   'home.html',
+  'english/automatic-list.js',
+  'shared/material-library.js',
+  'shared/material-library.css',
+  'curriculum/library-model.mjs',
+  'english/book-progress.js',
+  'curriculum/index.html',
+  'curriculum/app.mjs',
+  'curriculum/charts.mjs',
+  'curriculum/styles.css',
+  'curriculum/plan.mjs',
+  'curriculum/original-plan.mjs',
+  'curriculum/model.mjs',
+  'curriculum/store.mjs',
+  'curriculum/catalog.mjs',
+  'curriculum/catalog-index.mjs',
+  'curriculum/english-records.mjs',
+  'curriculum/plan.xlsx',
+  'curriculum/poetry-shelf-cover.jpg',
+  'curriculum/vendor/xlsx.full.min.js',
+  ...catalogIds.map(id=>'curriculum/catalogs/'+id+'.json'),
   'site.css',
   'shared/site-config.js',
   'shared/default-entry.js',
@@ -106,7 +128,7 @@ export async function buildPages({ sourceRoot = PROJECT_ROOT, outputDir = path.j
   }
   const publicApi = normalizeApiBase(configuredApi, { allowLocalApi });
   await checkPublicProfile(sourcePath);
-  if (sourcePath === path.resolve(PROJECT_ROOT)) await writeSearchIndex();
+  if (sourcePath === path.resolve(PROJECT_ROOT)) { await writeSearchIndex(); await buildCurriculumCatalogs(); }
   await buildSiteConfig(sourcePath);
   for (const relative of PUBLIC_FILES) {
     if (!(await stat(path.join(sourcePath, relative))).isFile()) throw new Error(`缺少网页运行文件：${relative}`);

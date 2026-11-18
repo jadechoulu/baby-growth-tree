@@ -933,6 +933,54 @@
   root.XiaoyaSync = { createClient };
 })(typeof window === 'object' ? window : globalThis);
 
+/* 素材图鉴的共享 DOM 模板；目录、筛选与个人事实由各分类提供。 */
+(function (root) {
+  'use strict';
+  function create({h, icon=defaultIcon}) {
+    function card({attrs={}, cover, title, meta, tools=[], footer}) {
+      return h('article', {...attrs, class:'resource-card library-card '+(attrs.class||'')},
+        h('div', {class:'resource-body'},
+          h('div', {class:'library-card-head'}, cover,
+            h('div', {class:'library-card-heading'}, title, meta)),
+          h('div', {class:'library-card-tools'}, tools), footer));
+    }
+    function groupingToggle({value, onChange}) {
+      const grouped=value==='series';
+      const label=grouped?'按套系展示，切换为单本展示':'按单本展示，切换为套系展示';
+      return h('button', {type:'button',class:'library-filter-button library-grouping-toggle',
+        title:label,'aria-label':label,'aria-pressed':String(grouped),
+        onclick:()=>onChange(grouped?'books':'series')}, icon(grouped?'layers':'book'));
+    }
+    function layoutControls({grouping, onGrouping, layout, onLayout, prefix='library'}) {
+      return h('div', {class:'library-layout-toggle',role:'group','aria-label':'素材显示方式'},
+        groupingToggle({value:grouping,onChange:onGrouping}),
+        [['list','menu','列表视图'],['covers','grid','封面视图']].map(([value,name,label])=>
+          h('button', {id:prefix+'-layout-'+value,type:'button',class:'icon-button',
+            'data-library-layout':value,'aria-label':label,title:label,'aria-pressed':String(layout===value),
+            onclick:event=>{
+              onLayout(value);
+              event.currentTarget.closest('.library-layout-toggle').querySelectorAll('[data-library-layout]')
+                .forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.libraryLayout===value)));
+            }},icon(name))));
+    }
+    function reset({id, onReset, label='重置全部筛选'}) {
+      return h('button', {id,type:'button',class:'library-filter-button filter-reset',title:label,'aria-label':label,onclick:onReset},'↺');
+    }
+    function resultsHead(count, controls) {
+      return h('div', {class:'library-results-head'},h('p', {class:'result-count',role:'status'},count),controls);
+    }
+    return {card,groupingToggle,layoutControls,reset,resultsHead};
+  }
+  function defaultIcon(name) {
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    for(const [key,value] of Object.entries({viewBox:'0 0 24 24',fill:'none',stroke:'currentColor','stroke-width':'1.6','stroke-linecap':'round','stroke-linejoin':'round',class:'icon','aria-hidden':'true'}))svg.setAttribute(key,value);
+    const path=document.createElementNS(svg.namespaceURI,'path');
+    path.setAttribute('d',({layers:'m12 3 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 16l9 5 9-5',book:'M12 5C9 3 5 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15',menu:'M4 6h16M4 12h16M4 18h16',grid:'M3 3h7v7H3ZM14 3h7v7h-7ZM3 14h7v7H3ZM14 14h7v7h-7Z'})[name]||'M5 4h14v16H5Z');
+    svg.append(path);return svg;
+  }
+  root.XiaoyaMaterialLibrary={create};
+})(typeof window==='undefined'?globalThis:window);
+
 /* 全站宝宝基础档案；领域记录与导出快照继续保留各自格式。 */
 (function (root) {
   'use strict';
@@ -7872,15 +7920,15 @@ function customBookForm(){
     }},'删除素材'),h('button',{type:'submit',class:'button primary'},'保存修改')));
   return form;
 }
+const materialLibrary=window.XiaoyaMaterialLibrary.create({h,icon});
 function libraryCard(r){
   if(r.custom)return customLibraryCard(r);
   const title=materialUI.name(r.title,sharedRoutes(r).length>1,{className:'library-series-name',role:EnglishModel.libraryMaterialRole(C,r,{route:S.route,stageIds:libraryStageIds()})});
-  return h('article',{class:'resource-card library-card'+(sharedRoutes(r).length>1?' shared':'')},h('div',{class:'resource-body'},
-    h('div',{class:'library-card-head'},btn(familyCover(r),'resource',{id:'library-cover-'+r.id,'data-id':r.id,'aria-label':'查看'+r.title,'aria-haspopup':'dialog',title:'查看完整详情'},'card-view-btn library-card-cover'),
-      h('div',{class:'library-card-heading'},
-        h('div',{class:'resource-title'},h('h3',{class:'library-series-heading'},h('a',{href:'#library',class:'card-view-btn','data-action':'resource',id:'library-title-'+r.id,'data-id':r.id,'aria-label':r.title+'完整详情','aria-haspopup':'dialog',title:'查看完整详情'},title))))),
-    h('div',{class:'library-card-tools'},r.liaoBookId?h('span',{class:'small-note'},'廖彩杏书单'):libraryReferenceCount(r.appearances.length),resourceStatusControl(r,false,true),
-      songResourceIds.has(r.id)?btn(icon('music'),'sss-songs',{id:'library-songs-'+r.id,'data-id':r.id,'aria-label':r.title+'分类歌单',title:'分类歌单'},'icon-button library-song-link'):null)));
+  return materialLibrary.card({attrs:{class:sharedRoutes(r).length>1?'shared':''},
+    cover:btn(familyCover(r),'resource',{id:'library-cover-'+r.id,'data-id':r.id,'aria-label':'查看'+r.title,'aria-haspopup':'dialog',title:'查看完整详情'},'card-view-btn library-card-cover'),
+    title:h('div',{class:'resource-title'},h('h3',{class:'library-series-heading'},h('a',{href:'#library',class:'card-view-btn','data-action':'resource',id:'library-title-'+r.id,'data-id':r.id,'aria-label':r.title+'完整详情','aria-haspopup':'dialog',title:'查看完整详情'},title))),
+    tools:[r.liaoBookId?h('span',{class:'small-note'},'廖彩杏书单'):libraryReferenceCount(r.appearances.length),resourceStatusControl(r,false,true),
+      songResourceIds.has(r.id)?btn(icon('music'),'sss-songs',{id:'library-songs-'+r.id,'data-id':r.id,'aria-label':r.title+'分类歌单',title:'分类歌单'},'icon-button library-song-link'):null]});
 }
 function updatePopoverLabel(id,label){
   const trigger=document.getElementById(id+'-toggle'),panel=document.getElementById(id);
@@ -7919,22 +7967,20 @@ function resetLibraryFilters(){
 const collectionGrouping=new Map();
 function libraryGrouping(collection=libraryCollection){return collectionGrouping.get(collection)||'series';}
 function filterResetControl(id,reset,label='重置全部筛选'){
-  return h('button',{id,type:'button',class:'library-filter-button filter-reset',title:label,'aria-label':label,onclick:reset},'↺');
+  return materialLibrary.reset({id,onReset:reset,label});
 }
 function libraryGroupingToggle(collection=libraryCollection){
-  const grouped=libraryGrouping(collection)==='series',label=grouped?'按套系展示，切换为单本展示':'按单本展示，切换为套系展示';
-  return h('button',{type:'button',class:'library-filter-button library-grouping-toggle',title:label,'aria-label':label,'aria-pressed':String(grouped),onclick:()=>{collectionGrouping.set(collection,grouped?'books':'series');S.libraryKey='';render();document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true});}},icon(grouped?'layers':'book'));
+  return materialLibrary.groupingToggle({value:libraryGrouping(collection),onChange:value=>{collectionGrouping.set(collection,value);S.libraryKey='';render();document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true});}});
 }
 function libraryLayoutToggle(){
-  return h('div',{class:'library-layout-toggle',role:'group','aria-label':'素材显示方式'},libraryGroupingToggle(),[['list','menu','列表视图'],['covers','grid','封面视图']].map(([value,name,label])=>h('button',{id:'library-layout-'+value,type:'button',class:'icon-button','aria-label':label,title:label,'aria-pressed':String(S.libraryLayout===value),onclick:()=>{
+  return materialLibrary.layoutControls({grouping:libraryGrouping(),onGrouping:value=>{collectionGrouping.set(libraryCollection,value);S.libraryKey='';render();document.querySelector('.library-grouping-toggle')?.focus({preventScroll:true});},layout:S.libraryLayout,onLayout:value=>{
     const anchor=[...document.querySelectorAll('.library-results .library-card,.library-results .library-book-row')].find(card=>{const rect=card.getBoundingClientRect();return rect.bottom>200&&rect.top<innerHeight;}),top=anchor?.getBoundingClientRect().top;
     S.libraryLayout=value;
     document.querySelector('.library-grid')?.classList.toggle('library-cover-grid',value==='covers');
     document.querySelector('.library-results .library-book-list')?.classList.toggle('library-book-cover-grid',value==='covers');
     document.querySelector('.library-results .library-book-list')?.classList.toggle('library-cover-grid',value==='covers');
-    document.querySelectorAll('.library-layout-toggle button').forEach(button=>button.setAttribute('aria-pressed',String(button.id==='library-layout-'+value)));
     if(anchor&&top!==undefined)window.scrollBy(0,anchor.getBoundingClientRect().top-top);
-  }},icon(name))));
+  }});
 }
 function shelfSearchResults(query){
   if(!englishOwnerAuthenticated||S.route!=='all'||S.age!=='all'||S.libraryTopic!=='all'||S.sharedOnly||!['all','reader','book'].includes(S.type))return null;

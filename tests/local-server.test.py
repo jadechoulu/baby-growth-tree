@@ -88,6 +88,17 @@ class LocalBackupTests(unittest.TestCase):
         self.assertEqual(self.request(filename=filename)[0], 400)
         self.assertEqual(self.request(content=content)[0], 400)
 
+    def test_curriculum_backup_is_separate_and_keeps_history(self):
+        filename = '小芽全科-启蒙记录备份.json'
+        content = json.dumps({'kind': 'curriculum', 'version': 1, 'records': {}, 'custom': []})
+        status, first, _ = self.request(filename=filename, content=content)
+        self.assertEqual(status, 201)
+        status, second, _ = self.request(filename=filename, content=content)
+        self.assertEqual(status, 201)
+        self.assertNotEqual(first['path'], second['path'])
+        self.assertEqual(self.request(filename=filename)[0], 400)
+        self.assertEqual(self.request(content=content)[0], 400)
+
     def test_accepts_each_export_name_and_browser_suffix(self):
         for filename in ['小芽旧本机记录_2026-10-28.json', '小芽英语-启蒙记录备份.json', '小芽英语-启蒙记录备份 (2).json']:
             with self.subTest(filename=filename):
