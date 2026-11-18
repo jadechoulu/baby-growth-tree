@@ -167,3 +167,12 @@ test('精选小文件可用且不重复接入纯音乐或含糊编号音轨',()=
  for(const m of media){assert.equal(statSync(new URL('../english/'+m.file,import.meta.url)).size,m.bytes);assert.ok(m.sha256);}
  for(const m of audio){assert.doesNotMatch(m.sourceName,/instrumental|karaoke|\(music\)|纯音乐|伴奏|中文|track|曲目/i);assert.ok(m.sourceBytes<=5000000);assert.ok(m.durationSeconds>0);assert.match(m.selectionBasis,/标题/);}
 });
+
+test('廖彩杏主题选项随130本／100本模式和关键词变化，所有一级二级均有结果',()=>{
+ const T=require('../english/topics.js'),catalog=M.normalize({liaoReading:data}),resourceForBook=id=>catalog.resources.find(resource=>resource.liaoBookId===id);
+ for(const order of ['picture','plan'])for(const query of ['', 'Brown Bear','The Foot Book','没有这个书名']){
+  const options={order,query,topics:T,resourceForBook},available=L.availableTopics(data,options);
+  for(const root of T.options(available))for(const subtopic of ['all',...T.options(available,root.id).map(node=>node.id)])assert.ok(L.filter(data,{...options,topic:root.id,subtopic}).length,JSON.stringify({order,query,topic:root.id,subtopic}));
+ }
+ assert.deepEqual(L.availableTopics(data,{order:'plan',query:'没有这个书名',topics:T,resourceForBook}),[]);
+});

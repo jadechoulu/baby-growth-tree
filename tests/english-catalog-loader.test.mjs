@@ -47,6 +47,18 @@ test('可选资料加载失败可以重试，成功前不替换已有对象',asy
   await assert.rejects(loader.load(),/不完整/);assert.equal(target.books[0].id,'identity');await loader.load();assert.deepEqual(target.books[0].parts,[1]);
 });
 
+test('查看同ISBN书目时按需读取两侧依据，失败可重试且不读取未核版次',async()=>{
+  const directory={books:[{id:'one',detailChunk:0},{id:'same',detailChunk:1},{id:'other',detailChunk:2}],detailFiles:['one.json','same.json','other.json'],
+    readingEquivalences:[{kind:'same-isbn',isbn:'9780007185399',sourceIds:['checked'],bookIds:['one','same']},{kind:'same-title',bookIds:['one','other']}]};
+  const taxonomy={bookOverrides:{}},calls=[];let fail=true;
+  const loader=details(directory,taxonomy,async url=>{calls.push(url);if(url==='same.json'&&fail){fail=false;throw Error('临时失败');}const id=url==='one.json'?'one':'same';return {ok:true,json:async()=>({books:[{id,topicEvidence:[{summary:'原文依据'}]}],topics:{[id]:{basis:'已核原文'}}})};});
+  assert.deepEqual(calls,[]);assert.equal(loader('one').ready,false);
+  await assert.rejects(loader('one').load(),/临时失败/);
+  await Promise.all([loader('one').load(),loader('same').load()]);
+  assert.equal(loader('one').ready,true);assert.deepEqual(calls.sort(),['one.json','same.json','same.json']);
+  assert.equal(taxonomy.bookOverrides.same.basis,'已核原文');assert.equal(directory.books[2].topicEvidence,undefined);
+});
+
 test('资源主题证据按需并发共用，恢复原映射对象，缺页失败不覆盖轻索引且允许重试',async()=>{
   const mapping={topics:['animals'],status:'title-fallback',patterns:[{text:'I see …',sourceId:'source'}]},taxonomy={resourceMappings:{series:mapping}};
   let calls=0;

@@ -69,10 +69,10 @@ function explicitMembership(book,resource,appearance,model,volumes){
   const key=JSON.stringify([resource.id,appearance.stageId,appearance.level]);
   if(!cache.has(key)){
     const levels=[appearance.level,...model.getMaterialLevels({resource,materials:[appearance]}).map(level=>level.label)];
-    cache.set(key,levels.flatMap(level=>model.publicationLevelScopes(volumes,resource.id,[level],appearance.stageId)).flatMap(scope=>scope.parts.map(part=>part.directoryMatch).filter(match=>match?.bookIds)));
+    cache.set(key,levels.flatMap(level=>model.publicationLevelScopes(volumes,resource.id,[level],appearance.stageId)).flatMap(scope=>scope.parts.map(part=>part.directoryMatch).filter(match=>match&&(match.bookIds||match.edition||match.level))));
   }
   const matches=cache.get(key);
-  return matches.length?matches.some(match=>['edition','level'].every(field=>match[field]===undefined||book[field]===match[field])&&match.bookIds.includes(book.id)):null;
+  return matches.length?matches.some(match=>['edition','level'].every(field=>match[field]===undefined||book[field]===match[field])&&(!match.bookIds||match.bookIds.includes(book.id))):null;
 }
 function bookAppearances(book,resource,model,volumes){
   if(book.custom)return book.stageRefs||[];
@@ -157,7 +157,7 @@ function filter(books,data,filters={}){
   const hasTopic=!!(filters.topic&&filters.topic!=='all'||filters.subtopic&&filters.subtopic!=='all');
   const matched=books.filter(book=>{
     const resource=book.resource;
-    if(book.resourceCatalogFallback?hasTopic&&!book.resourceTopicFallback&&!book.resourceTopicAvailable:book.resourceTopicFallback&&!hasTopic)return false;
+    if(book.resourceCatalogFallback?(hasTopic||filters.includeTopicReferences)&&!book.resourceTopicFallback&&!book.resourceTopicAvailable:book.resourceTopicFallback&&!hasTopic&&!filters.includeTopicReferences)return false;
     if(filters.route&&filters.route!=='all'&&(filters.route==='other'?!book.custom:!book.appearances.some(a=>a.routeId===filters.route)))return false;
     if(filters.stageIds&&!book.appearances.some(a=>filters.stageIds.includes(a.stageId)&&(!filters.route||['all','other'].includes(filters.route)||a.routeId===filters.route)))return false;
     if(!T.matches(topicIds(book,data),{topic:filters.topic||'all',subtopic:filters.subtopic||'all'}))return false;
@@ -168,6 +168,7 @@ function filter(books,data,filters={}){
     return true;
   });
   // 真实单册能够表达本次主题结果时不再混入整套；筛选仍不修改任何单册主题或身份。
+  if(filters.includeTopicReferences)return matched;
   const concreteResources=new Set(matched.filter(book=>book.entryKind!=='resource').flatMap(book=>book.resourceIds||[book.resourceId]));
   return matched.filter(book=>!(book.resourceTopicFallback||book.resourceCatalogFallback)||!book.resourceIds.some(id=>concreteResources.has(id)));
 }

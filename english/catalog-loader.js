@@ -22,8 +22,8 @@ function create(target,url,fetcher,{timeout=30000,validate=data=>data&&Array.isA
   }};
 }
 function details(directory,taxonomy,fetcher){
-  const chunks=new Map();
-  return id=>{
+  const chunks=new Map(),groups=new Map();
+  function one(id){
     const book=directory.books.find(book=>book.id===id),url=directory.detailFiles?.[book?.detailChunk];
     if(!url)return create({},null,fetcher);
     if(!chunks.has(url))chunks.set(url,create({},url,fetcher,{validate:data=>Array.isArray(data?.books)&&data.books.every(item=>directory.books.some(book=>book.id===item.id)),apply:data=>{
@@ -31,6 +31,15 @@ function details(directory,taxonomy,fetcher){
       Object.assign(taxonomy.bookOverrides,data.topics);
     }}));
     return chunks.get(url);
+  }
+  return id=>{
+    // 同ISBN内容依据可能位于另一分片；仅查看详情时一并读取，筛选不加载正文。
+    const ids=[id,...(directory.readingEquivalences||[]).filter(group=>group.kind==='same-isbn'&&group.isbn&&group.sourceIds?.length&&group.bookIds.includes(id)).flatMap(group=>group.bookIds)];
+    const loaders=[...new Set(ids.map(one))];
+    if(loaders.length===1)return loaders[0];
+    const key=JSON.stringify([...new Set(ids)].sort());
+    if(!groups.has(key))groups.set(key,{get ready(){return loaders.every(loader=>loader.ready);},load:()=>Promise.all(loaders.map(loader=>loader.load()))});
+    return groups.get(key);
   };
 }
 function resourceTopics(taxonomy,url,fetcher){
