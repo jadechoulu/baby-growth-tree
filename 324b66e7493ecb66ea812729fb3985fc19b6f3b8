@@ -1,0 +1,45 @@
+english/app.js
+  s_9197ecf7176332::t_491ce866df21f6 1099-1102,1378-1379,2039,2046-2047,2057
+english/data/route-plan.json
+  s_9197ecf7176332::t_491ce866df21f6 27,38,51-63,90-131,140-142,149-152,159-165,173-175
+tests/english-route-flow.test.mjs
+  s_9197ecf7176332::t_491ce866df21f6 11,18-20,23-24,38-42
+english/model.js
+  s_9197ecf7176332::t_491ce866df21f6 286,288-290,295-300,306-311,314-315,318
+tests/english-practice.test.mjs
+  s_9197ecf7176332::t_491ce866df21f6 274-281
+english/index.html
+  s_9197ecf7176332::t_8ea5d8c9edeb50 21-22
+docs/architecture.md
+  s_9197ecf7176332::t_4e9576bb3fab53 1041
+  s_9197ecf7176332::t_491ce866df21f6 1042,1044-1047
+  s_9197ecf7176332::t_ebe1b2ff7b5c94 1043
+english/tests/reading-plan-reuse.test.cjs
+  s_9197ecf7176332::t_40954aa23e4e83 114,116
+AGENTS.md
+  s_9197ecf7176332::t_491ce866df21f6 205,327
+.github/workflows/site.yml
+  s_9197ecf7176332::t_40954aa23e4e83 35
+tests/english-material-roles.test.mjs
+  s_9197ecf7176332::t_491ce866df21f6 133-137
+english/runtime/app.78337216a8ba84f2.js
+  s_9197ecf7176332::t_8ea5d8c9edeb50 1-8244
+english/runtime/data.ef279a5c86d0e3a7.js
+  s_9197ecf7176332::t_8ea5d8c9edeb50 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "324b66e7493ecb66ea812729fb3985fc19b6f3b8",
+  "prompts": {},
+  "sessions": {
+    "s_9197ecf7176332": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e2ca-887c-7982-b69a-50e8d7cc0a48",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

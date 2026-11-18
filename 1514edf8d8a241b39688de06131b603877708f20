@@ -1,0 +1,42 @@
+vision.html
+  s_655a201aff35d2::t_da66ddb3f653c5 11,26
+docs/vision-references.md
+  s_655a201aff35d2::t_fa498539e0c018 50
+  s_655a201aff35d2::t_b73351fe808e84 43-49
+  s_655a201aff35d2::t_c5affd259826f7 37-42,51-56
+tests/vision-model.test.mjs
+  s_655a201aff35d2::t_da66ddb3f653c5 64,119-126
+  s_655a201aff35d2::t_e5ffac84aa3e01 127
+AGENTS.md
+  s_655a201aff35d2::t_b73351fe808e84 32
+  s_655a201aff35d2::t_fa498539e0c018 31
+  s_655a201aff35d2::t_3fc83f3e7f87b3 27
+lib/vision-model.mjs
+  s_655a201aff35d2::t_3fc83f3e7f87b3 129-130
+  s_655a201aff35d2::t_0d7df4e362f237 18,91,127-128,131-135,137
+vision.mjs
+  s_655a201aff35d2::t_fa498539e0c018 153,207
+  s_655a201aff35d2::t_da66ddb3f653c5 1
+  s_655a201aff35d2::t_3fc83f3e7f87b3 237,244
+  s_655a201aff35d2::t_f39eb241e9216d 6,93,99,137-147
+docs/architecture.md
+  s_655a201aff35d2::t_7a65291045c414 11
+vision.css
+  s_655a201aff35d2::t_9368cc2adeb436 22-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1514edf8d8a241b39688de06131b603877708f20",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

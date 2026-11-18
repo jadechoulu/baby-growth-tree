@@ -1,0 +1,51 @@
+english/runtime/styles.a06b2e5a9902b75b.css
+  s_655a201aff35d2::t_b250dcc3233bb7 1-2587
+english/runtime/data.e9ed643406bec151.js
+  s_655a201aff35d2::t_b250dcc3233bb7 1-2
+english/model.js
+  s_655a201aff35d2::t_b250dcc3233bb7 755-756,759-760,762-775
+AGENTS.md
+  s_655a201aff35d2::t_b250dcc3233bb7 3-4
+docs/topic-taxonomy.md
+  s_655a201aff35d2::t_b250dcc3233bb7 103
+english/data/resource-covers.json
+  s_655a201aff35d2::t_b250dcc3233bb7 510-520
+docs/audits/library-route-coverage-20261116.json
+  s_655a201aff35d2::t_b250dcc3233bb7 1-1103
+english/app.js
+  s_655a201aff35d2::t_b250dcc3233bb7 899-901,914,1121,1217,1222,1386-1388,1390,1606,1707,1723-1725,1732
+english/library-books.js
+  s_655a201aff35d2::t_b250dcc3233bb7 110,118-120,123,160,172
+scripts/audit-library-route-coverage.cjs
+  s_655a201aff35d2::t_b250dcc3233bb7 1-28
+docs/material-tags.md
+  s_655a201aff35d2::t_b250dcc3233bb7 3-4,157-158
+english/styles.css
+  s_655a201aff35d2::t_b250dcc3233bb7 1570-1587,2004-2010,2012-2015,2018-2020,2022-2023,2122-2123
+tests/english-library-sort.test.mjs
+  s_655a201aff35d2::t_b250dcc3233bb7 24-35
+tests/english-library-books.test.mjs
+  s_655a201aff35d2::t_b250dcc3233bb7 9-25
+english/index.html
+  s_655a201aff35d2::t_b250dcc3233bb7 9,21-22
+docs/architecture.md
+  s_655a201aff35d2::t_b250dcc3233bb7 17-22,1090-1097
+english/runtime/app.d3a199924d302f9b.js
+  s_655a201aff35d2::t_b250dcc3233bb7 1-8313
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c0c46d32f3b74e739de46f6301396e4da51370df",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

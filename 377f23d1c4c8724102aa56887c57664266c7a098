@@ -1,0 +1,40 @@
+AGENTS.md
+  h_c836a884b9f50f 3-4,20-22
+docs/architecture.md
+  h_c836a884b9f50f 905-908
+docs/material-tags.md
+  h_c836a884b9f50f 5-8,133
+english/app.js
+  h_c836a884b9f50f 101,775,953,974,981,1008-1015,1023,1029,1145,1517,1556,1574,1576-1578,1580-1586,1913-1914,1922,1988
+english/book-progress.js
+  h_c836a884b9f50f 10-11
+english/data/resource-volumes.json
+  h_c836a884b9f50f 14867-14870,15128-15246,15299-15310
+english/index.html
+  h_c836a884b9f50f 1061,2354,4983,5064-5076,5086,5116,5168,5295,5308-5309,5829-5833,5893,5898,5909,5970,6926,7600,7778,7799,7806,7833-7840,7848,7854,7970,8342,8381,8399,8401-8403,8405-8411,8738-8739,8747,8813
+english/library-books.js
+  h_c836a884b9f50f 27-31,91,96,107,168
+english/practice.js
+  h_c836a884b9f50f 32,113-125,135,165,217,344
+english/styles.css
+  h_c836a884b9f50f 1053
+english/tests/book-progress.test.cjs
+  h_c836a884b9f50f 380-381
+tests/english-library-books.test.mjs
+  h_c836a884b9f50f 49-65
+tests/english-practice.test.mjs
+  h_c836a884b9f50f 16-65
+tests/english-publications.test.mjs
+  h_c836a884b9f50f 31-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "377f23d1c4c8724102aa56887c57664266c7a098",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+AGENTS.md
+  h_c836a884b9f50f 8,74,121-124,130,171,190,201,219
+docs/architecture.md
+  h_c836a884b9f50f 167-168,853-863
+docs/material-tags.md
+  h_c836a884b9f50f 11-12
+docs/xiaohuasheng-read-sync.md
+  h_c836a884b9f50f 102-108
+english/app.js
+  h_c836a884b9f50f 119-142,706-719,735,752-760,793,811,814-816,894,1420,1423,1530,1865
+english/book-progress.js
+  h_c836a884b9f50f 28-34,82,253
+english/build.py
+  h_c836a884b9f50f 65
+english/data/resource-books.json
+  h_c836a884b9f50f 40-65
+english/index.html
+  h_c836a884b9f50f 1378-1381,1985-1990,2040-2041,2043,2352,3308,3339-3345,3351,3451-3463,3491,3510,3513,3530-3533,5275-5281,5329,5500-5596,6824-6847,7411-7424,7440,7457-7465,7498,7516,7519-7521,7599,8125,8128,8235,8570
+english/styles.css
+  h_c836a884b9f50f 1370-1373,1976-1981
+english/tests/book-progress.test.cjs
+  h_c836a884b9f50f 16-34
+english/tests/shared-material-progress.test.cjs
+  h_c836a884b9f50f 1-132
+english/tests/xiaohuasheng-sync.test.cjs
+  h_c836a884b9f50f 1-51
+english/xiaohuasheng-sync.js
+  h_c836a884b9f50f 1-95
+shared/site-shell.js
+  h_c836a884b9f50f 123,154-160,166,266-278,306,325,328,345-348
+site.css
+  h_c836a884b9f50f 36-37,39
+tests/site-shell.test.mjs
+  h_c836a884b9f50f 45-128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "169bba94c41932f67b033b7e19bd88fb9b5b4669",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

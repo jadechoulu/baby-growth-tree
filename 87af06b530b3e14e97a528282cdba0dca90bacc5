@@ -1,0 +1,50 @@
+backend/README.md
+  h_c836a884b9f50f 39
+backend/netlify/README.md
+  h_c836a884b9f50f 3-6
+docs/architecture.md
+  h_c836a884b9f50f 7-18,436
+english/app.js
+  h_c836a884b9f50f 163,167,184-188,195,202,1790
+english/index.html
+  h_c836a884b9f50f 9,22
+english/runtime/app.b35388e41ef79fa5.js
+  h_c836a884b9f50f 427-428,442,445-446,450,470-479,544,629-648,657-658,662-663,674,707-725,754-760,929-1262,1457,4939,5228-5293,5456,5460,5477-5481,5488,5495,7083,7454-7468
+english/runtime/styles.7bb8906141c9ec06.css
+  h_c836a884b9f50f 2401-2422
+shared/search-core.js
+  h_c836a884b9f50f 25-26
+shared/site-search.js
+  h_c836a884b9f50f 8,10,37-39,71-74,77,123,128,162,175,181,184-187,194-197,216,225,250-262,266
+shared/site-shell.js
+  h_c836a884b9f50f 195
+shared/site-sync.js
+  h_c836a884b9f50f 17-18,60-69,219-238,247-248,252-253,297-315,344
+site.css
+  h_c836a884b9f50f 355
+tests/english-search-actions.test.mjs
+  h_c836a884b9f50f 1-27
+tests/english-sync-actions.test.mjs
+  h_c836a884b9f50f 1-26
+tests/site-search-access.test.mjs
+  h_c836a884b9f50f 13,36,40,44,47-65,82-112
+tests/site-shell.test.mjs
+  h_c836a884b9f50f 88-90,92-93
+tests/site-sync-client.test.mjs
+  h_c836a884b9f50f 9-12,16-19,21-36,39,45,69,72-122
+tests/worker.test.mjs
+  h_c836a884b9f50f 43-64
+worker/index.mjs
+  h_c836a884b9f50f 97-106,238,257,289-290
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "87af06b530b3e14e97a528282cdba0dca90bacc5",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

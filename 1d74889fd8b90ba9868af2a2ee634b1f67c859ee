@@ -1,0 +1,42 @@
+AGENTS.md
+  s_7f5a04113a9a79::t_794949b9ad177d 291,339
+english/index.html
+  s_7f5a04113a9a79::t_d5b710d4aeeb2d 22
+english/runtime/app.377a3821a0658788.js
+  s_7f5a04113a9a79::t_d5b710d4aeeb2d 7522,7550,7649
+docs/material-tags.md
+  s_7f5a04113a9a79::t_794949b9ad177d 92,154
+docs/architecture.md
+  s_7f5a04113a9a79::t_794949b9ad177d 1070-1073
+docs/audits/heinemann-gk-small-child-order-20261116.md
+  s_7f5a04113a9a79::t_78e70f5067410e 7
+english/app.js
+  s_7f5a04113a9a79::t_794949b9ad177d 1631,1659,1758
+tests/english-library-sort.test.mjs
+  s_7f5a04113a9a79::t_0d3787a56669fb 4,135-153
+  s_26621d8ed52ba6::t_9321770cd8cc88 154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1d74889fd8b90ba9868af2a2ee634b1f67c859ee",
+  "prompts": {},
+  "sessions": {
+    "s_26621d8ed52ba6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e2dc-0090-7f73-9f64-17b840c18e8b",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    },
+    "s_7f5a04113a9a79": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e2cc-c89e-71b0-b20a-cf8c1be384c3",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+docs/architecture.md
+  s_7f5a04113a9a79::t_ce4bd9e95c6de2 1074-1081
+english/library-books.js
+  s_7f5a04113a9a79::t_ffc2168ce0eefe 123,160
+  s_7f5a04113a9a79::t_c28f43ac39b9c5 110,118-120,172
+english/model.js
+  s_7f5a04113a9a79::t_c28f43ac39b9c5 755-756,759-760,762-775
+docs/material-tags.md
+  s_7f5a04113a9a79::t_ce4bd9e95c6de2 3-4
+AGENTS.md
+  s_7f5a04113a9a79::t_ce4bd9e95c6de2 3-4
+english/app.js
+  s_7f5a04113a9a79::t_ffc2168ce0eefe 1606
+scripts/audit-library-route-coverage.cjs
+  s_7f5a04113a9a79::t_ecf3ae69aaf7d4 1-28
+tests/english-library-sort.test.mjs
+  s_7f5a04113a9a79::t_94542c20b9fc0e 24-35
+docs/audits/library-route-coverage-20261116.json
+  s_7f5a04113a9a79::t_97fc1d56dbd70a 1-1103
+docs/topic-taxonomy.md
+  s_7f5a04113a9a79::t_9c7743c7b9f18c 103
+tests/english-library-books.test.mjs
+  s_7f5a04113a9a79::t_ecf3ae69aaf7d4 9-25
+english/data/resource-covers.json
+  s_7f5a04113a9a79::t_499d92bf79ab22 510-520
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f546b18f809656905e5c61ef67648d92a39fb90a",
+  "prompts": {},
+  "sessions": {
+    "s_7f5a04113a9a79": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e2cc-c89e-71b0-b20a-cf8c1be384c3",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+english/styles.css
+  s_7f5a04113a9a79::t_dedbb8197396f4 1579
+  s_7f5a04113a9a79::t_97c90b7debbb8c 2005,2008-2009,2012-2015,2018-2020,2022-2023,2122-2123
+  s_7f5a04113a9a79::t_856fb18f3c7cc1 1570-1578,1580-1587,2004,2006-2007,2010
+english/app.js
+  s_7f5a04113a9a79::t_07a1095217d434 1723
+  s_7f5a04113a9a79::t_2efcf92af48e8d 899-901,914,1707,1724-1725,1732
+  s_7f5a04113a9a79::t_614e69959a553f 1121,1217,1222,1386-1388,1390
+docs/material-tags.md
+  s_7f5a04113a9a79::t_7d974f8b32792f 157-158
+english/index.html
+  s_7f5a04113a9a79::t_f9934cff317acf 22
+  s_7f5a04113a9a79::t_e386439c51a31e 9
+english/runtime/app.d3a199924d302f9b.js
+  s_7f5a04113a9a79::t_f9934cff317acf 6806-6808,6821,7028,7124,7129,7293-7295,7297,7614,7630-7632,7639
+docs/architecture.md
+  s_7f5a04113a9a79::t_3cdec6cbfc3d89 11
+  s_7f5a04113a9a79::t_f9934cff317acf 9
+  s_7f5a04113a9a79::t_7d974f8b32792f 8,10,12
+  s_7f5a04113a9a79::t_aaa6c9245282c8 7
+english/runtime/styles.a06b2e5a9902b75b.css
+  s_7f5a04113a9a79::t_f25905db7f5a0e 1570-1587,2004-2010,2012-2015,2018-2020,2022-2023,2122-2123
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "006d510974734cff7bf91614549afc79f72bad50",
+  "prompts": {},
+  "sessions": {
+    "s_7f5a04113a9a79": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1e2cc-c89e-71b0-b20a-cf8c1be384c3",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

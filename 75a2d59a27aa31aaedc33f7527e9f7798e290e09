@@ -1,0 +1,54 @@
+english/styles.css
+  s_655a201aff35d2::t_3f5fa34fb9429d 1914
+  s_655a201aff35d2::t_781520aa2d90ee 1915-1916,1919
+  s_655a201aff35d2::t_0fce0a920ce01c 1659-1660
+  s_655a201aff35d2::t_d88f9a92c4f49d 1917-1918
+english/index.html
+  s_655a201aff35d2::t_fdfb41d48dd7d6 9,22
+docs/topic-taxonomy.md
+  s_655a201aff35d2::t_7f794d45aa6e92 101
+tests/english-search-actions.test.mjs
+  s_655a201aff35d2::t_edb146903aa5d1 30
+  s_655a201aff35d2::t_6c48895370ee84 5-6,25-26,29,34,47-51
+tests/english-library-books.test.mjs
+  s_655a201aff35d2::t_6c48895370ee84 83-90
+english/topic-ui.js
+  s_655a201aff35d2::t_4c5c8c859b1850 4,8,16-18
+AGENTS.md
+  s_655a201aff35d2::t_7f794d45aa6e92 334
+  s_655a201aff35d2::t_edb146903aa5d1 13
+docs/architecture.md
+  s_655a201aff35d2::t_edb146903aa5d1 39
+  s_655a201aff35d2::t_c20572b51f032b 10
+  s_655a201aff35d2::t_ca2aa9c447bfe4 9
+english/app.js
+  s_655a201aff35d2::t_3f5fa34fb9429d 1935,1954,1956,1963,1970
+  s_655a201aff35d2::t_4c5c8c859b1850 1961,1969
+  s_655a201aff35d2::t_532dd24239db54 191-195,1697,1914
+english/library-books.js
+  s_655a201aff35d2::t_532dd24239db54 126
+english/liao-reading.js
+  s_655a201aff35d2::t_781520aa2d90ee 116
+docs/site-assistant.md
+  s_655a201aff35d2::t_edb146903aa5d1 17
+english/runtime/styles.f568b5e3863770d2.css
+  s_655a201aff35d2::t_fdfb41d48dd7d6 1-2513
+english/runtime/app.e3878107a3618d44.js
+  s_655a201aff35d2::t_fdfb41d48dd7d6 1-8018
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "75a2d59a27aa31aaedc33f7527e9f7798e290e09",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

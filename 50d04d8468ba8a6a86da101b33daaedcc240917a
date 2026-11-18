@@ -1,0 +1,36 @@
+AGENTS.md
+  h_c836a884b9f50f 52-53
+docs/architecture.md
+  h_c836a884b9f50f 7-10
+english/app.js
+  h_c836a884b9f50f 37,195-242,1959,2155,2285,2287
+english/index.html
+  h_c836a884b9f50f 9,22
+english/runtime/app.d0423ad1502d6f5a.js
+  h_c836a884b9f50f 442,755-762,1030-1033,1042,1044-1047,1052,1056-1057,1086-1088,1094-1096,1172,1175,1212,1236,1239-1240,1257,5475,5633-5680,7397,7593,7723,7725
+english/runtime/styles.6588a522d19eb3c9.css
+  h_c836a884b9f50f 2046-2064,2426-2433,2435-2440,2442-2498
+english/styles.css
+  h_c836a884b9f50f 2046-2064
+shared/site-sync.js
+  h_c836a884b9f50f 32,345-352
+tests/english-book-finder.test.mjs
+  h_c836a884b9f50f 1-62
+tests/site-sync-client.test.mjs
+  h_c836a884b9f50f 9,56-59,215-239
+tests/worker.test.mjs
+  h_c836a884b9f50f 106,135-137,173,422-459
+worker/index.mjs
+  h_c836a884b9f50f 223-247,324-327
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "50d04d8468ba8a6a86da101b33daaedcc240917a",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+docs/audits/manhulu-songs-20261109.md
+  h_c836a884b9f50f 128-134
+docs/material-tags.md
+  h_c836a884b9f50f 146-147
+english/app.js
+  h_c836a884b9f50f 35,1823,1829,1907,1929,1979,2062
+english/index.html
+  h_c836a884b9f50f 4860-4864,4867,7171,8959,8965,9043,9065,9115,9198
+english/model.js
+  h_c836a884b9f50f 1135-1139,1142
+english/tests/model.test.cjs
+  h_c836a884b9f50f 253-259
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1aae78ff839f32c9635afb6c74706ecd0cb0935d",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

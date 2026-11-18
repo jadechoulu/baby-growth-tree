@@ -1,0 +1,70 @@
+lib/vision-model.mjs
+  s_655a201aff35d2::t_50ee62a30bbfbf 17,30,103-112,159
+  s_655a201aff35d2::t_00da4676fb5e35 18-28
+vision.mjs
+  s_655a201aff35d2::t_e4b9ae0a7c5052 111,163-185,219
+  s_655a201aff35d2::t_50ee62a30bbfbf 130,133,154,160,188,192,241
+  s_655a201aff35d2::t_e9dad898394dd9 98-99
+  s_655a201aff35d2::t_be8fb9aa8d472d 220
+  s_655a201aff35d2::t_423273ad2df11b 1,104
+  s_655a201aff35d2::t_206cc683923f7f 97,142
+  s_655a201aff35d2::t_fd0b073e7baba0 6,103,105-110,112,213,215-218,227-228
+vision.css
+  s_655a201aff35d2::t_50ee62a30bbfbf 30-31
+  s_655a201aff35d2::t_525b24318778ff 32-33
+  s_655a201aff35d2::t_206cc683923f7f 34-35
+  s_655a201aff35d2::t_aca4f52805a893 36
+  s_655a201aff35d2::t_a5444fd841c928 37-38
+site.css
+  s_655a201aff35d2::t_b67661a92ee341 427
+  s_655a201aff35d2::t_e9908c8fb2044f 428
+  s_655a201aff35d2::t_a5444fd841c928 424-426,429-430
+  s_655a201aff35d2::t_33eeeec5743c6e 287
+  s_655a201aff35d2::t_27874e786f13d8 325-326,332
+  s_655a201aff35d2::t_8b27d36fb3dbfb 2,25,96,100,333
+english/index.html
+  s_655a201aff35d2::t_cb10e7f2199246 9
+  s_655a201aff35d2::t_3196b0161dd665 22
+tests/vision-model.test.mjs
+  s_655a201aff35d2::t_80ba9f9c6dc7a5 128-138
+  s_655a201aff35d2::t_d28dba4c35a556 63-64
+english/runtime/app.a527bbcf07cada93.js
+  s_655a201aff35d2::t_a5444fd841c928 1-8374
+docs/vision-references.md
+  s_655a201aff35d2::t_a5444fd841c928 57-60
+english/runtime/styles.be1971f0527b3e5d.css
+  s_655a201aff35d2::t_cb10e7f2199246 1-2601
+english/styles.css
+  s_655a201aff35d2::t_a5444fd841c928 2072,2082,2089
+home.html
+  s_655a201aff35d2::t_a5444fd841c928 12
+vision.html
+  s_655a201aff35d2::t_423273ad2df11b 11,26
+  s_655a201aff35d2::t_6d2cf2dc57cef7 10
+AGENTS.md
+  s_655a201aff35d2::t_aca4f52805a893 31
+  s_655a201aff35d2::t_423273ad2df11b 29
+  s_655a201aff35d2::t_98790a39bc0915 136
+docs/architecture.md
+  s_655a201aff35d2::t_378ecfa0a5535b 7-12
+index.html
+  s_655a201aff35d2::t_a5444fd841c928 14
+health.html
+  s_655a201aff35d2::t_a5444fd841c928 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "79cf43a03cb85fcd3d4eefe41ee1471e79d3e4f0",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

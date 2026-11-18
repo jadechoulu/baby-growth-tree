@@ -1,0 +1,48 @@
+.github/workflows/site.yml
+  h_c836a884b9f50f 37-38
+AGENTS.md
+  h_c836a884b9f50f 18,132-133,142
+docs/architecture.md
+  h_c836a884b9f50f 7-16,892
+docs/sync.md
+  h_c836a884b9f50f 105-108
+docs/xiaohuasheng-app-api.md
+  h_c836a884b9f50f 11
+docs/xiaohuasheng-read-sync.md
+  h_c836a884b9f50f 5,11-18,39,91,110,124
+english/app.js
+  h_c836a884b9f50f 120-125,128,130-133,135,138-139,141,143-152
+english/book-progress.js
+  h_c836a884b9f50f 203-204,207-210,215,217-218,234,236,238-241,244
+english/index.html
+  h_c836a884b9f50f 2879,3008-3024,3035,5487-5488,5491-5494,5499,5501-5502,5518,5520,5522-5525,5528,5552,5587,5645-5693,6924-6929,6932,6934-6937,6939,6942-6943,6945,6947-6956
+english/tests/book-progress.test.cjs
+  h_c836a884b9f50f 554-630
+english/tests/xiaohuasheng-sync.test.cjs
+  h_c836a884b9f50f 15,22,24,27,32,37,42,45,49,52-104
+english/xiaohuasheng-sync.js
+  h_c836a884b9f50f 1,36,94-142
+scripts/local-server.py
+  h_c836a884b9f50f 11-12,18-28,183,200-201,206-210,220-249,262
+scripts/xiaohuasheng-local.py
+  h_c836a884b9f50f 1-158
+shared/site-sync.js
+  h_c836a884b9f50f 116,245-261,272
+tests/local-server.test.py
+  h_c836a884b9f50f 9,140-188
+tests/site-sync-client.test.mjs
+  h_c836a884b9f50f 1-93
+tests/xiaohuasheng-local.test.py
+  h_c836a884b9f50f 1-132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ce85f0c40dd1ea9465403a35413f62f82333bdf3",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}

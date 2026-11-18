@@ -1,0 +1,21 @@
+docs/architecture.md
+  s_655a201aff35d2::t_38c5792e598d65 7,13
+docs/sync.md
+  s_655a201aff35d2::t_77b3262ade4f14 9,11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6f674f172a67f29cf3501a5a1f363cfb8331f8da",
+  "prompts": {},
+  "sessions": {
+    "s_655a201aff35d2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17d1d-7751-7211-95ff-73aa1f765155",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
