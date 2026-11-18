@@ -12,7 +12,7 @@ const publicJSON = value => JSON.stringify(value, (key, item) => ['originalPath'
 const text = value => typeof value === 'string' || typeof value === 'number' ? String(value) : Array.isArray(value) ? value.map(text).filter(Boolean).join('；') : value && typeof value === 'object' ? Object.entries(value).filter(([key]) => !['originalPath', 'sourceOriginalPath'].includes(key)).map(([, item]) => text(item)).filter(Boolean).join('；') : '';
 export async function buildSearchIndex() {
   const raw = {};
-  for (const [key, file] of Object.entries({ banana: 'banana', xu: 'xu', qing: 'qing', editorial: 'editorial', resourceCovers: 'resource-covers', resourceVolumes: 'resource-volumes', resourcePrices: 'resource-prices', liaoReading: 'liao-reading', helloReading: 'hello-reading', readingPlans: 'reading-plans', resourceBooks: 'resource-books', sssSongs: 'sss-songs', topicTaxonomy: 'topic-taxonomy', routePlan: 'route-plan', xuCurrent: 'xu-current' })) raw[key] = await read('english/data/' + file + '.json');
+  for (const [key, file] of Object.entries({ banana: 'banana', xu: 'xu', qing: 'qing', 'low-age': 'low-age', editorial: 'editorial', resourceCovers: 'resource-covers', resourceVolumes: 'resource-volumes', resourcePrices: 'resource-prices', liaoReading: 'liao-reading', helloReading: 'hello-reading', readingPlans: 'reading-plans', resourceBooks: 'resource-books', sssSongs: 'sss-songs', topicTaxonomy: 'topic-taxonomy', routePlan: 'route-plan', xuCurrent: 'xu-current' })) raw[key] = await read('english/data/' + file + '.json');
   raw.resourceBooks = require('../english/book-progress.js').withReadingPlans(raw.resourceBooks, raw.readingPlans, raw.resourceVolumes);
   raw.xuSupplements = await Promise.all(['xu-thousand', 'xu-panorama'].map(file => read('english/data/' + file + '.json')));
   const catalog = model.normalize(raw), entries = [], knowledgeEntries = [], byResource = new Map(catalog.resources.map(item => [item.id, item]));
@@ -21,7 +21,7 @@ export async function buildSearchIndex() {
     knowledgeEntries.push(item); entries.push({ ...item, text: item.text.slice(0, 5000) });
   };
   const link = params => 'english/index.html#library?' + new URLSearchParams(params);
-  for (const routeId of ['xu', 'qing']) {
+  for (const routeId of ['xu', 'qing', 'low-age']) {
     const route = catalog.routes.find(item => item.id === routeId), plan = model.getRoutePlan(catalog, routeId, 'listening');
     add('english', 'route', routeId, route.name + ' · 听力路线依据', ['路线', '阶段', '推荐'], [plan.summary, route.ageCases?.map(item => [item.label, item.ageMinMonths, item.ageMaxMonthsExclusive]), plan.flow?.advanceNote, plan.stages.map(stage => text([stage.title, stage.goal, stage.entry, stage.exit]).slice(0, 200))], link({ stage: plan.stages[0].id }), [plan.sourceId, plan.page]);
   }
