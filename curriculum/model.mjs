@@ -1,3 +1,5 @@
+import { isCharacterKey } from './literacy-model.mjs';
+import { validShelfRecord } from './shelf-model.mjs?v=20261118-baby-v4';
 export const statuses = { candidate: '待选', planned: '计划中', using: '进行中', done: '已完成', paused: '已暂停' };
 export function materialKey(id, grade) { return `material:${id}:${grade}`; }
 export function goalKey(id, grade, subject) { return `goal:${grade}:${subject}:${id}`; }
@@ -20,7 +22,8 @@ export function summary(items, records) {
 export function validateBackup(input) {
  if (input?.kind !== 'curriculum' || input.version !== 1 || !input.records || typeof input.records !== 'object' || Array.isArray(input.records) || !Array.isArray(input.custom)) throw new Error('请选择全科启蒙备份，不能导入英语或成长记录。');
  for (const [key, value] of Object.entries(input.records)) {
-  if (!/^(material:|goal:|book:|catalog:)/.test(key) || !value || typeof value !== 'object' || !Object.hasOwn(statuses, value.status) || (value.note !== undefined && typeof value.note !== 'string')) throw new Error('备份中的状态或记录格式无效。');
+  if (/^(shelf:|shelf-sync:)/.test(key) && !validShelfRecord(key,value)) throw new Error('备份中的中文书架格式无效。');
+  if ((!/^(material:|goal:|book:|catalog:|shelf:v1:|shelf-sync:v1:)/.test(key) && !isCharacterKey(key)) || !value || typeof value !== 'object' || !Object.hasOwn(statuses, value.status) || (value.note !== undefined && typeof value.note !== 'string')) throw new Error('备份中的状态或记录格式无效。');
  }
  const ids = new Set();
  for (const m of input.custom) {
