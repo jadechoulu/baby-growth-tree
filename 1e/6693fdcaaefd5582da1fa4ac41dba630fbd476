@@ -1,0 +1,364 @@
+.gitignore
+  h_448c93d27d54a7 11-12,21-24
+app.mjs
+  h_448c93d27d54a7 1-2,7,17-19,30,37,49,105,112,117,130,220,250-252,325,439-442,456,470,494-499,509,512,522-523,531,535,538-547,555-569,576,581,594-595,601-602,622,627,630,632-633,649,669-673,679,689,708-709,711,715-716,719,721-722,724,729,732,734,741,744-748,750-751,766,791-797,804,814-821,830,833,835-837,839-840,844,849,854-858,870-873,876-894,902-904,910-913,919,958-960,996,1001-1029,1036,1042,1048-1054,1062,1066-1068,1088,1091,1099,1206-1209,1236-1242,1244-1252,1256,1258,1261,1366-1369,1479,1481,1486,1496,1521-1532,1536-1546,1549-1550
+cloud-config.json
+  h_448c93d27d54a7 2
+curriculum/app.mjs
+  h_448c93d27d54a7 1-340
+curriculum/catalog-index.mjs
+  h_448c93d27d54a7 1-2
+curriculum/catalog.mjs
+  h_448c93d27d54a7 1-32
+curriculum/catalogs/dragon-masters.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/elephant-piggie.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/fly-guy.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/frog-toad.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/little-critter.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/little-sheep.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/magic-tree.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/mercy.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/mobi-calculation.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/mobi-math.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/mobi-reading.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/owl.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/oxford.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/pete-cat.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/press-start.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/raz.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/robot.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/seven-skills.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/shichida.json
+  h_448c93d27d54a7 1
+curriculum/catalogs/winnie.json
+  h_448c93d27d54a7 1
+curriculum/charts.mjs
+  h_448c93d27d54a7 1-58
+curriculum/english-records.mjs
+  h_448c93d27d54a7 1-20
+curriculum/index.html
+  h_448c93d27d54a7 1-10
+curriculum/model.mjs
+  h_448c93d27d54a7 1-53
+curriculum/original-plan.mjs
+  h_448c93d27d54a7 1-166
+curriculum/plan.mjs
+  h_448c93d27d54a7 1-82
+curriculum/store.mjs
+  h_448c93d27d54a7 1-24
+curriculum/styles.css
+  h_448c93d27d54a7 1-56
+curriculum/vendor/xlsx.full.min.js
+  h_448c93d27d54a7 1-22
+data/catalog.json
+  h_448c93d27d54a7 2694-3360
+data/health-standard.json
+  h_448c93d27d54a7 1-3716
+data/skill-guides.json
+  h_448c93d27d54a7 241-255,461-484,3144-3706
+english/assets/liao/media/023e56ca30c846f80c68.txt
+  h_448c93d27d54a7 1-90
+english/assets/sources/reading-guides/pearson-basic.xlsx.preview.html
+  h_448c93d27d54a7 1
+english/assets/sources/reading-guides/raz-a.xlsx.preview.html
+  h_448c93d27d54a7 1-2
+english/assets/sources/reading-guides/raz-aa.xlsx.preview.html
+  h_448c93d27d54a7 1
+english/assets/vendor/pdfjs/LICENSE
+  h_448c93d27d54a7 1-177
+english/assets/vendor/pdfjs/cmaps/CNS2-V.bcmap
+  h_448c93d27d54a7 1-3
+english/assets/vendor/pdfjs/cmaps/ETenms-B5-H.bcmap
+  h_448c93d27d54a7 1-3
+english/assets/vendor/pdfjs/cmaps/GB-H.bcmap
+  h_448c93d27d54a7 1-4
+english/assets/vendor/pdfjs/cmaps/LICENSE
+  h_448c93d27d54a7 1-36
+english/assets/vendor/pdfjs/pdf.min.mjs
+  h_448c93d27d54a7 1-27
+english/assets/vendor/pdfjs/pdf.worker.min.mjs
+  h_448c93d27d54a7 1-27
+english/assets/vendor/pdfjs/standard_fonts/LICENSE_FOXIT
+  h_448c93d27d54a7 1-27
+english/assets/vendor/pdfjs/standard_fonts/LICENSE_LIBERATION
+  h_448c93d27d54a7 1-363
+english/assets/vendor/pdfjs/version.json
+  h_448c93d27d54a7 1-6
+english/automatic-list.js
+  h_448c93d27d54a7 1-85
+english/book-progress.js
+  h_448c93d27d54a7 1-364
+english/index.html
+  h_448c93d27d54a7 9-10,13-16,19-22
+english/runtime/app.a527bbcf07cada93.js
+  h_448c93d27d54a7 1-8374
+english/runtime/book-details.017de10c3f55c757.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.0441f26ab9d11711.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.04fef7d8afbb7681.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.07e5874889db4f11.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.0e617bc8c55f0e7c.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.14be32f7b3cc8aae.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.14f5f1d4ade121c6.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.2051b946d4f1641f.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.21894201e486afdb.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.219778c25a6e54fd.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.22284c54c70fefcf.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.237ea3dda5144372.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.25704ba858c6594b.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.300c79fd258da8e9.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3615fbabbd8d5a72.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.387ecbf62f866496.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.397ac4a6506e6a65.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3985d06632ab2d68.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3b342dcd25a1590f.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3b3be92894969541.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3ce8c39948c12dfd.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3d0aefb444729ec9.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.3df05fd83c88e825.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.4170d8ff0948b62f.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.421b66cce5ac39d9.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.42bd7c6927a876cc.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.46f28961a4c84387.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.4f77181dac9c8e7a.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.4f7b15cd56ec6b57.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.52f4c7411e5dfc1b.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.5321ee8e4b04c32d.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.53d3c2ffa1e099eb.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.54305199f6f26283.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.61ee60ff351a88f8.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.6544aece386fd55e.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.684024cc677a3246.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.6a07f30d81a78699.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.6d420c8a6a98a591.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.6e9bb412c55f8e09.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.721e90fc7bdd76f7.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.75bb17a1dcadcb54.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.7694b02cf47a0cbb.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.7b0dba6e423946fe.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.7cb257b9687b3f4c.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.816cc6b405eb1442.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.82008f1ca1ac9984.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.83ab4c2829893b48.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.849c28a8cede92b4.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.88848fb3c8a96059.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.8b273de7fa1e3926.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.8e1e4dd72cb61501.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.934c7e8dde4a8779.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.94ab98e729b21497.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.a5a3aa8642d58449.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.ac6806f21eac5b04.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.b705d38027fbcca3.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.c3af94068f0ef765.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.c8ad7c152f8379c4.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.caad7467559afc84.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.cd3887115f41ed40.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.cecbfb6b93ae0d08.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d145e7c40e2b32ea.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d19dcccf5ff72929.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d4eeccc7916f539f.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d561cd38f2414a52.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d577a34c13fb0b31.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d5f3e207ee587014.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.d6ad8bc9060c7ff3.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.db5127bbec8e029f.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.dd751df5d7d4329b.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.dddbfaa1c88edeab.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.e0f9b693247f827e.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.ea445e1ce0f1e0df.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.ea7620410c97d7c1.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.ef1f4fbb8d17f4a0.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.f0e3b31e92342316.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.f6ca767442a807eb.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.f9292251f2ae8629.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.f9f88cd91ee3cf26.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.fc65352b2cc33a8a.json
+  h_448c93d27d54a7 1
+english/runtime/book-details.ff73367e24a5d4e3.json
+  h_448c93d27d54a7 1
+english/runtime/books.e794620a17efef2a.json
+  h_448c93d27d54a7 1
+english/runtime/data.a6ff2f49ac0645cf.js
+  h_448c93d27d54a7 1-2
+english/runtime/hello.be5052d27201a7a0.json
+  h_448c93d27d54a7 1
+english/runtime/resource-topics.74d3633670649328.json
+  h_448c93d27d54a7 1
+english/runtime/styles.3ff25c38673bf164.css
+  h_448c93d27d54a7 1-2604
+graph.css
+  h_448c93d27d54a7 3-15,37,53-59,70,89-96,106,143,210,212,225-226,228-229,233,235-239,241,249-250,253,255-260,262-306,333-336,357,369-391,393-399,436-437,443-444,448,451,479-482,484-559,562-576,578-595
+health.css
+  h_448c93d27d54a7 1-258
+health.html
+  h_448c93d27d54a7 1-30
+health.mjs
+  h_448c93d27d54a7 1-848
+home.html
+  h_448c93d27d54a7 6-7,12,17-25
+index.html
+  h_448c93d27d54a7 6-7,13-15,21-31
+lib/graph.mjs
+  h_448c93d27d54a7 136,142,165,167,226,228,232,253-260,262-263,265,268-276,278-285,291,343
+lib/growth-search.mjs
+  h_448c93d27d54a7 1-123
+lib/health-model.mjs
+  h_448c93d27d54a7 1-97
+lib/health-progression.mjs
+  h_448c93d27d54a7 1-92
+lib/model.mjs
+  h_448c93d27d54a7 16
+lib/vision-model.mjs
+  h_448c93d27d54a7 1-165
+shared/assistant-data.json
+  h_448c93d27d54a7 1
+shared/assistant-runtime.js
+  h_448c93d27d54a7 1-2351
+shared/assistant-workflow.js
+  h_448c93d27d54a7 1-22
+shared/baby-profile.js
+  h_448c93d27d54a7 30-31
+shared/default-entry.js
+  h_448c93d27d54a7 1-6
+shared/growth-references.js
+  h_448c93d27d54a7 1-2227
+shared/growth-versions.js
+  h_448c93d27d54a7 1-87
+shared/search-core.js
+  h_448c93d27d54a7 1-42
+shared/search-index.json
+  h_448c93d27d54a7 1
+shared/site-config.js
+  h_448c93d27d54a7 2
+shared/site-home.js
+  h_448c93d27d54a7 16-20
+shared/site-search.js
+  h_448c93d27d54a7 1-285
+shared/site-shell.js
+  h_448c93d27d54a7 5-21,27,32-33,35,37-38,75-114,125,156-162,165,168,194,197,269-281,309,328,331,347-351,377
+shared/site-sync.js
+  h_448c93d27d54a7 1-446
+shared/sync-adapters.js
+  h_448c93d27d54a7 1-146
+shared/sync-engine.js
+  h_448c93d27d54a7 1-205
+shared/sync-model.js
+  h_448c93d27d54a7 1-134
+site.css
+  h_448c93d27d54a7 2,22,25,34-37,39,92,96,100,123-130,153-154,159,171,213,260-433
+theme.css
+  h_448c93d27d54a7 39,41
+vision.css
+  h_448c93d27d54a7 1-38
+vision.html
+  h_448c93d27d54a7 1-28
+vision.mjs
+  h_448c93d27d54a7 1-377
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1e6693fdcaaefd5582da1fa4ac41dba630fbd476",
+  "prompts": {},
+  "humans": {
+    "h_448c93d27d54a7": {
+      "author": "jadechoulu <266516354+jadechoulu@users.noreply.github.com>"
+    }
+  }
+}
