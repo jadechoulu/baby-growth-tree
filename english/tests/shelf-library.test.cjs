@@ -20,8 +20,10 @@ test('培生上辑48册外站身份逐册回归同版公共目录，旧私人勾
   for(const entry of entries)assert.equal(BP.matchEntry(options.plans,entry,directory,options.catalog).candidates.length,1);
   const legacy=Shelf.apply({},snap,options).changes,manual=BP.manualUpdate({},'shelf-book-owner-'+entries[1].bookId,true),saved={...legacy,...manual};
   const result=Shelf.apply(saved,snap,config),records={...saved,...result.changes};
-  assert.equal(Shelf.groups(records,config).length,0);assert.equal(BP.bookState(records,books[0].id).done,true);assert.equal(BP.bookState(records,books[1].id).manual,true);
-  assert.equal(BP.bookState(records,books[2].id).done,false);
+  assert.equal(Shelf.groups(records,config).length,0,'公共目录身份去除全部培生基础词汇书架');
+  const state0=BP.bookState(records,books[0].id,config.directory);assert.equal(state0.done,true,'第一条基础词汇应沿用外部事实:'+JSON.stringify(state0));
+  const state1=BP.bookState(records,books[1].id,config.directory);assert.equal(state1.manual,true,'第二条基础词汇应沿用手工事实:'+JSON.stringify(state1));
+  assert.equal(BP.bookState(records,books[2].id,config.directory).done,false);
 });
 test('旧快照缺少新增元信息时保留已核标签，显式空值可撤回且不同身份不继承',()=>{
   const first=Shelf.apply({},snapshot([book('a',{catalogTags:['Lovevery'],publisher:'Lovevery.com'})]),options).changes;

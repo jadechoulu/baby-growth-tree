@@ -1298,7 +1298,7 @@
 .library-filterbar-single .library-filter-button{font-size:14px;padding:2px 4px}
 .library-filterbar-single .library-filter-select{field-sizing:fixed;font-size:14px;flex:none;padding:2px;width:58px}
 .library-filterbar-single #library-status-filter{width:74px}
-.library-filterbar-single #library-stage-scope{width:122px}
+.library-filterbar-single #library-stage-scope{width:28px;min-width:28px;padding:3px}
 
 /* 单本目录按版本呈现；主题与阶段取交集，不重复套系卡片。 */
 .library-topic-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
@@ -2006,7 +2006,7 @@
 .library-topic-summary{display:flex;flex-wrap:wrap;gap:6px 18px;margin:4px 0 10px;padding:8px 12px;border-radius:8px;background:var(--soft,#eef5f0);font-size:13px;line-height:1.5;color:var(--ink,#30473a)}
 .library-topic-summary span{overflow-wrap:anywhere}
 #library-reset{margin-left:auto;font-size:13px;color:var(--muted,#68776e)}
-#library-stage-scope{max-width:160px}
+#library-stage-scope{flex:none}
 
 @media(max-width:600px){.hello-collection-tabs .liao-collection-full{display:none}.hello-collection-tabs .liao-collection-short{display:inline}.hello-collection-tabs{flex-wrap:nowrap;gap:4px}.hello-collection-tabs>.button{padding-inline:6px}}
 

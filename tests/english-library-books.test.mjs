@@ -15,9 +15,9 @@ test('全部及三条路线的每个阶段均保留原套系入口，不用未�
   const entries=B.materialEntries(input.directory,input.catalog.resources,M,input.volumes);
   const gyuri=input.catalog.resources.find(r=>r.title==='古力小超人');
   const selected=B.filter(entries,input.directory,{route:'qing',stageIds:['qing-s1']}).filter(e=>e.resourceId===gyuri.id);
-  assert.equal(selected.length,1);
-  assert.equal(selected[0].entryKind,'resource');
-  assert.equal(selected[0].resourceCatalogFallback,true);
+  assert.equal(selected.length,24,'原表1／2已有具名完整目录绑定，分别对应两套12册');
+  assert.ok(selected.every(book=>book.entryKind!=='resource'));
+  assert.deepEqual(new Set(selected.map(book=>book.edition)),new Set(['彩虹兔古力小超人12册套装','彩虹兔古力与朋友们12册套装']));
   assert.ok(B.filter(entries,input.directory).some(e=>e.resourceId===gyuri.id&&e.entryKind!=='resource'));
   assert.ok(!B.filter(entries,input.directory).some(e=>e.resourceId===gyuri.id&&e.entryKind==='resource'));
   assert.equal(JSON.stringify(input.directory.books),before,'不修改单册阶段、身份与完成事实');
@@ -60,6 +60,9 @@ test('有据系列主题缺少单册表达时仅在主题结果提供系列入�
     assert.equal(fallback.topicScope,'resource');assert.deepEqual(fallback.sourceIds,evidence.sourceIds);
     assert.deepEqual(T.entryEvidence('resource',fallback.resource),{...evidence,patterns:[]});
     assert.deepEqual(B.filter(result,directory).map(entry=>entry.id),['scope-book','aggregate-book']);
+    const candidates=B.filter(result,directory,{includeTopicReferences:true});
+    assert.ok(candidates.includes(fallback),'生成主题候选时保留仅有系列依据的入口');
+    assert.ok(T.options(candidates.flatMap(entry=>B.topicIds(entry,directory))).some(topic=>topic.id==='fantasy'));
     assert.deepEqual(B.filter(result,directory,{query:'有据系列'}).map(entry=>entry.id),['scope-book']);
     assert.deepEqual(B.filter(result,directory,{topic:'animals',subtopic:'animals.farm'}).map(entry=>entry.id),['scope-book']);
     assert.deepEqual(B.filter(result,directory,{topic:'fantasy',subtopic:'fantasy.adventure'}).map(entry=>entry.id),[resource.id]);

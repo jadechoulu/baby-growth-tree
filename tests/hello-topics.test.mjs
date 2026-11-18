@@ -7,6 +7,19 @@ const read=name=>JSON.parse(readFileSync(new URL('../english/data/'+name,import.
 const data=read('hello-reading.json'),content=new Map(read('hello-rhyme-content.json').map(r=>[r.id,r]));
 for(const rhyme of data.rhymes)Object.assign(rhyme,content.get(rhyme.id));
 
+test('Hello主题选项只保留当前书号、场景、曲调、关键词及查看方式有结果的路径',()=>{
+  const before=JSON.stringify(data);
+  for(const view of ['books','scenes','rhymes','graph'])for(const filters of [{},{book:'hello-01'},{book:'hello-18',scene:'刷牙'},{tune:'The Farmer in the Dell'},{query:'Toothbrush'},{query:'没有这个素材'}]){
+    const scope={...filters,view},available=H.availableTopics(data,scope);
+    for(const root of T.options(available))for(const subtopic of ['all',...T.options(available,root.id).map(node=>node.id)]){
+      const found=H.browse(data,{...scope,topic:root.id,subtopic});
+      assert.ok((view==='rhymes'?found.rhymes:found.scenes).length,JSON.stringify({...scope,topic:root.id,subtopic}));
+    }
+  }
+  assert.ok(!T.options(H.availableTopics(data)).some(node=>node.id==='patterns'));
+  assert.equal(JSON.stringify(data),before);
+});
+
 test('Hello家居主题只命中本Part，不借同册生活场景扩散',()=>{
   const before=JSON.stringify(data),found=H.browse(data,{book:'hello-01',topic:'home'});
   assert.deepEqual(found.scenes.map(row=>row.part.part),[3]);

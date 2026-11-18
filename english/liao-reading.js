@@ -12,6 +12,9 @@ function filter(data,{stage='all',query='',order='plan',topic='all',subtopic='al
   return ordered.filter(book=>(stage==='all'||String(book.stage)===String(stage))&&words.every(word=>[book.title,...book.references.map(ref=>ref.original),...book.notes].join(' ').toLowerCase().includes(word))&&
     ((topic==='all'&&subtopic==='all')||!!(topics&&resourceForBook&&topics.matches(topics.entryTopics('resource',resourceForBook(book.id)||{}),{topic,subtopic}))));
 }
+function availableTopics(data,options){
+  return [...new Set(filter(data,{...options,topic:'all',subtopic:'all'}).flatMap(book=>options.topics.entryTopics('resource',options.resourceForBook(book.id)||{})))];
+}
 function reviewFor(data,book){return data.reviews.filter(review=>book.references.some(ref=>ref.week>=review.fromWeeks[0]&&ref.week<=review.fromWeeks[1]));}
 function stageProgress(stage,isDone){
   const ids=[...new Set(stage.bookIds)];
@@ -109,11 +112,13 @@ function render(data,ui){
   }
   const weekLegend=popover('liao-week-legend','周次图例',icon('legend'),h('div',{},h('p',{},h('span',{class:'liao-week-key'},'引入周'),' 按原表引入新书。'),h('p',{},h('span',{class:'liao-week-key liao-week-review'},'复习周'),' 浅紫色、虚线边框，重听指定周段的书单；同一复习段内各周共用书目。'),h('p',{},h('span',{class:'liao-week-key liao-week-current'},'当前周'),h('span',{class:'liao-week-key liao-week-review liao-week-current'},'当前复习周'),' 选中时底色加深、边框变为实线。'),h('p',{class:'small-note'},'颜色只区分周次安排，不表示书本完成状态或难度。')));
   weekLegend.hidden=state.mode!=='plan';
-  function refreshResults(){weekLegend.hidden=state.mode!=='plan';area.querySelector('.liao-results').replaceWith(results());}
+  function syncTopics(){if(topicPicker)Object.assign(state,topicPicker.sync(state.topic,state.subtopic,availableTopics(data,{...topicOptions(),order:state.mode==='picture'?'picture':'plan'})));}
+  function refreshResults(){syncTopics();weekLegend.hidden=state.mode!=='plan';area.querySelector('.liao-results').replaceWith(results());}
   const search=h('input',{id:'liao-query',type:'search',value:state.query,placeholder:'书名、英文名或原表写法','aria-label':'搜索廖彩杏书目',oninput:e=>{if(e.isComposing)return;state.query=e.target.value;state.limits.clear();refreshResults();},oncompositionend:e=>{state.query=e.target.value;state.limits.clear();refreshResults();}});
   const modeButtons=['picture','plan'].map(mode=>button(mode==='picture'?'建议顺序 · 130本':'52周 · 100本',()=>{state.mode=mode;modeButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(['picture','plan'][i]===mode)));refreshResults();},{class:'liao-mode-button','aria-pressed':String(state.mode===mode)}));
   const controls=h('div',{class:'liao-controls'},popover('liao-search','搜索廖彩杏书目',icon('search'),h('div',{class:'library-search-box'},search),!!state.query),ui.resetControl('liao-reset',()=>{Object.assign(state,{query:'',topic:'all',subtopic:'all'});state.limits.clear();state.weeks.clear();search.value='';topicPicker?.sync('all','all');refreshResults();},'重置廖彩杏全部筛选'),ui.groupingControl);
-  const topicPicker=ui.topicUI&&ui.topics&&ui.resourceForBook?ui.topicUI.picker({id:'liao-topic',compact:true,available:books(data).flatMap(book=>ui.topics.entryTopics('resource',ui.resourceForBook(book.id)||{})),topic:state.topic,subtopic:state.subtopic,onchange:(topic,subtopic)=>{state.topic=topic;state.subtopic=subtopic;state.limits.clear();refreshResults();}}):null;
+  const topicPicker=ui.topicUI&&ui.topics&&ui.resourceForBook?ui.topicUI.picker({id:'liao-topic',compact:true,available:availableTopics(data,{...topicOptions(),order:state.mode==='picture'?'picture':'plan'}),topic:state.topic,subtopic:state.subtopic,onchange:(topic,subtopic)=>{state.topic=topic;state.subtopic=subtopic;state.limits.clear();refreshResults();}}):null;
+  syncTopics();
   area.append(h('div',{class:'liao-library-toolbar'},h('div',{class:'liao-library-nav'},ui.collectionTabs)),
     h('div',{class:'liao-mode-switch'},h('div',{class:'liao-mode-tabs',role:'group','aria-label':'书单排列方式'},modeButtons),h('div',{class:'liao-mode-tools'},popover('liao-info','廖彩杏资料与等级说明',icon('info'),info()),button(icon('help'),ui.onMethod,{id:'liao-method-toggle',class:'library-filter-button','aria-label':'这些素材怎么用','aria-haspopup':'dialog',title:'这些素材怎么用'}),button(icon('gourd'),ui.onSoundBook,{id:'liao-sound-book-toggle',class:'library-filter-button','aria-label':'慢葫芦发声书完整书单','aria-haspopup':'dialog',title:'慢葫芦发声书 · 50首页码书单'}),weekLegend,controls)),...(topicPicker?[topicPicker.element]:[]),results());
   return area;
@@ -147,6 +152,6 @@ function detail(data,book,{h,sourceBtn,onResource,fold,asset}){
     data.recommendations.filter(relation=>[...relation.from,...relation.to].includes(book.id)).map(relation=>fold('liao-advice-'+book.id,'指导书建议：'+relation.title,h('div',{},h('p',{},relation.note),[...relation.from,...relation.to].filter(id=>id!==book.id).map(id=>h('button',{type:'button',class:'text-link',id:'liao-related-'+id,onclick:()=>onResource(id)},findBook(data,id).title)),relation.sources.map(refLink)))),
     fold('liao-evidence-'+book.id,'逐项原文与出处',h('div',{},(inventory.shares||[]).map(share=>h('div',{},h('p',{class:'small-note'},share.folder+' · '+(share.empty?'空目录':'已核对分享目录首层内容')),(share.fileNames||[]).map(name=>h('p',{class:'small-note'},name)),share.note?h('p',{class:'small-note'},share.note):null)),book.media.filter(m=>m.kind==='audio').map(m=>h('p',{class:'small-note'},m.sourceName+' · '+m.selectionBasis)),h('p',{class:'small-note'},data.levelNote),book.references.map(ref=>h('div',{class:'liao-evidence-row'},h('p',{},ref.original),h('p',{class:'small-note'},'Excel括号内编号 '+ref.planNumber+' · '+ref.locator))),book.number?h('p',{class:'small-note'},'指导书书末编号 '+book.number+'；与图示编号分别保留，不代表资料包编号。'):null,entry.imageTitle?h('p',{class:'small-note'},'图示标题：'+entry.imageTitle):null,book.sources.map(refLink),reviews.map(review=>h('p',{class:'small-note'},review.evidence.quote+' · '+review.evidence.locator)),book.coverEvidence?h('p',{class:'small-note'},book.coverEvidence):null,h('a',{class:'text-link',href:asset('assets/liao/52-weeks.xls'),download:'52-weeks.xls'},'下载52周参考表'))));
 }
-const api={books,findBook,filter,reviewFor,stageProgress,weekPlan,packageLabel,render,method,detail};root.EnglishLiao=api;
+const api={books,findBook,filter,availableTopics,reviewFor,stageProgress,weekPlan,packageLabel,render,method,detail};root.EnglishLiao=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

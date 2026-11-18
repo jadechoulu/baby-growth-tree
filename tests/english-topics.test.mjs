@@ -75,7 +75,7 @@ test('学校、职业与社交不按角色出现或旧标签自动继承',()=>{
   assert.equal(T.matches(topics('book-3b579d5e9eecae1f'),{topic:'social',subtopic:'social.sharing'}),false);
   assert.equal(T.matches(topics('book-3b579d5e9eecae1f'),{topic:'food',subtopic:'food.cooking'}),false);
   assert.equal(T.matches(topics('book-9e3a469a41019cb4'),{topic:'emotions',subtopic:'emotions.expression'}),false);
-  assert.deepEqual(topics('book-a40941b5e8434eb5'),['concepts.books']);
+  const bookTopics=topics('book-a40941b5e8434eb5');assert.deepEqual(bookTopics.filter(id=>!T.node(id)?.parentId==='patterns'?false:false||!id.startsWith('patterns.group-')),['concepts.books']);assert.ok(bookTopics.includes('patterns.group-other'),'题名兜底保持句型可筛');
 });
 
 test('Hello家居和道路场景不推定交通、安全或自我认知教学，农场动物逐条取证',()=>{
@@ -157,7 +157,7 @@ test('句型与内容主题并存，按来源原文精确匹配，不跨版或�
   assert.deepEqual(T.entryTopics('book',{title:'I like cats',topics:[]}),[]);
   const gk=directory.books.find(b=>b.id==='heinemann-gk70-01');
   assert.ok(T.entryTopics('book',gk).some(id=>T.node(id)?.parentId==='patterns'));
-  const modified={...gk,studyGuide:{...gk.studyGuide,patterns:[{text:'Invented sentence …'}]}};
+  const modified={...gk,id:'test-unmapped-sentence',studyGuide:{...gk.studyGuide,patterns:[{text:'Invented sentence …'}]}};
   assert.equal(T.matches(T.entryTopics('book',modified),{topic:'patterns'}),false);
 });
 
@@ -185,7 +185,7 @@ test('补充句型与原表共存，标题兜底只读取离线显式映射，�
   }finally{if(old===undefined)delete runtime.bookOverrides[id];else runtime.bookOverrides[id]=old;}
 });
 
-test('小红书句型只绑定同套同级同版本，参考版次及系列内容不下传单册',()=>{
+test('小红书句型只绑定原版本或已核同ISBN单册，参考版次及系列内容不下传单册',()=>{
   const research=require('../english/data/material-topic-research.json');
   const canonical=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const hasSource=(book,sourceId)=>T.patterns('book',book).some(item=>item.sourceId===sourceId);
@@ -193,7 +193,9 @@ test('小红书句型只绑定同套同级同版本，参考版次及系列内�
     const tables=research.tables.filter(table=>table.sourceId===sourceId),adopted=books.books.filter(book=>hasSource(book,sourceId));
     assert.ok(adopted.length,sourceId+'应有已核定的具名书目');
     for(const book of adopted){
-      assert.ok(tables.some(table=>table.resourceId===book.resourceId&&table.levels.some(level=>level.toLowerCase()===book.level.toLowerCase())&&(!table.editionContains||book.edition.includes(table.editionContains))&&table.rows.some(row=>canonical(row.title)===canonical(book.title))),book.id+'不能跨套、跨级或跨版本借句型');
+      const relation=books.readingEquivalences.find(group=>group.kind==='same-isbn'&&group.bookIds.includes(book.id));
+      const candidates=[book,...(relation?.bookIds||[]).filter(id=>id!==book.id).map(id=>books.books.find(b=>b.id===id))];
+      assert.ok(candidates.some(candidate=>tables.some(table=>table.resourceId===candidate.resourceId&&table.levels.some(level=>level.toLowerCase()===candidate.level.toLowerCase())&&(!table.editionContains||candidate.edition.includes(table.editionContains))&&table.rows.some(row=>canonical(row.title)===canonical(candidate.title)))),book.id+'须有原版依据或同ISBN逐册证据');
       assert.ok(T.entryTopics('book',book).some(id=>T.node(id)?.parentId==='patterns'),book.id+'须进入共用句型筛选');
     }
   }
@@ -211,6 +213,39 @@ test('小红书句型只绑定同套同级同版本，参考版次及系列内�
   assert.deepEqual(T.entryTopics('resource',{id:'unmapped-wow-episode',title:'Wow English 第二季第1集'}),[]);
   assert.deepEqual(T.entryTopics('book',{title:'The Forest',level:'A',topics:[]}),[]);
   assert.deepEqual(T.patterns('book',{title:'How Many Animals',level:'Pink 1A'}),[]);
+});
+
+test('同ISBN书目共用内容主题和句型，路线与阶段仍由当前目录精确取交集',()=>{
+  const {inputs}=require('../scripts/audit-library-route-coverage.cjs'),{catalog,directory,volumes}=inputs();
+  const before=JSON.stringify(directory),entries=LB.materialEntries(directory,catalog.resources,M,volumes);
+  const bigcat=entries.filter(book=>book.resourceId==='resource-g7xvo5'&&book.entryKind!=='resource');
+  const source=bigcat.find(book=>book.id==='book-ea98f823f5fc3955'),selected=bigcat.find(book=>book.id==='book-a30240076eba3f04');
+  assert.ok(selected.appearances.length);assert.equal(source.appearances.length,0);
+  const preparatory=LB.filter(bigcat,directory,{route:'xu',stageIds:['xu-node-300']});
+  assert.equal(preparatory.length,18,'整级directoryMatch按版本与级别接通18册选本');
+  assert.ok(preparatory.every(book=>book.edition==='外研社大猫 · 预备至4级（2023目录对应选本）'&&['预备级1','预备级2'].includes(book.level)));
+  assert.ok(LB.filter(preparatory,directory,{topic:'patterns'}).some(book=>book.id===selected.id));
+  for(const id of T.entryTopics('book',source))assert.ok(T.entryTopics('book',selected).includes(id),T.label(id));
+  assert.ok(T.patterns('book',selected).length);
+  for(const route of ['xu','qing','banana'])assert.ok(LB.filter(bigcat,directory,{route,topic:'patterns'}).length,route);
+  assert.ok(LB.filter(bigcat,directory,{route:'xu',stageIds:M.libraryStageIds(catalog,'xu-node-500',false,{}),topic:'patterns'}).length);
+  const fiction=LB.filter(bigcat,directory,{route:'qing',stageIds:['qing-s1'],topic:'patterns'});
+  assert.ok(fiction.length);assert.ok(fiction.every(book=>book.genre==='fiction'));
+  assert.equal(LB.filter(bigcat,directory,{route:'qing',stageIds:['xu-node-500'],topic:'patterns'}).length,0);
+  assert.deepEqual(T.patterns('book',{...selected,id:'unconfirmed-edition',topics:[]}),[]);
+  assert.ok(T.entryEvidence('book',selected).equivalentBooks.some(book=>book.id===source.id&&book.isbn==='9780007185399'));
+  assert.equal(JSON.stringify(directory),before);
+});
+
+test('已有原表的RAZ结构与GK比较结构进入共同句型家族，词汇项不冒充句型',()=>{
+  const BP=require('../english/book-progress.js'),directory=BP.withReadingPlans(books,require('../english/data/reading-plans.json'));
+  for(const [id,group]of [['book-guide-raz-a-005','patterns.group-be'],['book-guide-raz-a-017','patterns.group-see'],['book-guide-raz-a-028','patterns.group-be'],['heinemann-gk70-15','patterns.group-other']]){
+    const book=directory.books.find(book=>book.id===id);
+    assert.ok(T.matches(T.entryTopics('book',book),{topic:'patterns',subtopic:group}),book.title);
+  }
+  const word=directory.books.find(book=>book.id==='book-guide-raz-a-006');
+  assert.equal(T.patterns('book',word).some(item=>/^live$/i.test(item.text)),false,'live为原表词汇项，不显示为句型');
+  assert.ok(T.matches(T.entryTopics('book',word),{topic:'patterns',subtopic:'patterns.group-questions'}),'题名What Lives Here?按疑问句兜底');
 });
 
 test('慢葫芦逐页主题与页码查询、对应筛选取交集，保留独立歌曲身份及原顺序',()=>{
