@@ -4,6 +4,18 @@
 const MANUAL='reading.book.v1:',EXTERNAL='reading.external.v1:',AUTHORITY='reading.authority.v1:',INTERNALIZED='reading.internalized.v1:';
 const parse=value=>{try{return JSON.parse(value);}catch{return null;}};
 const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[’']/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+// 只在一次同步绘制内复用个人事实；退出即释放，下一次勾选／同步绝不读取旧快照。
+let readScope=null;
+function withReadScope(read){
+  if(readScope)return read();
+  readScope={views:new WeakMap(),facts:new WeakMap(),byBook:new WeakMap(),notes:new WeakMap()};
+  try{return read();}finally{readScope=null;}
+}
+function recordNote(record){
+  if(!readScope)return parse(record.note);
+  if(!readScope.notes.has(record))readScope.notes.set(record,parse(record.note));
+  return readScope.notes.get(record);
+}
 function planForResource(data,id,directory,catalog,scope){
   const authored=data?.plans?.find(plan=>plan.resourceId===id||plan.resourceIds?.includes(id));
   if(authored&&(!scope||scopeGroup(authored,scope)!==null))return authored;
@@ -29,10 +41,26 @@ function books(plan,group='all',order){
   return [...new Map((plan?.books||[]).filter(book=>group==='all'||(Array.isArray(group)?group.includes(book.group):book.group===group)).map(book=>[book.id,book])).values()].sort((a,b)=>(a[field]??Infinity)-(b[field]??Infinity)||a.order-b.order);
 }
 function externalFacts(records){
-  return Object.entries(records||{}).filter(([key,record])=>key.startsWith(EXTERNAL)&&record?.status==='done').flatMap(([key,record])=>{
-    const fact=parse(record.note);
+  if(records&&readScope?.facts.has(records))return readScope.facts.get(records);
+  const facts=Object.entries(records||{}).filter(([key,record])=>key.startsWith(EXTERNAL)&&record?.status==='done').flatMap(([key,record])=>{
+    const fact=recordNote(record);
     return fact?.version===1&&fact.sourceKind==='xiaohuasheng_bookcase_read'&&typeof fact.publicBookId==='string'?[{...fact,key}]:[];
   });
+  if(records&&readScope)readScope.facts.set(records,facts);
+  return facts;
+}
+function factsForBook(records,ids){
+  if(!records||!readScope)return externalFacts(records).filter(fact=>ids.includes(fact.publicBookId));
+  let index=readScope.byBook.get(records);
+  if(!index){
+    index={books:new Map(),order:new Map()};
+    for(const fact of externalFacts(records)){
+      if(!index.books.has(fact.publicBookId))index.books.set(fact.publicBookId,[]);
+      index.books.get(fact.publicBookId).push(fact);index.order.set(fact,index.order.size);
+    }
+    readScope.byBook.set(records,index);
+  }
+  return ids.flatMap(id=>index.books.get(id)||[]).sort((a,b)=>index.order.get(a)-index.order.get(b));
 }
 function readingIds(book,directory){
   const id=typeof book==='string'?book:book.id;
@@ -43,6 +71,13 @@ function completedBook(records,book,directory,known){return readingIds(book,dire
 // 同时核对公开guid与App数字ID，不按题名匹配，也不把套装已读传给成员。
 const publicIdentityCache=new WeakMap();
 function publicRecordView(records,directory,catalog){
+  if(!records||!directory?.books?.length||!readScope)return computePublicRecordView(records,directory,catalog);
+  let views=readScope.views.get(records);if(!views){views=new Map();readScope.views.set(records,views);}
+  let byCatalog=views.get(directory);if(!byCatalog){byCatalog=new Map();views.set(directory,byCatalog);}
+  if(!byCatalog.has(catalog))byCatalog.set(catalog,computePublicRecordView(records,directory,catalog));
+  return byCatalog.get(catalog);
+}
+function computePublicRecordView(records,directory,catalog){
   if(!records||!directory?.books?.length)return records;
   let index=publicIdentityCache.get(directory);
   if(!index||index.books!==directory.books){
@@ -57,7 +92,7 @@ function publicRecordView(records,directory,catalog){
   const shelf=new Map(),observed=[];
   for(const [key,record] of Object.entries(records)){
     if(key.startsWith('reading.shelf.v1:')&&record?.status==='using'){
-      const meta=parse(record.note);
+      const meta=recordNote(record);
       if(meta?.version===1&&!meta.isCollection&&key==='reading.shelf.v1:'+meta.accountId+':'+meta.bookId){
         shelf.set(meta.accountId+':'+meta.bookId,meta);observed.push(meta);
       }
@@ -75,7 +110,7 @@ function publicRecordView(records,directory,catalog){
   const put=(key,value)=>{if(view===records)view={...records};view[key]=value;};
   for(const [key,record] of Object.entries(records)){
     if(!key.startsWith(EXTERNAL)||record?.status!=='done')continue;
-    const fact=parse(record.note);
+    const fact=recordNote(record);
     if(fact?.version!==1||fact.sourceKind!=='xiaohuasheng_bookcase_read'||key!==EXTERNAL+fact.accountId+':'+fact.externalBookId||fact.publicBookId!=='shelf-book-'+fact.accountId+'-'+fact.externalBookId)continue;
     const meta=shelf.get(fact.accountId+':'+fact.externalBookId);
     if(meta?.isCollection)continue;
@@ -100,7 +135,7 @@ function bookState(records,book,directory,catalog){
   if(directory)records=publicRecordView(records,directory,catalog);
   const ids=readingIds(book,directory);
   const manual=ids.some(id=>records?.[MANUAL+id]?.status==='done');
-  const external=externalFacts(records).filter(fact=>ids.includes(fact.publicBookId));
+  const external=factsForBook(records,ids);
 
   // 同一本的重复外部身份取最大值，不把同步次数、手工勾选或套装次数相加。
   const counts=external.map(fact=>fact.readCount).filter(count=>Number.isSafeInteger(count)&&count>=0);
@@ -429,6 +464,6 @@ function applyReadSnapshot(records,data,snapshot,options={}){
   }
   return {changes,matched,unmatched,ambiguous};
 }
-return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,withReadingPlans,publicRecordView,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
+return {MANUAL,EXTERNAL,AUTHORITY,INTERNALIZED,normalize,withReadScope,withReadingPlans,publicRecordView,planForResource,catalogPlans,groupForStage,scopeGroup,books,bookState,directoryProgress,manualUpdate,internalized,internalizationUpdate,progress,sourcePriority,projectQuantity,projectScopeQuantity,applyReadSnapshot,matchEntry,validateSnapshot};
 
 });
