@@ -1,4 +1,4 @@
-import { patchDocument, mergeBackup } from './model.mjs?v=20261118-books';
+import { patchDocument, mergeBackup } from './model.mjs?v=20261118-baby-v4';
 export const empty = () => ({ kind: 'curriculum', version: 1, records: {}, custom: [] });
 export function createStore(indexedDB) {
  let opening;
@@ -16,9 +16,9 @@ export function createStore(indexedDB) {
   return new Promise((resolve,reject)=>{
    const tx=db.transaction('documents',change?'readwrite':'readonly'),store=tx.objectStore('documents'),request=store.get('default');
    let result,error;
-   request.onsuccess=()=>{ try { result=change?change(request.result||empty()):request.result||empty();if(change)store.put(result,'default'); }catch(e){error=e;tx.abort();} };
+   request.onsuccess=()=>{ try { result=change?change(request.result||empty(),store):request.result||empty();if(change)store.put(result,'default'); }catch(e){error=e;tx.abort();} };
    tx.oncomplete=()=>resolve(result);tx.onabort=tx.onerror=()=>reject(error||tx.error||new Error('全科记录未能保存。'));
   });
  }
- return { read:()=>transaction(), save:(changes,expected)=>transaction(current=>patchDocument(current,changes,expected)), import:incoming=>{let conflicts;return transaction(current=>{const result=mergeBackup(current,incoming);conflicts=result.conflicts;return result.value;}).then(value=>({value,conflicts}));} };
+ return { read:()=>transaction(), saveShelf:(changes,expected)=>transaction((current,documents)=>{const next=patchDocument(current,changes,expected);documents.add(current,'backup:chinese-shelf:'+crypto.randomUUID());return next;}), save:(changes,expected)=>transaction(current=>patchDocument(current,changes,expected)), import:incoming=>{let conflicts;return transaction(current=>{const result=mergeBackup(current,incoming);conflicts=result.conflicts;return result.value;}).then(value=>({value,conflicts}));} };
 }

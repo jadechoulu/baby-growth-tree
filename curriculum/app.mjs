@@ -1,15 +1,23 @@
 import { grades, subjects, types, phases, goals, milestones, abilityMetrics, discrepancies, materials } from './plan.mjs?v=20261118-unified-tabs';
 import { goalCurve } from './charts.mjs?v=20261118-unified-tabs';
-import { statuses, materialKey, goalKey, statusOf, filterMaterials, summary, validateBackup } from './model.mjs?v=20261118-books';
-import { createStore, empty } from './store.mjs?v=20261118-books';
+import { statuses, materialKey, goalKey, statusOf, filterMaterials, summary, validateBackup } from './model.mjs?v=20261118-baby-v4';
+import { createStore, empty } from './store.mjs?v=20261118-baby-v4';
 import { loadCatalog, groupsFor, ownBookState, ownBookUpdate } from './catalog.mjs?v=20261118-books';
 import { catalogIndex } from './catalog-index.mjs?v=20261118-poetry-cover';
 import { createEnglishBooks } from './english-records.mjs?v=20261118-books';
 import { bookEntries, filterBookEntries, matchesQuery, defaultCatalogGroup } from './library-model.mjs';
+import { shelfBooks, shelfGroups, shelfState, plannedIdentities, outsidePlan, prepareChineseShelf, shelfReceipt } from './shelf-model.mjs?v=20261118-baby-v4';
+import { targetProgress, englishListeningCount } from './baby-progress.mjs';
+import { babyStage } from './baby-model.mjs?v=20261118-baby-v4';
+import { characterEntries, characterSummary, characterDraft, characterKey } from './literacy-model.mjs?v=20261118-baby-v4';
 const site=window.XiaoyaSite, store=createStore(window.indexedDB), profile=window.XiaoyaBabyProfile.createClient();
-let data=empty(), ready=false, view='goals', grade='junior', subject='', phase='', type='', status='', search='', layout='list', grouping='series', series='', catalog='', completion='';
+let data=empty(), ready=false, view='baby', grade='junior', subject='', phase='', type='', status='', search='', layout='list', grouping='series', series='', catalog='', completion='';
 let activeDialog=null, listGeneration=0;
 let goalMode='chart';
+let babyGrade='',babyMaterials='using',babyEnglishWords=null,babyEnglishVersion=0;
+let literacySearch='',literacyChannel='recognition',literacyOpen=true;
+let materialCollection='plan',shelfSearch='',shelfFilter='',shelfAuthenticated=false,shelfAuthVersion=0,shelfBusy=false,shelfClient;
+const collectionViews={plan:{grouping:'series',layout:'list'},other:{grouping:'series',layout:'list'}};
 const curveMetrics=new Map();
 const compact=window.matchMedia('(max-width:1100px)');
 let overviewOpen=!compact.matches, overviewTouched=false;
@@ -42,7 +50,7 @@ function chooser(label,entries,value,onChange,all){
 function choices(entries,value,action,label){
  return h('div',{class:'choice-row',role:'group','aria-label':label},Object.entries(entries).map(([id,title])=>button(title,()=>action(id),{'aria-pressed':String(id===value),class:id===value?'chosen':''})));
 }
-const navigation=[{title:'一起探索全科',items:[{id:'goals',label:'三年目标',icon:'route',shortcut:true},{id:'phases',label:'小班全年计划',icon:'source',shortcut:true},{id:'materials',label:'计划素材',icon:'book',shortcut:true},]}];
+const navigation=[{title:'一起探索全科',items:[{id:'baby',label:'宝宝视角',icon:'baby',shortcut:true},{id:'goals',label:'三年目标',icon:'route',shortcut:true},{id:'phases',label:'小班全年计划',icon:'source',shortcut:true},{id:'materials',label:'计划素材',icon:'book',shortcut:true},]}];
 const viewIds=[...navigation.flatMap(group=>group.items.map(item=>item.id)),'sources'];
 const shell=site.createShell({sectionId:'curriculum',siteRoot:'../',navigation,activeId:view,onNavigate:navigate});
 document.querySelector('#app').replaceChildren(shell.element);
@@ -59,7 +67,7 @@ async function save(changes,expected=data){
  if(!ready)throw new Error('记录尚未读取成功，请重试后保存。');
  data=await store.save(changes,expected);channel?.postMessage('saved');message('已保存到当前浏览器');
 }
-function titleBlock(title,description){return h('header',{class:'intro'},h('span',{class:'eyebrow'},'一起探索，慢慢长大'),h('div',{class:'title-row'},h('h1',{},title),view!=='sources'?button('📄',()=>navigate('sources'),{class:'source-icon','aria-label':'查看原始计划文档',title:'原始文档'}):null),small(description));}
+function titleBlock(title,description){return h('header',{class:'intro'},h('span',{class:'eyebrow'},'一起探索，慢慢长大'),h('div',{class:'title-row'},h('h1',{},title),view!=='sources'?button('📄',()=>navigate('sources'),{class:'source-icon','aria-label':'查看原始计划文档',title:'原始文档'}):null),description?small(description):null);}
 function filters(){
  return h('div',{class:'plan-filters'},choices(grades,grade,value=>{grade=value;phase='';render();},'选择班级'),choices({'':'全科',...subjects},subject,value=>{subject=value;render();},'选择学科'));
 }
@@ -67,11 +75,71 @@ function render(){
  const focused=document.activeElement;
  const focusKey=focused?.getAttribute('data-site-item')||focused?.getAttribute('aria-label');
  const focusText=focused?.tagName==='BUTTON'?focused.textContent:null;
- shell.update({activeId:view,title:{goals:'三年目标',phases:'小班全年计划',materials:'计划素材',sources:'原始文档'}[view]});
+ shell.update({activeId:view,title:{baby:'宝宝视角',goals:'三年目标',phases:'小班全年计划',materials:'计划素材',sources:'原始文档'}[view]});
  shell.content.replaceChildren(notice);
  if(!ready&&view!=='sources'){shell.content.append(titleBlock('全科启蒙','正在读取本机记录…'));return;}
- if(view==='sources')renderSources();else if(view==='materials')renderMaterials();else if(view==='phases')renderPhases();else renderGoals();
+ if(view==='sources')renderSources();else if(view==='materials')renderMaterials();else if(view==='phases')renderPhases();else if(view==='baby')renderBaby();else renderGoals();
  if(focusKey){const candidates=[...shell.element.querySelectorAll('button,select,input,[data-chart-point]')];candidates.find(el=>(el.getAttribute('data-site-item')||el.getAttribute('aria-label'))===focusKey)?.focus({preventScroll:true});}else if(focusText){[...shell.content.querySelectorAll('button')].find(el=>el.textContent===focusText)?.focus({preventScroll:true});}
+}
+function goalRow(target,subjectId,currentGrade,showDetail=true){
+ const key=goalKey(target.id,currentGrade,subjectId),complete=statusOf(data.records,key)==='done';
+ return h('div',{class:'goal-row'},button(complete?'✓':'○',async()=>{try{await save({records:{[key]:{status:complete?'planned':'done'}}});render();}catch(error){message(error.message,true);}},{class:'goal-check','aria-label':`${complete?'撤回':'确认完成'}${subjects[subjectId]}：${target.title}`,'aria-pressed':String(complete)}),h('div',{},h('h3',{},target.title),h('strong',{class:'goal-summary'},target.summary),!showDetail&&subjectId==='chinese'&&target.id==='literacy'?countProgress(characterSummary(data.records).recognized,milestones.find(item=>item.id==='literacy').values[Object.keys(grades).indexOf(currentGrade)],'字'):null,!showDetail&&subjectId==='english'&&target.id==='listening'?(babyEnglishWords===null?small('本人登录后显示英语听力现状'):countProgress(babyEnglishWords,milestones.find(item=>item.id==='vocabulary').values[Object.keys(grades).indexOf(currentGrade)],'词')):null,showDetail?small(target.detail):null));
+}
+function renderBaby(){
+ const child=profile.get(),suggested=babyStage(child.birthDate),currentGrade=babyGrade||suggested.grade;
+ const currentPhase=currentGrade==='junior'&&(babyGrade||!suggested.before)?suggested.phase:'';
+ const phasePlan=phases.find(item=>item.id===currentPhase);
+ const stageLabel=babyGrade?grades[currentGrade]:suggested.before?'入园前 · 小班作参考':suggested.after?'幼儿园计划回顾':grades[currentGrade]+' · 按生日估算';
+ shell.content.append(titleBlock(child.name+'的全科启蒙',''),h('div',{class:'baby-stage-bar'},pill(stageLabel),chooser('宝宝视角班级',{'':'跟随年龄',...grades},babyGrade,value=>{babyGrade=value;render();}),phasePlan?pill(phasePlan.title):null));
+ if(!babyGrade&&suggested.before)shell.content.append(small('先从共读、听故事和游戏开始；小班年度目标供后续参考。'));
+ const grid=h('section',{class:'subjects-grid baby-subjects','aria-label':'当前阶段各科目标'});
+ for(const [subjectId,name]of Object.entries(subjects)){
+  const targets=goals[currentGrade][subjectId],done=targets.filter(target=>statusOf(data.records,goalKey(target.id,currentGrade,subjectId))==='done').length;
+  const card=h('article',{class:'subject-card subject-'+subjectId},h('header',{},h('h2',{},name),pill(`已确认 ${done}/${targets.length}`)),phasePlan?h('details',{class:'baby-phase-focus'},h('summary',{},phasePlan.title+'安排'),h('ul',{},phasePlan[subjectId].map(text=>h('li',{},text)))):null,targets.map(target=>goalRow(target,subjectId,currentGrade,false)),button('查看'+name+'素材 →',()=>{grade=currentGrade;subject=subjectId;phase=currentPhase;type='';status='';search='';series='';catalog='';navigate('materials');},{class:'material-link'}));
+  grid.append(card);
+ }
+ shell.content.append(literacyPanel(currentGrade),grid);
+ const items=filterMaterials(allMaterials(),data.records,{grade:currentGrade}),active=items.filter(item=>statusOf(data.records,item.key)==='using');
+ const heading=h('header',{class:'baby-materials-head'},h('h2',{},'正在用什么'),choices({using:`进行中 ${active.length}`,stage:'本阶段素材'},babyMaterials,value=>{babyMaterials=value;render();},'宝宝素材范围'));
+ const list=h('section',{class:'library-view baby-materials'},heading),shown=babyMaterials==='using'?active:items.filter(item=>!currentPhase||item.ref.phases.includes(currentPhase));
+ if(!shown.length)list.append(small('还没有进行中的素材。'),button('挑选本阶段素材',()=>{babyMaterials='stage';render();},{class:'text-link'}));
+ else{
+  const cards=h('div',{class:'resource-grid library-grid'},shown.slice(0,6).map(materialCard));list.append(cards,window.EnglishAutomaticList.tail({total:shown.length,limit:6,step:6,load:(start,end)=>{if(cards.isConnected)cards.append(...shown.slice(start,end).map(materialCard));}}));
+ }
+ shell.content.append(list,button('查看幼儿园三年全面规划 →',()=>{grade=currentGrade;subject='';navigate('goals');},{class:'text-link'}));
+}
+function countProgress(current,total,unit){
+ const progress=targetProgress(current,total);return h('div',{class:'baby-count-progress'},h('span',{},current+' / '+total+' '+unit),h('span',{},progress.percent+'%'),h('progress',{value:Math.min(current,total),max:total,'aria-label':'当前完成 '+current+'，目标 '+total+' '+unit}));
+}
+async function refreshBabyEnglish(){
+ const version=++babyEnglishVersion;let count=null;try{const authenticated=(await chineseShelfClient().getState('english')).authenticated===true;if(authenticated){await sharedEnglish();count=englishListeningCount(englishSnapshot,window.EnglishVocabulary,true);}}catch{}
+ if(version!==babyEnglishVersion)return;const changed=babyEnglishWords!==count;babyEnglishWords=count;if(changed&&ready&&view==='baby'&&!activeDialog)render();
+}
+function literacyPanel(currentGrade){
+ const stats=characterSummary(data.records),results=h('div'),searchBox=h('input',{type:'search',value:literacySearch,placeholder:'查找汉字','aria-label':'搜索已记录汉字',onInput:event=>{if(!event.isComposing){literacySearch=event.target.value;draw();}},onCompositionend:event=>{literacySearch=event.target.value;draw();}});
+ const panel=h('details',{class:'literacy-panel subject-chinese',open:literacyOpen,onToggle:()=>{literacyOpen=panel.open;if(panel.open&&!results.childElementCount)draw();}},h('summary',{class:'literacy-heading'},h('h2',{},'中文认字'),h('span',{class:'muted'},'会认 '+stats.recognized+' · 会写 '+stats.written)),h('div',{class:'literacy-toolbar'},choices({recognition:'会认 '+stats.recognized,writing:'会写 '+stats.written},literacyChannel,value=>{literacyChannel=value;render();},'汉字能力'),h('div',{class:'literacy-actions'},searchBox,button('＋',()=>addCharacters(),{'aria-label':'新增认识的汉字',title:'新增 / 批量录入汉字'}))),results,h('details',{class:'literacy-notes'},h('summary',{},'计数说明'),small('会认、会写分别按单字去重，可独立标记和移除；不自动完成年度目标。原计划20字仅为起始参考。记录随全科备份保存在当前浏览器。')));
+ function draw(){
+  const entries=characterEntries(data.records,literacyChannel).filter(entry=>!literacySearch.trim()||literacySearch.includes(entry.character));
+  const tiles=h('div',{class:'character-grid'}),row=entry=>button(entry.character,()=>editCharacter(entry),{class:'character-tile','aria-label':entry.character+' · '+(literacyChannel==='writing'?'会写':'会认')+'，点击编辑',title:entry.note||''});
+  tiles.append(...entries.slice(0,48).map(row));results.replaceChildren(tiles);
+  if(!entries.length)results.append(small(characterEntries(data.records,literacyChannel).length?'没有匹配的汉字。':'还没有该能力的汉字明细，点＋录入。'));
+  else results.append(window.EnglishAutomaticList.tail({total:entries.length,limit:48,step:48,load:(start,end)=>{if(tiles.isConnected)tiles.append(...entries.slice(start,end).map(row));}}));
+ }
+ if(literacyOpen)draw();return panel;
+}
+function addCharacters(){
+ const base=data,input=h('textarea',{rows:4,maxlength:5000,placeholder:'例如：大小多少，日月水火','aria-label':'输入一个或多个汉字'}),feedback=h('p',{class:'muted',role:'status'}),error=h('p',{class:'error',role:'alert'});
+ const ability=chooser('录入汉字的能力',{recognition:'会认',writing:'会写',both:'会认和会写'},literacyChannel,()=>preview());
+ const submit=button('保存',async()=>{submit.disabled=true;try{const draft=characterDraft(input.value,base.records,ability.value);if(!draft.characters.length)throw new Error('请至少输入一个汉字。');await save({records:draft.changes},base);dialog.close();render();message('汉字已保存；同一能力内重复字未重复添加。');}catch(failure){error.textContent=failure.message;submit.disabled=false;}},{class:'primary'});
+ function preview(){const draft=characterDraft(input.value,base.records,ability.value);feedback.textContent='识别 '+draft.characters.length+' 个不同汉字，将新增 '+Object.keys(draft.changes).length+' 条能力记录。标点、数字和字母会忽略。';submit.disabled=!Object.keys(draft.changes).length;}
+ const form=h('form',{},h('label',{},'汉字（可一次粘贴多个）',input),ability,feedback,error,submit);
+ const dialog=modal('新增中文认字',form);form.addEventListener('submit',event=>{event.preventDefault();submit.click();});form.addEventListener('input',()=>{dialog.dataset.dirty='true';preview();});ability.addEventListener('change',()=>{dialog.dataset.dirty='true';});preview();input.focus();
+}
+function editCharacter(entry){
+ const base=data,recognitionKey=characterKey(entry.character),writingKey=characterKey(entry.character,'writing'),recognized=h('input',{type:'checkbox',checked:base.records[recognitionKey]?.status==='done','aria-label':'会认这个字'}),written=h('input',{type:'checkbox',checked:base.records[writingKey]?.status==='done','aria-label':'会写这个字'}),note=h('textarea',{rows:2,maxlength:500,'aria-label':'汉字备注',value:entry.note||''}),error=h('p',{class:'error',role:'alert'});
+ async function commit(remove=false){try{const records=remove?{[entry.key]:{status:'paused'}}:{[recognitionKey]:{status:recognized.checked?'done':'paused'},[writingKey]:{status:written.checked?'done':'paused'}};records[entry.key]={...records[entry.key],note:note.value};await save({records},base);dialog.close();render();}catch(failure){error.textContent=failure.message;}}
+ const form=h('form',{},h('div',{class:'literacy-actions'},h('label',{},recognized,'会认'),h('label',{},written,'会写')),h('label',{},'备注',note),error,h('div',{class:'literacy-actions'},button('保存',()=>commit(),{class:'primary'}),button('移除当前能力记录',()=>commit(true))));
+ const dialog=modal('汉字 · '+entry.character,form);form.addEventListener('submit',event=>event.preventDefault());form.addEventListener('input',()=>{dialog.dataset.dirty='true';});
 }
 function renderGoals(){
  shell.content.append(titleBlock('幼儿园三年全面规划','语文慢速打底，英语持续输入，数学在游戏里理解。选择班级和学科，查看目标与对应素材。'),choices({chart:'目标曲线',details:'目标详情'},goalMode,value=>{goalMode=value;render();},'目标查看方式'),filters());
@@ -90,10 +158,7 @@ function renderGoals(){
   const items=currentItems({subject:subjectId,phase:'',type:'',status:'',search:''}),s=summary(items,data.records);
   const card=h('article',{class:`subject-card subject-${subjectId}`},h('header',{},h('h2',{},name),pill(`${done}/${targets.length}项目标已完成`)),h('progress',{max:targets.length,value:done,'aria-label':`${name}已确认完成${done}项目标，共${targets.length}项`}));
   card.append(h('h3',{class:'section-label'},'学习要求'));
-  for(const target of targets){
-   const key=goalKey(target.id,grade,subjectId),complete=statusOf(data.records,key)==='done';
-   card.append(h('div',{class:'goal-row'},button(complete?'✓':'○',async event=>{try{await save({records:{[key]:{status:complete?'planned':'done'}}});render();}catch(error){message(error.message,true);}},{class:'goal-check','aria-label':`${complete?'撤回':'确认完成'}${name}：${target.title}`,'aria-pressed':String(complete)}),h('div',{},h('h3',{},target.title),h('strong',{class:'goal-summary'},target.summary),small(target.detail))));
-  }
+  card.append(...targets.map(target=>goalRow(target,subjectId,grade)));
   card.append(h('section',{class:'goal-materials'},h('h3',{class:'section-label'},'配套素材'),small('点开书籍套系查看单本；学习要求单独确认。'),items.map(item=>materialDisclosure(item))));
   card.append(button(`进入${name}素材页 · ${s.total}项 →`,()=>{subject=subjectId;phase='';type='';status='';search='';navigate('materials');},{class:'material-link'}));grid.append(card);
  }
@@ -182,11 +247,80 @@ function renderPhases(){
  shell.content.append(grid,sourceNotes());
 }
 function renderMaterials(){
- const title=titleBlock('计划素材','');title.querySelector('p')?.remove();shell.content.append(title);
+ const title=titleBlock('计划素材','');shell.content.append(title,choices({plan:'计划内',other:'其他'},materialCollection,value=>{collectionViews[materialCollection]={grouping,layout};materialCollection=value;({grouping,layout}=collectionViews[value]);render();},'全科素材集合'));
+ if(materialCollection==='other'){renderOtherMaterials();return;}
  const runSearch=event=>{if(event.isComposing)return;search=event.target.value;void updateResults();};
  const toolbar=h('div',{class:'library-filters'},chooser('素材类型',types,type,v=>{type=v;void updateResults();},'全部类型'),chooser('素材状态',statuses,status,v=>{status=v;void updateResults();},'全部状态'),chooser('小班阶段',Object.fromEntries(phases.map(x=>[x.id,x.title])),phase,v=>{phase=v;grade='junior';render();},'全年阶段'),h('input',{type:'search',placeholder:'搜索套系或书名','aria-label':'搜索全科素材',value:search,onInput:runSearch,onCompositionend:runSearch}),materialLibrary.reset({id:'curriculum-reset',onReset:()=>{subject='';phase='';type='';status='';search='';series='';catalog='';completion='';render();}}),button('＋',()=>customDialog(),{class:'primary','aria-label':'添加候选素材',title:'添加候选素材'}));
  shell.content.append(h('div',{class:'catalog-toolbar'},filters(),toolbar));
  const result=h('section',{id:'material-results',class:'library-view library-results'});shell.content.append(result);void updateResults();
+}
+function chineseShelfClient(){
+ if(!shelfClient){shelfClient=window.XiaoyaSync.createClient({siteRoot:'../',profileClient:profile});shelfClient.subscribe(()=>{void refreshShelfAuth();void refreshBabyEnglish();});}
+ return shelfClient;
+}
+async function refreshShelfAuth(){
+ const version=++shelfAuthVersion;let authenticated=false;
+ try{authenticated=(await chineseShelfClient().getState('english')).authenticated===true;}catch{/* 会话未确认时不展示私人书架。 */}
+ if(version!==shelfAuthVersion)return;
+ const changed=shelfAuthenticated!==authenticated;shelfAuthenticated=authenticated;
+ if(changed&&view==='materials'&&materialCollection==='other'&&!activeDialog)render();
+ if(!authenticated&&activeDialog?.dataset.privateShelf==='true')activeDialog.close();
+}
+function renderOtherMaterials(){
+ const toolbar=h('div',{class:'library-filters'},h('input',{type:'search',value:shelfSearch,placeholder:'搜索中文套系或书名','aria-label':'搜索其他中文素材',onInput:event=>{if(!event.isComposing){shelfSearch=event.target.value;void updateResults();}},onCompositionend:event=>{shelfSearch=event.target.value;void updateResults();}}),chooser('其他中文素材状态',{'':'全部单本',done:'已完成',open:'未完成'},shelfFilter,value=>{shelfFilter=value;void updateResults();}),materialLibrary.reset({id:'shelf-reset',onReset:()=>{shelfSearch='';shelfFilter='';render();}}),button(shelfBusy?'同步中…':'同步小花生',()=>void syncChineseShelf(),{disabled:shelfBusy,'aria-label':'同步小花生中文素材和进度'}));
+ shell.content.append(h('div',{class:'catalog-toolbar'},toolbar),h('section',{id:'material-results',class:'library-view library-results'}));void updateResults();void refreshShelfAuth();
+}
+let plannedCatalogs;
+async function chinesePlannedCatalogs(){
+ return plannedCatalogs||=(Promise.all(materials.filter(item=>item.subject!=='english'&&isBook(item)).map(item=>loadCatalog(item.id))).then(plannedIdentities).catch(error=>{plannedCatalogs=null;throw error;}));
+}
+async function updateOtherResults(host){
+ const generation=++listGeneration,valid=()=>host.isConnected&&generation===listGeneration&&materialCollection==='other';host.replaceChildren();
+ if(!shelfAuthenticated){host.append(small('使用本人 GitHub 登录后查看和同步中文书架。'),button('登录 / 连接',()=>chineseShelfClient().open()));return;}
+ try{
+  const planned=await chinesePlannedCatalogs();if(!valid()||!shelfAuthenticated)return;
+  const all=shelfBooks(data.records).filter(book=>outsidePlan(book,planned));
+  const books=all.filter(book=>(!shelfFilter||shelfState(data.records,book).done===(shelfFilter==='done'))&&matchesQuery(shelfSearch,book.title,book.series?.title));
+  const fullGroups=new Map(shelfGroups(all).map(group=>[group.id,group]));
+  const groups=shelfGroups(books),rows=grouping==='series'?groups:books,grid=h('div',{class:'resource-grid library-grid'+(layout==='covers'?' library-cover-grid':'')});
+  host.append(materialLibrary.resultsHead(grouping==='series'?groups.length+' 组':books.length+' 本',libraryControls()));
+  const receipt=data.records[shelfReceipt];if(receipt){const meta=JSON.parse(receipt.note);host.append(small('小花生抓取：'+new Date(meta.fetchedAt).toLocaleString('zh-CN')));}
+  host.append(grid);
+  const append=(start,end)=>{if(valid()&&shelfAuthenticated)grid.append(...rows.slice(start,end).map(item=>grouping==='series'?shelfSeriesCard(item,fullGroups.get(item.id)):shelfBookCard(item)));};append(0,18);
+  if(!rows.length)host.append(small(all.length?'没有匹配的中文素材。':'还没有计划外中文素材，点击“同步小花生”读取。'));
+  host.append(window.EnglishAutomaticList.tail({total:rows.length,limit:18,step:18,load:append}));
+ }catch(error){if(valid())host.append(small('中文书架未能显示：'+error.message),button('重试',()=>void updateResults()));}
+}
+function shelfBookControl(book){
+ const state=shelfState(data.records,book),check=h('input',{type:'checkbox',checked:state.done,disabled:state.external||book.isCollection,'aria-label':'完成单本：'+book.title});
+ check.addEventListener('change',async()=>{check.disabled=true;try{if(!shelfAuthenticated)throw Error('请重新登录后编辑。');await save({records:ownBookUpdate(book,check.checked)});void updateResults();}catch(error){check.checked=state.done;message(error.message,true);}finally{check.disabled=state.external;}});
+ return check;
+}
+function shelfBookCard(book){
+ const state=shelfState(data.records,book),open=()=>shelfDetail({id:book.id,title:book.title,books:book.isCollection?[]:[book],container:book.isCollection?book:null});
+ return materialLibrary.card({attrs:{class:'subject-chinese'},cover:coverButton(book.cover,book.title,open),title:h('div',{class:'resource-title'},h('h3',{},button(book.title,open,{class:'card-view-btn','aria-label':'查看中文书目：'+book.title}))),meta:h('div',{class:'library-card-meta'},book.series?.title||'中文',book.isCollection?'套装条目 · 逐册目录待补':state.external?'小花生已读':state.done?'已完成':'未完成',state.readCount>1?state.readCount+'次':null),tools:[shelfBookControl(book)]});
+}
+function shelfSeriesCard(group,fullGroup=group){
+ if(group.books.length===1&&!group.container&&!group.books[0].series)return shelfBookCard(group.books[0]);
+ const done=fullGroup.books.filter(book=>shelfState(data.records,book).done).length,open=()=>shelfDetail(fullGroup),cover=group.container?.cover||group.books[0]?.cover;
+ return materialLibrary.card({attrs:{class:'subject-chinese'},cover:coverButton(cover,group.title,open),title:h('div',{class:'resource-title'},h('h3',{},button(group.title,open,{class:'card-view-btn','aria-label':'查看中文套系：'+group.title}))),meta:h('div',{class:'library-card-meta'},group.books.length?'书架已完成 '+done+' / '+fullGroup.books.length+' 本':'套装条目 · 逐册目录待补'),tools:[button('→',open,{'aria-label':'展开'+group.title+'的书架单册'})]});
+}
+function shelfDetail(group){
+ if(!shelfAuthenticated)return;
+ const list=h('div',{class:'book-rows'}),row=book=>h('div',{class:'book-row'},h('label',{},shelfBookControl(book),h('span',{},h('strong',{},book.title),h('small',{},shelfState(data.records,book).external?'小花生已读':'手工记录'))));list.append(...group.books.slice(0,24).map(row));
+ const dialog=modal(group.title,h('section',{},small(group.books.length?'仅统计小花生书架内的单册，不代表整套出版总量。':'原站仅有套装条目，未将套装已读扩散到每一册。'),list,window.EnglishAutomaticList.tail({total:group.books.length,limit:24,step:24,load:(start,end)=>{if(list.isConnected)list.append(...group.books.slice(start,end).map(row));}})));dialog.dataset.privateShelf='true';
+}
+async function syncChineseShelf(){
+ if(shelfBusy)return;
+ const client=chineseShelfClient();await refreshShelfAuth();if(!shelfAuthenticated){client.open();return;}
+ shelfBusy=true;render();
+ try{
+  const state=await client.getState('english'),local=window.EnglishXiaohuashengSync.localEntry(location);
+  const snapshot=local&&!state.enabled?await window.EnglishXiaohuashengSync.read():await client.readXiaohuasheng({onProgress:()=>message('正在读取小花生中文书架…')});
+  if(!(await client.getState('english')).authenticated)throw Error('登录状态已失效，未导入私人书架。');
+  const base=await store.read(),result=prepareChineseShelf(base.records,snapshot);
+  data=await store.saveShelf({records:result.changes},base);channel?.postMessage('saved');message('中文书架已同步到当前浏览器；英文素材未导入。');
+ }catch(error){message('同步失败：'+error.message,true);}finally{shelfBusy=false;if(view==='materials'&&!activeDialog)render();}
 }
 function setLibraryLayout(value){
  const host=document.getElementById('material-results'),anchor=[...host.querySelectorAll('.library-card')].find(card=>card.getBoundingClientRect().bottom>200),top=anchor?.getBoundingClientRect().top;
@@ -197,6 +331,7 @@ function libraryControls(){return materialLibrary.layoutControls({prefix:'curric
 const entryState=entry=>{const {group,book}=entry.refs[0];return group.english?englishBooks.state(englishSnapshot,book,group):{done:ownBookState(data.records,book)};};
 async function updateResults(){
  const host=document.getElementById('material-results');if(!host)return;
+ if(materialCollection==='other'){await updateOtherResults(host);return;}
  const focusLabel=host.contains(document.activeElement)?document.activeElement.getAttribute('aria-label'):null;
  const generation=++listGeneration,items=currentItems({search:''}),valid=()=>generation===listGeneration&&host.isConnected&&view==='materials';
  const head=materialLibrary.resultsHead('正在读取素材…',libraryControls());host.replaceChildren(head);
@@ -229,7 +364,7 @@ async function updateResults(){
 }
 function materialCard(item){
  const state=statusOf(data.records,item.key);
- const choose=chooser(`${item.title} · ${grades[item.ref.grade]}的状态`,statuses,state,async next=>{try{await save({records:{[item.key]:{status:next}}});updateResults();}catch(error){choose.value=state;message(error.message,true);}});
+ const choose=chooser(`${item.title} · ${grades[item.ref.grade]}的状态`,statuses,state,async next=>{try{await save({records:{[item.key]:{status:next}}});if(view==='baby')render();else void updateResults();}catch(error){choose.value=state;message(error.message,true);}});
  const cover=catalogIndex[item.id]?.cover;
  return materialLibrary.card({attrs:{class:`subject-${item.subject}`},cover:coverButton(cover,item.title,()=>detail(item)),title:h('div',{class:'resource-title'},h('h3',{},button(item.title,()=>detail(item),{class:'card-view-btn','aria-label':`查看${item.title}的书目与安排`,'aria-haspopup':'dialog'}))),meta:h('div',{class:'library-card-meta'},h('span',{},subjects[item.subject]),h('span',{},materialKind(item)),h('div',{},item.ref.level)),tools:[choose],footer:data.records[item.key]?.note?h('p',{class:'library-card-footer'},data.records[item.key].note):null});
 }
@@ -248,7 +383,7 @@ function materialDisclosure(item){
 }
 async function sharedEnglish(){
  if(!englishBooks)englishBooks=createEnglishBooks({profileClient:profile,notify:error=>{if(error)message('英语单册已保存在本机；'+error.message,true);}});
- if(!englishSubscription)englishSubscription=englishBooks.subscribe(()=>void englishBooks.read().then(snapshot=>{englishSnapshot=snapshot;refreshBookControls();}).catch(error=>message(error.message,true)));
+ if(!englishSubscription)englishSubscription=englishBooks.subscribe(()=>void englishBooks.read().then(snapshot=>{englishSnapshot=snapshot;refreshBookControls();void refreshBabyEnglish();}).catch(error=>message(error.message,true)));
  englishSnapshot=await englishBooks.read();
 }
 const bookControls=new WeakMap(),seriesViews=new Map(),seriesFolds=new Map();
@@ -273,7 +408,7 @@ async function seriesBooks(host,item){
   const groups=groupsFor(result.groups,item,view==='materials'?phase:'');
   const personal=personalCatalog(item);if(personal)groups.push(personal);
   if(groups.some(group=>group.english))await sharedEnglish();if(!host.isConnected)return;
-  const panel=h('div',{class:'book-catalog'}),list=h('div'),info=h('p',{class:'muted',role:'status'});
+  const panel=h('div',{class:'book-catalog'}),list=h('div'),info=h('p',{class:'muted catalog-progress-line',role:'status'});
   if(item.id==='little-sheep'&&item.ref.grade==='senior')panel.append(small('当前公共目录已核对至第7级；原计划的第8—10级待补，可补充手头书目。'));
   const preference=seriesViews.get(seriesKey(item))||{};
   let chosen=groups.some(g=>g.id===preference.chosen)?preference.chosen:defaultCatalogGroup(groups,(book,group)=>group.english?englishBooks.state(englishSnapshot,book,group):{done:ownBookState(data.records,book)}),query=preference.query||'',completion=preference.completion||'';
@@ -292,9 +427,8 @@ async function seriesBooks(host,item){
    if(!group){info.textContent='请选择要展开的级别或版本。';list.append(h('div',{class:'catalog-options'},groups.map(g=>button(g.title+' · '+g.books.length+'本',()=>{chosen=g.id;picker.value=chosen;draw();}))));return;}
    const state=book=>group.english?englishBooks.state(englishSnapshot,book,group):{done:ownBookState(data.records,book)};
    const books=group.books.filter(book=>(!query||book.title.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))&&(!completion||(completion==='done')===state(book).done));
-   const progress=()=>{info.textContent=`本目录已完成 ${group.books.filter(book=>state(book).done).length} / ${group.books.length} 本 · 当前匹配 ${books.length} 本`;};progress();
-   list.append(small(group.edition||group.title));
-   if(group.note)list.append(small(group.note));
+   const progress=()=>{info.replaceChildren(h('span',{},`本目录已完成 ${group.books.filter(book=>state(book).done).length} / ${group.books.length} 本`),h('span',{},group.edition||group.title));};progress();
+   if(group.note&&!/^已核对本级\d+册[。.]?$/.test(group.note))list.append(small(group.note));
    if(group.english)list.append(small('与英语启蒙共用单册完成记录。'));
    const rows=h('div',{class:'book-rows'});list.append(rows);
    const append=(start,end)=>{if(current!==generation||!host.isConnected)return;rows.append(...books.slice(start,end).map(book=>{
@@ -371,6 +505,9 @@ function importDialog(){
 channel?.addEventListener('message',async()=>{try{data=await store.read();if(!activeDialog)render();else refreshBookControls();}catch(error){message(error.message,true);}});
 window.addEventListener('beforeunload',event=>{if(activeDialog?.dataset.dirty==='true'){event.preventDefault();event.returnValue='';}});
 window.addEventListener('hashchange',()=>{const next=location.hash.slice(1);if(viewIds.includes(next)&&!activeDialog){view=next;render();}});
-view=viewIds.includes(location.hash.slice(1))?location.hash.slice(1):'goals';
+view=viewIds.includes(location.hash.slice(1))?location.hash.slice(1):'baby';
+profile.subscribe((value,error)=>{if(error)message('宝宝资料未能读取：'+error.message,true);else if(ready&&view==='baby'&&!activeDialog)render();});
+void refreshBabyEnglish();
+void profile.init().catch(error=>message('宝宝资料未能读取：'+error.message,true));
 render();
 try{data=await store.read();ready=true;render();}catch(error){if(view==='sources')message('本机记录未能读取，仍可查看原始文档。',true);else shell.content.replaceChildren(titleBlock('记录暂时未能读取',error.message),button('重新读取',()=>location.reload()));}

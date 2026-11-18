@@ -119,7 +119,7 @@ test('统一发布包保留两边入口，子路径互跳和运行时引用完�
   const config = await readFile(path.join(outputDir, 'shared/site-config.js'), 'utf8');
   assert.ok(config.includes('english/index.html#baby'));
   assert.ok(config.includes('成长技能树'));
-  assert.ok(config.includes('curriculum/index.html#goals'));
+  assert.ok(config.includes('curriculum/index.html#baby'));
   for (const file of ['curriculum/app.mjs', 'curriculum/model.mjs', 'curriculum/plan.mjs', 'curriculum/store.mjs', 'english/automatic-list.js']) assert.ok(files.has(file));
   assert.ok(english.includes('XiaoyaSite.createShell'));
   assert.ok((await readFile(path.join(outputDir, 'app.mjs'), 'utf8')).includes('XiaoyaSite.createShell'));
