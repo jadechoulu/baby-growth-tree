@@ -212,7 +212,7 @@ test('图鉴按路线筛选全部阶段时正常展示，阶段专用名称仅�
   const vm=await import('node:vm'),source=fs.readFileSync(new URL('../english/app.js',import.meta.url),'utf8');
   const start=source.indexOf('function libraryResources('),end=source.indexOf('function libraryStageFilter(',start);
   const C={stages:[{id:'one',routeId:'low-age'},{id:'other',routeId:'low-age'},{id:'two',routeId:'xu'}],resources:[{id:'sample',title:'公共名称',appearances:[{routeId:'low-age',stageId:'one',displayTitle:'低幼名称'},{routeId:'xu',stageId:'two'}]}]};
-  const context={C,EnglishModel:M,LC:{resources:()=>[]},S:{route:'low-age',age:'all',records:{}},rec:()=>({routeStages:{'low-age':'one'}})};
+  const context={renderValue:(_key,read)=>read(),C,EnglishModel:M,LC:{resources:()=>[]},S:{route:'low-age',age:'all',records:{}},rec:()=>({routeStages:{'low-age':'one'}})};
   vm.createContext(context);vm.runInContext(source.slice(start,end),context);
   assert.equal(context.libraryResources()[0].title,'低幼名称');
   context.S.age='stage:one';assert.equal(context.libraryResources()[0].title,'低幼名称');

@@ -5,7 +5,7 @@ const vm=require('node:vm');
 const {createManager}=require('../automatic-list.js');
 
 function harness(){
-  const frames=[],targets=new Set(),listeners=new Set();let callback,mutation,disconnected=0;
+  const frames=[],targets=new Set(),listeners=new Set();let callback,mutation,disconnected=0,observations=0;
   const node=()=>({isConnected:true,parentElement:null,children:[],attributes:{},blocked:false,
     closest(){return this.blocked?this:null;},getClientRects(){return [1];},
     setAttribute(k,v){this.attributes[k]=v;},removeAttribute(k){delete this.attributes[k];},
@@ -13,14 +13,23 @@ function harness(){
     replaceChildren(...children){for(const old of this.children)old.isConnected=false;this.children=children;}});
   const env={document:{documentElement:{},createElement:node,addEventListener:()=>listeners.add('scroll'),removeEventListener:()=>listeners.delete('scroll')},
     requestAnimationFrame:fn=>(frames.push(fn),frames.length),addEventListener:()=>listeners.add('resize'),removeEventListener:()=>listeners.delete('resize'),
-    IntersectionObserver:class{constructor(fn){callback=fn;}observe(n){targets.add(n);}unobserve(n){targets.delete(n);}},
+    IntersectionObserver:class{constructor(fn){callback=fn;}observe(n){observations++;targets.add(n);}unobserve(n){targets.delete(n);}},
     MutationObserver:class{constructor(fn){mutation=fn;}observe(){}disconnect(){disconnected++;}}};
   const manager=createManager(env);
-  return {manager,env,targets,listeners,get disconnected(){return disconnected;},
+  return {manager,env,targets,listeners,get disconnected(){return disconnected;},get observations(){return observations;},
     flush(){while(frames.length)frames.shift()();},mutate(){mutation();},
     enter(n){callback([{target:n,isIntersecting:true}]);}};
 }
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
+
+test('原生可见观察不注册逐帧滚动扫描，普通列表变动不反复重新观察同一尾标',()=>{
+  const h=harness(),marker=h.manager.create({hasMore:true,load:()=>{}});h.flush();
+  assert.equal(h.listeners.size,0);assert.equal(h.observations,1);
+  for(let i=0;i<50;i++){h.mutate();h.flush();}
+  assert.equal(h.observations,1);
+  marker.blocked=true;h.mutate();h.flush();assert.equal(h.targets.size,0);
+  marker.blocked=false;h.mutate();h.flush();assert.equal(h.targets.size,1);assert.equal(h.observations,2);
+});
 
 test('可见尾标推进一次，异步加载期间重复进入不重入，结束解除监听',async()=>{
   const h=harness();let calls=0,resolve;

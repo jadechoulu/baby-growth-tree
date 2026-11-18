@@ -37,6 +37,8 @@ const h=(tag,attrs={},...children)=>{
 };
 const button=(text,action,attrs={})=>h('button',{type:'button',onClick:action,...attrs},text);
 const materialLibrary=window.XiaoyaMaterialLibrary.create({h});
+const renderBatch=read=>window.EnglishBookProgress.withReadScope(read);
+const automaticListTail=options=>window.EnglishAutomaticList.tail({...options,load:(start,end)=>renderBatch(()=>options.load(start,end))});
 const small=text=>h('p',{class:'muted'},text);
 const pill=text=>h('span',{class:'pill'},text);
 const notice=h('div',{class:'curriculum-notice',role:'status','aria-live':'polite'});
@@ -104,7 +106,7 @@ function renderBaby(){
  const list=h('section',{class:'library-view baby-materials'},heading),shown=babyMaterials==='using'?active:items.filter(item=>!currentPhase||item.ref.phases.includes(currentPhase));
  if(!shown.length)list.append(small('还没有进行中的素材。'),button('挑选本阶段素材',()=>{babyMaterials='stage';render();},{class:'text-link'}));
  else{
-  const cards=h('div',{class:'resource-grid library-grid'},shown.slice(0,6).map(materialCard));list.append(cards,window.EnglishAutomaticList.tail({total:shown.length,limit:6,step:6,load:(start,end)=>{if(cards.isConnected)cards.append(...shown.slice(start,end).map(materialCard));}}));
+  const cards=h('div',{class:'resource-grid library-grid'},shown.slice(0,6).map(materialCard));list.append(cards,automaticListTail({total:shown.length,limit:6,step:6,load:(start,end)=>{if(cards.isConnected)cards.append(...shown.slice(start,end).map(materialCard));}}));
  }
  shell.content.append(list,button('查看幼儿园三年全面规划 →',()=>{grade=currentGrade;subject='';navigate('goals');},{class:'text-link'}));
 }
@@ -146,7 +148,7 @@ function literacyPanel(currentGrade){
   const tiles=h('div',{class:'character-grid'}),row=entry=>button(entry.character,()=>editCharacter(entry),{class:'character-tile','aria-label':entry.character+' · '+(literacyChannel==='writing'?'会写':'会认')+'，点击编辑',title:entry.note||''});
   tiles.append(...entries.slice(0,48).map(row));results.replaceChildren(tiles);
   if(!entries.length)results.append(small(characterEntries(data.records,literacyChannel).length?'没有匹配的汉字。':'还没有该能力的汉字明细，点＋录入。'));
-  else results.append(window.EnglishAutomaticList.tail({total:entries.length,limit:48,step:48,load:(start,end)=>{if(tiles.isConnected)tiles.append(...entries.slice(start,end).map(row));}}));
+  else results.append(automaticListTail({total:entries.length,limit:48,step:48,load:(start,end)=>{if(tiles.isConnected)tiles.append(...entries.slice(start,end).map(row));}}));
  }
  if(literacyOpen)draw();return panel;
 }
@@ -309,9 +311,9 @@ async function updateOtherResults(host){
   host.append(materialLibrary.resultsHead(grouping==='series'?groups.length+' 组':books.length+' 本',libraryControls()));
   const receipt=data.records[shelfReceipt];if(receipt){const meta=JSON.parse(receipt.note);host.append(small('小花生抓取：'+new Date(meta.fetchedAt).toLocaleString('zh-CN')));}
   host.append(grid);
-  const append=(start,end)=>{if(valid()&&shelfAuthenticated)grid.append(...rows.slice(start,end).map(item=>grouping==='series'?shelfSeriesCard(item,fullGroups.get(item.id)):shelfBookCard(item)));};append(0,18);
+  const append=(start,end)=>{if(valid()&&shelfAuthenticated)grid.append(...rows.slice(start,end).map(item=>grouping==='series'?shelfSeriesCard(item,fullGroups.get(item.id)):shelfBookCard(item)));};renderBatch(()=>append(0,18));
   if(!rows.length)host.append(small(all.length?'没有匹配的中文素材。':'还没有计划外中文素材，点击“同步小花生”读取。'));
-  host.append(window.EnglishAutomaticList.tail({total:rows.length,limit:18,step:18,load:append}));
+  host.append(automaticListTail({total:rows.length,limit:18,step:18,load:append}));
  }catch(error){if(valid())host.append(small('中文书架未能显示：'+error.message),button('重试',()=>void updateResults()));}
 }
 function shelfBookControl(book){
@@ -334,7 +336,7 @@ function shelfSeriesCard(group,fullGroup=group){
 function shelfDetail(group){
  if(!shelfAuthenticated)return;
  const list=h('div',{class:'library-book-list library-book-cover-grid'}),row=book=>shelfBookCard(book,{detail:true});list.append(...group.books.slice(0,24).map(row));
- const dialog=modal(group.title,h('section',{class:'shelf-series-detail'},small(group.books.length?'仅统计小花生书架内的单册，不代表整套出版总量。':'原站仅有套装条目，未将套装已读扩散到每一册。'),list,window.EnglishAutomaticList.tail({total:group.books.length,limit:24,step:24,load:(start,end)=>{if(list.isConnected)list.append(...group.books.slice(start,end).map(row));}})));dialog.dataset.privateShelf='true';
+ const dialog=modal(group.title,h('section',{class:'shelf-series-detail'},small(group.books.length?'仅统计小花生书架内的单册，不代表整套出版总量。':'原站仅有套装条目，未将套装已读扩散到每一册。'),list,automaticListTail({total:group.books.length,limit:24,step:24,load:(start,end)=>{if(list.isConnected)list.append(...group.books.slice(start,end).map(row));}})));dialog.dataset.privateShelf='true';
 }
 async function syncChineseShelf(){
  if(shelfBusy)return;
@@ -377,7 +379,7 @@ async function updateResults(){
   const groups=[...new Map(catalogs.filter(x=>!series||x.item.id===series).flatMap(x=>x.groups.map(group=>[group.id,group.title]))).entries()];
   if(catalog&&!groups.some(([id])=>id===catalog))catalog='';
   host.append(h('div',{class:'library-book-filters'},chooser('单本所属套系',Object.fromEntries(options),series,value=>{series=value;catalog='';void updateResults();},'全部套系'),chooser('单本目录版本',Object.fromEntries(groups),catalog,value=>{catalog=value;void updateResults();},'全部级别 / 版本'),chooser('单本完成状态',{'':'全部单本',open:'未完成',done:'已完成'},completion,value=>{completion=value;void updateResults();})));
-  entries=filterBookEntries(entries,{search,series,catalog,completion,state:entryState});
+  entries=renderBatch(()=>filterBookEntries(entries,{search,series,catalog,completion,state:entryState}));
   visibleItems=visibleItems.filter(item=>(!series||item.id===series)&&!catalogs.some(x=>x.item.key===item.key&&x.groups.some(g=>g.books.length)));
  }
  head.querySelector('.result-count').textContent=grouping==='books'?`${entries.length}本书${visibleItems.length?' · '+visibleItems.length+'项套系资料':''}`:`${visibleItems.length}项素材`;
@@ -385,8 +387,8 @@ async function updateResults(){
  if(failures.length)host.append(h('div',{class:'catalog-load-error',role:'alert'},small(failures.map(x=>x.title).join('、')+'的目录未能读取。'),button('重试读取目录',()=>void updateResults())));
  if(!rows.length)host.append(h('div',{class:'empty'},h('h2',{},'没有匹配的素材'),small('试试其他筛选条件。')));
  const grid=h('div',{class:'resource-grid library-grid'+(layout==='covers'?' library-cover-grid':'')});host.append(grid);
- const append=(start,end)=>{if(valid())grid.append(...rows.slice(start,end).map(row=>row.entry?bookCard(row.entry):materialCard(row.item)));};append(0,18);
- host.append(window.EnglishAutomaticList.tail({total:rows.length,limit:18,step:18,load:append}));
+ const append=(start,end)=>{if(valid())grid.append(...rows.slice(start,end).map(row=>row.entry?bookCard(row.entry):materialCard(row.item)));};renderBatch(()=>append(0,18));
+ host.append(automaticListTail({total:rows.length,limit:18,step:18,load:append}));
  if(focusLabel)[...host.querySelectorAll('[aria-label]')].find(el=>el.getAttribute('aria-label')===focusLabel)?.focus({preventScroll:true});
 }
 function materialCard(item){
@@ -415,7 +417,7 @@ async function sharedEnglish(){
 }
 const bookControls=new WeakMap(),seriesViews=new Map(),seriesFolds=new Map();
 const seriesKey=item=>item.id+':'+item.ref.grade;
-function refreshBookControls(){for(const control of document.querySelectorAll('[data-book-control]'))bookControls.get(control)?.();}
+function refreshBookControls(){renderBatch(()=>{for(const control of document.querySelectorAll('[data-book-control]'))bookControls.get(control)?.();});}
 function bookCompletion(book,group,onChange=()=>{}){
  const check=h('input',{type:'checkbox','data-book-control':book.id,'aria-label':'完成单本：'+book.title});
  const badge=h('span',{class:'book-completion'}),count=h('small');let busy=false;
@@ -438,7 +440,7 @@ async function seriesBooks(host,item){
   const panel=h('div',{class:'book-catalog'}),list=h('div'),info=h('p',{class:'muted catalog-progress-line',role:'status'});
   if(item.id==='little-sheep'&&item.ref.grade==='senior')panel.append(small('当前公共目录已核对至第7级；原计划的第8—10级待补，可补充手头书目。'));
   const preference=seriesViews.get(seriesKey(item))||{};
-  let chosen=groups.some(g=>g.id===preference.chosen)?preference.chosen:defaultCatalogGroup(groups,(book,group)=>group.english?englishBooks.state(englishSnapshot,book,group):{done:ownBookState(data.records,book)}),query=preference.query||'',completion=preference.completion||'';
+  let chosen=groups.some(g=>g.id===preference.chosen)?preference.chosen:renderBatch(()=>defaultCatalogGroup(groups,(book,group)=>group.english?englishBooks.state(englishSnapshot,book,group):{done:ownBookState(data.records,book)})),query=preference.query||'',completion=preference.completion||'';
   const remember=()=>seriesViews.set(seriesKey(item),{chosen,query,completion});
   const picker=chooser(item.title+'的目录版本',Object.fromEntries(groups.map(group=>[group.id,group.title+' · '+group.books.length+'本'])),chosen,value=>{chosen=value;draw();},groups.length>1?'选择级别 / 版本':null);
   const searchBox=h('input',{type:'search',placeholder:'搜索本目录书名','aria-label':item.title+'的单册搜索',value:query,onInput:event=>{if(event.isComposing)return;query=event.target.value;draw();},onCompositionend:event=>{query=event.target.value;draw();}});
@@ -448,7 +450,8 @@ async function seriesBooks(host,item){
   panel.append(button('＋ 补充手头书目',()=>manualBooks(host,item),{class:'text-link'}));
   host.replaceChildren(panel);
   let generation=0;
-  function draw(){
+  function draw(){return renderBatch(drawContent);}
+  function drawContent(){
    remember();
    const current=++generation,group=groups.find(g=>g.id===chosen);list.replaceChildren();
    if(!group){info.textContent='请选择要展开的级别或版本。';list.append(h('div',{class:'catalog-options'},groups.map(g=>button(g.title+' · '+g.books.length+'本',()=>{chosen=g.id;picker.value=chosen;draw();}))));return;}
@@ -462,9 +465,9 @@ async function seriesBooks(host,item){
     const {check,badge,count}=bookCompletion(book,group,()=>{progress();if(completion)draw();});
     const row=h('div',{class:'book-row'},h('label',{},check,book.cover?h('img',{src:book.cover,alt:book.title+'封面',loading:'lazy',onError:event=>event.target.remove()}):null,h('span',{},h('strong',{},book.title),book.level?h('small',{},'级别 '+book.level):null,badge,count)));
     return row;
-   }));};append(0,18);
+   }));};renderBatch(()=>append(0,18));
    if(!books.length)list.append(small('没有匹配的单本。'));
-   list.append(window.EnglishAutomaticList.tail({total:books.length,limit:18,step:18,load:append}));
+   list.append(automaticListTail({total:books.length,limit:18,step:18,load:append}));
    if(group.sourceUrl)list.append(h('a',{href:group.sourceUrl,target:'_blank',rel:'noopener',class:'catalog-source'},'查看目录来源 ↗'));
   }
   if(groups.length)draw();

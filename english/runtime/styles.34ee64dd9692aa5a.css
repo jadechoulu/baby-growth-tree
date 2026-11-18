@@ -2234,6 +2234,15 @@ input.book-completion:focus-visible{outline:2px solid var(--accent,#2e6954);outl
 }
 
 /* 书架套系和单本共用入口；列表模式仅调整排列，不新增展开按钮。 */
+/* 长列表只布局、绘制视口附近的卡片，保留原节点、勾选、焦点和浏览器页内查找。 */
+@supports(content-visibility:auto){
+  .library-grid>.library-card,.library-book-list>.library-book-row,.book-rows>.book-row{
+    content-visibility:auto;contain-intrinsic-block-size:auto 120px;
+  }
+  .library-cover-grid>.library-card,.library-book-cover-grid>.library-book-row{
+    contain-intrinsic-block-size:auto 250px;
+  }
+}
 .library-book-row .library-book-name{display:block;min-height:0;padding:0;border:0;background:none;color:var(--material-ink,var(--ink));text-align:left;font:inherit;font-size:15px;line-height:1.45;cursor:pointer;overflow-wrap:anywhere}
 .library-book-cover.card-view-btn{display:grid;padding:0;border:0;cursor:pointer}
 .shelf-open:focus-visible,.library-book-name:focus-visible,.library-book-cover.card-view-btn:focus-visible{outline:2px solid var(--green);outline-offset:2px}

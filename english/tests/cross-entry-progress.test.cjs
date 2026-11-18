@@ -14,7 +14,7 @@ function between(start,end){const a=source.indexOf(start),b=source.indexOf(end,a
 function fixture(id){
   const entry=EnglishModel.publicationEntry(resourceVolumes,id),resource={id,title:entry.title,type:'reader'};
   const S={records:{}},context={S,BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},C:{stages:[]},byId:new Map([[id,resource]]),
-    resourceRouteEntries:()=>[],liaoBookDone:()=>false,h:(tag,props,...children)=>({tag,props,children}),
+    renderValue:(_key,read)=>read(),resourceRouteEntries:()=>[],liaoBookDone:()=>false,h:(tag,props,...children)=>({tag,props,children}),
     resourceSeriesBooks:id=>({kind:'shared-directory',id}),readingPlanDetail:id=>({kind:'shared-plan',id}),libraryQuantityForm:()=>({kind:'independent-quantity'})};
   vm.createContext(context);
   vm.runInContext([between('function readingPlanForResource(','function refreshReadingPlan('),between('function libraryQuantityContext(','function resourceStatusControl('),between('function resourceProgressDetail(','function refreshResourceProgressModal(')].join('\n'),context);

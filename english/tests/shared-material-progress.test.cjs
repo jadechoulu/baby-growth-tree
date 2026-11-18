@@ -26,7 +26,7 @@ function between(start,end){
 }
 function appFixture(records={},units=[]){
   const S={records},resource={id:pearson,title:'培生词汇妙趣屋',type:'reader'};
-  const context={S,BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},
+  const context={renderValue:(_key,read)=>read(),S,BP,P,EnglishModel,READING,BOOKS,window:{ROADMAP_RAW:{resourceVolumes}},
     C:{stages:[{id:'fixture-stage'}]},byId:new Map([[pearson,resource]]),
     practiceUnits:()=>units,practiceBookScope:unit=>unit.scope,
     practiceRawRecord:unit=>S.records[unit.key],resourceRouteEntries:()=>[],liaoBookDone:()=>false,
