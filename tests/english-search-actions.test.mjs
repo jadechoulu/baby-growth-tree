@@ -8,6 +8,14 @@ const searchCore=createRequire(import.meta.url)('../shared/search-core.js');
 const app = await readFile(new URL('../english/app.js', import.meta.url), 'utf8');
 const actions = app.slice(app.indexOf('function focusEnglishSearch(){'), app.indexOf('function englishActions(){'));
 
+test('关键词变化先按当前内容清理无效主题，再刷新结果，避免旧主题把新结果筛空',()=>{
+  const state={libraryTopic:'animals'},shown=[];
+  const context={S:state,document:{getElementById:()=>({closest:()=>({replaceWith(){}})}),querySelector:()=>({replaceWith:value=>shown.push(value)})},
+    libraryTopicFilter(){state.libraryTopic='all';return {};},libraryResults:()=>state.libraryTopic};
+  vm.runInNewContext(app.slice(app.indexOf('function refreshLibraryTopicResults(){'),app.indexOf('function bookTopicStatus(')),context);
+  context.refreshLibraryTopicResults();assert.deepEqual(shown,['all']);
+});
+
 test('顶栏关键词进入公共逐册结果，非书素材继续通过同一结果区匹配',()=>{
   const calls=[],context={libraryCollection:'all',libraryGrouping:()=> 'series',libraryQuery:()=> 'show',S:{libraryBookMode:false,libraryTopic:'all',search:'show'},libraryBookResults:options=>calls.push(options)};
   vm.runInNewContext(app.slice(app.indexOf('function libraryResults(){'),app.indexOf('let libraryCollection=')),context);
@@ -30,10 +38,11 @@ test('英语普通书名回车继续素材筛选，问题与显式助手入口�
   const calls = [], input = { value: '许密杉和庆爸', focus() {} }, state = { search: '', view: 'library' };
   const context = {
     S: state, libraryCollection: 'all',
-    document: { getElementById: () => input, querySelector: () => ({ replaceWith: () => calls.push('filter') }) },
+    document: { getElementById: id => id==='library-search'?input:null, querySelector: () => ({ replaceWith: () => calls.push('filter') }) },
     window: { XiaoyaSearchCore:searchCore, XiaoyaSiteSearch: { open: options => calls.push(options) } },
     libraryResults() {}, updateLibraryUsageToggle() {},
   };
+  vm.runInNewContext(app.slice(app.indexOf('function refreshLibraryTopicResults(){'),app.indexOf('function bookTopicStatus(')),context);
   vm.runInNewContext(actions, context);
   context.applyEnglishSearch({ target: input }); assert.deepEqual(calls, ['filter']);
   assert.equal(state.search, input.value);
@@ -60,6 +69,19 @@ test('重置统一清除全部组合筛选，重新选择阶段恢复只看当�
   state.libraryStageScope='lower';context.libraryFilterApply('age','stage:qing-s2','library-stage-toggle');assert.equal(state.libraryStageScope,'current');assert.equal(rendered,2);
 });
 
+
+test('阶段范围使用单一图标按钮并在当前与更低阶段间切换',()=>{
+  const state={age:'stage:qing-s2',libraryStageScope:'current'};const calls=[];
+  const context={S:state,h:(tag,attrs,...children)=>({tag,attrs,children}),icon:name=>({name}),
+    libraryFilterApply:(...args)=>calls.push(args)};
+  vm.runInNewContext(app.slice(app.indexOf('function libraryStageScopeFilter(){'),app.indexOf('function libraryTopicSummary(')),context);
+  const current=context.libraryStageScopeFilter();
+  assert.equal(current.tag,'button');assert.equal(current.attrs.id,'library-stage-scope');assert.equal(current.attrs['aria-pressed'],'false');assert.equal(current.attrs['aria-label'],'阶段范围：只看当前阶段');assert.equal(current.children[0].name,'layers');
+  current.attrs.onclick();assert.deepEqual(calls.at(-1),['libraryStageScope','lower','library-stage-scope']);
+  state.libraryStageScope='lower';const lower=context.libraryStageScopeFilter();
+  assert.equal(lower.attrs['aria-pressed'],'true');assert.equal(lower.attrs['aria-label'],'阶段范围：包含更低阶段');
+  lower.attrs.onclick();assert.deepEqual(calls.at(-1),['libraryStageScope','current','library-stage-scope']);
+});
 
 test('顶栏跨集合搜索进入全部，局部集合重置不清除其他集合的关键词',()=>{
   let destination;const context={S:{view:'library',search:'old',libraryRouteSearch:'route only'},libraryCollection:'other',document:{getElementById:()=>null,querySelector:()=>null},navigate:(view,options)=>destination={view,...options},window:{}};

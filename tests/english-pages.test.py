@@ -72,7 +72,7 @@ class EnglishPagesTests(unittest.TestCase):
         self.assertEqual(topics, raw['topicTaxonomy']['bookOverrides'])
         self.assertEqual(json.loads((self.output / self.chunks['resourceTopics']).read_text()), raw['topicTaxonomy']['resourceMappings'])
         for item in self.data['topicTaxonomy']['resourceMappings'].values():
-            self.assertLessEqual(set(item), {'topics', 'status', 'subtopicStatus', 'patterns'})
+            self.assertLessEqual(set(item), {'topics', 'status', 'subtopicStatus', 'patterns', 'patternSourceIds', 'patternStatus'})
             for pattern in item.get('patterns', []):
                 self.assertLessEqual(set(pattern), {'text', 'sourceId'})
         self.assertEqual(json.loads((self.output / self.chunks['helloReading']).read_text()), raw['helloReading'])
@@ -103,8 +103,8 @@ for(const resource of catalog.resources){
   assert.deepEqual(count(index),count(full),resource.title+'图鉴数量');
 }
 const topicsSource=fs.readFileSync('english/topics.js','utf8');
-function topics(taxonomy){const context={ROADMAP_RAW:{topicTaxonomy:taxonomy}};vm.runInNewContext(topicsSource,context);return context.EnglishTopics;}
-const firstTopics=topics(raw.topicTaxonomy),fullTopics=topics(JSON.parse(fs.readFileSync('english/data/topic-taxonomy.json','utf8')));
+function topics(taxonomy,directory){const context={ROADMAP_RAW:{topicTaxonomy:taxonomy,resourceBooks:directory}};vm.runInNewContext(topicsSource,context);return context.EnglishTopics;}
+const firstTopics=topics(raw.topicTaxonomy,index),fullTopics=topics(JSON.parse(fs.readFileSync('english/data/topic-taxonomy.json','utf8')),full);
 index.books.forEach((book,i)=>{
   assert.equal(JSON.stringify(firstTopics.entryTopics('book',book)),JSON.stringify(fullTopics.entryTopics('book',full.books[i])),book.id+'主题筛选');
   const patterns=(topics,entry)=>JSON.stringify(topics.patterns('book',entry).map(({text,sourceId})=>({text,sourceId})));

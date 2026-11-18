@@ -5521,6 +5521,14 @@
       "checkedAt": "2026-11-15",
       "locator": "正文及视频首图封面The Absent Author；未播放转录",
       "note": "实际核读第三方正文明确A to Z Mysteries第一册The Absent Author及三人小侦探解决作家失踪谜团；未独立核原书页或ISBN，未播放视频转录，无可采用英文句型。"
+    },
+    {
+      "id": "catalog-title-pattern-fallback-20261118",
+      "title": "公共素材题名句型兜底（用户授权）",
+      "kind": "title-pattern-fallback",
+      "checkedAt": "2026-11-18",
+      "locator": "公共resource-books目录与material-resource-topics逐项标题",
+      "note": "仅在缺少原表、正文、简介或小红书句型依据时使用；按明确题名结构归入现有句型聚合，不确定时归其他，并保留原题名、规则和弱依据说明。"
     }
   ],
   "books": [

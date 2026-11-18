@@ -103,14 +103,14 @@ def split_runtime_data(raw, store):
     taxonomy = raw['topicTaxonomy']
     topic_index = {}
     for key, item in taxonomy['bookOverrides'].items():
-        topic_index[key] = {field: value for field, value in item.items() if field in ('topics', 'replaceLegacy', 'status', 'subtopicStatus')}
+        topic_index[key] = {field: value for field, value in item.items() if field in ('topics', 'replaceLegacy', 'status', 'subtopicStatus', 'patternSourceIds', 'patternStatus')}
         if item.get('patterns'):
             topic_index[key]['patterns'] = [{name: value for name, value in pattern.items() if name in ('text', 'sourceId')} for pattern in item['patterns']]
     resource_topics = taxonomy.get('resourceMappings', {})
     resource_topics_url = store('resource-topics', 'json', inline_json(resource_topics))
     resource_index = {}
     for key, item in resource_topics.items():
-        resource_index[key] = {field: value for field, value in item.items() if field in ('topics', 'status', 'subtopicStatus')}
+        resource_index[key] = {field: value for field, value in item.items() if field in ('topics', 'status', 'subtopicStatus', 'patternSourceIds', 'patternStatus')}
         if item.get('patterns'):
             resource_index[key]['patterns'] = [{name: value for name, value in pattern.items() if name in ('text', 'sourceId')} for pattern in item['patterns']]
     raw['topicTaxonomy'] = {**taxonomy, 'bookOverrides': topic_index, 'resourceMappings': resource_index}
