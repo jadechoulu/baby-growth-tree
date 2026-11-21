@@ -62,7 +62,7 @@ test('许密杉五节点采用当前选材，原阶段与记录身份保留',()=
   assert.equal(oxford.material.level,'1–3');
   const bridge=M.getStageMaterials(catalog,plan.stages[3]);
   for(const title of ['苍蝇小子','蛙小弟','皮特猫','大马泽','Wow English'])assert.ok(bridge.some(item=>item.resource.title.includes(title)),title);
-  assert.ok(!M.getStageMaterials(catalog,plan.stages[2]).some(item=>item.resource.title.includes('海尼曼')),'GKC不再取代800词的牛津树');
+  assert.ok(M.getStageMaterials(catalog,plan.stages[2]).some(item=>item.resource.title.includes('海尼曼')),'800词保留牛津树并补回GK C');
   const r=catalog.resources.find(r=>r.title==='大猫分级');
   assert.ok(M.getSeriesProgression(catalog,r.id).flatMap(g=>g.stages).every(s=>!plan.legacyStageIds.includes(s.stageId)&&!plan.supersededStageIds.includes(s.stageId)));
 });

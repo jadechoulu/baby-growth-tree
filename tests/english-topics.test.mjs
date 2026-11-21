@@ -324,3 +324,14 @@ test('句型按GK原表顺序聚合，跨来源同类表达共用筛选且保留
     assert.deepEqual(T.options([item.id],'patterns').map(g=>g.id),['patterns.group-like']);
   }
 });
+
+
+test('书名兜底保留筛选归类但不冒充正文句型',()=>{
+  const book=books.books.find(b=>b.aliases?.includes('奇妙的外套'));
+  assert.ok(T.entryTopics('book',book).includes('patterns.group-other'));
+  assert.deepEqual(T.patterns('book',book),[]);
+  const titleOnly=books.books.find(b=>taxonomy.bookOverrides[b.id]?.patternStatus==='title-fallback'&&b.title==='What Lives Here?');
+  assert.ok(titleOnly);
+  assert.ok(T.entryTopics('book',titleOnly).includes('patterns.group-questions'));
+  assert.deepEqual(T.patterns('book',titleOnly),[]);
+});

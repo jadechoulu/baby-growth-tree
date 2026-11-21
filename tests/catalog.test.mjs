@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { STAGES, DOMAINS, getStageSkills, getStats, toggleRecord } from '../lib/model.mjs';
+import { STAGES, DOMAINS, getStageSkills, searchSkills, getStats, toggleRecord } from '../lib/model.mjs';
 
 const catalog = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8'));
 
@@ -55,4 +55,27 @@ test('原图跨13–36月技能只记录一次，各阶段统计和回退复用�
     assert.equal(getStats(items, toggleRecord(completed, skill.id, '2026-10-27')).completed, 0);
   }
   assert.equal(getStageSkills(catalog, 's8').some(item => item.id === skill.id), false);
+});
+
+
+test('技能搜索跨月龄且当前阶段优先，领域与完成状态继续生效', () => {
+  const matches = searchSkills(catalog, { query: '事物', domain: 'cognition', stageId: 's5' });
+  const target = catalog.find(skill => skill.title === '事物的二级分类');
+  assert.ok(matches.some(skill => skill.id === target.id));
+  assert.ok(matches.every(skill => skill.domain === 'cognition'));
+  assert.deepEqual(searchSkills(catalog, { query: '事物', domain: 'cognition', stageId: 's5', status: 'done' }), []);
+  const records = { [target.id]: { completedAt: '2026-11-20' } };
+  assert.deepEqual(searchSkills(catalog, { query: '事物', domain: 'cognition', stageId: 's5', status: 'done', records }).map(skill => skill.id), [target.id]);
+  assert.ok(!searchSkills(catalog, { query: '事物', domain: 'cognition', stageId: 's5', status: 'pending', records }).some(skill => skill.id === target.id));
+  assert.deepEqual(searchSkills(catalog, { query: ' ', domain: 'cognition', stageId: 's5' }), []);
+  const spanning = [{ id: 'later', domain: 'cognition', stage: 's6', title: '分类' }, { id: 'current', domain: 'cognition', stage: 's5', title: '分类' }];
+  assert.deepEqual(searchSkills(spanning, { query: '分类', domain: 'cognition', stageId: 's5' }).map(skill => skill.id), ['current', 'later']);
+});
+
+
+test('全技能搜索默认跨领域跨月龄，不受清单完成状态限制', () => {
+  const matches=searchSkills(catalog, {query:'事物',stageId:'s5'});
+  assert.ok(matches.some(skill=>skill.domain==='cognition'));
+  assert.ok(matches.some(skill=>skill.domain==='language'));
+  assert.ok(matches.some(skill=>skill.stage!=='s5'));
 });

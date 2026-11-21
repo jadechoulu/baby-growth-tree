@@ -70138,12 +70138,13 @@
     {
       "id": "book-c1571f076e39f6c8",
       "resourceId": "resource-g7xvo5",
-      "title": "The Robot 机器人诞生记",
+      "title": "The Robot",
       "number": 3,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级1-03 The Robot 机器人诞生记"
+        "大猫英语分级阅读·一级1-03 The Robot 机器人诞生记",
+        "The Robot 机器人诞生记"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70189,17 +70190,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "The Robot 机器人诞生记",
+        "englishTitle": "The Robot",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200411091610.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-c0e14b1ff17d7a47",
       "resourceId": "resource-g7xvo5",
-      "title": "The See-saw 一起来玩跷跷板",
+      "title": "The See-saw",
       "number": 4,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级1-04·The See-saw 一起来玩跷跷板"
+        "大猫英语分级阅读·一级1-04·The See-saw 一起来玩跷跷板",
+        "The See-saw 一起来玩跷跷板"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70245,17 +70255,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "The See-saw 一起来玩跷跷板",
+        "englishTitle": "The See-saw",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200408080446.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-e324fc1bfa3b107a",
       "resourceId": "resource-g7xvo5",
-      "title": "The Pond小池塘大世界",
+      "title": "The Pond",
       "number": 5,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级1-05·The Pond小池塘大世界"
+        "大猫英语分级阅读·一级1-05·The Pond小池塘大世界",
+        "The Pond小池塘大世界"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70301,17 +70320,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "The Pond小池塘大世界",
+        "englishTitle": "The Pond",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200420124535.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-4ecb187dc4387bfd",
       "resourceId": "resource-g7xvo5",
-      "title": "I Can Help我是小帮手",
+      "title": "I Can Help",
       "number": 6,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级1-06·I Can Help我是小帮手"
+        "大猫英语分级阅读·一级1-06·I Can Help我是小帮手",
+        "I Can Help我是小帮手"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70357,17 +70385,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "I Can Help我是小帮手",
+        "englishTitle": "I Can Help",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200421085120.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-f0274c33df3a60b3",
       "resourceId": "resource-g7xvo5",
-      "title": "In the Forest 森林里的动物王国",
+      "title": "In the Forest",
       "number": 7,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级1-07·In the Forest 森林里的动物王国"
+        "大猫英语分级阅读·一级1-07·In the Forest 森林里的动物王国",
+        "In the Forest 森林里的动物王国"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70413,6 +70450,14 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "In the Forest 森林里的动物王国",
+        "englishTitle": "In the Forest",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200409075815.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -70530,12 +70575,13 @@
     {
       "id": "book-a2d5414efedcd1f3",
       "resourceId": "resource-g7xvo5",
-      "title": "The Big Splash 小恐龙溅起大水花",
+      "title": "The Big Splash",
       "number": 10,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-02 The Big Splash 小恐龙溅起大水花"
+        "大猫英语分级阅读·一级2-02 The Big Splash 小恐龙溅起大水花",
+        "The Big Splash 小恐龙溅起大水花"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70581,17 +70627,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "The Big Splash 小恐龙溅起大水花",
+        "englishTitle": "The Big Splash",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200428093550.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-82734865a93be226",
       "resourceId": "resource-g7xvo5",
-      "title": "Seasons Scrapbook 公园里的春夏秋冬",
+      "title": "Seasons Scrapbook",
       "number": 11,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-03 Seasons Scrapbook 公园里的春夏秋冬"
+        "大猫英语分级阅读·一级2-03 Seasons Scrapbook 公园里的春夏秋冬",
+        "Seasons Scrapbook 公园里的春夏秋冬"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70637,17 +70692,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "Seasons Scrapbook 公园里的春夏秋冬",
+        "englishTitle": "Seasons Scrapbook",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200414174518.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-a063715375654a51",
       "resourceId": "resource-g7xvo5",
-      "title": "Colour Bear 北极熊爱涂色",
+      "title": "Colour Bears",
       "number": 12,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-04Colour Bear 北极熊爱涂色"
+        "大猫英语分级阅读·一级2-04Colour Bear 北极熊爱涂色",
+        "Colour Bear 北极熊爱涂色"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70693,17 +70757,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "Colour Bear 北极熊爱涂色",
+        "englishTitle": "Colour Bears",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200411091819.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-bafe6d13fe0ba68f",
       "resourceId": "resource-g7xvo5",
-      "title": "Splash!雨中哗啦啦",
+      "title": "Splash!",
       "number": 13,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-05 Splash!雨中哗啦啦"
+        "大猫英语分级阅读·一级2-05 Splash!雨中哗啦啦",
+        "Splash!雨中哗啦啦"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70749,17 +70822,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "Splash!雨中哗啦啦",
+        "englishTitle": "Splash!",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200419094139.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-d4546b53ac0cfc79",
       "resourceId": "resource-g7xvo5",
-      "title": "I Playing 玩玩闹闹欢乐多",
+      "title": "Playing",
       "number": 14,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-06 I Playing 玩玩闹闹欢乐多"
+        "大猫英语分级阅读·一级2-06 I Playing 玩玩闹闹欢乐多",
+        "I Playing 玩玩闹闹欢乐多"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70805,17 +70887,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "I Playing 玩玩闹闹欢乐多",
+        "englishTitle": "Playing",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200417090501.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-d8d90e004e9cfa62",
       "resourceId": "resource-g7xvo5",
-      "title": "We Like Fruit! 我们都爱水果",
+      "title": "We Like Fruit!",
       "number": 15,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-07 We Like Fruit! 我们都爱水果"
+        "大猫英语分级阅读·一级2-07 We Like Fruit! 我们都爱水果",
+        "We Like Fruit! 我们都爱水果"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70861,17 +70952,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "We Like Fruit! 我们都爱水果",
+        "englishTitle": "We Like Fruit!",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200414174326.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-6783be251ea021c1",
       "resourceId": "resource-g7xvo5",
-      "title": "I Can Do It!我能行!",
+      "title": "I Can Do It!",
       "number": 16,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级2-08 I Can Do It!我能行!"
+        "大猫英语分级阅读·一级2-08 I Can Do It!我能行!",
+        "I Can Do It!我能行!"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -70917,6 +71017,14 @@
         "field": "Text type",
         "quote": "Text type – A simple information book.",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "I Can Do It!我能行!",
+        "englishTitle": "I Can Do It!",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1405806/Book/20211027212832.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -70978,12 +71086,13 @@
     {
       "id": "book-14b5a792a017552c",
       "resourceId": "resource-g7xvo5",
-      "title": "Weather Report 天气变变变",
+      "title": "Weather Report",
       "number": 18,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级3-02 Weather Report 天气变变变"
+        "大猫英语分级阅读·一级3-02 Weather Report 天气变变变",
+        "Weather Report 天气变变变"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71029,6 +71138,14 @@
         "field": "虚构",
         "quote": "非虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "Weather Report 天气变变变",
+        "englishTitle": "Weather Report",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1378667/Book/20220127132641.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -71090,12 +71207,13 @@
     {
       "id": "book-ae140788aaee266b",
       "resourceId": "resource-g7xvo5",
-      "title": "Shapes on the Seashore 海边的形状游戏",
+      "title": "Shapes on the Seashore",
       "number": 20,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级3-04 Shapes on the Seashore 海边的形状游戏"
+        "大猫英语分级阅读·一级3-04 Shapes on the Seashore 海边的形状游戏",
+        "Shapes on the Seashore 海边的形状游戏"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71141,17 +71259,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "Shapes on the Seashore 海边的形状游戏",
+        "englishTitle": "Shapes on the Seashore",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200608122843.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-a7f802d901ab547d",
       "resourceId": "resource-g7xvo5",
-      "title": "A Day Out 野外一日游",
+      "title": "A Day Out",
       "number": 21,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级3-05·A Day Out 野外一日游"
+        "大猫英语分级阅读·一级3-05·A Day Out 野外一日游",
+        "A Day Out 野外一日游"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71197,17 +71324,26 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "A Day Out 野外一日游",
+        "englishTitle": "A Day Out",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200416081848.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-e7cd594ddce239f1",
       "resourceId": "resource-g7xvo5",
-      "title": "My Bike Ride 骑车, 出发",
+      "title": "My Bike Ride",
       "number": 22,
       "level": "1",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语分级阅读·一级3-06·My Bike Ride 骑车, 出发"
+        "大猫英语分级阅读·一级3-06·My Bike Ride 骑车, 出发",
+        "My Bike Ride 骑车, 出发"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71253,6 +71389,14 @@
         "field": "虚构",
         "quote": "虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "My Bike Ride 骑车, 出发",
+        "englishTitle": "My Bike Ride",
+        "sourceUrl": "https://img.xiaohuasheng.cn/384672/Book/20200415093702.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -71706,12 +71850,13 @@
     {
       "id": "book-7b83b050e5eacf61",
       "resourceId": "resource-g7xvo5",
-      "title": "神探泰克:神秘挖坑人",
+      "title": "Tec and the Hole",
       "number": 1,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:神探泰克:神秘挖坑人"
+        "大猫英语二级:神探泰克:神秘挖坑人",
+        "神探泰克:神秘挖坑人"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71748,17 +71893,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "神探泰克:神秘挖坑人",
+        "englishTitle": "Tec and the Hole",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030120038.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-dd77822b9b9112cf",
       "resourceId": "resource-g7xvo5",
-      "title": "奇妙的外套",
+      "title": "Animal Coats",
       "number": 2,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级1奇妙的外套"
+        "大猫英语二级1奇妙的外套",
+        "奇妙的外套"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71795,17 +71949,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "奇妙的外套",
+        "englishTitle": "Animal Coats",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122031.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-2634d8ca6a78028c",
       "resourceId": "resource-g7xvo5",
-      "title": "捣蛋的蝙蝠",
+      "title": "Bad Bat",
       "number": 3,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级1捣蛋的蝙蝠"
+        "大猫英语二级1捣蛋的蝙蝠",
+        "捣蛋的蝙蝠"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71842,17 +72005,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "捣蛋的蝙蝠",
+        "englishTitle": "Bad Bat",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916121956.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-52265f557fbff747",
       "resourceId": "resource-g7xvo5",
-      "title": "魔蛋",
+      "title": "The Magic Egg",
       "number": 4,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级1魔蛋"
+        "大猫英语二级1魔蛋",
+        "魔蛋"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71889,17 +72061,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "魔蛋",
+        "englishTitle": "The Magic Egg",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122109.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-4e95246f90f09990",
       "resourceId": "resource-g7xvo5",
-      "title": "我们去海滩咯!",
+      "title": "The Beach",
       "number": 5,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:我们去海滩咯!"
+        "大猫英语二级:我们去海滩咯!",
+        "我们去海滩咯!"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71945,17 +72126,26 @@
         "field": "虚构",
         "quote": "非虚构",
         "checkedAt": "2026-11-09"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "我们去海滩咯!",
+        "englishTitle": "The Beach",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030120111.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-fa2605e3b57b7294",
       "resourceId": "resource-g7xvo5",
-      "title": "我们都爱踢足球",
+      "title": "World of Football",
       "number": 6,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:我们都爱踢足球"
+        "大猫英语二级:我们都爱踢足球",
+        "我们都爱踢足球"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -71992,17 +72182,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "我们都爱踢足球",
+        "englishTitle": "World of Football",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030114304.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-6d83dc263fa3df9b",
       "resourceId": "resource-g7xvo5",
-      "title": "美术馆的惊魂夜",
+      "title": "A Night at the Gallery",
       "number": 7,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级1美术馆的惊魂夜"
+        "大猫英语二级1美术馆的惊魂夜",
+        "美术馆的惊魂夜"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72039,17 +72238,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "美术馆的惊魂夜",
+        "englishTitle": "A Night at the Gallery",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916121750.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-27c4bfb05e2b4510",
       "resourceId": "resource-g7xvo5",
-      "title": "天黑以后",
+      "title": "In the Dark",
       "number": 8,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级1天黑以后"
+        "大猫英语二级1天黑以后",
+        "天黑以后"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72086,17 +72294,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "天黑以后",
+        "englishTitle": "In the Dark",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916121842.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-d775d0f2af129421",
       "resourceId": "resource-g7xvo5",
-      "title": "神探泰克: 谁在乱扔垃圾?",
+      "title": "Tec and the Litter",
       "number": 9,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级: 神探泰克: 谁在乱扔垃圾?"
+        "大猫英语二级: 神探泰克: 谁在乱扔垃圾?",
+        "神探泰克: 谁在乱扔垃圾?"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72133,17 +72350,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "神探泰克: 谁在乱扔垃圾?",
+        "englishTitle": "Tec and the Litter",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1283706/Book/20210122221635.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-282a50fb6c154c1f",
       "resourceId": "resource-g7xvo5",
-      "title": "一起去购物!",
+      "title": "Let's Go Shopping!",
       "number": 10,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:一起去购物!"
+        "大猫英语二级:一起去购物!",
+        "一起去购物!"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72180,17 +72406,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "一起去购物!",
+        "englishTitle": "Let's Go Shopping!",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130333.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-407ff72a73444f56",
       "resourceId": "resource-g7xvo5",
-      "title": "波波是个大画家",
+      "title": "Ben and Bobo",
       "number": 11,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:波波是个大画家"
+        "大猫英语二级:波波是个大画家",
+        "波波是个大画家"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72227,17 +72462,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "波波是个大画家",
+        "englishTitle": "Ben and Bobo",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130159.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-95d62cdff18f8a81",
       "resourceId": "resource-g7xvo5",
-      "title": "垃圾场的一天",
+      "title": "At the Dump",
       "number": 12,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:垃圾场的一天"
+        "大猫英语二级:垃圾场的一天",
+        "垃圾场的一天"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72274,17 +72518,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "垃圾场的一天",
+        "englishTitle": "At the Dump",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130359.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-3e7151e6753bb222",
       "resourceId": "resource-g7xvo5",
-      "title": "伍迪的一周",
+      "title": "Woody's Week",
       "number": 13,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:伍迪的一周"
+        "大猫英语二级:伍迪的一周",
+        "伍迪的一周"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72321,17 +72574,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "伍迪的一周",
+        "englishTitle": "Woody's Week",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130430.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-acc96918715ac48c",
       "resourceId": "resource-g7xvo5",
-      "title": "我的运动日志",
+      "title": "My Exercise Diary",
       "number": 14,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:我的运动日志"
+        "大猫英语二级:我的运动日志",
+        "我的运动日志"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72368,17 +72630,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "我的运动日志",
+        "englishTitle": "My Exercise Diary",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130455.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-b298a3275782bfcf",
       "resourceId": "resource-g7xvo5",
-      "title": "超级大英雄",
+      "title": "Super Ben",
       "number": 15,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:超级大英雄"
+        "大猫英语二级:超级大英雄",
+        "超级大英雄"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72415,17 +72686,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "超级大英雄",
+        "englishTitle": "Super Ben",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130225.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-d5c5801c300643ea",
       "resourceId": "resource-g7xvo5",
-      "title": "这个月的事儿真不少",
+      "title": "All in a Month",
       "number": 16,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:这个月的事儿真不少"
+        "大猫英语二级:这个月的事儿真不少",
+        "这个月的事儿真不少"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72462,17 +72742,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "这个月的事儿真不少",
+        "englishTitle": "All in a Month",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030130523.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-93c845aac7660ad3",
       "resourceId": "resource-g7xvo5",
-      "title": "橡树里的世界",
+      "title": "The Oak Tree",
       "number": 17,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:橡树里的世界"
+        "大猫英语二级:橡树里的世界",
+        "橡树里的世界"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72509,17 +72798,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "橡树里的世界",
+        "englishTitle": "The Oak Tree",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030113220.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-cd6dfbe9e52baed2",
       "resourceId": "resource-g7xvo5",
-      "title": "早餐吃什么?",
+      "title": "What's for Breakfast?",
       "number": 18,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:早餐吃什么?"
+        "大猫英语二级:早餐吃什么?",
+        "早餐吃什么?"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72556,17 +72854,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "早餐吃什么?",
+        "englishTitle": "What's for Breakfast?",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030120004.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-91262cbcf575a603",
       "resourceId": "resource-g7xvo5",
-      "title": "河流之旅",
+      "title": "River Journey",
       "number": 19,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语二级:河流之旅"
+        "大猫英语二级:河流之旅",
+        "河流之旅"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -72603,12 +72910,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "河流之旅",
+        "englishTitle": "River Journey",
+        "sourceUrl": "https://img.xiaohuasheng.cn/324425/Book/20191030120245.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-6cea12eee2330fcd",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级3-04:The Lion and the Mouse",
+      "title": "The Lion and the Mouse",
       "number": 20,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72650,12 +72965,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级3-04:The Lion and the Mouse",
+        "englishTitle": "The Lion and the Mouse",
+        "sourceUrl": "https://img.xiaohuasheng.cn/2413020/Book/20260514015501.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-06cb18462eb8b2c9",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 3-05:Where is the Wind?",
+      "title": "Where Is the Wind?",
       "number": 21,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72697,12 +73020,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 3-05:Where is the Wind?",
+        "englishTitle": "Where Is the Wind?",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1/Book/20161227164909507.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-b85b7d15388ab89f",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 3-06:Pirates",
+      "title": "Pirates",
       "number": 22,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72744,12 +73075,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 3-06:Pirates",
+        "englishTitle": "Pirates",
+        "sourceUrl": "https://img.xiaohuasheng.cn/Douban/Book/61Q3JFNMM3L._SX258_BO1,204,203,200_QL70_.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-0bf792df9fa9ca80",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 3-07:What Do You Like?",
+      "title": "What Do You Like?",
       "number": 23,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72791,12 +73130,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 3-07:What Do You Like?",
+        "englishTitle": "What Do You Like?",
+        "sourceUrl": "https://img.xiaohuasheng.cn/Douban/Book/s11216534.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-df1f48f7bb1e89f3",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 3-08:Best Bird",
+      "title": "Best Bird",
       "number": 24,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72838,12 +73185,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 3-08:Best Bird",
+        "englishTitle": "Best Bird",
+        "sourceUrl": "https://img.xiaohuasheng.cn/Douban/Book/s11110933.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-7624506069e15324",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 4-01:Snap!",
+      "title": "Snap!",
       "number": 25,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72885,12 +73240,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 4-01:Snap!",
+        "englishTitle": "Snap!",
+        "sourceUrl": "https://img.xiaohuasheng.cn/149/Book/20161218205815.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-f6091a8280981737",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 4-02:Homes",
+      "title": "Homes",
       "number": 26,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72932,12 +73295,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 4-02:Homes",
+        "englishTitle": "Homes",
+        "sourceUrl": "https://img.xiaohuasheng.cn/149/Book/20161201164130.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-266b2c4cdf3dd864",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 4-03:Meg, Mum and the Donkey",
+      "title": "Meg, Mum and the Donkey",
       "number": 27,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -72979,12 +73350,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 4-03:Meg, Mum and the Donkey",
+        "englishTitle": "Meg, Mum and the Donkey",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1160301/Book/20200319194711.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-aa67eb20051d11f9",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 4-04:How to Make a Camp",
+      "title": "How to Make a Camp",
       "number": 28,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -73026,12 +73405,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 4-04:How to Make a Camp",
+        "englishTitle": "How to Make a Camp",
+        "sourceUrl": "https://img.xiaohuasheng.cn/162329/Book/20170130192340.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-758a8774082d38cb",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 4-05:Jack and the Beanstalk",
+      "title": "Jack and the Beanstalk",
       "number": 29,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -73073,6 +73460,14 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 4-05:Jack and the Beanstalk",
+        "englishTitle": "Jack and the Beanstalk",
+        "sourceUrl": "https://img.xiaohuasheng.cn/124244/Book/20161226181314.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -73125,7 +73520,7 @@
     {
       "id": "book-9c5f5b11f16328e6",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读·2级 4-07:Our World",
+      "title": "Our World",
       "number": 31,
       "level": "2",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -73167,17 +73562,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读·2级 4-07:Our World",
+        "englishTitle": "Our World",
+        "sourceUrl": "https://img.xiaohuasheng.cn/162329/Book/20170126114123.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-7c67b423b8aa2ee4",
       "resourceId": "resource-g7xvo5",
-      "title": "环游世界",
+      "title": "Around the World",
       "number": 1,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1环游世界"
+        "大猫英语三级1环游世界",
+        "环游世界"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73214,17 +73618,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "环游世界",
+        "englishTitle": "Around the World",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122625.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-6582b1fa27b9aba4",
       "resourceId": "resource-g7xvo5",
-      "title": "崭新的风筝",
+      "title": "The New Kite",
       "number": 2,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1崭新的风筝"
+        "大猫英语三级1崭新的风筝",
+        "崭新的风筝"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73261,17 +73674,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "崭新的风筝",
+        "englishTitle": "The New Kite",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122555.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-5423e468cd3a3c87",
       "resourceId": "resource-g7xvo5",
-      "title": "光",
+      "title": "Lights",
       "number": 3,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1光"
+        "大猫英语三级1光",
+        "光"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73308,17 +73730,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "光",
+        "englishTitle": "Lights",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122952.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-a458cd9974383709",
       "resourceId": "resource-g7xvo5",
-      "title": "我的学校在哪儿",
+      "title": "Where Is My School?",
       "number": 4,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1我的学校在哪儿"
+        "大猫英语三级1我的学校在哪儿",
+        "我的学校在哪儿"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73355,17 +73786,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "我的学校在哪儿",
+        "englishTitle": "Where Is My School?",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122924.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-8d218662cb9d9ada",
       "resourceId": "resource-g7xvo5",
-      "title": "小鸡蛋的历险记",
+      "title": "The Little Egg",
       "number": 5,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1小鸡蛋的历险记"
+        "大猫英语三级1小鸡蛋的历险记",
+        "小鸡蛋的历险记"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73402,17 +73842,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "小鸡蛋的历险记",
+        "englishTitle": "The Little Egg",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122522.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-2c890049fa42f510",
       "resourceId": "resource-g7xvo5",
-      "title": "跟着节奏跳舞吧",
+      "title": "Dance to the Beat",
       "number": 6,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1跟着节奏跳舞吧"
+        "大猫英语三级1跟着节奏跳舞吧",
+        "跟着节奏跳舞吧"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73449,17 +73898,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "跟着节奏跳舞吧",
+        "englishTitle": "Dance to the Beat",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122853.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-999a3806d890155a",
       "resourceId": "resource-g7xvo5",
-      "title": "捣蛋的大猫萨姆",
+      "title": "Sam the Big, Bad Cat",
       "number": 7,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1捣蛋的大猫萨姆"
+        "大猫英语三级1捣蛋的大猫萨姆",
+        "捣蛋的大猫萨姆"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73496,17 +73954,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "捣蛋的大猫萨姆",
+        "englishTitle": "Sam the Big, Bad Cat",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122813.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-a63c0ca0ac245f97",
       "resourceId": "resource-g7xvo5",
-      "title": "派对小指南",
+      "title": "How to Have a Party",
       "number": 8,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1派对小指南"
+        "大猫英语三级1派对小指南",
+        "派对小指南"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73543,17 +74010,26 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "派对小指南",
+        "englishTitle": "How to Have a Party",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122652.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-0e5785d01a5bcc06",
       "resourceId": "resource-g7xvo5",
-      "title": "珀西与小兔",
+      "title": "Percy and the Rabbit",
       "number": 9,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
       "aliases": [
-        "大猫英语三级1珀西与小兔"
+        "大猫英语三级1珀西与小兔",
+        "珀西与小兔"
       ],
       "externalIds": {
         "xiaohuasheng": [
@@ -73590,6 +74066,14 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "珀西与小兔",
+        "englishTitle": "Percy and the Rabbit",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1107640/Book/20230916122725.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -74253,7 +74737,7 @@
     {
       "id": "book-f6d5ecc5d2facfd3",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读-三级3-This is me and this is Pip我和皮普真快乐",
+      "title": "This Is Me and This Is Pip",
       "number": 24,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -74295,12 +74779,20 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读-三级3-This is me and this is Pip我和皮普真快乐",
+        "englishTitle": "This Is Me and This Is Pip",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1812224/Book/20250329195541.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
       "id": "book-4138d5f417f0c8d9",
       "resourceId": "resource-g7xvo5",
-      "title": "大猫英语分级阅读-三级3-The hare and the tortoise龟兔赛跑",
+      "title": "The Hare and the Tortoise",
       "number": 25,
       "level": "3",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -74342,6 +74834,14 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "大猫英语分级阅读-三级3-The hare and the tortoise龟兔赛跑",
+        "englishTitle": "The Hare and the Tortoise",
+        "sourceUrl": "https://img.xiaohuasheng.cn/1812224/Book/20250329195254.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -75099,7 +75599,7 @@
     {
       "id": "book-1c6af37ff2ba3181",
       "resourceId": "resource-g7xvo5",
-      "title": "Top Dinosaurs 顶级恐龙档案",
+      "title": "Top Dinosaurs",
       "number": 17,
       "level": "4",
       "edition": "外研社大猫 · 预备至4级（2023目录对应选本）",
@@ -75141,6 +75641,14 @@
         "checkedAt": "2026-11-08",
         "retrievedAt": "2026-11-08",
         "edition": "外研社大猫 · 预备至4级（2023目录对应选本）"
+      },
+      "titleEvidence": {
+        "kind": "individual-cover",
+        "originalTitle": "Top Dinosaurs 顶级恐龙档案",
+        "englishTitle": "Top Dinosaurs",
+        "sourceUrl": "https://img.xiaohuasheng.cn/2152627/Book/20260728211818.jpg?imageView2/1/w/160/h/240",
+        "checkedAt": "2026-11-20",
+        "note": "按原单册封面核读英文题名；原中文保留为检索别名。"
       }
     },
     {
@@ -172789,7 +173297,7 @@
     {
       "id": "book-2757cea47ba13124",
       "resourceId": "resource-g7xvo5",
-      "title": "奇妙宠物店",
+      "title": "I Want a Pet!",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 101,
@@ -172806,12 +173314,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "奇妙宠物店"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "奇妙宠物店",
+        "englishTitle": "I Want a Pet!",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-e20cf7eb3247782b",
       "resourceId": "resource-g7xvo5",
-      "title": "海洋动物的秘密武器",
+      "title": "Spines, Stings and Teeth",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 102,
@@ -172828,12 +173347,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "海洋动物的秘密武器"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "海洋动物的秘密武器",
+        "englishTitle": "Spines, Stings and Teeth",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-c5e7abe2572a91d6",
       "resourceId": "resource-g7xvo5",
-      "title": "小妹妹，大明星",
+      "title": "Ella the Superstar",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 103,
@@ -172850,12 +173380,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "小妹妹，大明星"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "小妹妹，大明星",
+        "englishTitle": "Ella the Superstar",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-8194ebb2f06a2b32",
       "resourceId": "resource-g7xvo5",
-      "title": "厨房里的美食秘密",
+      "title": "Crunch and Munch",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 104,
@@ -172872,12 +173413,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "厨房里的美食秘密"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "厨房里的美食秘密",
+        "englishTitle": "Crunch and Munch",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-5d16e643ea25a566",
       "resourceId": "resource-g7xvo5",
-      "title": "沙漠寻水记",
+      "title": "Too Hot to Stop!",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 105,
@@ -172894,12 +173446,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "沙漠寻水记"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "沙漠寻水记",
+        "englishTitle": "Too Hot to Stop!",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-065a0b6b041cc49a",
       "resourceId": "resource-g7xvo5",
-      "title": "超级雕塑",
+      "title": "Super Sculptures",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 106,
@@ -172916,12 +173479,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "超级雕塑"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "超级雕塑",
+        "englishTitle": "Super Sculptures",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-2356b0d457e37fec",
       "resourceId": "resource-g7xvo5",
-      "title": "比格先生的魔法钢笔",
+      "title": "The Magic Pen",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 201,
@@ -172938,12 +173512,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "比格先生的魔法钢笔"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "比格先生的魔法钢笔",
+        "englishTitle": "The Magic Pen",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-e9956c9f87c22192",
       "resourceId": "resource-g7xvo5",
-      "title": "大型猫科动物知多少",
+      "title": "Big Cat Babies",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 202,
@@ -172960,12 +173545,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "大型猫科动物知多少"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "大型猫科动物知多少",
+        "englishTitle": "Big Cat Babies",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-93195f295f8012c5",
       "resourceId": "resource-g7xvo5",
-      "title": "恐龙理发店",
+      "title": "Scary Hair",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 203,
@@ -172982,12 +173578,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "恐龙理发店"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "恐龙理发店",
+        "englishTitle": "Scary Hair",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-44ace975aeaf3491",
       "resourceId": "resource-g7xvo5",
-      "title": "我的图书创作故事",
+      "title": "Nick Butterworth: Making Books",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 204,
@@ -173004,12 +173611,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "我的图书创作故事"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "我的图书创作故事",
+        "englishTitle": "Nick Butterworth: Making Books",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-301772512c3125b0",
       "resourceId": "resource-g7xvo5",
-      "title": "捣蛋鬼乔迪",
+      "title": "Jodie the Juggler",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 205,
@@ -173026,12 +173644,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "捣蛋鬼乔迪"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "捣蛋鬼乔迪",
+        "englishTitle": "Jodie the Juggler",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-bafbb49556a39066",
       "resourceId": "resource-g7xvo5",
-      "title": "伊甸植物园一日游",
+      "title": "A Day at the Eden Project",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 206,
@@ -173048,12 +173677,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "伊甸植物园一日游"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "伊甸植物园一日游",
+        "englishTitle": "A Day at the Eden Project",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-35a05bef6ecf0b85",
       "resourceId": "resource-g7xvo5",
-      "title": "奇思妙想发明家！",
+      "title": "I've Just Had a Bright Idea!",
       "level": "5",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 207,
@@ -173070,12 +173710,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "奇思妙想发明家！"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "奇思妙想发明家！",
+        "englishTitle": "I've Just Had a Bright Idea!",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-eb683b1642545ff1",
       "resourceId": "resource-g7xvo5",
-      "title": "巧手制作立体贺卡",
+      "title": "How to Make Pop-up Cards",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 201,
@@ -173092,12 +173743,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "巧手制作立体贺卡"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "巧手制作立体贺卡",
+        "englishTitle": "How to Make Pop-up Cards",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-bc748f4ce78f3ee8",
       "resourceId": "resource-g7xvo5",
-      "title": "马拉松",
+      "title": "Marathon",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 202,
@@ -173114,12 +173776,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "马拉松"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "马拉松",
+        "englishTitle": "Marathon",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-7aedf082e7de7a05",
       "resourceId": "resource-g7xvo5",
-      "title": "酋长的“克星”",
+      "title": "The Brave Baby",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 203,
@@ -173136,12 +173809,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "酋长的“克星”"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "酋长的“克星”",
+        "englishTitle": "The Brave Baby",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-f685b57dec1be7fe",
       "resourceId": "resource-g7xvo5",
-      "title": "动画世界大揭秘",
+      "title": "What Is CGI?",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 204,
@@ -173158,12 +173842,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "动画世界大揭秘"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "动画世界大揭秘",
+        "englishTitle": "What Is CGI?",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-af683b2fe419d58a",
       "resourceId": "resource-g7xvo5",
-      "title": "阿瑟的不眠夜",
+      "title": "When Arthur Wouldn't Sleep",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 205,
@@ -173180,12 +173875,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "阿瑟的不眠夜"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "阿瑟的不眠夜",
+        "englishTitle": "When Arthur Wouldn't Sleep",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-be98064c12bc71d5",
       "resourceId": "resource-g7xvo5",
-      "title": "关于球的那些事儿",
+      "title": "Bounce, Catch, Kick, Throw",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 206,
@@ -173202,12 +173908,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "关于球的那些事儿"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "关于球的那些事儿",
+        "englishTitle": "Bounce, Catch, Kick, Throw",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-dfb6933938556c80",
       "resourceId": "resource-g7xvo5",
-      "title": "第一天里糗事多",
+      "title": "First Day",
       "level": "6",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 207,
@@ -173224,12 +173941,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "第一天里糗事多"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "第一天里糗事多",
+        "englishTitle": "First Day",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-1dde1a288bc764c3",
       "resourceId": "resource-g7xvo5",
-      "title": "小狗休吉",
+      "title": "Chewy Hughie",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 101,
@@ -173246,12 +173974,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "小狗休吉"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "小狗休吉",
+        "englishTitle": "Chewy Hughie",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-bea5a67547e25bf9",
       "resourceId": "resource-g7xvo5",
-      "title": "城堡探秘",
+      "title": "Castles",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 102,
@@ -173268,12 +174007,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "城堡探秘"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "城堡探秘",
+        "englishTitle": "Castles",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-61949b4dd54f7e82",
       "resourceId": "resource-g7xvo5",
-      "title": "马儿的假日狂欢",
+      "title": "Horses' Holiday",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 103,
@@ -173290,12 +174040,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "马儿的假日狂欢"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "马儿的假日狂欢",
+        "englishTitle": "Horses' Holiday",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-400a8f2d803f7f7b",
       "resourceId": "resource-g7xvo5",
-      "title": "我是小小故事家",
+      "title": "How to Make Storybooks",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 104,
@@ -173312,12 +174073,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "我是小小故事家"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "我是小小故事家",
+        "englishTitle": "How to Make Storybooks",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-fd885523281cd3f8",
       "resourceId": "resource-g7xvo5",
-      "title": "聪明的蜘蛛哈里：家有哈里",
+      "title": "Harry the Clever Spider",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 105,
@@ -173334,12 +174106,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "聪明的蜘蛛哈里：家有哈里"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "聪明的蜘蛛哈里：家有哈里",
+        "englishTitle": "Harry the Clever Spider",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-40650de8861a124c",
       "resourceId": "resource-g7xvo5",
-      "title": "我的农场时光",
+      "title": "A Visit to the Farm",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 106,
@@ -173356,12 +174139,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "我的农场时光"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "我的农场时光",
+        "englishTitle": "A Visit to the Farm",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-e25356066546dbff",
       "resourceId": "resource-g7xvo5",
-      "title": "石匠变形记",
+      "title": "The Stone Cutter",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 201,
@@ -173378,12 +174172,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "石匠变形记"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "石匠变形记",
+        "englishTitle": "The Stone Cutter",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-f893b5882ca6ce10",
       "resourceId": "resource-g7xvo5",
-      "title": "非洲动物“三巨头”",
+      "title": "Africa's Big Three",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 202,
@@ -173400,12 +174205,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "非洲动物“三巨头”"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "非洲动物“三巨头”",
+        "englishTitle": "Africa's Big Three",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-9668d226d23a407b",
       "resourceId": "resource-g7xvo5",
-      "title": "聪明的蜘蛛哈里：哈里的学校之行",
+      "title": "Harry the Clever Spider at School",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 203,
@@ -173422,12 +174238,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "聪明的蜘蛛哈里：哈里的学校之行"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "聪明的蜘蛛哈里：哈里的学校之行",
+        "englishTitle": "Harry the Clever Spider at School",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-09f3e273c7dd3b38",
       "resourceId": "resource-g7xvo5",
-      "title": "飞速向前",
+      "title": "Going Fast",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 204,
@@ -173444,12 +174271,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "飞速向前"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "飞速向前",
+        "englishTitle": "Going Fast",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-920558176424bdc3",
       "resourceId": "resource-g7xvo5",
-      "title": "开心农场",
+      "title": "Good Fun Farm",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 205,
@@ -173466,12 +174304,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "开心农场"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "开心农场",
+        "englishTitle": "Good Fun Farm",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-99a837e49e27ba71",
       "resourceId": "resource-g7xvo5",
-      "title": "神奇的建筑物",
+      "title": "What's That Building?",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 206,
@@ -173488,12 +174337,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "神奇的建筑物"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "神奇的建筑物",
+        "englishTitle": "What's That Building?",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-7b93346a09fa3d50",
       "resourceId": "resource-g7xvo5",
-      "title": "袜子失踪记",
+      "title": "Lost Sock",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 301,
@@ -173510,12 +174370,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "袜子失踪记"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "袜子失踪记",
+        "englishTitle": "Lost Sock",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-f37f598b8b6b299a",
       "resourceId": "resource-g7xvo5",
-      "title": "假期的演变",
+      "title": "Holidays Then and Now",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 302,
@@ -173532,12 +174403,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "假期的演变"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "假期的演变",
+        "englishTitle": "Holidays Then and Now",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-1aa62e8a3866fcbf",
       "resourceId": "resource-g7xvo5",
-      "title": "丛林梦游记",
+      "title": "Slumbery Stumble in the Jungle",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 303,
@@ -173554,12 +174436,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "丛林梦游记"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "丛林梦游记",
+        "englishTitle": "Slumbery Stumble in the Jungle",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-e12fad2c53e483f2",
       "resourceId": "resource-g7xvo5",
-      "title": "泰坦尼克号",
+      "title": "The Titanic",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 304,
@@ -173576,12 +174469,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "泰坦尼克号"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "泰坦尼克号",
+        "englishTitle": "The Titanic",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-fd3bf5faf4e9cd9d",
       "resourceId": "resource-g7xvo5",
-      "title": "鳄鱼克莱芒蒂娜",
+      "title": "Clementine's Smile",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 305,
@@ -173598,12 +174502,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "鳄鱼克莱芒蒂娜"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "鳄鱼克莱芒蒂娜",
+        "englishTitle": "Clementine's Smile",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-fff18e3adaa6949f",
       "resourceId": "resource-g7xvo5",
-      "title": "园丁的四季",
+      "title": "The Gardening Year",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 306,
@@ -173620,12 +174535,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "园丁的四季"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "园丁的四季",
+        "englishTitle": "The Gardening Year",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-eab02c24a49bd100",
       "resourceId": "resource-g7xvo5",
-      "title": "遗失之城庞贝",
+      "title": "Pompeii: The Lost City",
       "level": "7",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 307,
@@ -173642,12 +174568,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "遗失之城庞贝"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "遗失之城庞贝",
+        "englishTitle": "Pompeii: The Lost City",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-16bfd74c0e5f97b0",
       "resourceId": "resource-g7xvo5",
-      "title": "星星小子的惊喜",
+      "title": "Star Boy's Surprise",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 101,
@@ -173664,12 +174601,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "星星小子的惊喜"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "星星小子的惊喜",
+        "englishTitle": "Star Boy's Surprise",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-88457808e9e9ec06",
       "resourceId": "resource-g7xvo5",
-      "title": "探秘木偶剧院",
+      "title": "Inside the Puppet Theatre",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 102,
@@ -173686,12 +174634,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "探秘木偶剧院"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "探秘木偶剧院",
+        "englishTitle": "Inside the Puppet Theatre",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-39a54f76ab108352",
       "resourceId": "resource-g7xvo5",
-      "title": "宠物侦探：乌龟失踪之谜",
+      "title": "Pet Detectives: Tortoise Trouble",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 103,
@@ -173708,12 +174667,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "宠物侦探：乌龟失踪之谜"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "宠物侦探：乌龟失踪之谜",
+        "englishTitle": "Pet Detectives: Tortoise Trouble",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-4fe33c4307b49500",
       "resourceId": "resource-g7xvo5",
-      "title": "奇特的传统",
+      "title": "Unusual Traditions",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 104,
@@ -173730,12 +174700,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "奇特的传统"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "奇特的传统",
+        "englishTitle": "Unusual Traditions",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-8febd81a5651428b",
       "resourceId": "resource-g7xvo5",
-      "title": "巴兹与宾戈历险记：怪物迷宫",
+      "title": "Buzz and Bingo in the Monster Maze",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 105,
@@ -173752,12 +174733,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "巴兹与宾戈历险记：怪物迷宫"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "巴兹与宾戈历险记：怪物迷宫",
+        "englishTitle": "Buzz and Bingo in the Monster Maze",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-8bfd755b4dc9b452",
       "resourceId": "resource-g7xvo5",
-      "title": "我是小小漫画家",
+      "title": "How to Draw Cartoons",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 106,
@@ -173774,12 +174766,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "我是小小漫画家"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "我是小小漫画家",
+        "englishTitle": "How to Draw Cartoons",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-5d638f083d8e15f3",
       "resourceId": "resource-g7xvo5",
-      "title": "丛林音乐家",
+      "title": "Hector and the Cello",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 201,
@@ -173796,12 +174799,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "丛林音乐家"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "丛林音乐家",
+        "englishTitle": "Hector and the Cello",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-4c6c2a44f309441b",
       "resourceId": "resource-g7xvo5",
-      "title": "当代活恐龙——鳄鱼与巨蜥",
+      "title": "Living Dinosaurs",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 202,
@@ -173818,12 +174832,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "当代活恐龙——鳄鱼与巨蜥"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "当代活恐龙——鳄鱼与巨蜥",
+        "englishTitle": "Living Dinosaurs",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-6a3a253236713060",
       "resourceId": "resource-g7xvo5",
-      "title": "小鸡里肯",
+      "title": "Chicken Licken",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 203,
@@ -173840,12 +174865,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "小鸡里肯"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "小鸡里肯",
+        "englishTitle": "Chicken Licken",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-4498556236b29c21",
       "resourceId": "resource-g7xvo5",
-      "title": "走，去火星度假吧！",
+      "title": "Let's Go to Mars",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 204,
@@ -173862,12 +174898,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "走，去火星度假吧！"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "走，去火星度假吧！",
+        "englishTitle": "Let's Go to Mars",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-d998a693e08e9c20",
       "resourceId": "resource-g7xvo5",
-      "title": "真假传说",
+      "title": "Were They Real?",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 205,
@@ -173884,12 +174931,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "真假传说"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "真假传说",
+        "englishTitle": "Were They Real?",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-a3dcde86d9a294b8",
       "resourceId": "resource-g7xvo5",
-      "title": "一闪一闪萤火虫",
+      "title": "Twinkle, Twinkle, Firefly",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 206,
@@ -173906,12 +174964,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "一闪一闪萤火虫"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "一闪一闪萤火虫",
+        "englishTitle": "Twinkle, Twinkle, Firefly",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-11bfb945506887dc",
       "resourceId": "resource-g7xvo5",
-      "title": "太平洋岛国游记",
+      "title": "Pacific Island Scrapbook",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 207,
@@ -173928,12 +174997,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "太平洋岛国游记"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "太平洋岛国游记",
+        "englishTitle": "Pacific Island Scrapbook",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-9855256b06b57773",
       "resourceId": "resource-g7xvo5",
-      "title": "哈里和妖怪",
+      "title": "The Bogeyman",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 301,
@@ -173950,12 +175030,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "哈里和妖怪"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "哈里和妖怪",
+        "englishTitle": "The Bogeyman",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-415a4b3ea95bcff2",
       "resourceId": "resource-g7xvo5",
-      "title": "一本书的旅程",
+      "title": "From Tree to Book",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 302,
@@ -173972,7 +175063,18 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "一本书的旅程"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "一本书的旅程",
+        "englishTitle": "From Tree to Book",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-ffd479e7d89b4c2e",
@@ -173994,12 +175096,13 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "titleReviewNote": "中文出版目录题名；尚未取得可核对英文题名的单册资料，保留原题名，不翻译猜造。"
     },
     {
       "id": "book-f6ffb0d71b6143d0",
       "resourceId": "resource-g7xvo5",
-      "title": "奥运英雄",
+      "title": "Olympic Heroes",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 304,
@@ -174016,12 +175119,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "奥运英雄"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "奥运英雄",
+        "englishTitle": "Olympic Heroes",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-3edf420464f4caa0",
       "resourceId": "resource-g7xvo5",
-      "title": "甜蜜的家",
+      "title": "Homes Sweet Homes",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 305,
@@ -174038,12 +175152,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "甜蜜的家"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "甜蜜的家",
+        "englishTitle": "Homes Sweet Homes",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-9a6d87e802e83053",
       "resourceId": "resource-g7xvo5",
-      "title": "世界地标奇观",
+      "title": "Landmarks of the World",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 306,
@@ -174060,12 +175185,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "世界地标奇观"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "世界地标奇观",
+        "englishTitle": "Landmarks of the World",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-d972e074387b7a5a",
       "resourceId": "resource-g7xvo5",
-      "title": "座头鲸的旅行",
+      "title": "The Journey of Humpback Whales",
       "level": "8",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 307,
@@ -174082,12 +175218,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "座头鲸的旅行"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "座头鲸的旅行",
+        "englishTitle": "The Journey of Humpback Whales",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-60af49002be0a44a",
       "resourceId": "resource-g7xvo5",
-      "title": "蛋糕婆婆与小精灵",
+      "title": "The Woman Who Fooled the Fairies",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 101,
@@ -174104,12 +175251,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "蛋糕婆婆与小精灵"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "蛋糕婆婆与小精灵",
+        "englishTitle": "The Woman Who Fooled the Fairies",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-f7a510e964959f72",
       "resourceId": "resource-g7xvo5",
-      "title": "骑士入门攻略",
+      "title": "How to Be a Knight in 10 Easy Stages",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 102,
@@ -174126,12 +175284,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "骑士入门攻略"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "骑士入门攻略",
+        "englishTitle": "How to Be a Knight in 10 Easy Stages",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-24066d2327211a3d",
       "resourceId": "resource-g7xvo5",
-      "title": "巴兹与宾戈历险记：童话森林",
+      "title": "Buzz and Bingo in the Fairy-tale Forest",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 103,
@@ -174148,12 +175317,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "巴兹与宾戈历险记：童话森林"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "巴兹与宾戈历险记：童话森林",
+        "englishTitle": "Buzz and Bingo in the Fairy-tale Forest",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-1e8fb366dc696a47",
       "resourceId": "resource-g7xvo5",
-      "title": "地下宝藏",
+      "title": "Buried Treasure",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 104,
@@ -174170,12 +175350,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "地下宝藏"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "地下宝藏",
+        "englishTitle": "Buried Treasure",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-1f7fea4afeb4babd",
       "resourceId": "resource-g7xvo5",
-      "title": "海盗聚会",
+      "title": "Pirate Party",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 105,
@@ -174192,12 +175383,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "海盗聚会"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "海盗聚会",
+        "englishTitle": "Pirate Party",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-a54727676b1c52cf",
       "resourceId": "resource-g7xvo5",
-      "title": "动物祖先",
+      "title": "Animal Ancestors",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 106,
@@ -174214,12 +175416,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "动物祖先"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "动物祖先",
+        "englishTitle": "Animal Ancestors",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-da589b7f9f795ba0",
       "resourceId": "resource-g7xvo5",
-      "title": "彼得与狼",
+      "title": "Peter and the Wolf",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 107,
@@ -174236,12 +175449,23 @@
         "pack": 1,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "彼得与狼"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "彼得与狼",
+        "englishTitle": "Peter and the Wolf",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-223aeed8bb04e101",
       "resourceId": "resource-g7xvo5",
-      "title": "宠物侦探：足球失窃之谜",
+      "title": "Pet Detectives: The Ball Burglary",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 201,
@@ -174258,12 +175482,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "宠物侦探：足球失窃之谜"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "宠物侦探：足球失窃之谜",
+        "englishTitle": "Pet Detectives: The Ball Burglary",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-4624320c81ecbcd8",
       "resourceId": "resource-g7xvo5",
-      "title": "你不知道的冰激凌",
+      "title": "Ice Cream",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 202,
@@ -174280,12 +175515,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "你不知道的冰激凌"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "你不知道的冰激凌",
+        "englishTitle": "Ice Cream",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-a01abbbf955ed644",
       "resourceId": "resource-g7xvo5",
-      "title": "荒岛逃生",
+      "title": "Escape from the Island",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 203,
@@ -174302,12 +175548,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "荒岛逃生"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "荒岛逃生",
+        "englishTitle": "Escape from the Island",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-152b419d7a9c5e19",
       "resourceId": "resource-g7xvo5",
-      "title": "玩具大揭秘",
+      "title": "How Does It Work?",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 204,
@@ -174324,12 +175581,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "玩具大揭秘"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "玩具大揭秘",
+        "englishTitle": "How Does It Work?",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-6f0b1e25d60f8f3b",
       "resourceId": "resource-g7xvo5",
-      "title": "一只特立独行的羊",
+      "title": "Mountain Mona",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 205,
@@ -174346,12 +175614,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "一只特立独行的羊"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "一只特立独行的羊",
+        "englishTitle": "Mountain Mona",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-97ffa1c58a7d77c1",
       "resourceId": "resource-g7xvo5",
-      "title": "海盗入门攻略",
+      "title": "How to Be a Pirate in 10 Easy Stages",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 206,
@@ -174368,12 +175647,23 @@
         "pack": 2,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "海盗入门攻略"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "海盗入门攻略",
+        "englishTitle": "How to Be a Pirate in 10 Easy Stages",
+        "sourceUrl": "https://www.hfdongfang.com/forum.php?mod=viewthread&tid=14602",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-643066e297539c01",
       "resourceId": "resource-g7xvo5",
-      "title": "牧羊人的神秘访客",
+      "title": "The Pot of Gold",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 301,
@@ -174390,12 +175680,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "牧羊人的神秘访客"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "牧羊人的神秘访客",
+        "englishTitle": "The Pot of Gold",
+        "sourceUrl": "https://paper.i21st.cn/story/170970.html",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-345442fdb5fce6c3",
       "resourceId": "resource-g7xvo5",
-      "title": "消化系统之旅",
+      "title": "The Digestive System",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 302,
@@ -174412,12 +175713,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "消化系统之旅"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "消化系统之旅",
+        "englishTitle": "The Digestive System",
+        "sourceUrl": "https://www.abebooks.com/9780007461981/Digestive-System-Band-08Purple-Collins-0007461984/plp",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-17750472fffac1e2",
       "resourceId": "resource-g7xvo5",
-      "title": "乌龙球",
+      "title": "Own Goal",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 303,
@@ -174434,12 +175746,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "乌龙球"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "乌龙球",
+        "englishTitle": "Own Goal",
+        "sourceUrl": "https://www.abebooks.com/9780007591145/Collins-Big-Cat-Own-Goal-0007591144/plp",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-3efefa3e8797ee7f",
       "resourceId": "resource-g7xvo5",
-      "title": "宠物饲养员入门手册",
+      "title": "So You Want a Pet?",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 304,
@@ -174456,12 +175779,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "宠物饲养员入门手册"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "宠物饲养员入门手册",
+        "englishTitle": "So You Want a Pet?",
+        "sourceUrl": "https://www.waterstones.com/book/so-you-want-a-pet/anne-rooney/collins-big-cat/9780007591169",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-0bc8bd05afb13d7e",
       "resourceId": "resource-g7xvo5",
-      "title": "如果",
+      "title": "If",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 305,
@@ -174478,12 +175812,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "如果"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "如果",
+        "englishTitle": "If",
+        "sourceUrl": "https://collins.co.uk/products/9780007461851",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-8e9f24be3ab6f9f4",
       "resourceId": "resource-g7xvo5",
-      "title": "迪拜鸟瞰",
+      "title": "Dubai from the Sky",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 306,
@@ -174500,12 +175845,23 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "迪拜鸟瞰"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "迪拜鸟瞰",
+        "englishTitle": "Dubai from the Sky",
+        "sourceUrl": "https://www.worldofbooks.com/products/dubai-from-the-sky-book-rob-alcraft-9780007591152",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-6bb4007f21b343fe",
       "resourceId": "resource-g7xvo5",
-      "title": "斯科特上校：勇闯南极",
+      "title": "Captain Scott: Journey to the South Pole",
       "level": "9",
       "edition": "外研社大猫点读版，2023大众图书目录",
       "sourceOrder": 307,
@@ -174522,7 +175878,18 @@
         "pack": 3,
         "titleLanguage": "中文目录题名"
       },
-      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。"
+      "catalogIdentityNote": "当前只有出版目录中文题名，未绑定单册外部ID；可手动勾选，不把套装已读自动投影到单册。",
+      "aliases": [
+        "斯科特上校：勇闯南极"
+      ],
+      "titleEvidence": {
+        "kind": "bilingual-catalog-correspondence",
+        "originalTitle": "斯科特上校：勇闯南极",
+        "englishTitle": "Captain Scott: Journey to the South Pole",
+        "sourceUrl": "https://www.amazon.com/Captain-Scott-Journey-South-Collins/dp/0007461992",
+        "checkedAt": "2026-11-20",
+        "note": "原中文出版目录与英文目录／书目资料对应核对；未核读逐字正文，不作为具体句型证据。不更改国内版级别。"
+      }
     },
     {
       "id": "book-e84cb9574af788fd",
