@@ -271,7 +271,7 @@ test('合并词量节点逐项引用原阶段记录键，GK A与B分别保留且
   const restored=Sync.normalize('english',wrap({[key]:record}));
   const projected=M.getStageMaterials(catalog,node).find(i=>i.material.level==='A'&&i.role.kind==='main');
   assert.equal(P.unitRecord(restored.records,P.unitKey(node,projected)).percent,20);
-  for(const id of ['xu-5','xu-6']){
+  for(const id of ['xu-6']){
     const history=M.getRoutePlan(catalog,'xu','listening').legacyStages.find(s=>s.id===id);
     const material=M.getStageMaterials(catalog,history).find(i=>i.role.kind==='main'),oldKey=P.unitKey(history,material);
     const saved=Sync.normalize('english',wrap({[oldKey]:P.unitUpdate('using','保留旧级别手记','2026-11-01')}));
@@ -976,4 +976,14 @@ test('手动阶段完成与素材单册记录三方合并不冲突；独立完�
   assert.equal(P.stageDone(merged.snapshot.records,'qing:listening','qing-s1'),true);
   assert.deepEqual(merged.snapshot.records['reading.book.v1:sample'],single['reading.book.v1:sample']);
   assert.equal(P.defaultStage([{id:'qing-s1'},{id:'qing-s2'}],merged.snapshot.records,'qing:listening').id,'qing-s2');
+});
+
+
+test('800词继续包含原阶段GK C且复用原稳定记录键',()=>{
+  const original=catalog.stages.find(s=>s.id==='xu-5'),node=catalog.stages.find(s=>s.id==='xu-node-800');
+  const source=M.getStageMaterials(catalog,original).find(i=>i.material.level==='C'&&i.role.kind==='main');
+  const projected=M.getStageMaterials(catalog,node).find(i=>i.resource.id===source.resource.id&&i.material.level==='C');
+  assert.ok(projected);
+  assert.equal(P.unitKey(node,projected),P.unitKey(original,source));
+  assert.equal(projected.role.kind,'main');
 });

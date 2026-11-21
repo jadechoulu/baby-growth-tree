@@ -1,4 +1,4 @@
-import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261105-language-notes-v5';
+import { STAGES, DOMAINS, DEFAULT_PROFILE, localDateString, getAge, getStageForAge, getStageSkills, searchSkills, getNextSkills, getSkillAgeStatus, getStats, toggleRecord, completeRecords, validateBackup } from './lib/model.mjs?v=20261120-search-all-ages';
 import { getSkillRelations, getBranchGraph, getStageGraph, layoutGraph } from './lib/graph.mjs?v=20261104-separated-routes';
 import { STORAGE_KEY, VIEW_STORAGE_KEY, readGrowthSnapshot, createGrowthStore, createLocalSaveStore } from './lib/storage.mjs?v=20261028-local-import';
 import { createCloudStore, mergeGrowthSnapshots } from './lib/cloud.mjs';
@@ -593,7 +593,7 @@ function milestoneList() {
   const filterStats = getStats(domainSkills, state.records);
   const skills = domainSkills.filter(skill => state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id)));
   return html`<section class="milestones" id="milestones" aria-label="${stage.label}技能清单">
-    <div class="list-toolbar"><div class="status-tabs" role="group" aria-label="完成状态"><button data-status="all" class="${state.status === 'all' ? 'active' : ''}" aria-pressed="${state.status === 'all'}">全部 <small>${filterStats.total}</small></button><button data-status="pending" class="${state.status === 'pending' ? 'active' : ''}" aria-pressed="${state.status === 'pending'}">探索中 <small>${filterStats.remaining}</small></button><button data-status="done" class="${state.status === 'done' ? 'active' : ''}" aria-pressed="${state.status === 'done'}">已完成 <small>${filterStats.completed}</small></button></div><label class="search-box">${icon('search')}<input id="skill-search" type="search" value="${state.search}" placeholder="找一个小技能" aria-label="搜索本阶段技能" autocomplete="off" /></label></div>
+    <div class="list-toolbar"><div class="status-tabs" role="group" aria-label="完成状态"><button data-status="all" class="${state.status === 'all' ? 'active' : ''}" aria-pressed="${state.status === 'all'}">全部 <small>${filterStats.total}</small></button><button data-status="pending" class="${state.status === 'pending' ? 'active' : ''}" aria-pressed="${state.status === 'pending'}">探索中 <small>${filterStats.remaining}</small></button><button data-status="done" class="${state.status === 'done' ? 'active' : ''}" aria-pressed="${state.status === 'done'}">已完成 <small>${filterStats.completed}</small></button></div><label class="search-box">${icon('search')}<input id="skill-search" type="search" value="${state.search}" placeholder="找一个小技能" aria-label="搜索全部技能" autocomplete="off" /></label></div>
     <div class="filter-caption">正在查看：${domainInfo(state.domain).label} · 在上方进度卡片切换领域</div>
     ${skills.length ? html`<div class="skill-groups">${DOMAINS.filter(domain => skills.some(skill => skill.domain === domain.id)).map(domain => {
       const items = skills.filter(skill => skill.domain === domain.id);
@@ -878,16 +878,16 @@ function render() {
     box: searchInput.closest('.search-box'), input: searchInput, filters: document.querySelector('.list-toolbar .status-tabs'), open: searchOpen,
     onQuery(value) { state.search = value; },
     getSuggestions(query) {
-      const needle = query.trim().toLocaleLowerCase();
-      return getStageSkills(catalog, selectedStage().id).filter(skill => skill.domain === state.domain
-        && (state.status === 'all' || (state.status === 'done' ? isDone(skill.id) : !isDone(skill.id)))
-        && `${skill.title} ${skill.category}`.toLocaleLowerCase().includes(needle)).map(skill => ({
-          id: skill.id, title: skill.title, meta: `${selectedStage().label} · ${skill.category}`,
+      return searchSkills(catalog, { query, stageId: selectedStage().id }).map(skill => ({
+          id: skill.id, title: skill.title, meta: `${STAGES.find(stage => stage.id === skill.stage).label} · ${DOMAINS.find(domain => domain.id === skill.domain).label} · ${skill.category}`,
         }));
     },
     onSelect(match) {
-      state.search = ''; state.view = 'tree'; state.treeDomain = catalog.find(skill => skill.id === match.id).domain;
-      state.treeMode = 'lineage'; state.treeCategory = 'all'; selectGraphSkill(match.id);
+      const skill = catalog.find(skill => skill.id === match.id);
+      state.search = ''; state.stage = skill.stage; state.domain = skill.domain; state.status = 'all';
+      if (state.view === 'next') state.view = 'baby';
+      currentGraph = null;
+      state.treeDomain = skill.domain; state.treeMode = 'lineage'; state.treeCategory = 'all'; selectGraphSkill(match.id);
       document.getElementById('tree-focus')?.focus({ preventScroll: true });
     },
   });

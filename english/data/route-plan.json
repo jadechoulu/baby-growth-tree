@@ -148,6 +148,12 @@
             "sourceStageIds": [
               "xu-current-800"
             ],
+            "additionalMaterials": [
+              {
+                "stageId": "xu-5",
+                "resourceId": "xu-heinemann-gk70"
+              }
+            ],
             "goal": "用牛津树1–3及同难度绘本扩展句子理解，结合画面跟随连续情节。",
             "method": "先通过共读理解句子，再在生活和其他绘本中迁移，最后用匹配难度的动画复习句型、拓展词汇。"
           },

@@ -61,10 +61,8 @@ function equivalentBooks(entry){
 function ownPatterns(domain,entry){
   const record=domain==='resource'?data.resourceMappings?.[entry.id]:data.bookOverrides[entry.id];
   const singleWordPattern=item=>!/…|\.\.\./.test(String(item.text||''))&&/^[A-Za-z]+[.!?]?$/.test(String(item.text||'').trim());
-  const fallback=record?.patternStatus==='title-fallback'&&list(record.patternSourceIds).includes('catalog-title-pattern-fallback-20261118')&&entry.title?[
-    {text:entry.title,sourceId:'catalog-title-pattern-fallback-20261118',note:'按用户约定以题名兜底暂定句型；原题名不是逐字正文句型。'}
-  ]:[];
-  return [...list(entry.studyGuide?.patterns).map(item=>({...item,sourceId:entry.studyGuide.sourceId})),...list(record?.patterns),...fallback]
+  // 题名兜底只参与分类检索；不能把中英文书名冒充正文提炼的句型。
+  return [...list(entry.studyGuide?.patterns).map(item=>({...item,sourceId:entry.studyGuide.sourceId})),...list(record?.patterns)]
     .filter(item=>!singleWordPattern(item));
 }
 function patterns(domain,entry={}){

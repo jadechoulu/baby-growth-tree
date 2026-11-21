@@ -225,7 +225,7 @@ test('主题分类保留内容核对、简介归类及标题兜底的证据层�
         assert.ok(sourceIds.has(evidence.sourceId),book.title);
         assert.ok(evidence.locator&&evidence.summary,book.title);
       }
-      if(status==='title-fallback')assert.ok(evidenceRecords.some(item=>item.kind==='title-fallback'&&item.originalTitle===book.title),book.title);
+      if(status==='title-fallback')assert.ok(evidenceRecords.some(item=>item.kind==='title-fallback'&&[book.title,...(book.aliases||[])].includes(item.originalTitle)),book.title);
       if(status==='description-derived')assert.ok(evidenceRecords.some(item=>{
         const source=taxonomy.sources.find(source=>source.id===item.sourceId);
         return item.kind==='content-description'&&(
