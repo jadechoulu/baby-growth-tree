@@ -1,0 +1,22 @@
+docs/architecture.md
+  h_c836a884b9f50f 7
+education/app.mjs
+  h_c836a884b9f50f 1,11,41,54-56
+education/index.html
+  h_c836a884b9f50f 2-3
+education/styles.css
+  h_c836a884b9f50f 25
+tests/education-timeline.test.mjs
+  h_c836a884b9f50f 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "00a677dd928c82fa9451c69795e98a150a13901d",
+  "prompts": {},
+  "humans": {
+    "h_c836a884b9f50f": {
+      "author": "jingyi.zl <jingyi.zl@antgroup.com>"
+    }
+  }
+}
