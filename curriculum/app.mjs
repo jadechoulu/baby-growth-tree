@@ -56,7 +56,7 @@ const navigation=[{title:'一起探索全科',items:[{id:'baby',label:'宝宝视
 const viewIds=[...navigation.flatMap(group=>group.items.map(item=>item.id)),'sources'];
 const shell=site.createShell({sectionId:'curriculum',siteRoot:'../',navigation,activeId:view,onNavigate:navigate});
 document.querySelector('#app').replaceChildren(shell.element);
-const settings=h('div',{class:'settings-actions'},button('宝宝资料',()=>editProfile(),{'aria-label':'编辑宝宝资料'}),button('导出全科备份',()=>backup()),button('导入全科备份',()=>importDialog()),button('已移除候选',()=>removedDialog()),small('全科状态、手记和补充书目保存在当前浏览器，可单独导入导出，尚未接入云同步。英语公共单册共用英语原记录、备份与同步。'));
+const settings=h('div',{class:'settings-actions'},button('宝宝资料',()=>editProfile(),{'aria-label':'编辑宝宝资料'}),button('导出幼儿园全科备份',()=>backup()),button('导入幼儿园全科备份',()=>importDialog()),button('已移除候选',()=>removedDialog()),small('全科状态、手记和补充书目保存在当前浏览器，可单独导入导出，尚未接入云同步。英语公共单册共用英语原记录、备份与同步。'));
 shell.globalActions.append(site.createActionMenu(settings));
 function navigate(next){
  if(activeDialog)return;
@@ -79,7 +79,7 @@ function render(){
  const focusText=focused?.tagName==='BUTTON'?focused.textContent:null;
  shell.update({activeId:view,title:{baby:'宝宝视角',goals:'三年目标',phases:'小班全年计划',materials:'计划素材',sources:'原始文档'}[view]});
  shell.content.replaceChildren(notice);
- if(!ready&&view!=='sources'){shell.content.append(titleBlock('全科启蒙','正在读取本机记录…'));return;}
+ if(!ready&&view!=='sources'){shell.content.append(titleBlock('幼儿园全科启蒙','正在读取本机记录…'));return;}
  if(view==='sources')renderSources();else if(view==='materials')renderMaterials();else if(view==='phases')renderPhases();else if(view==='baby')renderBaby();else renderGoals();
  if(focusKey){const candidates=[...shell.element.querySelectorAll('button,select,input,[data-chart-point]')];candidates.find(el=>(el.getAttribute('data-site-item')||el.getAttribute('aria-label'))===focusKey)?.focus({preventScroll:true});}else if(focusText){[...shell.content.querySelectorAll('button')].find(el=>el.textContent===focusText)?.focus({preventScroll:true});}
 }
@@ -92,7 +92,7 @@ function renderBaby(){
  const currentPhase=currentGrade==='junior'&&(babyGrade||!suggested.before)?suggested.phase:'';
  const phasePlan=phases.find(item=>item.id===currentPhase);
  const stageLabel=babyGrade?grades[currentGrade]:suggested.before?'入园前 · 小班作参考':suggested.after?'幼儿园计划回顾':grades[currentGrade]+' · 按生日估算';
- shell.content.append(titleBlock(child.name+'的全科启蒙',''),h('div',{class:'baby-stage-bar'},pill(stageLabel),chooser('宝宝视角班级',{'':'跟随年龄',...grades},babyGrade,value=>{babyGrade=value;render();}),phasePlan?pill(phasePlan.title):null));
+ shell.content.append(titleBlock(child.name+'的幼儿园全科启蒙',''),h('div',{class:'baby-stage-bar'},pill(stageLabel),chooser('宝宝视角班级',{'':'跟随年龄',...grades},babyGrade,value=>{babyGrade=value;render();}),phasePlan?pill(phasePlan.title):null));
  if(!babyGrade&&suggested.before)shell.content.append(small('先从共读、听故事和游戏开始；小班年度目标供后续参考。'));
  const grid=h('section',{class:'subjects-grid baby-subjects','aria-label':'当前阶段各科目标'});
  for(const [subjectId,name]of Object.entries(subjects)){
@@ -527,9 +527,9 @@ async function backup(){
  }catch(error){message('导出失败：'+error.message,true);}
 }
 function importDialog(){
- const input=h('input',{type:'file',accept:'.json,application/json','aria-label':'选择全科启蒙备份'}),info=h('p',{role:'status'}),confirm=button('导入缺少的记录',async()=>{try{if(!pending)return;const receipt=await store.import(pending);data=receipt.value;channel?.postMessage('saved');dialog.close();render();message(`导入完成；${receipt.conflicts}条已有差异保留本机值。`);}catch(error){info.textContent=error.message;}},{disabled:true,class:'primary'});
+ const input=h('input',{type:'file',accept:'.json,application/json','aria-label':'选择幼儿园全科启蒙备份'}),info=h('p',{role:'status'}),confirm=button('导入缺少的记录',async()=>{try{if(!pending)return;const receipt=await store.import(pending);data=receipt.value;channel?.postMessage('saved');dialog.close();render();message(`导入完成；${receipt.conflicts}条已有差异保留本机值。`);}catch(error){info.textContent=error.message;}},{disabled:true,class:'primary'});
  let pending;
- const dialog=modal('导入全科备份',h('div',{},small('仅接受全科启蒙JSON。只补缺少的记录，有差异时保留本机值；成长和英语备份不导入。'),input,info,confirm));
+ const dialog=modal('导入幼儿园全科备份',h('div',{},small('仅接受幼儿园全科启蒙JSON。只补缺少的记录，有差异时保留本机值；成长和英语备份不导入。'),input,info,confirm));
  input.addEventListener('change',async()=>{pending=null;confirm.disabled=true;try{const file=input.files[0];if(!file)return;pending=validateBackup(JSON.parse(await file.text()));info.textContent=`待导入：${Object.keys(pending.records).length}条状态/手记，${pending.custom.length}项自选素材。`;confirm.disabled=false;}catch(error){info.textContent=error.message;}});
 }
 channel?.addEventListener('message',async()=>{try{data=await store.read();if(!activeDialog)render();else {refreshBookControls();refreshPoetryProgress();}}catch(error){message(error.message,true);}});

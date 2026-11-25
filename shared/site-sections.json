@@ -19,11 +19,20 @@
   },
   {
     "id": "curriculum",
-    "title": "全科启蒙",
-    "shortTitle": "全科",
+    "title": "幼儿园全科启蒙",
+    "shortTitle": "幼儿园",
     "entry": "curriculum/index.html#baby",
     "theme": "curriculum",
     "icon": "grid",
     "description": "按小班、中班、大班查看语文、英语和数学目标，管理全年计划与素材。"
+  },
+  {
+    "id": "education",
+    "title": "全科启蒙",
+    "shortTitle": "全科",
+    "entry": "education/index.html#timeline",
+    "theme": "education",
+    "icon": "route",
+    "description": "沿0—18岁时间线，查看语文、数学、英语、艺术、体育与科技规划。"
   }
 ]

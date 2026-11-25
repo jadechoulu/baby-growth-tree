@@ -20,7 +20,7 @@ export function summary(items, records) {
 }
 // @CfSecAICode 遵循消费金融安全编码 SEC-MAINSITE-DESERIALIZE-001 规范: JSON导入先验证独立分类、记录状态与素材字段，再进入保存事务。
 export function validateBackup(input) {
- if (input?.kind !== 'curriculum' || input.version !== 1 || !input.records || typeof input.records !== 'object' || Array.isArray(input.records) || !Array.isArray(input.custom)) throw new Error('请选择全科启蒙备份，不能导入英语或成长记录。');
+ if (input?.kind !== 'curriculum' || input.version !== 1 || !input.records || typeof input.records !== 'object' || Array.isArray(input.records) || !Array.isArray(input.custom)) throw new Error('请选择幼儿园全科启蒙备份，不能导入英语或成长记录。');
  for (const [key, value] of Object.entries(input.records)) {
   if (/^(shelf:|shelf-sync:)/.test(key) && !validShelfRecord(key,value)) throw new Error('备份中的中文书架格式无效。');
   if ((!/^(material:|goal:|book:|catalog:|shelf:v1:|shelf-sync:v1:)/.test(key) && !isCharacterKey(key)) || !value || typeof value !== 'object' || !Object.hasOwn(statuses, value.status) || (value.note !== undefined && typeof value.note !== 'string')) throw new Error('备份中的状态或记录格式无效。');
