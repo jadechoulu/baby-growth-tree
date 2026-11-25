@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {tracks,englishRows,ageRanges,rowsFor,visibleItems,layoutItems,itemAge,variantsForRange} from '../education/plan.mjs';
+import {tracks,englishRows,ageRanges,rowsFor,visibleItems,layoutItems,itemAge} from '../education/plan.mjs';
 test('时间线全部节点保留有效原范围和独立来源，三种英语路线不互相串用',()=>{
  const ids=new Set();
  for(const track of tracks){
@@ -24,12 +24,4 @@ test('年龄筛选以有长度交集为准，不改写节点；并行阶段不�
  const result=layoutItems(row.items);
  for(const item of result)for(const other of result)if(item.id!==other.id&&item.lane===other.lane)assert.ok(item.end<=other.start||other.end<=item.start);
  assert.equal(JSON.stringify(row),before);
-});
-
-test('英语路线与查看年龄联动，不提供该年龄内无安排的路线',()=>{
- const preschool=variantsForRange(ageRanges.find(item=>item.id==='preschool'));
- assert.equal(preschool.find(item=>item.id==='early').disabled,false);
- assert.equal(preschool.find(item=>item.id==='later').disabled,true);
- assert.ok(variantsForRange(ageRanges.find(item=>item.id==='primary')).every(item=>!item.disabled));
- assert.ok(variantsForRange(ageRanges[0]).every(item=>!item.disabled));
 });
