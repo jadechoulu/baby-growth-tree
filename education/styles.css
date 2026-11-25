@@ -22,4 +22,4 @@ body[data-site-section=education]{--site-accent:#5a668e;--site-accent-soft:#eef0
 
 .timeline-filter-label{flex:none;white-space:nowrap;font-size:12px;color:var(--site-muted);margin-right:3px}
 
-.timeline-choices button:disabled{opacity:.38;cursor:default}
+.track-heading>.timeline-choices{position:sticky;left:12px;width:max-content;max-width:calc(100vw - 74px);margin-top:5px}
