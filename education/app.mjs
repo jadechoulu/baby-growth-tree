@@ -1,4 +1,4 @@
-import {source,tracks,ageRanges,rowsFor,visibleItems,itemAge,layoutItems,variantsForRange} from './plan.mjs?v=20261125-controls2';
+import {source,tracks,ageRanges,rowsFor,visibleItems,itemAge,layoutItems} from './plan.mjs?v=20261125-controls3';
 const site=window.XiaoyaSite;
 const h=(tag,attrs={},...children)=>{const node=document.createElement(tag);for(const [key,value]of Object.entries(attrs)){if(key.startsWith('on'))node.addEventListener(key.slice(2).toLowerCase(),value);else if(value!==undefined)node.setAttribute(key,value);}for(const child of children.flat(Infinity))if(child!==null&&child!==undefined)node.append(child instanceof Node?child:String(child));return node;};
 const button=(title,action,attrs={})=>h('button',{type:'button',onclick:action,...attrs},title);
@@ -8,7 +8,7 @@ shell.globalActions.append(site.createActionMenu(h('div',{},button('原始规划
 let subject='all',rangeId='all',variant='early',dialog=null,selectedAge=null;
 let rowObserver;
 
-function choices(values,value,action,label,showLabel=false){return h('div',{class:'timeline-choices',role:'group','aria-label':label},showLabel?h('span',{class:'timeline-filter-label'},label):null,values.map(item=>button(item.title,()=>action(item.id),{'aria-pressed':String(item.id===value),class:item.id===value?'selected':'',disabled:item.disabled?'':undefined,title:item.disabled?'当前查看年龄内没有此路线内容':undefined})));}
+function choices(values,value,action,label,showLabel=false){return h('div',{class:'timeline-choices',role:'group','aria-label':label},showLabel?h('span',{class:'timeline-filter-label'},label):null,values.map(item=>button(item.title,()=>action(item.id),{'aria-pressed':String(item.id===value),class:item.id===value?'selected':''})));}
 function sourceButton(){return button('ⓘ',openSource,{class:'source-button',title:'查看原始规划图','aria-label':'查看原始规划图'});}
 function openDialog(title,content){
  const previous=document.activeElement;
@@ -36,11 +36,9 @@ function ageGuide(chart,range){
 }
 function render(){
  const range=ageRanges.find(item=>item.id===rangeId),selected=subject==='all'?tracks:tracks.filter(track=>track.id===subject);
- const variants=variantsForRange(range);
- if(variants.find(item=>item.id===variant)?.disabled)variant=variants.find(item=>!item.disabled)?.id||variant;
  const view=h('div',{class:'education-view'});
  view.append(h('header',{class:'intro'},h('div',{class:'title-line'},h('h1',{},'全科启蒙成长时间线'),sourceButton()),h('p',{class:'muted'},'从童年到青少年，看见每个方向怎样慢慢展开。')));
- const controls=h('div',{class:'timeline-controls'},choices([{id:'all',title:'全部学科'},...tracks],subject,value=>{subject=value;render();},'选择学科'),h('div',{class:'timeline-options'},choices(ageRanges,rangeId,value=>{rangeId=value;render();},'查看年龄',true),selected.some(track=>track.id==='english')?choices(variants,variant,value=>{variant=value;render();},'英语起步年龄',true):null));
+ const controls=h('div',{class:'timeline-controls'},choices([{id:'all',title:'全部学科'},...tracks],subject,value=>{subject=value;render();},'选择学科'),h('div',{class:'timeline-options'},choices(ageRanges,rangeId,value=>{rangeId=value;render();},'查看年龄',true)));
  view.append(controls,h('div',{class:'timeline-caption'},h('span',{},'点年龄显示定位线 · 再点取消'),h('span',{},'约龄参考，不是达标期限')));
  const scroll=h('div',{class:'timeline-scroll',tabindex:'0','aria-label':'全科规划时间线，可上下及左右滚动'}),chart=h('div',{class:'timeline-chart',style:`--years:${range.end-range.start};--chart-width:${(range.end-range.start)*62}px`});
  const axis=h('div',{class:'chart-axis'},h('div',{class:'axis-label'},'年龄 / 岁'));
@@ -53,7 +51,9 @@ function render(){
  axis.append(ticks);chart.append(axis);
  for(const track of selected){
   const rows=rowsFor(track,variant).filter(row=>visibleItems(row,range).length);
-  const heading=h('div',{class:'track-heading',style:`--track-color:${track.color}`},h('h2',{},h('span',{class:'track-dot'}),track.title,track.id==='english'?h('small',{},track.variants.find(v=>v.id===variant).title):null),h('p',{},track.intro));chart.append(heading);
+  const heading=h('div',{class:'track-heading',style:`--track-color:${track.color}`},h('h2',{},h('span',{class:'track-dot'}),track.title,track.id==='english'?h('small',{},track.variants.find(v=>v.id===variant).title):null),h('p',{},track.intro));
+  if(track.id==='english')heading.append(choices(track.variants,variant,value=>{const top=scroll.scrollTop,left=scroll.scrollLeft;variant=value;render();const next=shell.content.querySelector('.timeline-scroll');next.scrollTop=top;next.scrollLeft=left;},'英语起步年龄',true));
+  chart.append(heading);
   if(!rows.length)chart.append(h('p',{class:'empty-row'},'此年龄段原图未列安排。'));
   for(const row of rows){
    const items=layoutItems(visibleItems(row,range)),lanes=Math.max(1,...items.map(item=>item.lane+1));

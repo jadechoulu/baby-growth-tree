@@ -95,5 +95,3 @@ export function visibleItems(row,range){return row.items.filter(item=>item.start
 export function itemAge(item){return '约'+item.start+'—'+(item.end>18?'18岁以后':item.end+'岁');}
 // 重叠内容分行，轨道之间共享同一年龄坐标，筛选只裁切显示不改原始范围。
 export function layoutItems(items){const ends=[];return [...items].sort((a,b)=>a.start-b.start||a.end-b.end).map(item=>{let lane=ends.findIndex(end=>end<=item.start);if(lane<0)lane=ends.length;ends[lane]=item.end;return {...item,lane};});}
-
-export function variantsForRange(range){return tracks.find(track=>track.id==='english').variants.map(variant=>({...variant,disabled:!englishRows[variant.id].some(row=>visibleItems(row,range).length)}));}
