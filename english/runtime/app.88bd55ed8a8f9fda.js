@@ -1701,15 +1701,15 @@
     skip.href = '#main-content';
     const baby = node('div', 'site-baby');
     baby.setAttribute('aria-label', '宝宝当前年龄');
-    const babyName = node('span', 'site-baby-name');
     const babyAge = node('span', 'site-baby-age');
-    baby.append(babyName, babyAge);
+    baby.append(babyAge);
     const profileClient = root.XiaoyaBabyProfile?.createClient();
     function updateBabyAge() {
       if (destroyed) return;
       const profile = profileClient?.get();
-      babyAge.textContent = root.XiaoyaBabyProfile?.ageLabel(profile?.birthDate) || '';
-      babyName.textContent = profile?.name || '';
+      const age = root.XiaoyaBabyProfile?.ageLabel(profile?.birthDate) || '';
+      babyAge.replaceChildren(...age.split(' · ').filter(Boolean).map(part => node('span', '', part)));
+      baby.setAttribute('aria-label', age ? '宝宝当前年龄：' + age : '宝宝当前年龄');
       baby.hidden = !babyAge.textContent;
     }
     const unsubscribeProfile = profileClient?.subscribe(updateBabyAge);
